@@ -1,0 +1,89 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">ngMysql CRUD</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/games" routerLinkActive="active"><i class="fas fa-gamepad"></i> Games</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/games/add" routerLinkActive="active"><i class="fas fa-plus-circle"></i> ADD
+          GAME</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="true" style="background-color: deepskyblue">
+      <mat-nav-list>
+  
+        <mat-list-item>
+          <mat-icon mat-list-icon class="chevron-button sidenav-button" 
+          (click)="isExpanded = !isExpanded || isLiquidacion = !isLiquidacion"
+          [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item [routerLink]="'vision'">
+          <mat-icon mat-list-icon>Visión</mat-icon>
+          <span *ngIf="isExpanded">Visión</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'nuevo-servicio'">
+          <mat-icon mat-list-icon>manage_accounts</mat-icon>
+          <span *ngIf="isExpanded">Nuevo Servicio</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'tabla'">
+          <mat-icon mat-list-icon>table</mat-icon>
+          <span *ngIf="isExpanded">Tabla</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'liquidacion'" (click)="isLiquidacion = !isLiquidacion">
+          <mat-icon mat-list-icon>payments</mat-icon>
+          <span *ngIf="isExpanded">Liquidacion</span>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="isLiquidacion"  [routerLink]="'terapeutas'" autosize>
+          <mat-icon *ngIf="isLiquidacion && !isExpanded" mat-list-icon>table</mat-icon>
+          <span *ngIf="isLiquidacion && isExpanded">Terapeutas</span>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="isLiquidacion" [routerLink]="'encargados'" autosize>
+          <mat-icon *ngIf="isLiquidacion && !isExpanded" mat-list-icon>table</mat-icon>
+          <span *ngIf="isLiquidacion && isExpanded">Encargados</span>
+        </mat-list-item>        
+  
+        <mat-list-item [routerLink]="'estadistica'">
+          <mat-icon mat-list-icon>query_stats</mat-icon>
+          <span *ngIf="isExpanded">Estadistica</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="'configuracion'">
+          <mat-icon mat-list-icon>settings</mat-icon>
+          <span *ngIf="isExpanded">Configuracion</span>
+        </mat-list-item>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <div class="content">
+      <mat-toolbar>
+        <h4 *ngIf="router.url === '/vision'">Visión</h4>
+        <h4 *ngIf="router.url === '/nuevo-servicio'">Nuevo Servicio</h4>
+        <h4 *ngIf="router.url === '/tabla'">TABLA</h4>
+        <h4 *ngIf="router.url === '/liquidacion'">Liquidacion</h4>
+        <h4 *ngIf="router.url === '/estadistica'">ESTADISTICA</h4>
+        <h4 *ngIf="router.url === '/configuracion'">CONFIGURACIÓN</h4>
+      </mat-toolbar>
+    </div>
+  
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-sidenav-container>
