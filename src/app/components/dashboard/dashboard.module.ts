@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { FormsModule } from '@angular/forms';
 
 // MAT
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Components
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
@@ -16,20 +26,32 @@ import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servic
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
+import { VisionComponent } from './navigation/vision/vision.component';
+import { TablaComponent } from './navigation/tabla/tabla.component';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     EstadisticaComponent, LiquidacionComponent, NuevoServicioComponent,
-    EncargadosComponent, TerapeutasComponent],
+    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    FormsModule,
 
     // NG Material Modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class DashboardModule { }

@@ -1,1 +1,111 @@
-<p>tabla works!</p>
+<div class="content">
+    <div class="d-flex flex-row">
+
+        <mat-form-field>
+            <mat-label>Terapeuta</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <p> Selected food: {{selectedValue}} </p> -->
+
+        <mat-form-field>
+            <mat-label>Encargada</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <p> Selected food: {{selectedValue}} </p> -->
+
+        <mat-form-field>
+            <mat-label>Tipo Pago</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <p> Selected food: {{selectedValue}} </p> -->
+
+        <mat-form-field>
+            <mat-label>Fecha inicio</mat-label>
+            <input matInput [matDatepicker]="pickerStar">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStar"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStar startView="year" [startAt]="DateStart"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Fecha fin</mat-label>
+            <input matInput [matDatepicker]="pickerEnd">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd startView="year" [startAt]="DateEnd"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Buscar</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+</div>
+
+
+<!-- table -->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nota</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Terap.</th>
+        <th scope="col">Encarg.</th>
+        <th scope="col">Salida</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Servicio</th>
+        <th scope="col">Pago</th>        
+        <th scope="col">€ a terap.</th>
+        <th scope="col">€ a enc.</th>
+        <th scope="col">€ a otros</th>
+        <th scope="col">Bebida</th>
+        <th scope="col">Tabaco</th>
+        <th scope="col">Vitamina</th>
+        <th scope="col">Propina</th>
+        <th scope="col">Otros</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@fat</td>
+        <td>@fat</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
