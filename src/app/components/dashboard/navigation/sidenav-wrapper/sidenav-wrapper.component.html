@@ -67,6 +67,11 @@
           <mat-icon mat-list-icon>settings</mat-icon>
           <span *ngIf="isExpanded">Configuracion</span>
         </mat-list-item>
+
+        <mat-list-item [routerLink]="'trabajadores'">
+          <mat-icon mat-list-icon>personal</mat-icon>
+          <span *ngIf="isExpanded">Trabajadores</span>
+        </mat-list-item>
   
       </mat-nav-list>
     </mat-sidenav>
@@ -79,6 +84,7 @@
         <h4 *ngIf="router.url === '/liquidacion'">Liquidacion</h4>
         <h4 *ngIf="router.url === '/estadistica'">ESTADISTICA</h4>
         <h4 *ngIf="router.url === '/configuracion'">CONFIGURACIÓN</h4>
+        <h4 *ngIf="router.url === '/trabajadores'">TRABAJADORES</h4>
       </mat-toolbar>
     </div>
   

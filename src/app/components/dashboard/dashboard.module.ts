@@ -28,11 +28,14 @@ import { EncargadosComponent } from './navigation/liquidacion/encargados/encarga
 import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
+import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.component';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     EstadisticaComponent, LiquidacionComponent, NuevoServicioComponent,
-    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent],
+    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
+    TrabajadoresComponent],
+
   imports: [
     CommonModule,
     DashboardRoutingModule,

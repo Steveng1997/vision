@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+
+        <!-- Table Terapeuta -->
+        <mat-form-field class="col-md-6 well">
+            <h4 style="text-align: center;"> Terapeuta </h4>
+            <button style="float: right;" class="btn btn-primary">Agregar</button>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-form-field>
+
+
+        <!-- Table Encargada -->
+        <mat-form-field class="col-md-6 well">
+            <h4 style="text-align: center;"> Encargada </h4>
+            <button class="btn btn-primary" style="float: right;" (click)="openModal(addPersonal)">Agregar</button>
+
+            <!-- Modal -->
+            <ng-template class="custom-modal" #addPersonal let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title">Encargada </h5>
+
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Aqui se coloca lo adentro -->
+
+                    <div style="text-align: center;">
+                        <label>
+                          <span>Full name</span>
+                          <input type="text" placeholder="Your full name"/>
+                        </label>
+                        <button type="submit">Sign up</button>
+                      </div>
+                
+                    <!-- Afuera -->
+                </div>
+            </ng-template>
+
+            <!-- Fin Modal -->
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-form-field>
+
+    </div>
+</div>
