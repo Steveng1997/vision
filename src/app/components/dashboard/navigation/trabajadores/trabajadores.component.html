@@ -2,42 +2,130 @@
     <div class="row">
 
         <!-- Table Terapeuta -->
-        <mat-form-field class="col-md-6 well">
+        <div class="col-md-6 well">
             <h4 style="text-align: center;"> Terapeuta </h4>
-            <button style="float: right;" class="btn btn-primary">Agregar</button>
+            <button style="float: right;" mat-raised-button color="primary"
+                (click)="openTerapeuta(addTerapeutas)">Agregar</button>
 
-            <table class="table">
+
+            <!-- Modal -->
+            <ng-template class="custom-modal" #addTerapeutas let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title"> Terapeuta </h5>
+
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body" style="text-align: center;">
+                    <!-- Aqui se coloca lo adentro -->
+
+                    <form #formRegister="ngForm" (ngSubmit)="addTerapeuta()" style="text-align: -webkit-center;">
+
+                        <div class="col-6">
+                            <div class="row">
+
+                                <mat-form-field>
+                                    <mat-label>Nombre:</mat-label>
+                                    <input type="text" matInput [(ngModel)]="nombreTerapeuta" name="nombreTerapeuta">
+                                </mat-form-field>
+
+                                <button mat-raised-button type="submit" color="primary">Agregar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Afuera -->
+                </div>
+            </ng-template>
+
+            <!-- Fin Modal -->
+
+            <table class="table" class="table" style="text-align: center;">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
+                        <td (click)="modalTablaTerapeuta(terap.id, modalTabl)">{{terap.nombre}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                    </tr>
+
+                    <!-- Modal -->
+                    <ng-template class="custom-modal" #modalTabl let-modal>
+                        <div class="modal-header">
+                            <h5 class="modal-title"> {{terap.nombre}} </h5>
+
+                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" style="text-align: center;">
+                            <!-- Aqui se coloca lo adentro -->
+
+                            <form style="text-align: -webkit-center;">
+
+                                <div class="col-6">
+                                    <div class="row">
+
+                                        <mat-form-field>
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="terap.nombre"
+                                                #nombre="ngModel">
+                                        </mat-form-field>
+
+
+                                        <div class="container" *ngFor="let terapM of terapeutaModal">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <button mat-raised-button
+                                                        (click)="editarTerapeuta(terapM.idDocument, terap.id, terap)"
+                                                        color="primary">Editar</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button mat-raised-button type="submit" color="warn"
+                                                        (click)="deleteTerapeuta(terapM.id)">Eliminar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Afuera -->
+                        </div>
+                    </ng-template>
+
+                    <!-- Fin Modal -->
+
                 </tbody>
             </table>
-        </mat-form-field>
 
+            <pagination-controls style="float: right;" (pageChange)="pageTerapeuta = $event" previousLabelb="Anterior"
+                nextLabelb="Siguiente">
+            </pagination-controls>
+        </div>
+
+
+        <!------------------------------------------------------------------------------------------------------------------------>
+        <!------------------------------------------------------------------------------------------------------------------------>
+        <!------------------------------------------------------------------------------------------------------------------------>
 
         <!-- Table Encargada -->
-        <mat-form-field class="col-md-6 well">
+        <div class="col-md-6 well">
+
             <h4 style="text-align: center;"> Encargada </h4>
-            <button class="btn btn-primary" style="float: right;" (click)="openModal(addPersonal)">Agregar</button>
+
+            <button style="float: right;" mat-raised-button color="primary"
+                (click)="openEncargada(addEncargadas)">Agregar</button>
 
             <!-- Modal -->
-            <ng-template class="custom-modal" #addPersonal let-modal>
+            <ng-template class="custom-modal" #addEncargadas let-modal>
                 <div class="modal-header">
                     <h5 class="modal-title">Encargada </h5>
 
@@ -49,44 +137,94 @@
                 <div class="modal-body">
                     <!-- Aqui se coloca lo adentro -->
 
-                    <div style="text-align: center;">
-                        <label>
-                          <span>Full name</span>
-                          <input type="text" placeholder="Your full name"/>
-                        </label>
-                        <button type="submit">Sign up</button>
-                      </div>
-                
+                    <form #formRegister="ngForm" (ngSubmit)="addEncargada()" style="text-align: -webkit-center;">
+                        <div class="col-6">
+                            <div class="row">
+
+                                <mat-form-field>
+                                    <mat-label>Nombre:</mat-label>
+                                    <input type="text" matInput [(ngModel)]="nombreEncargada" name="nombreEncargada">
+                                </mat-form-field>
+
+                                <button mat-raised-button type="submit" color="primary">Agregar</button>
+                            </div>
+                        </div>
+                    </form>
+
                     <!-- Afuera -->
                 </div>
             </ng-template>
 
             <!-- Fin Modal -->
 
-
-            <table class="table">
+            <table class="table" style="text-align: center;">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let encarg of encargada | paginate: { itemsPerPage: 5, currentPage: pageEncargada }">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
+                        <td (click)="modalTablaEncargada(encarg.id, modalTablEncarg)">{{encarg.nombre}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                    </tr>
+
+                    <!-- Modal -->
+                    <ng-template class="custom-modal" #modalTablEncarg let-modal>
+                        <div class="modal-header">
+                            <h5 class="modal-title"> {{encarg.nombre}} </h5>
+
+                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" style="text-align: center;">
+                            <!-- Aqui se coloca lo adentro -->
+
+                            <form style="text-align: -webkit-center;">
+
+                                <div class="col-6">
+                                    <div class="row">
+
+                                        <mat-form-field>
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="encarg.nombre"
+                                                #nombre="ngModel">
+                                        </mat-form-field>
+
+                                        <div class="container" *ngFor="let encargM of encargadaModal">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <button mat-raised-button
+                                                        (click)="editarEncargada(encargM.idDocument, encarg.id, encarg)"
+                                                        color="primary">Editar</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button mat-raised-button type="submit" color="warn"
+                                                        (click)="deleteEncargada(encargM.id)">Eliminar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Afuera -->
+                        </div>
+                    </ng-template>
+
+                    <!-- Fin Modal -->
+
+
                 </tbody>
             </table>
-        </mat-form-field>
+
+            <pagination-controls style="float: right;" (pageChange)="pageEncargada = $event" previousLabel="Anterior"
+                nextLabel="Siguiente">
+            </pagination-controls>
+
+        </div>
 
     </div>
 </div>

@@ -1,0 +1,18 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.mat-divider {
+    border-top-color: red;
+}
+
+.btn:not(:disabled):not(.disabled){
+    display: none;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: white;
+}

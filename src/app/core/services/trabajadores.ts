@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-// Alert
-import Swal from 'sweetalert2';
-
 // Model
 import { Trabajadores } from '../models/trabajadores';
 
 // Firebase
 import 'firebase/compat/app';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
@@ -17,13 +14,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class TrabajadoresService {
 
-  constructor(
-    public router: Router,
-    private db: AngularFirestore,
-    private authFire: AngularFireAuth
-  ) { }
+  constructor(public router: Router, private db: AngularFirestore) { }
 
   trabajadores: Trabajadores[] = [];
+  cursoDoc: AngularFirestoreDocument<Trabajadores>;
 
   // -----------------------------------------------------------------------------------
   // Register
@@ -40,14 +34,30 @@ export class TrabajadoresService {
     return result;
   }
 
-  registerPersona(nombre: string) {
+  registerEncargada(nombre: string) {
     let trabajador = {
       id: `uid${this.makeid(10)}`,
       nombre: nombre
     };
     return new Promise<any>((resolve, reject) => {
       this.db
-        .collection('trabajadores')
+        .collection('encargadas')
+        .add(trabajador)
+        .then(
+          (response) => resolve(response),
+          (error) => reject(error)
+        );
+    });
+  }
+
+  registerTerapeuta(nombre: string) {
+    let trabajador = {
+      id: `uid${this.makeid(10)}`,
+      nombre: nombre
+    };
+    return new Promise<any>((resolve, reject) => {
+      this.db
+        .collection('terapeutas')
         .add(trabajador)
         .then(
           (response) => resolve(response),
@@ -60,14 +70,73 @@ export class TrabajadoresService {
   // End register
   // -----------------------------------------------------------------------------------
 
-   // -----------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------
   // Get
   // -----------------------------------------------------------------------------------
 
-  geyByName(nombre: string): Promise<any> {
+  getAllEncargada() {
+    return this.db
+      .collection('encargadas', (ref) => ref.orderBy('nombre', 'asc'))
+      .valueChanges()
+  }
+
+  getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
-        .collection('trabajadores', (ref) => ref.where('nombre', '==', nombre))
+        .collection('encargadas', (ref) => ref.where('nombre', '==', nombre))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getByIdEncargada(id): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('encargadas', (ref) => ref.where('id', '==', id))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  // Terapeutas
+
+  getByIdTerapeuta(id): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('terapeutas', (ref) => ref.where('id', '==', id))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getAllTerapeuta() {
+    return this.db
+      .collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc'))
+      .valueChanges()
+  }
+
+  getTerapeuta(nombre: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('terapeutas', (ref) => ref.where('nombre', '==', nombre))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
@@ -81,6 +150,48 @@ export class TrabajadoresService {
 
   // -----------------------------------------------------------------------------------
   // End Get
+  // -----------------------------------------------------------------------------------
+
+  // -----------------------------------------------------------------------------------
+  // Update
+  // -----------------------------------------------------------------------------------
+
+  updateTerapeutas(idDocument, idTerapeuta, terapeuta: Trabajadores) {
+    return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta))
+      .doc(idDocument)
+      .update(terapeuta);
+  }
+
+  updateEncargadas(idDocument, idEncargada, encargada: Trabajadores) {
+    return this.db.collection('encargadas', (ref) => ref.where('id', '==', idEncargada))
+      .doc(idDocument)
+      .update(encargada);
+  }
+
+  // -----------------------------------------------------------------------------------
+  // End Update
+  // -----------------------------------------------------------------------------------
+
+  // -----------------------------------------------------------------------------------
+  // Delete
+  // -----------------------------------------------------------------------------------
+
+  async deleteTerapeuta(idDocument, id): Promise<any> {
+    this.db
+      .collection('terapeutas', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .delete();
+  }
+
+  async deleteEncargadas(idDocument, id): Promise<any> {
+    this.db
+      .collection('encargadas', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .delete();
+  }
+
+  // -----------------------------------------------------------------------------------
+  // End Delete
   // -----------------------------------------------------------------------------------
 
 }

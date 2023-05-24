@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 // MAT
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -13,10 +17,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 // Components
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
@@ -30,6 +37,7 @@ import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
 import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.component';
 
+
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     EstadisticaComponent, LiquidacionComponent, NuevoServicioComponent,
@@ -40,6 +48,10 @@ import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.co
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    NgbModule,
+    NgxPaginationModule,
+    TimepickerModule,
+    BsDatepickerModule,
 
     // NG Material Modules
     MatSidenavModule,
@@ -55,6 +67,10 @@ import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.co
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-  ]
+    MatButtonModule,
+    MatDividerModule,
+    MatCheckboxModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule { }

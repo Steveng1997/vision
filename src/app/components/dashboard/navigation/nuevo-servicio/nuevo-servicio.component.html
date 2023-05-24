@@ -1,1 +1,139 @@
-<p>nuevo-servicio works!</p>
+<div class="container" style="margin-top: 4%;">
+    <div class="row">
+
+        <mat-form-field class="col-6">
+            <mat-label>Terapeuta</mat-label>
+            <mat-select [(ngModel)]="selectedTerapeuta" name="nombre">
+                <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                    {{terap.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-6">
+            <mat-label>Encargada</mat-label>
+            <mat-select [(ngModel)]="selectedEncargada" name="encarg">
+                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                    {{encarg.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="parent">
+        <mat-form-field class="col-6">
+            <mat-label>Cliente</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+    </div>
+
+    <mat-list>
+        <mat-drawer-container class="example-container">
+            <mat-drawer-content style="font-weight: bold;">TIEMPO</mat-drawer-content>
+        </mat-drawer-container>
+        <mat-divider></mat-divider>
+    </mat-list>
+
+
+    <div class="row">
+        <div class="col-6">
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+
+        <div class="col-6">
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content>16:15-17:15</mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+    </div>
+
+    <div class="container">
+
+    <div class="row">
+        <div class="col-6" style="display: grid; align-self: center;">
+
+            <mat-drawer-container class="example-container" style="margin-bottom: 3%;">
+                <mat-drawer-content>Fecha</mat-drawer-content>
+            </mat-drawer-container>
+
+            <div class="input-group">
+                <mat-datepicker #dp></mat-datepicker>
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                    [dayTemplate]="customDay" [markDisabled]="isDisabled" #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <mat-datepicker-toggle (click)="d.toggle()" matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                </div>
+            </div>
+
+            <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+                let-disabled="disabled" let-focused="focused">
+                <span [ngClass]="   (date)" [class.focused]="focused" [class.bg-primary]="selected"
+                    [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+                    {{ date.day }}
+                </span>
+            </ng-template>
+
+        </div>
+
+        <div class="col-6" style="margin-top: 5%">
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content>Hora inicio</mat-drawer-content>
+            </mat-drawer-container>
+
+            <timepicker [(ngModel)]="time" [showMeridian]="false"></timepicker>
+            <!-- <pre class="alert alert-info">Time is: {{time}}</pre> -->
+        </div>
+    </div>
+
+</div>
+    <div class="container">
+        <div class="row" style="justify-content: right;">
+
+
+            <mat-drawer-container class="col-2">
+                <mat-drawer-content>Efect</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container class="col-2">
+                <mat-drawer-content>Bizum</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container class="col-2">
+                <mat-drawer-content>Tarjeta</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container class="col-2">
+                <mat-drawer-content>Trans</mat-drawer-content>
+            </mat-drawer-container>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <mat-form-field class="col-4">
+                <mat-label>Planta 1</mat-label>
+                <input matInput type="number">
+            </mat-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+            </mar-form-field>
+
+        </div>
+    </div>
+</div>

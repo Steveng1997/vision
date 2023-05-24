@@ -1,27 +1,25 @@
 <div class="container">
     <div class="row">
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Terapeuta</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="food">
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+            <mat-select [(ngModel)]="selectedTerapeuta" name="nombre">
+                <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                    {{terap.nombre}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <!-- <p> Selected food: {{selectedValue}} </p> -->
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Encargada</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="food">
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+            <mat-select [(ngModel)]="selectedEncargada" name="encarg">
+                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                    {{encarg.nombre}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <!-- <p> Selected food: {{selectedValue}} </p> -->
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Tipo Pago</mat-label>
             <mat-select [(ngModel)]="selectedValue" name="food">
                 <mat-option *ngFor="let food of foods" [value]="food.value">
@@ -31,7 +29,7 @@
         </mat-form-field>
         <!-- <p> Selected food: {{selectedValue}} </p> -->
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Fecha inicio</mat-label>
             <input matInput [matDatepicker]="pickerStar">
             <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
@@ -39,17 +37,17 @@
             <mat-datepicker #pickerStar startView="year" [startAt]="DateStart"></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Fecha fin</mat-label>
-            <input matInput [matDatepicker]="pickerEnd">
+            <input matInput type="text" [matDatepicker]="pickerEnd">
             <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
             <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
             <mat-datepicker #pickerEnd startView="year" [startAt]="DateEnd"></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field class="col-md-2 well">
+        <mat-form-field class="col-6">
             <mat-label>Buscar</mat-label>
-            <input matInput>
+            <input matInput type="text">
         </mat-form-field>
     </div>
 </div>

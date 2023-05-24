@@ -1,5 +1,5 @@
-export class Trabajadores {
-    id?: number;
-    nombre?: string;
-  }
-  
+export class Trabajadores {  
+  id?: number;
+  idDocument?: string;
+  nombre?: string;
+}
