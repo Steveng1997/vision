@@ -1,8 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { FormsModule } from '@angular/forms';
-import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -52,6 +52,7 @@ import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.co
     NgxPaginationModule,
     TimepickerModule,
     BsDatepickerModule,
+    ReactiveFormsModule,
 
     // NG Material Modules
     MatSidenavModule,

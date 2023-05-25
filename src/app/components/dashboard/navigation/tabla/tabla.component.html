@@ -3,7 +3,7 @@
 
         <mat-form-field class="col-6">
             <mat-label>Terapeuta</mat-label>
-            <mat-select [(ngModel)]="selectedTerapeuta" name="nombre">
+            <mat-select [(ngModel)]="selectedTerapeuta" (ngModelChange)="filterTerapeuta()">
                 <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                     {{terap.nombre}}
                 </mat-option>
@@ -12,6 +12,15 @@
 
         <mat-form-field class="col-6">
             <mat-label>Encargada</mat-label>
+            <mat-select [(ngModel)]="selectedEncargada" (ngModelChange)="filterEncargada()">
+                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                    {{encarg.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-6">
+            <mat-label>Tipo pago</mat-label>
             <mat-select [(ngModel)]="selectedEncargada" name="encarg">
                 <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                     {{encarg.nombre}}
@@ -20,19 +29,8 @@
         </mat-form-field>
 
         <mat-form-field class="col-6">
-            <mat-label>Tipo Pago</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="food">
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- <p> Selected food: {{selectedValue}} </p> -->
-
-        <mat-form-field class="col-6">
             <mat-label>Fecha inicio</mat-label>
             <input matInput [matDatepicker]="pickerStar">
-            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
             <mat-datepicker-toggle matIconSuffix [for]="pickerStar"></mat-datepicker-toggle>
             <mat-datepicker #pickerStar startView="year" [startAt]="DateStart"></mat-datepicker>
         </mat-form-field>
@@ -76,36 +74,34 @@
                 <th scope="col">Propina</th>
                 <th scope="col">Otros</th>
                 <th scope="col">Total</th>
+                <th scope="col">Cliente</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let serv of servicio | paginate: { itemsPerPage: 5, currentPage: page }">
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.fecha}}</td>
+                <td>{{serv.terapeuta}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.terapeuta}}</td>
+                <td>{{serv.hora}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.numberTerap}}</td>
+                <td>{{serv.numberEncarg}}</td>
+                <td>{{serv.numberOtro}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.numberOtro}}</td>
+                <td>{{serv.encargada}}</td>
+                <td>{{serv.cliente}}</td>
             </tr>
         </tbody>
     </table>
+
+    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente">
+    </pagination-controls>
 </div>

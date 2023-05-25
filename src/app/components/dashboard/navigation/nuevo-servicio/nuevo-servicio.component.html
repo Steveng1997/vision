@@ -1,94 +1,120 @@
-<div class="container" style="margin-top: 4%;">
-    <div class="row">
+<form [formGroup]="formTemplate" (ngSubmit)="addServicio(formTemplate.value)">
 
-        <mat-form-field class="col-6">
-            <mat-label>Terapeuta</mat-label>
-            <mat-select [(ngModel)]="selectedTerapeuta" name="nombre">
-                <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                    {{terap.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <div class=" container" style="margin-top: 4%;">
+        <div class="row">
 
-        <mat-form-field class="col-6">
-            <mat-label>Encargada</mat-label>
-            <mat-select [(ngModel)]="selectedEncargada" name="encarg">
-                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                    {{encarg.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
+            <mat-form-field class="col-6">
+                <mat-label>Terapeuta</mat-label>
+                <mat-select formControlName="terapeuta" name="terapeuta">
+                    <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                        {{terap.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-    <div class="parent">
-        <mat-form-field class="col-6">
-            <mat-label>Cliente</mat-label>
-            <input matInput type="text">
-        </mat-form-field>
-    </div>
-
-    <mat-list>
-        <mat-drawer-container class="example-container">
-            <mat-drawer-content style="font-weight: bold;">TIEMPO</mat-drawer-content>
-        </mat-drawer-container>
-        <mat-divider></mat-divider>
-    </mat-list>
-
-
-    <div class="row">
-        <div class="col-6">
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-            </mat-drawer-container>
+            <mat-form-field class="col-6">
+                <mat-label>Encargada</mat-label>
+                <mat-select formControlName="encargada" name="encargada">
+                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                        {{encarg.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
 
-        <div class="col-6">
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content>16:15-17:15</mat-drawer-content>
-            </mat-drawer-container>
+        <div class="parent">
+            <mat-form-field class="col-6">
+                <mat-label>Cliente</mat-label>
+                <input matInput type="text" formControlName="cliente">
+            </mat-form-field>
         </div>
-    </div>
 
-    <div class="container">
-
-    <div class="row">
-        <div class="col-6" style="display: grid; align-self: center;">
-
-            <mat-drawer-container class="example-container" style="margin-bottom: 3%;">
-                <mat-drawer-content>Fecha</mat-drawer-content>
+        <mat-list>
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content style="font-weight: bold;">TIEMPO</mat-drawer-content>
             </mat-drawer-container>
+            <mat-divider></mat-divider>
+        </mat-list>
 
-            <div class="input-group">
-                <mat-datepicker #dp></mat-datepicker>
-                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
-                    [dayTemplate]="customDay" [markDisabled]="isDisabled" #d="ngbDatepicker">
-                <div class="input-group-append">
-                    <mat-datepicker-toggle (click)="d.toggle()" matIconSuffix [for]="dp"></mat-datepicker-toggle>
-                </div>
+
+        <div class="row">
+            <div class="col-6">
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
+                </mat-drawer-container>
             </div>
 
-            <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
-                let-disabled="disabled" let-focused="focused">
-                <span [ngClass]="   (date)" [class.focused]="focused" [class.bg-primary]="selected"
-                    [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
-                    {{ date.day }}
-                </span>
-            </ng-template>
-
+            <div class="col-6">
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content>16:15-17:15</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
         </div>
 
-        <div class="col-6" style="margin-top: 5%">
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content>Hora inicio</mat-drawer-content>
-            </mat-drawer-container>
+        <div class="row">
 
-            <timepicker [(ngModel)]="time" [showMeridian]="false"></timepicker>
-            <!-- <pre class="alert alert-info">Time is: {{time}}</pre> -->
+            <div class="col-6" style="display: grid; align-self: center;">
+
+                <mat-drawer-container class="example-container" style="margin-bottom: 3%;">
+                    <mat-drawer-content>Fecha</mat-drawer-content>
+                </mat-drawer-container>
+
+                <input type="date" class="form-control" formControlName="fecha" (change)="changeFecha($event)" >
+
+                <!-- <div class="input-group">
+                    <mat-datepicker #dp></mat-datepicker>
+                    <input class="form-control inputFecha" placeholder="yyyy-mm-dd" name="dp" formControlName="fecha"
+                        ngbDatepicker [dayTemplate]="customDay" [markDisabled]="isDisabled" #d="ngbDatepicker">
+                    <div class="input-group-append">
+                        <mat-datepicker-toggle (click)="d.toggle()" matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                    </div>
+                </div>
+
+                <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected"
+                    let-disabled="disabled" let-focused="focused">
+                    <span [ngClass]="(date)" [class.focused]="focused" [class.bg-primary]="selected"
+                        [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+                        {{ date.day }}
+                    </span>
+                </ng-template> -->
+
+            </div>
+
+            <div class="col-6" style="margin-top: 5%">
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content>Hora inicio</mat-drawer-content>
+                </mat-drawer-container>
+
+
+                <input type="time" class="form-control" formControlName="hora" min="18:00" max="21:00" step="3600" />
+
+
+                <!-- <timepicker formControlName="hora" [showMeridian]="false"></timepicker> -->
+            </div>
         </div>
-    </div>
 
-</div>
-    <div class="container">
+        <div class="row">
+
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label>Duración(min.)</mat-label>
+                    <input matInput type="number" formControlName="minuto">
+                </mat-form-field>
+            </div>
+
+            <div class="col-6 horaFin">
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content>Hora fin:</mat-drawer-content>
+                </mat-drawer-container>
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content style="font-weight: bold;">18:45</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+        </div>
+
+
+        <!-- Servicios -->
+
         <div class="row" style="justify-content: right;">
 
 
@@ -109,31 +135,130 @@
             </mat-drawer-container>
 
         </div>
-    </div>
 
-    <div class="container">
         <div class="row">
             <mat-form-field class="col-4">
-                <mat-label>Planta 1</mat-label>
-                <input matInput type="number">
+                <mat-label>Piso 1</mat-label>
+                <input matInput type="number" formControlName="numberPiso1">
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+                <mat-checkbox formControlName="efectPiso1" (ngModelChange)="efectPisoo1()"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+                <mat-checkbox formControlName="bizuPiso1"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+                <mat-checkbox formControlName="tarjPiso1"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox [(ngModel)]="opcion1" (change)="cambio($event)"></mat-checkbox>
+                <mat-checkbox formControlName="transPiso1"></mat-checkbox>
             </mar-form-field>
-
         </div>
+
+        <div class="row">
+            <mat-form-field class="col-4">
+                <mat-label>Piso 2</mat-label>
+                <input matInput type="number" formControlName="numberPiso2">
+            </mat-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="efectPiso2"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="bizuPiso2"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="tarjPiso2"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="transPiso2"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-4">
+                <mat-label>Terapeuta</mat-label>
+                <input matInput type="number" formControlName="numberTerap">
+            </mat-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="efectTerap"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="bizuTerap"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="tarjTerap"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="transTerap"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-4">
+                <mat-label>Encargada</mat-label>
+                <input matInput type="number" formControlName="numberEncarg">
+            </mat-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="efectEncarg"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="bizuEncarg"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="tarjEncarg"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="transEncarg"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-4">
+                <mat-label>Otro</mat-label>
+                <input matInput type="number" formControlName="numberOtro">
+            </mat-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="efectOtro"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="bizuOtro"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="tarjOtro"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox formControlName="transOtro"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <!-- Fin servicio -->
+
+        <mat-form-field style="display: grid; align-self: center;">
+            <mat-label>Notas:</mat-label>
+            <textarea matInput formControlName="nota"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button style="display: grid; margin: auto;" type="submit" color="primary">Guardar</button>
     </div>
-</div>
+
+</form>

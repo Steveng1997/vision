@@ -33,6 +33,7 @@ import firebase from 'firebase/compat/app';
 
 // Services
 import { TrabajadoresService } from './core/services/trabajadores';
+import { ServicioService } from './core/services/servicio';
 
 firebase.initializeApp({
   databaseURL: "https://vision-62bf7-default-rtdb.firebaseio.com",
@@ -74,7 +75,8 @@ firebase.initializeApp({
     AngularFireModule.initializeApp(environment),
   ],
   providers: [
-    TrabajadoresService
+    TrabajadoresService,
+    ServicioService
   ],
   bootstrap: [AppComponent],
 })

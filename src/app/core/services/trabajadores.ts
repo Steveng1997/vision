@@ -7,7 +7,6 @@ import { Trabajadores } from '../models/trabajadores';
 // Firebase
 import 'firebase/compat/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root'
