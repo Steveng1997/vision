@@ -1,12 +1,11 @@
-<form [formGroup]="formTemplate" (ngSubmit)="doSumalt()">
+<form [formGroup]="formTemplate">
 
     <div class="container">
         <div class="row">
 
             <mat-form-field class="col-6">
                 <mat-label>Terapeuta</mat-label>
-                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
-                    (ngModelChange)="filterTerapeuta()">
+                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
                     <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                         {{terap.nombre}}
                     </mat-option>
@@ -15,8 +14,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
-                    (ngModelChange)="filterEncargada()">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -33,25 +31,20 @@
             </mat-form-field>
 
             <div class="col-6">
-                <input type="date" formControlName="StartDate" class="form-control"
-                    (change)="filterFechaInicio($event)">
+                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
             </div>
 
 
             <div class="col-6">
-                <input type="date" formControlName="EndDate" class="form-control" (change)="filterFechaFin($event)">
+                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
             </div>
 
             <mat-form-field class="col-6">
                 <mat-label>Buscar</mat-label>
-                <input matInput type="text" (keyup)="busqueda($event)">
+                <input matInput type="text">
             </mat-form-field>
         </div>
-
-        <button class="button" type="submit" mat-raised-button color="accent">Calcular</button>
-
     </div>
-
 
     <!-- table -->
 
@@ -79,17 +72,18 @@
                     <th scope="col">Cliente</th>
                 </tr>
             </thead>
-            <tbody
-                *ngFor="let serv of servicio | paginate: { itemsPerPage: 5, currentPage: page } ">
+            <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+                encargada: selectedEncargada | fechaInicial: fechaInicio | 
+                fechaFinal: FechaFin ) | paginate: { itemsPerPage: 5, currentPage: page }">
                 <tr>
                     <td>{{serv.encargada}}</td>
                     <td>{{serv.fecha}}</td>
                     <td>{{serv.terapeuta}}</td>
                     <td>{{serv.encargada}}</td>
-                    <td>{{serv.terapeuta}}</td>
+                    <td>{{serv.terapeuta }}</td>
                     <td>{{serv.hora}}</td>
                     <td>{{serv.encargada}}</td>
-                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.formaPago}}</td>
                     <td>{{serv.numberTerap}}</td>
                     <td>{{serv.numberEncarg}}</td>
                     <td>{{serv.numberOtro}}</td>

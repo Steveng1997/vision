@@ -59,7 +59,7 @@
                     <mat-drawer-content>Fecha</mat-drawer-content>
                 </mat-drawer-container>
 
-                <input type="date"  class="form-control" formControlName="fecha" (change)="changeFecha($event)">
+                <input type="date" class="form-control" formControlName="fecha" (change)="changeFecha($event)">
 
             </div>
 
@@ -68,11 +68,8 @@
                     <mat-drawer-content>Hora inicio</mat-drawer-content>
                 </mat-drawer-container>
 
-
-                <input type="time" class="form-control" formControlName="hora" min="18:00" max="21:00" step="3600" />
-
-
-                <!-- <timepicker formControlName="hora" [showMeridian]="false"></timepicker> -->
+                <input type="time" class="form-control" formControlName="hora" [(ngModel)]="horaInicio" min="18:00"
+                    max="21:00" step="3600" />
             </div>
         </div>
 
@@ -81,7 +78,7 @@
             <div class="col-6">
                 <mat-form-field>
                     <mat-label>Duración(min.)</mat-label>
-                    <input matInput type="number" formControlName="minuto">
+                    <input matInput type="number" formControlName="minuto" (change)="minutos($event)">
                 </mat-form-field>
             </div>
 
@@ -90,7 +87,7 @@
                     <mat-drawer-content>Hora fin:</mat-drawer-content>
                 </mat-drawer-container>
                 <mat-drawer-container class="example-container">
-                    <mat-drawer-content style="font-weight: bold;">18:45</mat-drawer-content>
+                    <mat-drawer-content style="font-weight: bold;">{{horaFin}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>
@@ -126,19 +123,19 @@
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="efectPiso1" (ngModelChange)="efectPisoo1()"></mat-checkbox>
+                <mat-checkbox formControlName="efectPiso1" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="bizuPiso1"></mat-checkbox>
+                <mat-checkbox formControlName="bizuPiso1" (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="tarjPiso1"></mat-checkbox>
+                <mat-checkbox formControlName="tarjPiso1" (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="transPiso1"></mat-checkbox>
+                <mat-checkbox formControlName="transPiso1" (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -149,19 +146,19 @@
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="efectPiso2"></mat-checkbox>
+                <mat-checkbox formControlName="efectPiso2" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="bizuPiso2"></mat-checkbox>
+                <mat-checkbox formControlName="bizuPiso2" (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="tarjPiso2"></mat-checkbox>
+                <mat-checkbox formControlName="tarjPiso2" (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="transPiso2"></mat-checkbox>
+                <mat-checkbox formControlName="transPiso2" (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -172,19 +169,19 @@
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="efectTerap"></mat-checkbox>
+                <mat-checkbox formControlName="efectTerap" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="bizuTerap"></mat-checkbox>
+                <mat-checkbox formControlName="bizuTerap" (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="tarjTerap"></mat-checkbox>
+                <mat-checkbox formControlName="tarjTerap" (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="transTerap"></mat-checkbox>
+                <mat-checkbox formControlName="transTerap" (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -195,19 +192,19 @@
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="efectEncarg"></mat-checkbox>
+                <mat-checkbox formControlName="efectEncarg" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="bizuEncarg"></mat-checkbox>
+                <mat-checkbox formControlName="bizuEncarg" (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="tarjEncarg"></mat-checkbox>
+                <mat-checkbox formControlName="tarjEncarg" (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="transEncarg"></mat-checkbox>
+                <mat-checkbox formControlName="transEncarg" (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -218,19 +215,19 @@
             </mat-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="efectOtro"></mat-checkbox>
+                <mat-checkbox formControlName="efectOtro" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="bizuOtro"></mat-checkbox>
+                <mat-checkbox formControlName="bizuOtro" (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="tarjOtro"></mat-checkbox>
+                <mat-checkbox formControlName="tarjOtro" (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox formControlName="transOtro"></mat-checkbox>
+                <mat-checkbox formControlName="transOtro" (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
             </mar-form-field>
         </div>
 

@@ -4,48 +4,36 @@
   </mat-toolbar>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nota</th>
-      <th scope="col">Terap.</th>
-      <th scope="col">Encargada</th>
-      <th scope="col">Hora</th>
-      <th scope="col">Tiempo</th>
-      <th scope="col">Servicio</th>
-      <th scope="col">Salida</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="page-content" style="height: calc(100vh - 149px)">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nota</th>
+        <th scope="col">Terap.</th>
+        <th scope="col">Encarg.</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Tiempo</th>
+        <th scope="col">Servicio</th>
+        <th scope="col">Salida</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let serv of vision | paginate: { itemsPerPage: 5, currentPage: page }">
+      <tr>
+        <td>{{serv.nota}}</td>
+        <td>{{serv.terapeuta}}</td>
+        <td>{{serv.encargada}}</td>
+        <td>{{serv.hora}}</td>
+        <td>{{serv.minuto }}</td>
+        <td>{{serv.minuto}}</td>
+        <td>{{serv.nota}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+    nextLabel="Siguiente">
+  </pagination-controls>
+</div>
 
 
 
@@ -55,52 +43,4 @@
   <mat-toolbar>
     <h4> OCUPACIÓN </h4>
   </mat-toolbar>
-</div>
-
-
-<div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-      GitHub's API rate limit has been reached. It will be reset in one minute.
-    </div>
-  </div>
-
-  <div class="example-table-container">
-
-    <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created" matSortDisableClear
-      matSortDirection="desc">
-      <!-- Number Column -->
-      <ng-container matColumnDef="number">
-        <th mat-header-cell *matHeaderCellDef>#</th>
-        <td mat-cell *matCellDef="let row">{{row.number}}</td>
-      </ng-container>
-
-      <!-- Title Column -->
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let row">{{row.title}}</td>
-      </ng-container>
-
-      <!-- State Column -->
-      <ng-container matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef>State</th>
-        <td mat-cell *matCellDef="let row">{{row.state}}</td>
-      </ng-container>
-
-      <!-- Created Column -->
-      <ng-container matColumnDef="created">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-          Created
-        </th>
-        <td mat-cell *matCellDef="let row">{{row.created_at | date}}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-
-  <mat-paginator [length]="resultsLength" [pageSize]="10"
-    aria-label="Select page of GitHub search results"></mat-paginator>
 </div>

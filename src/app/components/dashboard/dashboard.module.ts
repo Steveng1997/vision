@@ -37,12 +37,19 @@ import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
 import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.component';
 
+// Pipe
+import { TerapeutaPipe } from 'src/app/core/pipe/terapeuta.pipe';
+import { EncargadaPipe } from 'src/app/core/pipe/encargada.pipe';
+import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
+import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
+import { FechaFinalPipe } from 'src/app/core/pipe/fecha-final.pipe';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     EstadisticaComponent, LiquidacionComponent, NuevoServicioComponent,
     EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
-    TrabajadoresComponent],
+    TrabajadoresComponent, TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FechaFinalPipe,
+    BusquedaPipe],
 
   imports: [
     CommonModule,
@@ -53,6 +60,7 @@ import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.co
     TimepickerModule,
     BsDatepickerModule,
     ReactiveFormsModule,
+
 
     // NG Material Modules
     MatSidenavModule,
