@@ -15,6 +15,8 @@ import { ServicioService } from 'src/app/core/services/servicio';
   encapsulation: ViewEncapsulation.None,
 })
 export class NuevoServicioComponent implements OnInit {
+
+  fechaActual = new Date();
   
   terapeuta: any[] = [];
   encargada: any[] = [];

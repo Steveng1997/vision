@@ -1,107 +1,111 @@
-<div class="container">
-    <div class="row">
+<form [formGroup]="formTemplate" (ngSubmit)="doSumalt()">
 
-        <mat-form-field class="col-6">
-            <mat-label>Terapeuta</mat-label>
-            <mat-select [(ngModel)]="selectedTerapeuta" (ngModelChange)="filterTerapeuta()">
-                <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                    {{terap.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <div class="container">
+        <div class="row">
 
-        <mat-form-field class="col-6">
-            <mat-label>Encargada</mat-label>
-            <mat-select [(ngModel)]="selectedEncargada" (ngModelChange)="filterEncargada()">
-                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                    {{encarg.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-label>Terapeuta</mat-label>
+                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
+                    (ngModelChange)="filterTerapeuta()">
+                    <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                        {{terap.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="col-6">
-            <mat-label>Tipo pago</mat-label>
-            <mat-select [(ngModel)]="selectedEncargada" name="encarg">
-                <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                    {{encarg.nombre}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-label>Encargada</mat-label>
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
+                    (ngModelChange)="filterEncargada()">
+                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                        {{encarg.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="col-6">
-            <mat-label>Fecha inicio</mat-label>
-            <input matInput [matDatepicker]="pickerStar">
-            <mat-datepicker-toggle matIconSuffix [for]="pickerStar"></mat-datepicker-toggle>
-            <mat-datepicker #pickerStar startView="year" [startAt]="DateStart"></mat-datepicker>
-        </mat-form-field>
+            <mat-form-field class="col-6">
+                <mat-label>Tipo pago</mat-label>
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                        {{encarg.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="col-6">
-            <mat-label>Fecha fin</mat-label>
-            <input matInput type="text" [matDatepicker]="pickerEnd">
-            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
-            <mat-datepicker #pickerEnd startView="year" [startAt]="DateEnd"></mat-datepicker>
-        </mat-form-field>
+            <div class="col-6">
+                <input type="date" formControlName="StartDate" class="form-control"
+                    (change)="filterFechaInicio($event)">
+            </div>
 
-        <mat-form-field class="col-6">
-            <mat-label>Buscar</mat-label>
-            <input matInput type="text">
-        </mat-form-field>
+
+            <div class="col-6">
+                <input type="date" formControlName="EndDate" class="form-control" (change)="filterFechaFin($event)">
+            </div>
+
+            <mat-form-field class="col-6">
+                <mat-label>Buscar</mat-label>
+                <input matInput type="text" (keyup)="busqueda($event)">
+            </mat-form-field>
+        </div>
+
+        <button class="button" type="submit" mat-raised-button color="accent">Calcular</button>
+
     </div>
-</div>
 
 
-<!-- table -->
+    <!-- table -->
 
-<div class="page-content" style="height: calc(100vh - 149px)">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nota</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Terap.</th>
-                <th scope="col">Encarg.</th>
-                <th scope="col">Salida</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Servicio</th>
-                <th scope="col">Pago</th>
-                <th scope="col">€ a terap.</th>
-                <th scope="col">€ a enc.</th>
-                <th scope="col">€ a otros</th>
-                <th scope="col">Bebida</th>
-                <th scope="col">Tabaco</th>
-                <th scope="col">Vitamina</th>
-                <th scope="col">Propina</th>
-                <th scope="col">Otros</th>
-                <th scope="col">Total</th>
-                <th scope="col">Cliente</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let serv of servicio | paginate: { itemsPerPage: 5, currentPage: page }">
-            <tr>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.fecha}}</td>
-                <td>{{serv.terapeuta}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.terapeuta}}</td>
-                <td>{{serv.hora}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.numberTerap}}</td>
-                <td>{{serv.numberEncarg}}</td>
-                <td>{{serv.numberOtro}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.numberOtro}}</td>
-                <td>{{serv.encargada}}</td>
-                <td>{{serv.cliente}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="page-content" style="height: calc(100vh - 149px)">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nota</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Terap.</th>
+                    <th scope="col">Encarg.</th>
+                    <th scope="col">Salida</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Pago</th>
+                    <th scope="col">€ a terap.</th>
+                    <th scope="col">€ a enc.</th>
+                    <th scope="col">€ a otros</th>
+                    <th scope="col">Bebida</th>
+                    <th scope="col">Tabaco</th>
+                    <th scope="col">Vitamina</th>
+                    <th scope="col">Propina</th>
+                    <th scope="col">Otros</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Cliente</th>
+                </tr>
+            </thead>
+            <tbody
+                *ngFor="let serv of servicio | paginate: { itemsPerPage: 5, currentPage: page } ">
+                <tr>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.terapeuta}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.terapeuta}}</td>
+                    <td>{{serv.hora}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.numberTerap}}</td>
+                    <td>{{serv.numberEncarg}}</td>
+                    <td>{{serv.numberOtro}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.numberOtro}}</td>
+                    <td>{{serv.encargada}}</td>
+                    <td>{{serv.cliente}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-        nextLabel="Siguiente">
-    </pagination-controls>
-</div>
+        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</form>
