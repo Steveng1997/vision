@@ -17,15 +17,15 @@
         <th scope="col">Salida</th>
       </tr>
     </thead>
-    <tbody *ngFor="let serv of vision | paginate: { itemsPerPage: 5, currentPage: page }">
+    <tbody *ngFor="let vis of vision | paginate: { itemsPerPage: 5, currentPage: page }">
       <tr>
-        <td>{{serv.nota}}</td>
-        <td>{{serv.terapeuta}}</td>
-        <td>{{serv.encargada}}</td>
-        <td>{{serv.hora}}</td>
-        <td>{{serv.minuto }}</td>
-        <td>{{serv.minuto}}</td>
-        <td>{{serv.nota}}</td>
+        <td>{{vis.nota}}</td>
+        <td>{{vis.terapeuta}}</td>
+        <td>{{vis.encargada}}</td>
+        <td>{{vis.hora + '-' + vis.horaFin}}</td>
+        <td>{{vis.minuto }}</td>
+        <td>{{vis.totalServicio + ' €'}}</td>
+        <td>{{vis.nota}}</td>
       </tr>
     </tbody>
   </table>

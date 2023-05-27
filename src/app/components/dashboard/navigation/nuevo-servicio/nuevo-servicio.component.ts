@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 import { ServicioService } from 'src/app/core/services/servicio';
+import { } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-nuevo-servicio',
@@ -16,8 +17,8 @@ import { ServicioService } from 'src/app/core/services/servicio';
 })
 export class NuevoServicioComponent implements OnInit {
 
-  fechaActual = new Date();
-  horaInicio = new Date();
+  fechaActual = new Date().toISOString().substring(0, 10);
+  horaStarted = new Date().toTimeString().substring(0, 5);
 
   terapeuta: any[] = [];
   encargada: any[] = [];
@@ -25,13 +26,14 @@ export class NuevoServicioComponent implements OnInit {
   chageDate = '';
   formaPago: string = '';
 
-  horaFin = '';
+  horaFin: string;
+  fechaPrint: string;
+  servicioTotal = 0;
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
     encargada: new FormControl(''),
     cliente: new FormControl(''),
-    fecha: new FormControl(''),
     hora: new FormControl(''),
     minuto: new FormControl(''),
     efectPiso1: new FormControl(false),
@@ -71,6 +73,7 @@ export class NuevoServicioComponent implements OnInit {
   ngOnInit(): void {
     this.getEncargada();
     this.getTerapeuta();
+    this.horaFin = this.horaStarted;
   }
 
   getTerapeuta() {
@@ -94,23 +97,28 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue) {
+    debugger
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
-        this.formTemplate.value.fecha = this.formTemplate.value.fecha.substring(5, 10);
-        (this.formTemplate.value.fecha);
         this.llenarFormaPago()
-        this.servicioService.registerServicio(formValue, this.formaPago).then((rp) => {
-          if (rp) {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: '¡Insertado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
-            });
-          }
-          localStorage.clear();
-        })
+        this.totalServicio()
+        if (this.fechaPrint == undefined) {
+          this.fechaActual = this.fechaActual.substring(5, 10);
+          this.fechaPrint = this.fechaActual
+        }
+        this.servicioService.registerServicio(formValue, this.formaPago, this.fechaPrint,
+          this.horaStarted, this.servicioTotal, this.horaFin).then((rp) => {
+            if (rp) {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '¡Insertado Correctamente!',
+                showConfirmButton: false,
+                timer: 2500,
+              });
+            }
+            localStorage.clear();
+          })
 
       } else {
         Swal.fire({
@@ -129,17 +137,50 @@ export class NuevoServicioComponent implements OnInit {
     }
   }
 
+  totalServicio() {
+    let piso1 = 0; let piso2 = 0; let terap = 0; let encargada = 0; let otros = 0;
+
+    if (this.formTemplate.value.numberPiso1 === "") {
+      piso1 = 0
+    } else {
+      piso1 = parseInt(this.formTemplate.value.numberPiso1);
+    }
+
+    if (this.formTemplate.value.numberPiso2 == "") {
+      piso2 = 0;
+    } else {
+      piso2 = parseInt(this.formTemplate.value.numberPiso2);
+    }
+
+    if (this.formTemplate.value.numberTerap == "") {
+      terap = 0;
+    } else {
+      terap = parseInt(this.formTemplate.value.numberTerap);
+    }
+
+    if (this.formTemplate.value.numberEncarg == "") {
+      encargada = 0;
+    } else {
+      encargada = parseInt(this.formTemplate.value.numberEncarg);
+    }
+
+    if (this.formTemplate.value.numberOtro == "") {
+      otros = 0;
+    } else {
+      otros = parseInt(this.formTemplate.value.numberOtro);
+    }
+
+    this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros);
+  }
+
   efectCheckToggle(event: any) {
     if (event) {
       localStorage.setItem('Efectivo', 'Efectivo')
-
       return
     }
 
-    if (!this.formTemplate.value.efectPiso1 &&
-      !this.formTemplate.value.efectPiso2 &&
-      !this.formTemplate.value.efectTerap &&
-      !this.formTemplate.value.efectEncarg &&
+    if (!this.formTemplate.value.efectPiso1 && !this.formTemplate.value.efectPiso2 &&
+      !this.formTemplate.value.efectTerap && !this.formTemplate.value.efectEncarg &&
       !this.formTemplate.value.efectOtro) {
       localStorage.removeItem('Efectivo')
     }
@@ -148,14 +189,11 @@ export class NuevoServicioComponent implements OnInit {
   bizumCheckToggle(event: any) {
     if (event) {
       localStorage.setItem('Bizum', 'Bizum')
-
       return
     }
 
-    if (!this.formTemplate.value.bizuPiso1 &&
-      !this.formTemplate.value.bizuPiso2 &&
-      !this.formTemplate.value.bizuTerap &&
-      !this.formTemplate.value.bizuEncarg &&
+    if (!this.formTemplate.value.bizuPiso1 && !this.formTemplate.value.bizuPiso2 &&
+      !this.formTemplate.value.bizuTerap && !this.formTemplate.value.bizuEncarg &&
       !this.formTemplate.value.bizuOtro) {
       localStorage.removeItem('Bizum')
     }
@@ -164,14 +202,11 @@ export class NuevoServicioComponent implements OnInit {
   tarjCheckToggle(event: any) {
     if (event) {
       localStorage.setItem('Tarjeta', 'Tarjeta')
-
       return
     }
 
-    if (!this.formTemplate.value.tarjPiso1 &&
-      !this.formTemplate.value.tarjPiso2 &&
-      !this.formTemplate.value.tarjTerap &&
-      !this.formTemplate.value.tarjEncarg &&
+    if (!this.formTemplate.value.tarjPiso1 && !this.formTemplate.value.tarjPiso2 &&
+      !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
       !this.formTemplate.value.tarjOtro) {
       localStorage.removeItem('Tarjeta')
     }
@@ -180,14 +215,11 @@ export class NuevoServicioComponent implements OnInit {
   transCheckToggle(event: any) {
     if (event) {
       localStorage.setItem('Trans', 'Trans')
-
       return
     }
 
-    if (!this.formTemplate.value.transPiso1 &&
-      !this.formTemplate.value.transPiso2 &&
-      !this.formTemplate.value.transTerap &&
-      !this.formTemplate.value.transEncarg &&
+    if (!this.formTemplate.value.transPiso1 && !this.formTemplate.value.transPiso2 &&
+      !this.formTemplate.value.transTerap && !this.formTemplate.value.transEncarg &&
       !this.formTemplate.value.transOtro) {
       localStorage.removeItem('Trans')
     }
@@ -211,13 +243,24 @@ export class NuevoServicioComponent implements OnInit {
     this.formaPago = formPago.join(',')
   }
 
+  horaInicio(event: any) {
+    var minutes = event.target.value;
+    this.horaFin = minutes.toString();
+  }
 
-  minutos(event: any){
-    const duracion = event.target.value
-    console.log(this.horaInicio)
+  fechaEscogida(event: any) {
+    var fecha1 = event.target.value.substring(5, 10);
+    this.fechaPrint = fecha1;
+  }
 
-    var respuesta = this.horaInicio.setMinutes(this.horaInicio.getMinutes() + duracion);
-    console.log(respuesta)
-    this.horaFin = respuesta.toString()
+  minutos(event: any) {
+
+    var fecha34 = new Date();
+    console.log(fecha34);
+
+    var sumarsesion = event.target.value;
+    var aqui = fecha34.getMinutes() + ":" + (fecha34.setMinutes(fecha34.getMinutes() + sumarsesion) && fecha34.getMinutes());
+    console.log(aqui)
+    this.horaFin = aqui.toString()
   }
 }

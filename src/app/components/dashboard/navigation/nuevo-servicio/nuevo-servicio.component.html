@@ -59,7 +59,7 @@
                     <mat-drawer-content>Fecha</mat-drawer-content>
                 </mat-drawer-container>
 
-                <input type="date" class="form-control" formControlName="fecha" (change)="changeFecha($event)">
+                <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
 
             </div>
 
@@ -68,7 +68,7 @@
                     <mat-drawer-content>Hora inicio</mat-drawer-content>
                 </mat-drawer-container>
 
-                <input type="time" class="form-control" formControlName="hora" [(ngModel)]="horaInicio" min="18:00"
+                <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted" min="18:00"
                     max="21:00" step="3600" />
             </div>
         </div>
@@ -93,7 +93,40 @@
         </div>
 
 
+
         <!-- Servicios -->
+
+        <mat-list>
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content style="font-weight: bold;">SERVICIOS</mat-drawer-content>
+            </mat-drawer-container>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+        <div class="row">
+            <div class="col-4">
+                <label>Servicio</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Servicio</label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Servicio</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <mat-list>
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
+            </mat-drawer-container>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+
+        <!-- Cobros -->
 
         <div class="row" style="justify-content: right;">
 
@@ -117,10 +150,10 @@
         </div>
 
         <div class="row">
-            <mat-form-field class="col-4">
+            <div class="col-4">
                 <mat-label>Piso 1</mat-label>
-                <input matInput type="number" formControlName="numberPiso1">
-            </mat-form-field>
+                <input type="text" formControlName="numberPiso1" class="form-control">
+            </div>
 
             <mar-form-field class="col-2">
                 <mat-checkbox formControlName="efectPiso1" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
@@ -140,10 +173,10 @@
         </div>
 
         <div class="row">
-            <mat-form-field class="col-4">
+            <div class="col-4">
                 <mat-label>Piso 2</mat-label>
-                <input matInput type="number" formControlName="numberPiso2">
-            </mat-form-field>
+                <input matInput type="number" formControlName="numberPiso2" class="form-control">
+            </div>
 
             <mar-form-field class="col-2">
                 <mat-checkbox formControlName="efectPiso2" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
@@ -163,10 +196,10 @@
         </div>
 
         <div class="row">
-            <mat-form-field class="col-4">
+            <div class="col-4">
                 <mat-label>Terapeuta</mat-label>
-                <input matInput type="number" formControlName="numberTerap">
-            </mat-form-field>
+                <input matInput type="number" formControlName="numberTerap" class="form-control">
+            </div>
 
             <mar-form-field class="col-2">
                 <mat-checkbox formControlName="efectTerap" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
@@ -186,10 +219,10 @@
         </div>
 
         <div class="row">
-            <mat-form-field class="col-4">
+            <div class="col-4">
                 <mat-label>Encargada</mat-label>
-                <input matInput type="number" formControlName="numberEncarg">
-            </mat-form-field>
+                <input matInput type="number" formControlName="numberEncarg" class="form-control">
+            </div>
 
             <mar-form-field class="col-2">
                 <mat-checkbox formControlName="efectEncarg" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
@@ -209,10 +242,10 @@
         </div>
 
         <div class="row">
-            <mat-form-field class="col-4">
+            <div class="col-4">
                 <mat-label>Otro</mat-label>
-                <input matInput type="number" formControlName="numberOtro">
-            </mat-form-field>
+                <input matInput type="number" formControlName="numberOtro" class="form-control">
+            </div>
 
             <mar-form-field class="col-2">
                 <mat-checkbox formControlName="efectOtro" (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
@@ -242,7 +275,3 @@
     </div>
 
 </form>
-
-<script>
-    document.getElementById('fechaActual') = new Date();
-</script>
