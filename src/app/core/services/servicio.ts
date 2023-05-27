@@ -90,6 +90,12 @@ export class ServicioService {
       .valueChanges();
   }
 
+  // getFecha() {
+  //   return this.db
+  //     .collection('servicio', (ref) => ref.orderBy('id', 'asc'))
+  //     .valueChanges();
+  // }
+
   getTerapeuta(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -120,35 +126,35 @@ export class ServicioService {
     });
   }
 
-  getFecha(fecha): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('fecha', '==', fecha))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
-  }
+  // getFecha(fecha): Promise<any> {
+  //   return new Promise((resolve, _reject) => {
+  //     this.db
+  //       .collection('servicio', (ref) => ref.where('fecha', '==', fecha))
+  //       .valueChanges({ idField: 'idDocument' })
+  //       .subscribe((rp) => {
+  //         if (rp[0]?.idDocument) {
+  //           resolve(rp);
+  //         } else {
+  //           resolve(rp);
+  //         }
+  //       });
+  //   });
+  // }
 
-  getFechaInicialAndFinal(fechaInicial, fechaFinal): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('fecha', '==', fechaInicial).where('fecha', '==', fechaFinal))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
-  }
+  // getFechaInicialAndFinal(fechaInicial, fechaFinal): Promise<any> {
+  //   return new Promise((resolve, _reject) => {
+  //     this.db
+  //       .collection('servicio', (ref) => ref.where('fecha', '==', fechaInicial).where('fecha', '==', fechaFinal))
+  //       .valueChanges({ idField: 'idDocument' })
+  //       .subscribe((rp) => {
+  //         if (rp[0]?.idDocument) {
+  //           resolve(rp);
+  //         } else {
+  //           resolve(rp);
+  //         }
+  //       });
+  //   });
+  // }
 
   // -----------------------------------------------------------------------------------
   // Get

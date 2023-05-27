@@ -26,16 +26,12 @@
  Query para celular muy baja gama */
 
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
-    .horaFin {
-        text-align: right;
-    }
+
 }
 
 /* ------------------------------------------------------------------------------------------------
  --------------------------------------------------------------------------------------------------
  Query para celular baja gama */
 @media only screen and (min-device-width: 350px) and (max-device-width: 410px) {
-    .horaFin {
-        text-align: right;
-    }
+
 }

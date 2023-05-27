@@ -37,7 +37,7 @@
         </mat-list>
 
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col-6">
                 <mat-drawer-container class="example-container">
                     <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
@@ -45,15 +45,16 @@
             </div>
 
             <div class="col-6">
-                <mat-drawer-container class="example-container">
-                    <mat-drawer-content>16:15-17:15</mat-drawer-content>
+                <mat-drawer-container class="example-container" style="float: right;" 
+                *ngFor="let hor of fechaLast">
+                    <mat-drawer-content>{{hor.hora}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
 
-            <div class="col-6" style="display: grid; align-self: center;">
+            <div class="col-6" style="display: inline-block; align-self: center;">
 
                 <mat-drawer-container class="example-container" style="margin-bottom: 3%;">
                     <mat-drawer-content>Fecha</mat-drawer-content>
@@ -71,64 +72,80 @@
                 <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted" min="18:00"
                     max="21:00" step="3600" />
             </div>
-        </div>
-
-        <div class="row">
 
             <div class="col-6">
-                <mat-form-field>
-                    <mat-label>Duración(min.)</mat-label>
-                    <input matInput type="number" formControlName="minuto" (change)="minutos($event)">
-                </mat-form-field>
+                <mat-label>Duración(min.)</mat-label>
+                <input class="form-control" type="number" formControlName="minuto" (change)="minutos($event)">
+
             </div>
 
-            <div class="col-6 horaFin">
+            <div class="col-6" style="text-align: -webkit-center; align-self: center;">
                 <mat-drawer-container class="example-container">
                     <mat-drawer-content>Hora fin:</mat-drawer-content>
                 </mat-drawer-container>
                 <mat-drawer-container class="example-container">
-                    <mat-drawer-content style="font-weight: bold;">{{horaFin}}</mat-drawer-content>
+                    <mat-drawer-content style="font-weight: bold;">{{horaFinMinutos}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>
 
-
-
         <!-- Servicios -->
 
-        <mat-list>
+        <mat-list style="margin-bottom: 5%">
             <mat-drawer-container class="example-container">
                 <mat-drawer-content style="font-weight: bold;">SERVICIOS</mat-drawer-content>
             </mat-drawer-container>
             <mat-divider></mat-divider>
         </mat-list>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%">
             <div class="col-4">
                 <label>Servicio</label>
-                <input type="text" class="form-control" />
+                <input type="number" class="form-control" />
             </div>
             <div class="col-4">
-                <label>Servicio</label>
-                <input type="text" class="form-control" />
+                <label>Bebidas</label>
+                <input type="number" class="form-control" />
             </div>
             <div class="col-4">
-                <label>Servicio</label>
-                <input type="text" class="form-control" />
+                <label>Tabaco</label>
+                <input type="number" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Vitaminas</label>
+                <input type="number" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Propina</label>
+                <input type="number" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Otros</label>
+                <input type="number" class="form-control" />
             </div>
         </div>
 
-        <mat-list>
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
-            </mat-drawer-container>
+        <div class="row" style="margin-bottom: 5%">
+
+            <div class="col-6">
+                <mat-drawer-container class="example-container">
+                    <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+
+            <div class="col-6">
+                <mat-drawer-container class="example-container" style="float: right;">
+                    <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+
             <mat-divider></mat-divider>
-        </mat-list>
+        </div>
 
 
         <!-- Cobros -->
 
-        <div class="row" style="justify-content: right;">
+        <div class="row" style="justify-content: right; margin-bottom: 4%;">
 
 
             <mat-drawer-container class="col-2">
@@ -241,7 +258,7 @@
             </mar-form-field>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 5%;">
             <div class="col-4">
                 <mat-label>Otro</mat-label>
                 <input matInput type="number" formControlName="numberOtro" class="form-control">

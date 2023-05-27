@@ -21,12 +21,14 @@ export class NuevoServicioComponent implements OnInit {
   horaStarted = new Date().toTimeString().substring(0, 5);
 
   terapeuta: any[] = [];
+  fechaLast = [];
   encargada: any[] = [];
 
   chageDate = '';
   formaPago: string = '';
 
   horaFin: string;
+  horaFinMinutos: string;
   fechaPrint: string;
   servicioTotal = 0;
 
@@ -73,7 +75,14 @@ export class NuevoServicioComponent implements OnInit {
   ngOnInit(): void {
     this.getEncargada();
     this.getTerapeuta();
-    this.horaFin = this.horaStarted;
+    this.getLastDate();
+    this.horaFinMinutos = this.horaStarted;
+  }
+
+  getLastDate() {
+    this.servicioService.getServicio().subscribe((datoLastDate) => {
+      this.fechaLast[0] = datoLastDate[0];
+    });
   }
 
   getTerapeuta() {
@@ -104,10 +113,11 @@ export class NuevoServicioComponent implements OnInit {
         this.totalServicio()
         if (this.fechaPrint == undefined) {
           this.fechaActual = this.fechaActual.substring(5, 10);
-          this.fechaPrint = this.fechaActual
+          this.fechaPrint = this.fechaActual;
         }
+        this.horaStarted = this.horaFin;
         this.servicioService.registerServicio(formValue, this.formaPago, this.fechaPrint,
-          this.horaStarted, this.servicioTotal, this.horaFin).then((rp) => {
+          this.horaStarted, this.servicioTotal, this.horaFinMinutos).then((rp) => {
             if (rp) {
               Swal.fire({
                 position: 'top-end',
@@ -246,6 +256,7 @@ export class NuevoServicioComponent implements OnInit {
   horaInicio(event: any) {
     var minutes = event.target.value;
     this.horaFin = minutes.toString();
+    this.horaFinMinutos = minutes.toString();
   }
 
   fechaEscogida(event: any) {
@@ -254,13 +265,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   minutos(event: any) {
+    debugger
+    // var fecha34 = new Date();
+    // console.log(fecha34);
 
-    var fecha34 = new Date();
-    console.log(fecha34);
+    // var sumarsesion = event.target.value;
+    // var aqui = fecha34.getMinutes() + ":" + (fecha34.setMinutes(fecha34.getMinutes() + sumarsesion) && fecha34.getMinutes());
+    // this.horaFinMinutos = aqui.toString()
 
-    var sumarsesion = event.target.value;
-    var aqui = fecha34.getMinutes() + ":" + (fecha34.setMinutes(fecha34.getMinutes() + sumarsesion) && fecha34.getMinutes());
-    console.log(aqui)
-    this.horaFin = aqui.toString()
+    // var fecha = new Date(),
+    //   dia = fecha.getMinutes(),
+    //   dia = fecha.getUTCMinutes(),
+    //   dia = fecha.getDate(),
+    //   mes = fecha.getMonth() + 1,
+    //   anio = fecha.getFullYear(),
+    //   tiempo = event.target.value,
+    //   addTime = tiempo * 86400; //Tiempo en segundos
+
+    // fecha.setSeconds(addTime); //Añado el tiempo
+
+    // document.body.innerHTML = "Fecha actual: " + dia + "/" + mes + "/" + anio + "<br />";
+    // document.body.innerHTML += "Tiempo añadido: " + tiempo + " días<br />";
+    // document.body.innerHTML += "Fecha final: " + fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+
+    // var fecha = new Date();
+    // var sumarsesion = Number(event.target.value);
+    // var minutes = parseInt(this.horaStarted.substring(3,5));
+
+    // var respuesta33 = fecha.setMinutes(minutes + sumarsesion);
+    // var respueta22 = minutes + ":" + fecha.getMinutes();
+    // console.log(respueta22)
+
+
+
+
+    var fecha = new Date();
+    var sumarsesion = Number(event.target.value);
+    var minutes = fecha.getMinutes();
+
+    var a111 = fecha.setMinutes(minutes + sumarsesion);
+    console.log(a111)
+    var respuesta111 = minutes + ":" + fecha.getMinutes();
+    console.log(respuesta111)
   }
 }
