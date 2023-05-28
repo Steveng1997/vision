@@ -5,5 +5,15 @@ export class Usuario {
     email?: string;
     password?: string;
     rol?: string;
+
+    // Servicios
+
+    fijoDia?: number;
+    servicio?: number;
+    bebida?: number;
+    tabaco?: number;
+    vitamina?: number;
+    propina?: number;
+    otros?: number;
   }
   

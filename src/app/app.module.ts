@@ -34,7 +34,7 @@ import firebase from 'firebase/compat/app';
 // Services
 import { TrabajadoresService } from './core/services/trabajadores';
 import { ServicioService } from './core/services/servicio';
-import { LoginService } from './core/services/login.service';
+import { LoginService } from './core/services/login';
 
 firebase.initializeApp({
   databaseURL: "https://vision-62bf7-default-rtdb.firebaseio.com",

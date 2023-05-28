@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/core/models/usuarios';
-import { LoginService } from 'src/app/core/services/login.service';
+import { LoginService } from 'src/app/core/services/login';
 import Swal from 'sweetalert2';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -34,49 +34,35 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    // this.router.navigate([`menu/`])
-    // if (this.email != '') {
-    //   if (this.password != '') {
-    //     this.serviceLogin.getEmailYPassword(this.email, this.password).then((resp => {
-    //       this.serviceLogin
-    //         .emailExistAndPassword(this.email, this.password)
-    //         .then((dataCategoria) => {
-    //           this.usuarios = dataCategoria;
-    //           if (this.usuarios[0]['rol'] == 'administrador') {
-    //             this.router.navigate([
-    //               `admin/${this.usuarios[0]['id']}/usuarios/${this.usuarios[0]['id']}`,
-    //             ]);
-    //           } else {
-    //             this.router.navigate([`menu/${this.usuarios[0]['id']}`]);
-    //           }
-    //         })
-    //     })).catch((err) => {
-    //       if (err.code == AuthErrorCodes.INVALID_PASSWORD || err.code == AuthErrorCodes.TOO_MANY_ATTEMPTS_TRY_LATER) {
-    //         this.restorePassword();
-    //       }
-    //       else {
-    //         Swal.fire({
-    //           icon: 'error',
-    //           title: 'Oops...',
-    //           text: 'El correo no esta registrado',
-    //         });
-    //       }
-    //     })
-    //   }
-    //   else {
-    //     Swal.fire({
-    //       icon: 'error',
-    //       title: 'Oops...',
-    //       text: 'El campo de la contraseña se encuentra vacío',
-    //     });
-    //   }
-    // } else {
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Oops...',
-    //     text: 'El campo del correo se encuentra vacío',
-    //   });
-    // }
+
+    if (this.usuario != '') {
+      if (this.pass != '') {
+        this.serviceLogin.getByUsuario(this.usuario).then((resp => {
+          if (resp[0] != undefined) {
+
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'No existe este usuario en la base de datos',
+            })
+          }
+        }))
+      }
+      else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El campo de la contraseña se encuentra vacío',
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El campo del usuario se encuentra vacío',
+      });
+    }
   }
 
 
@@ -95,7 +81,35 @@ export class LoginComponent implements OnInit {
   }
 
   registro() {
-    console.log(this.formTemplate.value.nombreRegistro)
+    if (this.formTemplate.value.nombreRegistro) {
+      if (this.formTemplate.value.usuarioRegistro) {
+        if (this.formTemplate.value.passRegistro) {
+          this.trabajadorService.getEncargada(this.nombreEncargada).then((nameExit) => {
 
+          })
+
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El campo de la contraseña se encuentra vacío',
+          });
+        }
+
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El campo del usuario se encuentra vacío',
+        });
+      }
+
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El campo del nombre se encuentra vacío',
+      });
+    }
   }
 }

@@ -34,13 +34,20 @@ export class LoginService {
     return result;
   }
 
-  registerUser(email: string, usuario: string, password: string, rol: string) {
+  registerUser(email: string, usuario: string, password: string) {
     let user = {
       id: `uid${this.makeid(10)}`,
       email: email,
       usuario: usuario,
       password: password,
       rol: 'encargada',
+      fijoDia: 0,
+      servicio: 0,
+      bebida: 0,
+      tabaco: 0,
+      vitamina: 0,
+      propina: 0,
+      otros: 0,
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -51,10 +58,6 @@ export class LoginService {
           (error) => reject(error)
         );
     });
-  }
-
-  registerAutenticacion(email, password) {
-    this.authFire.createUserWithEmailAndPassword(email, password);
   }
 
   // -----------------------------------------------------------------------------------
@@ -86,10 +89,10 @@ export class LoginService {
       .valueChanges();
   }
 
-  getByEmail(email): Promise<any> {
+  getByUsuario(usuario): Promise<any> {
     return new Promise((resolve, reject) => {
       this.db
-        .collection('usuarios', (ref) => ref.where('email', '==', email))
+        .collection('usuarios', (ref) => ref.where('usuario', '==', usuario))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
@@ -140,15 +143,15 @@ export class LoginService {
   }
 
 
-  getEmailYPassword(email, password): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      this.authFire.signInWithEmailAndPassword(email, password)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
-    });
-  }
+  // getEmailYPassword(email, password): Promise<any> {
+  //   return new Promise<any>((resolve, reject) => {
+  //     this.authFire.signInWithEmailAndPassword(email, password)
+  //       .then(
+  //         (response) => resolve(response),
+  //         (error) => reject(error)
+  //       );
+  //   });
+  // }
 
   // -----------------------------------------------------------------------------------
   // End Get
