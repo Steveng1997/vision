@@ -10,11 +10,12 @@ import { VisionComponent } from './navigation/vision/vision.component';
 import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
 import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.component';
+import { LoginComponent } from './navigation/login/login.component';
 
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
   {
-    path: '',
+    path: 'menu',
     component: SidenavWrapperComponent,
     children: [
       {
@@ -56,10 +57,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: '**',
-    redirectTo: '/dashboard',
-    pathMatch: 'full',
-  }
+    path: '',
+    component: LoginComponent
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: '/dashboard',
+  //   pathMatch: 'full',
+  // },
+
 ];
 
 @NgModule({

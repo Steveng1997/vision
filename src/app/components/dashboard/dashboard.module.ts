@@ -36,6 +36,7 @@ import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeu
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
 import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.component';
+import { LoginComponent } from './navigation/login/login.component';
 
 // Pipe
 import { TerapeutaPipe } from 'src/app/core/pipe/terapeuta.pipe';
@@ -49,7 +50,7 @@ import { FechaFinalPipe } from 'src/app/core/pipe/fecha-final.pipe';
     EstadisticaComponent, LiquidacionComponent, NuevoServicioComponent,
     EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
     TrabajadoresComponent, TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FechaFinalPipe,
-    BusquedaPipe],
+    BusquedaPipe, LoginComponent],
 
   imports: [
     CommonModule,
@@ -60,7 +61,6 @@ import { FechaFinalPipe } from 'src/app/core/pipe/fecha-final.pipe';
     TimepickerModule,
     BsDatepickerModule,
     ReactiveFormsModule,
-
 
     // NG Material Modules
     MatSidenavModule,

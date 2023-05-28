@@ -33,4 +33,13 @@ export class Servicio {
   numberEncarg?: number;
   numberOtro?: number;
   nota?: string;
+
+  // servicios
+
+  servicio?: number;
+  bebidas?: number;
+  tabaco?: number;
+  vitaminas?: number;
+  propina?: number;
+  otros?: number;
 }

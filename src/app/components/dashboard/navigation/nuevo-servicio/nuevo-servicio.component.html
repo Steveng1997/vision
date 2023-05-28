@@ -30,8 +30,8 @@
         </div>
 
         <mat-list>
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content style="font-weight: bold;">TIEMPO</mat-drawer-content>
+            <mat-drawer-container>
+                <mat-drawer-content style="font-weight: bold; font-size: large;">TIEMPO</mat-drawer-content>
             </mat-drawer-container>
             <mat-divider></mat-divider>
         </mat-list>
@@ -45,8 +45,7 @@
             </div>
 
             <div class="col-6">
-                <mat-drawer-container class="example-container" style="float: right;" 
-                *ngFor="let hor of fechaLast">
+                <mat-drawer-container class="example-container" style="float: right;" *ngFor="let hor of fechaLast">
                     <mat-drawer-content>{{hor.hora}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
@@ -79,7 +78,7 @@
 
             </div>
 
-            <div class="col-6" style="text-align: -webkit-center; align-self: center;">
+            <div class="col-6" style="text-align: center; align-self: center;">
                 <mat-drawer-container class="example-container">
                     <mat-drawer-content>Hora fin:</mat-drawer-content>
                 </mat-drawer-container>
@@ -92,8 +91,8 @@
         <!-- Servicios -->
 
         <mat-list style="margin-bottom: 5%">
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content style="font-weight: bold;">SERVICIOS</mat-drawer-content>
+            <mat-drawer-container>
+                <mat-drawer-content style="font-weight: bold; font-size: large;">SERVICIOS</mat-drawer-content>
             </mat-drawer-container>
             <mat-divider></mat-divider>
         </mat-list>
@@ -101,41 +100,50 @@
         <div class="row" style="margin-bottom: 5%">
             <div class="col-4">
                 <label>Servicio</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="servicio" />
             </div>
             <div class="col-4">
                 <label>Bebidas</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="bebidas" />
             </div>
             <div class="col-4">
                 <label>Tabaco</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="tabaco" />
             </div>
             <div class="col-4">
                 <label>Vitaminas</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="vitaminas" />
             </div>
             <div class="col-4">
                 <label>Propina</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="propina" />
             </div>
             <div class="col-4">
                 <label>Otros</label>
-                <input type="number" class="form-control" />
+                <input type="number" class="form-control" formControlName="otros" />
             </div>
         </div>
+
+
+
+        <mat-label>Salida</mat-label>
+        <mar-form-field>
+            <mat-checkbox (change)="salida($event)"></mat-checkbox>
+        </mar-form-field>
+
+
 
         <div class="row" style="margin-bottom: 5%">
 
             <div class="col-6">
-                <mat-drawer-container class="example-container">
-                    <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
+                <mat-drawer-container>
+                    <mat-drawer-content style="font-weight: bold; font-size: large;">COBROS</mat-drawer-content>
                 </mat-drawer-container>
             </div>
 
             <div class="col-6">
-                <mat-drawer-container class="example-container" style="float: right;">
-                    <mat-drawer-content style="font-weight: bold;">COBROS</mat-drawer-content>
+                <mat-drawer-container style="float: right;">
+                    <mat-drawer-content style="font-weight: bold; font-size: large;">COBROS</mat-drawer-content>
                 </mat-drawer-container>
             </div>
 

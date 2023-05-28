@@ -1,0 +1,102 @@
+<div class="container">
+
+  <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+    <!-- <div class="card border-0 shadow rounded-3 my-5"> -->
+    <div class="m-0 vh-100 row justify-content-center align-items-center">
+      <div class="card-body p-4 p-sm-7">
+        <div class="card-title text-center mb-3 fw-bolder display-1">
+          <label class="">Reto</label>
+          <label class="text-danger">ICFES</label>
+        </div>
+        <!-- <div class="card-title text-center mb-5 fw-bolder fs-3"> -->
+        <div class="card-title text-center mb-5 fw-bolder display-6">
+          <label>Bienvenido</label>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="form-floating mb-3 col-6">
+            <input [(ngModel)]="usuario" name="usuario" class="form-control" type="email" placeholder="Email" />
+            <label for="usuarioss">Email</label>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="form-floating mb-3 col-6">
+            <input [(ngModel)]="pass" class="form-control" type="password" placeholder="Contraseña" />
+            <label for="contrasena">Contraseña</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <button class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12" (click)="onLogin()">
+              Iniciar
+            </button>
+          </div>
+
+
+          <div class="col-6">
+            <button class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12"
+              (click)="openRegistro(registroLogin)">
+              Registro
+            </button>
+          </div>
+
+        </div>
+
+
+        <!-- Modal -->
+        <ng-template class="custom-modal" #registroLogin let-modal>
+          <div class="modal-header">
+            <h5 class="modal-title"> Registrarte </h5>
+
+            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body" style="text-align: center;">
+            <!-- Aqui se coloca lo adentro -->
+
+            <form [formGroup]="formTemplate" (ngSubmit)="registro()" style="text-align: -webkit-center;">
+
+              <div class="col-6">
+                <div class="row">
+
+                  <mat-form-field>
+                    <mat-label>Nombre:</mat-label>
+                    <input type="text" matInput formControlName="nombreRegistro" name="nombreRegistro">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Usuario:</mat-label>
+                    <input type="text" matInput formControlName="usuarioRegistro" name="usuarioRegistro">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Contraseña:</mat-label>
+                    <input type="password" matInput formControlName="passRegistro" name="passRegistro">
+                  </mat-form-field>
+
+                  <button mat-raised-button type="submit" color="primary">Aceptar</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Afuera -->
+          </div>
+        </ng-template>
+
+        <!-- Fin Modal -->
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
