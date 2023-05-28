@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import 'firebase/compat/app';
 import { Usuario } from '../models/usuarios';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Injectable()
 export class LoginService {
-  myArray: any[] = [];
-  validacion: any = 0;
+
+  servicio: Usuario[] = [];
+  cursoDoc: AngularFirestoreDocument<Usuario>;
 
   constructor(
     public router: Router,
-    private db: AngularFirestore,
-    private authFire: AngularFireAuth
+    private db: AngularFirestore
   ) { }
 
   usuarios: Usuario[] = [];
@@ -34,12 +33,12 @@ export class LoginService {
     return result;
   }
 
-  registerUser(email: string, usuario: string, password: string) {
-    let user = {
+  registerUser(formularioall) {
+    formularioall = {
       id: `uid${this.makeid(10)}`,
-      email: email,
-      usuario: usuario,
-      password: password,
+      nombre: formularioall.nombre,
+      usuario: formularioall.usuario,
+      pass: formularioall.pass,
       rol: 'encargada',
       fijoDia: 0,
       servicio: 0,
@@ -52,7 +51,7 @@ export class LoginService {
     return new Promise<any>((resolve, reject) => {
       this.db
         .collection('usuarios')
-        .add(user)
+        .add(formularioall)
         .then(
           (response) => resolve(response),
           (error) => reject(error)
@@ -177,15 +176,6 @@ export class LoginService {
           });
         });
     })
-  }
-
-
-  async resetPassword(email: string): Promise<void> {
-    try {
-      return this.authFire.sendPasswordResetEmail(email);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   // -----------------------------------------------------------------------------------

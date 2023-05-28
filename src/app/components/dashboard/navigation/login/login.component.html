@@ -15,13 +15,13 @@
 
         <div class="row justify-content-center">
           <div class="form-floating mb-3 col-6">
-            <input [(ngModel)]="usuario" name="usuario" class="form-control" type="text" placeholder="Usuario" />
+            <input [(ngModel)]="usuarioRegistro" name="usuario" class="form-control" type="text" placeholder="Usuario" />
             <label for="usuario">Usuario</label>
           </div>
         </div>
         <div class="row justify-content-center">
           <div class="form-floating mb-3 col-6">
-            <input [(ngModel)]="pass" class="form-control" type="password" placeholder="Contraseña" />
+            <input [(ngModel)]="passRegistro" class="form-control" type="password" placeholder="Contraseña" />
             <label for="contrasena">Contraseña</label>
           </div>
         </div>
@@ -57,24 +57,24 @@
           <div class="modal-body" style="text-align: center;">
             <!-- Aqui se coloca lo adentro -->
 
-            <form [formGroup]="formTemplate" (ngSubmit)="registro()" style="text-align: -webkit-center;">
+            <form [formGroup]="formTemplate" (ngSubmit)="registro(formTemplate.value)" style="text-align: -webkit-center;">
 
               <div class="col-6">
                 <div class="row">
 
                   <mat-form-field>
                     <mat-label>Nombre:</mat-label>
-                    <input type="text" matInput formControlName="nombreRegistro" name="nombreRegistro">
+                    <input type="text" matInput formControlName="nombre" name="nombre">
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Usuario:</mat-label>
-                    <input type="text" matInput formControlName="usuarioRegistro" name="usuarioRegistro">
+                    <input type="text" matInput formControlName="usuario" name="usuario">
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Contraseña:</mat-label>
-                    <input type="password" matInput formControlName="passRegistro" name="passRegistro">
+                    <input type="password" matInput formControlName="pass" name="pass">
                   </mat-form-field>
 
                   <button mat-raised-button type="submit" color="primary">Aceptar</button>

@@ -28,6 +28,7 @@ export class VisionComponent implements OnInit {
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
       this.vision = datoServicio;
+      console.log(this.vision)
     });
   }
 }

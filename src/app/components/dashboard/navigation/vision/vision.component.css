@@ -14,3 +14,13 @@ tr.mat-mdc-footer-row {
 .mat-mdc-table-sticky {
   border-top: 1px solid #e0e0e0;
 }
+
+.color1 {
+  color: var(--c1);
+  font-size: 150%;
+}
+
+.color2 {
+  color: white;
+  background-color: green;
+}

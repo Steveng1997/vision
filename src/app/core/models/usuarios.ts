@@ -2,8 +2,8 @@ export class Usuario {
     id?: string;
     idDocument?: string;
     nombre?: string;
-    email?: string;
-    password?: string;
+    // email?: string;
+    pass?: string;
     rol?: string;
 
     // Servicios

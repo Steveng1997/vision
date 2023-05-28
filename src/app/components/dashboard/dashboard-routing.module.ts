@@ -13,13 +13,12 @@ import { TrabajadoresComponent } from './navigation/trabajadores/trabajadores.co
 import { LoginComponent } from './navigation/login/login.component';
 
 const routes: Routes = [
-  // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
   {
-    path: 'menu',
+    path: 'menu/:id',
     component: SidenavWrapperComponent,
     children: [
       {
-        path: 'vision',
+        path: 'vision/:id',
         component: VisionComponent
       },
       {

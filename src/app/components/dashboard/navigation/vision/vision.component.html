@@ -1,10 +1,6 @@
-<div class="content">
-  <mat-toolbar>
-    <h4> TOTAL HOY 360 € </h4>
-  </mat-toolbar>
-</div>
+<h4> TOTAL HOY 360 € </h4>
 
-<div class="page-content" style="height: calc(100vh - 149px)">
+<div class="page-content">
   <table class="table">
     <thead>
       <tr>
@@ -19,7 +15,8 @@
     </thead>
     <tbody *ngFor="let vis of vision | paginate: { itemsPerPage: 5, currentPage: page }">
       <tr>
-        <td>{{vis.nota}}</td>
+        <td [ngClass]="{'color1':vis.nota == '','color2':vis.nota !== ''}">
+          {{vis.nota}}</td>
         <td>{{vis.terapeuta}}</td>
         <td>{{vis.encargada}}</td>
         <td>{{vis.hora + '-' + vis.horaFin}}</td>
@@ -39,8 +36,4 @@
 
 <!-- Ocupacion -->
 
-<div class="content">
-  <mat-toolbar>
-    <h4> OCUPACIÓN </h4>
-  </mat-toolbar>
-</div>
+<h4> OCUPACIÓN </h4>
