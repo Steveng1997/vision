@@ -32,10 +32,9 @@ export class NuevoServicioComponent implements OnInit {
   formaPago: string = '';
   salidaTrabajador = '';
 
-  horaFin: string;
+
   horaFinMinutos: string;
   horaFinMinutosTest: Date;
-  fechaFinTest: Date;
   fechaPrint: string;
   servicioTotal = 0;
 
@@ -95,7 +94,7 @@ export class NuevoServicioComponent implements OnInit {
     this.getEncargada();
     this.getTerapeuta();
     this.getLastDate();
-    this.horaFinMinutos = this.horaStarted;
+    this.horaFinalServicio = this.horaStarted;
   }
 
   getLastDate() {
@@ -131,19 +130,12 @@ export class NuevoServicioComponent implements OnInit {
 
   addServicio(formValue) {
     debugger
-    console.log(this.formTemplate.value.numberPiso2)
-    console.log(this.fechaActual)
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         this.llenarFormaPago()
         this.totalServicio()
-        if (this.fechaPrint == undefined) {
-          this.fechaActual = this.fechaActual.substring(5, 10);
-          this.fechaPrint = this.fechaActual;
-        }
-        this.horaStarted = this.horaFin;
-        this.servicioService.registerServicio(formValue, this.formaPago, this.fechaPrint,
-          this.horaStarted, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador,
+        this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
+          this.horaStarted, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
           this.fechaHoyInicio, this.fechaHoyFinal).then((rp) => {
             if (rp) {
               Swal.fire({
@@ -281,16 +273,12 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicio(event: any) {
-    var minutes = event.target.value;
-    this.horaFin = minutes.toString();
-    this.horaFinMinutos = minutes.toString();
+    this.horaFinalServicio = event.target.value.toString();
+    this.horaFinMinutos = event.target.value.toString();
   }
 
   fechaEscogida(event: any) {
-    var fecha1 = event.target.value.substring(5, 10);
-    // this.fechaPrint = fecha1;
-    this.fechaFinTest = event.target.value
-    this.fechaActual = fecha1
+    this.fechaActual = event.target.value
   }
 
   minutos(event: any) {

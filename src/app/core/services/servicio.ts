@@ -26,14 +26,14 @@ export class ServicioService {
     return result;
   }
 
-  registerServicio(formularioall, formaPago, fecha, hora, totalServicio, horaFin, salida, fechaHoyInicio, fechaHoyFinal) {
+  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, salida, fechaHoyInicio, fechaHoyFinal) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
       encargada: formularioall.encargada,
       cliente: formularioall.cliente,
       fecha: fecha,
-      hora: hora,
+      horaStart: horaStart,
       minuto: formularioall.minuto,
       efectPiso1: formularioall.efectPiso1,
       bizuPiso1: formularioall.bizuPiso1,
@@ -63,7 +63,7 @@ export class ServicioService {
       nota: formularioall.nota,
       formaPago: formaPago,
       totalServicio: totalServicio,
-      horaFin: horaFin,
+      horaEnd: horaEnd,
       servicio: formularioall.servicio,
       bebidas: formularioall.bebidas,
       tabaco: formularioall.tabaco,
