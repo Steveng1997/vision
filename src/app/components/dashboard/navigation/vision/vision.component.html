@@ -13,7 +13,7 @@
         <th scope="col">Salida</th>
       </tr>
     </thead>
-    <tbody *ngFor="let vis of vision | paginate: { itemsPerPage: 5, currentPage: page }">
+    <tbody *ngFor="let vis of vision ">
       <tr>
         <td [ngClass]="{'color1':vis.nota == '','color2':vis.nota !== ''}">
           {{vis.nota}}</td>
@@ -27,9 +27,7 @@
     </tbody>
   </table>
 
-  <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-    nextLabel="Siguiente">
-  </pagination-controls>
+
 </div>
 
 

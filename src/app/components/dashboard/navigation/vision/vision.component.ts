@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 export class VisionComponent implements OnInit {
 
-  vision: any;
+  vision: any = [];
   page!: number;
 
   constructor(
@@ -27,62 +27,28 @@ export class VisionComponent implements OnInit {
 
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
+      console.log(datoServicio[0])
+      this.vision = datoServicio[0]
 
 
-      debugger
       var fechaDiaHoy = new Date().toISOString().substring(0, 10);
 
-      for (let index = 0; index < datoServicio.length; index++) {
+      // for (let index = 1; index < datoServicio.length; ++index) {
+
+      //   console.log(datoServicio[index]['fechaHoy'])
+
+      //   if(datoServicio[index] == undefined){
+      //     console.log('indefinido')
+      //   }
 
 
-        // posicion = index
-
-        console.log(datoServicio[index]['fechaHoy'])
-
-
-        if (datoServicio[index]['fechaHoy'] === fechaDiaHoy) {
-          this.vision = datoServicio[1];
-        } else {
-          console.log('chupala')
-        }
-
-
-        // var filterFecha = datoServicio.filter(p => p[index]['fechaHoy'] === fechaDiaHoy);
-
-
-        // if (filterFecha.length > 0) {
-        //   this.vision = datoServicio;
-        // } else {
-        //   console.log('chupala')
-        // }
-
-
-        // var fechaDiaHoy = new Intl.DateTimeFormat("az").format(dateConvertion);
-        // console.log(fechaDiaHoy)
-
-
-
-        // Esto filtra por el nombre de ciente
-
-        // var ejemplo = 'holaaa'
-
-        // var filterFecha = datoServicio.filter(p => p['cliente'] === ejemplo);
-
-
-
-        // AQUI HAY EJEMPLOOOOOOOS NO BORRAR
-
-        // var filterFecha = datoServicio.filter(p => p['fechaHoy'] === fechaDiaHoy);
-
-        // console.log(filterFecha)
-
-
-        // if (filterFecha.length > 0) {
-        //   this.vision = datoServicio;
-        // } else {
-        //   console.log('chupala')
-        // }
-      }
+      //   if (datoServicio[index]['fechaHoy'] === fechaDiaHoy) {
+      //     this.vision = datoServicio[index]
+      //     // console.log(datoServicio[index])
+      //   } else {
+      //     console.log('chupala')
+      //   }
+      // }
     });
 
 
