@@ -21,7 +21,8 @@ export class NuevoServicioComponent implements OnInit {
   horaStarted = new Date().toTimeString().substring(0, 5);
 
   dateConvertion = new Date();
-  fechaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
+  fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion);
+  fechaHoyFinal = new Intl.DateTimeFormat("az").format(this.dateConvertion);
 
   terapeuta: any[] = [];
   fechaLast = [];
@@ -33,8 +34,12 @@ export class NuevoServicioComponent implements OnInit {
 
   horaFin: string;
   horaFinMinutos: string;
+  horaFinMinutosTest: Date;
+  fechaFinTest: Date;
   fechaPrint: string;
   servicioTotal = 0;
+
+  horaFinalServicio: string;
 
   sumatoriaServicios = 0;
   restamosCobro = 0;
@@ -125,6 +130,9 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue) {
+    debugger
+    console.log(this.formTemplate.value.numberPiso2)
+    console.log(this.fechaActual)
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         this.llenarFormaPago()
@@ -135,7 +143,8 @@ export class NuevoServicioComponent implements OnInit {
         }
         this.horaStarted = this.horaFin;
         this.servicioService.registerServicio(formValue, this.formaPago, this.fechaPrint,
-          this.horaStarted, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador, this.fechaHoy).then((rp) => {
+          this.horaStarted, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador,
+          this.fechaHoyInicio, this.fechaHoyFinal).then((rp) => {
             if (rp) {
               Swal.fire({
                 position: 'top-end',
@@ -279,22 +288,30 @@ export class NuevoServicioComponent implements OnInit {
 
   fechaEscogida(event: any) {
     var fecha1 = event.target.value.substring(5, 10);
-    this.fechaPrint = fecha1;
+    // this.fechaPrint = fecha1;
+    this.fechaFinTest = event.target.value
+    this.fechaActual = fecha1
   }
 
   minutos(event: any) {
-    var fecha = new Date();
+    debugger
+    let sumarsesion = event;
+    if (event === null) sumarsesion = 0
+
+    debugger
+    console.log(sumarsesion)
+    // Create date by Date and Hour
+    const splitDate = this.fechaActual.toString().split('-')
     console.log(this.horaFinMinutos)
-    // var horaStartedd = new Date().toTimeString().substring(0, 5);
-
-    var sumarsesion = Number(event.target.value);
-    var minutes = fecha.getMinutes();
-
-    fecha.setMinutes(minutes + sumarsesion);
-    var respuesta111 = minutes + ":" + fecha.getMinutes();
-    this.horaFinMinutos = respuesta111;
-
-    console.log(this.horaFinMinutos)
+    const splitHour = this.horaFinMinutos.split(':')
+    let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
+      Number(splitDate[2]), Number(splitHour[0]),
+      Number(splitHour[1]))
+    console.log(defineDate)
+    // debugger                  
+    defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+    console.log(defineDate)
+    this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
   }
 
 

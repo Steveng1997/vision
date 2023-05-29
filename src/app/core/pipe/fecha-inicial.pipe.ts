@@ -5,13 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FechaInicialPipe implements PipeTransform {
 
-  transform(items: any[], param: string): any {
-    if (!param || param?.length < 1) {
+  transform(items: any[], paramFechaInicial: string, paramFechaFinal: string): any {
+    if (!paramFechaInicial || paramFechaInicial?.length < 1) {
       return items;
     }
 
     if (items) {
-      return items.filter((item, index) => item.fecha === param);
+      debugger
+      return items.filter((item, index) => item.fecha >= paramFechaInicial && item.fecha <= paramFechaFinal);
     }
   }
 }

@@ -18,7 +18,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class TablaComponent implements OnInit {
 
   fechaInicio: string;
-  FechaFin: string;
+  fechaFinal: string;
 
   filtredBusqueda: string;
 
@@ -87,11 +87,13 @@ export class TablaComponent implements OnInit {
   //   });
   // }
 
-  dateStart(event: any){
-    this.fechaInicio = event.target.value.substring(5,10)
+  dateStart(event: any) {
+    // this.fechaInicio = event.target.value.substring(5,10)
+    this.fechaInicio = event.target.value;
   }
 
-  dateEnd(event: any){
-    this.FechaFin = event.target.value.substring(5,10)
+  dateEnd(event: any) {
+    // this.FechaFin = event.target.value.substring(0, 10)
+    this.fechaFinal = event.target.value
   }
 }

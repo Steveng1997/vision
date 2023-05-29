@@ -76,7 +76,7 @@
 
             <div class="col-6">
                 <mat-label>Duración(min.)</mat-label>
-                <input class="form-control" type="number" formControlName="minuto" (change)="minutos($event)">
+                <input class="form-control" type="number" formControlName="minuto" (ngModelChange)="minutos($event)">
 
             </div>
 
@@ -85,7 +85,7 @@
                     <mat-drawer-content>Hora fin:</mat-drawer-content>
                 </mat-drawer-container>
                 <mat-drawer-container class="example-container">
-                    <mat-drawer-content style="font-weight: bold;">{{horaFinMinutos}}</mat-drawer-content>
+                    <mat-drawer-content style="font-weight: bold;">{{horaFinalServicio}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>

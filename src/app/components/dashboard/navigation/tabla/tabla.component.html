@@ -93,8 +93,8 @@
                 </tr>
             </thead>
             <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
-                encargada: selectedEncargada | fechaInicial: fechaInicio | 
-                fechaFinal: FechaFin ) | paginate: { itemsPerPage: 5, currentPage: page }">
+                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal ) 
+                | paginate: { itemsPerPage: 5, currentPage: page }">
                 <tr>
                     <!-- 1 -->
                     <td>{{serv.encargada}}</td>
