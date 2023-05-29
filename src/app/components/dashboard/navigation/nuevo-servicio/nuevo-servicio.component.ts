@@ -19,6 +19,8 @@ export class NuevoServicioComponent implements OnInit {
 
   fechaActual = new Date().toISOString().substring(0, 10);
   horaStarted = new Date().toTimeString().substring(0, 5);
+  fechaHoy = new Date().toISOString().substring(0, 10);
+
 
   terapeuta: any[] = [];
   fechaLast = [];
@@ -85,18 +87,18 @@ export class NuevoServicioComponent implements OnInit {
     this.getTerapeuta();
     this.getLastDate();
     this.horaFinMinutos = this.horaStarted;
+    debugger
+    console.log(this.fechaHoy)
   }
 
   getLastDate() {
-    debugger
     this.servicioService.getServicio().subscribe((datoLastDate) => {
-      console.log(datoLastDate[0])
-      if(datoLastDate[0] != undefined){
+      if (datoLastDate[0] != undefined) {
         this.fechaLast[0] = datoLastDate[0];
       } else {
         this.fechaLast = datoLastDate['00:00'];
       }
-     
+
     });
   }
 
@@ -121,7 +123,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue) {
-    debugger
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         this.llenarFormaPago()
@@ -132,7 +133,7 @@ export class NuevoServicioComponent implements OnInit {
         }
         this.horaStarted = this.horaFin;
         this.servicioService.registerServicio(formValue, this.formaPago, this.fechaPrint,
-          this.horaStarted, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador).then((rp) => {
+          this.horaStarted, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador, this.fechaHoy).then((rp) => {
             if (rp) {
               Swal.fire({
                 position: 'top-end',
@@ -290,9 +291,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
 
-  salida(event: any){
-    debugger
-    if(event.checked == true){
+  salida(event: any) {
+    if (event.checked == true) {
       this.salidaTrabajador = 'Salida';
     } else {
       this.salidaTrabajador = '';

@@ -27,8 +27,64 @@ export class VisionComponent implements OnInit {
 
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
-      this.vision = datoServicio;
-      console.log(this.vision)
+
+
+      debugger
+      var fechaDiaHoy = new Date().toISOString().substring(0, 10);
+
+      for (let index = 0; index < datoServicio.length; index++) {
+
+
+        // posicion = index
+
+        console.log(datoServicio[index]['fechaHoy'])
+
+
+        if (datoServicio[index]['fechaHoy'] === fechaDiaHoy) {
+          this.vision = datoServicio[1];
+        } else {
+          console.log('chupala')
+        }
+
+
+        // var filterFecha = datoServicio.filter(p => p[index]['fechaHoy'] === fechaDiaHoy);
+
+
+        // if (filterFecha.length > 0) {
+        //   this.vision = datoServicio;
+        // } else {
+        //   console.log('chupala')
+        // }
+
+
+        // var fechaDiaHoy = new Intl.DateTimeFormat("az").format(dateConvertion);
+        // console.log(fechaDiaHoy)
+
+
+
+        // Esto filtra por el nombre de ciente
+
+        // var ejemplo = 'holaaa'
+
+        // var filterFecha = datoServicio.filter(p => p['cliente'] === ejemplo);
+
+
+
+        // AQUI HAY EJEMPLOOOOOOOS NO BORRAR
+
+        // var filterFecha = datoServicio.filter(p => p['fechaHoy'] === fechaDiaHoy);
+
+        // console.log(filterFecha)
+
+
+        // if (filterFecha.length > 0) {
+        //   this.vision = datoServicio;
+        // } else {
+        //   console.log('chupala')
+        // }
+      }
     });
+
+
   }
 }

@@ -55,17 +55,6 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <div class="content">
-    <h4 *ngIf="router.url === '/menu/`${idUser['id']}`/vision/`${idUser['id']}`'">Visión</h4>
-    <h4 *ngIf="router.url === '/nuevo-servicio'">Nuevo Servicio</h4>
-    <h4 *ngIf="router.url === '/tabla'">TABLA</h4>
-    <h4 *ngIf="router.url === '/liquidacion'">Liquidacion</h4>
-    <h4 *ngIf="router.url === '/estadistica'">ESTADISTICA</h4>
-    <h4 *ngIf="router.url === '/configuracion'">CONFIGURACIÓN</h4>
-    <h4 *ngIf="router.url === '/trabajadores'">TRABAJADORES</h4>
-
-  </div>
-
   <div>
     <router-outlet></router-outlet>
   </div>

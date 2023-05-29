@@ -26,7 +26,7 @@ export class ServicioService {
     return result;
   }
 
-  registerServicio(formularioall, formaPago, fecha, hora, totalServicio, horaFin, salida) {
+  registerServicio(formularioall, formaPago, fecha, hora, totalServicio, horaFin, salida, fechaHoy) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
@@ -70,7 +70,8 @@ export class ServicioService {
       vitaminas: formularioall.vitaminas,
       propina: formularioall.propina,
       otros: formularioall.otros,
-      salida: salida
+      salida: salida,
+      fechaHoy: fechaHoy
     };
     return new Promise<any>((resolve, reject) => {
       this.db

@@ -59,7 +59,6 @@ export class TrabajadoresComponent implements OnInit {
   modalTablaTerapeuta(targetModal, terap) {
 
     this.trabajadorService.getByIdTerapeuta(targetModal).then((datosNameTerapeuta) => {
-      console.log(datosNameTerapeuta)
       return (this.terapeutaModal = datosNameTerapeuta);
     });
 
@@ -72,7 +71,6 @@ export class TrabajadoresComponent implements OnInit {
   modalTablaEncargada(targetModal, terap) {
 
     this.trabajadorService.getByIdEncargada(targetModal).then((datosNameEncargada) => {
-      console.log(datosNameEncargada)
       return (this.encargadaModal = datosNameEncargada);
     });
 
@@ -141,7 +139,6 @@ export class TrabajadoresComponent implements OnInit {
   }
 
   editarEncargada(idDocument, idEstudiante, estud: Trabajadores) {
-    console.log(idDocument, idEstudiante, estud)
     this.trabajadorService.updateEncargadas(idDocument, idEstudiante, estud);
     this.modalService.dismissAll();
     Swal.fire({

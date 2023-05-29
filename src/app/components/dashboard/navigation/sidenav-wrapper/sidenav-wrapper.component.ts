@@ -22,7 +22,6 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    debugger
     this.idUser = this.activeRoute.snapshot.paramMap.get('id');
     this.serviceLogin.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
