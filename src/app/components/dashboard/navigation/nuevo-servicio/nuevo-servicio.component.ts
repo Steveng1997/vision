@@ -19,8 +19,9 @@ export class NuevoServicioComponent implements OnInit {
 
   fechaActual = new Date().toISOString().substring(0, 10);
   horaStarted = new Date().toTimeString().substring(0, 5);
-  fechaHoy = new Date().toISOString().substring(0, 10);
 
+  dateConvertion = new Date();
+  fechaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
 
   terapeuta: any[] = [];
   fechaLast = [];
@@ -34,6 +35,9 @@ export class NuevoServicioComponent implements OnInit {
   horaFinMinutos: string;
   fechaPrint: string;
   servicioTotal = 0;
+
+  sumatoriaServicios = 0;
+  restamosCobro = 0;
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -87,8 +91,6 @@ export class NuevoServicioComponent implements OnInit {
     this.getTerapeuta();
     this.getLastDate();
     this.horaFinMinutos = this.horaStarted;
-    debugger
-    console.log(this.fechaHoy)
   }
 
   getLastDate() {
@@ -282,12 +284,17 @@ export class NuevoServicioComponent implements OnInit {
 
   minutos(event: any) {
     var fecha = new Date();
+    console.log(this.horaFinMinutos)
+    // var horaStartedd = new Date().toTimeString().substring(0, 5);
+
     var sumarsesion = Number(event.target.value);
     var minutes = fecha.getMinutes();
 
     fecha.setMinutes(minutes + sumarsesion);
     var respuesta111 = minutes + ":" + fecha.getMinutes();
     this.horaFinMinutos = respuesta111;
+
+    console.log(this.horaFinMinutos)
   }
 
 
@@ -297,5 +304,93 @@ export class NuevoServicioComponent implements OnInit {
     } else {
       this.salidaTrabajador = '';
     }
+  }
+
+  valueService() {
+
+    let servicio = 0, bebida = 0, tabaco = 0, vitaminas = 0,
+      propina = 0, otros = 0, sumatoria = 0;
+
+    if (this.formTemplate.value.servicio != "" && this.formTemplate.value.servicio != null) {
+      servicio = parseInt(this.formTemplate.value.servicio)
+    } else {
+      servicio = 0;
+    }
+
+    if (this.formTemplate.value.bebidas != "" && this.formTemplate.value.bebidas != null) {
+      bebida = parseInt(this.formTemplate.value.bebidas)
+    } else {
+      bebida = 0;
+    }
+
+    if (this.formTemplate.value.tabaco != "" && this.formTemplate.value.tabaco != null) {
+      tabaco = parseInt(this.formTemplate.value.tabaco)
+    } else {
+      tabaco = 0;
+    }
+
+    if (this.formTemplate.value.vitaminas != "" && this.formTemplate.value.vitaminas != null) {
+      vitaminas = parseInt(this.formTemplate.value.vitaminas)
+    } else {
+      vitaminas = 0;
+    }
+
+    if (this.formTemplate.value.propina != "" && this.formTemplate.value.propina != null) {
+      propina = parseInt(this.formTemplate.value.propina)
+    } else {
+      propina = 0;
+    }
+
+    if (this.formTemplate.value.otros != "" && this.formTemplate.value.otros != null) {
+      otros = parseInt(this.formTemplate.value.otros)
+    } else {
+      otros = 0;
+    }
+
+    sumatoria = servicio + bebida + tabaco + vitaminas + propina + otros;
+    this.sumatoriaServicios = sumatoria;
+    // this.restamosCobro = this.sumatoriaServicios;
+  }
+
+  valueCobros() {
+
+    this.restamosCobro = this.sumatoriaServicios;
+
+    // let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0,
+    //   valueotros = 0, restamos = 0, resultado = 0;
+
+    // if (this.formTemplate.value.numberPiso1 != "" && this.formTemplate.value.numberPiso1 != null) {
+    //   valuepiso1 = parseInt(this.formTemplate.value.numberPiso1)
+    // } else {
+    //   valuepiso1 = 0;
+    // }
+
+    // if (this.formTemplate.value.numberPiso2 != "" && this.formTemplate.value.numberPiso2 != null) {
+    //   valuepiso2 = parseInt(this.formTemplate.value.numberPiso2)
+    // } else {
+    //   valuepiso2 = 0;
+    // }
+
+    // if (this.formTemplate.value.numberTerap != "" && this.formTemplate.value.numberTerap != null) {
+    //   valueterapeuta = parseInt(this.formTemplate.value.numberTerap)
+    // } else {
+    //   valueterapeuta = 0;
+    // }
+
+    // if (this.formTemplate.value.numberEncarg != "" && this.formTemplate.value.numberEncarg != null) {
+    //   valueEncarg = parseInt(this.formTemplate.value.numberEncarg)
+    // } else {
+    //   valueEncarg = 0;
+    // }
+
+    // if (this.formTemplate.value.numberOtro != "" && this.formTemplate.value.numberOtro != null) {
+    //   valueotros = parseInt(this.formTemplate.value.numberOtro)
+    // } else {
+    //   valueotros = 0;
+    // }
+
+    // restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
+    // resultado = this.sumatoriaServicios - restamos
+    // this.restamosCobro = resultado
   }
 }

@@ -11,6 +11,11 @@
         <th scope="col">Tiempo</th>
         <th scope="col">Servicio</th>
         <th scope="col">Salida</th>
+        <th scope="col">Bebida</th>
+        <th scope="col">Tabaco</th>
+        <th scope="col">Vitamina</th>
+        <th scope="col">Propina</th>
+        <th scope="col">Otros</th>
       </tr>
     </thead>
     <tbody *ngFor="let vis of vision ">
@@ -23,6 +28,11 @@
         <td>{{vis.minuto }}</td>
         <td>{{vis.totalServicio + ' €'}}</td>
         <td>{{vis.nota}}</td>
+        <td>{{vis.bebidas + ' €'}}</td>
+        <td>{{vis.tabaco + ' €'}}</td>
+        <td>{{vis.vitaminas + ' €'}}</td>
+        <td>{{vis.propina+ ' €'}}</td>
+        <td>{{vis.otros + ' €'}}</td>
       </tr>
     </tbody>
   </table>

@@ -13,6 +13,8 @@ export class VisionComponent implements OnInit {
 
   vision: any = [];
   page!: number;
+  dateConvertion = new Date();
+  fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
 
   constructor(
     public router: Router,
@@ -26,29 +28,8 @@ export class VisionComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getServicio().subscribe((datoServicio) => {
-      console.log(datoServicio[0])
-      this.vision = datoServicio[0]
-
-
-      var fechaDiaHoy = new Date().toISOString().substring(0, 10);
-
-      // for (let index = 1; index < datoServicio.length; ++index) {
-
-      //   console.log(datoServicio[index]['fechaHoy'])
-
-      //   if(datoServicio[index] == undefined){
-      //     console.log('indefinido')
-      //   }
-
-
-      //   if (datoServicio[index]['fechaHoy'] === fechaDiaHoy) {
-      //     this.vision = datoServicio[index]
-      //     // console.log(datoServicio[index])
-      //   } else {
-      //     console.log('chupala')
-      //   }
-      // }
+    this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
+      this.vision = datoServicio;
     });
 
 

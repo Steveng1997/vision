@@ -47,6 +47,7 @@ export class LoginService {
       vitamina: 0,
       propina: 0,
       otros: 0,
+      activo: true,
     };
     return new Promise<any>((resolve, reject) => {
       this.db

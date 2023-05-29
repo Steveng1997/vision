@@ -15,5 +15,6 @@ export class Usuario {
     vitamina?: number;
     propina?: number;
     otros?: number;
+    activo?: boolean
   }
   
