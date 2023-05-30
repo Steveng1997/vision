@@ -7,7 +7,7 @@
           [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'vision'">
+      <mat-list-item routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}">
         <mat-icon mat-list-icon>Visión</mat-icon>
         <span *ngIf="isExpanded">Visión</span>
       </mat-list-item>
@@ -45,11 +45,6 @@
       <mat-list-item *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'configuracion'">
         <mat-icon mat-list-icon>settings</mat-icon>
         <span *ngIf="isExpanded">Configuracion</span>
-      </mat-list-item>
-
-      <mat-list-item *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'trabajadores'">
-        <mat-icon mat-list-icon>personal</mat-icon>
-        <span *ngIf="isExpanded">Trabajadores</span>
       </mat-list-item>
 
     </mat-nav-list>

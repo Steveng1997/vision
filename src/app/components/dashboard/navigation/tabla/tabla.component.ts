@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
-// import * as moment from 'moment';
-
-// moment().format();
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { LoginService } from 'src/app/core/services/login';
 
 @Component({
   selector: 'app-tabla',
@@ -36,6 +35,7 @@ export class TablaComponent implements OnInit {
 
   encargada: any[] = [];
   selectedEncargada: string;
+  selectedFormPago: string;
 
   servicio: any;
   horario: any[] = []
@@ -45,13 +45,16 @@ export class TablaComponent implements OnInit {
     FechaFin: new FormControl(''),
     terapeuta: new FormControl(''),
     encargada: new FormControl(''),
+    busqueda: new FormControl(''),
   });
 
   constructor(
     public router: Router,
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private modalService: NgbModal,
+    public loginService: LoginService
   ) {
   }
 
@@ -74,26 +77,34 @@ export class TablaComponent implements OnInit {
   }
 
   getEncargada() {
-    this.trabajadorService.getAllEncargada().subscribe((datosEncargada) => {
+    this.loginService.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada;
     });
   }
 
-  // filterEncargada() {
-  //   this.servicio = this.encargada.filter((x) => x.nombre === this.selectedEncargada);
-
-  //   this.servicioService.getEncargada(this.selectedEncargada).then((datosEncargada) => {
-  //     this.servicio = datosEncargada;
-  //   });
-  // }
-
   dateStart(event: any) {
-    // this.fechaInicio = event.target.value.substring(5,10)
     this.fechaInicio = event.target.value;
   }
 
   dateEnd(event: any) {
-    // this.FechaFin = event.target.value.substring(0, 10)
     this.fechaFinal = event.target.value
+  }
+
+  busqueda(event: any) {
+    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+  }
+
+
+  notas(targetModal, modal) {
+    var notaMensaje = [];
+    this.servicioService.getById(targetModal).then((datoServicio) => {
+      notaMensaje = datoServicio[0];
+
+      if (notaMensaje['nota'] != '')
+        this.modalService.open(modal, {
+          centered: true,
+          backdrop: 'static',
+        });
+    });
   }
 }

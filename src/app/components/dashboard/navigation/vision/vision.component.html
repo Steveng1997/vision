@@ -1,47 +1,90 @@
 <h4> TOTAL HOY 360 € </h4>
 
-<div class="page-content">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nota</th>
-        <th scope="col">Terap.</th>
-        <th scope="col">Encarg.</th>
-        <th scope="col">Hora</th>
-        <th scope="col">Tiempo</th>
-        <th scope="col">Servicio</th>
-        <th scope="col">Salida</th>
-        <th scope="col">Bebida</th>
-        <th scope="col">Tabaco</th>
-        <th scope="col">Vitamina</th>
-        <th scope="col">Propina</th>
-        <th scope="col">Otros</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let vis of vision ">
-      <tr>
-        <td [ngClass]="{'color1':vis.nota == '','color2':vis.nota !== ''}">
-          {{vis.nota}}</td>
-        <td>{{vis.terapeuta}}</td>
-        <td>{{vis.encargada}}</td>
-        <td>{{vis.hora + '-' + vis.horaFin}}</td>
-        <td>{{vis.minuto }}</td>
-        <td>{{vis.totalServicio + ' €'}}</td>
-        <td>{{vis.nota}}</td>
-        <td>{{vis.bebidas + ' €'}}</td>
-        <td>{{vis.tabaco + ' €'}}</td>
-        <td>{{vis.vitaminas + ' €'}}</td>
-        <td>{{vis.propina+ ' €'}}</td>
-        <td>{{vis.otros + ' €'}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div style="display: grid; place-items: center;">
+  <div style="text-align: center; width: max-content;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nota</th>
+          <th scope="col">Terap.</th>
+          <th scope="col">Encarg.</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Tiempo</th>
+          <th scope="col">Servicio</th>
+          <th scope="col">Salida</th>
+          <th scope="col">Bebida</th>
+          <th scope="col">Tabaco</th>
+          <th scope="col">Vitamina</th>
+          <th scope="col">Propina</th>
+          <th scope="col">Otros</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let vis of vision ">
+        <tr>
+          <td [ngClass]="{'color2':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
+          <td>{{vis.terapeuta}}</td>
+          <td>{{vis.encargada}}</td>
+          <td>{{vis.horaStart + '-' + vis.horaEnd}}</td>
+          <td>{{vis.minuto }}</td>
+          <td>{{vis.totalServicio + ' €'}}</td>
+          <td>{{vis.nota}}</td>
+          <td>{{vis.bebidas + ' €'}}</td>
+          <td>{{vis.tabaco + ' €'}}</td>
+          <td>{{vis.vitaminas + ' €'}}</td>
+          <td>{{vis.propina+ ' €'}}</td>
+          <td>{{vis.otros + ' €'}}</td>
+        </tr>
 
 
+        <!-- Modal -->
+        <ng-template class="custom-modal" #modalTabl let-modal>
+          <div class="modal-header">
+            <h5 class="modal-title"> Nota </h5>
+            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body" style="text-align: center;">
+            <!-- Aqui se coloca lo adentro -->
+
+            <h4>{{vis.nota}}</h4>
+
+            <!-- Afuera -->
+          </div>
+        </ng-template>
+
+        <!-- Fin Modal -->
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
 
 <!-- Ocupacion -->
 
 <h4> OCUPACIÓN </h4>
+
+<div style="display: grid; place-items: center;">
+  <div style="text-align: center; width: max-content;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Terapeuta</th>
+          <th scope="col">Salida</th>
+          <th scope="col">Fin</th>
+          <th scope="col">Restante</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let vis of vision ">
+        <tr>
+          <td [ngClass]="{'color2':vis.nota !== ''}"></td>
+          <td>{{vis.terapeuta}}</td>
+          <td>{{vis.salida}}</td>
+          <td>{{vis.horaEnd}}</td>
+          <td>{{vis.minuto }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

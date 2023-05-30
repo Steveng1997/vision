@@ -7,7 +7,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Terapeuta</mat-label>
-                <mat-select formControlName="terapeuta" name="terapeuta">
+                <mat-select formControlName="terapeuta" name="terapeuta" (ngModelChange)="terapeu($event)">
                     <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                         {{terap.nombre}}
                     </mat-option>
@@ -31,6 +31,9 @@
             </mat-form-field>
         </div>
 
+
+        <!---------------------------------------- TIEMPO ---------------------------------------->
+
         <mat-list>
             <mat-drawer-container>
                 <mat-drawer-content style="font-weight: bold; font-size: larger;">TIEMPO</mat-drawer-content>
@@ -48,7 +51,7 @@
 
             <div class="col-6">
                 <mat-drawer-container class="example-container" style="float: right;" *ngFor="let hor of fechaLast">
-                    <mat-drawer-content>{{hor.hora}}</mat-drawer-content>
+                    <mat-drawer-content>{{horaStartTerapeuta + '-' + horaEndTerapeuta}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>
@@ -85,12 +88,12 @@
                     <mat-drawer-content>Hora fin:</mat-drawer-content>
                 </mat-drawer-container>
                 <mat-drawer-container class="example-container">
-                    <mat-drawer-content style="font-weight: bold;">{{horaFinalServicio}}</mat-drawer-content>
+                    <mat-drawer-content style="font-weight: bold;">{{horaInicialServicio}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
         </div>
 
-        <!-- Servicios -->
+        <!---------------------------------------- Servicios ---------------------------------------->
 
         <div class="row" style="margin-bottom: 5%">
 
@@ -110,9 +113,6 @@
             <mat-divider></mat-divider>
 
         </div>
-
-
-
 
         <div class="row" style="margin-bottom: 3%">
             <div class="col-4">
@@ -150,6 +150,9 @@
         </div>
 
 
+        <!---------------------------------------- COBROS  ---------------------------------------->
+
+
         <div class="row" style="margin-bottom: 5%">
 
             <div class="col-6">
@@ -167,9 +170,6 @@
 
             <mat-divider></mat-divider>
         </div>
-
-
-        <!-- Cobros -->
 
         <div class="row" style="justify-content: right; margin-bottom: 4%;">
 
@@ -218,7 +218,8 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Piso 2</mat-label>
-                <input matInput type="number" formControlName="numberPiso2" class="form-control">
+                <input matInput type="number" formControlName="numberPiso2" (ngModelChange)="valueCobros()"
+                    class="form-control">
             </div>
 
             <mar-form-field class="col-2">
@@ -241,7 +242,8 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Terapeuta</mat-label>
-                <input matInput type="number" formControlName="numberTerap" class="form-control">
+                <input matInput type="number" formControlName="numberTerap" (ngModelChange)="valueCobros()"
+                    class="form-control">
             </div>
 
             <mar-form-field class="col-2">
@@ -264,7 +266,8 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Encargada</mat-label>
-                <input matInput type="number" formControlName="numberEncarg" class="form-control">
+                <input matInput type="number" formControlName="numberEncarg" (ngModelChange)="valueCobros()"
+                    class="form-control">
             </div>
 
             <mar-form-field class="col-2">
@@ -287,7 +290,8 @@
         <div class="row" style="margin-bottom: 5%;">
             <div class="col-4">
                 <mat-label>Otro</mat-label>
-                <input matInput type="number" formControlName="numberOtro" class="form-control">
+                <input matInput type="number" formControlName="numberOtro" (ngModelChange)="valueCobros()"
+                    class="form-control">
             </div>
 
             <mar-form-field class="col-2">

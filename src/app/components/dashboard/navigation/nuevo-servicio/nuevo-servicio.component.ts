@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { LoginService } from 'src/app/core/services/login';
 
 @Component({
   selector: 'app-nuevo-servicio',
@@ -17,12 +18,14 @@ import { } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class NuevoServicioComponent implements OnInit {
 
+  horaStartTerapeuta = ''
+  horaEndTerapeuta = ''
+
   fechaActual = new Date().toISOString().substring(0, 10);
   horaStarted = new Date().toTimeString().substring(0, 5);
 
   dateConvertion = new Date();
   fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion);
-  fechaHoyFinal = new Intl.DateTimeFormat("az").format(this.dateConvertion);
 
   terapeuta: any[] = [];
   fechaLast = [];
@@ -34,11 +37,10 @@ export class NuevoServicioComponent implements OnInit {
 
 
   horaFinMinutos: string;
-  horaFinMinutosTest: Date;
   fechaPrint: string;
   servicioTotal = 0;
 
-  horaFinalServicio: string;
+  horaInicialServicio: string;
 
   sumatoriaServicios = 0;
   restamosCobro = 0;
@@ -75,7 +77,6 @@ export class NuevoServicioComponent implements OnInit {
     numberEncarg: new FormControl(''),
     numberOtro: new FormControl(''),
     nota: new FormControl(''),
-
     servicio: new FormControl(''),
     bebidas: new FormControl(''),
     tabaco: new FormControl(''),
@@ -88,13 +89,14 @@ export class NuevoServicioComponent implements OnInit {
     public router: Router,
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
+    public serviceLogin: LoginService
   ) { }
 
   ngOnInit(): void {
     this.getEncargada();
     this.getTerapeuta();
     this.getLastDate();
-    this.horaFinalServicio = this.horaStarted;
+    this.horaInicialServicio = this.horaStarted;
   }
 
   getLastDate() {
@@ -115,7 +117,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   getEncargada() {
-    this.trabajadorService.getAllEncargada().subscribe((datosEncargada) => {
+    this.serviceLogin.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada;
     });
   }
@@ -129,26 +131,33 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue) {
-    debugger
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
-        this.llenarFormaPago()
-        this.totalServicio()
-        this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
-          this.horaStarted, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
-          this.fechaHoyInicio, this.fechaHoyFinal).then((rp) => {
-            if (rp) {
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Insertado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
-              });
-            }
-            localStorage.clear();
-          })
-
+        debugger
+        if (this.restamosCobro == 0) {
+          this.llenarFormaPago()
+          this.totalServicio()
+          this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
+            this.horaInicialServicio, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador,
+            this.fechaHoyInicio).then((rp) => {
+              if (rp) {
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: '¡Insertado Correctamente!',
+                  showConfirmButton: false,
+                  timer: 2500,
+                });
+              }
+              localStorage.clear();
+            })
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El valor debe quedar en 0 cobros',
+          });
+        }
       } else {
         Swal.fire({
           icon: 'error',
@@ -273,7 +282,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicio(event: any) {
-    this.horaFinalServicio = event.target.value.toString();
+    this.horaInicialServicio = event.target.value.toString();
     this.horaFinMinutos = event.target.value.toString();
   }
 
@@ -282,24 +291,19 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   minutos(event: any) {
-    debugger
     let sumarsesion = event;
     if (event === null) sumarsesion = 0
 
-    debugger
-    console.log(sumarsesion)
     // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-')
-    console.log(this.horaFinMinutos)
     const splitHour = this.horaFinMinutos.split(':')
+
     let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
       Number(splitDate[2]), Number(splitHour[0]),
       Number(splitHour[1]))
-    console.log(defineDate)
-    // debugger                  
+
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-    console.log(defineDate)
-    this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+    this.horaInicialServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
   }
 
 
@@ -354,48 +358,90 @@ export class NuevoServicioComponent implements OnInit {
 
     sumatoria = servicio + bebida + tabaco + vitaminas + propina + otros;
     this.sumatoriaServicios = sumatoria;
-    // this.restamosCobro = this.sumatoriaServicios;
+    debugger
+    this.restamosCobro = sumatoria;
+
+    const restamos = Number(this.formTemplate.value.numberPiso1) + Number(this.formTemplate.value.numberPiso2) +
+      Number(this.formTemplate.value.numberTerap) + Number(this.formTemplate.value.numberEncarg) +
+      Number(this.formTemplate.value.numberOtro)
+
+    if (parseInt(this.formTemplate.value.numberPiso1) != 0 && this.formTemplate.value.numberPiso1 != "") {
+      this.restamosCobro = sumatoria - restamos
+    }
+
+    if (parseInt(this.formTemplate.value.numberPiso2) != 0 && this.formTemplate.value.numberPiso2 != "") {
+      this.restamosCobro = sumatoria - restamos
+    }
+
+    if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.numberTerap != "") {
+      this.restamosCobro = sumatoria - restamos
+    }
+
+    if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.numberEncarg != "") {
+      this.restamosCobro = sumatoria - restamos
+    }
+
+    if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.numberOtro != "") {
+      this.restamosCobro = sumatoria - restamos
+    }
   }
 
   valueCobros() {
 
-    this.restamosCobro = this.sumatoriaServicios;
+    let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0,
+      valueotros = 0, restamos = 0, resultado = 0;
 
-    // let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0,
-    //   valueotros = 0, restamos = 0, resultado = 0;
+    debugger
 
-    // if (this.formTemplate.value.numberPiso1 != "" && this.formTemplate.value.numberPiso1 != null) {
-    //   valuepiso1 = parseInt(this.formTemplate.value.numberPiso1)
-    // } else {
-    //   valuepiso1 = 0;
-    // }
+    if (this.formTemplate.value.numberPiso1 != "" && this.formTemplate.value.numberPiso1 != null) {
+      valuepiso1 = parseInt(this.formTemplate.value.numberPiso1)
+    } else {
+      valuepiso1 = 0;
+    }
 
-    // if (this.formTemplate.value.numberPiso2 != "" && this.formTemplate.value.numberPiso2 != null) {
-    //   valuepiso2 = parseInt(this.formTemplate.value.numberPiso2)
-    // } else {
-    //   valuepiso2 = 0;
-    // }
+    if (this.formTemplate.value.numberPiso2 != "" && this.formTemplate.value.numberPiso2 != null) {
+      valuepiso2 = parseInt(this.formTemplate.value.numberPiso2)
+    } else {
+      valuepiso2 = 0;
+    }
 
-    // if (this.formTemplate.value.numberTerap != "" && this.formTemplate.value.numberTerap != null) {
-    //   valueterapeuta = parseInt(this.formTemplate.value.numberTerap)
-    // } else {
-    //   valueterapeuta = 0;
-    // }
+    if (this.formTemplate.value.numberTerap != "" && this.formTemplate.value.numberTerap != null) {
+      valueterapeuta = parseInt(this.formTemplate.value.numberTerap)
+    } else {
+      valueterapeuta = 0;
+    }
 
-    // if (this.formTemplate.value.numberEncarg != "" && this.formTemplate.value.numberEncarg != null) {
-    //   valueEncarg = parseInt(this.formTemplate.value.numberEncarg)
-    // } else {
-    //   valueEncarg = 0;
-    // }
+    if (this.formTemplate.value.numberEncarg != "" && this.formTemplate.value.numberEncarg != null) {
+      valueEncarg = parseInt(this.formTemplate.value.numberEncarg)
+    } else {
+      valueEncarg = 0;
+    }
 
-    // if (this.formTemplate.value.numberOtro != "" && this.formTemplate.value.numberOtro != null) {
-    //   valueotros = parseInt(this.formTemplate.value.numberOtro)
-    // } else {
-    //   valueotros = 0;
-    // }
+    if (this.formTemplate.value.numberOtro != "" && this.formTemplate.value.numberOtro != null) {
+      valueotros = parseInt(this.formTemplate.value.numberOtro)
+    } else {
+      valueotros = 0;
+    }
 
-    // restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
-    // resultado = this.sumatoriaServicios - restamos
-    // this.restamosCobro = resultado
+    if (this.formTemplate.value.servicio != "" && this.formTemplate.value.servicio != null) {
+      resultado = Number(this.formTemplate.value.servicio) - valuepiso1
+    }
+
+    restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
+    resultado = this.sumatoriaServicios - restamos
+    this.restamosCobro = resultado
   }
-}
+
+  terapeu(event: any) {
+    debugger
+    this.servicioService.getTerapeutaByAsc(event).then((rp) => {
+      if (rp[0] != undefined) {
+        this.horaStartTerapeuta = rp[0]['horaStart']
+        this.horaEndTerapeuta = rp[0]['horaEnd']
+      }
+
+    })
+    this.horaStartTerapeuta = ''
+    this.horaEndTerapeuta = ''
+  }
+} 

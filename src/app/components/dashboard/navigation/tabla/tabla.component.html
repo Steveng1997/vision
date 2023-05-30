@@ -25,10 +25,11 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Tipo pago</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
-                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                        {{encarg.nombre}}
-                    </mat-option>
+                <mat-select formControlName="encargada" [(ngModel)]="selectedFormPago">
+                    <mat-option value="efectivo"> Efectivo </mat-option>
+                    <mat-option value="bizum"> Bizum </mat-option>
+                    <mat-option value="tarjeta"> Tarjeta </mat-option>
+                    <mat-option value="trans"> Transacción </mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -41,10 +42,11 @@
                 <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
             </div>
 
-            <mat-form-field class="col-6">
+            <div class="col-6">
                 <mat-label>Buscar</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
+                <input type="text" class="form-control" (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                <!-- <input class="form-control" type="text" (change)="busqueda($event)"> -->
+            </div>
         </div>
     </div>
 
@@ -93,11 +95,12 @@
                 </tr>
             </thead>
             <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
-                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal ) 
+                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
+                | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
                 | paginate: { itemsPerPage: 5, currentPage: page }">
                 <tr>
                     <!-- 1 -->
-                    <td>{{serv.encargada}}</td>
+                    <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
                     <!-- 2 -->
                     <td>{{serv.fecha}}</td>
                     <!-- 3 -->
@@ -133,6 +136,27 @@
                     <!-- 18 -->
                     <td>{{serv.cliente}}</td>
                 </tr>
+
+                <!-- Modal -->
+                <ng-template class="custom-modal" #modalTabl let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Nota </h5>
+                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body" style="text-align: center;">
+                        <!-- Aqui se coloca lo adentro -->
+
+                        <h4>{{serv.nota}}</h4>
+
+                        <!-- Afuera -->
+                    </div>
+                </ng-template>
+
+                <!-- Fin Modal -->
+
             </tbody>
         </table>
 

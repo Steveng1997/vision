@@ -1,0 +1,19 @@
+.color1 {
+    background: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.color2 {
+    background: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 10%;
+    margin-left: 20%;
+}

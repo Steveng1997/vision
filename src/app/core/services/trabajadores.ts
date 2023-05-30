@@ -33,26 +33,17 @@ export class TrabajadoresService {
     return result;
   }
 
-  registerEncargada(nombre: string) {
-    let trabajador = {
-      id: `uid${this.makeid(10)}`,
-      nombre: nombre
-    };
-    return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('encargadas')
-        .add(trabajador)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
-    });
-  }
-
   registerTerapeuta(nombre: string) {
     let trabajador = {
       id: `uid${this.makeid(10)}`,
-      nombre: nombre
+      nombre: nombre,
+      servicio: 0,
+      bebida: 0,
+      tabaco: 0,
+      vitamina: 0,
+      otros: 0,
+      propina: 0,
+      activo: true,
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -72,44 +63,6 @@ export class TrabajadoresService {
   // -----------------------------------------------------------------------------------
   // Get
   // -----------------------------------------------------------------------------------
-
-  getAllEncargada() {
-    return this.db
-      .collection('encargadas', (ref) => ref.orderBy('nombre', 'asc'))
-      .valueChanges()
-  }
-
-  getEncargada(nombre: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db
-        .collection('encargadas', (ref) => ref.where('nombre', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
-  }
-
-  getByIdEncargada(id): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.db
-        .collection('encargadas', (ref) => ref.where('id', '==', id))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
-  }
-
-  // Terapeutas
 
   getByIdTerapeuta(id): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -161,12 +114,6 @@ export class TrabajadoresService {
       .update(terapeuta);
   }
 
-  updateEncargadas(idDocument, idEncargada, encargada: Trabajadores) {
-    return this.db.collection('encargadas', (ref) => ref.where('id', '==', idEncargada))
-      .doc(idDocument)
-      .update(encargada);
-  }
-
   // -----------------------------------------------------------------------------------
   // End Update
   // -----------------------------------------------------------------------------------
@@ -178,13 +125,6 @@ export class TrabajadoresService {
   async deleteTerapeuta(idDocument, id): Promise<any> {
     this.db
       .collection('terapeutas', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .delete();
-  }
-
-  async deleteEncargadas(idDocument, id): Promise<any> {
-    this.db
-      .collection('encargadas', (ref) => ref.where('id', '==', id))
       .doc(idDocument)
       .delete();
   }

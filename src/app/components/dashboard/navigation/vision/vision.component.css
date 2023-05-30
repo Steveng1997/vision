@@ -15,12 +15,12 @@ tr.mat-mdc-footer-row {
   border-top: 1px solid #e0e0e0;
 }
 
-.color1 {
-  color: var(--c1);
-  font-size: 150%;
-}
-
 .color2 {
-  color: white;
-  background-color: green;
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 5%;
+  margin-left: 20%;
 }

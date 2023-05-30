@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-vision',
@@ -19,7 +20,8 @@ export class VisionComponent implements OnInit {
   constructor(
     public router: Router,
     public servicioService: ServicioService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private modalService: NgbModal
   ) {
   }
 
@@ -31,7 +33,18 @@ export class VisionComponent implements OnInit {
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
     });
+  }
 
+  notas(targetModal, modal) {
+    var notaMensaje = [];
+    this.servicioService.getById(targetModal).then((datoServicio) => {
+      notaMensaje = datoServicio[0];
 
+      if (notaMensaje['nota'] != '')
+        this.modalService.open(modal, {
+          centered: true,
+          backdrop: 'static',
+        });
+    });
   }
 }

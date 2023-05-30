@@ -1,17 +1,20 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'fechaFinal'
+  name: 'formaPago'
 })
-export class FechaFinalPipe implements PipeTransform {
+export class FormaPagoPipe implements PipeTransform {
 
   transform(items: any[], param: string): any {
+
+    debugger
+
     if (!param || param?.length < 1) {
       return items;
     }
 
     if (items) {
-      return items.filter((item, index) => item.fecha === param);
+      return items.filter((item, index) => item.formaPago.indexOf(param.toLowerCase()) > -1);
     }
   }
 }

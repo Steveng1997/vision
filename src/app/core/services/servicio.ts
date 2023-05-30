@@ -26,7 +26,7 @@ export class ServicioService {
     return result;
   }
 
-  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, salida, fechaHoyInicio, fechaHoyFinal) {
+  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, salida, fechaHoyInicio) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
@@ -71,8 +71,7 @@ export class ServicioService {
       propina: formularioall.propina,
       otros: formularioall.otros,
       salida: salida,
-      fechaHoyInicio: fechaHoyInicio,
-      fechaHoyFinal: fechaHoyFinal,
+      fechaHoyInicio: fechaHoyInicio
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -97,6 +96,36 @@ export class ServicioService {
     return this.db
       .collection('servicio', (ref) => ref.orderBy('id', 'asc'))
       .valueChanges();
+  }
+
+  getById(id: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('id', '==', id))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getTerapeutaByAsc(nombre: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('terapeuta', '==', nombre).orderBy('id', 'asc'))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
   }
 
   getTerapeuta(nombre: string): Promise<any> {
@@ -132,7 +161,7 @@ export class ServicioService {
   getFechaHoy(fecha): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
-        .collection('servicio', (ref) => ref.where('fechaHoy', '==', fecha))
+        .collection('servicio', (ref) => ref.where('fechaHoyInicio', '==', fecha))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
@@ -143,21 +172,6 @@ export class ServicioService {
         });
     });
   }
-
-  // getFechaInicialAndFinal(fechaInicial, fechaFinal): Promise<any> {
-  //   return new Promise((resolve, _reject) => {
-  //     this.db
-  //       .collection('servicio', (ref) => ref.where('fecha', '==', fechaInicial).where('fecha', '==', fechaFinal))
-  //       .valueChanges({ idField: 'idDocument' })
-  //       .subscribe((rp) => {
-  //         if (rp[0]?.idDocument) {
-  //           resolve(rp);
-  //         } else {
-  //           resolve(rp);
-  //         }
-  //       });
-  //   });
-  // }
 
   // -----------------------------------------------------------------------------------
   // Get
