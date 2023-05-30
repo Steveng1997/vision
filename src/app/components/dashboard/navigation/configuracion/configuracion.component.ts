@@ -63,8 +63,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   modalTablaEncargada(targetModal, encargadas) {
-    console.log(targetModal, encargadas)
-
     this.usuarioService.getById(targetModal).then((datosNameEncargada) => {
       return (this.encargadaModal = datosNameEncargada);
     });

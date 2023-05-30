@@ -3,7 +3,6 @@ import 'firebase/compat/app';
 import { Servicio } from '../models/servicio';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class ServicioService {
@@ -71,7 +70,8 @@ export class ServicioService {
       propina: formularioall.propina,
       otros: formularioall.otros,
       salida: salida,
-      fechaHoyInicio: fechaHoyInicio
+      fechaHoyInicio: fechaHoyInicio,
+      path: 'servicio',
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -94,7 +94,7 @@ export class ServicioService {
 
   getServicio() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('id', 'asc'))
+      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'asc'))
       .valueChanges();
   }
 
@@ -181,12 +181,12 @@ export class ServicioService {
   // Update
   // -----------------------------------------------------------------------------------
 
-  //   updateRetos(idDocumentReto, idReto, reto: Retos) {
-  //     return this.db
-  //       .collection('retos', (ref) => ref.where('id', '==', idReto))
-  //       .doc(idDocumentReto)
-  //       .update(reto);
-  //   }
+    updateServicio(idDocumentServicio, idServicio, servi: Servicio) {
+      return this.db
+        .collection('servicio', (ref) => ref.where('id', '==', idServicio))
+        .doc(idDocumentServicio)
+        .update(servi);
+    }
 
 
   // -----------------------------------------------------------------------------------
@@ -197,19 +197,12 @@ export class ServicioService {
   // Delete
   // -----------------------------------------------------------------------------------
 
-  //   async deleteRetos(idDocument, id): Promise<any> {
-  //     this.db
-  //       .collection('retos', (ref) => ref.where('id', '==', id))
-  //       .doc(idDocument)
-  //       .delete();
-  //   }
-
-  //   async deleteRetoPersonal(idDocument, id): Promise<any> {
-  //     this.db
-  //       .collection('retoPersonal', (ref) => ref.where('id', '==', id))
-  //       .doc(idDocument)
-  //       .delete();
-  //   }
+    async deleteServicio(idDocument, id): Promise<any> {
+      this.db
+        .collection('servicio', (ref) => ref.where('id', '==', id))
+        .doc(idDocument)
+        .delete();
+    }
 
   // -----------------------------------------------------------------------------------
   // End Delete

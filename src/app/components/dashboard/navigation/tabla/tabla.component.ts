@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import * as XLSX from 'xlsx';
 
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from 'src/app/core/services/login';
+
 
 @Component({
   selector: 'app-tabla',
@@ -40,6 +42,9 @@ export class TablaComponent implements OnInit {
   servicio: any;
   horario: any[] = []
 
+  fileName = 'tabla.xlsx'
+  idUser: string;
+
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
     FechaFin: new FormControl(''),
@@ -54,14 +59,22 @@ export class TablaComponent implements OnInit {
     public servicioService: ServicioService,
     public fb: FormBuilder,
     private modalService: NgbModal,
-    public loginService: LoginService
+    public loginService: LoginService,
+    private activeRoute: ActivatedRoute,
   ) {
   }
 
   ngOnInit(): void {
+    this.idUser = this.activeRoute.snapshot.paramMap.get('id');
+    this.loginService.getById(this.idUser).then((rp) => {
+      this.idUser = rp[0]
+    })
+
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
+
+
   }
 
   getServicio() {
@@ -94,7 +107,6 @@ export class TablaComponent implements OnInit {
     this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
   }
 
-
   notas(targetModal, modal) {
     var notaMensaje = [];
     this.servicioService.getById(targetModal).then((datoServicio) => {
@@ -106,5 +118,19 @@ export class TablaComponent implements OnInit {
           backdrop: 'static',
         });
     });
+  }
+
+  exportTableToExcel() {
+    let element = document.getElementById('excel-table')
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
+    const wb: XLSX.WorkBook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
+    XLSX.writeFile(wb, this.fileName)
+  }
+
+  editamos(id: string) {
+    this.router.navigate([
+      `menu/${this.idUser['id']}/nuevo-servicio/${id}`,
+    ]);
   }
 }

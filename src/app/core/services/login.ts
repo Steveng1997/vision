@@ -48,6 +48,7 @@ export class LoginService {
       propina: 0,
       otros: 0,
       activo: true,
+      path: 'usuarios'
     };
     return new Promise<any>((resolve, reject) => {
       this.db

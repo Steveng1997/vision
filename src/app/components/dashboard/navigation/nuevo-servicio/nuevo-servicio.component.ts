@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 import { ServicioService } from 'src/app/core/services/servicio';
-import { } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { LoginService } from 'src/app/core/services/login';
+import { Servicio } from 'src/app/core/models/servicio';
 
 @Component({
   selector: 'app-nuevo-servicio',
@@ -28,13 +28,13 @@ export class NuevoServicioComponent implements OnInit {
   fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion);
 
   terapeuta: any[] = [];
+
   fechaLast = [];
   encargada: any[] = [];
 
   chageDate = '';
   formaPago: string = '';
   salidaTrabajador = '';
-
 
   horaFinMinutos: string;
   fechaPrint: string;
@@ -44,6 +44,11 @@ export class NuevoServicioComponent implements OnInit {
 
   sumatoriaServicios = 0;
   restamosCobro = 0;
+
+  // Editar
+
+  editar: string;
+  editarService: Servicio[];
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -89,10 +94,13 @@ export class NuevoServicioComponent implements OnInit {
     public router: Router,
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
-    public serviceLogin: LoginService
+    public serviceLogin: LoginService,
+    private activeRoute: ActivatedRoute,
+    private serviceUser: LoginService
   ) { }
 
   ngOnInit(): void {
+    this.cargar();
     this.getEncargada();
     this.getTerapeuta();
     this.getLastDate();
@@ -106,7 +114,6 @@ export class NuevoServicioComponent implements OnInit {
       } else {
         this.fechaLast = datoLastDate['00:00'];
       }
-
     });
   }
 
@@ -133,12 +140,11 @@ export class NuevoServicioComponent implements OnInit {
   addServicio(formValue) {
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
-        debugger
         if (this.restamosCobro == 0) {
           this.llenarFormaPago()
           this.totalServicio()
           this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
-            this.horaInicialServicio, this.servicioTotal, this.horaFinMinutos, this.salidaTrabajador,
+            this.horaFinMinutos, this.servicioTotal, this.horaInicialServicio, this.salidaTrabajador,
             this.fechaHoyInicio).then((rp) => {
               if (rp) {
                 Swal.fire({
@@ -358,7 +364,6 @@ export class NuevoServicioComponent implements OnInit {
 
     sumatoria = servicio + bebida + tabaco + vitaminas + propina + otros;
     this.sumatoriaServicios = sumatoria;
-    debugger
     this.restamosCobro = sumatoria;
 
     const restamos = Number(this.formTemplate.value.numberPiso1) + Number(this.formTemplate.value.numberPiso2) +
@@ -390,8 +395,6 @@ export class NuevoServicioComponent implements OnInit {
 
     let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0,
       valueotros = 0, restamos = 0, resultado = 0;
-
-    debugger
 
     if (this.formTemplate.value.numberPiso1 != "" && this.formTemplate.value.numberPiso1 != null) {
       valuepiso1 = parseInt(this.formTemplate.value.numberPiso1)
@@ -433,7 +436,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   terapeu(event: any) {
-    debugger
     this.servicioService.getTerapeutaByAsc(event).then((rp) => {
       if (rp[0] != undefined) {
         this.horaStartTerapeuta = rp[0]['horaStart']
@@ -443,5 +445,88 @@ export class NuevoServicioComponent implements OnInit {
     })
     this.horaStartTerapeuta = ''
     this.horaEndTerapeuta = ''
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // -------------------------------------------- Editamos ---------------------------------------------
+
+  cargar() {
+    this.editar = this.activeRoute.snapshot.paramMap.get('id');
+    this.servicioService.getById(this.editar).then((datosServicio: any[]) => {
+      if (datosServicio.length != 0) {
+        this.editar = datosServicio[0];
+        this.editarService = datosServicio;
+      } else {
+        this.serviceUser.getById(this.editar).then((datosUsuario: any) => {
+          this.editar = datosUsuario[0];
+        });
+      }
+    });
+  }
+
+  editarServicio(idDocument, idServicio, serv: Servicio) {
+    this.servicioService.updateServicio(idDocument, idServicio, serv);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡Editado Correctamente!',
+      showConfirmButton: false,
+      timer: 2500,
+    });
+    this.router.navigate([`menu/${idServicio}/tabla/${idServicio}`]);
+  }
+
+  eliminarServicio(id) {
+    this.servicioService.getById(id).then((datoEliminado) => {
+      if (datoEliminado) {
+        Swal.fire({
+          title: '¿Deseas eliminar el registro?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si, Deseo eliminar!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: '¡Eliminado Correctamente!',
+              showConfirmButton: false,
+              timer: 2500,
+            });
+          }
+        });
+        this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id).then((datoEliminado) => {
+          this.router.navigate([`menu/${id}/tabla/${id}`]);
+        });
+      }
+    });
   }
 } 

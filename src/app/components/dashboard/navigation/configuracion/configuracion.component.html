@@ -76,21 +76,21 @@
                     <th scope="col">Otros</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
+            <tbody (click)="modalTablaEncargada(encg.id, modalTabl)" *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
                 <tr>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)"
+                    <td
                         [ngClass]="{'color1':encg.activo == false, 'color2':encg.activo === true}">
                     </td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.nombre}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.usuario}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.pass}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.fijoDia + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.servicio + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.bebida + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.tabaco + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.vitamina + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.otros + " %"}}</td>
-                    <td (click)="modalTablaEncargada(encg.id, modalTabl)">{{encg.propina + " %"}}</td>
+                    <td>{{encg.nombre}}</td>
+                    <td>{{encg.usuario}}</td>
+                    <td>{{encg.pass}}</td>
+                    <td>{{encg.fijoDia + " %"}}</td>
+                    <td>{{encg.servicio + " %"}}</td>
+                    <td>{{encg.bebida + " %"}}</td>
+                    <td>{{encg.tabaco + " %"}}</td>
+                    <td>{{encg.vitamina + " %"}}</td>
+                    <td>{{encg.otros + " %"}}</td>
+                    <td>{{encg.propina + " %"}}</td>
                 </tr>
 
                 <!-- Modal -->

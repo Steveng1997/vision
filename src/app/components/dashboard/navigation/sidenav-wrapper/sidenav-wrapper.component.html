@@ -12,12 +12,12 @@
         <span *ngIf="isExpanded">Visión</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'nuevo-servicio'">
+      <mat-list-item routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}">
         <mat-icon mat-list-icon>manage_accounts</mat-icon>
         <span *ngIf="isExpanded">Nuevo Servicio</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'tabla'">
+      <mat-list-item routerLink="/menu/{{ idUser['id'] }}/tabla/{{idUser['id']}}">
         <mat-icon mat-list-icon>table</mat-icon>
         <span *ngIf="isExpanded">Tabla</span>
       </mat-list-item>

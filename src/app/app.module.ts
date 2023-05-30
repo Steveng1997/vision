@@ -8,9 +8,6 @@ import { AppComponent } from './app.component';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 // MAT
 import { MatSidenavModule } from '@angular/material/sidenav';

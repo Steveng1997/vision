@@ -1,7 +1,7 @@
-<h4> TOTAL HOY 360 € </h4>
+<h4 class="totalHoy"> TOTAL HOY 360 € </h4>
 
-<div style="display: grid; place-items: center;">
-  <div style="text-align: center; width: max-content;">
+<div class="padre">
+  <div class="hijo">
     <table class="table">
       <thead>
         <tr>
@@ -21,7 +21,7 @@
       </thead>
       <tbody *ngFor="let vis of vision ">
         <tr>
-          <td [ngClass]="{'color2':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
+          <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
           <td>{{vis.terapeuta}}</td>
           <td>{{vis.encargada}}</td>
           <td>{{vis.horaStart + '-' + vis.horaEnd}}</td>
@@ -62,10 +62,10 @@
 
 <!-- Ocupacion -->
 
-<h4> OCUPACIÓN </h4>
+<h4 class="ocupacion"> OCUPACIÓN </h4>
 
-<div style="display: grid; place-items: center;">
-  <div style="text-align: center; width: max-content;">
+<div class="padre">
+  <div class="hijo">
     <table class="table">
       <thead>
         <tr>
@@ -78,11 +78,13 @@
       </thead>
       <tbody *ngFor="let vis of vision ">
         <tr>
-          <td [ngClass]="{'color2':vis.nota !== ''}"></td>
+          <td
+            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">
+          </td>
           <td>{{vis.terapeuta}}</td>
           <td>{{vis.salida}}</td>
           <td>{{vis.horaEnd}}</td>
-          <td>{{vis.minuto }}</td>
+          <td>{{calculardiferencia(vis.horaEnd)}}</td>
         </tr>
       </tbody>
     </table>

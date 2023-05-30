@@ -7,8 +7,6 @@ export class FormaPagoPipe implements PipeTransform {
 
   transform(items: any[], param: string): any {
 
-    debugger
-
     if (!param || param?.length < 1) {
       return items;
     }

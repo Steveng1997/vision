@@ -33,6 +33,7 @@ export class Servicio {
   numberEncarg?: number;
   numberOtro?: number;
   nota?: string;
+  salida?: boolean;
 
   // servicios
 
@@ -42,4 +43,8 @@ export class Servicio {
   vitaminas?: number;
   propina?: number;
   otros?: number;
+
+  // Hora
+  horaStart?: string;
+  horaEnd?: string;
 }

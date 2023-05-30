@@ -21,11 +21,11 @@ const routes: Routes = [
         component: VisionComponent
       },
       {
-        path: 'nuevo-servicio',
+        path: 'nuevo-servicio/:id',
         component: NuevoServicioComponent
       },
       {
-        path: 'tabla',
+        path: 'tabla/:id',
         component: TablaComponent
       },
       {
@@ -54,12 +54,10 @@ const routes: Routes = [
     path: '',
     component: LoginComponent
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '/dashboard',
-  //   pathMatch: 'full',
-  // },
-
+  {
+    path: '**',
+    component: LoginComponent
+  },
 ];
 
 @NgModule({
