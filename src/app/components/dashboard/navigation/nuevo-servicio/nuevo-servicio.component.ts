@@ -36,11 +36,11 @@ export class NuevoServicioComponent implements OnInit {
   formaPago: string = '';
   salidaTrabajador = '';
 
-  horaFinMinutos: string;
+  horaInicialServicio: string;
   fechaPrint: string;
   servicioTotal = 0;
 
-  horaInicialServicio: string;
+  horaFinalServicio: string;
 
   sumatoriaServicios = 0;
   restamosCobro = 0;
@@ -105,6 +105,7 @@ export class NuevoServicioComponent implements OnInit {
     this.getTerapeuta();
     this.getLastDate();
     this.horaInicialServicio = this.horaStarted;
+    this.horaFinalServicio = this.horaStarted;
   }
 
   getLastDate() {
@@ -144,7 +145,7 @@ export class NuevoServicioComponent implements OnInit {
           this.llenarFormaPago()
           this.totalServicio()
           this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
-            this.horaFinMinutos, this.servicioTotal, this.horaInicialServicio, this.salidaTrabajador,
+            this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
             this.fechaHoyInicio).then((rp) => {
               if (rp) {
                 Swal.fire({
@@ -288,8 +289,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicio(event: any) {
+    this.horaFinalServicio = event.target.value.toString();
     this.horaInicialServicio = event.target.value.toString();
-    this.horaFinMinutos = event.target.value.toString();
   }
 
   fechaEscogida(event: any) {
@@ -302,14 +303,18 @@ export class NuevoServicioComponent implements OnInit {
 
     // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-')
-    const splitHour = this.horaFinMinutos.split(':')
+    const splitHour = this.horaInicialServicio.split(':')
 
     let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
       Number(splitDate[2]), Number(splitHour[0]),
       Number(splitHour[1]))
 
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-    this.horaInicialServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+    this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+
+    let hora = this.horaFinalServicio.slice(0, 2);
+    let minutes = this.horaFinalServicio.slice(3, 5);
+    this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
   }
 
 

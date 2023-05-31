@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as XLSX from 'xlsx';
+import $ from "jquery";
 
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
@@ -45,6 +46,16 @@ export class TablaComponent implements OnInit {
   fileName = 'tabla.xlsx'
   idUser: string;
 
+  totalServicio: number;
+  totalValorTerapeuta: number;
+  totalValorEncargada: number;
+  totalValorAOtros: number;
+  TotalValorBebida: number;
+  TotalValorTabaco: number;
+  totalValorVitaminas: number;
+  totalValorPropina: number;
+  totalValorOtroServ: number;
+
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
     FechaFin: new FormControl(''),
@@ -73,14 +84,42 @@ export class TablaComponent implements OnInit {
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
-
-
   }
 
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
       this.servicio = datoServicio;
-    });
+      this.sumaTotalServicios();
+    })
+  }
+
+  sumaTotalServicios() {
+    const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+    this.totalServicio = totalServ;
+
+    const totalTera = this.servicio.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0);
+    this.totalValorTerapeuta = totalTera;
+
+    const totalEncarg = this.servicio.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0);
+    this.totalValorEncargada = totalEncarg;
+
+    const totalOtr = this.servicio.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0);
+    this.totalValorAOtros = totalOtr;
+
+    const totalValorBebida = this.servicio.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0);
+    this.TotalValorBebida = totalValorBebida;
+
+    const totalValorTab = this.servicio.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0);
+    this.TotalValorTabaco = totalValorTab;
+
+    const totalValorVitamina = this.servicio.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0);
+    this.totalValorVitaminas = totalValorVitamina;
+
+    const totalValorProp = this.servicio.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0);
+    this.totalValorPropina = totalValorProp;
+
+    const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0);
+    this.totalValorOtroServ = totalValorOtroServicio;
   }
 
   getTerapeuta() {

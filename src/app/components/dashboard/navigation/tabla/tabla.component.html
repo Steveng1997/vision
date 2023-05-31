@@ -48,13 +48,15 @@
                 <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
             </mat-form-field>
         </div>
-
-        <img src="./assets/excel.png" (click)="exportTableToExcel()" width="30">
     </div>
 
     <!-- table -->
 
     <div style="display: grid; place-items: center;">
+
+
+        <img src="./assets/excel.png" style="display: grid; margin-inline-end: auto; margin-left: 1%;"
+            (click)="exportTableToExcel()" width="30">
         <div style="text-align: center; width: max-content;">
             <table class="table" id="excel-table">
                 <thead>
@@ -169,3 +171,57 @@
         </div>
     </div>
 </form>
+
+<!-- Table Total Todo -->
+
+<div style="display: grid; place-items: center;">
+
+    <div style="text-align: center; width: max-content;">
+        <table class="table" id="excel-table">
+            <thead>
+                <tr>
+                    <!-- 1 -->
+                    <th scope="col">Total Servicio</th>
+                    <!-- 2 -->
+                    <th scope="col">Total Terapeuta</th>
+                    <!-- 3 -->
+                    <th scope="col">Total Encargada</th>
+                    <!-- 4 -->
+                    <th scope="col">Total Otro Cobro</th>
+                    <!-- 5 -->
+                    <th scope="col">Total Bebida</th>
+                    <!-- 6 -->
+                    <th scope="col">Total Tabaco</th>
+                    <!-- 7 -->
+                    <th scope="col">Total Vitamina</th>
+                    <!-- 8 -->
+                    <th scope="col">Total Propina</th>
+                    <!-- 9 -->
+                    <th scope="col">Total Servicio Otros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- 1 -->
+                    <td>{{totalServicio}}</td>
+                    <!-- 2 -->
+                    <td>{{totalValorTerapeuta}}</td>
+                    <!-- 3 -->
+                    <td>{{totalValorEncargada}}</td>
+                    <!-- 4 -->
+                    <td>{{totalValorAOtros}}</td>
+                    <!-- 5 -->
+                    <td>{{TotalValorBebida}}</td>
+                    <!-- 6 -->
+                    <td>{{TotalValorTabaco}}</td>
+                    <!-- 7 -->
+                    <td>{{totalValorVitaminas}}</td>
+                    <!-- 8 -->
+                    <td>{{totalValorPropina}}</td>
+                    <!-- 9 -->
+                    <td>{{totalValorOtroServ}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

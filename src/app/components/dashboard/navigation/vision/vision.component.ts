@@ -17,6 +17,7 @@ export class VisionComponent implements OnInit {
   dateConvertion = new Date();
   fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
   restante: string;
+  totalServicio: number;
 
   constructor(
     public router: Router,
@@ -34,7 +35,13 @@ export class VisionComponent implements OnInit {
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
       this.calculardiferencia(datoServicio[0]['horaEnd']);
+      this.sumaTotalServicio();
     });
+  }
+
+  sumaTotalServicio() {
+    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+    this.totalServicio = totalServ;
   }
 
   notas(targetModal, modal) {
