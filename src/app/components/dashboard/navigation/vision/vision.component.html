@@ -24,7 +24,7 @@
           <th scope="col">Otros</th>
         </tr>
       </thead>
-      <tbody *ngFor="let vis of vision ">
+      <tbody (click)="editamos(vis.id)" *ngFor="let vis of vision ">
         <tr>
           <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
           <td>{{vis.terapeuta}}</td>
@@ -39,7 +39,6 @@
           <td>{{vis.propina+ ' €'}}</td>
           <td>{{vis.otros + ' €'}}</td>
         </tr>
-
 
         <!-- Modal -->
         <ng-template class="custom-modal" #modalTabl let-modal>

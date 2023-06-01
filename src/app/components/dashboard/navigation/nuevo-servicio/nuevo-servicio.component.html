@@ -171,7 +171,7 @@
                 <div class="col-6">
                     <mat-drawer-container style="float: right;">
                         <mat-drawer-content
-                            style="font-weight: bold; font-size: larger;">{{restamosCobro}}</mat-drawer-content>
+                            style="font-weight: bold; font-size: larger;">{{sumatoriaCobros}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
 
@@ -732,13 +732,15 @@
 
         <div class="container" *ngFor="let edServ of editarService">
             <div class="row">
+
                 <div class="col-6">
                     <button mat-raised-button style="display: grid; margin: auto;"
                         (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Editar</button>
                 </div>
-                <div class="col-6">
+
+                <div class="col-6" *ngIf="editar['rol'] === 'administrador'">
                     <button mat-raised-button style="display: grid; margin: auto;" (click)="eliminarServicio(edServ.id)"
-                        color="danger">Eliminar</button>
+                        color="warn">Eliminar</button>
                 </div>
             </div>
         </div>

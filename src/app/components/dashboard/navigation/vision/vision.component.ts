@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginService } from 'src/app/core/services/login';
 
 @Component({
   selector: 'app-vision',
@@ -18,29 +19,37 @@ export class VisionComponent implements OnInit {
   fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
   restante: string;
   totalServicio: number;
+  idUser: string;
 
   constructor(
     public router: Router,
     public servicioService: ServicioService,
     public fb: FormBuilder,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private activeRoute: ActivatedRoute,
+    private loginService: LoginService
   ) {
   }
 
   ngOnInit(): void {
+    this.idUser = this.activeRoute.snapshot.paramMap.get('id');
+    this.loginService.getById(this.idUser).then((rp) => {
+      this.idUser = rp[0]
+    })
     this.getServicio();
   }
 
   getServicio() {
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
+      console.log(datoServicio)
       this.calculardiferencia(datoServicio[0]['horaEnd']);
       this.sumaTotalServicio();
     });
   }
 
   sumaTotalServicio() {
-    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+    const totalServ = this.vision.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0);
     this.totalServicio = totalServ;
   }
 
@@ -90,5 +99,11 @@ export class VisionComponent implements OnInit {
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
     return horas + ':' + (minutos < 10 ? '0' : '') + minutos
+  }
+
+  editamos(id: string) {
+    this.router.navigate([
+      `menu/${this.idUser['id']}/nuevo-servicio/${id}`,
+    ]);
   }
 }

@@ -1,9 +1,213 @@
 .color2 {
-    background: blue;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 10%;
-    margin-left: 20%;
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
+.acomodarInput {
+  margin-top: 3%;
+}
+
+.espacioTotales {
+  left: 63%;
+}
+
+/* 
+@media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
+
+  .espacioTotales {
+    margin-left: 206%;
+    inline-size: max-content;
+  }
+}
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 358px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 155%;
+  }
+}
+
+@media only screen and (min-device-width: 359px) and (max-device-width: 369px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 170%;
+  }
+}
+
+@media only screen and (min-device-width: 370px) and (max-device-width: 380px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 160%;
+  }
+}
+
+@media only screen and (min-device-width: 385px) and (max-device-width: 395px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 152%;
+  }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 142%;
+  }
+}
+
+@media only screen and (min-device-width: 539px) and (max-device-width: 550px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 97%;
+  }
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 769px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 57%;
+  }
+}
+
+@media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 51%;
+  }
+}
+
+@media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    left: 42%;
+  }
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .espacioTotales {
+    margin-left: 3%;
+  }
+}
+
+@media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
+  .acomodarInput {
+    margin-top: 2%;
+  }
+
+  .espacioTotales {
+    margin-left: -40%;
+  }
+
+  .lblTotal {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .totlServicio{
+    margin-left: 8%;
+  }
+
+  .totlTerapeuta{
+    margin-left: 3%;
+  }
+
+  .totlEncargada{
+    margin-left: 3%;
+  }
+
+  .totlOtros{
+    margin-left: 3%;
+  }
+
+  .totlBebida{
+    margin-left: 3%;
+  }
+
+  .toltTabaco{
+    margin-left: 1%;
+  }
+
+  .toltVitamina{
+    margin-left: 1%;
+  }
+
+  .toltPropina{
+    margin-left: 3%;
+  }
+
+  .totlOtrosServ{
+    margin-left: 3%;
+  }
+}
+
+@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
+  .acomodarInput {
+    margin-top: 2%;
+  }
+
+  .espacioTotales {
+    margin-left: -43%;
+  }
+
+  .lblTotal {
+    font-weight: bold;
+    font-size: x-large;
+  }
+} */
+
+
+.flex-container {
+
+  width: 0;
+  height: 50px;
+  margin: auto;
+  display: -webkit-box;
+  margin-right: 60%;
+
+}
+
+.flex-item {
+  display: table;
+  width: 0;
+  height: 0;
+  margin: 10px;
+}

@@ -28,10 +28,10 @@ const routes: Routes = [
         path: 'tabla/:id',
         component: TablaComponent
       },
-      {
-        path: 'liquidacion',
-        component: LiquidacionComponent
-      },
+      // {
+      //   path: 'liquidacion',
+      //   component: LiquidacionComponent
+      // },
       {
         path: 'estadistica',
         component: EstadisticaComponent

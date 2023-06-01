@@ -22,7 +22,7 @@
         <span *ngIf="isExpanded">Tabla</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'liquidacion'" (click)="isLiquidacion = !isLiquidacion">
+      <mat-list-item (click)="isLiquidacion = !isLiquidacion">
         <mat-icon mat-list-icon>payments</mat-icon>
         <span *ngIf="isExpanded">Liquidacion</span>
       </mat-list-item>

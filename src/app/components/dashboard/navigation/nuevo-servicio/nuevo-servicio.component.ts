@@ -44,6 +44,7 @@ export class NuevoServicioComponent implements OnInit {
 
   sumatoriaServicios = 0;
   restamosCobro = 0;
+  sumatoriaCobros = 0;
 
   // Editar
 
@@ -141,6 +142,7 @@ export class NuevoServicioComponent implements OnInit {
   addServicio(formValue) {
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
+        // NO SE DEBE CREAR FECHA ATRAS SI YA PASO LAS 12 HORAS PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
         if (this.restamosCobro == 0) {
           this.llenarFormaPago()
           this.totalServicio()
@@ -435,6 +437,8 @@ export class NuevoServicioComponent implements OnInit {
       resultado = Number(this.formTemplate.value.servicio) - valuepiso1
     }
 
+    this.sumatoriaCobros = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
+
     restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
     resultado = this.sumatoriaServicios - restamos
     this.restamosCobro = resultado
@@ -496,6 +500,9 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   editarServicio(idDocument, idServicio, serv: Servicio) {
+    // DESDE LA FECHA ACTUAL Y SI PASA 12 HORAS NO SE PUEDE EDITAR MADAAAAAAAAAAAAAAAAAA!
+    // SE PUEDE EDITAR SOLAMENTE SI ESTA EN RANGO DE LAS 12 HORAS DESDE LA FECHA ACTUAL
+    // PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
     this.servicioService.updateServicio(idDocument, idServicio, serv);
     Swal.fire({
       position: 'top-end',
