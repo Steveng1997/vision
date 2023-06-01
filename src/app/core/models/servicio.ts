@@ -34,6 +34,7 @@ export class Servicio {
   numberOtro?: number;
   nota?: string;
   salida?: boolean;
+  liquidado?: boolean;
 
   // servicios
 

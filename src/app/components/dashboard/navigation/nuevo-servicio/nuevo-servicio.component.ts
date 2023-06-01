@@ -50,6 +50,7 @@ export class NuevoServicioComponent implements OnInit {
 
   editar: string;
   editarService: Servicio[];
+  sumaErrorMetodo: number;
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -140,33 +141,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue) {
+    debugger
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         // NO SE DEBE CREAR FECHA ATRAS SI YA PASO LAS 12 HORAS PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
-        if (this.restamosCobro == 0) {
-          this.llenarFormaPago()
-          this.totalServicio()
-          this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
-            this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
-            this.fechaHoyInicio).then((rp) => {
-              if (rp) {
-                Swal.fire({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: '¡Insertado Correctamente!',
-                  showConfirmButton: false,
-                  timer: 2500,
-                });
-              }
-              localStorage.clear();
-            })
+        this.errorMetodo();
+        if (this.sumaErrorMetodo == 0) {
+          if (this.restamosCobro == 0) {
+            this.llenarFormaPago()
+            this.totalServicio()
+            this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
+              this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
+              this.fechaHoyInicio).then((rp) => {
+                if (rp) {
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Insertado Correctamente!',
+                    showConfirmButton: false,
+                    timer: 2500,
+                  });
+                  this.router.navigate([
+                    `menu/${this.encargada['id']}/vision/${this.encargada['id']}`
+                  ]);
+                }
+                localStorage.clear();
+              })
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'El valor debe quedar en 0 cobros',
+            });
+          }
         } else {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'El valor debe quedar en 0 cobros',
+            text: 'No se ha seleccionado los metodos de pago',
           });
         }
+
       } else {
         Swal.fire({
           icon: 'error',
@@ -182,6 +197,42 @@ export class NuevoServicioComponent implements OnInit {
         text: 'No hay ninguna terapeuta seleccionada',
       });
     }
+  }
+
+  errorMetodo() {
+    let errorPiso1 = 0, errorPiso2 = 0, errorTerapeuta = 0, errorEncargada = 0, errorOtro = 0;
+
+    if (this.formTemplate.value.numberPiso1 != "" && this.formTemplate.value.efectPiso1 == false &&
+      this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.tarjPiso1 == false &&
+      this.formTemplate.value.transPiso1 == false) {
+      errorPiso1 = 1;
+    }
+
+    if (this.formTemplate.value.numberPiso2 != "" && this.formTemplate.value.efectPiso2 == false &&
+      this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.tarjPiso2 == false &&
+      this.formTemplate.value.transPiso2 == false) {
+      errorPiso2 = 1;
+    }
+
+    if (this.formTemplate.value.numberTerap != "" && this.formTemplate.value.efectTerap == false &&
+      this.formTemplate.value.bizuTerap == false && this.formTemplate.value.tarjTerap == false &&
+      this.formTemplate.value.transTerap == false) {
+      errorTerapeuta = 1;
+    }
+
+    if (this.formTemplate.value.numberEncarg != "" && this.formTemplate.value.efectEncarg == false &&
+      this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.tarjEncarg == false &&
+      this.formTemplate.value.transEncarg == false) {
+      errorEncargada = 1;
+    }
+
+    if (this.formTemplate.value.numberOtro != "" && this.formTemplate.value.efectOtro == false &&
+      this.formTemplate.value.bizuOtro == false && this.formTemplate.value.tarjOtro == false &&
+      this.formTemplate.value.transOtro == false) {
+      errorOtro = 1;
+    }
+
+    this.sumaErrorMetodo = errorPiso1 + errorPiso2 + errorTerapeuta + errorEncargada + errorOtro;
   }
 
   totalServicio() {
@@ -511,7 +562,9 @@ export class NuevoServicioComponent implements OnInit {
       showConfirmButton: false,
       timer: 2500,
     });
-    this.router.navigate([`menu/${idServicio}/tabla/${idServicio}`]);
+    this.router.navigate([
+      `menu/${this.encargada[0]['id']}/tabla/${this.encargada[0]['id']}`
+    ]);
   }
 
   eliminarServicio(id) {

@@ -166,11 +166,6 @@ export class ConfiguracionComponent implements OnInit {
     });
   }
 
-
-
-
-
-
   // Terapeuta
 
   openTerapeuta(targetModal) {

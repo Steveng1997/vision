@@ -42,7 +42,6 @@ export class VisionComponent implements OnInit {
   getServicio() {
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
-      console.log(datoServicio)
       this.calculardiferencia(datoServicio[0]['horaEnd']);
       this.sumaTotalServicio();
     });
@@ -103,7 +102,7 @@ export class VisionComponent implements OnInit {
 
   editamos(id: string) {
     this.router.navigate([
-      `menu/${this.idUser['id']}/nuevo-servicio/${id}`,
+      `menu/${this.idUser['id']}/nuevo-servicio/${id}`
     ]);
   }
 }
