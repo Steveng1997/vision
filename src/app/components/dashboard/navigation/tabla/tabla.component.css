@@ -16,15 +16,32 @@
   left: 63%;
 }
 
-/* 
+.flex-item {
+  display: table;
+  width: 0;
+  height: 0;
+  margin: 10px;
+}
+
+.flex-container {
+  width: 0;
+  height: 50px;
+  margin: auto;
+  display: -webkit-box;
+  margin-right: 42%;
+}
+
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
   .acomodarInput {
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    margin-left: 206%;
-    inline-size: max-content;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -33,8 +50,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 155%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -43,8 +64,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 170%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-left: 161%;
   }
 }
 
@@ -53,8 +78,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 160%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-left: 155%;
   }
 }
 
@@ -63,8 +92,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 152%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-left: 147%;
   }
 }
 
@@ -73,8 +106,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 142%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-left: 137%;
   }
 }
 
@@ -83,8 +120,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 97%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -93,8 +134,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 57%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -103,8 +148,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 51%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -113,8 +162,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    left: 42%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -123,8 +176,12 @@
     margin-top: 5%;
   }
 
-  .espacioTotales {
-    margin-left: 3%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -133,49 +190,12 @@
     margin-top: 2%;
   }
 
-  .espacioTotales {
-    margin-left: -40%;
-  }
-
-  .lblTotal {
-    font-weight: bold;
-    font-size: large;
-  }
-
-  .totlServicio{
-    margin-left: 8%;
-  }
-
-  .totlTerapeuta{
-    margin-left: 3%;
-  }
-
-  .totlEncargada{
-    margin-left: 3%;
-  }
-
-  .totlOtros{
-    margin-left: 3%;
-  }
-
-  .totlBebida{
-    margin-left: 3%;
-  }
-
-  .toltTabaco{
-    margin-left: 1%;
-  }
-
-  .toltVitamina{
-    margin-left: 1%;
-  }
-
-  .toltPropina{
-    margin-left: 3%;
-  }
-
-  .totlOtrosServ{
-    margin-left: 3%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
 }
 
@@ -184,30 +204,11 @@
     margin-top: 2%;
   }
 
-  .espacioTotales {
-    margin-left: -43%;
+  .flex-container {
+    width: 0;
+    height: 50px;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 60%;
   }
-
-  .lblTotal {
-    font-weight: bold;
-    font-size: x-large;
-  }
-} */
-
-
-.flex-container {
-
-  width: 0;
-  height: 50px;
-  margin: auto;
-  display: -webkit-box;
-  margin-right: 60%;
-
-}
-
-.flex-item {
-  display: table;
-  width: 0;
-  height: 0;
-  margin: 10px;
 }

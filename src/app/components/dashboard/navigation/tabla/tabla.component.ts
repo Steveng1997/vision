@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as XLSX from 'xlsx';
-import $ from "jquery";
 
 // Service
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
