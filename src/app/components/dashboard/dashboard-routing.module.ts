@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
-import { LiquidacionComponent } from './navigation/liquidacion/liquidacion.component';
 import { EstadisticaComponent } from './navigation/estadistica/estadistica.component';
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
@@ -28,10 +27,6 @@ const routes: Routes = [
         path: 'tabla/:id',
         component: TablaComponent
       },
-      // {
-      //   path: 'liquidacion',
-      //   component: LiquidacionComponent
-      // },
       {
         path: 'estadistica',
         component: EstadisticaComponent

@@ -1,11 +1,11 @@
-<div class="text-center mt-4 mb-4">
+<div *ngIf="liqTep" class="text-center mt-4 mb-4">
     <button class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
     <div>
         <label> Nueva liquidación </label>
     </div>
 </div>
 
-<form *ngIf="mostrar" [formGroup]="formTemplate">
+<form *ngIf="liqTep" [formGroup]="formTemplate">
 
     <div class="container">
         <div class="row">
@@ -47,7 +47,7 @@
 
 
 
-<div *ngIf="mostrar" style="display: grid; place-items: center;">
+<div *ngIf="liqTep" style="display: grid; place-items: center;">
     <div style="text-align: center; width: max-content;">
         <table class="table" id="excel-table">
             <thead>
@@ -118,6 +118,50 @@
 </div>
 
 
-<div *ngIf="mostraradd">
-    <label> Hola soy yo </label>
+<div *ngIf="addTerap" class="text-center mt-4 mb-4">
+    <div class="container">
+        <div class="row">
+
+            <form [formGroup]="formTemplate">
+
+                <mat-form-field class="col-6">
+                    <mat-label>Terapeuta</mat-label>
+                    <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
+                        <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                            {{terap.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <mat-label>Encargada</mat-label>
+                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                        <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                            {{encarg.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <mat-list class="col-8">
+            <mat-drawer-container>
+                <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de {{selectedTerapeuta}} </mat-drawer-content>
+            </mat-drawer-container>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <label class="col-4">dd</label>
+    </div>
+
+    
+    <div style="margin-bottom: 5%;">
+        <mat-drawer-container class="example-container">
+            <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+</div>
+

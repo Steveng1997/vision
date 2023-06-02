@@ -72,7 +72,7 @@ export class ServicioService {
       salida: salida,
       fechaHoyInicio: fechaHoyInicio,
       path: 'servicio',
-      liquidado: true
+      liquidado: false
     };
     return new Promise<any>((resolve, reject) => {
       this.db

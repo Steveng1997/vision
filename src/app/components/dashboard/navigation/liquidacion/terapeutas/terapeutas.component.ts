@@ -12,8 +12,8 @@ import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 })
 export class TerapeutasComponent implements OnInit {
 
-  mostrar: boolean;
-  mostraradd: boolean;
+  liqTep: boolean;
+  addTerap: boolean;
   filtredBusqueda: string;
   servicio: any;
   page!: number;
@@ -21,7 +21,6 @@ export class TerapeutasComponent implements OnInit {
   // Encargada
   encargada: any[] = [];
   selectedEncargada: string;
-
 
   // Terapeuta
   terapeuta: any[] = [];
@@ -49,8 +48,8 @@ export class TerapeutasComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.mostrar = true;
-    this.mostraradd = false;
+    this.liqTep = true;
+    this.addTerap = false;
 
     this.getServicio();
     this.getEncargada();
@@ -88,8 +87,8 @@ export class TerapeutasComponent implements OnInit {
   }
 
   addLiquidacion() {
-    this.mostrar = false;
-    this.mostraradd = true
+    this.liqTep = false;
+    this.addTerap = true
   }
 
 }
