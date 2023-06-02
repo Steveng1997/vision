@@ -33,16 +33,16 @@ export class TrabajadoresService {
     return result;
   }
 
-  registerTerapeuta(nombre: string) {
+  registerTerapeuta(nombre: string, servicio: number, bebida: number, tabaco: number, vitamina: number, otros: number, propina: number) {
     let trabajador = {
       id: `uid${this.makeid(10)}`,
       nombre: nombre,
-      servicio: 0,
-      bebida: 0,
-      tabaco: 0,
-      vitamina: 0,
-      otros: 0,
-      propina: 0,
+      servicio: servicio,
+      bebida: bebida,
+      tabaco: tabaco,
+      vitamina: vitamina,
+      otros: otros,
+      propina: propina,
       activo: true,
     };
     return new Promise<any>((resolve, reject) => {

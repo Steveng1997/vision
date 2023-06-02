@@ -1,6 +1,123 @@
-<div class="text-center">
-    <button class="btn btn-primary rounded-circle">+</button>
+<div class="text-center mt-4 mb-4">
+    <button class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
     <div>
-        <label> Nueva liquidación</label>
+        <label> Nueva liquidación </label>
     </div>
+</div>
+
+<form *ngIf="mostrar" [formGroup]="formTemplate">
+
+    <div class="container">
+        <div class="row">
+
+            <mat-form-field class="col-6">
+                <mat-label>Terapeuta</mat-label>
+                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
+                    <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                        {{terap.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="col-6">
+                <mat-label>Encargada</mat-label>
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                        {{encarg.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="col-6">
+                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+            </div>
+
+
+            <div class="col-6">
+                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
+            </div>
+
+            <mat-form-field class="col-6 acomodarInput">
+                <mat-label>Buscar</mat-label>
+                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+
+
+
+<div *ngIf="mostrar" style="display: grid; place-items: center;">
+    <div style="text-align: center; width: max-content;">
+        <table class="table" id="excel-table">
+            <thead>
+                <tr>
+                    <!-- 1 -->
+                    <th scope="col">Terapeuta</th>
+                    <!-- 2 -->
+                    <th scope="col">Encargada</th>
+                    <!-- 3 -->
+                    <th scope="col">Desde</th>
+                    <!-- 4 -->
+                    <th scope="col">Hasta</th>
+                    <!-- 5 -->
+                    <th scope="col">Hora</th>
+                    <!-- 5 -->
+                    <th scope="col">Servicios</th>
+                    <!-- 6 -->
+                    <th scope="col">Importe</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
+                | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
+                <tr>
+                    <!-- 1 -->
+                    <td>{{serv.terapeuta}}</td>
+                    <!-- 2 -->
+                    <td>{{serv.encargada}}</td>
+                    <!-- 3 -->
+                    <td>{{serv.fecha}}</td>
+                    <!-- 4 -->
+                    <td>{{serv.fecha}}</td>
+                    <!-- 5 -->
+                    <td>{{serv.horaEnd}}</td>
+                    <!-- 5 -->
+                    <td>{{serv.servicio}}</td>
+                    <!-- 5 -->
+                    <td>{{serv.numberTerap}}</td>
+                </tr>
+
+                <!-- Modal -->
+                <ng-template class="custom-modal" #modalTabl let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Nota </h5>
+                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body" style="text-align: center;">
+                        <!-- Aqui se coloca lo adentro -->
+
+                        <h4>{{serv.nota}}</h4>
+
+                        <!-- Afuera -->
+                    </div>
+                </ng-template>
+
+                <!-- Fin Modal -->
+
+            </tbody>
+        </table>
+
+        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+
+<div *ngIf="mostraradd">
+    <label> Hola soy yo </label>
 </div>

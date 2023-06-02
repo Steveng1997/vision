@@ -29,6 +29,12 @@ export class ConfiguracionComponent implements OnInit {
   // Terapeuta
 
   nombreTerapeuta: string = '';
+  numberServicio: number;
+  numberBebida: number;
+  numberTabaco: number;
+  numberVitamina: number;
+  numberOtrosTep:number;
+  numberPropinaTep: number;
   terapeuta: any[] = [];
   pageTerapeuta!: number;
   idTerapeuta: string;
@@ -38,8 +44,14 @@ export class ConfiguracionComponent implements OnInit {
     nombre: new FormControl(''),
     usuario: new FormControl(''),
     pass: new FormControl(''),
+    fijoDia: new FormControl(''),
+    servicio: new FormControl(''),
+    bebida: new FormControl(''),
+    tabaco: new FormControl(''),
+    vitamina: new FormControl(''),
+    propina: new FormControl(''),
+    otros: new FormControl('')
   });
-
 
   constructor(
     public router: Router,
@@ -79,10 +91,55 @@ export class ConfiguracionComponent implements OnInit {
     });
   }
 
+  numberEncargada() {
+    if (this.formTemplate.value.fijoDia == '') {
+      this.formTemplate.value.fijoDia = '0';
+    }
+
+    if (this.formTemplate.value.servicio == '') {
+      this.formTemplate.value.servicio = '0';
+    }
+
+    if (this.formTemplate.value.bebida == '') {
+      this.formTemplate.value.bebida = '0';
+    }
+
+    if (this.formTemplate.value.tabaco == '') {
+      this.formTemplate.value.tabaco = '0';
+    }
+
+    if (this.formTemplate.value.vitamina == '') {
+      this.formTemplate.value.vitamina = '0';
+    }
+
+    if (this.formTemplate.value.propina == '') {
+      this.formTemplate.value.propina = '0';
+    }
+
+    if (this.formTemplate.value.otros == '') {
+      this.formTemplate.value.otros = '0';
+    }
+  }
+
+  resetEncargada() {
+    this.formTemplate.value.nombre = '';
+    this.formTemplate.value.usuario = '';
+    this.formTemplate.value.pass = '';
+    this.formTemplate.value.fijoDia = '';
+    this.formTemplate.value.servicio = '';
+    this.formTemplate.value.bebida = '';
+    this.formTemplate.value.tabaco = '';
+    this.formTemplate.value.vitamina = '';
+    this.formTemplate.value.propina = '';
+    this.formTemplate.value.otros = '';
+  }
+
   registro(formValue) {
+    this.resetEncargada();
     if (this.formTemplate.value.nombre) {
       if (this.formTemplate.value.usuario) {
         if (this.formTemplate.value.pass) {
+          this.numberEncargada();
           this.usuarioService.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
             if (nameRegistro[0] == undefined) {
               this.usuarioService.registerUser(formValue);
@@ -193,8 +250,47 @@ export class ConfiguracionComponent implements OnInit {
     });
   }
 
+  resetTerapeuta() {
+    this.nombreTerapeuta = '';
+    this.numberServicio = 0;
+    this.numberBebida = 0;
+    this.numberTabaco = 0;
+    this.numberVitamina = 0;
+    this.numberOtrosTep = 0;
+    this.numberPropinaTep = 0;
+  }
+
+  numberTerapeuta() {
+    debugger
+    if (this.numberServicio == undefined) {
+      this.numberServicio = 0;
+    }
+
+    if (this.numberBebida == undefined) {
+      this.numberBebida = 0;
+    }
+
+    if (this.numberTabaco == undefined) {
+      this.numberTabaco = 0;
+    }
+
+    if(this.numberVitamina == undefined){
+      this.numberVitamina = 0;
+    }
+
+    if(this.numberOtrosTep == undefined){
+      this.numberOtrosTep = 0;
+    }
+
+    if(this.numberPropinaTep == undefined){
+      this.numberPropinaTep = 0;
+    }
+  }
+
   addTerapeuta() {
+    this.resetTerapeuta();
     if (this.nombreTerapeuta != '') {
+      this.numberTerapeuta();
       this.trabajadorService.getTerapeuta(this.nombreTerapeuta).then((nameExit) => {
         if (nameExit.length != 0) {
           Swal.fire({
@@ -203,9 +299,9 @@ export class ConfiguracionComponent implements OnInit {
             confirmButtonText: 'Si',
             denyButtonText: `No`,
           }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-              this.trabajadorService.registerTerapeuta(this.nombreTerapeuta);
+              this.trabajadorService.registerTerapeuta(this.nombreTerapeuta, this.numberServicio, this.numberBebida, this.numberTabaco,
+                this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep);
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -221,7 +317,8 @@ export class ConfiguracionComponent implements OnInit {
           })
 
         } else {
-          this.trabajadorService.registerTerapeuta(this.nombreTerapeuta);
+          this.trabajadorService.registerTerapeuta(this.nombreTerapeuta, this.numberServicio, this.numberBebida, this.numberTabaco,
+            this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep);
           Swal.fire({
             position: 'top-end',
             icon: 'success',
