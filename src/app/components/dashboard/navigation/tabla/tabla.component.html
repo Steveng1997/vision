@@ -32,7 +32,7 @@
                 <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
             </div>
 
-            <mat-form-field class="col-6 acomodarInput">
+            <mat-form-field class="col-5 acomodarInput">
                 <mat-label>Tipo pago</mat-label>
                 <mat-select formControlName="encargada" [(ngModel)]="selectedFormPago">
                     <mat-option value="Efectivo"> Efectivo </mat-option>
@@ -42,71 +42,18 @@
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="col-6 acomodarInput">
+            <mat-form-field class="col-5 acomodarInput">
                 <mat-label>Buscar</mat-label>
                 <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
             </mat-form-field>
+
+
+            <div class="col-2" style="align-self: center; text-align: center">
+                <img src="./assets/excel.png" (click)="exportTableToExcel()" width="30">
+            </div>
         </div>
     </div>
 </form>
-
-<div class="flex-container nowrap">
-    <div class="flex-item">
-        <img src="./assets/excel.png" (click)="exportTableToExcel()" width="30">
-    </div>
-
-    <div class="flex-item">
-        <div class="flex-item">
-            <label class="lblTotal" style="font-weight: bold;">TOTALES</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalServicio}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorTerapeuta}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorEncargada}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorAOtros}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{TotalValorBebida}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{TotalValorTabaco}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorVitaminas}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorPropina}}</label>
-        </div>
-    </div>
-    <div class="flex-item">
-        <div class="flex-item totlServicio">
-            <label>{{totalValorOtroServ}}</label>
-        </div>
-    </div>
-
-</div>
 
 <!-- table -->
 
@@ -114,6 +61,24 @@
     <div style="text-align: center; width: max-content;">
         <table class="table" id="excel-table">
             <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="border-top: solid; border-left: solid; border-bottom: solid;">Totales</td>
+                    <td>{{totalServicio}}</td>
+                    <td>{{totalValorTerapeuta}}</td>
+                    <td>{{totalValorEncargada}}</td>
+                    <td>{{totalValorAOtros}}</td>
+                    <td>{{TotalValorBebida}}</td>
+                    <td>{{TotalValorTabaco}}</td>
+                    <td>{{totalValorVitaminas}}</td>
+                    <td>{{totalValorPropina}}</td>
+                    <td>{{totalValorOtroServ}}</td>
+                </tr>
                 <tr>
                     <!-- 1 -->
                     <th scope="col">Nota</th>
