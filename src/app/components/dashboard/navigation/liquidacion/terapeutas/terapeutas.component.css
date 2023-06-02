@@ -1,5 +1,5 @@
 .acomodarInput {
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
@@ -52,19 +52,19 @@
   
   @media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
     .acomodarInput {
-      margin-top: 5%;
+      margin-top: 3%;
     }
   }
   
   @media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
     .acomodarInput {
-      margin-top: 5%;
+      margin-top: 3%;
     }
   }
   
   @media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
     .acomodarInput {
-      margin-top: 5%;
+      margin-top: 3%;
     }
   }
   

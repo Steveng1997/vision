@@ -26,20 +26,6 @@ export class ConfiguracionComponent implements OnInit {
   idEncargada: string;
   encargadaModal: any[] = [];
 
-  // Terapeuta
-
-  nombreTerapeuta: string = '';
-  numberServicio: number;
-  numberBebida: number;
-  numberTabaco: number;
-  numberVitamina: number;
-  numberOtrosTep:number;
-  numberPropinaTep: number;
-  terapeuta: any[] = [];
-  pageTerapeuta!: number;
-  idTerapeuta: string;
-  terapeutaModal: any[] = [];
-
   formTemplate = new FormGroup({
     nombre: new FormControl(''),
     usuario: new FormControl(''),
@@ -52,6 +38,20 @@ export class ConfiguracionComponent implements OnInit {
     propina: new FormControl(''),
     otros: new FormControl('')
   });
+
+  // Terapeuta
+
+  nombreTerapeuta: string = '';
+  numberServicio: string = '';
+  numberBebida: string = '';
+  numberTabaco: string = '';
+  numberVitamina: string = '';
+  numberOtrosTep: string = '';
+  numberPropinaTep: string = '';
+  terapeuta: any[] = [];
+  pageTerapeuta!: number;
+  idTerapeuta: string;
+  terapeutaModal: any[] = [];
 
   constructor(
     public router: Router,
@@ -67,15 +67,15 @@ export class ConfiguracionComponent implements OnInit {
 
   // Encargada
 
-  openEncargada(targetModal) {
-    this.modalService.open(targetModal, {
+  openEncargada(targetEncargada) {
+    this.modalService.open(targetEncargada, {
       centered: true,
       backdrop: 'static',
     });
   }
 
-  modalTablaEncargada(targetModal, encargadas) {
-    this.usuarioService.getById(targetModal).then((datosNameEncargada) => {
+  modalTablaEncargada(targetEncargada, encargadas) {
+    this.usuarioService.getById(targetEncargada).then((datosNameEncargada) => {
       return (this.encargadaModal = datosNameEncargada);
     });
 
@@ -122,20 +122,15 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   resetEncargada() {
-    this.formTemplate.value.nombre = '';
-    this.formTemplate.value.usuario = '';
-    this.formTemplate.value.pass = '';
-    this.formTemplate.value.fijoDia = '';
-    this.formTemplate.value.servicio = '';
-    this.formTemplate.value.bebida = '';
-    this.formTemplate.value.tabaco = '';
-    this.formTemplate.value.vitamina = '';
-    this.formTemplate.value.propina = '';
-    this.formTemplate.value.otros = '';
+    this.formTemplate.reset();
+  }
+
+  cerrarEncargada() {
+    debugger
+    this.resetEncargada();
   }
 
   registro(formValue) {
-    this.resetEncargada();
     if (this.formTemplate.value.nombre) {
       if (this.formTemplate.value.usuario) {
         if (this.formTemplate.value.pass) {
@@ -151,6 +146,7 @@ export class ConfiguracionComponent implements OnInit {
                 timer: 2500,
               });
               this.modalService.dismissAll();
+              this.resetEncargada();
             } else {
               Swal.fire({
                 icon: 'error',
@@ -233,7 +229,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   modalTablaTerapeuta(targetModal, terap) {
-
     this.trabajadorService.getByIdTerapeuta(targetModal).then((datosNameTerapeuta) => {
       return (this.terapeutaModal = datosNameTerapeuta);
     });
@@ -252,43 +247,46 @@ export class ConfiguracionComponent implements OnInit {
 
   resetTerapeuta() {
     this.nombreTerapeuta = '';
-    this.numberServicio = 0;
-    this.numberBebida = 0;
-    this.numberTabaco = 0;
-    this.numberVitamina = 0;
-    this.numberOtrosTep = 0;
-    this.numberPropinaTep = 0;
+    this.numberServicio = '';
+    this.numberBebida = '';
+    this.numberTabaco = '';
+    this.numberVitamina = '';
+    this.numberOtrosTep = '';
+    this.numberPropinaTep = '';
+  }
+
+  cerrarTerapeuta() {
+    this.resetTerapeuta();
   }
 
   numberTerapeuta() {
     debugger
     if (this.numberServicio == undefined) {
-      this.numberServicio = 0;
+      this.numberServicio = '';
     }
 
     if (this.numberBebida == undefined) {
-      this.numberBebida = 0;
+      this.numberBebida = '';
     }
 
     if (this.numberTabaco == undefined) {
-      this.numberTabaco = 0;
+      this.numberTabaco = '';
     }
 
-    if(this.numberVitamina == undefined){
-      this.numberVitamina = 0;
+    if (this.numberVitamina == undefined) {
+      this.numberVitamina = '';
     }
 
-    if(this.numberOtrosTep == undefined){
-      this.numberOtrosTep = 0;
+    if (this.numberOtrosTep == undefined) {
+      this.numberOtrosTep = '';
     }
 
-    if(this.numberPropinaTep == undefined){
-      this.numberPropinaTep = 0;
+    if (this.numberPropinaTep == undefined) {
+      this.numberPropinaTep = '';
     }
   }
 
   addTerapeuta() {
-    this.resetTerapeuta();
     if (this.nombreTerapeuta != '') {
       this.numberTerapeuta();
       this.trabajadorService.getTerapeuta(this.nombreTerapeuta).then((nameExit) => {
@@ -309,10 +307,11 @@ export class ConfiguracionComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 2500,
               });
-              // this.router.navigate([`trabajadores`]);
               this.modalService.dismissAll();
+              this.resetTerapeuta();
             } else if (result.isDenied) {
               this.modalService.dismissAll();
+              this.resetTerapeuta();
             }
           })
 
@@ -327,6 +326,7 @@ export class ConfiguracionComponent implements OnInit {
             timer: 2500,
           });
           this.modalService.dismissAll();
+          this.resetTerapeuta();
         }
       });
     }

@@ -33,7 +33,7 @@ export class TrabajadoresService {
     return result;
   }
 
-  registerTerapeuta(nombre: string, servicio: number, bebida: number, tabaco: number, vitamina: number, otros: number, propina: number) {
+  registerTerapeuta(nombre: string, servicio: string, bebida: string, tabaco: string, vitamina: string, otros: string, propina: string) {
     let trabajador = {
       id: `uid${this.makeid(10)}`,
       nombre: nombre,

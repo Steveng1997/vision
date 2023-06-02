@@ -15,7 +15,7 @@
                 <h5 class="modal-title"> Agregar Encargada </h5>
 
                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span (click)="cerrarEncargada()" aria-hidden="true">&times;</span>
                 </button>
             </div>
 
@@ -29,12 +29,12 @@
 
                         <mat-form-field class="col-6">
                             <mat-label>Nombre:</mat-label>
-                            <input type="text" matInput formControlName="nombre" name="nombre">
+                            <input type="text" matInput id="formulario" name="nombre" formControlName="nombre" >
                         </mat-form-field>
 
                         <mat-form-field class="col-6">
                             <mat-label>Usuario:</mat-label>
-                            <input type="text" matInput formControlName="usuario" name="usuario">
+                            <input type="text" matInput name="usuario" formControlName="usuario" >
                         </mat-form-field>
 
                         <mat-form-field class="col-6">
@@ -160,43 +160,43 @@
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Fijo día</mat-label>
-                                    <input type="text" matInput name="fijoDia" [(ngModel)]="encg.fijoDia"
+                                    <input type="number" matInput name="fijoDia" [(ngModel)]="encg.fijoDia"
                                         #fijoDia="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Servicio:</mat-label>
-                                    <input type="text" matInput name="servicio" [(ngModel)]="encg.servicio"
+                                    <input type="number" matInput name="servicio" [(ngModel)]="encg.servicio"
                                         #servicio="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Bebida:</mat-label>
-                                    <input type="text" matInput name="bebida" [(ngModel)]="encg.bebida"
+                                    <input type="number" matInput name="bebida" [(ngModel)]="encg.bebida"
                                         #bebida="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Tabaco</mat-label>
-                                    <input type="text" matInput name="tabaco" [(ngModel)]="encg.tabaco"
+                                    <input type="number" matInput name="tabaco" [(ngModel)]="encg.tabaco"
                                         #tabaco="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Vitamina</mat-label>
-                                    <input type="text" matInput name="vitamina" [(ngModel)]="encg.vitamina"
+                                    <input type="number" matInput name="vitamina" [(ngModel)]="encg.vitamina"
                                         #vitamina="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Propina</mat-label>
-                                    <input type="text" matInput name="propina" [(ngModel)]="encg.propina"
+                                    <input type="number" matInput name="propina" [(ngModel)]="encg.propina"
                                         #propina="ngModel">
                                 </mat-form-field>
 
                                 <mat-form-field class="col-6">
                                     <mat-label>Otros</mat-label>
-                                    <input type="text" matInput name="otros" [(ngModel)]="encg.otros" #otros="ngModel">
+                                    <input type="number" matInput name="otros" [(ngModel)]="encg.otros" #otros="ngModel">
                                 </mat-form-field>
 
                                 <div class="container" *ngFor="let encargda of encargadaModal">
@@ -232,6 +232,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Terapeutas -->
 
 <h4 style="text-align: center; margin-top: 2%; margin-bottom: 2%;">Terapeutas</h4>
@@ -251,7 +266,7 @@
                 <h5 class="modal-title"> Terapeuta </h5>
 
                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span (click)="cerrarTerapeuta()" aria-hidden="true">&times;</span>
                 </button>
             </div>
 

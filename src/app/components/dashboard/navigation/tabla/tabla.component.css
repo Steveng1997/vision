@@ -153,7 +153,7 @@
     height: 50px;
     margin: auto;
     display: -webkit-box;
-    margin-right: 36%;
+    margin-right: 40%;
   }
 }
 
@@ -210,5 +210,18 @@
     margin: auto;
     display: -webkit-box;
     margin-right: 60%;
+  }
+}
+
+@media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
+  .acomodarInput {
+    margin-top: 2%;
+  }
+
+  .flex-container {
+    width: 0;
+    margin: auto;
+    display: -webkit-box;
+    margin-right: 63%;
   }
 }
