@@ -71,7 +71,7 @@ export class ServicioService {
       otros: formularioall.otros,
       salida: salida,
       fechaHoyInicio: fechaHoyInicio,
-      path: 'servicio',
+      editar: true,
       liquidado: false
     };
     return new Promise<any>((resolve, reject) => {

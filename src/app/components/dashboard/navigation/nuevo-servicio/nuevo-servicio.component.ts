@@ -574,17 +574,19 @@ export class NuevoServicioComponent implements OnInit {
   // -------------------------------------------- Editamos ---------------------------------------------
 
   cargar() {
-    this.editar = this.activeRoute.snapshot.paramMap.get('id');
-    this.servicioService.getById(this.editar).then((datosServicio: any[]) => {
-      if (datosServicio.length != 0) {
-        this.editar = datosServicio[0];
-        this.editarService = datosServicio;
-      } else {
-        this.serviceUser.getById(this.editar).then((datosUsuario: any) => {
-          this.editar = datosUsuario[0];
-        });
-      }
-    });
+    this.editar = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'];
+    console.log(this.editar)
+    // this.editar = this.activeRoute.snapshot.paramMap.get('id');
+    // this.servicioService.getById(this.editar).then((datosServicio: any[]) => {
+    //   if (datosServicio.length != 0) {
+    //     this.editar = datosServicio[0];
+    //     this.editarService = datosServicio;
+    //   } else {
+    //     this.serviceUser.getById(this.editar).then((datosUsuario: any) => {
+    //       this.editar = datosUsuario[0];
+    //     });
+    //   }
+    // });
   }
 
   editarServicio(idDocument, idServicio, serv: Servicio) {
