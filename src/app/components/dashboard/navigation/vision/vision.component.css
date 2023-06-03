@@ -61,7 +61,7 @@ tr.mat-mdc-footer-row {
   }
 
   .hijo {
-    width: max-content;
+    width: auto;
   }
 }
 
@@ -71,7 +71,7 @@ tr.mat-mdc-footer-row {
   }
 
   .hijo {
-    width: max-content;
+    width: auto;
   }
 }
 
@@ -81,7 +81,7 @@ tr.mat-mdc-footer-row {
   }
 
   .hijo {
-    width: max-content;
+    width: auto;
   }
 }
 
@@ -92,7 +92,7 @@ tr.mat-mdc-footer-row {
   }
 
   .hijo {
-    width: max-content;
+    width: auto;
   }
 }
 
@@ -106,10 +106,6 @@ tr.mat-mdc-footer-row {
     text-transform: uppercase;
     text-align: center;
     margin-bottom: auto;
-  }
-
-  .ocupacion {
-    text-align: center;
   }
 
   .padre {

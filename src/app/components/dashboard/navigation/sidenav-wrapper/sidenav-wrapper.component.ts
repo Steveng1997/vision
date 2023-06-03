@@ -14,7 +14,7 @@ import { delay, filter } from 'rxjs/operators';
   // encapsulation: ViewEncapsulation.None  
 })
 
-export class SidenavWrapperComponent implements OnInit{
+export class SidenavWrapperComponent implements OnInit {
 
   // isExpanded: boolean = false;
   // isLiquidacion: boolean = false;
@@ -23,6 +23,8 @@ export class SidenavWrapperComponent implements OnInit{
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+
+  isLiquidacion = false;
 
   constructor(
     public router: Router,
@@ -38,10 +40,14 @@ export class SidenavWrapperComponent implements OnInit{
     })
   }
 
+  liquidacion() {
+    this.isLiquidacion = !this.isLiquidacion;
+  }
+
   ngAfterViewInit() {
 
     this.observer
-      .observe(['(max-width: 800px)'])
+      .observe(['(max-width: 1300px)'])
       .pipe(delay(1), untilDestroyed(this))
       .subscribe((res) => {
         if (res.matches) {
