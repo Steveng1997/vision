@@ -55,16 +55,6 @@ tr.mat-mdc-footer-row {
   margin-left: 20%;
 }
 
-.burbuja {
-  width: 15%;
-  margin: 0px 0 0px;
-  overflow: hidden;
-  padding: 0px;
-  background-color: white;
-  border: 5px solid #afcde3;
-  border-radius: 10px;
-}
-
 @media only screen and (min-device-width: 350px) and (max-device-width: 410px) {
   .padre {
     display: grid;

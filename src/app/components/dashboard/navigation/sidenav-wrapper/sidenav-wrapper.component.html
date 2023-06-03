@@ -1,4 +1,4 @@
-<mat-sidenav-container autosize>
+<!-- <mat-sidenav-container autosize>
   <mat-sidenav #sidenav mode="side" opened="true" style="background-color: deepskyblue">
     <mat-nav-list>
 
@@ -54,4 +54,67 @@
     <router-outlet></router-outlet>
   </div>
 
+</mat-sidenav-container> -->
+
+
+<mat-toolbar >
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <span > Visión </span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" >
+
+    <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}">
+      <mat-icon>Visión</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}">
+      <mat-icon>manage_accounts</mat-icon>
+      <span>Servicio</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+    <button mat-button class="menu-button" *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'configuracion'">
+      <mat-icon>settings</mat-icon>
+      <span>Configuracion</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="margin-top: 3rem;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!-- <ng-sidebar-container>
+  <ng-sidebar [opened]="opened">
+    <p>Sidebar Contents</p>
+    <button (click)="toggleSidebar()">Close</button>
+    <ul class="menu">
+      <li><a routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}" (click)="toggleSidebar()">Vision</a></li>
+      <li><a routerLink="/">NBbb</a></li>
+      <li><a routerLink="/">ssss</a></li>
+    </ul>
+  </ng-sidebar>
+  <div ng-sidebar-content>
+    <button (click)="toggleSidebar()">
+      Open Sidebar
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+
+</ng-sidebar-container> -->

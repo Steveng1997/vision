@@ -1,9 +1,77 @@
-mat-sidenav-container {
-    height: 100%;
-
-    #mat-sidenav {
-        .aqui.display {
-         display: grid;
-        }
-    }
+/* ng-sidebar-container {
+  height: 100vh;
 }
+
+::ng-deep .ng-sidebar {
+  background-color: #f4f4f4;
+  width: 300px;
+  padding: 2em 3em;
+  box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+}
+
+.menu {
+  margin-top: 2em;
+  display: block;
+  list-style: none;
+}
+
+.menu li {
+  margin-bottom: 15px;
+}
+
+.menu li a {
+  display: block;
+  width: 100px;
+} */
+
+/* mat-sidenav-container {
+  height: 100%;
+
+} */
+
+mat-toolbar {
+  background: #004a9f;
+  color: white;
+  place-content: center;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background-color: deepskyblue;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 130px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  padding: 16px;
+  overflow: auto;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+}
+
+
+/* https://www.youtube.com/watch?v=4CYuOiRHHA8 */
