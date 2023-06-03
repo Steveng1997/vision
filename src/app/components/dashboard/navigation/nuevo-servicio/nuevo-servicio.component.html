@@ -738,7 +738,7 @@
                         (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Editar</button>
                 </div>
 
-                <div class="col-6" *ngIf="editar['rol'] === 'administrador'">
+                <div class="col-6" *ngIf="editar['rol'] == 'administrador'">
                     <button mat-raised-button style="display: grid; margin: auto;" (click)="eliminarServicio(edServ.id)"
                         color="warn">Eliminar</button>
                 </div>

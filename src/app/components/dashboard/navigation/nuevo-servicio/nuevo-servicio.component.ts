@@ -140,8 +140,34 @@ export class NuevoServicioComponent implements OnInit {
     this.chageDate = event.target.value.substring(5, 10)
   }
 
-  addServicio(formValue) {
-    debugger
+  validarFechaVencida() {
+    const splitDate = this.fechaActual.split('-')
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
+    const currentDate = new Date()
+    const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
+    const currentHours = currentDate.getHours()
+    if (selectDate < currentDateWithoutHours && currentHours >= 12) {
+      // Swal.fire({
+      //   position: 'top-end',
+      //   icon: 'success',
+      //   title: 'Ya han pasado 12 horas 😢',
+      //   showConfirmButton: false,
+      //   timer: 2500,
+      // })
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se puede crear el servicio por la fecha.',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+      return false
+    }
+
+    return true
+  }
+
+  addServicio(formValue): any {
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         // NO SE DEBE CREAR FECHA ATRAS SI YA PASO LAS 12 HORAS PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
@@ -150,6 +176,9 @@ export class NuevoServicioComponent implements OnInit {
           if (this.restamosCobro == 0) {
             this.llenarFormaPago()
             this.totalServicio()
+
+            if (!this.validarFechaVencida()) return
+
             this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
               this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
               this.fechaHoyInicio).then((rp) => {
@@ -172,6 +201,8 @@ export class NuevoServicioComponent implements OnInit {
               icon: 'error',
               title: 'Oops...',
               text: 'El valor debe quedar en 0 cobros',
+              showConfirmButton: false,
+              timer: 2500,
             });
           }
         } else {
@@ -179,6 +210,8 @@ export class NuevoServicioComponent implements OnInit {
             icon: 'error',
             title: 'Oops...',
             text: 'No se ha seleccionado los metodos de pago',
+            showConfirmButton: false,
+            timer: 2500,
           });
         }
 
@@ -187,6 +220,8 @@ export class NuevoServicioComponent implements OnInit {
           icon: 'error',
           title: 'Oops...',
           text: 'No hay ninguna encargada seleccionada',
+          showConfirmButton: false,
+          timer: 2500,
         });
       }
 
@@ -195,6 +230,8 @@ export class NuevoServicioComponent implements OnInit {
         icon: 'error',
         title: 'Oops...',
         text: 'No hay ninguna terapeuta seleccionada',
+        showConfirmButton: false,
+        timer: 2500,
       });
     }
   }
@@ -554,6 +591,7 @@ export class NuevoServicioComponent implements OnInit {
     // DESDE LA FECHA ACTUAL Y SI PASA 12 HORAS NO SE PUEDE EDITAR MADAAAAAAAAAAAAAAAAAA!
     // SE PUEDE EDITAR SOLAMENTE SI ESTA EN RANGO DE LAS 12 HORAS DESDE LA FECHA ACTUAL
     // PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
+    if (!this.validarFechaVencida()) return
     this.servicioService.updateServicio(idDocument, idServicio, serv);
     Swal.fire({
       position: 'top-end',

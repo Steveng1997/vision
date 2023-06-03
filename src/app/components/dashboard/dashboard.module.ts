@@ -42,6 +42,7 @@ import { EncargadaPipe } from 'src/app/core/pipe/encargada.pipe';
 import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
+import { Guardian } from 'src/app/core/guardian/guardian.service';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
@@ -78,6 +79,7 @@ import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
     MatDividerModule,
     MatCheckboxModule
   ],
+  providers: [Guardian],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class DashboardModule { }

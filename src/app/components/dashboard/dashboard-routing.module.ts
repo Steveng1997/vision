@@ -9,6 +9,7 @@ import { VisionComponent } from './navigation/vision/vision.component';
 import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
 import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 import { LoginComponent } from './navigation/login/login.component';
+import { Guardian } from 'src/app/core/guardian/guardian.service';
 
 const routes: Routes = [
   {
