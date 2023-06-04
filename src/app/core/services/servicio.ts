@@ -114,6 +114,21 @@ export class ServicioService {
     });
   }
 
+  getByEditar(id: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('id', '==', id).where('editar', '==', true))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getTerapeutaByAsc(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db

@@ -1,4 +1,6 @@
-<div *ngIf="editar['path'] == 'usuarios'">
+<script src="components/sweetalert/dist/sweetalert.min.js"></script>
+
+<div *ngIf="!editamos">
     <h4 style="text-align: center; margin-top: 2%; margin-bottom: 4%;">Nuevo Servicio</h4>
 
     <form [formGroup]="formTemplate" (ngSubmit)="addServicio(formTemplate.value)">
@@ -372,7 +374,7 @@
 
 <!------------------------------------------ Editar ------------------------------------------>
 
-<div class="container" *ngIf="editar['path'] == 'servicio'">
+<div class="container" *ngIf="editamos">
     <div class="row" *ngFor="let edServ of editarService">
 
         <h4 style=" text-align: center; margin-top: 2%; margin-bottom: 4%;">Editar</h4>
@@ -738,7 +740,7 @@
                         (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Editar</button>
                 </div>
 
-                <div class="col-6" *ngIf="editar['rol'] == 'administrador'">
+                <div class="col-6" *ngIf="buttonDelete">
                     <button mat-raised-button style="display: grid; margin: auto;" (click)="eliminarServicio(edServ.id)"
                         color="warn">Eliminar</button>
                 </div>

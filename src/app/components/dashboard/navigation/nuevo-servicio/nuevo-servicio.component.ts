@@ -48,9 +48,13 @@ export class NuevoServicioComponent implements OnInit {
 
   // Editar
 
-  editar: string;
+  idEditar: string;
   editarService: Servicio[];
   sumaErrorMetodo: number;
+  editamos = false;
+  idUserAdministrador: string
+  idUser: string
+  buttonDelete = false
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -147,13 +151,6 @@ export class NuevoServicioComponent implements OnInit {
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
     const currentHours = currentDate.getHours()
     if (selectDate < currentDateWithoutHours && currentHours >= 12) {
-      // Swal.fire({
-      //   position: 'top-end',
-      //   icon: 'success',
-      //   title: 'Ya han pasado 12 horas 😢',
-      //   showConfirmButton: false,
-      //   timer: 2500,
-      // })
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -176,9 +173,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.restamosCobro == 0) {
             this.llenarFormaPago()
             this.totalServicio()
-
             if (!this.validarFechaVencida()) return
-
             this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
               this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
               this.fechaHoyInicio).then((rp) => {
@@ -191,7 +186,7 @@ export class NuevoServicioComponent implements OnInit {
                     timer: 2500,
                   });
                   this.router.navigate([
-                    `menu/${this.encargada['id']}/vision/${this.encargada['id']}`
+                    `menu/${this.idUser['id']}/vision/${this.idUser['id']}`
                   ]);
                 }
                 localStorage.clear();
@@ -574,25 +569,31 @@ export class NuevoServicioComponent implements OnInit {
   // -------------------------------------------- Editamos ---------------------------------------------
 
   cargar() {
-    this.editar = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'];
-    console.log(this.editar)
-    // this.editar = this.activeRoute.snapshot.paramMap.get('id');
-    // this.servicioService.getById(this.editar).then((datosServicio: any[]) => {
-    //   if (datosServicio.length != 0) {
-    //     this.editar = datosServicio[0];
-    //     this.editarService = datosServicio;
-    //   } else {
-    //     this.serviceUser.getById(this.editar).then((datosUsuario: any) => {
-    //       this.editar = datosUsuario[0];
-    //     });
-    //   }
-    // });
+    this.idUserAdministrador = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'];
+    this.idEditar = this.activeRoute.snapshot.paramMap.get('id');
+    this.servicioService.getByEditar(this.idEditar).then((datosServicio: any[]) => {
+      if (datosServicio.length != 0) {
+        this.editamos = true;
+        this.editarService = datosServicio;
+
+        this.serviceLogin.getByIdAndAdministrador(this.idUserAdministrador).then((datoAdministrador: any[]) => {
+          if (datoAdministrador.length != 0) {
+            this.buttonDelete = true
+          } else {
+            this.buttonDelete = false
+          }
+        });
+
+      } else {
+        this.editamos = false;
+        this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'];
+        this.serviceLogin.getById(this.idUser).then((datoUser: any[]) => {
+          this.idUser = datoUser[0]
+        });
+      }});
   }
 
   editarServicio(idDocument, idServicio, serv: Servicio) {
-    // DESDE LA FECHA ACTUAL Y SI PASA 12 HORAS NO SE PUEDE EDITAR MADAAAAAAAAAAAAAAAAAA!
-    // SE PUEDE EDITAR SOLAMENTE SI ESTA EN RANGO DE LAS 12 HORAS DESDE LA FECHA ACTUAL
-    // PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
     if (!this.validarFechaVencida()) return
     this.servicioService.updateServicio(idDocument, idServicio, serv);
     Swal.fire({
@@ -619,6 +620,8 @@ export class NuevoServicioComponent implements OnInit {
           confirmButtonText: 'Si, Deseo eliminar!',
         }).then((result) => {
           if (result.isConfirmed) {
+            this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
+            this.router.navigate([`menu/${id}/tabla/${id}`]);
             Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -628,9 +631,7 @@ export class NuevoServicioComponent implements OnInit {
             });
           }
         });
-        this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id).then((datoEliminado) => {
-          this.router.navigate([`menu/${id}/tabla/${id}`]);
-        });
+
       }
     });
   }

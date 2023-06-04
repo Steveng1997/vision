@@ -79,7 +79,7 @@ import { Guardian } from 'src/app/core/guardian/guardian.service';
     MatDividerModule,
     MatCheckboxModule
   ],
-  providers: [Guardian],
+  // providers: [Guardian],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class DashboardModule { }

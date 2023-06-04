@@ -40,11 +40,13 @@ export class VisionComponent implements OnInit {
   }
 
   getServicio() {
+    debugger
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
-      debugger
+      this.sumaTotalServicio();
+      if (datoServicio.length != 0){
         this.calculardiferencia(datoServicio[0]['horaEnd']);
-        this.sumaTotalServicio();
+      }
     });
   }
 

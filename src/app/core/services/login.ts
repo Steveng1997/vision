@@ -3,7 +3,6 @@ import 'firebase/compat/app';
 import { Usuario } from '../models/usuarios';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 
 @Injectable()
 export class LoginService {
@@ -47,8 +46,7 @@ export class LoginService {
       vitamina: formularioall.vitamina,
       propina: formularioall.propina,
       otros: formularioall.otros,
-      activo: true,
-      path: 'usuarios'
+      activo: true
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -73,6 +71,21 @@ export class LoginService {
     return new Promise((resolve, reject) => {
       this.db
         .collection('usuarios', (ref) => ref.where('id', '==', id))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getByIdAndAdministrador(id): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('usuarios', (ref) => ref.where('id', '==', id).where('rol', '==', 'administrador'))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
