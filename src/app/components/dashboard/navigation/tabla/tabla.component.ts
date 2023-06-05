@@ -93,6 +93,20 @@ export class TablaComponent implements OnInit {
     })
   }
 
+  // terapeutas(){
+  //   this.servicioService.getTerapeuta(this.selectedTerapeuta).then((datoTerap: any) => {
+  //     const totalServ = datoTerap.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+  //     this.totalServicio = totalServ;
+  //   });
+  // }
+
+  // encargadas(){
+  //   this.servicioService.getEncargada(this.selectedEncargada).then((datoEncrg: any) => {
+  //     const totalServ = datoEncrg.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+  //     this.totalServicio = totalServ;
+  //   });
+  // }
+
   sumaTotalServicios() {
     const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
     this.totalServicio = totalServ;
