@@ -126,7 +126,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   cerrarEncargada() {
-    debugger
     this.resetEncargada();
   }
 
@@ -260,7 +259,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   numberTerapeuta() {
-    debugger
     if (this.numberServicio == undefined) {
       this.numberServicio = '';
     }

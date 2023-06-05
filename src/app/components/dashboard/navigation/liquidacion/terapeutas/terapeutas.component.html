@@ -144,24 +144,214 @@
             </form>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <mat-list class="col-8">
-            <mat-drawer-container>
-                <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de {{selectedTerapeuta}} </mat-drawer-content>
+
+    <div class="container">
+        <div class="row">
+            <mat-list class="col-8">
+                <mat-drawer-container>
+                    <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de
+                        {{selectedTerapeuta}} </mat-drawer-content>
+                </mat-drawer-container>
+                <mat-divider></mat-divider>
+            </mat-list>
+            <label class="col-4">dd</label>
+        </div>
+
+
+        <div style="margin-bottom: 5%;">
+            <mat-drawer-container class="example-container">
+                <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
             </mat-drawer-container>
-            <mat-divider></mat-divider>
-        </mat-list>
-        <label class="col-4">dd</label>
+        </div>
+
+        <div style="display: grid; place-items: center;">
+            <div style="text-align: center; width: max-content;">
+                <table class="table" id="excel-table">
+                    <thead>
+                        <tr>
+                            <!-- 1 -->
+                            <th scope="col">Nota</th>
+                            <!-- 2 -->
+                            <th scope="col">Fecha</th>
+                            <!-- 3 -->
+                            <th scope="col">Salida</th>
+                            <!-- 4 -->
+                            <th scope="col">Hora</th>
+                            <!-- 5 -->
+                            <th scope="col">Servicio</th>
+                            <!-- 6 -->
+                            <th scope="col">Propina</th>
+                            <!-- 7 -->
+                            <th scope="col">Pago</th>
+                            <!-- 8 -->
+                            <th scope="col">€ a terap</th>
+                            <!-- 9 -->
+                            <th scope="col">Bebida</th>
+                            <!-- 10 -->
+                            <th scope="col">Tabaco</th>
+                            <!-- 11 -->
+                            <th scope="col">Vitamina</th>
+                            <!-- 12 -->
+                            <th scope="col">Otros</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+                    encargada: selectedEncargada) | paginate: { itemsPerPage: 10, currentPage: page }">
+                        <tr>
+                            <!-- 1 -->
+                            <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
+                            <!-- 2 -->
+                            <td>{{serv.fecha}}</td>
+                            <!-- 3 -->
+                            <td>{{serv.salida}}</td>
+                            <!-- 4 -->
+                            <td>{{serv.hora}}</td>
+                            <!-- 5 -->
+                            <td>{{serv.servicio}}</td>
+                            <!-- 6 -->
+                            <td>{{serv.propina}}</td>
+                            <!-- 7 -->
+                            <td>{{serv.formaPago}}</td>
+                            <!-- 8 -->
+                            <td>{{serv.numberTerap}}</td>
+                            <!-- 9 -->
+                            <td>{{serv.bebidas}}</td>
+                            <!-- 10 -->
+                            <td>{{serv.tabaco}}</td>
+                            <!-- 11 -->
+                            <td>{{serv.vitaminas}}</td>
+                            <!-- 12 -->
+                            <td>{{serv.otros}}</td>
+                        </tr>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+
+                        <!-- Fin Modal -->
+
+                    </tbody>
+
+                    <tr>
+                        <!-- 1 -->
+                        <td scope="col"></td>
+                        <!-- 2 -->
+                        <td scope="col"></td>
+                        <!-- 3 -->
+                        <td scope="col"></td>
+                        <!-- 4 -->
+                        <td scope="col"></td>
+                        <!-- 5 -->
+                        <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
+                        <!-- 6 -->
+                        <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
+                        <!-- 7 -->
+                        <td scope="col"></td>
+                        <!-- 8 -->
+                        <td scope="col" style="font-weight: bold">{{totalValorTerapeuta + ' €'}}</td>
+                        <!-- 9 -->
+                        <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
+                        <!-- 10 -->
+                        <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
+                        <!-- 11 -->
+                        <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
+                        <!-- 12 -->
+                        <td scope="col" style="font-weight: bold">{{totalValorOtroServ + ' €'}}</td>
+                    </tr>
+                </table>
+
+                <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                    nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+    <div style="display: grid; place-items: center;">
+        <div style="text-align: center; width: max-content;">
+            <table class="table" id="excel-table">
+                <thead>
+                    <tr>
+                        <!-- 1 -->
+                        <th scope="col"></th>
+                        <!-- 2 -->
+                        <th scope="col">Suma</th>
+                        <!-- 3 -->
+                        <th scope="col">Comisión</th>
+                        <!-- 4 -->
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let serva of serviciosA">
+                    <tr>
+                        <!-- 1 -->
+                        <td>Servicio</td>
+                        <!-- 2 -->
+                        <td></td>
+                        <!-- 3 -->
+                        <td>{{serva.nombre}}</td>
+                        <!-- 4 -->
+                        <td>{{serva.Suma}}</td>
+                    </tr>
+
+                </tbody>
+
+                <tr>
+                    <!-- 1 -->
+                    <td scope="col"></td>
+                    <!-- 2 -->
+                    <td scope="col"></td>
+                    <!-- 3 -->
+                    <td scope="col"></td>
+                    <!-- 4 -->
+                    <td scope="col"></td>
+                    <!-- 5 -->
+                    <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
+                    <!-- 6 -->
+                    <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
+                    <!-- 7 -->
+                    <td scope="col"></td>
+                    <!-- 8 -->
+                    <td scope="col" style="font-weight: bold">{{totalValorTerapeuta + ' €'}}</td>
+                    <!-- 9 -->
+                    <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
+                    <!-- 10 -->
+                    <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
+                    <!-- 11 -->
+                    <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
+                    <!-- 12 -->
+                    <td scope="col" style="font-weight: bold">{{totalValorOtroServ + ' €'}}</td>
+                </tr>
+            </table>
+
+            <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                nextLabel="Siguiente">
+            </pagination-controls>
+        </div>
+    </div>
+
+
+
 
     
-    <div style="margin-bottom: 5%;">
-        <mat-drawer-container class="example-container">
-            <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-        </mat-drawer-container>
-    </div>
 </div>
-

@@ -15,12 +15,9 @@ import { delay, filter } from 'rxjs/operators';
 })
 
 export class SidenavWrapperComponent implements OnInit {
-
-  // isExpanded: boolean = false;
-  // isLiquidacion: boolean = false;
   usuarios: any[] = [];
   idUser: any;
-
+  idUrl: string;
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
@@ -38,10 +35,21 @@ export class SidenavWrapperComponent implements OnInit {
     this.serviceLogin.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
+    this.cargar();
+  }
+
+  cargar() {
+    debugger
+    this.idUrl = this.activeRoute.snapshot['_urlSegment']['segments'][2]['path'];
+    console.log(this.idUrl)
   }
 
   liquidacion() {
     this.isLiquidacion = !this.isLiquidacion;
+  }
+
+  tabla(event: any){
+    console.log(event)
   }
 
   ngAfterViewInit() {

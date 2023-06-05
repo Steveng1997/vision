@@ -2,6 +2,16 @@
     margin-top: 2%;
 }
 
+.color2 {
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
     .acomodarInput {
       margin-top: 5%;

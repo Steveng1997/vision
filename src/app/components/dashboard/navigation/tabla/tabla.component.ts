@@ -45,6 +45,7 @@ export class TablaComponent implements OnInit {
   fileName = 'tabla.xlsx'
   idUser: string;
 
+  // Servicios
   totalServicio: number;
   totalValorTerapeuta: number;
   totalValorEncargada: number;

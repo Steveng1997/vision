@@ -99,6 +99,12 @@ export class ServicioService {
       .valueChanges();
   }
 
+  getByLiquidFalse() {
+    return this.db
+      .collection('servicio', (ref) => ref.orderBy('id', 'asc').where('liquidado', '==', false))
+      .valueChanges();
+  }
+
   getById(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db

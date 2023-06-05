@@ -3,7 +3,12 @@
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
+  <span style="flex: auto" id="titulo"> </span>
+  <!-- <span style="flex: auto"> Visión </span>
   <span style="flex: auto"> Visión </span>
+  <span style="flex: auto"> Visión </span>
+  <span style="flex: auto"> Visión </span>
+  <span style="flex: auto"> Visión </span> -->
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -17,7 +22,7 @@
       <mat-icon>manage_accounts</mat-icon>
       <span>Servicio</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/tabla/{{idUser['id']}}">
+    <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/tabla/{{idUser['id']}}" (click)="tabla($event)">
       <mat-icon>table</mat-icon>
       <span>Tabla</span>
     </button>
