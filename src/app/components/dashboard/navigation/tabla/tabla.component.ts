@@ -95,14 +95,6 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios(event: any) {
-    debugger
-    this.selectedTerapeuta
-    this.selectedEncargada
-    this.fechaInicio
-    this.fechaFinal
-    this.selectedFormPago
-    this.filtredBusqueda
-
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -115,22 +107,28 @@ export class TablaComponent implements OnInit {
       return (this.selectedFormPago) ? serv.formaPago === this.selectedFormPago : true
     }
 
-    // Por terapeuta
-    const test = this.servicio.map(serv => condicionTerapeuta(serv) && condicionEncargada(serv) && condicionFormaPago(serv))
-    console.log(test)
+    const condicionFechaInicio = serv => {
+      return (this.fechaInicio) ? serv.fechaHoyInicio === this.fechaInicio : true
+    }
 
-    const porTerapeuta = this.servicio.map(serv => serv.terapeuta === this.selectedTerapeuta)
-    const porEncargada = this.servicio.map(serv => serv.encargada === this.selectedEncargada)
-    const porFechaInicio = this.servicio.map(serv => serv.fecha === this.fechaInicio)
-    const porFechaFinal = this.servicio.map(serv => serv.fecha === this.fechaFinal)
-    const porMetodoPago = this.servicio.map(serv => serv.formaPago === this.selectedFormPago)
+    const condicionBuscar = serv => {
+      debugger
+      if (!this.filtredBusqueda) return true
+      return (serv.terapeuta.match(this.filtredBusqueda)
+        || serv.encargada.match(this.filtredBusqueda)
+        || serv.formaPago.match(this.filtredBusqueda)
+        || serv.servicio.match(this.filtredBusqueda)
+        || serv.cliente.match(this.filtredBusqueda)) ? true : false
+    }
+
+    // Por terapeuta
+    const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv))
+    this.totalServicio = servicios.reduce((accumulator, serv) => {
+      return accumulator + serv.servicio;
+    }, 0)
   }
-  // terapeutas(){
-  //   this.servicioService.getTerapeuta(this.selectedTerapeuta).then((datoTerap: any) => {
-  //     const totalServ = datoTerap.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
-  //     this.totalServicio = totalServ;
-  //   });
-  // }
 
   sumaTotalServicios() {
     const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
