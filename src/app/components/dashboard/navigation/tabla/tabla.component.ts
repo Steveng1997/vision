@@ -80,7 +80,7 @@ export class TablaComponent implements OnInit {
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-
+    console.log(this.terapeuta)
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
@@ -89,20 +89,45 @@ export class TablaComponent implements OnInit {
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
       this.servicio = datoServicio;
+      // this.calcularSumaDeServicios();
       this.sumaTotalServicios();
     })
   }
 
+  calcularSumaDeServicios(event: any) {
+    debugger
+    this.selectedTerapeuta
+    this.selectedEncargada
+    this.fechaInicio
+    this.fechaFinal
+    this.selectedFormPago
+    this.filtredBusqueda
+
+    const condicionTerapeuta = serv => {
+      return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
+    }
+
+    const condicionEncargada = serv => {
+      return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+    }
+
+    const condicionFormaPago = serv => {
+      return (this.selectedFormPago) ? serv.formaPago === this.selectedFormPago : true
+    }
+
+    // Por terapeuta
+    const test = this.servicio.map(serv => condicionTerapeuta(serv) && condicionEncargada(serv) && condicionFormaPago(serv))
+    console.log(test)
+
+    const porTerapeuta = this.servicio.map(serv => serv.terapeuta === this.selectedTerapeuta)
+    const porEncargada = this.servicio.map(serv => serv.encargada === this.selectedEncargada)
+    const porFechaInicio = this.servicio.map(serv => serv.fecha === this.fechaInicio)
+    const porFechaFinal = this.servicio.map(serv => serv.fecha === this.fechaFinal)
+    const porMetodoPago = this.servicio.map(serv => serv.formaPago === this.selectedFormPago)
+  }
   // terapeutas(){
   //   this.servicioService.getTerapeuta(this.selectedTerapeuta).then((datoTerap: any) => {
   //     const totalServ = datoTerap.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
-  //     this.totalServicio = totalServ;
-  //   });
-  // }
-
-  // encargadas(){
-  //   this.servicioService.getEncargada(this.selectedEncargada).then((datoEncrg: any) => {
-  //     const totalServ = datoEncrg.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
   //     this.totalServicio = totalServ;
   //   });
   // }

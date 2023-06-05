@@ -43,12 +43,13 @@ import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
 import { Guardian } from 'src/app/core/guardian/guardian.service';
+import { TerapeutaSumaPipe } from 'src/app/core/pipe/terapeutaSuma';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     EstadisticaComponent, NuevoServicioComponent,
     EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
-    TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FormaPagoPipe,
+    TerapeutaPipe, TerapeutaSumaPipe, EncargadaPipe, FechaInicialPipe, FormaPagoPipe,
     BusquedaPipe, LoginComponent],
 
   imports: [

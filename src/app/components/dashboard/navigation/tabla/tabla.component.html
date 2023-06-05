@@ -5,7 +5,8 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Terapeuta</mat-label>
-                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
+                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
+                    (ngModelChange)="calcularSumaDeServicios($event)">
                     <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                         {{terap.nombre}}
                     </mat-option>
@@ -14,7 +15,8 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada" 
+                (ngModelChange)="calcularSumaDeServicios($event)">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -22,17 +24,19 @@
             </mat-form-field>
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio" 
+                (ngModelChange)="calcularSumaDeServicios($event)">
             </div>
 
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
+                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin"
+                (ngModelChange)="calcularSumaDeServicios($event)">
             </div>
 
             <mat-form-field class="col-5 acomodarInput">
                 <mat-label>Tipo pago</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedFormPago">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedFormPago" (ngModelChange)="calcularSumaDeServicios($event)">
                     <mat-option value="Efectivo"> Efectivo </mat-option>
                     <mat-option value="Bizum"> Bizum </mat-option>
                     <mat-option value="Tarjeta"> Tarjeta </mat-option>
@@ -42,7 +46,7 @@
 
             <mat-form-field class="col-5 acomodarInput">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda"  (ngModelChange)="calcularSumaDeServicios($event)"/>
             </mat-form-field>
 
 
