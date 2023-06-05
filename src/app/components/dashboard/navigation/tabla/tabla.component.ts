@@ -80,7 +80,6 @@ export class TablaComponent implements OnInit {
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    console.log(this.terapeuta)
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
@@ -89,12 +88,11 @@ export class TablaComponent implements OnInit {
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
       this.servicio = datoServicio;
-      // this.calcularSumaDeServicios();
       this.sumaTotalServicios();
     })
   }
 
-  calcularSumaDeServicios(event: any) {
+  calcularSumaDeServicios() {
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -121,7 +119,7 @@ export class TablaComponent implements OnInit {
         || serv.cliente.match(this.filtredBusqueda)) ? true : false
     }
 
-    // Por terapeuta
+    // Por todos los filtros
     const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
       && condicionBuscar(serv))
