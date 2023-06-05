@@ -76,7 +76,9 @@ export class TerapeutasComponent implements OnInit {
   getServicio() {
     this.servicioService.getByLiquidFalse().subscribe((datoServicio) => {
       this.servicio = datoServicio;
-      this.sumaTotalServicios();
+      if (datoServicio.length != 0){
+        this.sumaTotalServicios();
+      }
     })
   }
 
