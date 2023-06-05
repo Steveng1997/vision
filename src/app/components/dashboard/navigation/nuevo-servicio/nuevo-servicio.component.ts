@@ -621,7 +621,7 @@ export class NuevoServicioComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
             this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
-            this.router.navigate([`menu/${id}/tabla/${id}`]);
+            this.router.navigate([`menu/${id}/vision/${id}`]);
             Swal.fire({
               position: 'top-end',
               icon: 'success',

@@ -1,5 +1,9 @@
 <h4 style="text-align: center;"> TOTAL HOY {{totalServicio}} € </h4>
 
+<h5 class="text-center display-4 text-danger" *ngIf="vision.length == 0">
+  No se ha hecho ningun servicio el dia de hoy
+</h5>
+
 <div class="padre">
   <div class="hijo">
     <table class="table">
@@ -62,6 +66,10 @@
 <!-- Ocupacion -->
 
 <h4 style="text-align: center; margin-top: 3rem;"> OCUPACIÓN </h4>
+
+<h5 class="text-center display-4 text-danger" *ngIf="vision.length == 0">
+  Actualmente todas las terapeutas estan libres
+</h5>
 
 <div class="padre">
   <div class="hijo">

@@ -29,89 +29,12 @@ export class SidenavWrapperComponent implements OnInit {
     private observer: BreakpointObserver
   ) { }
 
-  tabla() {
-    document.getElementById('tabla').style.display = 'block'
-    document.getElementById('tabla').innerHTML = 'Tabla'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  vision() {
-    document.getElementById('vision').style.display = 'block'
-    document.getElementById('vision').innerHTML = 'Visión'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  nuevoServicio() {
-    document.getElementById('nuevo-servicio').style.display = 'block'
-    document.getElementById('nuevo-servicio').innerHTML = 'Nuevo servicio'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  terapeu() {
-    document.getElementById('liq-terap').style.display = 'block'
-    document.getElementById('liq-terap').innerHTML = 'Liquidacion terapeuta'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  encargada() {
-    document.getElementById('liq-encargada').style.display = 'block'
-    document.getElementById('liq-encargada').innerHTML = 'Liquidacion encargada'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  estadistica() {
-    document.getElementById('estadistica').style.display = 'block'
-    document.getElementById('estadistica').innerHTML = 'Estadistica'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-    document.getElementById('configuracion').style.display = 'none'
-  }
-
-  configuracion() {
-    document.getElementById('configuracion').style.display = 'block'
-    document.getElementById('configuracion').innerHTML = 'Configuracion'
-    document.getElementById('tabla').style.display = 'none'
-    document.getElementById('vision').style.display = 'none'
-    document.getElementById('nuevo-servicio').style.display = 'none'
-    document.getElementById('liq-terap').style.display = 'none'
-    document.getElementById('estadistica').style.display = 'none'
-    document.getElementById('liq-encargada').style.display = 'none'
-  }
-
   ngOnInit(): void {
     this.idUser = this.activeRoute.snapshot.paramMap.get('id');
     this.serviceLogin.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    document.getElementById('vision').innerHTML = 'Visión'
+    document.getElementById('idTitulo').innerHTML = 'Visión'
   }
 
   liquidacion() {
@@ -132,5 +55,40 @@ export class SidenavWrapperComponent implements OnInit {
           this.sidenav.open();
         }
       });
+  }
+
+  tabla() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Tabla'
+  }
+
+  vision() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Visión'
+  }
+
+  nuevoServicio() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Nuevo servicio'
+  }
+
+  terapeu() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Liquidacion terapeuta'
+  }
+
+  encargada() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Liquidacion encargada'
+  }
+
+  estadistica() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Estadistica'
+  }
+
+  configuracion() {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'Configuracion'
   }
 }
