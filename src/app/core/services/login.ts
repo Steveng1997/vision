@@ -118,6 +118,21 @@ export class LoginService {
     });
   }
 
+  getByUserAndPass(usuario, pass): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('usuarios', (ref) => ref.where('usuario', '==', usuario).where('pass', '==', pass))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getUsuarios() {
     return this.db
       .collection('usuarios', (ref) => ref.orderBy('id', 'asc'))

@@ -34,14 +34,25 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
+    debugger
     if (this.usuarioRegistro != '') {
       if (this.passRegistro != '') {
         this.serviceLogin.getByUsuario(this.usuarioRegistro).then((resp => {
           if (resp[0]['activo'] == true) {
             if (resp[0] != undefined) {
-              this.router.navigate([
-                `menu/${resp[0]['id']}/vision/${resp[0]['id']}`,
-              ]);
+              this.serviceLogin.getByUserAndPass(this.usuarioRegistro, this.passRegistro).then((respUserPass => {
+                if (respUserPass.length > 0) {
+                  this.router.navigate([
+                    `menu/${resp[0]['id']}/vision/${resp[0]['id']}`,
+                  ]);
+                } else {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'La contraseña es incorrecta',
+                  })
+                }
+              }))
             } else {
               Swal.fire({
                 icon: 'error',
