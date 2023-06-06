@@ -112,7 +112,6 @@ export class TablaComponent implements OnInit {
     }
 
     const condicionBuscar = serv => {
-      debugger
       if (!this.filtredBusqueda) return true
       return (serv.terapeuta.match(this.filtredBusqueda)
         || serv.encargada.match(this.filtredBusqueda)

@@ -48,7 +48,6 @@ export class TerapeutasComponent implements OnInit {
     public servicioService: ServicioService,
     public fb: FormBuilder,
     public loginService: LoginService,
-    private activeRoute: ActivatedRoute,
     private modalService: NgbModal,
   ) { }
 

@@ -171,7 +171,7 @@
 
             <div style="display: grid; place-items: center; margin-top: 4%;">
                 <div style="text-align: center; width: max-content;">
-                    <table class="table" id="excel-table">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <!-- 1 -->
@@ -284,6 +284,61 @@
                         nextLabel="Siguiente">
                     </pagination-controls>
                 </div>
+            </div>
+        </div>
+
+        <!-- Table Sumatoria -->
+
+        <div style="display: grid; place-items: center; margin-top: 4%;">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Suma</th>
+                            <th scope="col">Comisión</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Servicio</th>
+                            <td>{{totalServicio + ' €'}}</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Propina</th>
+                            <td>{{totalValorPropina + ' €'}}</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bebida</th>
+                            <td>{{TotalValorBebida + ' €'}}</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tabaco</th>
+                            <td>{{TotalValorTabaco + ' €'}}</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Vitamina</th>
+                            <td>{{totalValorVitaminas + ' €'}}</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Otros</th>
+                            <td>{{totalValorOtroServ + ' €'}}</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </form>
