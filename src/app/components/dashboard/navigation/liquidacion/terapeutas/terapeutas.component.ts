@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +9,8 @@ import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 @Component({
   selector: 'app-terapeutas',
   templateUrl: './terapeutas.component.html',
-  styleUrls: ['./terapeutas.component.css']
+  styleUrls: ['./terapeutas.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TerapeutasComponent implements OnInit {
 

@@ -1,5 +1,5 @@
 .acomodarInput {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
 .color2 {
@@ -12,81 +12,88 @@
   margin-left: 20%;
 }
 
+.mat-divider {
+  border-top-color: red;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: white;
+}
+
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 350px) and (max-device-width: 358px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 358px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 359px) and (max-device-width: 369px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 359px) and (max-device-width: 369px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 370px) and (max-device-width: 380px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 370px) and (max-device-width: 380px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 385px) and (max-device-width: 395px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 385px) and (max-device-width: 395px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 539px) and (max-device-width: 550px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 539px) and (max-device-width: 550px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 767px) and (max-device-width: 769px) {
-    .acomodarInput {
-      margin-top: 5%;
-    }
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 769px) {
+  .acomodarInput {
+    margin-top: 5%;
   }
-  
-  @media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
-    .acomodarInput {
-      margin-top: 3%;
-    }
+}
+
+@media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
+  .acomodarInput {
+    margin-top: 3%;
   }
-  
-  @media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
-    .acomodarInput {
-      margin-top: 3%;
-    }
+}
+
+@media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
+  .acomodarInput {
+    margin-top: 3%;
   }
-  
-  @media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
-    .acomodarInput {
-      margin-top: 3%;
-    }
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+  .acomodarInput {
+    margin-top: 3%;
   }
-  
-  @media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
-    .acomodarInput {
-      margin-top: 2%;
-    }
+}
+
+@media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
+  .acomodarInput {
+    margin-top: 2%;
   }
-  
-  @media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
-    .acomodarInput {
-      margin-top: 2%;
-    }
+}
+
+@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
+  .acomodarInput {
+    margin-top: 2%;
   }
-  
+}

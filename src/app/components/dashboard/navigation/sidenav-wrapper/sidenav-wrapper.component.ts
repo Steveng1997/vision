@@ -10,8 +10,7 @@ import { delay, filter } from 'rxjs/operators';
 @Component({
   selector: 'app-sidenav-wrapper',
   templateUrl: './sidenav-wrapper.component.html',
-  styleUrls: ['./sidenav-wrapper.component.css'],
-  // encapsulation: ViewEncapsulation.None  
+  styleUrls: ['./sidenav-wrapper.component.css']
 })
 
 export class SidenavWrapperComponent implements OnInit {
