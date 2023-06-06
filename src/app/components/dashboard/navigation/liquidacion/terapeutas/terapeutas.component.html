@@ -118,15 +118,19 @@
 </div>
 
 
-<div *ngIf="addTerap" class="text-center mt-4 mb-4">
-    <div class="container">
+
+<!-- Agregar Terapia -->
+
+<div class="container">
+    <div *ngIf="addTerap" class="text-center mt-4 mb-4">
         <div class="row">
 
             <form [formGroup]="formTemplate">
 
                 <mat-form-field class="col-6">
                     <mat-label>Terapeuta</mat-label>
-                    <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
+                    <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
+                        (ngModelChange)="calcularSumaDeServicios()">
                         <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                             {{terap.nombre}}
                         </mat-option>
@@ -135,7 +139,8 @@
 
                 <mat-form-field class="col-6">
                     <mat-label>Encargada</mat-label>
-                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
+                        (ngModelChange)="calcularSumaDeServicios()">
                         <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                             {{encarg.nombre}}
                         </mat-option>
@@ -143,29 +148,27 @@
                 </mat-form-field>
             </form>
         </div>
-    </div>
 
 
-    <div class="container">
         <div class="row">
-            <mat-list class="col-8">
-                <mat-drawer-container>
+
+            <div class="col-6 mt-3">
+                <mat-drawer-container class="example-container">
                     <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de
-                        {{selectedTerapeuta}} </mat-drawer-content>
+                        {{selectedTerapeuta}}</mat-drawer-content>
                 </mat-drawer-container>
-                <mat-divider></mat-divider>
-            </mat-list>
-            <label class="col-4">dd</label>
+            </div>
+
+            <div class="col-6">
+                <mat-drawer-container class="example-container" style="float: right;">
+                    <mat-drawer-content style="font-weight: bold; font-size: larger;">ddd</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+
+            <mat-divider></mat-divider>
         </div>
 
-
-        <div style="margin-bottom: 5%;">
-            <mat-drawer-container class="example-container">
-                <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-            </mat-drawer-container>
-        </div>
-
-        <div style="display: grid; place-items: center;">
+        <div style="display: grid; place-items: center; margin-top: 15%;">
             <div style="text-align: center; width: max-content;">
                 <table class="table" id="excel-table">
                     <thead>
@@ -281,77 +284,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-    <div style="display: grid; place-items: center;">
-        <div style="text-align: center; width: max-content;">
-            <table class="table" id="excel-table">
-                <thead>
-                    <tr>
-                        <!-- 1 -->
-                        <th scope="col"></th>
-                        <!-- 2 -->
-                        <th scope="col">Suma</th>
-                        <!-- 3 -->
-                        <th scope="col">Comisión</th>
-                        <!-- 4 -->
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let serva of serviciosA">
-                    <tr>
-                        <!-- 1 -->
-                        <td>Servicio</td>
-                        <!-- 2 -->
-                        <td></td>
-                        <!-- 3 -->
-                        <td>{{serva.nombre}}</td>
-                        <!-- 4 -->
-                        <td>{{serva.Suma}}</td>
-                    </tr>
-
-                </tbody>
-
-                <tr>
-                    <!-- 1 -->
-                    <td scope="col"></td>
-                    <!-- 2 -->
-                    <td scope="col"></td>
-                    <!-- 3 -->
-                    <td scope="col"></td>
-                    <!-- 4 -->
-                    <td scope="col"></td>
-                    <!-- 5 -->
-                    <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
-                    <!-- 6 -->
-                    <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
-                    <!-- 7 -->
-                    <td scope="col"></td>
-                    <!-- 8 -->
-                    <td scope="col" style="font-weight: bold">{{totalValorTerapeuta + ' €'}}</td>
-                    <!-- 9 -->
-                    <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
-                    <!-- 10 -->
-                    <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
-                    <!-- 11 -->
-                    <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
-                    <!-- 12 -->
-                    <td scope="col" style="font-weight: bold">{{totalValorOtroServ + ' €'}}</td>
-                </tr>
-            </table>
-
-            <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                nextLabel="Siguiente">
-            </pagination-controls>
-        </div>
-    </div>
-
-
-
-
-
 </div>

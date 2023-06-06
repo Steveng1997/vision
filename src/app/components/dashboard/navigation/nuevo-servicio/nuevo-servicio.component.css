@@ -20,18 +20,3 @@
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: white;
 }
-
-/* ------------------------------------------------------------------------------------------------
- ---------------------------------------------------------------------------------------------------
- Query para celular muy baja gama */
-
-@media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
-
-}
-
-/* ------------------------------------------------------------------------------------------------
- --------------------------------------------------------------------------------------------------
- Query para celular baja gama */
-@media only screen and (min-device-width: 350px) and (max-device-width: 410px) {
-
-}

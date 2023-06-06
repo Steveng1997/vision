@@ -88,7 +88,9 @@ export class TablaComponent implements OnInit {
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
       this.servicio = datoServicio;
-      this.sumaTotalServicios();
+      if (datoServicio.length != 0) {
+        this.sumaTotalServicios();
+      }
     })
   }
 
@@ -119,7 +121,7 @@ export class TablaComponent implements OnInit {
         || serv.cliente.match(this.filtredBusqueda)) ? true : false
     }
 
-    // Por todos los filtros
+    // Filter by Servicio
     const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
       && condicionBuscar(serv))
