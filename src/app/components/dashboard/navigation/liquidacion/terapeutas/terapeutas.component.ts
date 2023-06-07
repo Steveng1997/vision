@@ -51,6 +51,9 @@ export class TerapeutasComponent implements OnInit {
   comisionOtros: number;
   sumaComision: number;
 
+  recibidoTerap: any;
+  totalComision = 0;
+
   constructor(
     public router: Router,
     public trabajadorService: TrabajadoresService,
@@ -163,7 +166,6 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    debugger
     let comisiServicio, comiPropina, comiBebida, comiTabaco, comiVitamina, comiOtros, sumComision
     this.trabajadorService.getTerapeuta(this.selectedTerapeuta).then((datosNameTerapeuta) => {
       this.terapeutaName = datosNameTerapeuta[0]
@@ -184,9 +186,9 @@ export class TerapeutasComponent implements OnInit {
       this.comisionVitamina = comiVitamina.toFixed(1)
       this.comisionOtros = comiOtros.toFixed(1)
 
-      sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) + 
-      Number(this.comisionBebida) + Number(this.comisionTabaco) + 
-      Number(this.comisionVitamina) + Number(this.comisionOtros);
+      sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) +
+        Number(this.comisionBebida) + Number(this.comisionTabaco) +
+        Number(this.comisionVitamina) + Number(this.comisionOtros);
 
       this.sumaComision = sumComision.toFixed(1)
     })
@@ -247,5 +249,17 @@ export class TerapeutasComponent implements OnInit {
     this.totalValorOtroServ = otroServicio.reduce((accumulator, serv) => {
       return accumulator + serv.otros;
     }, 0)
+
+
+    // Recibido
+
+    const numbTerap = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv))
+    this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
+      return accumulator + serv.numberTerap;
+    }, 0)
+
+    debugger
+    this.totalComision =  Number(this.sumaComision) + Number(this.recibidoTerap)
   }
 }

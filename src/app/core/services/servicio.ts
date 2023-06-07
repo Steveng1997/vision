@@ -203,12 +203,12 @@ export class ServicioService {
   // Update
   // -----------------------------------------------------------------------------------
 
-    updateServicio(idDocumentServicio, idServicio, servi: Servicio) {
-      return this.db
-        .collection('servicio', (ref) => ref.where('id', '==', idServicio))
-        .doc(idDocumentServicio)
-        .update(servi);
-    }
+  updateServicio(idDocumentServicio, idServicio, servi: Servicio) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('id', '==', idServicio))
+      .doc(idDocumentServicio)
+      .update(servi);
+  }
 
 
   // -----------------------------------------------------------------------------------
@@ -219,12 +219,12 @@ export class ServicioService {
   // Delete
   // -----------------------------------------------------------------------------------
 
-    async deleteServicio(idDocument, id): Promise<any> {
-      this.db
-        .collection('servicio', (ref) => ref.where('id', '==', id))
-        .doc(idDocument)
-        .delete();
-    }
+  async deleteServicio(idDocument, id): Promise<any> {
+    this.db
+      .collection('servicio', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .delete();
+  }
 
   // -----------------------------------------------------------------------------------
   // End Delete
