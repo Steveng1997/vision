@@ -48,6 +48,10 @@ export class NuevoServicioComponent implements OnInit {
 
   // Editar
 
+  sumatoriaServiciosEdit = 0;
+  restamosCobroEdit = 0;
+  sumatoriaCobrosEdit = 0;
+
   idEditar: string;
   editarService: Servicio[];
   sumaErrorMetodo: number;
@@ -112,6 +116,7 @@ export class NuevoServicioComponent implements OnInit {
     this.getLastDate();
     this.horaInicialServicio = this.horaStarted;
     this.horaFinalServicio = this.horaStarted;
+    this.valueServiceEdit();
   }
 
   getLastDate() {
@@ -402,7 +407,6 @@ export class NuevoServicioComponent implements OnInit {
     this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
   }
 
-
   salida(event: any) {
     if (event.checked == true) {
       this.salidaTrabajador = 'Salida';
@@ -590,22 +594,33 @@ export class NuevoServicioComponent implements OnInit {
         this.serviceLogin.getById(this.idUser).then((datoUser: any[]) => {
           this.idUser = datoUser[0]
         });
-      }});
+      }
+    });
   }
 
   editarServicio(idDocument, idServicio, serv: Servicio) {
     if (!this.validarFechaVencida()) return
-    this.servicioService.updateServicio(idDocument, idServicio, serv);
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: '¡Editado Correctamente!',
-      showConfirmButton: false,
-      timer: 2500,
-    });
-    this.router.navigate([
-      `menu/${this.encargada[0]['id']}/tabla/${this.encargada[0]['id']}`
-    ]);
+    if (this.restamosCobroEdit == 0) {
+      this.servicioService.updateServicio(idDocument, idServicio, serv);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '¡Editado Correctamente!',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+      this.router.navigate([
+        `menu/${this.encargada[0]['id']}/tabla/${this.encargada[0]['id']}`
+      ]);
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El valor debe quedar en 0 cobros',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
   }
 
   eliminarServicio(id) {
@@ -631,8 +646,121 @@ export class NuevoServicioComponent implements OnInit {
             });
           }
         });
-
       }
     });
+  }
+
+  valueServiceEdit() {
+    let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0,
+      propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0;
+
+    if (this.editarService[0]['servicio'] != null) {
+      servicioEdit = Number(this.editarService[0]['servicio'])
+    } else {
+      servicioEdit = 0;
+    }
+
+    if (this.editarService[0]['bebidas'] != null) {
+      bebidaEdit = Number(this.editarService[0]['bebidas'])
+    } else {
+      bebidaEdit = 0;
+    }
+
+    if (this.editarService[0]['tabaco'] != null) {
+      tabacoEdit = Number(this.editarService[0]['tabaco'])
+    } else {
+      tabacoEdit = 0;
+    }
+
+    if (this.editarService[0]['vitaminas'] != null) {
+      vitaminasEdit = Number(this.editarService[0]['vitaminas'])
+    } else {
+      vitaminasEdit = 0;
+    }
+
+    if (this.editarService[0]['propina'] != null) {
+      propinaEdit = Number(this.editarService[0]['propina'])
+    } else {
+      propinaEdit = 0;
+    }
+
+    if (this.editarService[0]['otros'] != null) {
+      otrosEdit = Number(this.editarService[0]['otros'])
+    } else {
+      otrosEdit = 0;
+    }
+
+    sumatoriaEdit = servicioEdit + bebidaEdit + tabacoEdit + vitaminasEdit + propinaEdit + otrosEdit;
+    this.editarService[0]['totalServicio'] = sumatoriaEdit;
+    this.restamosCobroEdit = sumatoriaEdit;
+
+    const restamosEdit = Number(this.editarService[0]['numberPiso1']) + Number(this.editarService[0]['numberPiso2']) +
+      Number(this.editarService[0]['numberTerap']) + Number(this.editarService[0]['numberEncarg']) +
+      Number(this.editarService[0]['numberOtro'])
+
+    if (this.editarService[0]['numberPiso1'] != null) {
+      this.restamosCobroEdit = sumatoriaEdit - restamosEdit
+    }
+
+    if (Number(this.editarService[0]['numberPiso2']) != null) {
+      this.restamosCobroEdit = sumatoriaEdit - restamosEdit
+    }
+
+    if (Number(this.editarService[0]['numberTerap'] != null)) {
+      this.restamosCobroEdit = sumatoriaEdit - restamosEdit
+    }
+
+    if (Number(this.editarService[0]['numberEncarg'] != null)) {
+      this.restamosCobroEdit = sumatoriaEdit - restamosEdit
+    }
+
+    if (this.editarService[0]['numberOtro'] != null) {
+      this.restamosCobroEdit = sumatoriaEdit - restamosEdit
+    }
+  }
+
+  valueCobrosEdit() {
+    let valuepiso1Edit = 0, valuepiso2Edit = 0, valueterapeutaEdit = 0, valueEncargEdit = 0,
+      valueotrosEdit = 0, restamosEdit = 0, resultadoEdit = 0;
+
+    if (Number(this.editarService[0]['numberPiso1'] != null)) {
+      valuepiso1Edit = Number(this.editarService[0]['numberPiso1'])
+    } else {
+      valuepiso1Edit = 0;
+    }
+
+    if (Number(this.editarService[0]['numberPiso2'] != null)) {
+      valuepiso2Edit = Number(this.editarService[0]['numberPiso2'])
+    } else {
+      valuepiso2Edit = 0;
+    }
+
+    if (Number(this.editarService[0]['numberTerap'] != null)) {
+      valueterapeutaEdit = Number(this.editarService[0]['numberTerap'])
+    } else {
+      valueterapeutaEdit = 0;
+    }
+
+    if (Number(this.editarService[0]['numberEncarg'] != null)) {
+      valueEncargEdit = Number(this.editarService[0]['numberEncarg'])
+    } else {
+      valueEncargEdit = 0;
+    }
+
+    if (Number(this.editarService[0]['numberOtro'] != null)) {
+      valueotrosEdit = Number(this.editarService[0]['numberOtro'])
+    } else {
+      valueotrosEdit = 0;
+    }
+
+    if (this.editarService[0]['totalServicio'] != null) {
+      resultadoEdit = Number(this.editarService[0]['totalServicio']) - valuepiso1Edit
+    }
+
+    this.sumatoriaCobrosEdit = valuepiso1Edit + valuepiso2Edit + valueterapeutaEdit + valueEncargEdit + valueotrosEdit;
+
+    restamosEdit = valuepiso1Edit + valuepiso2Edit + valueterapeutaEdit + valueEncargEdit + valueotrosEdit;
+    resultadoEdit = this.editarService[0]['totalServicio'] - restamosEdit
+    this.restamosCobroEdit = resultadoEdit
   }
 } 

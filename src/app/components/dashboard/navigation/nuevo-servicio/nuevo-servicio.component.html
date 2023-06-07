@@ -463,37 +463,37 @@
                     <div class="col-4">
                         <label>Servicio</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.servicio" name="servicio"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
 
                     <div class="col-4">
                         <label>Bebidas</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.bebidas" name="bebidas"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
 
                     <div class="col-4">
                         <label>Tabaco</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.tabaco" name="tabaco"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
 
                     <div class="col-4" style="margin-top: 2%">
                         <label>Vitaminas</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.vitaminas" name="vitaminas"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
 
                     <div class="col-4" style="margin-top: 2%">
                         <label>Propina</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.propina" name="propina"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
 
                     <div class="col-4" style="margin-top: 2%">
                         <label>Otros</label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.otros" name="otros"
-                            (ngModelChange)="valueService()" />
+                            (ngModelChange)="valueServiceEdit()" />
                     </div>
                 </div>
 
@@ -520,7 +520,7 @@
                         <div class="col-6">
                             <mat-drawer-container style="float: right;">
                                 <mat-drawer-content
-                                    style="font-weight: bold; font-size: larger;">{{edServ['restamosCobro']}}</mat-drawer-content>
+                                    style="font-weight: bold; font-size: larger;">{{sumatoriaCobrosEdit}}</mat-drawer-content>
                             </mat-drawer-container>
                         </div>
                     </div>
@@ -552,7 +552,7 @@
                     <div class="col-4">
                         <mat-label>Piso 1</mat-label>
                         <input type="text" class="form-control" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
-                            (ngModelChange)="valueCobros()">
+                            (ngModelChange)="valueCobrosEdit()">
                     </div>
 
                     <mar-form-field class="col-2">
@@ -583,7 +583,7 @@
                     <div class="col-4">
                         <mat-label>Piso 2</mat-label>
                         <input matInput type="number" [(ngModel)]="edServ.numberPiso2" name="numberPiso2"
-                            (ngModelChange)="valueCobros()" class="form-control">
+                            (ngModelChange)="valueCobrosEdit()" class="form-control">
                     </div>
 
                     <mar-form-field class="col-2">
@@ -613,7 +613,7 @@
                     <div class="col-4">
                         <mat-label>Terapeuta</mat-label>
                         <input matInput type="number" [(ngModel)]="edServ.numberTerap" name="numberTerap"
-                            (ngModelChange)="valueCobros()" class="form-control">
+                            (ngModelChange)="valueCobrosEdit()" class="form-control">
                     </div>
 
                     <mar-form-field class="col-2">
@@ -641,7 +641,7 @@
                     <div class="col-4">
                         <mat-label>Encargada</mat-label>
                         <input matInput type="number" [(ngModel)]="edServ.numberEncarg" name="numberEncarg"
-                            (ngModelChange)="valueCobros()" class="form-control">
+                            (ngModelChange)="valueCobrosEdit()" class="form-control">
                     </div>
 
                     <mar-form-field class="col-2">
@@ -669,7 +669,7 @@
                     <div class="col-4">
                         <mat-label>Otro</mat-label>
                         <input matInput type="number" [(ngModel)]="edServ.numberOtro" name="numberOtro"
-                            (ngModelChange)="valueCobros()" class="form-control">
+                            (ngModelChange)="valueCobrosEdit()" class="form-control">
                     </div>
 
                     <mar-form-field class="col-2">
