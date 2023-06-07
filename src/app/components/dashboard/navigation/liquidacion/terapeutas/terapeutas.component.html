@@ -131,7 +131,7 @@
         <div class="container">
             <div class="row">
 
-                <mat-form-field class="col-6">
+                <mat-form-field class="col-9">
                     <mat-label>Terapeuta</mat-label>
                     <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
                         (ngModelChange)="calcularSumaDeServicios()">
@@ -141,7 +141,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field class="col-6">
+                <mat-form-field class="col-3">
                     <mat-label>Encargada</mat-label>
                     <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
                         (ngModelChange)="calcularSumaDeServicios()">
@@ -169,7 +169,7 @@
 
             <mat-divider></mat-divider>
 
-            <div style="display: grid; place-items: center; margin-top: 4%;">
+            <div style="display: grid; place-items: center; margin-top: 0%;">
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>
@@ -304,38 +304,56 @@
                         <tr>
                             <th scope="row">Servicio</th>
                             <td>{{totalServicio + ' €'}}</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <td>{{terapeutaName['servicio'] + ' %'}}</td>
+                            <td>{{comisionServicio + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Propina</th>
                             <td>{{totalValorPropina + ' €'}}</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
+                            <td>{{terapeutaName['propina'] + ' %'}}</td>
+                            <td>{{comisionPropina + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Bebida</th>
                             <td>{{TotalValorBebida + ' €'}}</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>{{terapeutaName['bebida'] + ' %'}}</td>
+                            <td>{{comisionBebida + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Tabaco</th>
                             <td>{{TotalValorTabaco + ' €'}}</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>{{terapeutaName['tabaco'] + ' %'}}</td>
+                            <td>{{comisionTabaco + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Vitamina</th>
                             <td>{{totalValorVitaminas + ' €'}}</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>{{terapeutaName['vitamina'] + ' %'}}</td>
+                            <td>{{comisionVitamina + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Otros</th>
                             <td>{{totalValorOtroServ + ' €'}}</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>{{terapeutaName['otros'] + ' %'}}</td>
+                            <td>{{comisionOtros + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td>Suma</td>
+                            <td>{{sumaComision + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td style="border-bottom: solid;">Recibido</td>
+                            <td style="border-bottom: solid;">11</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td>Total</td>
+                            <td>11</td>
                         </tr>
                     </tbody>
                 </table>

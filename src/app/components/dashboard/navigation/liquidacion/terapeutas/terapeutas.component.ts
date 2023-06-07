@@ -27,13 +27,13 @@ export class TerapeutasComponent implements OnInit {
   // Terapeuta
   terapeuta: any[] = [];
   selectedTerapeuta: string;
+  terapeutaName: any[] = []
 
   // Fecha
   fechaInicio: string;
   fechaFinal: string;
 
   // Servicios
-
   totalServicio: number;
   totalValorPropina: number;
   totalValorTerapeuta: number;
@@ -41,6 +41,15 @@ export class TerapeutasComponent implements OnInit {
   TotalValorTabaco: number;
   totalValorVitaminas: number;
   totalValorOtroServ: number;
+
+  // Comision
+  comisionServicio: number;
+  comisionPropina: number;
+  comisionBebida: number;
+  comisionTabaco: number;
+  comisionVitamina: number;
+  comisionOtros: number;
+  sumaComision: number;
 
   constructor(
     public router: Router,
@@ -65,6 +74,16 @@ export class TerapeutasComponent implements OnInit {
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
+    this.tableComision();
+  }
+
+  tableComision() {
+    if (this.terapeutaName['servicio'] == undefined) this.terapeutaName['servicio'] = 0;
+    if (this.terapeutaName['propina'] == undefined) this.terapeutaName['propina'] = 0;
+    if (this.terapeutaName['bebida'] == undefined) this.terapeutaName['bebida'] = 0;
+    if (this.terapeutaName['tabaco'] == undefined) this.terapeutaName['tabaco'] = 0;
+    if (this.terapeutaName['vitamina'] == undefined) this.terapeutaName['vitamina'] = 0;
+    if (this.terapeutaName['otros'] == undefined) this.terapeutaName['otros'] = 0;
   }
 
   getServicio() {
@@ -126,6 +145,8 @@ export class TerapeutasComponent implements OnInit {
 
     const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value);
     this.totalValorOtroServ = totalValorOtroServicio;
+
+
   }
 
   notas(targetModal, modal) {
@@ -142,6 +163,34 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
+    debugger
+    let comisiServicio, comiPropina, comiBebida, comiTabaco, comiVitamina, comiOtros, sumComision
+    this.trabajadorService.getTerapeuta(this.selectedTerapeuta).then((datosNameTerapeuta) => {
+      this.terapeutaName = datosNameTerapeuta[0]
+
+      // Comision
+      comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio'];
+      comiPropina = this.totalValorPropina / 100 * datosNameTerapeuta[0]['propina'];
+      comiBebida = this.TotalValorBebida / 100 * datosNameTerapeuta[0]['bebida'];
+      comiTabaco = this.TotalValorTabaco / 100 * datosNameTerapeuta[0]['tabaco'];
+      comiVitamina = this.totalValorVitaminas / 100 * datosNameTerapeuta[0]['vitamina'];
+      comiOtros = this.totalValorOtroServ / 100 * datosNameTerapeuta[0]['otros'];
+
+      // Conversion decimal
+      this.comisionServicio = comisiServicio.toFixed(1)
+      this.comisionPropina = comiPropina.toFixed(1)
+      this.comisionBebida = comiBebida.toFixed(1)
+      this.comisionTabaco = comiTabaco.toFixed(1)
+      this.comisionVitamina = comiVitamina.toFixed(1)
+      this.comisionOtros = comiOtros.toFixed(1)
+
+      sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) + 
+      Number(this.comisionBebida) + Number(this.comisionTabaco) + 
+      Number(this.comisionVitamina) + Number(this.comisionOtros);
+
+      this.sumaComision = sumComision.toFixed(1)
+    })
+
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }

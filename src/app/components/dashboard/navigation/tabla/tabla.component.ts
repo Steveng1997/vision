@@ -95,6 +95,7 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
+    debugger
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -126,6 +127,30 @@ export class TablaComponent implements OnInit {
       && condicionBuscar(serv))
     this.totalServicio = servicios.reduce((accumulator, serv) => {
       return accumulator + serv.servicio;
+    }, 0)
+
+    // Filter by Terapeuta
+    const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv))
+    this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
+      return accumulator + serv.numberTerap;
+    }, 0)
+
+    // Filter by Encargada
+    const encargada = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv))
+    this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
+      return accumulator + serv.numberEncarg;
+    }, 0)
+
+    // Filter by Valor Otro
+    const valorOtro = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv))
+    this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
+      return accumulator + serv.numberOtro;
     }, 0)
   }
 

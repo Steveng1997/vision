@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    debugger
     if (this.usuarioRegistro != '') {
       if (this.passRegistro != '') {
         this.serviceLogin.getByUsuario(this.usuarioRegistro).then((resp => {

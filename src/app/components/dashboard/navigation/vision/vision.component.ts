@@ -50,7 +50,7 @@ export class VisionComponent implements OnInit {
   }
 
   sumaTotalServicio() {
-    const totalServ = this.vision.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0);
+    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
     this.totalServicio = totalServ;
   }
 
