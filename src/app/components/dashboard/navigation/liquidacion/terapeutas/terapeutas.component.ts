@@ -52,7 +52,7 @@ export class TerapeutasComponent implements OnInit {
   sumaComision: number;
 
   recibidoTerap: any;
-  totalComision = 0;
+  totalComision: number;
 
   constructor(
     public router: Router,
@@ -87,6 +87,13 @@ export class TerapeutasComponent implements OnInit {
     if (this.terapeutaName['tabaco'] == undefined) this.terapeutaName['tabaco'] = 0;
     if (this.terapeutaName['vitamina'] == undefined) this.terapeutaName['vitamina'] = 0;
     if (this.terapeutaName['otros'] == undefined) this.terapeutaName['otros'] = 0;
+    if (this.comisionServicio == undefined) this.comisionServicio = 0;
+    if (this.comisionPropina == undefined) this.comisionPropina = 0;
+    if (this.comisionBebida == undefined) this.comisionBebida = 0;
+    if (this.comisionTabaco == undefined) this.comisionTabaco = 0;
+    if (this.comisionVitamina == undefined) this.comisionVitamina = 0;
+    if (this.comisionOtros == undefined) this.comisionOtros = 0;
+    if (this.sumaComision == undefined) this.sumaComision = 0
   }
 
   getServicio() {
@@ -166,33 +173,6 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    let comisiServicio, comiPropina, comiBebida, comiTabaco, comiVitamina, comiOtros, sumComision
-    this.trabajadorService.getTerapeuta(this.selectedTerapeuta).then((datosNameTerapeuta) => {
-      this.terapeutaName = datosNameTerapeuta[0]
-
-      // Comision
-      comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio'];
-      comiPropina = this.totalValorPropina / 100 * datosNameTerapeuta[0]['propina'];
-      comiBebida = this.TotalValorBebida / 100 * datosNameTerapeuta[0]['bebida'];
-      comiTabaco = this.TotalValorTabaco / 100 * datosNameTerapeuta[0]['tabaco'];
-      comiVitamina = this.totalValorVitaminas / 100 * datosNameTerapeuta[0]['vitamina'];
-      comiOtros = this.totalValorOtroServ / 100 * datosNameTerapeuta[0]['otros'];
-
-      // Conversion decimal
-      this.comisionServicio = comisiServicio.toFixed(1)
-      this.comisionPropina = comiPropina.toFixed(1)
-      this.comisionBebida = comiBebida.toFixed(1)
-      this.comisionTabaco = comiTabaco.toFixed(1)
-      this.comisionVitamina = comiVitamina.toFixed(1)
-      this.comisionOtros = comiOtros.toFixed(1)
-
-      sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) +
-        Number(this.comisionBebida) + Number(this.comisionTabaco) +
-        Number(this.comisionVitamina) + Number(this.comisionOtros);
-
-      this.sumaComision = sumComision.toFixed(1)
-    })
-
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -250,16 +230,46 @@ export class TerapeutasComponent implements OnInit {
       return accumulator + serv.otros;
     }, 0)
 
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0;
+    this.totalComision = 0
 
-    // Recibido
+    this.trabajadorService.getTerapeuta(this.selectedTerapeuta).then((datosNameTerapeuta) => {
+      this.terapeutaName = datosNameTerapeuta[0]
 
-    const numbTerap = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv))
-    this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
-      return accumulator + serv.numberTerap;
-    }, 0)
+      // Comision
+      comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio'];
+      comiPropina = this.totalValorPropina / 100 * datosNameTerapeuta[0]['propina'];
+      comiBebida = this.TotalValorBebida / 100 * datosNameTerapeuta[0]['bebida'];
+      comiTabaco = this.TotalValorTabaco / 100 * datosNameTerapeuta[0]['tabaco'];
+      comiVitamina = this.totalValorVitaminas / 100 * datosNameTerapeuta[0]['vitamina'];
+      comiOtros = this.totalValorOtroServ / 100 * datosNameTerapeuta[0]['otros'];
 
-    debugger
-    this.totalComision =  Number(this.sumaComision) + Number(this.recibidoTerap)
+      // Conversion decimal
+      this.comisionServicio = Number(comisiServicio.toFixed(1))
+      this.comisionPropina = Number(comiPropina.toFixed(1))
+      this.comisionBebida = Number(comiBebida.toFixed(1))
+      this.comisionTabaco = Number(comiTabaco.toFixed(1))
+      this.comisionVitamina = Number(comiVitamina.toFixed(1))
+      this.comisionOtros = Number(comiOtros.toFixed(1))
+
+      sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) +
+        Number(this.comisionBebida) + Number(this.comisionTabaco) +
+        Number(this.comisionVitamina) + Number(this.comisionOtros);
+
+      // return this.sumaComision = sumComision.toFixed(0)
+      if (this.sumaComision != 0 || this.sumaComision != undefined){
+        this.sumaComision = Number(sumComision.toFixed(1))
+      }
+
+      // Recibido
+
+      const numbTerap = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv))
+      this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
+        return accumulator + serv.numberTerap;
+      }, 0)
+
+      return this.totalComision = this.sumaComision + Number(this.recibidoTerap)
+    })
   }
 }
