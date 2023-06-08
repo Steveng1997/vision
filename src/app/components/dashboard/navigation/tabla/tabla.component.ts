@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -95,7 +95,6 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    debugger
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -105,26 +104,39 @@ export class TablaComponent implements OnInit {
     }
 
     const condicionFormaPago = serv => {
-      return (this.selectedFormPago) ? serv.formaPago === this.selectedFormPago : true
+      if (!this.selectedFormPago) return true
+
+      const formasDePago = serv.formaPago.split(',')
+      let formaDePagoResult = undefined
+      formaDePagoResult = formasDePago.find(formaDePago => (formaDePago === this.selectedFormPago))
+      console.log(formaDePagoResult)
+      return (formaDePagoResult !== undefined) ? true : false
     }
 
-    const condicionFechaInicio = serv => {
-      return (this.fechaInicio) ? serv.fechaHoyInicio === this.fechaInicio : true
+    const condicionEntreFechas = serv => {
+      if (this.formTemplate.value.fechaInicio === "" && this.formTemplate.value.FechaFin === "") return true
+      if (this.formTemplate.value.fechaInicio === "" && serv.fecha <= this.formTemplate.value.FechaFin) return true
+      if (this.formTemplate.value.FechaFin === "" && serv.fecha === this.formTemplate.value.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
+      if (serv.fecha >= this.formTemplate.value.fechaInicio && serv.fecha <= this.formTemplate.value.FechaFin) return true
+
+      return false
     }
 
     const condicionBuscar = serv => {
       if (!this.filtredBusqueda) return true
-      return (serv.terapeuta.match(this.filtredBusqueda)
-        || serv.encargada.match(this.filtredBusqueda)
-        || serv.formaPago.match(this.filtredBusqueda)
-        || serv.servicio.match(this.filtredBusqueda)
-        || serv.cliente.match(this.filtredBusqueda)) ? true : false
+      const criterio = this.filtredBusqueda.toLowerCase()
+      return (serv.terapeuta.toLowerCase().match(criterio)
+        || serv.encargada.toLowerCase().match(criterio)
+        || serv.formaPago.toLowerCase().match(criterio)
+        || serv.fecha.toLowerCase().match(criterio)
+        // || serv.servicio.toString().match(this.filtredBusqueda)
+        || serv.cliente.toLowerCase().match(criterio)) ? true : false
     }
 
     // Filter by Servicio
     const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv))
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
     this.totalServicio = servicios.reduce((accumulator, serv) => {
       return accumulator + serv.servicio;
     }, 0)
@@ -132,7 +144,7 @@ export class TablaComponent implements OnInit {
     // Filter by Terapeuta
     const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv))
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
     this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
       return accumulator + serv.numberTerap;
     }, 0)
@@ -140,7 +152,7 @@ export class TablaComponent implements OnInit {
     // Filter by Encargada
     const encargada = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv))
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
     this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
       return accumulator + serv.numberEncarg;
     }, 0)
@@ -148,7 +160,7 @@ export class TablaComponent implements OnInit {
     // Filter by Valor Otro
     const valorOtro = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv))
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
     this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
       return accumulator + serv.numberOtro;
     }, 0)
