@@ -269,7 +269,7 @@ export class TerapeutasComponent implements OnInit {
         return accumulator + serv.numberTerap;
       }, 0)
 
-      return this.totalComision = this.sumaComision + Number(this.recibidoTerap)
+      return this.totalComision = this.sumaComision - Number(this.recibidoTerap)
     })
   }
 }

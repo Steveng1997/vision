@@ -150,12 +150,13 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   validarFechaVencida() {
+    debugger
     const splitDate = this.fechaActual.split('-')
     const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
     const currentDate = new Date()
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
     const currentHours = currentDate.getHours()
-    if (selectDate < currentDateWithoutHours && currentHours >= 12) {
+    if (selectDate < currentDateWithoutHours && currentHours <= 12) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -635,7 +636,7 @@ export class NuevoServicioComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
             this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
-            this.router.navigate([`menu/${id}/vision/${id}`]);
+            this.router.navigate([`menu/${this.encargada[0]['id']}/vision/${this.encargada[0]['id']}`]);
             Swal.fire({
               position: 'top-end',
               icon: 'success',
