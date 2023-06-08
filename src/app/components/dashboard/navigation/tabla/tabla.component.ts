@@ -164,6 +164,46 @@ export class TablaComponent implements OnInit {
     this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
       return accumulator + serv.numberOtro;
     }, 0)
+
+    // Filter by Valor Bebida
+    const valorBebida = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
+      return accumulator + serv.bebidas;
+    }, 0)
+
+    // Filter by Valor Tabaco
+    const valorTabaco = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
+      return accumulator + serv.tabaco;
+    }, 0)
+
+    // Filter by Valor Vitamina
+    const valorVitamina = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
+      return accumulator + serv.vitaminas;
+    }, 0)
+
+    // Filter by Valor Propina
+    const valorPropina = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
+      return accumulator + serv.propina;
+    }, 0)
+
+    // Filter by Valor Propina
+    const valorOtros = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
+      return accumulator + serv.otros;
+    }, 0)
   }
 
   sumaTotalServicios() {
