@@ -180,6 +180,22 @@ export class ServicioService {
     });
   }
 
+  getTerapeutaEncargada(terapeuta: string, encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta)
+          .where('encargada', '==', encargada).where('liquidado', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getFechaHoy(fecha): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -224,6 +240,16 @@ export class ServicioService {
       .collection('servicio', (ref) => ref.where('id', '==', id))
       .doc(idDocument)
       .delete();
+  }
+
+  updateLiquidacion(idDocument, id) {
+    debugger
+    return this.db
+      .collection('servicio', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .update({
+        liquidado: true,
+      });
   }
 
   // -----------------------------------------------------------------------------------

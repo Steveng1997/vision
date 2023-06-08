@@ -13,11 +13,11 @@ export class BusquedaPipe implements PipeTransform {
 
     if (items) {
 
-      return items.filter((item) => item.terapeuta.match(param)
-        || item.encargada.match(param) || item.fecha.match(param) 
-        || item.formaPago.match(param) || item.horaStart.match(param) 
-        || item.cliente.match(param.toLowerCase()) || item.horaEnd.match(param) 
-        || item.salida.match(param) || item.formaPago.indexOf(param.toLowerCase()) > -1);
+      return items.filter((item) => item.terapeuta.match(param.toLowerCase().slice(1))
+        || item.encargada.match(param.toLowerCase().slice(1)) || item.fecha.match(param)
+        || item.horaStart.match(param) || item.cliente.match(param.toLowerCase().slice(1))
+        || item.horaEnd.match(param) || item.salida.match(param) 
+        || item.formaPago.indexOf(param.toLowerCase()) > -1);
     }
   }
 }

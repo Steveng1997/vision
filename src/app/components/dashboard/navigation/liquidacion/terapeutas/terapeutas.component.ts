@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+// Servicios
 import { LoginService } from 'src/app/core/services/login';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
@@ -93,7 +96,8 @@ export class TerapeutasComponent implements OnInit {
     if (this.comisionTabaco == undefined) this.comisionTabaco = 0;
     if (this.comisionVitamina == undefined) this.comisionVitamina = 0;
     if (this.comisionOtros == undefined) this.comisionOtros = 0;
-    if (this.sumaComision == undefined) this.sumaComision = 0
+    if (this.sumaComision == undefined) this.sumaComision = 0;
+    if (this.totalComision == undefined) this.totalComision = 0;
   }
 
   getServicio() {
@@ -126,7 +130,7 @@ export class TerapeutasComponent implements OnInit {
   }
 
   busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra);
   }
 
   addLiquidacion() {
@@ -257,7 +261,7 @@ export class TerapeutasComponent implements OnInit {
         Number(this.comisionVitamina) + Number(this.comisionOtros);
 
       // return this.sumaComision = sumComision.toFixed(0)
-      if (this.sumaComision != 0 || this.sumaComision != undefined){
+      if (this.sumaComision != 0 || this.sumaComision != undefined) {
         this.sumaComision = Number(sumComision.toFixed(1))
       }
 
@@ -271,5 +275,41 @@ export class TerapeutasComponent implements OnInit {
 
       return this.totalComision = this.sumaComision - Number(this.recibidoTerap)
     })
+  }
+
+  guardar() {
+    if (this.selectedTerapeuta) {
+      if (this.selectedEncargada) {
+        this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datos) => {
+          for (let index = 0; index < datos.length; index++) {
+            this.servicioService.updateLiquidacion(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Liquidado Correctamente!',
+                showConfirmButton: false,
+                timer: 2500,
+              });
+            })
+          }
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No hay ninguna encargada seleccionada',
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No hay ninguna terapeuta seleccionada',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
   }
 }

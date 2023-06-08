@@ -27,7 +27,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 
 // Components
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
-import { EstadisticaComponent } from './navigation/estadistica/estadistica.component';
 import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
@@ -42,10 +41,11 @@ import { EncargadaPipe } from 'src/app/core/pipe/encargada.pipe';
 import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
+import { CierreComponent } from './navigation/cierre/cierre.component';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
-    EstadisticaComponent, NuevoServicioComponent,
+    CierreComponent, NuevoServicioComponent,
     EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
     TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FormaPagoPipe,
     BusquedaPipe, LoginComponent],
