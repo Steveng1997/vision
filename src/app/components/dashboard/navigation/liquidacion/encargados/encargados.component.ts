@@ -99,6 +99,11 @@ export class EncargadosComponent implements OnInit {
     if (this.totalComision == undefined) this.totalComision = 0;
   }
 
+  editamos(id: string) {
+    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
+    ]);
+  }
+
   getServicio() {
     this.servicioService.getByLiquidFalse().subscribe((datoServicio) => {
       this.servicio = datoServicio;

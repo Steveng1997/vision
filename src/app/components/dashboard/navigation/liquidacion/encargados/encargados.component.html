@@ -59,7 +59,7 @@
                     <th scope="col">Importe</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let serv of (servicio | encargada: selectedEncargada 
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
             | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr>
