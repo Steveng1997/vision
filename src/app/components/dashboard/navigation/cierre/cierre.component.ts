@@ -10,7 +10,8 @@ export class CierreComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'CIERRE'
   }
 
 }

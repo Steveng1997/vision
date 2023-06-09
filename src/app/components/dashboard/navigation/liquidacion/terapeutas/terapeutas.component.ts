@@ -75,6 +75,9 @@ export class TerapeutasComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES TERAPEUTAS'
+
     this.liqTep = true;
     this.addTerap = false;
     this.getServicio();
@@ -159,8 +162,6 @@ export class TerapeutasComponent implements OnInit {
 
     const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value);
     this.totalValorOtroServ = totalValorOtroServicio;
-
-
   }
 
   notas(targetModal, modal) {

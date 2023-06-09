@@ -32,6 +32,9 @@ export class VisionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'VISIÓN'
+
     this.idUser = this.activeRoute.snapshot.paramMap.get('id');
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
@@ -43,7 +46,7 @@ export class VisionComponent implements OnInit {
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio;
       this.sumaTotalServicio();
-      if (datoServicio.length != 0){
+      if (datoServicio.length != 0) {
         this.calculardiferencia(datoServicio[0]['horaEnd']);
       }
     });

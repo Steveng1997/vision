@@ -76,6 +76,9 @@ export class TablaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'TABLA'
+
     this.idUser = this.activeRoute.snapshot.paramMap.get('id');
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]

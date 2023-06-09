@@ -196,6 +196,22 @@ export class ServicioService {
     });
   }
 
+  getEncargadaNoLiquidada(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+          .where('liquidado', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getFechaHoy(fecha): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db

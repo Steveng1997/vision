@@ -110,6 +110,9 @@ export class NuevoServicioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
+
     this.cargar();
     this.getEncargada();
     this.getTerapeuta();
@@ -150,7 +153,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   validarFechaVencida() {
-    debugger
     const splitDate = this.fechaActual.split('-')
     const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
     const currentDate = new Date()
@@ -544,32 +546,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // -------------------------------------------- Editamos ---------------------------------------------
 
   cargar() {
@@ -578,6 +554,8 @@ export class NuevoServicioComponent implements OnInit {
     this.servicioService.getByEditar(this.idEditar).then((datosServicio: any[]) => {
       if (datosServicio.length != 0) {
         this.editamos = true;
+        document.getElementById('idTitulo').style.display = 'block'
+        document.getElementById('idTitulo').innerHTML = 'Editar servicio'
         this.editarService = datosServicio;
 
         this.serviceLogin.getByIdAndAdministrador(this.idUserAdministrador).then((datoAdministrador: any[]) => {

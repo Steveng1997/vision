@@ -63,9 +63,10 @@ export class ConfiguracionComponent implements OnInit {
   ngOnInit(): void {
     this.getTerapeuta();
     this.getEncargada();
-  }
 
-  // Encargada
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'CONFIGURACIÓN'
+  }
 
   openEncargada(targetEncargada) {
     this.modalService.open(targetEncargada, {

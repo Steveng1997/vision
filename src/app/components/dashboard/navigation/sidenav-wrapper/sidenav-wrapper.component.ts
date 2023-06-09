@@ -15,7 +15,7 @@ import { delay, filter } from 'rxjs/operators';
 
 export class SidenavWrapperComponent implements OnInit {
   usuarios: any[] = [];
-  idUser: any;
+  public idUser: any;
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
@@ -54,40 +54,5 @@ export class SidenavWrapperComponent implements OnInit {
           this.sidenav.open();
         }
       });
-  }
-
-  tabla() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Tabla'
-  }
-
-  vision() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Visión'
-  }
-
-  nuevoServicio() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Nuevo servicio'
-  }
-
-  terapeu() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Liquidacion terapeuta'
-  }
-
-  encargada() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Liquidacion encargada'
-  }
-
-  estadistica() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Estadistica'
-  }
-
-  configuracion() {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'Configuracion'
   }
 }

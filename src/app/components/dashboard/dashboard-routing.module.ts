@@ -40,7 +40,7 @@ const routes: Routes = [
         component: TerapeutasComponent
       },
       {
-        path: 'encargados',
+        path: 'encargadas',
         component: EncargadosComponent
       }
     ]

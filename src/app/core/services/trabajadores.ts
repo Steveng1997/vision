@@ -100,6 +100,21 @@ export class TrabajadoresService {
     });
   }
 
+  getEncargada(nombre: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('usuarios', (ref) => ref.where('nombre', '==', nombre))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   // -----------------------------------------------------------------------------------
   // End Get
   // -----------------------------------------------------------------------------------
