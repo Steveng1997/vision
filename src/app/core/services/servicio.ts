@@ -259,7 +259,6 @@ export class ServicioService {
   }
 
   updateLiquidacion(idDocument, id) {
-    debugger
     return this.db
       .collection('servicio', (ref) => ref.where('id', '==', id))
       .doc(idDocument)

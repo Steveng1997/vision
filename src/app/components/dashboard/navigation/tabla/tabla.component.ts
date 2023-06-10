@@ -112,7 +112,6 @@ export class TablaComponent implements OnInit {
       const formasDePago = serv.formaPago.split(',')
       let formaDePagoResult = undefined
       formaDePagoResult = formasDePago.find(formaDePago => (formaDePago === this.selectedFormPago))
-      console.log(formaDePagoResult)
       return (formaDePagoResult !== undefined) ? true : false
     }
 
