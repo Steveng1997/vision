@@ -379,13 +379,33 @@ export class NuevoServicioComponent implements OnInit {
     this.formaPago = formPago.join(',')
   }
 
+  llenarFormaPagoEdit(): void {
+    const formPago = []
+    if (localStorage.getItem('Efectivo')) {
+      formPago.push('Efectivo')
+    }
+    if (localStorage.getItem('Bizum')) {
+      formPago.push('Bizum')
+    }
+    if (localStorage.getItem('Tarjeta')) {
+      formPago.push('Tarjeta')
+    }
+    if (localStorage.getItem('Trans')) {
+      formPago.push('Trans')
+    }
+
+    this.editarService[0]['formaPago'] = formPago.join(',')
+    this.formaPago = formPago.join(',')
+  }
+
   horaInicio(event: any) {
     this.horaFinalServicio = event.target.value.toString();
     this.horaInicialServicio = event.target.value.toString();
   }
 
   fechaEscogida(event: any) {
-    this.fechaActual = event.target.value
+    this.editarService[0]['fecha'] = event.target.value;
+    this.fechaActual = event.target.value;
   }
 
   minutos(event: any) {
@@ -402,17 +422,21 @@ export class NuevoServicioComponent implements OnInit {
 
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
     this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+    this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
 
     let hora = this.horaFinalServicio.slice(0, 2);
     let minutes = this.horaFinalServicio.slice(3, 5);
     this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
   }
 
   salida(event: any) {
     if (event.checked == true) {
       this.salidaTrabajador = 'Salida';
+      this.editarService[0]['salida'] = 'Salida';
     } else {
       this.salidaTrabajador = '';
+      this.editarService[0]['salida'] = '';
     }
   }
 
@@ -459,7 +483,6 @@ export class NuevoServicioComponent implements OnInit {
 
     sumatoria = servicio + bebida + tabaco + vitaminas + propina + otros;
     this.sumatoriaServicios = sumatoria;
-    console.log(this.sumatoriaServicios)
     this.restamosCobro = sumatoria;
 
     const restamos = Number(this.formTemplate.value.numberPiso1) + Number(this.formTemplate.value.numberPiso2) +
@@ -526,7 +549,6 @@ export class NuevoServicioComponent implements OnInit {
     }
 
     this.sumatoriaCobros = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
-    console.log(this.sumatoriaCobros)
 
     restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros;
     resultado = this.sumatoriaServicios - restamos
@@ -579,7 +601,9 @@ export class NuevoServicioComponent implements OnInit {
   editarServicio(idDocument, idServicio, serv: Servicio) {
     if (!this.validarFechaVencida()) return
     if (this.restamosCobroEdit == 0) {
+      this.llenarFormaPagoEdit();
       this.servicioService.updateServicio(idDocument, idServicio, serv);
+      localStorage.clear();
       Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -614,6 +638,7 @@ export class NuevoServicioComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
             this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
+            localStorage.clear();
             this.router.navigate([`menu/${this.encargada[0]['id']}/vision/${this.encargada[0]['id']}`]);
             Swal.fire({
               position: 'top-end',
