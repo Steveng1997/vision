@@ -185,9 +185,9 @@
 
             <!-- Table Sumatoria -->
 
-            <div style="display: grid; place-items: center; margin-top: 15%;">
+            <div style="display: grid; place-items: center;" class="tableCierre">
                 <div style="text-align: center; width: max-content;">
-                    <table class="table">
+                    <table class="table" *ngFor="let cerre of servicio">
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -200,25 +200,25 @@
                             <tr>
                                 <th scope="row">Efectivo</th>
                                 <td>{{1111 + ' €'}}</td>
-                                <td>{{terapeutaName['servicio'] + ' %'}}</td>
-                                <td>{{3333 + ' €'}}</td>
+                                <td>{{cerre.valueEfectivo + ' €'}}</td>
+                                <td>{{totalValueEfectivo}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Bizum</th>
                                 <td>{{555 + ' €'}}</td>
-                                <td>{{0}}</td>
+                                <td>{{cerre.valueBizum + ' €'}}</td>
                                 <td>{{666 + ' €'}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Tarjeta</th>
                                 <td>{{1111 + ' €'}}</td>
-                                <td>{{000}}</td>
+                                <td>{{cerre.valueTarjeta + ' €'}}</td>
                                 <td>{{22222 + ' €'}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Transf</th>
                                 <td>{{555 + ' €'}}</td>
-                                <td>{{terapeutaName['tabaco'] + ' %'}}</td>
+                                <td>{{cerre.valueTrans + ' €'}}</td>
                                 <td>{{6666 + ' €'}}</td>
                             </tr>
                         </tbody>

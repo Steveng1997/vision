@@ -119,6 +119,7 @@ export class CierreComponent implements OnInit {
   addLiquidacion() {
     this.liqEncargada = false;
     this.addEncarg = true
+    this.pagos();
   }
 
   sumaTotalServicios() {
@@ -149,6 +150,10 @@ export class CierreComponent implements OnInit {
           backdrop: 'static',
         });
     });
+  }
+
+  pagos() {
+    this.totalValueEfectivo = Number(this.servicio[0]['valueEfectivo']) - 100;
   }
 
   guardar() {
