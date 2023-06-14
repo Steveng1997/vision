@@ -46,6 +46,16 @@ export class NuevoServicioComponent implements OnInit {
   restamosCobro = 0;
   sumatoriaCobros = 0;
 
+  // Cobros 
+  valueEfectivo = 0;
+  valueBizum = 0;
+  valueTarjeta = 0;
+  valueTrans = 0;
+  validateEfect = true;
+  validateBizum = true;
+  validateTarjeta = true;
+  validateTrans = true;
+
   // Editar
 
   sumatoriaServiciosEdit = 0;
@@ -181,10 +191,14 @@ export class NuevoServicioComponent implements OnInit {
           if (this.restamosCobro == 0) {
             this.llenarFormaPago()
             this.totalServicio()
+            this.efectCheckToggle(this.validateEfect);
+            this.bizumCheckToggle(this.validateBizum);
+            this.tarjCheckToggle(this.validateTarjeta);
+            this.transCheckToggle(this.validateTrans);
             if (!this.validarFechaVencida()) return
             this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
               this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
-              this.fechaHoyInicio).then((rp) => {
+              this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans).then((rp) => {
                 if (rp) {
                   Swal.fire({
                     position: 'top-end',
@@ -310,7 +324,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   efectCheckToggle(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
     if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null &&
+        this.formTemplate.value.efectPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1);
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null &&
+        this.formTemplate.value.efectPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2);
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.formTemplate.value.numberTerap != null &&
+        this.formTemplate.value.efectTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap);
+      } else {
+        terap = 0;
+      }
+
+      if (this.formTemplate.value.numberEncarg != null &&
+        this.formTemplate.value.efectEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg);
+      } else {
+        encarg = 0;
+      }
+
+      if (this.formTemplate.value.numberOtro != null &&
+        this.formTemplate.value.efectOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro);
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueEfectivo = suma;
       localStorage.setItem('Efectivo', 'Efectivo')
       return
     }
@@ -323,7 +377,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   bizumCheckToggle(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
     if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null &&
+        this.formTemplate.value.bizuPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1);
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null &&
+        this.formTemplate.value.bizuPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2);
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.formTemplate.value.numberTerap != null &&
+        this.formTemplate.value.bizuTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap);
+      } else {
+        terap = 0;
+      }
+
+      if (this.formTemplate.value.numberEncarg != null &&
+        this.formTemplate.value.bizuEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg);
+      } else {
+        encarg = 0;
+      }
+
+      if (this.formTemplate.value.numberOtro != null &&
+        this.formTemplate.value.bizuOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro);
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueBizum = suma;
       localStorage.setItem('Bizum', 'Bizum')
       return
     }
@@ -336,7 +430,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   tarjCheckToggle(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
     if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null &&
+        this.formTemplate.value.tarjPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1);
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null &&
+        this.formTemplate.value.tarjPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2);
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.formTemplate.value.numberTerap != null &&
+        this.formTemplate.value.tarjTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap);
+      } else {
+        terap = 0;
+      }
+
+      if (this.formTemplate.value.numberEncarg != null &&
+        this.formTemplate.value.tarjEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg);
+      } else {
+        encarg = 0;
+      }
+
+      if (this.formTemplate.value.numberOtro != null &&
+        this.formTemplate.value.tarjOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro);
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueTarjeta = suma;
       localStorage.setItem('Tarjeta', 'Tarjeta')
       return
     }
@@ -349,7 +483,47 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   transCheckToggle(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
     if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null &&
+        this.formTemplate.value.transPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1);
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null &&
+        this.formTemplate.value.transPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2);
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.formTemplate.value.numberTerap != null &&
+        this.formTemplate.value.transTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap);
+      } else {
+        terap = 0;
+      }
+
+      if (this.formTemplate.value.numberEncarg != null &&
+        this.formTemplate.value.transEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg);
+      } else {
+        encarg = 0;
+      }
+
+      if (this.formTemplate.value.numberOtro != null &&
+        this.formTemplate.value.transOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro);
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueTrans = suma;
       localStorage.setItem('Trans', 'Trans')
       return
     }
@@ -602,6 +776,10 @@ export class NuevoServicioComponent implements OnInit {
     if (!this.validarFechaVencida()) return
     if (this.restamosCobroEdit == 0) {
       this.llenarFormaPagoEdit();
+      this.efectCheckToggleEdit(this.validateEfect);
+      this.bizumCheckToggleEdit(this.validateBizum);
+      this.tarjCheckToggleEdit(this.validateTarjeta);
+      this.transCheckToggleEdit(this.validateTrans);
       this.servicioService.updateServicio(idDocument, idServicio, serv);
       localStorage.clear();
       Swal.fire({
@@ -765,5 +943,226 @@ export class NuevoServicioComponent implements OnInit {
     restamosEdit = valuepiso1Edit + valuepiso2Edit + valueterapeutaEdit + valueEncargEdit + valueotrosEdit;
     resultadoEdit = this.editarService[0]['totalServicio'] - restamosEdit
     this.restamosCobroEdit = resultadoEdit
+  }
+
+  // Efectivo
+
+  efectCheckToggleEdit(event: any) {
+
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0;
+    debugger
+    if (event) {
+
+      if (this.editarService[0]['numberPiso1'] != null &&
+        this.editarService[0]['efectPiso1'] === true) {
+        piso1 = Number(this.editarService[0]['numberPiso1'])
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.editarService[0]['numberPiso2'] != null &&
+        this.editarService[0]['efectPiso2'] === true) {
+        piso2 = Number(this.editarService[0]['numberPiso2'])
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.editarService[0]['numberTerap'] != null &&
+        this.editarService[0]['efectTerap'] === true) {
+        terap = Number(this.editarService[0]['numberTerap'])
+      } else {
+        terap = 0;
+      }
+
+      if (this.editarService[0]['numberEncarg'] != null &&
+        this.editarService[0]['efectEncarg'] === true) {
+        encarg = Number(this.editarService[0]['numberEncarg'])
+      } else {
+        encarg = 0;
+      }
+
+      if (this.editarService[0]['numberOtro'] != null &&
+        this.editarService[0]['efectOtro'] === true) {
+        otroserv = Number(this.editarService[0]['numberOtro'])
+      } else {
+        otroserv = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroserv;
+      this.editarService[0]['valueEfectivo'] = suma;
+      localStorage.setItem('Efectivo', 'Efectivo')
+      return
+    }
+
+    if (!this.formTemplate.value.efectPiso1 && !this.formTemplate.value.efectPiso2 &&
+      !this.formTemplate.value.efectTerap && !this.formTemplate.value.efectEncarg &&
+      !this.formTemplate.value.efectOtro) {
+      localStorage.removeItem('Efectivo')
+    }
+  }
+
+  // Bizum
+
+  bizumCheckToggleEdit(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
+    if (event) {
+
+      if (this.editarService[0]['numberPiso1'] != null &&
+        this.editarService[0]['bizuPiso1'] === true) {
+        piso1 = Number(this.editarService[0]['numberPiso1'])
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.editarService[0]['numberPiso2'] != null &&
+        this.editarService[0]['bizuPiso2'] === true) {
+        piso2 = Number(this.editarService[0]['numberPiso2'])
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.editarService[0]['numberTerap'] != null &&
+        this.editarService[0]['bizuTerap'] === true) {
+        terap = Number(this.editarService[0]['numberTerap'])
+      } else {
+        terap = 0;
+      }
+
+      if (this.editarService[0]['numberEncarg'] != null &&
+        this.editarService[0]['bizuEncarg'] === true) {
+        encarg = Number(this.editarService[0]['numberEncarg'])
+      } else {
+        encarg = 0;
+      }
+
+      if (this.editarService[0]['numberOtro'] != null &&
+        this.editarService[0]['bizuOtro'] === true) {
+        otroservic = Number(this.editarService[0]['numberOtro'])
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.editarService[0]['valueBizum'] = suma;
+      localStorage.setItem('Bizum', 'Bizum')
+      return
+    }
+
+    if (!this.formTemplate.value.bizuPiso1 && !this.formTemplate.value.bizuPiso2 &&
+      !this.formTemplate.value.bizuTerap && !this.formTemplate.value.bizuEncarg &&
+      !this.formTemplate.value.bizuOtro) {
+      localStorage.removeItem('Bizum')
+    }
+  }
+
+  // Tarjeta
+
+  tarjCheckToggleEdit(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
+    if (event) {
+
+      if (this.editarService[0]['numberPiso1'] != null &&
+        this.editarService[0]['tarjPiso1'] === true) {
+        piso1 = Number(this.editarService[0]['numberPiso1'])
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.editarService[0]['numberPiso2'] != null &&
+        this.editarService[0]['tarjPiso2'] === true) {
+        piso2 = Number(this.editarService[0]['numberPiso2'])
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.editarService[0]['numberTerap'] != null &&
+        this.editarService[0]['tarjTerap'] === true) {
+        terap = Number(this.editarService[0]['numberTerap'])
+      } else {
+        terap = 0;
+      }
+
+      if (this.editarService[0]['numberEncarg'] != null &&
+        this.editarService[0]['tarjEncarg'] === true) {
+        encarg = Number(this.editarService[0]['numberEncarg'])
+      } else {
+        encarg = 0;
+      }
+
+      if (this.editarService[0]['numberOtro'] != null &&
+        this.editarService[0]['tarjOtro'] === true) {
+        otroservic = Number(this.editarService[0]['numberOtro'])
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.editarService[0]['valueTarjeta'] = suma;
+      localStorage.setItem('Tarjeta', 'Tarjeta')
+      return
+    }
+
+    if (!this.formTemplate.value.tarjPiso1 && !this.formTemplate.value.tarjPiso2 &&
+      !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
+      !this.formTemplate.value.tarjOtro) {
+      localStorage.removeItem('Tarjeta')
+    }
+  }
+
+  // Transaction
+
+  transCheckToggleEdit(event: any) {
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
+
+    if (event) {
+
+      if (this.editarService[0]['numberPiso1'] != null &&
+        this.editarService[0]['transPiso1'] === true) {
+        piso1 = Number(this.editarService[0]['numberPiso1'])
+      } else {
+        piso1 = 0;
+      }
+
+      if (this.editarService[0]['numberPiso2'] != null &&
+        this.editarService[0]['transPiso2'] === true) {
+        piso2 = Number(this.editarService[0]['numberPiso2'])
+      } else {
+        piso2 = 0;
+      }
+
+      if (this.editarService[0]['numberTerap'] != null &&
+        this.editarService[0]['transTerap'] === true) {
+        terap = Number(this.editarService[0]['numberTerap'])
+      } else {
+        terap = 0;
+      }
+
+      if (this.editarService[0]['numberEncarg'] != null &&
+        this.editarService[0]['transEncarg'] === true) {
+        encarg = Number(this.editarService[0]['numberEncarg'])
+      } else {
+        encarg = 0;
+      }
+
+      if (this.editarService[0]['numberOtro'] != null &&
+        this.editarService[0]['transOtro'] === true) {
+        otroservic = Number(this.editarService[0]['numberOtro'])
+      } else {
+        otroservic = 0;
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.editarService[0]['valueTrans'] = suma;
+      localStorage.setItem('Tarjeta', 'Tarjeta')
+      return
+    }
+
+    if (!this.formTemplate.value.tarjPiso1 && !this.formTemplate.value.tarjPiso2 &&
+      !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
+      !this.formTemplate.value.tarjOtro) {
+      localStorage.removeItem('Tarjeta')
+    }
   }
 } 
