@@ -1,84 +1,237 @@
 @media only screen and (min-device-width: 279px) and (max-device-width: 282px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+  .tableCierre {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 350px) and (max-device-width: 358px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
   }
-  
-  @media only screen and (min-device-width: 359px) and (max-device-width: 369px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .classTable {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 370px) and (max-device-width: 380px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+}
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 358px) {
+  .tableCierre {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 385px) and (max-device-width: 395px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
   }
-  
-  @media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .classTable {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 539px) and (max-device-width: 550px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+}
+
+@media only screen and (min-device-width: 359px) and (max-device-width: 369px) {
+  .tableCierre {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 767px) and (max-device-width: 769px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
   }
-  
-  @media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .classTable {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+}
+
+@media only screen and (min-device-width: 370px) and (max-device-width: 380px) {
+  .tableCierre {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
   }
-  
-  @media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+
+  .classTable {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
-    .tableCierre {
-      margin-top: 15%;
-    }
+}
+
+@media only screen and (min-device-width: 385px) and (max-device-width: 395px) {
+  .tableCierre {
+    margin-top: 15%;
   }
-  
-  @media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
-    .tableCierre {
-      margin-top: 8%;
-    }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
   }
-  
+
+  .classTable {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 450px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 539px) and (max-device-width: 550px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 769px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 819px) and (max-device-width: 822px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (min-device-width: 910px) and (max-device-width: 930px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
+  .tableCierre {
+    margin-top: 6%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 2%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 6%;
+  }
+}
+
+@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 2%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 6%;
+  }
+}
+
+@media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
+  .tableCierre {
+    margin-top: 8%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 2%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: revert;
+  }
+
+  .classTable {
+    margin-top: 6%;
+  }
+}

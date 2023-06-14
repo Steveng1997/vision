@@ -78,6 +78,7 @@ export class ServicioService {
       valueBizum: valueBizum,
       valueTarjeta: valueTarjeta,
       valueTrans: valueTrans,
+      cierre: false,
     };
     return new Promise<any>((resolve, reject) => {
       this.db

@@ -17,7 +17,7 @@ import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 export class CierreComponent implements OnInit {
 
   liqEncargada: boolean;
-  addEncarg: boolean;
+  addCierre: boolean;
   filtredBusqueda: string;
   servicio: any;
   page!: number;
@@ -26,22 +26,23 @@ export class CierreComponent implements OnInit {
   encargada: any[] = [];
   selectedEncargada: string;
 
-  // Terapeuta
-  terapeutaName: any[] = []
-
   // Fecha
   fechaInicio: string;
   fechaFinal: string;
 
-  // Servicios
+  // Pagos
   totalValueServicio: number;
   totalValueEfectivo: number;
   totalValueBizum: number;
   totalValueTarjeta: number;
   totalValueTrans: number;
+  ingresoPeriodo: number;
 
-  recibidoTerap: any;
-  totalComision: number;
+  // Cobros
+  totalValuePiso: number;
+  totalValueTerap: number;
+  totalValueEncarg: number;
+  totalValueOtros: number;
 
   constructor(
     public router: Router,
@@ -65,25 +66,10 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
     this.liqEncargada = true;
-    this.addEncarg = false;
+    this.addCierre = false;
     this.getServicio();
     this.getEncargada();
-    this.tableComision();
   }
-
-  tableComision() {
-    if (this.terapeutaName['totalServicio'] == undefined) this.terapeutaName['totalServicio'] = 0;
-    if (this.terapeutaName['valueEfectivo'] == undefined) this.terapeutaName['valueEfectivo'] = 0;
-    if (this.terapeutaName['valueBizum'] == undefined) this.terapeutaName['valueBizum'] = 0;
-    if (this.terapeutaName['valueTarjeta'] == undefined) this.terapeutaName['valueTarjeta'] = 0;
-    if (this.terapeutaName['valueTrans'] == undefined) this.terapeutaName['valueTrans'] = 0;
-    if (this.totalValueServicio == undefined) this.totalValueServicio = 0;
-    if (this.totalValueEfectivo == undefined) this.totalValueEfectivo = 0;
-    if (this.totalValueBizum == undefined) this.totalValueBizum = 0;
-    if (this.totalValueTarjeta == undefined) this.totalValueTarjeta = 0;
-    if (this.totalValueTrans == undefined) this.totalValueTrans = 0;
-  }
-
   editamos(id: string) {
     this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
     ]);
@@ -118,25 +104,24 @@ export class CierreComponent implements OnInit {
 
   addLiquidacion() {
     this.liqEncargada = false;
-    this.addEncarg = true
-    this.pagos();
+    this.addCierre = true
   }
 
   sumaTotalServicios() {
     const totalServ = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value);
     this.totalValueServicio = totalServ;
 
-    const totalValorProp = this.servicio.map(({ valueEfectivo }) => valueEfectivo).reduce((acc, value) => acc + value);
-    this.totalValueEfectivo = totalValorProp;
+    const totalEfec = this.servicio.map(({ valueEfectivo }) => valueEfectivo).reduce((acc, value) => acc + value);
+    this.totalValueEfectivo = totalEfec;
 
-    const totalTera = this.servicio.map(({ valueBizum }) => valueBizum).reduce((acc, value) => acc + value);
-    this.totalValueBizum = totalTera;
+    const totalBizum = this.servicio.map(({ valueBizum }) => valueBizum).reduce((acc, value) => acc + value);
+    this.totalValueBizum = totalBizum;
 
-    const totalValorBebida = this.servicio.map(({ valueTarjeta }) => valueTarjeta).reduce((acc, value) => acc + value);
-    this.totalValueTarjeta = totalValorBebida;
+    const totalTarj = this.servicio.map(({ valueTarjeta }) => valueTarjeta).reduce((acc, value) => acc + value);
+    this.totalValueTarjeta = totalTarj;
 
-    const totalValorTab = this.servicio.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value);
-    this.totalValueTrans = totalValorTab;
+    const totalTransf = this.servicio.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value);
+    this.totalValueTrans = totalTransf;
   }
 
   notas(targetModal, modal) {
@@ -152,8 +137,67 @@ export class CierreComponent implements OnInit {
     });
   }
 
-  pagos() {
-    this.totalValueEfectivo = Number(this.servicio[0]['valueEfectivo']) - 100;
+  calcularSumaDeServicios() {
+    const condicionEncargada = serv => {
+      return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+    }
+
+    // Filter by totalCobros
+    const total = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueServicio = total.reduce((accumulator, serv) => {
+      return accumulator + serv.totalServicio;
+    }, 0)
+
+    // Filter by totalEfectivo
+    const efect = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueEfectivo = efect.reduce((accumulator, serv) => {
+      return accumulator + serv.valueEfectivo;
+    }, 0)
+
+    // Filter by totalBizum
+    const bizu = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueBizum = bizu.reduce((accumulator, serv) => {
+      return accumulator + serv.valueBizum;
+    }, 0)
+
+    // Filter by totalTarjeta
+    const tarjeta = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueTarjeta = tarjeta.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTarjeta;
+    }, 0)
+
+    // Filter by totalTransferencia
+    const transfe = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueTrans = transfe.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTrans;
+    }, 0)
+
+    this.ingresoPeriodo = this.totalValueEfectivo + this.totalValueBizum + this.totalValueTarjeta +
+      this.totalValueTrans
+
+    // Filter by Piso
+    const terap = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValuePiso = terap.reduce((accumulator, serv) => {
+      return accumulator + serv.numberPiso1;
+    }, 0)
+
+    // Filter by Terapeuta
+    const piso1 = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueTerap = piso1.reduce((accumulator, serv) => {
+      return accumulator + serv.numberTerap;
+    }, 0)
+
+    // Filter by Encargada
+    const encarg = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueEncarg = encarg.reduce((accumulator, serv) => {
+      return accumulator + serv.numberEncarg;
+    }, 0)
+
+    // Filter by Otro
+    const otros = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueOtros = otros.reduce((accumulator, serv) => {
+      return accumulator + serv.numberOtro;
+    }, 0)
   }
 
   guardar() {
