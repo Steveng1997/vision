@@ -5,139 +5,139 @@
     <div>
         <label> Nuevo cierre </label>
     </div>
-</div>
 
-<form *ngIf="liqEncargada" [formGroup]="formTemplate">
 
-    <div class="container">
-        <div class="row">
+    <form [formGroup]="formTemplate">
 
-            <mat-form-field class="col-6">
-                <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
-                    (ngModelChange)="calcularSumaDeServicios()">
-                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                        {{encarg.nombre}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="container">
+            <div class="row">
 
-            <div class="col-6">
-                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+                <mat-form-field class="col-6">
+                    <mat-label>Encargada</mat-label>
+                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
+                        (ngModelChange)="calcularSumaDeServicios()">
+                        <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                            {{encarg.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="col-6">
+                    <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+                </div>
+
+
+                <div class="col-6">
+                    <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
+                </div>
+
+                <mat-form-field class="col-6">
+                    <mat-label>Buscar</mat-label>
+                    <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                </mat-form-field>
             </div>
-
-
-            <div class="col-6">
-                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
-            </div>
-
-            <mat-form-field class="col-6">
-                <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
-            </mat-form-field>
         </div>
-    </div>
-</form>
+    </form>
 
 
 
-<div *ngIf="liqEncargada" style="display: grid; place-items: center; margin-top: 3%;">
-    <div style="text-align: center; width: max-content;">
-        <table class="table" id="excel-table">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
-                    <td style="border-left: solid;border-top: solid; border-bottom: solid;">{{totalValueServicio + '
-                        €'}}
-                    </td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValueEfectivo + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValueBizum + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValueTarjeta + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;  border-right: solid;">{{totalValueTrans + '
-                        €'}}</td>
-                </tr>
-                <tr>
-                    <!-- 2 -->
-                    <th scope="col">Encargada</th>
-                    <!-- 3 -->
-                    <th scope="col">Desde</th>
-                    <!-- 4 -->
-                    <th scope="col">Hasta</th>
-                    <!-- 5 -->
-                    <th scope="col">Hora</th>
-                    <!-- 5 -->
-                    <th scope="col">Servicios</th>
-                    <!-- 6 -->
-                    <th scope="col">TOTAL</th>
-                    <!-- 7 -->
-                    <th scope="col">Efectivo</th>
-                    <!-- 8 -->
-                    <th scope="col">Bizum</th>
-                    <!-- 9 -->
-                    <th scope="col">Tarjeta</th>
-                    <!-- 10 -->
-                    <th scope="col">Trans.</th>
-                </tr>
-            </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
+    <div style="display: grid; place-items: center; margin-top: 3%;">
+        <div style="text-align: center; width: max-content;">
+            <table class="table" id="excel-table">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
+                        <td style="border-left: solid;border-top: solid; border-bottom: solid;">{{totalValueServicio + '
+                            €'}}
+                        </td>
+                        <td style="border-top: solid; border-bottom: solid;">{{totalValueEfectivo + ' €'}}</td>
+                        <td style="border-top: solid; border-bottom: solid;">{{totalValueBizum + ' €'}}</td>
+                        <td style="border-top: solid; border-bottom: solid;">{{totalValueTarjeta + ' €'}}</td>
+                        <td style="border-top: solid; border-bottom: solid;  border-right: solid;">{{totalValueTrans + '
+                            €'}}</td>
+                    </tr>
+                    <tr>
+                        <!-- 2 -->
+                        <th scope="col">Encargada</th>
+                        <!-- 3 -->
+                        <th scope="col">Desde</th>
+                        <!-- 4 -->
+                        <th scope="col">Hasta</th>
+                        <!-- 5 -->
+                        <th scope="col">Hora</th>
+                        <!-- 5 -->
+                        <th scope="col">Servicios</th>
+                        <!-- 6 -->
+                        <th scope="col">TOTAL</th>
+                        <!-- 7 -->
+                        <th scope="col">Efectivo</th>
+                        <!-- 8 -->
+                        <th scope="col">Bizum</th>
+                        <!-- 9 -->
+                        <th scope="col">Tarjeta</th>
+                        <!-- 10 -->
+                        <th scope="col">Trans.</th>
+                    </tr>
+                </thead>
+                <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
             | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
-                <tr>
-                    <!-- 2 -->
-                    <td>{{serv.encargada}}</td>
-                    <!-- 3 -->
-                    <td>{{serv.fecha}}</td>
-                    <!-- 4 -->
-                    <td>{{serv.fecha}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.horaEnd}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.servicio}}</td>
-                    <!-- 6 -->
-                    <td>{{serv.totalServicio}}</td>
-                    <!-- 7 -->
-                    <td>{{serv.valueEfectivo}}</td>
-                    <!-- 8 -->
-                    <td>{{serv.valueBizum}}</td>
-                    <!-- 9 -->
-                    <td>{{serv.valueTarjeta}}</td>
-                    <!-- 10 -->
-                    <td>{{serv.valueTrans}}</td>
-                </tr>
+                    <tr>
+                        <!-- 2 -->
+                        <td>{{serv.encargada}}</td>
+                        <!-- 3 -->
+                        <td>{{serv.fecha}}</td>
+                        <!-- 4 -->
+                        <td>{{serv.fecha}}</td>
+                        <!-- 5 -->
+                        <td>{{serv.horaEnd}}</td>
+                        <!-- 5 -->
+                        <td>{{serv.servicio}}</td>
+                        <!-- 6 -->
+                        <td>{{serv.totalServicio + ' €'}}</td>
+                        <!-- 7 -->
+                        <td>{{serv.valueEfectivo + ' €'}}</td>
+                        <!-- 8 -->
+                        <td>{{serv.valueBizum + ' €'}}</td>
+                        <!-- 9 -->
+                        <td>{{serv.valueTarjeta + ' €'}}</td>
+                        <!-- 10 -->
+                        <td>{{serv.valueTrans + ' €'}}</td>
+                    </tr>
 
-                <!-- Modal -->
-                <ng-template class="custom-modal" #modalTabl let-modal>
-                    <div class="modal-header">
-                        <h5 class="modal-title"> Nota </h5>
-                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <!-- Modal -->
+                    <ng-template class="custom-modal" #modalTabl let-modal>
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Nota </h5>
+                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
-                    <div class="modal-body" style="text-align: center;">
-                        <!-- Aqui se coloca lo adentro -->
+                        <div class="modal-body" style="text-align: center;">
+                            <!-- Aqui se coloca lo adentro -->
 
-                        <h4>{{serv.nota}}</h4>
+                            <h4>{{serv.nota}}</h4>
 
-                        <!-- Afuera -->
-                    </div>
-                </ng-template>
+                            <!-- Afuera -->
+                        </div>
+                    </ng-template>
 
-                <!-- Fin Modal -->
+                    <!-- Fin Modal -->
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-            nextLabel="Siguiente">
-        </pagination-controls>
+            <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                nextLabel="Siguiente">
+            </pagination-controls>
+        </div>
     </div>
 </div>
-
 
 
 <!-- Agregar Emcargada -->
@@ -170,17 +170,17 @@
                 </div>
 
                 <div class="col-3">
-                    <mat-drawer-container class="example-container" style="float: right;">
-                        <mat-drawer-content style="font-weight: bold;">{{1111 + ' €'}}</mat-drawer-content>
+                    <mat-drawer-container style="float: right;">
+                        <mat-drawer-content style="font-weight: bold;">{{ingresoPeriodo + ' €'}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
             </div>
 
             <mat-divider></mat-divider>
 
-            <div class="col-auto">
-                <mat-drawer-container class="example-container" style="float: left;">
-                    <mat-drawer-content style="font-weight: bold;">{{222 + ' €'}}</mat-drawer-content>
+            <div class="col-auto" *ngIf="mostrarFecha">
+                <mat-drawer-container style="float: left;">
+                    <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc + ' ' + hora}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
 
@@ -200,27 +200,27 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Efectivo</th>
-                                <td>{{1111 + ' €'}}</td>
-                                <td>{{totalValueEfectivo + ' €'}}</td>
-                                <td>{{' €'}}</td>
+                                <td>{{valueCajaEfectivo + ' €'}}</td>
+                                <td>{{totalValueServicio + ' €'}}</td>
+                                <td>{{sumaCajaTepAndEnc + ' €'}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Bizum</th>
-                                <td>{{555 + ' €'}}</td>
-                                <td>{{totalValueBizum + ' €'}}</td>
-                                <td>{{' €'}}</td>
+                                <td>{{valueCajaEfectivo + ' €'}}</td>
+                                <td>{{totalValueServicio + ' €'}}</td>
+                                <td>{{sumaCajaTepAndEnc + ' €'}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Tarjeta</th>
-                                <td>{{1111 + ' €'}}</td>
-                                <td>{{totalValueTarjeta + ' €'}}</td>
-                                <td>{{' €'}}</td>
+                                <td>{{valueCajaEfectivo + ' €'}}</td>
+                                <td>{{totalValueServicio + ' €'}}</td>
+                                <td>{{sumaCajaTepAndEnc + ' €'}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Transf</th>
-                                <td>{{555 + ' €'}}</td>
-                                <td>{{totalValueTrans + ' €'}}</td>
-                                <td>{{' €'}}</td>
+                                <td>{{valueCajaEfectivo + ' €'}}</td>
+                                <td>{{totalValueServicio + ' €'}}</td>
+                                <td>{{sumaCajaTepAndEnc + ' €'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -228,7 +228,7 @@
             </div>
             <!-- Fin Table Cierre -->
 
-            <h4 class="ingresoPeriodo">Ingresos periodo {{ingresoPeriodo}}</h4>
+            <h4 class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
 
             <!-- Table -->
 
@@ -248,10 +248,12 @@
                                 <!-- 5 -->
                                 <th scope="col">€ a piso</th>
                                 <!-- 6 -->
-                                <th scope="col">€ a terap.</th>
+                                <th scope="col">€ a piso 2</th>
                                 <!-- 7 -->
-                                <th scope="col">€ a enc.</th>
+                                <th scope="col">€ a terap.</th>
                                 <!-- 8 -->
+                                <th scope="col">€ a enc.</th>
+                                <!-- 9 -->
                                 <th scope="col">€ a otros</th>
                             </tr>
                         </thead>
@@ -267,13 +269,15 @@
                                 <!-- 4 -->
                                 <td>{{serv.formaPago}}</td>
                                 <!-- 5 -->
-                                <td>{{serv.numberPiso1}}</td>
+                                <td>{{serv.numberPiso1 + ' €'}}</td>
                                 <!-- 6 -->
-                                <td>{{serv.numberTerap}}</td>
+                                <td>{{serv.numberPiso2 + ' €'}}</td>
                                 <!-- 7 -->
-                                <td>{{serv.numberEncarg}}</td>
+                                <td>{{serv.numberTerap + ' €'}}</td>
                                 <!-- 8 -->
-                                <td>{{serv.numberOtro}}</td>
+                                <td>{{serv.numberEncarg + ' €'}}</td>
+                                <!-- 9 -->
+                                <td>{{serv.numberOtro + ' €'}}</td>
                             </tr>
                         </tbody>
                         <tbody>
@@ -282,10 +286,11 @@
                                 <td style="border-top: solid;"></td>
                                 <td style="border-top: solid;">Total</td>
                                 <td style="border-top: solid;"></td>
-                                <td style="border-top: solid;">{{totalValuePiso}}</td>
-                                <td style="border-top: solid;">{{totalValueTerap}}</td>
-                                <td style="border-top: solid;">{{totalValueEncarg}}</td>
-                                <td style="border-top: solid;">{{totalValueOtros}}</td>
+                                <td style="border-top: solid;">{{totalValuePiso + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalValuePiso2 + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalValueTerap + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalValueEncarg + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalValueOtros + ' €'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -295,6 +300,10 @@
                     </pagination-controls>
                 </div>
             </div>
+
+            <!-- fin Tabla -->
+
+            <h4 class="ingresoPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
 
         </div>
 

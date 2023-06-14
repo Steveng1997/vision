@@ -218,6 +218,39 @@ export class ServicioService {
     });
   }
 
+  getEncargadaFechaAsc(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('id', 'asc')
+          .where('encargada', '==', encargada))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargadaFechaDesc(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('id', 'desc')
+          .where('encargada', '==', encargada))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+
   getFechaHoy(fecha): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -269,6 +302,15 @@ export class ServicioService {
       .doc(idDocument)
       .update({
         liquidado: true,
+      });
+  }
+
+  updateCierre(idDocument, id) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('id', '==', id))
+      .doc(idDocument)
+      .update({
+        cierre: true,
       });
   }
 

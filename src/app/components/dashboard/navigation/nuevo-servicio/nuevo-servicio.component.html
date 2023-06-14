@@ -202,7 +202,7 @@
             <div class="row">
                 <div class="col-4">
                     <mat-label>Piso 1</mat-label>
-                    <input type="text" formControlName="numberPiso1" (ngModelChange)="valueCobros()"
+                    <input type="number" formControlName="numberPiso1" (ngModelChange)="valueCobros()"
                         class="form-control">
                 </div>
 
@@ -551,7 +551,7 @@
                 <div class="row">
                     <div class="col-4">
                         <mat-label>Piso 1</mat-label>
-                        <input type="text" class="form-control" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
+                        <input type="number" class="form-control" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
                             (ngModelChange)="valueCobrosEdit()">
                     </div>
 

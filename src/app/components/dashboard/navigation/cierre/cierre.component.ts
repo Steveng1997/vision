@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/core/services/login';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-cierre',
@@ -30,6 +31,14 @@ export class CierreComponent implements OnInit {
   fechaInicio: string;
   fechaFinal: string;
 
+  // Conversión
+  fechaAsc: string;
+  fechaDesc: string;
+  hora: string;
+  fechaConvertion = new Date().toISOString().substring(0, 10);
+  horaConvertion = new Date().toTimeString().substring(0, 5);
+  mostrarFecha: boolean;
+
   // Pagos
   totalValueServicio: number;
   totalValueEfectivo: number;
@@ -40,9 +49,17 @@ export class CierreComponent implements OnInit {
 
   // Cobros
   totalValuePiso: number;
+  totalValuePiso2: number;
   totalValueTerap: number;
   totalValueEncarg: number;
   totalValueOtros: number;
+
+  /* Caja */
+  sumaCajaTepAndEnc: number;
+  valueCajaEfectivo: number;
+
+  // Periodo
+  sumaPeriodo: number;
 
   constructor(
     public router: Router,
@@ -103,8 +120,15 @@ export class CierreComponent implements OnInit {
   }
 
   addLiquidacion() {
+    this.validate();
     this.liqEncargada = false;
-    this.addCierre = true
+    this.addCierre = true;
+  }
+
+  validate() {
+    if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion;
+    if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion;
+    if (this.hora == undefined) this.hora = this.horaConvertion;
   }
 
   sumaTotalServicios() {
@@ -142,6 +166,13 @@ export class CierreComponent implements OnInit {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
     }
 
+    const mostrarFech = this.servicio.filter(serv => condicionEncargada(serv))
+    if (mostrarFech.length != 0) {
+      this.mostrarFecha = true
+    } else {
+      this.mostrarFecha = false
+    }
+
     // Filter by totalCobros
     const total = this.servicio.filter(serv => condicionEncargada(serv))
     this.totalValueServicio = total.reduce((accumulator, serv) => {
@@ -173,17 +204,23 @@ export class CierreComponent implements OnInit {
     }, 0)
 
     this.ingresoPeriodo = this.totalValueEfectivo + this.totalValueBizum + this.totalValueTarjeta +
-      this.totalValueTrans
+      this.totalValueTrans;
 
     // Filter by Piso
-    const terap = this.servicio.filter(serv => condicionEncargada(serv))
-    this.totalValuePiso = terap.reduce((accumulator, serv) => {
+    const piso1 = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValuePiso = piso1.reduce((accumulator, serv) => {
       return accumulator + serv.numberPiso1;
     }, 0)
 
+    // Filter by Piso 2
+    const piso2 = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValuePiso2 = piso2.reduce((accumulator, serv) => {
+      return accumulator + serv.numberPiso2;
+    }, 0)
+
     // Filter by Terapeuta
-    const piso1 = this.servicio.filter(serv => condicionEncargada(serv))
-    this.totalValueTerap = piso1.reduce((accumulator, serv) => {
+    const terap = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalValueTerap = terap.reduce((accumulator, serv) => {
       return accumulator + serv.numberTerap;
     }, 0)
 
@@ -198,13 +235,32 @@ export class CierreComponent implements OnInit {
     this.totalValueOtros = otros.reduce((accumulator, serv) => {
       return accumulator + serv.numberOtro;
     }, 0)
+
+    /* Caja */
+
+    this.sumaCajaTepAndEnc = this.totalValueTerap + this.totalValueEncarg;
+    this.valueCajaEfectivo = this.totalValueServicio - this.sumaCajaTepAndEnc;
+
+
+    // Total Periodo
+    this.sumaPeriodo = this.totalValuePiso + this.totalValuePiso2 +
+      this.totalValueTerap + this.totalValueEncarg + this.totalValueOtros
+
+    this.servicioService.getEncargadaFechaAsc(this.selectedEncargada).then((fechaAsce) => {
+      this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+      this.hora = fechaAsce[0]['horaStart']
+    })
+
+    this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaDesce) => {
+      this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+    })
   }
 
   guardar() {
     if (this.selectedEncargada) {
       this.servicioService.getEncargadaNoLiquidada(this.selectedEncargada).then((datos) => {
         for (let index = 0; index < datos.length; index++) {
-          this.servicioService.updateLiquidacion(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
+          this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
             Swal.fire({
               position: 'top-end',
               icon: 'success',
