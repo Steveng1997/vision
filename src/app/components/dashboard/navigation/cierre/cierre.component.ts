@@ -8,7 +8,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/core/services/login';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-cierre',
@@ -26,6 +25,7 @@ export class CierreComponent implements OnInit {
   // Encargada
   encargada: any[] = [];
   selectedEncargada: string;
+  encargadaSelect: string;
 
   // Fecha
   fechaInicio: string;
@@ -60,6 +60,12 @@ export class CierreComponent implements OnInit {
 
   // Periodo
   sumaPeriodo: number;
+
+  // Pagos Periodo
+  totalesEfectivo: number;
+  totalesBizum: number;
+  totalesTarjeta: number;
+  totalesTransferencia: number;
 
   constructor(
     public router: Router,
@@ -254,6 +260,30 @@ export class CierreComponent implements OnInit {
     this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaDesce) => {
       this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
     })
+
+    // Filter by Total Efectivo
+    const totalEfect = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalesEfectivo = totalEfect.reduce((accumulator, serv) => {
+      return accumulator + serv.valueEfectivo;
+    }, 0)
+
+    // Filter by Total Bizum
+    const totalBizum = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalesBizum = totalBizum.reduce((accumulator, serv) => {
+      return accumulator + serv.valueBizum;
+    }, 0)
+
+    // Filter by Total Tarjeta
+    const totalTarjeta = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalesTarjeta = totalTarjeta.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTarjeta;
+    }, 0)
+
+    // Filter by Total Transferencia
+    const totalTransfer = this.servicio.filter(serv => condicionEncargada(serv))
+    this.totalesTransferencia = totalTransfer.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTrans;
+    }, 0)
   }
 
   guardar() {

@@ -305,6 +305,43 @@
 
             <h4 class="ingresoPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
 
+            <!-- Table Cierre -->
+
+            <div style="display: grid; place-items: center;" class="classTable">
+                <div style="text-align: center; width: max-content;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Efectivo</th>
+                                <th scope="col">Bizum</th>
+                                <th scope="col">Tarjeta</th>
+                                <th scope="col">Transf</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let encarg of servicio | encargada: selectedEncargada">
+                            <tr>
+                                <td>{{encarg.terapeuta}}</td>
+                                <td>{{encarg.valueEfectivo + ' €'}}</td>
+                                <td>{{encarg.valueBizum + ' €'}}</td>
+                                <td>{{encarg.valueTarjeta + ' €'}}</td>
+                                <td>{{encarg.valueTrans + ' €'}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="border-top: solid;">Total</td>
+                                <td style="border-top: solid;">{{totalesEfectivo + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalesBizum + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalesTarjeta + ' €'}}</td>
+                                <td style="border-top: solid;">{{totalesTransferencia + ' €'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Fin Table Cierre -->
+
         </div>
 
 
