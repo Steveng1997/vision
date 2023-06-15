@@ -733,9 +733,14 @@ export class NuevoServicioComponent implements OnInit {
     this.servicioService.getTerapeutaByAsc(event).then((rp) => {
       if (rp[0] != undefined) {
         this.horaStartTerapeuta = rp[0]['horaStart']
-        this.horaEndTerapeuta = rp[0]['horaEnd']
       }
 
+    })
+
+    this.servicioService.getTerapeutaByDesc(event).then((rp) => {
+      if (rp[0] != undefined) {
+        this.horaEndTerapeuta = rp[0]['horaStart']
+      }
     })
     this.horaStartTerapeuta = ''
     this.horaEndTerapeuta = ''
@@ -835,41 +840,41 @@ export class NuevoServicioComponent implements OnInit {
     let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0,
       propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0;
 
-    if (this.editarService[0]['servicio'] != null) {
-      servicioEdit = Number(this.editarService[0]['servicio'])
-    } else {
-      servicioEdit = 0;
-    }
-
-    if (this.editarService[0]['bebidas'] != null) {
-      bebidaEdit = Number(this.editarService[0]['bebidas'])
-    } else {
-      bebidaEdit = 0;
-    }
-
-    if (this.editarService[0]['tabaco'] != null) {
-      tabacoEdit = Number(this.editarService[0]['tabaco'])
-    } else {
-      tabacoEdit = 0;
-    }
-
-    if (this.editarService[0]['vitaminas'] != null) {
-      vitaminasEdit = Number(this.editarService[0]['vitaminas'])
-    } else {
-      vitaminasEdit = 0;
-    }
-
-    if (this.editarService[0]['propina'] != null) {
-      propinaEdit = Number(this.editarService[0]['propina'])
-    } else {
-      propinaEdit = 0;
-    }
-
-    if (this.editarService[0]['otros'] != null) {
-      otrosEdit = Number(this.editarService[0]['otros'])
-    } else {
-      otrosEdit = 0;
-    }
+      if (this.editarService[0]['servicio'] != null) {
+        servicioEdit = Number(this.editarService[0]['servicio'])
+      } else {
+        servicioEdit = 0;
+      }
+  
+      if (this.editarService[0]['bebidas'] != null) {
+        bebidaEdit = Number(this.editarService[0]['bebidas'])
+      } else {
+        bebidaEdit = 0;
+      }
+  
+      if (this.editarService[0]['tabaco'] != null) {
+        tabacoEdit = Number(this.editarService[0]['tabaco'])
+      } else {
+        tabacoEdit = 0;
+      }
+  
+      if (this.editarService[0]['vitaminas'] != null) {
+        vitaminasEdit = Number(this.editarService[0]['vitaminas'])
+      } else {
+        vitaminasEdit = 0;
+      }
+  
+      if (this.editarService[0]['propina'] != null) {
+        propinaEdit = Number(this.editarService[0]['propina'])
+      } else {
+        propinaEdit = 0;
+      }
+  
+      if (this.editarService[0]['otros'] != null) {
+        otrosEdit = Number(this.editarService[0]['otros'])
+      } else {
+        otrosEdit = 0;
+      }
 
     sumatoriaEdit = servicioEdit + bebidaEdit + tabacoEdit + vitaminasEdit + propinaEdit + otrosEdit;
     this.editarService[0]['totalServicio'] = sumatoriaEdit;

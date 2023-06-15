@@ -141,10 +141,25 @@ export class ServicioService {
     });
   }
 
-  getTerapeutaByAsc(nombre: string): Promise<any> {
+  getTerapeutaByAsc(terapeuta: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
-        .collection('servicio', (ref) => ref.where('terapeuta', '==', nombre).orderBy('id', 'asc'))
+        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'asc'))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getTerapeutaByDesc(terapeuta: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'desc'))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
