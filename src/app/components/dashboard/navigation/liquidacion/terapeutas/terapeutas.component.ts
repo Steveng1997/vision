@@ -36,6 +36,12 @@ export class TerapeutasComponent implements OnInit {
   fechaInicio: string;
   fechaFinal: string;
 
+  // Conversión
+  fechaAsc: string;
+  fechaDesc: string;
+  fechaConvertion = new Date().toISOString().substring(0, 10);
+  mostrarFecha: boolean;
+
   // Servicios
   totalServicio: number;
   totalValorPropina: number;
@@ -138,7 +144,13 @@ export class TerapeutasComponent implements OnInit {
 
   addLiquidacion() {
     this.liqTep = false;
+    this.validate();
     this.addTerap = true
+  }
+
+  validate() {
+    if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion;
+    if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion;
   }
 
   sumaTotalServicios() {
@@ -181,6 +193,21 @@ export class TerapeutasComponent implements OnInit {
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
+
+    const mostrarFech = this.servicio.filter(serv => condicionTerapeuta(serv))
+    if (mostrarFech.length != 0) {
+      this.mostrarFecha = true
+    } else {
+      this.mostrarFecha = false
+    }
+
+    this.servicioService.getTerapeutaFechaAsc(this.selectedTerapeuta).then((fechaAsce) => {
+      this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+    })
+
+    this.servicioService.getTerapeutaFechaDesc(this.selectedTerapeuta).then((fechaDesce) => {
+      this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+    })
 
     const condicionEncargada = serv => {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true

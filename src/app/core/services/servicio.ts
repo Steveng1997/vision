@@ -218,6 +218,38 @@ export class ServicioService {
     });
   }
 
+  getTerapeutaFechaAsc(terapeuta: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('id', 'asc')
+          .where('terapeuta', '==', terapeuta))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getTerapeutaFechaDesc(terapeuta: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('id', 'desc')
+          .where('terapeuta', '==', terapeuta))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getEncargadaFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db

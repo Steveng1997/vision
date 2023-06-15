@@ -156,7 +156,7 @@
             <div class="row" style="margin-top: 4%;">
                 <div class="col-6">
                     <mat-drawer-container class="example-container">
-                        <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de
+                        <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
                             {{selectedTerapeuta}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
@@ -170,7 +170,13 @@
 
             <mat-divider></mat-divider>
 
-            <div style="display: grid; place-items: center; margin-top: 0%;">
+            <div class="col-auto" *ngIf="mostrarFecha">
+                <mat-drawer-container style="float: left;">
+                    <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc}}</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+
+            <div style="display: grid; place-items: center;" class="classTable">
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>

@@ -33,6 +33,12 @@ export class EncargadosComponent implements OnInit {
   fechaInicio: string;
   fechaFinal: string;
 
+  // Conversión
+  fechaAsc: string;
+  fechaDesc: string;
+  fechaConvertion = new Date().toISOString().substring(0, 10);
+  mostrarFecha: boolean;
+
   // Servicios
   totalServicio: number;
   totalValorPropina: number;
@@ -133,7 +139,13 @@ export class EncargadosComponent implements OnInit {
 
   addLiquidacion() {
     this.liqEncargada = false;
+    this.validate();
     this.addEncarg = true
+  }
+
+  validate() {
+    if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion;
+    if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion;
   }
 
   sumaTotalServicios() {
@@ -177,6 +189,21 @@ export class EncargadosComponent implements OnInit {
     const condicionEncargada = serv => {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
     }
+
+    const mostrarFech = this.servicio.filter(serv => condicionEncargada(serv))
+    if (mostrarFech.length != 0) {
+      this.mostrarFecha = true
+    } else {
+      this.mostrarFecha = false
+    }
+
+    this.servicioService.getEncargadaFechaAsc(this.selectedEncargada).then((fechaAsce) => {
+      this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+    })
+
+    this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaDesce) => {
+      this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+    })
 
     // Filter by servicio
     const servicios = this.servicio.filter(serv => condicionEncargada(serv))
