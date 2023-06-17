@@ -56,6 +56,17 @@ export class NuevoServicioComponent implements OnInit {
   validateTarjeta = true;
   validateTrans = true;
 
+  // value Encargada & Terapeuta
+  valueEfectTerapeuta = 0;
+  valueBizuTerapeuta = 0;
+  valueTarjeTerapeuta = 0;
+  valueTransTerapeuta = 0;
+
+  valueEfectEncargada = 0;
+  valueBizuEncargada = 0;
+  valueTarjeEncargada = 0;
+  valueTransEncargada = 0;
+
   // Editar
 
   sumatoriaServiciosEdit = 0;
@@ -115,8 +126,7 @@ export class NuevoServicioComponent implements OnInit {
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
     public serviceLogin: LoginService,
-    private activeRoute: ActivatedRoute,
-    private serviceUser: LoginService
+    private activeRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -195,10 +205,13 @@ export class NuevoServicioComponent implements OnInit {
             this.bizumCheckToggle(this.validateBizum);
             this.tarjCheckToggle(this.validateTarjeta);
             this.transCheckToggle(this.validateTrans);
+            this.encargadaAndTerapeuta();
             if (!this.validarFechaVencida()) return
             this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
               this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
-              this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans).then((rp) => {
+              this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
+              this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
+              this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada).then((rp) => {
                 if (rp) {
                   Swal.fire({
                     position: 'top-end',
@@ -746,6 +759,59 @@ export class NuevoServicioComponent implements OnInit {
     this.horaEndTerapeuta = ''
   }
 
+  encargadaAndTerapeuta() {
+
+    if (this.formTemplate.value.efectTerap == true && this.formTemplate.value.numberTerap != 0) {
+      this.valueEfectTerapeuta = this.formTemplate.value.numberTerap;
+    } else {
+      this.valueEfectTerapeuta = 0;
+    }
+
+    if (this.formTemplate.value.bizuTerap == true && this.formTemplate.value.numberTerap != 0) {
+      this.valueBizuTerapeuta = this.formTemplate.value.numberTerap;
+    } else {
+      this.valueBizuTerapeuta = 0;
+    }
+
+    if (this.formTemplate.value.tarjTerap == true && this.formTemplate.value.numberTerap != 0) {
+      this.valueTarjeTerapeuta = this.formTemplate.value.numberTerap;
+    } else {
+      this.valueTarjeTerapeuta = 0;
+    }
+
+    if (this.formTemplate.value.transTerap == true && this.formTemplate.value.numberTerap != 0) {
+      this.valueTransTerapeuta = this.formTemplate.value.numberTerap;
+    } else {
+      this.valueTransTerapeuta = 0;
+    }
+
+    // Encargada 
+
+    if (this.formTemplate.value.efectEncarg == true && this.formTemplate.value.numberEncarg != 0) {
+      this.valueEfectEncargada = this.formTemplate.value.numberEncarg;
+    } else {
+      this.valueEfectEncargada = 0;
+    }
+
+    if (this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.numberEncarg != 0) {
+      this.valueBizuEncargada = this.formTemplate.value.numberEncarg;
+    } else {
+      this.valueBizuEncargada = 0;
+    }
+
+    if (this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.numberEncarg != 0) {
+      this.valueTarjeEncargada = this.formTemplate.value.numberEncarg;
+    } else {
+      this.valueTarjeEncargada = 0;
+    }
+
+    if (this.formTemplate.value.transEncarg == true && this.formTemplate.value.numberEncarg != 0) {
+      this.valueTransEncargada = this.formTemplate.value.numberEncarg;
+    } else {
+      this.valueTransEncargada = 0;
+    }
+  }
+
 
   // -------------------------------------------- Editamos ---------------------------------------------
 
@@ -785,6 +851,7 @@ export class NuevoServicioComponent implements OnInit {
       this.bizumCheckToggleEdit(this.validateBizum);
       this.tarjCheckToggleEdit(this.validateTarjeta);
       this.transCheckToggleEdit(this.validateTrans);
+      this.encargadaAndTerapeutaEdit();
       this.servicioService.updateServicio(idDocument, idServicio, serv);
       localStorage.clear();
       Swal.fire({
@@ -840,41 +907,41 @@ export class NuevoServicioComponent implements OnInit {
     let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0,
       propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0;
 
-      if (this.editarService[0]['servicio'] != null) {
-        servicioEdit = Number(this.editarService[0]['servicio'])
-      } else {
-        servicioEdit = 0;
-      }
-  
-      if (this.editarService[0]['bebidas'] != null) {
-        bebidaEdit = Number(this.editarService[0]['bebidas'])
-      } else {
-        bebidaEdit = 0;
-      }
-  
-      if (this.editarService[0]['tabaco'] != null) {
-        tabacoEdit = Number(this.editarService[0]['tabaco'])
-      } else {
-        tabacoEdit = 0;
-      }
-  
-      if (this.editarService[0]['vitaminas'] != null) {
-        vitaminasEdit = Number(this.editarService[0]['vitaminas'])
-      } else {
-        vitaminasEdit = 0;
-      }
-  
-      if (this.editarService[0]['propina'] != null) {
-        propinaEdit = Number(this.editarService[0]['propina'])
-      } else {
-        propinaEdit = 0;
-      }
-  
-      if (this.editarService[0]['otros'] != null) {
-        otrosEdit = Number(this.editarService[0]['otros'])
-      } else {
-        otrosEdit = 0;
-      }
+    if (this.editarService[0]['servicio'] != null) {
+      servicioEdit = Number(this.editarService[0]['servicio'])
+    } else {
+      servicioEdit = 0;
+    }
+
+    if (this.editarService[0]['bebidas'] != null) {
+      bebidaEdit = Number(this.editarService[0]['bebidas'])
+    } else {
+      bebidaEdit = 0;
+    }
+
+    if (this.editarService[0]['tabaco'] != null) {
+      tabacoEdit = Number(this.editarService[0]['tabaco'])
+    } else {
+      tabacoEdit = 0;
+    }
+
+    if (this.editarService[0]['vitaminas'] != null) {
+      vitaminasEdit = Number(this.editarService[0]['vitaminas'])
+    } else {
+      vitaminasEdit = 0;
+    }
+
+    if (this.editarService[0]['propina'] != null) {
+      propinaEdit = Number(this.editarService[0]['propina'])
+    } else {
+      propinaEdit = 0;
+    }
+
+    if (this.editarService[0]['otros'] != null) {
+      otrosEdit = Number(this.editarService[0]['otros'])
+    } else {
+      otrosEdit = 0;
+    }
 
     sumatoriaEdit = servicioEdit + bebidaEdit + tabacoEdit + vitaminasEdit + propinaEdit + otrosEdit;
     this.editarService[0]['totalServicio'] = sumatoriaEdit;
@@ -955,7 +1022,7 @@ export class NuevoServicioComponent implements OnInit {
   efectCheckToggleEdit(event: any) {
 
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0;
-    debugger
+    
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != null &&
@@ -1168,6 +1235,59 @@ export class NuevoServicioComponent implements OnInit {
       !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
       !this.formTemplate.value.tarjOtro) {
       localStorage.removeItem('Tarjeta')
+    }
+  }
+
+  encargadaAndTerapeutaEdit() {
+
+    if (this.editarService[0]['efectTerap'] == true && this.editarService[0]['numberTerap'] != null) {
+      this.editarService[0]['valueEfectTerapeuta'] = Number(this.editarService[0]['numberTerap']);
+    } else {
+      this.editarService[0]['valueEfectTerapeuta'] = 0;
+    }
+
+    if (this.editarService[0]['bizuTerap'] == true && this.editarService[0]['numberTerap'] != null) {
+      this.editarService[0]['valueBizuTerapeuta'] = Number(this.editarService[0]['numberTerap']);
+    } else {
+      this.editarService[0]['valueBizuTerapeuta'] = 0;
+    }
+
+    if (this.editarService[0]['tarjTerap'] == true && this.editarService[0]['numberTerap'] != null) {
+      this.editarService[0]['valueTarjeTerapeuta'] = Number(this.editarService[0]['numberTerap']);
+    } else {
+      this.editarService[0]['valueTarjeTerapeuta'] = 0;
+    }
+
+    if (this.editarService[0]['transTerap'] == true && this.editarService[0]['numberTerap'] != null) {
+      this.editarService[0]['valueTransTerapeuta'] = Number(this.editarService[0]['numberTerap']);
+    } else {
+      this.editarService[0]['valueTransTerapeuta'] = 0;
+    }
+
+    // Encargada 
+
+    if (this.editarService[0]['efectEncarg'] == true && this.editarService[0]['numberEncarg'] != null) {
+      this.editarService[0]['valueEfectEncargada'] = Number(this.editarService[0]['numberEncarg']);
+    } else {
+      this.editarService[0]['valueEfectEncargada'] = 0;
+    }
+
+    if (this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['numberEncarg'] != null) {
+      this.editarService[0]['valueBizuEncargada'] = Number(this.editarService[0]['numberEncarg']);
+    } else {
+      this.editarService[0]['valueBizuEncargada'] = 0;
+    }
+
+    if (this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['numberEncarg'] != null) {
+      this.editarService[0]['valueTarjeEncargada'] = Number(this.editarService[0]['numberEncarg']);
+    } else {
+      this.editarService[0]['valueTarjeEncargada'] = 0;
+    }
+
+    if (this.editarService[0]['transEncarg'] == true && this.editarService[0]['numberEncarg'] != null) {
+      this.editarService[0]['valueTransEncargada'] = Number(this.editarService[0]['numberEncarg']);
+    } else {
+      this.editarService[0]['valueTransEncargada'] = 0;
     }
   }
 } 

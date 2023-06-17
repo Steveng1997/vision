@@ -26,7 +26,9 @@ export class ServicioService {
   }
 
   registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd,
-    salida, fechaHoyInicio, valueEfectivo, valueBizum, valueTarjeta, valueTrans) {
+    salida, fechaHoyInicio, valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta,
+    valueBizuTerapeuta, valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada,
+    valueTarjeEncargada, valueTransEncargada) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
@@ -79,6 +81,14 @@ export class ServicioService {
       valueTarjeta: valueTarjeta,
       valueTrans: valueTrans,
       cierre: false,
+      valueEfectTerapeuta: valueEfectTerapeuta,
+      valueBizuTerapeuta: valueBizuTerapeuta,
+      valueTarjeTerapeuta: valueTarjeTerapeuta,
+      valueTransTerapeuta: valueTransTerapeuta,
+      valueEfectEncargada: valueEfectEncargada,
+      valueBizuEncargada: valueBizuEncargada,
+      valueTarjeEncargada: valueTarjeEncargada,
+      valueTransEncargada: valueTransEncargada
     };
     return new Promise<any>((resolve, reject) => {
       this.db

@@ -54,9 +54,28 @@ export class CierreComponent implements OnInit {
   totalValueEncarg: number;
   totalValueOtros: number;
 
-  /* Caja */
-  sumaCajaTepAndEnc: number;
-  valueCajaEfectivo: number;
+  /* Caja Encargada*/
+  cajaEncargEfect: number;
+  cajaEncargBizum: number;
+  cajaEncargTarj: number;
+  cajaEncargTrans: number;
+
+  /* Caja Terapeuta*/
+  cajaTerapEfect: number;
+  cajaTerapBizum: number;
+  cajaTerapTarj: number;
+  cajaTerapTrans: number;
+
+  /* Totales caja */
+
+  totalCajaEfectivo: number;
+  totalCajaBizu: number;
+  totalCajaTarjeta: number;
+  totalCajaTransfer: number;
+  sumaEfectivo = 0;
+  sumaBizum = 0;
+  sumaTarjeta = 0;
+  sumaTransfe = 0;
 
   // Periodo
   sumaPeriodo: number;
@@ -242,12 +261,6 @@ export class CierreComponent implements OnInit {
       return accumulator + serv.numberOtro;
     }, 0)
 
-    /* Caja */
-
-    this.sumaCajaTepAndEnc = this.totalValueTerap + this.totalValueEncarg;
-    this.valueCajaEfectivo = this.totalValueServicio - this.sumaCajaTepAndEnc;
-
-
     // Total Periodo
     this.sumaPeriodo = this.totalValuePiso + this.totalValuePiso2 +
       this.totalValueTerap + this.totalValueEncarg + this.totalValueOtros
@@ -284,6 +297,74 @@ export class CierreComponent implements OnInit {
     this.totalesTransferencia = totalTransfer.reduce((accumulator, serv) => {
       return accumulator + serv.valueTrans;
     }, 0)
+
+    // --------------------------------------------------------------------- //
+    // Caja - Encargada
+
+    // Filter by Encargada Efectivo
+    const totalEncargadaEfect = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaEncargEfect = totalEncargadaEfect.reduce((accumulator, serv) => {
+      return accumulator + serv.valueEfectEncargada;
+    }, 0)
+
+    // Filter by Encargada Bizu
+    const totalEncargadaBizum = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaEncargBizum = totalEncargadaBizum.reduce((accumulator, serv) => {
+      return accumulator + serv.valueBizuEncargada;
+    }, 0)
+
+    // Filter by Encargada Tarjeta
+    const totalEncargadaTarjeta = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaEncargTarj = totalEncargadaTarjeta.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTarjeEncargada;
+    }, 0)
+
+    // Filter by Encargada Transferencia
+    const totalEncargadaTransf = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaEncargTrans = totalEncargadaTransf.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTransEncargada;
+    }, 0)
+
+
+
+    // --------------------------------------------------------------------- //
+    // Caja - Terapeuta
+
+    // Filter by Terapeuta Efectivo
+    const totalTerapeutaEfectivo = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaTerapEfect = totalTerapeutaEfectivo.reduce((accumulator, serv) => {
+      return accumulator + serv.valueEfectTerapeuta;
+    }, 0)
+
+    // Filter by Terapeuta Bizum
+    const totalTerapeutaBizum = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaTerapBizum = totalTerapeutaBizum.reduce((accumulator, serv) => {
+      return accumulator + serv.valueBizuTerapeuta;
+    }, 0)
+
+    // Filter by Terapeuta Tarjeta
+    const totalTerapeutaTarjeta = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaTerapTarj = totalTerapeutaTarjeta.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTarjeTerapeuta;
+    }, 0)
+
+    // Filter by Terapeuta Transferencia
+    const totalTerapeutaTransf = this.servicio.filter(serv => condicionEncargada(serv))
+    this.cajaTerapTrans = totalTerapeutaTransf.reduce((accumulator, serv) => {
+      return accumulator + serv.valueTransTerapeuta;
+    }, 0)
+
+    this.sumaEfectivo = Number(this.cajaEncargEfect) + Number(this.cajaTerapEfect);
+    this.totalCajaEfectivo = Number(this.totalValueServicio) - this.sumaEfectivo;
+
+    this.sumaBizum = Number(this.cajaEncargBizum) + Number(this.cajaTerapBizum);
+    this.totalCajaBizu = Number(this.totalValueServicio) - this.sumaBizum;
+
+    this.sumaTarjeta = Number(this.cajaEncargTarj) + Number(this.cajaTerapTarj);
+    this.totalCajaTarjeta = Number(this.totalValueServicio) - this.sumaTarjeta;
+
+    this.sumaTransfe = Number(this.cajaEncargTrans) + Number(this.cajaTerapTrans);
+    this.totalCajaTransfer = Number(this.totalValueServicio) - this.sumaTransfe;
   }
 
   guardar() {
