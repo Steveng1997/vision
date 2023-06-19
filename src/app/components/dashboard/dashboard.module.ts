@@ -78,7 +78,6 @@ import { CierreComponent } from './navigation/cierre/cierre.component';
     MatDividerModule,
     MatCheckboxModule
   ],
-  // providers: [Guardian],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class DashboardModule { }
