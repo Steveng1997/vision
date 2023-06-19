@@ -39,6 +39,33 @@ export class LoginService {
       usuario: formularioall.usuario,
       pass: formularioall.pass,
       rol: 'encargada',
+      fijoDia: 0,
+      servicio: 0,
+      bebida: 0,
+      tabaco: 0,
+      vitamina: 0,
+      propina: 0,
+      otros: 0,
+      activo: true
+    };
+    return new Promise<any>((resolve, reject) => {
+      this.db
+        .collection('usuarios')
+        .add(formularioall)
+        .then(
+          (response) => resolve(response),
+          (error) => reject(error)
+        );
+    });
+  }
+
+  registerEncargada(formularioall) {
+    formularioall = {
+      id: `uid${this.makeid(10)}`,
+      nombre: formularioall.nombre,
+      usuario: formularioall.usuario,
+      pass: formularioall.pass,
+      rol: 'encargada',
       fijoDia: formularioall.fijoDia,
       servicio: formularioall.servicio,
       bebida: formularioall.bebida,
@@ -167,7 +194,7 @@ export class LoginService {
       .doc(idDocument)
       .delete();
   }
-  
+
   // -----------------------------------------------------------------------------------
   // End Delete
   // -----------------------------------------------------------------------------------

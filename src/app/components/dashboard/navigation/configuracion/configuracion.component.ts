@@ -137,7 +137,7 @@ export class ConfiguracionComponent implements OnInit {
           this.numberEncargada();
           this.usuarioService.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
             if (nameRegistro[0] == undefined) {
-              this.usuarioService.registerUser(formValue);
+              this.usuarioService.registerEncargada(formValue);
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
