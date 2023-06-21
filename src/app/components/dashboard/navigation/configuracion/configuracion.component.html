@@ -111,13 +111,13 @@
             </thead>
             <tbody (click)="modalTablaEncargada(encg.id, modalTabl)"
                 *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
-                <tr>
+                <tr style="cursor: pointer;">
                     <td [ngClass]="{'color1':encg.activo == false, 'color2':encg.activo === true}">
                     </td>
                     <td>{{encg.nombre}}</td>
                     <td>{{encg.usuario}}</td>
                     <td>{{encg.pass}}</td>
-                    <td>{{encg.fijoDia + " %"}}</td>
+                    <td>{{encg.fijoDia}}</td>
                     <td>{{encg.servicio + " %"}}</td>
                     <td>{{encg.bebida + " %"}}</td>
                     <td>{{encg.tabaco + " %"}}</td>
@@ -345,7 +345,7 @@
             </thead>
             <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
                 *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
-                <tr>
+                <tr style="cursor: pointer;">
                     <td [ngClass]="{'color1':terap.activo == false, 'color2':terap.activo === true}">
                     </td>
                     <td>{{terap.nombre}}</td>

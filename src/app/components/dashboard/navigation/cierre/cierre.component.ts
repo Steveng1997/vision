@@ -118,7 +118,7 @@ export class CierreComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getByLiquidFalse().subscribe((datoServicio) => {
+    this.servicioService.geyByCierreFalse().subscribe((datoServicio) => {
       this.servicio = datoServicio;
       if (datoServicio.length != 0) {
         this.sumaTotalServicios();

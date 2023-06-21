@@ -305,6 +305,11 @@ export class TerapeutasComponent implements OnInit {
     })
   }
 
+  editamos(id: string) {
+    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
+    ]);
+  }
+
   guardar() {
     if (this.selectedTerapeuta) {
       if (this.selectedEncargada) {

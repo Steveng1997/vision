@@ -25,9 +25,9 @@ export class ServicioService {
     return result;
   }
 
-  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd,
-    salida, fechaHoyInicio, valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta,
-    valueBizuTerapeuta, valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada,
+  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, fechaHoyInicio, 
+    valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta, valueBizuTerapeuta, 
+    valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada,
     valueTarjeEncargada, valueTransEncargada) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
@@ -72,7 +72,7 @@ export class ServicioService {
       vitaminas: formularioall.vitaminas,
       propina: formularioall.propina,
       otros: formularioall.otros,
-      salida: salida,
+      salida: formularioall.salida,
       fechaHoyInicio: fechaHoyInicio,
       editar: true,
       liquidado: false,
@@ -111,13 +111,19 @@ export class ServicioService {
 
   getServicio() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'asc'))
+      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc'))
       .valueChanges();
   }
 
   getByLiquidFalse() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('id', 'asc').where('liquidado', '==', false))
+      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('liquidado', '==', false))
+      .valueChanges();
+  }
+
+  geyByCierreFalse() {
+    return this.db
+      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('cierre', '==', false))
       .valueChanges();
   }
 

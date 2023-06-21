@@ -65,15 +65,15 @@
                     <!-- 5 -->
                     <th scope="col">Hora</th>
                     <!-- 5 -->
-                    <th scope="col">Servicios</th>
+                    <th scope="col">Tratamiento</th>
                     <!-- 6 -->
                     <th scope="col">Importe</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
-                <tr>
+                <tr style="cursor: pointer;">
                     <!-- 1 -->
                     <td>{{serv.terapeuta}}</td>
                     <!-- 2 -->
@@ -190,7 +190,7 @@
                                 <!-- 4 -->
                                 <th scope="col">Hora</th>
                                 <!-- 5 -->
-                                <th scope="col">Servicio</th>
+                                <th scope="col">Tratamiento</th>
                                 <!-- 6 -->
                                 <th scope="col">Propina</th>
                                 <!-- 7 -->
@@ -309,7 +309,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Servicio</th>
+                            <th scope="row">Tratamiento</th>
                             <td>{{totalServicio + ' €'}}</td>
                             <td>{{terapeutaName['servicio'] + ' %'}}</td>
                             <td>{{comisionServicio + ' €'}}</td>

@@ -47,6 +47,7 @@ export class TablaComponent implements OnInit {
 
   // Servicios
   totalServicio: number;
+  totalPiso: number;
   totalValorTerapeuta: number;
   totalValorEncargada: number;
   totalValorAOtros: number;
@@ -55,6 +56,7 @@ export class TablaComponent implements OnInit {
   totalValorVitaminas: number;
   totalValorPropina: number;
   totalValorOtroServ: number;
+  totalValor: number;
 
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
@@ -143,6 +145,14 @@ export class TablaComponent implements OnInit {
       return accumulator + serv.servicio;
     }, 0)
 
+    // Filter by Pisos
+    const pisoss = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.totalPiso = pisoss.reduce((accumulator, serv) => {
+      return accumulator + serv.numberPiso1;
+    }, 0)    
+
     // Filter by Terapeuta
     const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
@@ -199,6 +209,15 @@ export class TablaComponent implements OnInit {
       return accumulator + serv.propina;
     }, 0)
 
+    // Filter by Valor Total
+    const valorTotal = this.servicio.filter(serv => condicionTerapeuta(serv)
+      && condicionEncargada(serv) && condicionFormaPago(serv)
+      && condicionBuscar(serv) && condicionEntreFechas(serv))
+    this.totalValor = valorTotal.reduce((accumulator, serv) => {
+      return accumulator + serv.totalServicio;
+    }, 0)
+
+
     // Filter by Valor Propina
     const valorOtros = this.servicio.filter(serv => condicionTerapeuta(serv)
       && condicionEncargada(serv) && condicionFormaPago(serv)
@@ -211,6 +230,9 @@ export class TablaComponent implements OnInit {
   sumaTotalServicios() {
     const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
     this.totalServicio = totalServ;
+
+    const totalPisos = this.servicio.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0);
+    this.totalPiso = totalPisos;
 
     const totalTera = this.servicio.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0);
     this.totalValorTerapeuta = totalTera;
@@ -235,6 +257,9 @@ export class TablaComponent implements OnInit {
 
     const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0);
     this.totalValorOtroServ = totalValorOtroServicio;
+
+    const totalvalors = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0);
+    this.totalValor = totalvalors;
   }
 
   getTerapeuta() {

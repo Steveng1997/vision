@@ -75,6 +75,8 @@
                     <td style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
                     <td style="border-left: solid;border-top: solid; border-bottom: solid;">{{totalServicio + ' €'}}
                     </td>
+                    <td style="border-top: solid; border-bottom: solid;">{{totalServicio + ' €'}}
+                    </td>
                     <td style="border-top: solid; border-bottom: solid;">{{totalValorTerapeuta + ' €'}}</td>
                     <td style="border-top: solid; border-bottom: solid;">{{totalValorEncargada + ' €'}}</td>
                     <td style="border-top: solid; border-bottom: solid;">{{totalValorAOtros + ' €'}}</td>
@@ -82,7 +84,9 @@
                     <td style="border-top: solid; border-bottom: solid;">{{TotalValorTabaco + ' €'}}</td>
                     <td style="border-top: solid; border-bottom: solid;">{{totalValorVitaminas + ' €'}}</td>
                     <td style="border-top: solid; border-bottom: solid;">{{totalValorPropina + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid; border-right: solid;">{{totalValorOtroServ + '
+                    <td style="border-top: solid; border-bottom: solid;">{{totalValorOtroServ + '
+                        €'}}
+                    <td style="border-top: solid; border-bottom: solid; border-right: solid;">{{totalValor + '
                         €'}}
                     </td>
                 </tr>
@@ -102,26 +106,28 @@
                     <!-- 7 -->
                     <th scope="col">Pago</th>
                     <!-- 8 -->
-                    <th scope="col">Servicio</th>
+                    <th scope="col">Tratamiento</th>
                     <!-- 9 -->
-                    <th scope="col">€ a terap.</th>
+                    <th scope="col">€ a piso</th>
                     <!-- 10 -->
-                    <th scope="col">€ a enc.</th>
+                    <th scope="col">€ a terap.</th>
                     <!-- 11 -->
-                    <th scope="col">€ a otros</th>
+                    <th scope="col">€ a enc.</th>
                     <!-- 12 -->
-                    <th scope="col">Bebida</th>
+                    <th scope="col">€ a otros</th>
                     <!-- 13 -->
-                    <th scope="col">Tabaco</th>
+                    <th scope="col">Bebida</th>
                     <!-- 14 -->
-                    <th scope="col">Vitamina</th>
+                    <th scope="col">Tabaco</th>
                     <!-- 15 -->
-                    <th scope="col">Propina</th>
+                    <th scope="col">Vitamina</th>
                     <!-- 16 -->
-                    <th scope="col">Otros</th>
+                    <th scope="col">Propina</th>
                     <!-- 17 -->
-                    <th scope="col">Total</th>
+                    <th scope="col">Otros</th>
                     <!-- 18 -->
+                    <th scope="col">Total</th>
+                    <!-- 19 -->
                     <th scope="col">Cliente</th>
                 </tr>
             </thead>
@@ -129,7 +135,7 @@
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
                 | paginate: { itemsPerPage: 10, currentPage: page }">
-                <tr>
+                <tr style="cursor: pointer;">
                     <!-- 1 -->
                     <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
                     <!-- 2 -->
@@ -147,24 +153,26 @@
                     <!-- 8 -->
                     <td>{{serv.servicio + ' €'}}</td>
                     <!-- 9 -->
-                    <td>{{serv.numberTerap + ' €'}}</td>
+                    <td>{{serv.numberPiso1 + ' €'}}</td>
                     <!-- 10 -->
-                    <td>{{serv.numberEncarg + ' €'}}</td>
+                    <td>{{serv.numberTerap + ' €'}}</td>
                     <!-- 11 -->
-                    <td>{{serv.numberOtro + ' €'}}</td>
+                    <td>{{serv.numberEncarg + ' €'}}</td>
                     <!-- 12 -->
-                    <td>{{serv.bebidas + ' €'}}</td>
+                    <td>{{serv.numberOtro + ' €'}}</td>
                     <!-- 13 -->
-                    <td>{{serv.tabaco + ' €'}}</td>
+                    <td>{{serv.bebidas + ' €'}}</td>
                     <!-- 14 -->
-                    <td>{{serv.vitaminas + ' €'}}</td>
+                    <td>{{serv.tabaco + ' €'}}</td>
                     <!-- 15 -->
-                    <td>{{serv.propina+ ' €'}}</td>
+                    <td>{{serv.vitaminas + ' €'}}</td>
                     <!-- 16 -->
-                    <td>{{serv.otros + ' €'}}</td>
+                    <td>{{serv.propina+ ' €'}}</td>
                     <!-- 17 -->
-                    <td>{{serv.totalServicio + ' €'}}</td>
+                    <td>{{serv.otros + ' €'}}</td>
                     <!-- 18 -->
+                    <td>{{serv.totalServicio + ' €'}}</td>
+                    <!-- 19 -->
                     <td>{{serv.cliente}}</td>
                 </tr>
 

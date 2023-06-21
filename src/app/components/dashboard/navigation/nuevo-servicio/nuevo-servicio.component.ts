@@ -118,7 +118,8 @@ export class NuevoServicioComponent implements OnInit {
     tabaco: new FormControl(0),
     vitaminas: new FormControl(0),
     propina: new FormControl(0),
-    otros: new FormControl(0)
+    otros: new FormControl(0),
+    salida: new FormControl(''),
   });
 
   constructor(
@@ -208,7 +209,7 @@ export class NuevoServicioComponent implements OnInit {
             this.encargadaAndTerapeuta();
             if (!this.validarFechaVencida()) return
             this.servicioService.registerServicio(formValue, this.formaPago, this.fechaActual,
-              this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio, this.salidaTrabajador,
+              this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
               this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
               this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
               this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada).then((rp) => {
@@ -617,16 +618,6 @@ export class NuevoServicioComponent implements OnInit {
     this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
   }
 
-  salida(event: any) {
-    if (event.checked == true) {
-      this.salidaTrabajador = 'Salida';
-      this.editarService[0]['salida'] = 'Salida';
-    } else {
-      this.salidaTrabajador = '';
-      this.editarService[0]['salida'] = '';
-    }
-  }
-
   valueService() {
 
     let servicio = 0, bebida = 0, tabaco = 0, vitaminas = 0,
@@ -1022,7 +1013,7 @@ export class NuevoServicioComponent implements OnInit {
   efectCheckToggleEdit(event: any) {
 
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0;
-    
+
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != null &&

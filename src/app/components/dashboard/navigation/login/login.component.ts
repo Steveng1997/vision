@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
     if (this.usuarioRegistro != '') {
       if (this.passRegistro != '') {
         this.serviceLogin.getByUsuario(this.usuarioRegistro).then((resp => {
-          if (resp[0]['activo'] == true) {
-            if (resp[0] != undefined) {
+          if (resp[0] != undefined) {
+            if (resp[0]['activo'] == true) {
               this.serviceLogin.getByUserAndPass(this.usuarioRegistro, this.passRegistro).then((respUserPass => {
                 if (respUserPass.length > 0) {
                   this.router.navigate([
@@ -56,14 +56,14 @@ export class LoginComponent implements OnInit {
               Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No existe este usuario en la base de datos',
+                text: 'Este usuario ya no esta trabajando con nosotros',
               })
             }
           } else {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Este usuario ya no esta trabajando con nosotros',
+              text: 'No existe este usuario en la base de datos',
             })
           }
         }))

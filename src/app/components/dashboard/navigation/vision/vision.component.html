@@ -14,7 +14,7 @@
           <th scope="col">Encarg.</th>
           <th scope="col">Hora</th>
           <th scope="col">Tiempo</th>
-          <th scope="col">Servicio</th>
+          <th scope="col">Tratamiento</th>
           <th scope="col">Salida</th>
           <th scope="col">Bebida</th>
           <th scope="col">Tabaco</th>
@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody (click)="editamos(vis.id)" *ngFor="let vis of vision ">
-        <tr>
+        <tr style="cursor: pointer;">
           <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
           <td>{{vis.terapeuta}}</td>
           <td>{{vis.encargada}}</td>
@@ -89,7 +89,9 @@
           </td>
           <td>{{vis.terapeuta}}</td>
           <td>{{vis.salida}}</td>
-          <td>{{vis.horaEnd}}</td>
+          <td
+          [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}"
+          >{{vis.horaEnd}}</td>
           <td>{{calculardiferencia(vis.horaEnd)}}</td>
         </tr>
       </tbody>

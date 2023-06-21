@@ -148,13 +148,11 @@
                     <input type="number" class="form-control" (ngModelChange)="valueService()"
                         formControlName="otros" />
                 </div>
-            </div>
 
-            <div style="margin-bottom: 5%;">
-                <mat-label>Salida</mat-label>
-                <mar-form-field>
-                    <mat-checkbox (change)="salida($event)"></mat-checkbox>
-                </mar-form-field>
+                <div class="col-4" style="margin-top: 2%">
+                    <label>Lugar Salida</label>
+                    <input type="text" class="form-control" formControlName="salida" />
+                </div>
             </div>
 
 
@@ -495,14 +493,12 @@
                         <input type="number" class="form-control" [(ngModel)]="edServ.otros" name="otros"
                             (ngModelChange)="valueServiceEdit()" />
                     </div>
-                </div>
 
-                <div style="margin-bottom: 5%;">
-                    <mat-label>Salida</mat-label>
-                    <mar-form-field>
-                        <mat-checkbox [(ngModel)]="edServ.salida" name="salida"
-                            (change)="salida($event)"></mat-checkbox>
-                    </mar-form-field>
+                    <div class="col-4" style="margin-top: 2%">
+                        <label>Lugar Salida</label>
+                        <input type="text" class="form-control" [(ngModel)]="edServ.salida" name="salida"
+                            (ngModelChange)="valueServiceEdit()" />
+                    </div>
                 </div>
 
 
