@@ -107,18 +107,18 @@ export class NuevoServicioComponent implements OnInit {
     bizuOtro: new FormControl(false),
     tarjOtro: new FormControl(false),
     transOtro: new FormControl(false),
-    numberPiso1: new FormControl(0),
-    numberPiso2: new FormControl(0),
-    numberTerap: new FormControl(0),
-    numberEncarg: new FormControl(0),
-    numberOtro: new FormControl(0),
+    numberPiso1: new FormControl(),
+    numberPiso2: new FormControl(),
+    numberTerap: new FormControl(),
+    numberEncarg: new FormControl(),
+    numberOtro: new FormControl(),
     nota: new FormControl(''),
-    servicio: new FormControl(0),
-    bebidas: new FormControl(0),
-    tabaco: new FormControl(0),
-    vitaminas: new FormControl(0),
-    propina: new FormControl(0),
-    otros: new FormControl(0),
+    servicio: new FormControl(),
+    bebidas: new FormControl(),
+    tabaco: new FormControl(),
+    vitaminas: new FormControl(),
+    propina: new FormControl(),
+    otros: new FormControl(),
     salida: new FormControl(''),
   });
 
@@ -141,6 +141,7 @@ export class NuevoServicioComponent implements OnInit {
     this.horaInicialServicio = this.horaStarted;
     this.horaFinalServicio = this.horaStarted;
     this.valueServiceEdit();
+
   }
 
   getLastDate() {
@@ -197,9 +198,11 @@ export class NuevoServicioComponent implements OnInit {
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         // NO SE DEBE CREAR FECHA ATRAS SI YA PASO LAS 12 HORAS PERO ADMINISTRADOR PUEDE HACER LO QUE SEA
+        debugger
         this.errorMetodo();
         if (this.sumaErrorMetodo == 0) {
           if (this.restamosCobro == 0) {
+            
             this.llenarFormaPago()
             this.totalServicio()
             this.efectCheckToggle(this.validateEfect);
@@ -268,31 +271,31 @@ export class NuevoServicioComponent implements OnInit {
   errorMetodo() {
     let errorPiso1 = 0, errorPiso2 = 0, errorTerapeuta = 0, errorEncargada = 0, errorOtro = 0;
 
-    if (this.formTemplate.value.numberPiso1 != 0 && this.formTemplate.value.efectPiso1 == false &&
+    if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.efectPiso1 == false &&
       this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.tarjPiso1 == false &&
       this.formTemplate.value.transPiso1 == false) {
       errorPiso1 = 1;
     }
 
-    if (this.formTemplate.value.numberPiso2 != 0 && this.formTemplate.value.efectPiso2 == false &&
+    if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.efectPiso2 == false &&
       this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.tarjPiso2 == false &&
       this.formTemplate.value.transPiso2 == false) {
       errorPiso2 = 1;
     }
 
-    if (this.formTemplate.value.numberTerap != 0 && this.formTemplate.value.efectTerap == false &&
+    if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.efectTerap == false &&
       this.formTemplate.value.bizuTerap == false && this.formTemplate.value.tarjTerap == false &&
       this.formTemplate.value.transTerap == false) {
       errorTerapeuta = 1;
     }
 
-    if (this.formTemplate.value.numberEncarg != 0 && this.formTemplate.value.efectEncarg == false &&
+    if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.efectEncarg == false &&
       this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.tarjEncarg == false &&
       this.formTemplate.value.transEncarg == false) {
       errorEncargada = 1;
     }
 
-    if (this.formTemplate.value.numberOtro != 0 && this.formTemplate.value.efectOtro == false &&
+    if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.efectOtro == false &&
       this.formTemplate.value.bizuOtro == false && this.formTemplate.value.tarjOtro == false &&
       this.formTemplate.value.transOtro == false) {
       errorOtro = 1;
@@ -304,37 +307,86 @@ export class NuevoServicioComponent implements OnInit {
   totalServicio() {
     let piso1 = 0; let piso2 = 0; let terap = 0; let encargada = 0; let otros = 0;
 
-    if (this.formTemplate.value.numberPiso1 === 0) {
+    debugger
+
+    if (this.formTemplate.value.numberPiso1 === null) {
       piso1 = 0
+      this.formTemplate.value.numberPiso1 = 0;
     } else {
       piso1 = Number(this.formTemplate.value.numberPiso1);
     }
 
-    if (this.formTemplate.value.numberPiso2 == 0) {
+    if (this.formTemplate.value.numberPiso2 == null) {
       piso2 = 0;
+      this.formTemplate.value.numberPiso2 = 0;
     } else {
       piso2 = Number(this.formTemplate.value.numberPiso2);
     }
 
-    if (this.formTemplate.value.numberTerap == 0) {
+    if (this.formTemplate.value.numberTerap == null) {
       terap = 0;
+      this.formTemplate.value.numberTerap = 0;
     } else {
       terap = Number(this.formTemplate.value.numberTerap);
     }
 
-    if (this.formTemplate.value.numberEncarg == 0) {
+    if (this.formTemplate.value.numberEncarg == null) {
       encargada = 0;
+      this.formTemplate.value.numberEncarg = 0;
     } else {
       encargada = Number(this.formTemplate.value.numberEncarg);
     }
 
-    if (this.formTemplate.value.numberOtro == 0) {
+    if (this.formTemplate.value.numberOtro == null) {
       otros = 0;
+      this.formTemplate.value.numberOtro = 0;
     } else {
       otros = Number(this.formTemplate.value.numberOtro);
     }
 
     this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros);
+
+    if (this.formTemplate.value.servicio == null) {
+      otros = 0;
+      this.formTemplate.value.servicio = 0;
+    } else {
+      otros = Number(this.formTemplate.value.servicio);
+    }
+
+    if (this.formTemplate.value.bebidas == null) {
+      otros = 0;
+      this.formTemplate.value.bebidas = 0;
+    } else {
+      otros = Number(this.formTemplate.value.bebidas);
+    }
+
+    if (this.formTemplate.value.tabaco == null) {
+      otros = 0;
+      this.formTemplate.value.tabaco = 0;
+    } else {
+      otros = Number(this.formTemplate.value.tabaco);
+    }
+
+    if (this.formTemplate.value.vitaminas == null) {
+      otros = 0;
+      this.formTemplate.value.vitaminas = 0;
+    } else {
+      otros = Number(this.formTemplate.value.vitaminas);
+    }
+
+    if (this.formTemplate.value.propina == null) {
+      otros = 0;
+      this.formTemplate.value.propina = 0;
+    } else {
+      otros = Number(this.formTemplate.value.propina);
+    }
+
+    if (this.formTemplate.value.otros == null) {
+      otros = 0;
+      this.formTemplate.value.otros = 0;
+    } else {
+      otros = Number(this.formTemplate.value.otros);
+    }
   }
 
   efectCheckToggle(event: any) {
@@ -623,37 +675,37 @@ export class NuevoServicioComponent implements OnInit {
     let servicio = 0, bebida = 0, tabaco = 0, vitaminas = 0,
       propina = 0, otros = 0, sumatoria = 0;
 
-    if (this.formTemplate.value.servicio != 0 && this.formTemplate.value.servicio != null) {
+    if (this.formTemplate.value.servicio != null) {
       servicio = Number(this.formTemplate.value.servicio);
     } else {
       servicio = 0;
     }
 
-    if (this.formTemplate.value.bebidas != 0 && this.formTemplate.value.bebidas != null) {
+    if (this.formTemplate.value.bebidas != null) {
       bebida = Number(this.formTemplate.value.bebidas);
     } else {
       bebida = 0;
     }
 
-    if (this.formTemplate.value.tabaco != 0 && this.formTemplate.value.tabaco != null) {
+    if (this.formTemplate.value.tabaco != '' || this.formTemplate.value.tabaco != null) {
       tabaco = Number(this.formTemplate.value.tabaco);
     } else {
       tabaco = 0;
     }
 
-    if (this.formTemplate.value.vitaminas != 0 && this.formTemplate.value.vitaminas != null) {
+    if (this.formTemplate.value.vitaminas != null) {
       vitaminas = Number(this.formTemplate.value.vitaminas);
     } else {
       vitaminas = 0;
     }
 
-    if (this.formTemplate.value.propina != 0 && this.formTemplate.value.propina != null) {
+    if (this.formTemplate.value.propina != null) {
       propina = Number(this.formTemplate.value.propina);
     } else {
       propina = 0;
     }
 
-    if (this.formTemplate.value.otros != 0 && this.formTemplate.value.otros != null) {
+    if (this.formTemplate.value.otros != null) {
       otros = Number(this.formTemplate.value.otros);
     } else {
       otros = 0;
@@ -667,23 +719,23 @@ export class NuevoServicioComponent implements OnInit {
       Number(this.formTemplate.value.numberTerap) + Number(this.formTemplate.value.numberEncarg) +
       Number(this.formTemplate.value.numberOtro)
 
-    if (this.formTemplate.value.numberPiso1 != 0 && this.formTemplate.value.numberPiso1 != 0) {
+    if (this.formTemplate.value.numberPiso1 != null || this.formTemplate.value.numberPiso1 != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.numberPiso2 != 0 && this.formTemplate.value.numberPiso2 != 0) {
+    if (this.formTemplate.value.numberPiso2 != null || this.formTemplate.value.numberPiso2 != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.numberTerap != 0) {
+    if (this.formTemplate.value.numberTerap != null || this.formTemplate.value.numberTerap != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.numberEncarg != 0) {
+    if (this.formTemplate.value.numberEncarg != null || this.formTemplate.value.numberEncarg != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.numberOtro != 0) {
+    if (this.formTemplate.value.numberOtro != null || this.formTemplate.value.numberOtro != '') {
       this.restamosCobro = sumatoria - restamos
     }
   }
@@ -692,37 +744,37 @@ export class NuevoServicioComponent implements OnInit {
     let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0,
       valueotros = 0, restamos = 0, resultado = 0;
 
-    if (this.formTemplate.value.numberPiso1 != 0 && this.formTemplate.value.numberPiso1 != null) {
+    if (this.formTemplate.value.numberPiso1 != '' || this.formTemplate.value.numberPiso1 != null) {
       valuepiso1 = Number(this.formTemplate.value.numberPiso1);
     } else {
       valuepiso1 = 0;
     }
 
-    if (this.formTemplate.value.numberPiso2 != 0 && this.formTemplate.value.numberPiso2 != null) {
+    if (this.formTemplate.value.numberPiso2 != '' || this.formTemplate.value.numberPiso2 != null) {
       valuepiso2 = Number(this.formTemplate.value.numberPiso2);
     } else {
       valuepiso2 = 0;
     }
 
-    if (this.formTemplate.value.numberTerap != 0 && this.formTemplate.value.numberTerap != null) {
+    if (this.formTemplate.value.numberTerap != '' || this.formTemplate.value.numberTerap != null) {
       valueterapeuta = Number(this.formTemplate.value.numberTerap);
     } else {
       valueterapeuta = 0;
     }
 
-    if (this.formTemplate.value.numberEncarg != 0 && this.formTemplate.value.numberEncarg != null) {
+    if (this.formTemplate.value.numberEncarg != '' || this.formTemplate.value.numberEncarg != null) {
       valueEncarg = Number(this.formTemplate.value.numberEncarg);
     } else {
       valueEncarg = 0;
     }
 
-    if (this.formTemplate.value.numberOtro != 0 && this.formTemplate.value.numberOtro != null) {
+    if (this.formTemplate.value.numberOtro != '' && this.formTemplate.value.numberOtro != null) {
       valueotros = Number(this.formTemplate.value.numberOtro);
     } else {
       valueotros = 0;
     }
 
-    if (this.formTemplate.value.servicio != 0 && this.formTemplate.value.servicio != null) {
+    if (this.formTemplate.value.servicio != '' && this.formTemplate.value.servicio != null) {
       resultado = Number(this.formTemplate.value.servicio) - valuepiso1
     }
 
@@ -752,52 +804,52 @@ export class NuevoServicioComponent implements OnInit {
 
   encargadaAndTerapeuta() {
 
-    if (this.formTemplate.value.efectTerap == true && this.formTemplate.value.numberTerap != 0) {
-      this.valueEfectTerapeuta = this.formTemplate.value.numberTerap;
+    if (this.formTemplate.value.efectTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueEfectTerapeuta = Number(this.formTemplate.value.numberTerap);
     } else {
       this.valueEfectTerapeuta = 0;
     }
 
-    if (this.formTemplate.value.bizuTerap == true && this.formTemplate.value.numberTerap != 0) {
-      this.valueBizuTerapeuta = this.formTemplate.value.numberTerap;
+    if (this.formTemplate.value.bizuTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueBizuTerapeuta = Number(this.formTemplate.value.numberTerap);
     } else {
       this.valueBizuTerapeuta = 0;
     }
 
-    if (this.formTemplate.value.tarjTerap == true && this.formTemplate.value.numberTerap != 0) {
-      this.valueTarjeTerapeuta = this.formTemplate.value.numberTerap;
+    if (this.formTemplate.value.tarjTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueTarjeTerapeuta = Number(this.formTemplate.value.numberTerap);
     } else {
       this.valueTarjeTerapeuta = 0;
     }
 
-    if (this.formTemplate.value.transTerap == true && this.formTemplate.value.numberTerap != 0) {
-      this.valueTransTerapeuta = this.formTemplate.value.numberTerap;
+    if (this.formTemplate.value.transTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueTransTerapeuta = Number(this.formTemplate.value.numberTerap);
     } else {
       this.valueTransTerapeuta = 0;
     }
 
     // Encargada 
 
-    if (this.formTemplate.value.efectEncarg == true && this.formTemplate.value.numberEncarg != 0) {
-      this.valueEfectEncargada = this.formTemplate.value.numberEncarg;
+    if (this.formTemplate.value.efectEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueEfectEncargada = Number(this.formTemplate.value.numberEncarg);
     } else {
       this.valueEfectEncargada = 0;
     }
 
-    if (this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.numberEncarg != 0) {
-      this.valueBizuEncargada = this.formTemplate.value.numberEncarg;
+    if (this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueBizuEncargada = Number(this.formTemplate.value.numberEncarg);
     } else {
       this.valueBizuEncargada = 0;
     }
 
-    if (this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.numberEncarg != 0) {
-      this.valueTarjeEncargada = this.formTemplate.value.numberEncarg;
+    if (this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueTarjeEncargada = Number(this.formTemplate.value.numberEncarg);
     } else {
       this.valueTarjeEncargada = 0;
     }
 
-    if (this.formTemplate.value.transEncarg == true && this.formTemplate.value.numberEncarg != 0) {
-      this.valueTransEncargada = this.formTemplate.value.numberEncarg;
+    if (this.formTemplate.value.transEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueTransEncargada = Number(this.formTemplate.value.numberEncarg);
     } else {
       this.valueTransEncargada = 0;
     }

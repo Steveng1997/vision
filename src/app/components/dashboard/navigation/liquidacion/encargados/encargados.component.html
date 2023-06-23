@@ -52,29 +52,25 @@
                     <!-- 4 -->
                     <th scope="col">Hasta</th>
                     <!-- 5 -->
-                    <th scope="col">Hora</th>
-                    <!-- 5 -->
                     <th scope="col">Tratamiento</th>
                     <!-- 6 -->
                     <th scope="col">Importe</th>
                 </tr>
             </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (liquidaciones | encargada: selectedEncargada 
             | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 2 -->
                     <td>{{serv.encargada}}</td>
                     <!-- 3 -->
-                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
                     <!-- 4 -->
-                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
                     <!-- 5 -->
-                    <td>{{serv.horaEnd}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.servicio}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.numberTerap}}</td>
+                    <td>{{serv.tratamiento}}</td>
+                    <!-- 6 -->
+                    <td>{{serv.importe}}</td>
                 </tr>
 
                 <!-- Modal -->
@@ -108,7 +104,7 @@
 
 
 
-<!-- Agregar Emcargada -->
+<!-- Agregar Encargada -->
 <div *ngIf="addEncarg">
 
     <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">NUEVA LIQUIDACIÓN DE

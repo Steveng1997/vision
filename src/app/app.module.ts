@@ -32,6 +32,8 @@ import firebase from 'firebase/compat/app';
 import { TrabajadoresService } from './core/services/trabajadores';
 import { ServicioService } from './core/services/servicio';
 import { LoginService } from './core/services/login';
+import { LiquidacioneTerapService } from './core/services/liquidacionesTerap';
+import { LiquidacioneEncargService } from './core/services/liquidacionesEncarg';
 
 firebase.initializeApp({
   databaseURL: "https://vision-62bf7-default-rtdb.firebaseio.com",
@@ -75,7 +77,9 @@ firebase.initializeApp({
   providers: [
     TrabajadoresService,
     ServicioService,
-    LoginService
+    LoginService,
+    LiquidacioneTerapService,
+    LiquidacioneEncargService,
   ],
   bootstrap: [AppComponent],
 })

@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/core/services/login';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { LiquidacioneEncargService } from 'src/app/core/services/liquidacionesEncarg';
 
 @Component({
   selector: 'app-encargados',
@@ -20,6 +21,7 @@ export class EncargadosComponent implements OnInit {
   addEncarg: boolean;
   filtredBusqueda: string;
   servicio: any;
+  liquidaciones: any;
   page!: number;
 
   // Encargada
@@ -37,6 +39,7 @@ export class EncargadosComponent implements OnInit {
   fechaAsc: string;
   fechaDesc: string;
   fechaConvertion = new Date().toISOString().substring(0, 10);
+  horaConvertion = new Date().toTimeString().substring(0, 5);
   mostrarFecha: boolean;
 
   // Servicios
@@ -62,11 +65,12 @@ export class EncargadosComponent implements OnInit {
 
   constructor(
     public router: Router,
+    public fb: FormBuilder,
+    private modalService: NgbModal,
+    public loginService: LoginService,
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
-    public fb: FormBuilder,
-    public loginService: LoginService,
-    private modalService: NgbModal,
+    public liquidacionService: LiquidacioneEncargService,
   ) { }
 
   formTemplate = new FormGroup({
@@ -83,6 +87,7 @@ export class EncargadosComponent implements OnInit {
 
     this.liqEncargada = true;
     this.addEncarg = false;
+    this.getLiquidaciones();
     this.getServicio();
     this.getEncargada();
     this.tableComision();
@@ -108,6 +113,12 @@ export class EncargadosComponent implements OnInit {
   editamos(id: string) {
     this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
     ]);
+  }
+
+  getLiquidaciones() {
+    this.liquidacionService.getLiquidacionesEncargada().subscribe((datoLiquidaciones) => {
+      this.liquidaciones = datoLiquidaciones;
+    })
   }
 
   getServicio() {
@@ -290,19 +301,27 @@ export class EncargadosComponent implements OnInit {
   }
 
   guardar() {
+    let conteo = 0;
     if (this.selectedEncargada) {
       this.servicioService.getEncargadaNoLiquidada(this.selectedEncargada).then((datos) => {
         for (let index = 0; index < datos.length; index++) {
+          conteo = datos.length;
           this.servicioService.updateLiquidacion(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
-            });
           })
         }
+        this.liquidacionService.registerLiquidacionesEncargada(this.selectedEncargada, this.fechaConvertion, this.horaConvertion, conteo, this.totalComision).then((datos) => {
+          this.liqEncargada = true;
+          this.addEncarg = false;
+          window.location.reload();
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Liquidado Correctamente!',
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        })
+
       })
     } else {
       Swal.fire({

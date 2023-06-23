@@ -121,6 +121,12 @@ export class ServicioService {
       .valueChanges();
   }
 
+  getByLiquidTrue() {
+    return this.db
+      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('liquidado', '==', true))
+      .valueChanges();
+  }
+
   geyByCierreFalse() {
     return this.db
       .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('cierre', '==', false))

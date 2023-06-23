@@ -51,7 +51,7 @@
 
 <div *ngIf="liqTep" style="display: grid; place-items: center; margin-top: 3%;">
     <div style="text-align: center; width: max-content;">
-        <table class="table" id="excel-table">
+        <table class="table">
             <thead>
                 <tr>
                     <!-- 1 -->
@@ -63,14 +63,12 @@
                     <!-- 4 -->
                     <th scope="col">Hasta</th>
                     <!-- 5 -->
-                    <th scope="col">Hora</th>
-                    <!-- 5 -->
                     <th scope="col">Tratamiento</th>
                     <!-- 6 -->
                     <th scope="col">Importe</th>
                 </tr>
             </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (liquidaciones | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr style="cursor: pointer;">
@@ -79,15 +77,13 @@
                     <!-- 2 -->
                     <td>{{serv.encargada}}</td>
                     <!-- 3 -->
-                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
                     <!-- 4 -->
-                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
                     <!-- 5 -->
-                    <td>{{serv.horaEnd}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.servicio}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.numberTerap}}</td>
+                    <td>{{serv.tratamiento}}</td>
+                    <!-- 6 -->
+                    <td>{{serv.importe}}</td>
                 </tr>
 
                 <!-- Modal -->
@@ -121,7 +117,7 @@
 
 
 
-<!-- Agregar Terapia -->
+<!-- Agregar Terapeuta -->
 <div *ngIf="addTerap">
 
     <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">NUEVA LIQUIDACIÓN DE
@@ -153,7 +149,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="row" style="margin-top: 4%;">
+            <div *ngIf="selected" class="row" style="margin-top: 4%;">
                 <div class="col-6">
                     <mat-drawer-container class="example-container">
                         <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
@@ -168,7 +164,7 @@
                 </div>
             </div>
 
-            <mat-divider></mat-divider>
+            <mat-divider *ngIf="selected"></mat-divider>
 
             <div class="col-auto" *ngIf="mostrarFecha">
                 <mat-drawer-container style="float: left;">
@@ -176,7 +172,7 @@
                 </mat-drawer-container>
             </div>
 
-            <div style="display: grid; place-items: center;" class="classTable">
+            <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>
@@ -207,7 +203,7 @@
                                 <th scope="col">Otros</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+                        <tbody *ngFor="let serv of (servicioNoLiquidada | terapeuta: selectedTerapeuta | 
                     encargada: selectedEncargada) | paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr>
                                 <!-- 1 -->
@@ -296,7 +292,7 @@
 
         <!-- Table Sumatoria -->
 
-        <div style="display: grid; place-items: center; margin-top: 0%;">
+        <div *ngIf="selected" style="display: grid; place-items: center; margin-top: 0%;">
             <div style="text-align: center; width: max-content;">
                 <table class="table">
                     <thead>
@@ -368,5 +364,5 @@
         </div>
     </form>
 
-    <button mat-raised-button style="display: grid; margin: auto;" (click)="guardar()" color="primary">Guardar</button>
+    <button *ngIf="selected" mat-raised-button style="display: grid; margin: auto;" (click)="guardar()" color="primary">Guardar</button>
 </div>
