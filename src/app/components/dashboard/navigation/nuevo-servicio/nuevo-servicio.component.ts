@@ -23,9 +23,9 @@ export class NuevoServicioComponent implements OnInit {
 
   fechaActual = new Date().toISOString().substring(0, 10);
   horaStarted = new Date().toTimeString().substring(0, 5);
-
   dateConvertion = new Date();
   fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion);
+  currentDate = new Date().getTime();
 
   terapeuta: any[] = [];
 
@@ -213,28 +213,32 @@ export class NuevoServicioComponent implements OnInit {
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.bizuPiso1 == true) {
                 this.servicioService.registerServicio(formValue, 'Bizum', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.tarjPiso1 == true) {
                 this.servicioService.registerServicio(formValue, 'Tarjeta', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.transPiso1 == true) {
                 this.servicioService.registerServicio(formValue, 'Transacción', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
             }
             if (this.formTemplate.value.numberPiso2 > 0) {
@@ -243,28 +247,32 @@ export class NuevoServicioComponent implements OnInit {
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.bizuPiso2) {
                 this.servicioService.registerServicio(formValue, 'Bizum', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.tarjPiso2) {
                 this.servicioService.registerServicio(formValue, 'Tarjeta', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.transPiso2) {
                 this.servicioService.registerServicio(formValue, 'Transacción', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
             }
             if (this.formTemplate.value.numberTerap) {
@@ -273,28 +281,32 @@ export class NuevoServicioComponent implements OnInit {
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.bizuTerap == true) {
                 this.servicioService.registerServicio(formValue, 'Bizum', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.tarjTerap == true) {
                 this.servicioService.registerServicio(formValue, 'Tarjeta', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
               if (this.formTemplate.value.transTerap == true) {
                 this.servicioService.registerServicio(formValue, 'Transacción', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada);
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate);
               }
             }
             if (this.formTemplate.value.numberEncarg > 0) {
@@ -303,28 +315,32 @@ export class NuevoServicioComponent implements OnInit {
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.bizuEncarg == true) {
                 this.servicioService.registerServicio(formValue, 'Bizum', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.tarjEncarg == true) {
                 this.servicioService.registerServicio(formValue, 'Tarjeta', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.transEncarg == true) {
                 this.servicioService.registerServicio(formValue, 'Transacción', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
             }
             if (this.formTemplate.value.numberOtro > 0) {
@@ -333,28 +349,32 @@ export class NuevoServicioComponent implements OnInit {
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.bizuOtro == true) {
                 this.servicioService.registerServicio(formValue, 'Bizum', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.tarjOtro == true) {
                 this.servicioService.registerServicio(formValue, 'Tarjeta', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
               if (this.formTemplate.value.transOtro == true) {
                 this.servicioService.registerServicio(formValue, 'Transacción', this.fechaActual,
                   this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
                   this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
                   this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada)
+                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
+                  this.currentDate)
               }
             }
             if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 ||

@@ -52,7 +52,7 @@ export class VisionComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
+    this.servicioService.getFechaHoy().then((datoServicio) => {
       this.vision = datoServicio;
       this.sumaTotalServicio();
       if (datoServicio.length != 0) {

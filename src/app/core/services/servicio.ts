@@ -27,8 +27,8 @@ export class ServicioService {
 
   registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, fechaHoyInicio, 
     valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta, valueBizuTerapeuta, 
-    valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada,
-    valueTarjeEncargada, valueTransEncargada) {
+    valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada, valueTarjeEncargada, 
+    valueTransEncargada, currentDate) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
@@ -88,7 +88,8 @@ export class ServicioService {
       valueEfectEncargada: valueEfectEncargada,
       valueBizuEncargada: valueBizuEncargada,
       valueTarjeEncargada: valueTarjeEncargada,
-      valueTransEncargada: valueTransEncargada
+      valueTransEncargada: valueTransEncargada,
+      currentDate: currentDate,
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -111,25 +112,25 @@ export class ServicioService {
 
   getServicio() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc'))
+      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc'))
       .valueChanges();
   }
 
   getByLiquidFalse() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('liquidado', '==', false))
+      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidado', '==', false))
       .valueChanges();
   }
 
   getByLiquidTrue() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('liquidado', '==', true))
+      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidado', '==', true))
       .valueChanges();
   }
 
   geyByCierreFalse() {
     return this.db
-      .collection('servicio', (ref) => ref.orderBy('fechaHoyInicio', 'desc').where('cierre', '==', false))
+      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
       .valueChanges();
   }
 
@@ -320,10 +321,10 @@ export class ServicioService {
   }
 
 
-  getFechaHoy(fecha): Promise<any> {
+  getFechaHoy(): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
-        .collection('servicio', (ref) => ref.where('fechaHoyInicio', '==', fecha))
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc'))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {

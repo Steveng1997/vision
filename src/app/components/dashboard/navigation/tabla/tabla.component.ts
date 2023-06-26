@@ -20,7 +20,6 @@ export class TablaComponent implements OnInit {
 
   fechaInicio: string;
   fechaFinal: string;
-
   filtredBusqueda: string;
 
   page!: number;
@@ -133,7 +132,6 @@ export class TablaComponent implements OnInit {
         || serv.encargada.toLowerCase().match(criterio)
         || serv.formaPago.toLowerCase().match(criterio)
         || serv.fecha.toLowerCase().match(criterio)
-        // || serv.servicio.toString().match(this.filtredBusqueda)
         || serv.cliente.toLowerCase().match(criterio)) ? true : false
     }
 
