@@ -99,7 +99,6 @@ export class LoginComponent implements OnInit {
   }
 
   registro(formValue) {
-    debugger
     if (this.formTemplate.value.nombre) {
       if (this.formTemplate.value.usuario) {
         if (this.formTemplate.value.pass) {

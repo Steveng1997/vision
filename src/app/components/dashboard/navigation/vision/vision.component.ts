@@ -20,6 +20,15 @@ export class VisionComponent implements OnInit {
   restante: string;
   totalServicio: number;
   idUser: string;
+  terapeutas: any = [];
+
+  // TOTALES
+  totalVision: number;
+  totalBebida: number;
+  totalTabaco: number;
+  totalVitamina: number;
+  totalPropina: number;
+  totalOtros: number;
 
   constructor(
     public router: Router,
@@ -49,6 +58,18 @@ export class VisionComponent implements OnInit {
       if (datoServicio.length != 0) {
         this.calculardiferencia(datoServicio[0]['horaEnd']);
       }
+
+      if (datoServicio.length != 0) {
+        this.sumaTotalVision();
+      }
+
+
+      // Esta linea de codigo hace que no se repita las terapeutas
+      let personasMap = datoServicio.map(item => {
+        return [item.terapeuta, item]
+      });
+      var personasMapArr = new Map(personasMap); 
+      this.terapeutas = [...personasMapArr.values()];
     });
   }
 
@@ -109,5 +130,26 @@ export class VisionComponent implements OnInit {
     this.router.navigate([
       `menu/${this.idUser['id']}/nuevo-servicio/${id}`
     ]);
+  }
+
+  // Suma de TOTALES
+  sumaTotalVision() {
+    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
+    this.totalVision = totalServ;
+
+    const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0);
+    this.totalBebida = totalValorBebida;
+
+    const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0);
+    this.totalTabaco = totalValorTab;
+
+    const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0);
+    this.totalVitamina = totalValorVitamina;
+
+    const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0);
+    this.totalPropina = totalValorProp;
+
+    const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0);
+    this.totalOtros = totalValorOtroServicio;
   }
 }

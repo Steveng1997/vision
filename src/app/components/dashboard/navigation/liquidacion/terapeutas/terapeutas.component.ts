@@ -186,21 +186,13 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    debugger
     if (this.selectedEncargada != undefined && this.selectedTerapeuta != undefined) {
       this.selected = true;
 
       const condicionTerapeuta = serv => {
         return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
       }
-
-      // const mostrarFech = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv))
-      // if (mostrarFech.length != 0) {
-      //   this.mostrarFecha = true
-      // } else {
-      //   this.mostrarFecha = false
-      // }
-
+      
       this.servicioService.getTerapeutaFechaAsc(this.selectedTerapeuta).then((fechaAsce) => {
         this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
       })

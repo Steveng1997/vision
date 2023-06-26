@@ -4,6 +4,41 @@
   No se ha hecho ningun servicio el dia de hoy
 </h5>
 
+
+<!-- Ocupacion -->
+<h4 style="text-align: center; margin-top: 3rem; font-family: monospace; font-size: x-large"> OCUPACIÓN </h4>
+
+<h5 class="text-center display-4 text-danger font-family: cursive; font-size: initial;" *ngIf="vision.length == 0">
+  Actualmente todas las terapeutas estan libres
+</h5>
+
+<div class="padre">
+  <div class="hijo">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Terapeuta</th>
+          <th scope="col">Salida</th>
+          <th scope="col">Fin</th>
+          <th scope="col">Restante</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let vis of terapeutas ">
+        <tr>
+          <td
+            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">
+          </td>
+          <td>{{vis.terapeuta}}</td>
+          <td>{{vis.salida}}</td>
+          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">{{vis.horaEnd}}</td>
+          <td>{{calculardiferencia(vis.horaEnd)}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="padre">
   <div class="hijo">
     <table class="table">
@@ -59,42 +94,24 @@
 
         <!-- Fin Modal -->
       </tbody>
-    </table>
-  </div>
-</div>
 
-<!-- Ocupacion -->
-<h4 style="text-align: center; margin-top: 3rem; font-family: monospace; font-size: x-large"> OCUPACIÓN </h4>
-
-<h5 class="text-center display-4 text-danger font-family: cursive; font-size: initial;" *ngIf="vision.length == 0">
-  Actualmente todas las terapeutas estan libres
-</h5>
-
-<div class="padre">
-  <div class="hijo">
-    <table class="table">
-      <thead>
+      <tbody>
         <tr>
-          <th scope="col"></th>
-          <th scope="col">Terapeuta</th>
-          <th scope="col">Salida</th>
-          <th scope="col">Fin</th>
-          <th scope="col">Restante</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let vis of vision ">
-        <tr>
-          <td
-            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">
-          </td>
-          <td>{{vis.terapeuta}}</td>
-          <td>{{vis.salida}}</td>
-          <td
-          [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}"
-          >{{vis.horaEnd}}</td>
-          <td>{{calculardiferencia(vis.horaEnd)}}</td>
+          <td style="border-top: solid;"></td>
+          <td style="border-top: solid;"></td>
+          <td style="border-top: solid;"></td>
+          <td style="border-top: solid;"></td>
+          <td style="border-top: solid;">Total</td>
+          <td style="border-top: solid;">{{totalVision + ' €'}}</td>
+          <td style="border-top: solid;"></td>
+          <td style="border-top: solid;">{{totalBebida + ' €'}}</td>
+          <td style="border-top: solid;">{{totalTabaco + ' €'}}</td>
+          <td style="border-top: solid;">{{totalVitamina + ' €'}}</td>
+          <td style="border-top: solid;">{{totalPropina + ' €'}}</td>
+          <td style="border-top: solid;">{{totalOtros + ' €'}}</td>
         </tr>
       </tbody>
+
     </table>
   </div>
 </div>
