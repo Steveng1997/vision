@@ -4,6 +4,7 @@ import { ServicioService } from 'src/app/core/services/servicio';
 import { FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/core/services/login';
+import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 
 @Component({
   selector: 'app-vision',
@@ -32,13 +33,13 @@ export class VisionComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public servicioService: ServicioService,
     public fb: FormBuilder,
     private modalService: NgbModal,
     private activeRoute: ActivatedRoute,
-    private loginService: LoginService
-  ) {
-  }
+    public servicioService: ServicioService,
+    private loginService: LoginService,
+    private terapService: TrabajadoresService
+  ) { }
 
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
@@ -49,27 +50,26 @@ export class VisionComponent implements OnInit {
       this.idUser = rp[0]
     })
     this.getServicio();
+    this.getTerapeuta();
+  }
+
+  getTerapeuta() {
+    this.terapService.getAllTerapeuta().subscribe((rp) => {
+      this.terapeutas = rp
+      if (rp.length != 0) {
+        this.calculardiferencia(rp[0]['horaEnd']);
+      }
+    });
   }
 
   getServicio() {
     this.servicioService.getFechaHoy().then((datoServicio) => {
       this.vision = datoServicio;
-      this.sumaTotalServicio();
-      if (datoServicio.length != 0) {
-        this.calculardiferencia(datoServicio[0]['horaEnd']);
-      }
 
       if (datoServicio.length != 0) {
+        this.sumaTotalServicio();
         this.sumaTotalVision();
       }
-
-
-      // Esta linea de codigo hace que no se repita las terapeutas
-      let personasMap = datoServicio.map(item => {
-        return [item.terapeuta, item]
-      });
-      var personasMapArr = new Map(personasMap); 
-      this.terapeutas = [...personasMapArr.values()];
     });
   }
 

@@ -44,6 +44,8 @@ export class TrabajadoresService {
       otros: otros,
       propina: propina,
       activo: true,
+      horaEnd: '',
+      salida: '',
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -127,6 +129,24 @@ export class TrabajadoresService {
     return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta))
       .doc(idDocument)
       .update(terapeuta);
+  }
+
+  update(idDocument, nombreTerap, horaEnd, salida) {
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
+      .doc(idDocument)
+      .update({
+        horaEnd: horaEnd,
+        salida: salida
+      });
+  }
+
+  updateHoraAndSalida(idDocument, nombreTerap) {
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
+      .doc(idDocument)
+      .update({
+        horaEnd: "",
+        salida: ""
+      });
   }
 
   // -----------------------------------------------------------------------------------

@@ -124,10 +124,10 @@ export class NuevoServicioComponent implements OnInit {
 
   constructor(
     public router: Router,
+    private activeRoute: ActivatedRoute,
     public trabajadorService: TrabajadoresService,
     public servicioService: ServicioService,
     public serviceLogin: LoginService,
-    private activeRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -380,6 +380,15 @@ export class NuevoServicioComponent implements OnInit {
             if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 ||
               this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberTerap > 0 ||
               this.formTemplate.value.numberOtro > 0) {
+
+              let idDocument;
+
+              this.trabajadorService.getTerapeuta(this.formTemplate.value.terapeuta).then((rp) => {
+
+                const idDocument1 = rp.filter(tp => tp.nombre)
+                idDocument = idDocument1[0]['idDocument']
+                this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio, this.formTemplate.value.salida);
+              })
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -1237,8 +1246,15 @@ export class NuevoServicioComponent implements OnInit {
           confirmButtonText: 'Si, Deseo eliminar!',
         }).then((result) => {
           if (result.isConfirmed) {
+            debugger
+            this.trabajadorService.getTerapeuta(datoEliminado[0]['terapeuta']).then((rp) => {
+              let idDocument;
+              const idDocument1 = rp.filter(tp => tp.nombre)
+              idDocument = idDocument1[0]['idDocument']
+              this.trabajadorService.updateHoraAndSalida(idDocument, this.formTemplate.value.terapeuta);
+            })
+
             this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
-            localStorage.clear();
             this.router.navigate([`menu/${this.encargada[0]['id']}/vision/${this.encargada[0]['id']}`]);
             Swal.fire({
               position: 'top-end',
@@ -1412,14 +1428,7 @@ export class NuevoServicioComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroserv;
       this.editarService[0]['valueEfectivo'] = suma;
-      localStorage.setItem('Efectivo', 'Efectivo')
       return
-    }
-
-    if (!this.formTemplate.value.efectPiso1 && !this.formTemplate.value.efectPiso2 &&
-      !this.formTemplate.value.efectTerap && !this.formTemplate.value.efectEncarg &&
-      !this.formTemplate.value.efectOtro) {
-      localStorage.removeItem('Efectivo')
     }
   }
 
@@ -1468,14 +1477,7 @@ export class NuevoServicioComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic;
       this.editarService[0]['valueBizum'] = suma;
-      localStorage.setItem('Bizum', 'Bizum')
       return
-    }
-
-    if (!this.formTemplate.value.bizuPiso1 && !this.formTemplate.value.bizuPiso2 &&
-      !this.formTemplate.value.bizuTerap && !this.formTemplate.value.bizuEncarg &&
-      !this.formTemplate.value.bizuOtro) {
-      localStorage.removeItem('Bizum')
     }
   }
 
@@ -1524,14 +1526,7 @@ export class NuevoServicioComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic;
       this.editarService[0]['valueTarjeta'] = suma;
-      localStorage.setItem('Tarjeta', 'Tarjeta')
       return
-    }
-
-    if (!this.formTemplate.value.tarjPiso1 && !this.formTemplate.value.tarjPiso2 &&
-      !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
-      !this.formTemplate.value.tarjOtro) {
-      localStorage.removeItem('Tarjeta')
     }
   }
 
@@ -1580,14 +1575,7 @@ export class NuevoServicioComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic;
       this.editarService[0]['valueTrans'] = suma;
-      localStorage.setItem('Tarjeta', 'Tarjeta')
       return
-    }
-
-    if (!this.formTemplate.value.tarjPiso1 && !this.formTemplate.value.tarjPiso2 &&
-      !this.formTemplate.value.tarjTerap && !this.formTemplate.value.tarjEncarg &&
-      !this.formTemplate.value.tarjOtro) {
-      localStorage.removeItem('Tarjeta')
     }
   }
 
