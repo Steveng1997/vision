@@ -246,6 +246,21 @@ export class ServicioService {
     });
   }
 
+  getIdDocument(id: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('idUnico', '==', id))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -386,6 +401,20 @@ export class ServicioService {
       .collection('servicio', (ref) => ref.where('id', '==', idServicio))
       .doc(idDocumentServicio)
       .update(servi);
+  }
+
+  updateAllServicio(idDocumentServicio, idServicio) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('id', '==', idServicio))
+      .doc(idDocumentServicio)
+      .update({
+        numberPiso1: 0,
+        numberTerap: 0,
+        propina: 0,
+        servicio: 0,
+        totalServicio: 0,
+        minuto: 0,
+      });
   }
 
   // -----------------------------------------------------------------------------------

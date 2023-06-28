@@ -209,7 +209,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   addServicio(formValue): any {
-    debugger
     this.crearIdUnico();
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
@@ -225,172 +224,112 @@ export class NuevoServicioComponent implements OnInit {
             this.encargadaAndTerapeuta();
             if (this.formTemplate.value.numberPiso1 > 0) {
               if (this.formTemplate.value.efectPiso1 == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+                  0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuPiso1 == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+                  0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjPiso1 == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+                  this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transPiso1 == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+                  this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
               }
             }
             if (this.formTemplate.value.numberPiso2 > 0) {
               if (this.formTemplate.value.efectPiso2 == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+                  0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuPiso2) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+                  0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjPiso2) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, this.valueTarjeta, 0, 0, 0,
+                  this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transPiso2) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+                  this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
               }
             }
             if (this.formTemplate.value.numberTerap) {
               if (this.formTemplate.value.efectTerap == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+                  0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuTerap == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+                  0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjTerap == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+                  this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transTerap == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate);
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+                  this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
               }
             }
             if (this.formTemplate.value.numberEncarg > 0) {
               if (this.formTemplate.value.efectEncarg == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+                  0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuEncarg == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+                  0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjEncarg == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+                  this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transEncarg == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+                  this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
               }
             }
             if (this.formTemplate.value.numberOtro > 0) {
               if (this.formTemplate.value.efectOtro == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0,
+                  0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuOtro == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0,
+                  0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjOtro == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, this.valueTrans, 0, 0,
+                  this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transOtro == true) {
-                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual,
-                  this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-                  this.fechaHoyInicio, this.valueEfectivo, this.valueBizum, this.valueTarjeta, this.valueTrans,
-                  this.valueEfectTerapeuta, this.valueBizuTerapeuta, this.valueTarjeTerapeuta, this.valueTransTerapeuta,
-                  this.valueEfectEncargada, this.valueBizuEncargada, this.valueTarjeEncargada, this.valueTransEncargada,
-                  this.currentDate)
+                this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+                  this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
               }
             }
             if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 ||
@@ -400,10 +339,13 @@ export class NuevoServicioComponent implements OnInit {
               let idDocument;
 
               this.trabajadorService.getTerapeuta(this.formTemplate.value.terapeuta).then((rp) => {
-
                 const idDocument1 = rp.filter(tp => tp.nombre)
                 idDocument = idDocument1[0]['idDocument']
                 this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio, this.formTemplate.value.salida);
+              })
+
+              this.servicioService.getIdDocument(this.idUnico).then((rp) => {
+                this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id'])
               })
               Swal.fire({
                 position: 'top-end',
@@ -1262,7 +1204,6 @@ export class NuevoServicioComponent implements OnInit {
           confirmButtonText: 'Si, Deseo eliminar!',
         }).then((result) => {
           if (result.isConfirmed) {
-            debugger
             this.trabajadorService.getTerapeuta(datoEliminado[0]['terapeuta']).then((rp) => {
               let idDocument;
               const idDocument1 = rp.filter(tp => tp.nombre)

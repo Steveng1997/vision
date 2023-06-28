@@ -22,7 +22,7 @@ export class CierreService {
     return result;
   }
 
-  registerLiquidacionesEncargada(encargada, fechaDesde, fechaHasta, horaFecha, tratamiento, total,
+  registerCierre(encargada, fechaDesde, fechaHasta, horaFecha, tratamiento, total,
     efectivo, bizum, tarjeta, transaccion) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,

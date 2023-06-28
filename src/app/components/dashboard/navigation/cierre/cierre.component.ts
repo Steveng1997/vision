@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/core/services/login';
 import { ServicioService } from 'src/app/core/services/servicio';
 import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { CierreService } from 'src/app/core/services/cierre';
 
 @Component({
   selector: 'app-cierre',
@@ -91,11 +92,11 @@ export class CierreComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public trabajadorService: TrabajadoresService,
-    public servicioService: ServicioService,
-    public fb: FormBuilder,
-    public loginService: LoginService,
     private modalService: NgbModal,
+    public fb: FormBuilder,
+    private servicioService: ServicioService,
+    private loginService: LoginService,
+    private cierreService: CierreService,
   ) { }
 
   formTemplate = new FormGroup({
@@ -143,19 +144,7 @@ export class CierreComponent implements OnInit {
 
   getServicio() {
     this.servicioService.geyByCierreFalse().then((datoServicio) => {
-      // this.servicio = datoServicio;
-      if (datoServicio.length != 0) {
-        // Esta linea de codigo hace que no se repita las terapeutas
-        let personasMap = datoServicio.map(item => {
-          return [item['idUnico'], item]
-        });
-        var personasMapArr = new Map(personasMap);
-        this.servicio = [...personasMapArr.values()];
-
-        if (datoServicio != 0) {
-          this.sumaTotalServicios(this.servicio);
-        }
-      }
+      this.servicio = datoServicio;
     })
   }
 
@@ -418,6 +407,11 @@ export class CierreComponent implements OnInit {
             });
           })
         }
+
+
+        this.cierreService.registerCierre(this.selectedEncargada, this.fechaConvertion, this.fechaConvertion, this.horaConvertion,
+          datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
+          datos[0]['valueTarjeta'], datos[0]['valueTrans']).then((datos) => { });
       })
     } else {
       Swal.fire({

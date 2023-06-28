@@ -1,8 +1,3 @@
-.example-container {
-  height: 270px;
-  overflow: auto;
-}
-
 tr.mat-mdc-footer-row {
   font-weight: bold;
 }
@@ -11,51 +6,52 @@ tr.mat-mdc-footer-row {
   border-top: 1px solid #e0e0e0;
 }
 
-.nota {
-  background: blue;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: 20%;
-}
-
-.disponible {
-  background: green;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: 20%;
-}
-
-.disponible2 {
-  background: green;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: 20%;
-}
-
-.disponibleEncargada {
-  display: none;
-}
-
-.ocupado {
-  background: red;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: 20%;
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+
+  .nota {
+    background: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 20%;
+    margin-left: 20%;
+  }
+
+  .disponible {
+    background: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  .disponible2 {
+    background: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  .disponibleEncargada {
+    display: none;
+  }
+
+  .ocupado {
+    background: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
   /* aqui */
 
   .container {
@@ -154,8 +150,48 @@ tr.mat-mdc-footer-row {
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
 
-  .ocupacion {
-    text-align: center;
+  .nota {
+    background: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 20%;
+    margin-left: 20%;
+  }
+
+  .disponible {
+    background: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  .disponible2 {
+    background: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
+  }
+
+  .disponibleEncargada {
+    display: none;
+  }
+
+  .ocupado {
+    background: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: auto;
+    margin-left: auto;
   }
 
   .container {
