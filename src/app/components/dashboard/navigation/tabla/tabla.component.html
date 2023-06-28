@@ -61,147 +61,153 @@
 
 <!-- table -->
 
-<div style="display: grid; place-items: center;">
-    <div style="text-align: center; width: max-content;">
-        <table class="table" id="excel-table">
-            <thead>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
-                    <td style="border-left: solid;border-top: solid; border-bottom: solid;">{{totalServicio + ' €'}}
-                    </td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalPiso + ' €'}}
-                    </td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorTerapeuta + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorEncargada + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorAOtros + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{TotalValorBebida + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{TotalValorTabaco + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorVitaminas + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorPropina + ' €'}}</td>
-                    <td style="border-top: solid; border-bottom: solid;">{{totalValorOtroServ + '
-                        €'}}
-                    <td style="border-top: solid; border-bottom: solid; border-right: solid;">{{totalValor + '
-                        €'}}
-                    </td>
-                </tr>
-                <tr>
-                    <!-- 1 -->
-                    <th scope="col">Nota</th>
-                    <!-- 2 -->
-                    <th scope="col">Fecha</th>
-                    <!-- 3 -->
-                    <th scope="col">Terap.</th>
-                    <!-- 4 -->
-                    <th scope="col">Encarg.</th>
-                    <!-- 5 -->
-                    <th scope="col">Salida</th>
-                    <!-- 6 -->
-                    <th scope="col">Hora</th>
-                    <!-- 7 -->
-                    <th scope="col">Pago</th>
-                    <!-- 8 -->
-                    <th scope="col">Tratamiento</th>
-                    <!-- 9 -->
-                    <th scope="col">€ a piso</th>
-                    <!-- 10 -->
-                    <th scope="col">€ a terap.</th>
-                    <!-- 11 -->
-                    <th scope="col">€ a enc.</th>
-                    <!-- 12 -->
-                    <th scope="col">€ a otros</th>
-                    <!-- 13 -->
-                    <th scope="col">Bebida</th>
-                    <!-- 14 -->
-                    <th scope="col">Tabaco</th>
-                    <!-- 15 -->
-                    <th scope="col">Vitamina</th>
-                    <!-- 16 -->
-                    <th scope="col">Propina</th>
-                    <!-- 17 -->
-                    <th scope="col">Otros</th>
-                    <!-- 18 -->
-                    <th scope="col">Total</th>
-                    <!-- 19 -->
-                    <th scope="col">Cliente</th>
-                </tr>
-            </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+<div class="container">
+    <table class="table" id="excel-table">
+        <thead class="thead-dark">
+            <tr>
+                <td data-label=""></td>
+                <td data-label=""></td>
+                <td data-label=""></td>
+                <td data-label=""></td>
+                <td data-label=""></td>
+                <td data-label=""></td>
+                <td data-label="" style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
+                <td data-label="Tratamiento" style="border-left: solid;border-top: solid; border-bottom: solid;">
+                    {{totalServicio + ' €'}}
+                </td>
+                <td data-label="€ a Piso." style="border-top: solid; border-bottom: solid;">{{totalPiso + ' €'}}
+                </td>
+                <td data-label="€ a Terap." style="border-top: solid; border-bottom: solid;">{{totalValorTerapeuta + '
+                    €'}}</td>
+                <td data-label="€ a Enc." style="border-top: solid; border-bottom: solid;">{{totalValorEncargada + '
+                    €'}}</td>
+                <td data-label="€ a Otros" style="border-top: solid; border-bottom: solid;">{{totalValorAOtros + ' €'}}
+                </td>
+                <td data-label="Bebida" style="border-top: solid; border-bottom: solid;">{{TotalValorBebida + ' €'}}
+                </td>
+                <td data-label="Tabaco" style="border-top: solid; border-bottom: solid;">{{TotalValorTabaco + ' €'}}
+                </td>
+                <td data-label="Vitamina" style="border-top: solid; border-bottom: solid;">{{totalValorVitaminas + '
+                    €'}}</td>
+                <td data-label="Propina" style="border-top: solid; border-bottom: solid;">{{totalValorPropina + ' €'}}
+                </td>
+                <td data-label="Otros" style="border-top: solid; border-bottom: solid;">{{totalValorOtroServ + '
+                    €'}}
+                <td data-label="Total" style="border-top: solid; border-bottom: solid; border-right: solid;">
+                    {{totalValor + '
+                    €'}}
+                </td>
+            </tr>
+            <tr>
+                <!-- 1 -->
+                <th scope="col">Nota</th>
+                <!-- 2 -->
+                <th scope="col">Fecha</th>
+                <!-- 3 -->
+                <th scope="col">Terap.</th>
+                <!-- 4 -->
+                <th scope="col">Encarg.</th>
+                <!-- 5 -->
+                <th scope="col">Salida</th>
+                <!-- 6 -->
+                <th scope="col">Hora</th>
+                <!-- 7 -->
+                <th scope="col">Pago</th>
+                <!-- 8 -->
+                <th scope="col">Tratamiento</th>
+                <!-- 9 -->
+                <th scope="col">€ a piso</th>
+                <!-- 10 -->
+                <th scope="col">€ a terap.</th>
+                <!-- 11 -->
+                <th scope="col">€ a enc.</th>
+                <!-- 12 -->
+                <th scope="col">€ a otros</th>
+                <!-- 13 -->
+                <th scope="col">Bebida</th>
+                <!-- 14 -->
+                <th scope="col">Tabaco</th>
+                <!-- 15 -->
+                <th scope="col">Vitamina</th>
+                <!-- 16 -->
+                <th scope="col">Propina</th>
+                <!-- 17 -->
+                <th scope="col">Otros</th>
+                <!-- 18 -->
+                <th scope="col">Total</th>
+                <!-- 19 -->
+                <th scope="col">Cliente</th>
+            </tr>
+        </thead>
+        <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
                 | paginate: { itemsPerPage: 10, currentPage: page }">
-                <tr style="cursor: pointer;">
-                    <!-- 1 -->
-                    <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
-                    <!-- 2 -->
-                    <td>{{serv.fecha}}</td>
-                    <!-- 3 -->
-                    <td>{{serv.terapeuta}}</td>
-                    <!-- 4 -->
-                    <td>{{serv.encargada}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.salida }}</td>
-                    <!-- 6 -->
-                    <td>{{serv.horaStart + '-' + serv.horaEnd }}</td>
-                    <!-- 7 -->
-                    <td>{{serv.formaPago}}</td>
-                    <!-- 8 -->
-                    <td>{{serv.servicio + ' €'}}</td>
-                    <!-- 9 -->
-                    <td>{{serv.numberPiso1 + ' €'}}</td>
-                    <!-- 10 -->
-                    <td>{{serv.numberTerap + ' €'}}</td>
-                    <!-- 11 -->
-                    <td>{{serv.numberEncarg + ' €'}}</td>
-                    <!-- 12 -->
-                    <td>{{serv.numberOtro + ' €'}}</td>
-                    <!-- 13 -->
-                    <td>{{serv.bebidas + ' €'}}</td>
-                    <!-- 14 -->
-                    <td>{{serv.tabaco + ' €'}}</td>
-                    <!-- 15 -->
-                    <td>{{serv.vitaminas + ' €'}}</td>
-                    <!-- 16 -->
-                    <td>{{serv.propina+ ' €'}}</td>
-                    <!-- 17 -->
-                    <td>{{serv.otros + ' €'}}</td>
-                    <!-- 18 -->
-                    <td>{{serv.totalServicio + ' €'}}</td>
-                    <!-- 19 -->
-                    <td>{{serv.cliente}}</td>
-                </tr>
+            <tr style="cursor: pointer;">
+                <!-- 1 -->
+                <td data-label="" [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
+                <!-- 2 -->
+                <td data-label="Fecha">{{serv.fecha}}</td>
+                <!-- 3 -->
+                <td data-label="Terapeuta">{{serv.terapeuta}}</td>
+                <!-- 4 -->
+                <td data-label="Encargada">{{serv.encargada}}</td>
+                <!-- 5 -->
+                <td data-label="Salida">{{serv.salida }}</td>
+                <!-- 6 -->
+                <td data-label="Hora">{{serv.horaStart + '-' + serv.horaEnd }}</td>
+                <!-- 7 -->
+                <td data-label="Pago">{{serv.formaPago}}</td>
+                <!-- 8 -->
+                <td data-label="Cliente">{{serv.cliente}}</td>
+                <!-- 9 -->
+                <td data-label="Tratamiento">{{serv.servicio + ' €'}}</td>
+                <!-- 10 -->
+                <td data-label="€ a Piso">{{serv.numberPiso1 + ' €'}}</td>
+                <!-- 11 -->
+                <td data-label="€ a Terap.">{{serv.numberTerap + ' €'}}</td>
+                <!-- 12 -->
+                <td data-label="€ a Enc.">{{serv.numberEncarg + ' €'}}</td>
+                <!-- 13 -->
+                <td data-label="€ a Otros.">{{serv.numberOtro + ' €'}}</td>
+                <!-- 14 -->
+                <td data-label="Bebida">{{serv.bebidas + ' €'}}</td>
+                <!-- 15 -->
+                <td data-label="Tabaco">{{serv.tabaco + ' €'}}</td>
+                <!-- 16 -->
+                <td data-label="Vitamina">{{serv.vitaminas + ' €'}}</td>
+                <!-- 17 -->
+                <td data-label="Propina">{{serv.propina+ ' €'}}</td>
+                <!-- 18 -->
+                <td data-label="Otros">{{serv.otros + ' €'}}</td>
+                <!-- 19 -->
+                <td data-label="Total">{{serv.totalServicio + ' €'}}</td>
+            </tr>
 
-                <!-- Modal -->
-                <ng-template class="custom-modal" #modalTabl let-modal>
-                    <div class="modal-header">
-                        <h5 class="modal-title"> Nota </h5>
-                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+            <!-- Modal -->
+            <ng-template class="custom-modal" #modalTabl let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title"> Nota </h5>
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-                    <div class="modal-body" style="text-align: center;">
-                        <!-- Aqui se coloca lo adentro -->
+                <div class="modal-body" style="text-align: center;">
+                    <!-- Aqui se coloca lo adentro -->
 
-                        <h4>{{serv.nota}}</h4>
+                    <h4>{{serv.nota}}</h4>
 
-                        <!-- Afuera -->
-                    </div>
-                </ng-template>
+                    <!-- Afuera -->
+                </div>
+            </ng-template>
 
-                <!-- Fin Modal -->
+            <!-- Fin Modal -->
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-            nextLabel="Siguiente">
-        </pagination-controls>
-    </div>
+    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente">
+    </pagination-controls>
 </div>
-<!-- Table Total Todo -->

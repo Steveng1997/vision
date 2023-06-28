@@ -12,9 +12,10 @@
   Actualmente todas las terapeutas estan libres
 </h5>
 
+
 <div class="padre">
-  <div class="hijo">
-    <table class="table">
+  <div class="container">
+    <table class="table hijo">
       <thead>
         <tr>
           <th scope="col"></th>
@@ -26,92 +27,92 @@
       </thead>
       <tbody *ngFor="let vis of terapeutas ">
         <tr>
-          <td
+          <td data-label=""
             [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">
           </td>
-          <td>{{vis.nombre}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">{{vis.salida}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">{{vis.horaEnd}}</td>
-          <td>{{calculardiferencia(vis.horaEnd)}}</td>
+          <td data-label="Terapeuta">{{vis.nombre}}</td>
+          <td data-label="Salida" [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">
+            {{vis.salida}}</td>
+          <td data-label="Fin" [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">
+            {{vis.horaEnd}}</td>
+          <td data-label="Restante">{{calculardiferencia(vis.horaEnd)}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<div class="padre">
-  <div class="hijo">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nota</th>
-          <th scope="col">Terap.</th>
-          <th scope="col">Encarg.</th>
-          <th scope="col">Hora</th>
-          <th scope="col">Tiempo</th>
-          <th scope="col">Tratamiento</th>
-          <th scope="col">Salida</th>
-          <th scope="col">Bebida</th>
-          <th scope="col">Tabaco</th>
-          <th scope="col">Vitamina</th>
-          <th scope="col">Propina</th>
-          <th scope="col">Otros</th>
-        </tr>
-      </thead>
-      <tbody (click)="editamos(vis.id)" *ngFor="let vis of vision ">
-        <tr style="cursor: pointer;">
-          <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
-          <td>{{vis.terapeuta}}</td>
-          <td>{{vis.encargada}}</td>
-          <td>{{vis.horaStart + '-' + vis.horaEnd}}</td>
-          <td>{{vis.minuto }}</td>
-          <td>{{vis.servicio + ' €'}}</td>
-          <td>{{vis.nota}}</td>
-          <td>{{vis.bebidas + ' €'}}</td>
-          <td>{{vis.tabaco + ' €'}}</td>
-          <td>{{vis.vitaminas + ' €'}}</td>
-          <td>{{vis.propina+ ' €'}}</td>
-          <td>{{vis.otros + ' €'}}</td>
-        </tr>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nota</th>
+        <th scope="col">Terap.</th>
+        <th scope="col">Encarg.</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Tiempo</th>
+        <th scope="col">Tratamiento</th>
+        <th scope="col">Salida</th>
+        <th scope="col">Bebida</th>
+        <th scope="col">Tabaco</th>
+        <th scope="col">Vitamina</th>
+        <th scope="col">Propina</th>
+        <th scope="col">Otros</th>
+      </tr>
+    </thead>
+    <tbody (click)="editamos(vis.id)" *ngFor="let vis of vision ">
+      <tr style="cursor: pointer;">
+        <td data-label="Nota" [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
+        <td data-label="Terap">{{vis.terapeuta}}</td>
+        <td data-label="Encarg.">{{vis.encargada}}</td>
+        <td data-label="Hora">{{vis.horaStart + '-' + vis.horaEnd}}</td>
+        <td data-label="Minuto">{{vis.minuto }}</td>
+        <td data-label="Tratamiento">{{vis.servicio + ' €'}}</td>
+        <td data-label="Salida">{{vis.salida}}</td>
+        <td data-label="Bebida">{{vis.bebidas + ' €'}}</td>
+        <td data-label="Tabaco">{{vis.tabaco + ' €'}}</td>
+        <td data-label="Vitamina">{{vis.vitaminas + ' €'}}</td>
+        <td data-label="Propina">{{vis.propina+ ' €'}}</td>
+        <td data-label="Otros">{{vis.otros + ' €'}}</td>
+      </tr>
 
-        <!-- Modal -->
-        <ng-template class="custom-modal" #modalTabl let-modal>
-          <div class="modal-header">
-            <h5 class="modal-title"> Nota </h5>
-            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+      <!-- Modal -->
+      <ng-template class="custom-modal" #modalTabl let-modal>
+        <div class="modal-header">
+          <h5 class="modal-title"> Nota </h5>
+          <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-          <div class="modal-body" style="text-align: center;">
-            <!-- Aqui se coloca lo adentro -->
+        <div class="modal-body" style="text-align: center;">
+          <!-- Aqui se coloca lo adentro -->
 
-            <h4>{{vis.nota}}</h4>
+          <h4>{{vis.nota}}</h4>
 
-            <!-- Afuera -->
-          </div>
-        </ng-template>
+          <!-- Afuera -->
+        </div>
+      </ng-template>
 
-        <!-- Fin Modal -->
-      </tbody>
+      <!-- Fin Modal -->
+    </tbody>
 
-      <tbody>
-        <tr>
-          <td style="border-top: solid;"></td>
-          <td style="border-top: solid;"></td>
-          <td style="border-top: solid;"></td>
-          <td style="border-top: solid;"></td>
-          <td style="border-top: solid;">Total</td>
-          <td style="border-top: solid;">{{totalVision + ' €'}}</td>
-          <td style="border-top: solid;"></td>
-          <td style="border-top: solid;">{{totalBebida + ' €'}}</td>
-          <td style="border-top: solid;">{{totalTabaco + ' €'}}</td>
-          <td style="border-top: solid;">{{totalVitamina + ' €'}}</td>
-          <td style="border-top: solid;">{{totalPropina + ' €'}}</td>
-          <td style="border-top: solid;">{{totalOtros + ' €'}}</td>
-        </tr>
-      </tbody>
+    <tbody>
+      <tr>
+        <!-- <td style="border-top: solid;"></td>
+        <td style="border-top: solid;"></td>
+        <td style="border-top: solid;"></td>
+        <td style="border-top: solid;"></td> -->
+        <td data-label="Total">Total</td>
+        <td data-label="Tratamiento">{{totalVision + ' €'}}</td>
+        <!-- <td></td> -->
+        <td data-label="Bebida">{{totalBebida + ' €'}}</td>
+        <td data-label="Tabaco">{{totalTabaco + ' €'}}</td>
+        <td data-label="Vitamina">{{totalVitamina + ' €'}}</td>
+        <td data-label="Propina">{{totalPropina + ' €'}}</td>
+        <td data-label="Otros">{{totalOtros + ' €'}}</td>
+      </tr>
+    </tbody>
 
-    </table>
-  </div>
+  </table>
 </div>
