@@ -61,7 +61,7 @@ tr.mat-mdc-footer-row {
   .container {
     width: 100%;
     max-width: 1000px;
-    margin: auto;
+    margin-bottom: 8%;
   }
 
   .table {
@@ -161,6 +161,7 @@ tr.mat-mdc-footer-row {
   .container {
     display: grid;
     place-items: center;
+    margin-bottom: 5%;
   }
 
   .hijo {

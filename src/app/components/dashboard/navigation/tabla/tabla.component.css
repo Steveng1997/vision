@@ -23,7 +23,7 @@
   .container {
     width: 100%;
     max-width: 1000px;
-    margin: auto;
+    margin-bottom: 5%;
   }
 
   .table {
@@ -77,8 +77,9 @@
     font-size: 22px;
   }
 
-  .table thead {
-    display: none;
+  .columnTable{
+    contain: strict;
+    -webkit-writing-mode: vertical-lr;
   }
 
   .table tr {
@@ -93,9 +94,10 @@
   }
 
   .table td {
-    display: flow-root;
-    border-bottom: 1px solid #ddd;
+    display: table;
     text-align: right;
+    min-inline-size: -webkit-fill-available;
+    mix-blend-mode: hard-light;
   }
 
   .table td:last-child {
@@ -126,6 +128,7 @@
   .container {
     display: grid;
     place-items: center;
+    margin-bottom: 5%;
   }
 
   .acomodarInput {
@@ -136,5 +139,9 @@
     display: table-caption;
     text-align: -webkit-right;
     caption-side: top;
+  }
+
+  .columnTable{
+    margin-bottom: 10%;
   }
 }

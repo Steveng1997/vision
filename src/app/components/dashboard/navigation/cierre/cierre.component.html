@@ -39,103 +39,104 @@
         </div>
     </form>
 
-
-
-    <div style="display: grid; place-items: center; margin-top: 3%;">
-        <div style="text-align: center; width: max-content;">
-            <table class="table" id="excel-table">
-                <thead>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
-                        <td style="border-left: solid;border-top: solid; border-bottom: solid;">{{totalValueServicio + '
-                            €'}}
-                        </td>
-                        <td style="border-top: solid; border-bottom: solid;">{{totalValueEfectivo + ' €'}}</td>
-                        <td style="border-top: solid; border-bottom: solid;">{{totalValueBizum + ' €'}}</td>
-                        <td style="border-top: solid; border-bottom: solid;">{{totalValueTarjeta + ' €'}}</td>
-                        <td style="border-top: solid; border-bottom: solid;  border-right: solid;">{{totalValueTrans + '
-                            €'}}</td>
-                    </tr>
-                    <tr>
-                        <!-- 2 -->
-                        <th scope="col">Encargada</th>
-                        <!-- 3 -->
-                        <th scope="col">Desde</th>
-                        <!-- 4 -->
-                        <th scope="col">Hasta</th>
-                        <!-- 5 -->
-                        <th scope="col">Hora</th>
-                        <!-- 5 -->
-                        <th scope="col">Tratamiento</th>
-                        <!-- 6 -->
-                        <th scope="col">TOTAL</th>
-                        <!-- 7 -->
-                        <th scope="col">Efectivo</th>
-                        <!-- 8 -->
-                        <th scope="col">Bizum</th>
-                        <!-- 9 -->
-                        <th scope="col">Tarjeta</th>
-                        <!-- 10 -->
-                        <th scope="col">Trans.</th>
-                    </tr>
-                </thead>
-                <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
+    <div class="container">
+        <table class="table" id="excel-table">
+            <thead class="thead-dark">
+                <tr>
+                    <td data-label=""></td>
+                    <td data-label=""></td>
+                    <td data-label=""></td>
+                    <td data-label=""></td>
+                    <td data-label="" style="font-weight: bold; font-size: large; color: crimson;">TOTALES</td>
+                    <td data-label="Total" style="border-left: solid;border-top: solid; border-bottom: solid;">
+                        {{totalValueServicio + '
+                        €'}}
+                    </td>
+                    <td data-label="Efectivo" style="border-top: solid; border-bottom: solid;">{{totalValueEfectivo + '
+                        €'}}</td>
+                    <td data-label="Bizum" style="border-top: solid; border-bottom: solid;">{{totalValueBizum + ' €'}}
+                    </td>
+                    <td data-label="Tarjeta" style="border-top: solid; border-bottom: solid;">{{totalValueTarjeta + '
+                        €'}}</td>
+                    <td data-label="Transacción" style="border-top: solid; border-bottom: solid;  border-right: solid;">
+                        {{totalValueTrans + '
+                        €'}}</td>
+                </tr>
+                <tr class="columnTable">
+                    <!-- 2 -->
+                    <th scope="col">Encargada</th>
+                    <!-- 3 -->
+                    <th scope="col">Desde</th>
+                    <!-- 4 -->
+                    <th scope="col">Hasta</th>
+                    <!-- 5 -->
+                    <th scope="col">Hora</th>
+                    <!-- 5 -->
+                    <th scope="col">Tratamiento</th>
+                    <!-- 6 -->
+                    <th scope="col">TOTAL</th>
+                    <!-- 7 -->
+                    <th scope="col">Efectivo</th>
+                    <!-- 8 -->
+                    <th scope="col">Bizum</th>
+                    <!-- 9 -->
+                    <th scope="col">Tarjeta</th>
+                    <!-- 10 -->
+                    <th scope="col">Trans.</th>
+                </tr>
+            </thead>
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | encargada: selectedEncargada 
             | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
-                    <tr style="cursor: pointer;">
-                        <!-- 2 -->
-                        <td>{{serv.encargada}}</td>
-                        <!-- 3 -->
-                        <td>{{serv.fecha}}</td>
-                        <!-- 4 -->
-                        <td>{{serv.fecha}}</td>
-                        <!-- 5 -->
-                        <td>{{serv.horaEnd}}</td>
-                        <!-- 5 -->
-                        <td>{{serv.servicio}}</td>
-                        <!-- 6 -->
-                        <td>{{serv.totalServicio + ' €'}}</td>
-                        <!-- 7 -->
-                        <td>{{serv.valueEfectivo + ' €'}}</td>
-                        <!-- 8 -->
-                        <td>{{serv.valueBizum + ' €'}}</td>
-                        <!-- 9 -->
-                        <td>{{serv.valueTarjeta + ' €'}}</td>
-                        <!-- 10 -->
-                        <td>{{serv.valueTrans + ' €'}}</td>
-                    </tr>
+                <tr style="cursor: pointer;">
+                    <!-- 2 -->
+                    <td data-label="Encargada">{{serv.encargada}}</td>
+                    <!-- 3 -->
+                    <td data-label="Desde">{{serv.fecha}}</td>
+                    <!-- 4 -->
+                    <td data-label="Hasta">{{serv.fecha}}</td>
+                    <!-- 5 -->
+                    <td data-label="Hora">{{serv.horaEnd}}</td>
+                    <!-- 5 -->
+                    <td data-label="Tratamiento">{{serv.servicio}}</td>
+                    <!-- 6 -->
+                    <td data-label="Total">{{serv.totalServicio + ' €'}}</td>
+                    <!-- 7 -->
+                    <td data-label="Efectivo">{{serv.valueEfectivo + ' €'}}</td>
+                    <!-- 8 -->
+                    <td data-label="Bizum">{{serv.valueBizum + ' €'}}</td>
+                    <!-- 9 -->
+                    <td data-label="Tarjeta">{{serv.valueTarjeta + ' €'}}</td>
+                    <!-- 10 -->
+                    <td data-label="Transacción">{{serv.valueTrans + ' €'}}</td>
+                </tr>
 
-                    <!-- Modal -->
-                    <ng-template class="custom-modal" #modalTabl let-modal>
-                        <div class="modal-header">
-                            <h5 class="modal-title"> Nota </h5>
-                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                <!-- Modal -->
+                <ng-template class="custom-modal" #modalTabl let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Nota </h5>
+                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
-                        <div class="modal-body" style="text-align: center;">
-                            <!-- Aqui se coloca lo adentro -->
+                    <div class="modal-body" style="text-align: center;">
+                        <!-- Aqui se coloca lo adentro -->
 
-                            <h4>{{serv.nota}}</h4>
+                        <h4>{{serv.nota}}</h4>
 
-                            <!-- Afuera -->
-                        </div>
-                    </ng-template>
+                        <!-- Afuera -->
+                    </div>
+                </ng-template>
 
-                    <!-- Fin Modal -->
+                <!-- Fin Modal -->
 
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
-            <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                nextLabel="Siguiente">
-            </pagination-controls>
-        </div>
+        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
     </div>
 </div>
 
@@ -149,7 +150,7 @@
 
         <div class="container">
 
-            <div style="display: grid; place-items: center;">
+            <div class="cajaEncargada">
                 <mat-form-field class="col-6">
                     <mat-label>Encargada</mat-label>
                     <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
@@ -186,164 +187,158 @@
 
             <!-- Table Cierre -->
 
-            <div style="display: grid; place-items: center;" class="classTable">
-                <div style="text-align: center; width: max-content;">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Caja</th>
-                                <th scope="col">Ingresos</th>
-                                <th scope="col">Pagos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Efectivo</th>
-                                <td>{{totalCajaEfectivo + ' €'}}</td>
-                                <td>{{totalesEfectivo + ' €'}}</td>
-                                <td>{{sumaEfectivo + ' €'}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Bizum</th>
-                                <td>{{totalCajaBizu + ' €'}}</td>
-                                <td>{{totalesBizum + ' €'}}</td>
-                                <td>{{sumaBizum + ' €'}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Tarjeta</th>
-                                <td>{{totalCajaTarjeta + ' €'}}</td>
-                                <td>{{totalesTarjeta + ' €'}}</td>
-                                <td>{{sumaTarjeta + ' €'}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Transf</th>
-                                <td>{{totalCajaTransfer + ' €'}}</td>
-                                <td>{{totalesTransferencia + ' €'}}</td>
-                                <td>{{sumaTransfe + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="containerTable1">
+                <table class="table">
+                    <thead class="thead-dark titulos">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Caja</th>
+                            <th scope="col">Ingresos</th>
+                            <th scope="col">Pagos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Efectivo</th>
+                            <td data-label="Caja">{{totalCajaEfectivo + ' €'}}</td>
+                            <td data-label="Ingresos">{{totalesEfectivo + ' €'}}</td>
+                            <td data-label="Pagos">{{sumaEfectivo + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bizum</th>
+                            <td data-label="Caja">{{totalCajaBizu + ' €'}}</td>
+                            <td data-label="Ingresos">{{totalesBizum + ' €'}}</td>
+                            <td data-label="Pagos">{{sumaBizum + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tarjeta</th>
+                            <td data-label="Caja">{{totalCajaTarjeta + ' €'}}</td>
+                            <td data-label="Ingresos">{{totalesTarjeta + ' €'}}</td>
+                            <td data-label="Pagos">{{sumaTarjeta + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Transf</th>
+                            <td data-label="Caja">{{totalCajaTransfer + ' €'}}</td>
+                            <td data-label="Ingresos">{{totalesTransferencia + ' €'}}</td>
+                            <td data-label="Pagos">{{sumaTransfe + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- Fin Table Cierre -->
+        </div>
+        <!-- Fin Table Cierre -->
 
-            <h4 class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
+        <h4 class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
 
-            <!-- Table -->
+        <!-- Table -->
 
-            <div style="display: grid; place-items: center; margin-top: 3%;">
-                <div style="text-align: center; width: max-content;">
-                    <table class="table" id="excel-table">
-                        <thead>
-                            <tr>
-                                <!-- 2 -->
-                                <th scope="col">Terapeuta</th>
-                                <!-- 3 -->
-                                <th scope="col">Salida</th>
-                                <!-- 4 -->
-                                <th scope="col">Hora</th>
-                                <!-- 5 -->
-                                <th scope="col">Pago</th>
-                                <!-- 5 -->
-                                <th scope="col">€ a piso</th>
-                                <!-- 6 -->
-                                <th scope="col">€ a piso 2</th>
-                                <!-- 7 -->
-                                <th scope="col">€ a terap.</th>
-                                <!-- 8 -->
-                                <th scope="col">€ a enc.</th>
-                                <!-- 9 -->
-                                <th scope="col">€ a otros</th>
-                            </tr>
-                        </thead>
-                        <tbody *ngFor="let serv of (servicio | encargada: selectedEncargada) 
+        <div class="container">
+            <table class="table" id="excel-table">
+                <thead class="thead-dark titulos">
+                    <tr>
+                        <!-- 2 -->
+                        <th scope="col">Terapeuta</th>
+                        <!-- 3 -->
+                        <th scope="col">Salida</th>
+                        <!-- 4 -->
+                        <th scope="col">Hora</th>
+                        <!-- 5 -->
+                        <th scope="col">Pago</th>
+                        <!-- 5 -->
+                        <th scope="col">€ a piso</th>
+                        <!-- 6 -->
+                        <th scope="col">€ a piso 2</th>
+                        <!-- 7 -->
+                        <th scope="col">€ a terap.</th>
+                        <!-- 8 -->
+                        <th scope="col">€ a enc.</th>
+                        <!-- 9 -->
+                        <th scope="col">€ a otros</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let serv of (servicio | encargada: selectedEncargada) 
                         | paginate: { itemsPerPage: 5, currentPage: page }">
-                            <tr>
-                                <!-- 1 -->
-                                <td>{{serv.terapeuta}}</td>
-                                <!-- 2 -->
-                                <td>{{serv.salida}}</td>
-                                <!-- 3 -->
-                                <td>{{serv.horaStart + ' - ' + serv.horaStart}}</td>
-                                <!-- 4 -->
-                                <td>{{serv.formaPago}}</td>
-                                <!-- 5 -->
-                                <td>{{serv.numberPiso1 + ' €'}}</td>
-                                <!-- 6 -->
-                                <td>{{serv.numberPiso2 + ' €'}}</td>
-                                <!-- 7 -->
-                                <td>{{serv.numberTerap + ' €'}}</td>
-                                <!-- 8 -->
-                                <td>{{serv.numberEncarg + ' €'}}</td>
-                                <!-- 9 -->
-                                <td>{{serv.numberOtro + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td style="border-top: solid;"></td>
-                                <td style="border-top: solid;"></td>
-                                <td style="border-top: solid;"></td>
-                                <td style="border-top: solid;">Total</td>
-                                <td style="border-top: solid;">{{totalValuePiso + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalValuePiso2 + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalValueTerap + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalValueEncarg + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalValueOtros + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <tr>
+                        <!-- 1 -->
+                        <td data-label="Terapeuta">{{serv.terapeuta}}</td>
+                        <!-- 2 -->
+                        <td data-label="Salida">{{serv.salida}}</td>
+                        <!-- 3 -->
+                        <td data-label="Hora">{{serv.horaStart + ' - ' + serv.horaStart}}</td>
+                        <!-- 4 -->
+                        <td data-label="Paso">{{serv.formaPago}}</td>
+                        <!-- 5 -->
+                        <td data-label="€ a Piso">{{serv.numberPiso1 + ' €'}}</td>
+                        <!-- 6 -->
+                        <td data-label="€ a Piso 2">{{serv.numberPiso2 + ' €'}}</td>
+                        <!-- 7 -->
+                        <td data-label="€ a Terap">{{serv.numberTerap + ' €'}}</td>
+                        <!-- 8 -->
+                        <td data-label="€ a Enc.">{{serv.numberEncarg + ' €'}}</td>
+                        <!-- 9 -->
+                        <td data-label="€ a Otros">{{serv.numberOtro + ' €'}}</td>
+                    </tr>
+                </tbody>
 
-                    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                        nextLabel="Siguiente">
-                    </pagination-controls>
-                </div>
-            </div>
+                <tbody class="table2">
+                    <tr>
+                        <td data-label="" class="td1" style="border-top: solid;"></td>
+                        <td data-label="" class="td2" style="border-top: solid;"></td>
+                        <td data-label="" class="td3" style="border-top: solid;"></td>
+                        <td data-label="" style="border-top: solid;">Total</td>
+                        <td data-label="€ a Piso" style="border-top: solid;">{{totalValuePiso + ' €'}}</td>
+                        <td data-label="€ a Piso 2" style="border-top: solid;">{{totalValuePiso2 + ' €'}}</td>
+                        <td data-label="€ a Terap" style="border-top: solid;">{{totalValueTerap + ' €'}}</td>
+                        <td data-label="€ a Enc." style="border-top: solid;">{{totalValueEncarg + ' €'}}</td>
+                        <td data-label="€ a Otros" style="border-top: solid;">{{totalValueOtros + ' €'}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <!-- fin Tabla -->
-
-            <h4 class="ingresoPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
-
-            <!-- Table Cierre -->
-
-            <div style="display: grid; place-items: center;" class="classTable">
-                <div style="text-align: center; width: max-content;">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Efectivo</th>
-                                <th scope="col">Bizum</th>
-                                <th scope="col">Tarjeta</th>
-                                <th scope="col">Transf</th>
-                            </tr>
-                        </thead>
-                        <tbody *ngFor="let encarg of servicio | encargada: selectedEncargada">
-                            <tr>
-                                <td>{{encarg.terapeuta}}</td>
-                                <td>{{encarg.valueEfectivo + ' €'}}</td>
-                                <td>{{encarg.valueBizum + ' €'}}</td>
-                                <td>{{encarg.valueTarjeta + ' €'}}</td>
-                                <td>{{encarg.valueTrans + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td style="border-top: solid;">Total</td>
-                                <td style="border-top: solid;">{{totalesEfectivo + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalesBizum + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalesTarjeta + ' €'}}</td>
-                                <td style="border-top: solid;">{{totalesTransferencia + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- Fin Table Cierre -->
-
+            <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                nextLabel="Siguiente">
+            </pagination-controls>
         </div>
 
+        <!-- fin Tabla -->
+
+        <h4 class="PagosPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
+
+        <!-- Table Cierre -->
+
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark titulos">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Efectivo</th>
+                        <th scope="col">Bizum</th>
+                        <th scope="col">Tarjeta</th>
+                        <th scope="col">Transf</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let encarg of servicio | encargada: selectedEncargada">
+                    <tr>
+                        <td data-label="">{{encarg.terapeuta}}</td>
+                        <td data-label="Efectivo">{{encarg.valueEfectivo + ' €'}}</td>
+                        <td data-label="Bizum">{{encarg.valueBizum + ' €'}}</td>
+                        <td data-label="Tarjeta">{{encarg.valueTarjeta + ' €'}}</td>
+                        <td data-label="Transferencia">{{encarg.valueTrans + ' €'}}</td>
+                    </tr>
+                </tbody>
+                <tbody class="table3">
+                    <tr>
+                        <td data-label="" style="border-top: solid;">Total</td>
+                        <td data-label="Efectivo" style="border-top: solid;">{{totalesEfectivo + ' €'}}</td>
+                        <td data-label="Bizum" style="border-top: solid;">{{totalesBizum + ' €'}}</td>
+                        <td data-label="Tarjeta" style="border-top: solid;">{{totalesTarjeta + ' €'}}</td>
+                        <td data-label="Transferencia" style="border-top: solid;">{{totalesTransferencia + ' €'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Fin Table Cierre -->
 
     </form>
 
