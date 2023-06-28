@@ -1,449 +1,419 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<h4 style="text-align: center; margin-top: 2%; margin-bottom: 4%;">Configuración</h4>
-
 <!-- Encargadas -->
 
-<div style="display: grid; place-items: center;">
-    <div style="text-align: center; width: max-content;">
-        <h4 style="text-align: center;"> Encargadas </h4>
-        <button style="float: right;" mat-raised-button color="primary"
-            (click)="openEncargada(addEncargada)">Agregar</button>
+<div class="container">
+    <h4 class="ingresoPeriodo"> Encargadas </h4>
+
+    <button style="float: right;" mat-raised-button color="primary"
+        (click)="openEncargada(addEncargada)">Agregar</button>
 
 
-        <!-- Modal -->
-        <ng-template class="custom-modal" #addEncargada let-modal>
-            <div class="modal-header">
-                <h5 class="modal-title"> Agregar Encargada </h5>
+    <!-- Modal -->
+    <ng-template class="custom-modal" #addEncargada let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title"> Agregar Encargada </h5>
 
-                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                    <span (click)="cerrarEncargada()" aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                <span (click)="cerrarEncargada()" aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
-            <div class="modal-body" style="text-align: center;">
-                <!-- Aqui se coloca lo adentro -->
+        <div class="modal-body" style="text-align: center;">
+            <!-- Aqui se coloca lo adentro -->
 
-                <form [formGroup]="formTemplate" (ngSubmit)="registro(formTemplate.value)"
-                    style="text-align: -webkit-center;">
+            <form [formGroup]="formTemplate" (ngSubmit)="registro(formTemplate.value)"
+                style="text-align: -webkit-center;">
 
-                    <div class="row">
+                <div class="row">
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Nombre:</mat-label>
-                            <input type="text" matInput id="formulario" name="nombre" formControlName="nombre" >
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Nombre:</mat-label>
+                        <input type="text" matInput id="formulario" name="nombre" formControlName="nombre">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Usuario:</mat-label>
-                            <input type="text" matInput name="usuario" formControlName="usuario" >
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Usuario:</mat-label>
+                        <input type="text" matInput name="usuario" formControlName="usuario">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Contraseña:</mat-label>
-                            <input type="password" matInput formControlName="pass" name="pass">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Contraseña:</mat-label>
+                        <input type="password" matInput formControlName="pass" name="pass">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Fijo día:</mat-label>
-                            <input type="number" matInput formControlName="fijoDia" name="fijoDia">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Fijo día:</mat-label>
+                        <input type="number" matInput formControlName="fijoDia" name="fijoDia">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Servicio</mat-label>
-                            <input type="number" matInput formControlName="servicio" name="servicio">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Servicio</mat-label>
+                        <input type="number" matInput formControlName="servicio" name="servicio">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Bebida</mat-label>
-                            <input type="number" matInput formControlName="bebida" name="bebida">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Bebida</mat-label>
+                        <input type="number" matInput formControlName="bebida" name="bebida">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Tabaco</mat-label>
-                            <input type="number" matInput formControlName="tabaco" name="tabaco">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Tabaco</mat-label>
+                        <input type="number" matInput formControlName="tabaco" name="tabaco">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Vitamina</mat-label>
-                            <input type="number" matInput formControlName="vitamina" name="vitamina">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Vitamina</mat-label>
+                        <input type="number" matInput formControlName="vitamina" name="vitamina">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Propina</mat-label>
-                            <input type="number" matInput formControlName="propina" name="propina">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Propina</mat-label>
+                        <input type="number" matInput formControlName="propina" name="propina">
+                    </mat-form-field>
 
-                        <mat-form-field class="col-6">
-                            <mat-label>Otros</mat-label>
-                            <input type="number" matInput formControlName="otros" name="otros">
-                        </mat-form-field>
+                    <mat-form-field class="col-6">
+                        <mat-label>Otros</mat-label>
+                        <input type="number" matInput formControlName="otros" name="otros">
+                    </mat-form-field>
 
-                        <div style="display: grid; place-items: center;">
-                            <div style="text-align: center; width: max-content;">
-                                <button mat-raised-button type="submit" color="primary">Aceptar</button>
-                            </div>
+                    <div style="display: grid; place-items: center;">
+                        <div style="text-align: center; width: max-content;">
+                            <button mat-raised-button type="submit" color="primary">Aceptar</button>
                         </div>
                     </div>
-                </form>
+                </div>
+            </form>
 
-                <!-- Afuera -->
-            </div>
-        </ng-template>
+            <!-- Afuera -->
+        </div>
+    </ng-template>
 
-        <!-- Fin Modal -->
+    <!-- Fin Modal -->
 
-        <table class="table" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th scope="col">Visible</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Pass</th>
-                    <th scope="col">Fijo/día</th>
-                    <th scope="col">Servicio</th>
-                    <th scope="col">Bebida</th>
-                    <th scope="col">Tabaco</th>
-                    <th scope="col">Vitamina</th>
-                    <th scope="col">Propina</th>
-                    <th scope="col">Otros</th>
-                </tr>
-            </thead>
-            <tbody (click)="modalTablaEncargada(encg.id, modalTabl)"
-                *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
-                <tr style="cursor: pointer;">
-                    <td [ngClass]="{'color1':encg.activo == false, 'color2':encg.activo === true}">
-                    </td>
-                    <td>{{encg.nombre}}</td>
-                    <td>{{encg.usuario}}</td>
-                    <td>{{encg.pass}}</td>
-                    <td>{{encg.fijoDia}}</td>
-                    <td>{{encg.servicio + " %"}}</td>
-                    <td>{{encg.bebida + " %"}}</td>
-                    <td>{{encg.tabaco + " %"}}</td>
-                    <td>{{encg.vitamina + " %"}}</td>
-                    <td>{{encg.otros + " %"}}</td>
-                    <td>{{encg.propina + " %"}}</td>
-                </tr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Visible</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">User</th>
+                <th scope="col">Pass</th>
+                <th scope="col">Fijo/día</th>
+                <th scope="col">Servicio</th>
+                <th scope="col">Bebida</th>
+                <th scope="col">Tabaco</th>
+                <th scope="col">Vitamina</th>
+                <th scope="col">Propina</th>
+                <th scope="col">Otros</th>
+            </tr>
+        </thead>
+        <tbody (click)="modalTablaEncargada(encg.id, modalTabl)"
+            *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
+            <tr style="cursor: pointer;">
+                <td data-label="" [ngClass]="{'color1':encg.activo == false, 'color2':encg.activo === true}">
+                </td>
+                <td data-label="Nombre">{{encg.nombre}}</td>
+                <td data-label="User">{{encg.usuario}}</td>
+                <td data-label="Pass">{{encg.pass}}</td>
+                <td data-label="Fijo/Día">{{encg.fijoDia}}</td>
+                <td data-label="Servicio">{{encg.servicio + " %"}}</td>
+                <td data-label="Bebida">{{encg.bebida + " %"}}</td>
+                <td data-label="Tabaco">{{encg.tabaco + " %"}}</td>
+                <td data-label="Vitamina">{{encg.vitamina + " %"}}</td>
+                <td data-label="Propina">{{encg.propina + " %"}}</td>
+                <td data-label="Otros">{{encg.otros + " %"}}</td>
+            </tr>
 
-                <!-- Modal -->
-                <ng-template class="custom-modal" #modalTabl let-modal>
-                    <div class="modal-header">
-                        <h5 class="modal-title"> {{encg.nombre}} </h5>
+            <!-- Modal -->
+            <ng-template class="custom-modal" #modalTabl let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title"> {{encg.nombre}} </h5>
 
-                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-                    <div class="modal-body" style="text-align: center;">
-                        <!-- Aqui se coloca lo adentro -->
+                <div class="modal-body" style="text-align: center;">
+                    <!-- Aqui se coloca lo adentro -->
 
-                        <form style="text-align: -webkit-center;">
+                    <form style="text-align: -webkit-center;">
 
-                            <div class="row">
+                        <div class="row">
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Nombre:</mat-label>
-                                    <input type="text" matInput name="nombre" [(ngModel)]="encg.nombre"
-                                        #nombre="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Nombre:</mat-label>
+                                <input type="text" matInput name="nombre" [(ngModel)]="encg.nombre" #nombre="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Usuario:</mat-label>
-                                    <input type="text" matInput name="usuario" [(ngModel)]="encg.usuario"
-                                        #usuario="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Usuario:</mat-label>
+                                <input type="text" matInput name="usuario" [(ngModel)]="encg.usuario"
+                                    #usuario="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Password:</mat-label>
-                                    <input type="text" matInput name="pass" [(ngModel)]="encg.pass" #pass="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Password:</mat-label>
+                                <input type="text" matInput name="pass" [(ngModel)]="encg.pass" #pass="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Fijo día</mat-label>
-                                    <input type="number" matInput name="fijoDia" [(ngModel)]="encg.fijoDia"
-                                        #fijoDia="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Fijo día</mat-label>
+                                <input type="number" matInput name="fijoDia" [(ngModel)]="encg.fijoDia"
+                                    #fijoDia="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Servicio:</mat-label>
-                                    <input type="number" matInput name="servicio" [(ngModel)]="encg.servicio"
-                                        #servicio="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Servicio:</mat-label>
+                                <input type="number" matInput name="servicio" [(ngModel)]="encg.servicio"
+                                    #servicio="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Bebida:</mat-label>
-                                    <input type="number" matInput name="bebida" [(ngModel)]="encg.bebida"
-                                        #bebida="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Bebida:</mat-label>
+                                <input type="number" matInput name="bebida" [(ngModel)]="encg.bebida" #bebida="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Tabaco</mat-label>
-                                    <input type="number" matInput name="tabaco" [(ngModel)]="encg.tabaco"
-                                        #tabaco="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Tabaco</mat-label>
+                                <input type="number" matInput name="tabaco" [(ngModel)]="encg.tabaco" #tabaco="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Vitamina</mat-label>
-                                    <input type="number" matInput name="vitamina" [(ngModel)]="encg.vitamina"
-                                        #vitamina="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Vitamina</mat-label>
+                                <input type="number" matInput name="vitamina" [(ngModel)]="encg.vitamina"
+                                    #vitamina="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Propina</mat-label>
-                                    <input type="number" matInput name="propina" [(ngModel)]="encg.propina"
-                                        #propina="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Propina</mat-label>
+                                <input type="number" matInput name="propina" [(ngModel)]="encg.propina"
+                                    #propina="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Otros</mat-label>
-                                    <input type="number" matInput name="otros" [(ngModel)]="encg.otros" #otros="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Otros</mat-label>
+                                <input type="number" matInput name="otros" [(ngModel)]="encg.otros" #otros="ngModel">
+                            </mat-form-field>
 
-                                <div class="container" *ngFor="let encargda of encargadaModal">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button mat-raised-button
-                                                (click)="editarEncargada(encargda.idDocument, encg.id, encg)"
-                                                color="primary">Editar</button>
-                                        </div>
-                                        <div class="col-6">
-                                            <button mat-raised-button type="submit" color="warn"
-                                                (click)="deleteEncargada(encargda.id)">Eliminar</button>
-                                        </div>
+                            <div class="container" *ngFor="let encargda of encargadaModal">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button mat-raised-button
+                                            (click)="editarEncargada(encargda.idDocument, encg.id, encg)"
+                                            color="primary">Editar</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button mat-raised-button type="submit" color="warn"
+                                            (click)="deleteEncargada(encargda.id)">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                    </form>
 
-                        <!-- Afuera -->
-                    </div>
-                </ng-template>
+                    <!-- Afuera -->
+                </div>
+            </ng-template>
 
-                <!-- Fin Modal -->
+            <!-- Fin Modal -->
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-        <pagination-controls style="float: right;" (pageChange)="pageTerapeuta = $event" previousLabelb="Anterior"
-            nextLabelb="Siguiente">
-        </pagination-controls>
-    </div>
+    <pagination-controls style="float: right;" (pageChange)="pageTerapeuta = $event" previousLabelb="Anterior"
+        nextLabelb="Siguiente">
+    </pagination-controls>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- </div> -->
 
 
 <!-- Terapeutas -->
-
-<h4 style="text-align: center; margin-top: 2%; margin-bottom: 2%;">Terapeutas</h4>
-
-
 <!-- Table Terapeuta -->
-<div style="display: grid; place-items: center;">
-    <div style="text-align: center; width: max-content;">
-        <!-- <h4 style="text-align: center;"> Terapeuta </h4> -->
-        <button style="float: right;" mat-raised-button color="primary"
-            (click)="openTerapeuta(addTerapeutas)">Agregar</button>
+<div class="container">
+    <h4 class="ingresoPeriodo">Terapeutas</h4>
+    <button style="float: right;" mat-raised-button color="primary"
+        (click)="openTerapeuta(addTerapeutas)">Agregar</button>
 
 
-        <!-- Modal -->
-        <ng-template class="custom-modal" #addTerapeutas let-modal>
-            <div class="modal-header">
-                <h5 class="modal-title"> Terapeuta </h5>
+    <!-- Modal -->
+    <ng-template class="custom-modal" #addTerapeutas let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title"> Terapeuta </h5>
 
-                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                    <span (click)="cerrarTerapeuta()" aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                <span (click)="cerrarTerapeuta()" aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
-            <div class="modal-body" style="text-align: center;">
-                <!-- Aqui se coloca lo adentro -->
+        <div class="modal-body" style="text-align: center;">
+            <!-- Aqui se coloca lo adentro -->
 
-                <form #formRegister="ngForm" (ngSubmit)="addTerapeuta()" style="text-align: -webkit-center;">
-
-
-                    <div class="row">
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Nombre:</mat-label>
-                            <input type="text" matInput [(ngModel)]="nombreTerapeuta" name="nombreTerapeuta">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Servicio</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberServicio" name="numberServicio">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Bebida</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberBebida" name="numberBebida">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Tabaco</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberTabaco" name="numberTabaco">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Vitamina</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberVitamina" name="numberVitamina">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Otros</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberOtrosTep" name="numberOtrosTep">
-                        </mat-form-field>
-
-                        <mat-form-field class="col-6">
-                            <mat-label>Propina</mat-label>
-                            <input type="text" matInput [(ngModel)]="numberPropinaTep" name="numberPropinaTep">
-                        </mat-form-field>
+            <form #formRegister="ngForm" (ngSubmit)="addTerapeuta()" style="text-align: -webkit-center;">
 
 
-                        <div style="display: grid; place-items: center;">
-                            <div style="text-align: center; width: max-content;">
-                                <button mat-raised-button type="submit" color="primary">Aceptar</button>
-                            </div>
+                <div class="row">
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Nombre:</mat-label>
+                        <input type="text" matInput [(ngModel)]="nombreTerapeuta" name="nombreTerapeuta">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Servicio</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberServicio" name="numberServicio">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Bebida</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberBebida" name="numberBebida">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Tabaco</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberTabaco" name="numberTabaco">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Vitamina</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberVitamina" name="numberVitamina">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Otros</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberOtrosTep" name="numberOtrosTep">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-6">
+                        <mat-label>Propina</mat-label>
+                        <input type="text" matInput [(ngModel)]="numberPropinaTep" name="numberPropinaTep">
+                    </mat-form-field>
+
+
+                    <div style="display: grid; place-items: center;">
+                        <div style="text-align: center; width: max-content;">
+                            <button mat-raised-button type="submit" color="primary">Aceptar</button>
                         </div>
                     </div>
-                </form>
+                </div>
+            </form>
 
-                <!-- Afuera -->
-            </div>
-        </ng-template>
+            <!-- Afuera -->
+        </div>
+    </ng-template>
 
-        <!-- Fin Modal -->
+    <!-- Fin Modal -->
 
-        <table class="table" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th scope="col">Visible</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Servicio</th>
-                    <th scope="col">Bebida</th>
-                    <th scope="col">Tabaco</th>
-                    <th scope="col">Vitamina</th>
-                    <th scope="col">Otros</th>
-                    <th scope="col">Propina</th>
-                </tr>
-            </thead>
-            <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
-                *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
-                <tr style="cursor: pointer;">
-                    <td [ngClass]="{'color1':terap.activo == false, 'color2':terap.activo === true}">
-                    </td>
-                    <td>{{terap.nombre}}</td>
-                    <td>{{terap.servicio + " %"}}</td>
-                    <td>{{terap.bebida + " %"}}</td>
-                    <td>{{terap.tabaco + " %"}}</td>
-                    <td>{{terap.vitamina + " %"}}</td>
-                    <td>{{terap.otros + " %"}}</td>
-                    <td>{{terap.propina + " %"}}</td>
-                </tr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Visible</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Servicio</th>
+                <th scope="col">Bebida</th>
+                <th scope="col">Tabaco</th>
+                <th scope="col">Vitamina</th>
+                <th scope="col">Otros</th>
+                <th scope="col">Propina</th>
+            </tr>
+        </thead>
+        <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
+            *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
+            <tr style="cursor: pointer;">
+                <td data-label=""  [ngClass]="{'color1':terap.activo == false, 'color2':terap.activo === true}">
+                </td>
+                <td data-label="Nombre">{{terap.nombre}}</td>
+                <td data-label="Servicio">{{terap.servicio + " %"}}</td>
+                <td data-label="Bebida">{{terap.bebida + " %"}}</td>
+                <td data-label="Tabaco">{{terap.tabaco + " %"}}</td>
+                <td data-label="Vitamina">{{terap.vitamina + " %"}}</td>
+                <td data-label="Otros">{{terap.otros + " %"}}</td>
+                <td data-label="Propina">{{terap.propina + " %"}}</td>
+            </tr>
 
-                <!-- Modal -->
-                <ng-template class="custom-modal" #modalTabl let-modal>
-                    <div class="modal-header">
-                        <h5 class="modal-title"> {{terap.nombre}} </h5>
+            <!-- Modal -->
+            <ng-template class="custom-modal" #modalTabl let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title"> {{terap.nombre}} </h5>
 
-                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-                    <div class="modal-body" style="text-align: center;">
-                        <!-- Aqui se coloca lo adentro -->
+                <div class="modal-body" style="text-align: center;">
+                    <!-- Aqui se coloca lo adentro -->
 
-                        <form style="text-align: -webkit-center;">
+                    <form style="text-align: -webkit-center;">
 
 
-                            <div class="row">
+                        <div class="row">
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Nombre:</mat-label>
-                                    <input type="text" matInput name="nombre" [(ngModel)]="terap.nombre"
-                                        #nombre="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Nombre:</mat-label>
+                                <input type="text" matInput name="nombre" [(ngModel)]="terap.nombre" #nombre="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Servicio</mat-label>
-                                    <input type="text" matInput name="servicio" [(ngModel)]="terap.servicio"
-                                        #servicio="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Servicio</mat-label>
+                                <input type="text" matInput name="servicio" [(ngModel)]="terap.servicio"
+                                    #servicio="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Bebida</mat-label>
-                                    <input type="text" matInput name="bebida" [(ngModel)]="terap.bebida"
-                                        #bebida="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Bebida</mat-label>
+                                <input type="text" matInput name="bebida" [(ngModel)]="terap.bebida" #bebida="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Tabaco</mat-label>
-                                    <input type="text" matInput name="tabaco" [(ngModel)]="terap.tabaco"
-                                        #tabaco="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Tabaco</mat-label>
+                                <input type="text" matInput name="tabaco" [(ngModel)]="terap.tabaco" #tabaco="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Vitamina</mat-label>
-                                    <input type="text" matInput name="vitamina" [(ngModel)]="terap.vitamina"
-                                        #vitamina="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Vitamina</mat-label>
+                                <input type="text" matInput name="vitamina" [(ngModel)]="terap.vitamina"
+                                    #vitamina="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Otros</mat-label>
-                                    <input type="text" matInput name="otros" [(ngModel)]="terap.otros" #otros="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Otros</mat-label>
+                                <input type="text" matInput name="otros" [(ngModel)]="terap.otros" #otros="ngModel">
+                            </mat-form-field>
 
-                                <mat-form-field class="col-6">
-                                    <mat-label>Propina</mat-label>
-                                    <input type="text" matInput name="propina" [(ngModel)]="terap.propina"
-                                        #propina="ngModel">
-                                </mat-form-field>
+                            <mat-form-field class="col-6">
+                                <mat-label>Propina</mat-label>
+                                <input type="text" matInput name="propina" [(ngModel)]="terap.propina"
+                                    #propina="ngModel">
+                            </mat-form-field>
 
-                                <div class="container" *ngFor="let terapM of terapeutaModal">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button mat-raised-button
-                                                (click)="editarTerapeuta(terapM.idDocument, terap.id, terap)"
-                                                color="primary">Editar</button>
-                                        </div>
-                                        <div class="col-6">
-                                            <button mat-raised-button type="submit" color="warn"
-                                                (click)="deleteTerapeuta(terapM.id)">Eliminar</button>
-                                        </div>
+                            <div class="container" *ngFor="let terapM of terapeutaModal">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button mat-raised-button
+                                            (click)="editarTerapeuta(terapM.idDocument, terap.id, terap)"
+                                            color="primary">Editar</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button mat-raised-button type="submit" color="warn"
+                                            (click)="deleteTerapeuta(terapM.id)">Eliminar</button>
                                     </div>
                                 </div>
-
                             </div>
-                        </form>
 
-                        <!-- Afuera -->
-                    </div>
-                </ng-template>
+                        </div>
+                    </form>
 
-                <!-- Fin Modal -->
+                    <!-- Afuera -->
+                </div>
+            </ng-template>
 
-            </tbody>
-        </table>
+            <!-- Fin Modal -->
 
-        <pagination-controls style="float: right;" (pageChange)="pageTerapeuta = $event" previousLabelb="Anterior"
-            nextLabelb="Siguiente">
-        </pagination-controls>
-    </div>
+        </tbody>
+    </table>
+
+    <pagination-controls style="float: right;" (pageChange)="pageTerapeuta = $event" previousLabelb="Anterior"
+        nextLabelb="Siguiente">
+    </pagination-controls>
 </div>

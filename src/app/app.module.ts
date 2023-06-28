@@ -34,6 +34,7 @@ import { ServicioService } from './core/services/servicio';
 import { LoginService } from './core/services/login';
 import { LiquidacioneTerapService } from './core/services/liquidacionesTerap';
 import { LiquidacioneEncargService } from './core/services/liquidacionesEncarg';
+import { CierreService } from './core/services/cierre';
 
 firebase.initializeApp({
   databaseURL: "https://vision-62bf7-default-rtdb.firebaseio.com",
@@ -80,6 +81,7 @@ firebase.initializeApp({
     LoginService,
     LiquidacioneTerapService,
     LiquidacioneEncargService,
+    CierreService,
   ],
   bootstrap: [AppComponent],
 })

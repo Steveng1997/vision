@@ -25,7 +25,7 @@ export class ServicioService {
     return result;
   }
 
-  registerServicio(formularioall, formaPago, fecha, horaStart, totalServicio, horaEnd, fechaHoyInicio, 
+  registerServicio(formularioall, idUnico, formaPago, fecha, horaStart, totalServicio, horaEnd, fechaHoyInicio, 
     valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta, valueBizuTerapeuta, 
     valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada, valueTarjeEncargada, 
     valueTransEncargada, currentDate) {
@@ -63,6 +63,7 @@ export class ServicioService {
       numberEncarg: formularioall.numberEncarg,
       numberOtro: formularioall.numberOtro,
       nota: formularioall.nota,
+      idUnico: idUnico,
       formaPago: formaPago,
       totalServicio: totalServicio,
       horaEnd: horaEnd,
@@ -128,10 +129,46 @@ export class ServicioService {
       .valueChanges();
   }
 
-  geyByCierreFalse() {
-    return this.db
-      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
-      .valueChanges();
+  // geyByCierreFalse() {
+  //   return this.db
+  //     .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
+  //     .valueChanges();
+  // }
+
+  geyByCierreFalse(): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  // geyByCierreTrue() {
+  //   return this.db
+  //     .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
+  //     .valueChanges();
+  // }
+
+  geyByCierreTrue(): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
   }
 
   getById(id: string): Promise<any> {

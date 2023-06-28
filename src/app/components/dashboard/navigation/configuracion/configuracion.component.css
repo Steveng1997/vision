@@ -1,19 +1,166 @@
-.color1 {
-    background: red;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 10%;
-    margin-left: 20%;
+@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+
+    .color1 {
+        background: red;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: block;
+            margin-top: auto;
+    margin-left: auto;
+    }
+
+    .color2 {
+        background: green;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: block;
+        margin-top: auto;
+        margin-left: auto;
+    }
+
+    /* aqui */
+
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        margin-bottom: 8%;
+    }
+
+    .table {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        table-layout: fixed;
+    }
+
+    .table caption {
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 8px 0px;
+    }
+
+    .table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+    }
+
+    .table th,
+    table td {
+        font-size: 16px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .table thead th {
+        text-transform: uppercase;
+        background: #ddd;
+    }
+
+    .table tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .table tbody td:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* final */
+
+    .table {
+        border: 0px;
+    }
+
+    .table caption {
+        font-size: 22px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tr {
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+
+    .table th,
+    .table td {
+        font-size: 17px;
+    }
+
+    .table td {
+        display: flow-root;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+
+    .table td:last-child {
+        border-bottom: 0px;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+
+    .ingresoPeriodo {
+        margin-top: 16%;
+        margin-bottom: -10%;
+        text-transform: inherit;
+        font-weight: bold;
+        font-size: large;
+        color: blue;
+        text-align: center;
+    }
 }
 
-.color2 {
-    background: green;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 10%;
-    margin-left: 20%;
+/* ------------------------------------------------------------------------------------------------
+   ---------------------------------------------------------------------------------------------------
+   Query para Pantalla grande */
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+
+    .color1 {
+        background: red;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: block;
+        margin-top: 10%;
+        margin-left: 20%;
+    }
+
+    .color2 {
+        background: green;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: block;
+        margin-top: 10%;
+        margin-left: 20%;
+    }
+
+    .container {
+        display: grid;
+        place-items: center;
+        margin-bottom: 5%;
+    }
+
+    .ingresoPeriodo {
+        margin-top: -2%;
+        margin-bottom: 2%;
+        text-transform: inherit;
+        font-weight: bold;
+        font-size: large;
+        color: blue;
+        text-align: center;
+    }
 }
