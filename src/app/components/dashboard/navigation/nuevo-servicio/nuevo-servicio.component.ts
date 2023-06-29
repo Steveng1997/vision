@@ -257,7 +257,7 @@ export class NuevoServicioComponent implements OnInit {
               }
               if (this.formTemplate.value.tarjPiso2) {
                 this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, this.valueTarjeta, 0, 0, 0,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
                   this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transPiso2) {
@@ -313,17 +313,17 @@ export class NuevoServicioComponent implements OnInit {
             if (this.formTemplate.value.numberOtro > 0) {
               if (this.formTemplate.value.efectOtro == true) {
                 this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0,
-                  0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+                  0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.bizuOtro == true) {
                 this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0,
-                  0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+                  0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
               }
               if (this.formTemplate.value.tarjOtro == true) {
                 this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, this.valueTrans, 0, 0,
+                  this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
                   this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
               }
               if (this.formTemplate.value.transOtro == true) {
@@ -345,7 +345,8 @@ export class NuevoServicioComponent implements OnInit {
               })
 
               this.servicioService.getIdDocument(this.idUnico).then((rp) => {
-                this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id'])
+                if (rp.length > 1)
+                  this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id'])
               })
               Swal.fire({
                 position: 'top-end',

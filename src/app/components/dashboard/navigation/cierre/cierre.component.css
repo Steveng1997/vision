@@ -144,6 +144,13 @@
     display: grid;
     place-items: center;
   }
+
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: medium;
+    color: red;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,9 +161,11 @@
   .container {
     display: inherit;
     place-items: center;
+    margin-top: 0%;
+    margin-bottom: 5%;
   }
 
-  .containerTable1{
+  .containerTable1 {
     display: inherit;
     place-items: center;
     margin-top: 5%;
@@ -187,5 +196,12 @@
   .cajaEncargada {
     display: grid;
     place-items: center;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
   }
 }

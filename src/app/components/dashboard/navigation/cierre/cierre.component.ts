@@ -118,6 +118,7 @@ export class CierreComponent implements OnInit {
     this.getServicio();
     this.getEncargada();
     this.getCierreTrue();
+    this.totalesUndefined();
   }
   editamos(id: string) {
     this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
@@ -144,7 +145,7 @@ export class CierreComponent implements OnInit {
 
   getServicio() {
     this.servicioService.geyByCierreFalse().then((datoServicio) => {
-      this.servicio = datoServicio;
+      this.servicio = datoServicio
     })
   }
 
@@ -164,6 +165,14 @@ export class CierreComponent implements OnInit {
 
   busqueda(event: any) {
     this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra);
+  }
+
+  totalesUndefined() {
+    if (this.totalValueServicio == undefined) this.totalValueServicio = 0;
+    if (this.totalValueEfectivo == undefined) this.totalValueEfectivo = 0;
+    if (this.totalValueBizum == undefined) this.totalValueBizum = 0;
+    if (this.totalValueTarjeta == undefined) this.totalValueTarjeta = 0;
+    if (this.totalValueTrans == undefined) this.totalValueTrans = 0;
   }
 
   addLiquidacion() {
@@ -215,6 +224,8 @@ export class CierreComponent implements OnInit {
       const condicionEncargada = serv => {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
       }
+
+      debugger
 
       const mostrarFech = this.servicio.filter(serv => condicionEncargada(serv))
       if (mostrarFech.length != 0) {

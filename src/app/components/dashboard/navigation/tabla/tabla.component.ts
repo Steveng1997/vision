@@ -87,6 +87,21 @@ export class TablaComponent implements OnInit {
     this.getServicio();
     this.getEncargada();
     this.getTerapeuta();
+    this.totalesUndefined();
+  }
+
+  totalesUndefined() {
+    if (this.totalServicio == undefined) this.totalServicio = 0;
+    if (this.totalPiso == undefined) this.totalPiso = 0;
+    if (this.totalValorTerapeuta == undefined) this.totalValorTerapeuta = 0;
+    if (this.totalValorEncargada == undefined) this.totalValorEncargada = 0;
+    if (this.totalValorAOtros == undefined) this.totalValorAOtros = 0;
+    if (this.TotalValorBebida == undefined) this.TotalValorBebida = 0;
+    if (this.TotalValorTabaco == undefined) this.TotalValorTabaco = 0;
+    if (this.totalValorVitaminas == undefined) this.totalValorVitaminas = 0;
+    if (this.totalValorPropina == undefined) this.totalValorPropina = 0;
+    if (this.totalValorOtroServ == undefined) this.totalValorOtroServ = 0;
+    if (this.totalValor == undefined) this.totalValor = 0;
   }
 
   getServicio() {
@@ -149,7 +164,7 @@ export class TablaComponent implements OnInit {
       && condicionBuscar(serv) && condicionEntreFechas(serv))
     this.totalPiso = pisoss.reduce((accumulator, serv) => {
       return accumulator + serv.numberPiso1;
-    }, 0)    
+    }, 0)
 
     // Filter by Terapeuta
     const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
