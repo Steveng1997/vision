@@ -8,102 +8,27 @@
   margin-left: 20%;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
-  /* aqui */
+.acomodarInput {
+  margin-top: 3%;
+} 
 
-  .container {
-    width: 100%;
-    max-width: 1000px;
-    margin-bottom: 5%;
-  }
+.espacioTotales {
+  left: 63%;
+}
 
-  .table {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    table-layout: fixed;
-  }
+.table-secondary {
+  --bs-table-bg: cornflowerblue;
+}
 
-  .table caption {
-    font-size: 28px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: 8px 0px;
-  }
-
-  .table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-  }
-
-  .table th,
-  table td {
-    font-size: 16px;
-    padding: 8px;
-    text-align: center;
-  }
-
-  .table thead th {
-    text-transform: uppercase;
-    background: #ddd;
-  }
-
-  .table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .table tbody td:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  /* final */
-
-  .table {
-    border: 0px;
-  }
-
-  .table caption {
-    font-size: 22px;
-  }
-
-  .columnTable {
-    contain: strict;
-    -webkit-writing-mode: vertical-lr;
-  }
-
-  .table tr {
-    margin-bottom: 8px;
-    border-bottom: 4px solid #ddd;
-    display: block;
-  }
-
-  .table th,
-  .table td {
-    font-size: 17px;
-  }
-
-  .table td {
-    display: table;
-    text-align: right;
-    min-inline-size: -webkit-fill-available;
-    mix-blend-mode: hard-light;
-  }
-
-  .table td:last-child {
-    border-bottom: 0px;
-  }
-
-  .table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    text-transform: uppercase;
-    float: left;
-  }
-
+@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .acomodarInput {
     margin-top: 5%;
+  }
+
+  .tabla {
+    display: grid;
+    place-items: center;
+    margin-top: 0%;
   }
 }
 
@@ -111,25 +36,14 @@
  ---------------------------------------------------------------------------------------------------
  Query para Pantalla grande */
 
-@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
-  .container {
-    display: grid;
-    place-items: center;
-    margin-bottom: 5%;
-  }
-
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .acomodarInput {
     margin-top: 2%;
   }
 
-  .totalCel {
-    display: table-caption;
-    text-align: -webkit-right;
-    caption-side: top;
-  }
-
-  .columnTable {
-    margin-bottom: 10%;
-    white-space: pre;
+  .tabla {
+    display: grid;
+    place-items: center;
+    margin-top: 3%;
   }
 }

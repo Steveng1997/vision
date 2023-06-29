@@ -1,201 +1,179 @@
-@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
-  /* aqui */
+.table-secondary {
+  --bs-table-bg: cornflowerblue;
+  white-space: nowrap;
+}
 
-  .container {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-  }
+.cajaEncargada {
+  text-align: center;
+}
 
-  .table {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    table-layout: fixed;
-  }
-
-  .table caption {
-    font-size: 28px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: 8px 0px;
-  }
-
-  .table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-  }
-
-  .table th,
-  table td {
-    font-size: 16px;
-    padding: 8px;
-    text-align: center;
-  }
-
-  .table thead th {
-    text-transform: uppercase;
-    background: #ddd;
-  }
-
-  .table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .table tbody td:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  /* final */
-
-  .table {
-    margin-top: 20%;
-    border: 0px;
-  }
-
-  .table caption {
-    font-size: 22px;
-  }
-
-  .columnTable {
-    contain: strict;
-    -webkit-writing-mode: vertical-lr;
-  }
-
-  .table tr {
-    margin-bottom: 8px;
-    border-bottom: 4px solid #ddd;
-    display: block;
-  }
-
-  .table th,
-  .table td {
-    font-size: 17px;
-  }
-
-  .table td {
-    display: table;
-    text-align: right;
-    min-inline-size: -webkit-fill-available;
-    mix-blend-mode: hard-light;
-  }
-
-
-  .table td:last-child {
-    border-bottom: 0px;
-  }
-
-  .table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    text-transform: uppercase;
-    float: left;
+@media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
+  .tableCierre {
+    margin-top: 15%;
   }
 
   .ingresoPeriodo {
-    margin-top: 5%;
-    margin-bottom: -10%;
+    margin-top: 8%;
     text-transform: inherit;
     font-weight: bold;
-    font-size: large;
+    font-size: 150%;
     color: blue;
-    text-align: center;
   }
 
   .PagosPeriodo {
-    margin-top: 15%;
-    margin-bottom: -13%;
+    margin-top: 2%;
+    margin-bottom: -10%;
     text-transform: inherit;
     font-weight: bold;
-    font-size: large;
+    font-size: 150%;
     color: blue;
-    text-align-last: center;
   }
 
-  .titulos {
-    display: none;
-  }
-
-  .table2 {
-    display: grid;
-    margin-top: 8%;
-  }
-
-  .table3 {
-    display: grid;
-    margin-top: 8%;
-  }
-
-  .td1 {
-    visibility: collapse;
-  }
-
-  .td2 {
-    visibility: collapse;
-  }
-
-  .td3 {
-    visibility: collapse;
-  }
-
-  .cajaEncargada {
-    display: grid;
-    place-items: center;
+  .classTable {
+    margin-top: 15%;
   }
 
   .noHayCierre {
-    text-align: center;
+    display: contents;
     font-family: cursive;
-    font-size: medium;
+    font-size: x-large;
     color: red;
-  }
+}
 }
 
 /* ------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------
  Query para Pantalla grande */
 
-@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
-  .container {
-    display: inherit;
-    place-items: center;
-    margin-top: 0%;
-    margin-bottom: 5%;
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+
+  .tableCierre {
+    margin-top: 15%;
   }
 
-  .containerTable1 {
-    display: inherit;
-    place-items: center;
-    margin-top: 5%;
+  .ingresoPeriodo {
+    margin-top: 8%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 150%;
+    color: blue;
   }
 
-  .columnTable {
-    margin-bottom: 10%;
+  .PagosPeriodo {
+    margin-top: 8%;
+    margin-bottom: -4%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 150%;
+    color: blue;
+  }
+
+  .classTable {
+    margin-top: 10%;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
+  }
+}
+
+@media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
+
+  .tableCierre {
+    margin-top: 6%;
   }
 
   .ingresoPeriodo {
     margin-top: 2%;
     text-transform: inherit;
     font-weight: bold;
-    font-size: large;
+    font-size: 170%;
     color: blue;
-    text-align: center;
   }
 
   .PagosPeriodo {
-    margin-top: 7%;
+    margin-top: 2%;
+    margin-bottom: -4%;
     text-transform: inherit;
     font-weight: bold;
-    font-size: large;
+    font-size: 170%;
     color: blue;
-    text-align: center;
   }
 
-  .cajaEncargada {
-    display: grid;
-    place-items: center;
+  .classTable {
+    margin-top: 6%;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
+  }
+}
+
+@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
+
+  .tableCierre {
+    margin-top: 15%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 2%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 170%;
+    color: blue;
+  }
+
+  .PagosPeriodo {
+    margin-top: 2%;
+    margin-bottom: -4%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 170%;
+    color: blue;
+  }
+
+  .classTable {
+    margin-top: 6%;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
+  }
+}
+
+@media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
+  .tableCierre {
+    margin-top: 8%;
+  }
+
+  .ingresoPeriodo {
+    margin-top: 2%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 170%;
+    color: blue;
+  }
+
+  .PagosPeriodo {
+    margin-top: 2%;
+    margin-bottom: -4%;
+    text-transform: inherit;
+    font-weight: bold;
+    font-size: 170%;
+    color: blue;
+  }
+
+  .classTable {
+    margin-top: 6%;
   }
 
   .noHayCierre {

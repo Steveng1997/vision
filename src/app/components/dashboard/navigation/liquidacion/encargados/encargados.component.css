@@ -1,218 +1,58 @@
-  .color2 {
-      background: blue;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      display: block;
-      margin-top: 10%;
-      margin-left: 20%;
-  }
+.color2 {
+    background: blue;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 10%;
+    margin-left: 20%;
+}
 
-  .mat-divider {
-      border-top-color: red;
-  }
+.mat-divider {
+    border-top-color: red;
+}
 
-  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-      background-color: white;
-  }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white;
+}
 
-  @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+.table-secondary {
+    --bs-table-bg: cornflowerblue;
+    white-space: nowrap;
+}
 
-      .nota {
-          background: blue;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          display: block;
-          margin-top: 20%;
-          margin-left: 20%;
-      }
+.inputEncargada{
+    text-align: center;
+}
 
-      .disponible {
-          background: green;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          display: block;
-          margin-top: auto;
-          margin-left: auto;
-      }
+@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
 
-      .disponible2 {
-          background: green;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          display: block;
-          margin-top: auto;
-          margin-left: auto;
-      }
+    .classTable {
+        margin-top: 15%;
+    }
 
-      .disponibleEncargada {
-          display: none;
-      }
+    .noHayCierre {
+        font-family: cursive;
+        font-size: x-large;
+        color: red;
+        container-type: inline-size;
+    }
+}
 
-      .ocupado {
-          background: red;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          display: block;
-          margin-top: auto;
-          margin-left: auto;
-      }
-
-      /* aqui */
-
-      .container {
-          width: 100%;
-          max-width: 1000px;
-          margin-bottom: 5%;
-      }
-
-      .table {
-          width: 100%;
-          border: 1px solid #ccc;
-          border-collapse: collapse;
-          margin: 0;
-          padding: 0;
-          table-layout: fixed;
-      }
-
-      .table caption {
-          font-size: 28px;
-          text-transform: uppercase;
-          font-weight: bold;
-          margin: 8px 0px;
-      }
-
-      .table tr {
-          background-color: #f8f8f8;
-          border: 1px solid #ddd;
-      }
-
-      .table th,
-      table td {
-          font-size: 16px;
-          padding: 8px;
-          text-align: center;
-      }
-
-      .table thead th {
-          text-transform: uppercase;
-          background: #ddd;
-      }
-
-      .table tbody tr:hover {
-          background-color: rgba(0, 0, 0, 0.2);
-      }
-
-      .table tbody td:hover {
-          background-color: rgba(0, 0, 0, 0.3);
-      }
-
-      /* final */
-
-      .table {
-          border: 0px;
-      }
-
-      .table caption {
-          font-size: 22px;
-      }
-
-      .columnTable {
-          contain: strict;
-          -webkit-writing-mode: horizontal-tb;
-      }
-
-      .columnTableTotal {
-          position: absolute;
-      }
-
-      .table tr {
-          margin-bottom: 8px;
-          border-bottom: 4px solid #ddd;
-          display: block;
-      }
-
-      .table th,
-      .table td {
-          font-size: 17px;
-      }
-
-      .table td {
-          display: flow-root;
-          text-align: right;
-          min-inline-size: auto;
-          mix-blend-mode: darken;
-      }
-
-      .table td:last-child {
-          border-bottom: 0px;
-      }
-
-      .table td::before {
-          content: attr(data-label);
-          font-weight: bold;
-          text-transform: uppercase;
-          float: left;
-      }
-
-      .inputEncargada {
-          display: grid;
-          place-items: center;
-      }
-
-      .notaDisponible {
-          margin: auto;
-      }
-  }
-
-  /* ------------------------------------------------------------------------------------------------
+/* ------------------------------------------------------------------------------------------------
    ---------------------------------------------------------------------------------------------------
    Query para Pantalla grande */
 
-  @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
 
-      .classTable {
-          margin-top: 8%;
-      }
+    .classTable {
+        margin-top: 8%;
+    }
 
-      .container {
-          display: grid;
-          place-items: center;
-          margin-bottom: 5%;
-      }
-
-      .acomodarInput {
-          margin-top: 2%;
-      }
-
-      .totalCel {
-          display: table-caption;
-          text-align: -webkit-right;
-          caption-side: top;
-      }
-
-      .columnTable {
-        contain: strict;
-        -webkit-writing-mode: horizontal-tb;
-      }
-
-      /* .columnTableTotal {
-          position: absolute;
-      } */
-
-      .noHayCierre {
-          text-align: center;
-          font-family: cursive;
-          font-size: x-large;
-          color: red;
-      }
-
-      .inputEncargada {
-          display: contents;
-          place-items: center;
-      }
-  }
+    .noHayCierre {
+        text-align: center;
+        font-family: cursive;
+        font-size: x-large;
+        color: red;
+    }
+}

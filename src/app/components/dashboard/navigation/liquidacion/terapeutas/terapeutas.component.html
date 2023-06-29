@@ -8,7 +8,6 @@
 </div>
 
 <form *ngIf="liqTep" [formGroup]="formTemplate">
-
     <div class="container">
         <div class="row">
 
@@ -49,8 +48,8 @@
 
 <div *ngIf="liqTep" class="container">
     <table class="table">
-        <thead class="thead-dark">
-            <tr class="columnTable">
+        <thead>
+            <tr class="table-secondary">
                 <!-- 1 -->
                 <th scope="col">Terapeuta</th>
                 <!-- 2 -->
@@ -100,7 +99,6 @@
                     <!-- Afuera -->
                 </div>
             </ng-template>
-
             <!-- Fin Modal -->
 
         </tbody>
@@ -155,7 +153,7 @@
                 </div>
 
                 <div class="col-6">
-                    <mat-drawer-container class="example-container" style="float: right;">
+                    <mat-drawer-container style="float: right;">
                         <mat-drawer-content style="font-weight: bold;">{{totalComision + ' €'}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
@@ -173,7 +171,7 @@
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr class="table-secondary">
                                 <!-- 1 -->
                                 <th scope="col">Nota</th>
                                 <!-- 2 -->
@@ -293,7 +291,7 @@
             <div style="text-align: center; width: max-content;">
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr class="table-secondary">
                             <th scope="col"></th>
                             <th scope="col">Suma</th>
                             <th scope="col">Comisión</th>
