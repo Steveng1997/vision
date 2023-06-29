@@ -138,7 +138,7 @@
                 <th scope="col">Cliente</th>
             </tr>
         </thead>
-        <tbody (click)="editamos(serv.id)" *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
+        <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
                 | paginate: { itemsPerPage: 10, currentPage: page }">
@@ -146,41 +146,41 @@
                 <!-- 1 -->
                 <td data-label="" [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
                 <!-- 2 -->
-                <td data-label="Fecha">{{serv.fecha}}</td>
+                <td data-label="Fecha" (click)="editamos(serv.id)">{{serv.fecha}}</td>
                 <!-- 3 -->
-                <td data-label="Terapeuta">{{serv.terapeuta}}</td>
+                <td data-label="Terapeuta" (click)="editamos(serv.id)">{{serv.terapeuta}}</td>
                 <!-- 4 -->
-                <td data-label="Encargada">{{serv.encargada}}</td>
+                <td data-label="Encargada" (click)="editamos(serv.id)">{{serv.encargada}}</td>
                 <!-- 5 -->
-                <td data-label="Salida">{{serv.salida }}</td>
+                <td data-label="Salida" (click)="editamos(serv.id)">{{serv.salida }}</td>
                 <!-- 6 -->
-                <td data-label="Hora">{{serv.horaStart + '-' + serv.horaEnd }}</td>
+                <td data-label="Hora" (click)="editamos(serv.id)">{{serv.horaStart + '-' + serv.horaEnd }}</td>
                 <!-- 7 -->
-                <td data-label="Pago">{{serv.formaPago}}</td>
+                <td data-label="Pago" (click)="editamos(serv.id)">{{serv.formaPago}}</td>
                 <!-- 8 -->
-                <td data-label="Cliente">{{serv.servicio}}</td>
+                <td data-label="Cliente" (click)="editamos(serv.id)">{{serv.servicio}}</td>
                 <!-- 9 -->
-                <td data-label="Tratamiento">{{serv.numberPiso1 + ' €'}}</td>
+                <td data-label="Tratamiento" (click)="editamos(serv.id)">{{serv.numberPiso1 + ' €'}}</td>
                 <!-- 10 -->
-                <td data-label="€ a Piso">{{serv.numberTerap + ' €'}}</td>
+                <td data-label="€ a Piso" (click)="editamos(serv.id)">{{serv.numberTerap + ' €'}}</td>
                 <!-- 11 -->
-                <td data-label="€ a Terap.">{{serv.numberEncarg + ' €'}}</td>
+                <td data-label="€ a Terap." (click)="editamos(serv.id)">{{serv.numberEncarg + ' €'}}</td>
                 <!-- 12 -->
-                <td data-label="€ a Enc.">{{serv.numberOtro + ' €'}}</td>
+                <td data-label="€ a Enc." (click)="editamos(serv.id)">{{serv.numberOtro + ' €'}}</td>
                 <!-- 13 -->
-                <td data-label="€ a Otros.">{{serv.bebidas + ' €'}}</td>
+                <td data-label="€ a Otros." (click)="editamos(serv.id)">{{serv.bebidas + ' €'}}</td>
                 <!-- 14 -->
-                <td data-label="Bebida">{{serv.tabaco + ' €'}}</td>
+                <td data-label="Bebida" (click)="editamos(serv.id)">{{serv.tabaco + ' €'}}</td>
                 <!-- 15 -->
-                <td data-label="Tabaco">{{serv.vitaminas + ' €'}}</td>
+                <td data-label="Tabaco" (click)="editamos(serv.id)">{{serv.vitaminas + ' €'}}</td>
                 <!-- 16 -->
-                <td data-label="Vitamina">{{serv.propina + ' €'}}</td>
+                <td data-label="Vitamina" (click)="editamos(serv.id)">{{serv.propina + ' €'}}</td>
                 <!-- 17 -->
-                <td data-label="Propina">{{serv.otros+ ' €'}}</td>
+                <td data-label="Propina" (click)="editamos(serv.id)">{{serv.otros+ ' €'}}</td>
                 <!-- 18 -->
-                <td data-label="Total">{{serv.totalServicio+ ' €'}}</td>
+                <td data-label="Total" (click)="editamos(serv.id)">{{serv.totalServicio+ ' €'}}</td>
                 <!-- 19 -->
-                <td data-label="Otros">{{serv.cliente + ' €'}}</td>
+                <td data-label="Otros" (click)="editamos(serv.id)">{{serv.cliente + ' €'}}</td>
             </tr>
 
             <!-- Modal -->

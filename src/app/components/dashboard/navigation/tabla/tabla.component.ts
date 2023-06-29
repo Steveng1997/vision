@@ -1,13 +1,13 @@
-import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ServicioService } from 'src/app/core/services/servicio';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import * as XLSX from 'xlsx';
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import { ServicioService } from 'src/app/core/services/servicio'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import * as XLSX from 'xlsx'
 
 // Service
-import { TrabajadoresService } from 'src/app/core/services/trabajadores';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { LoginService } from 'src/app/core/services/login';
+import { TrabajadoresService } from 'src/app/core/services/trabajadores'
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+import { LoginService } from 'src/app/core/services/login'
 
 
 @Component({
@@ -18,44 +18,44 @@ import { LoginService } from 'src/app/core/services/login';
 
 export class TablaComponent implements OnInit {
 
-  fechaInicio: string;
-  fechaFinal: string;
-  filtredBusqueda: string;
+  fechaInicio: string
+  fechaFinal: string
+  filtredBusqueda: string
 
-  page!: number;
+  page!: number
 
-  prestamosArray: any[] = [];
-  equiposArray: any[] = [];
+  prestamosArray: any[] = []
+  equiposArray: any[] = []
 
   // Terapeuta
 
-  terapeuta: any[] = [];
-  selectedTerapeuta: string;
+  terapeuta: any[] = []
+  selectedTerapeuta: string
 
   // Encargada
 
-  encargada: any[] = [];
-  selectedEncargada: string;
-  selectedFormPago: string;
+  encargada: any[] = []
+  selectedEncargada: string
+  selectedFormPago: string
 
-  servicio: any;
+  servicio: any
   horario: any[] = []
 
   fileName = 'tabla.xlsx'
-  idUser: string;
+  idUser: string
 
   // Servicios
-  totalServicio: number;
-  totalPiso: number;
-  totalValorTerapeuta: number;
-  totalValorEncargada: number;
-  totalValorAOtros: number;
-  TotalValorBebida: number;
-  TotalValorTabaco: number;
-  totalValorVitaminas: number;
-  totalValorPropina: number;
-  totalValorOtroServ: number;
-  totalValor: number;
+  totalServicio: number
+  totalPiso: number
+  totalValorTerapeuta: number
+  totalValorEncargada: number
+  totalValorAOtros: number
+  TotalValorBebida: number
+  TotalValorTabaco: number
+  totalValorVitaminas: number
+  totalValorPropina: number
+  totalValorOtroServ: number
+  totalValor: number
 
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
@@ -63,7 +63,7 @@ export class TablaComponent implements OnInit {
     terapeuta: new FormControl(''),
     encargada: new FormControl(''),
     busqueda: new FormControl(''),
-  });
+  })
 
   constructor(
     public router: Router,
@@ -80,35 +80,35 @@ export class TablaComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'TABLA'
 
-    this.idUser = this.activeRoute.snapshot.paramMap.get('id');
+    this.idUser = this.activeRoute.snapshot.paramMap.get('id')
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    this.getServicio();
-    this.getEncargada();
-    this.getTerapeuta();
-    this.totalesUndefined();
+    this.getServicio()
+    this.getEncargada()
+    this.getTerapeuta()
+    this.totalesUndefined()
   }
 
   totalesUndefined() {
-    if (this.totalServicio == undefined) this.totalServicio = 0;
-    if (this.totalPiso == undefined) this.totalPiso = 0;
-    if (this.totalValorTerapeuta == undefined) this.totalValorTerapeuta = 0;
-    if (this.totalValorEncargada == undefined) this.totalValorEncargada = 0;
-    if (this.totalValorAOtros == undefined) this.totalValorAOtros = 0;
-    if (this.TotalValorBebida == undefined) this.TotalValorBebida = 0;
-    if (this.TotalValorTabaco == undefined) this.TotalValorTabaco = 0;
-    if (this.totalValorVitaminas == undefined) this.totalValorVitaminas = 0;
-    if (this.totalValorPropina == undefined) this.totalValorPropina = 0;
-    if (this.totalValorOtroServ == undefined) this.totalValorOtroServ = 0;
-    if (this.totalValor == undefined) this.totalValor = 0;
+    if (this.totalServicio == undefined) this.totalServicio = 0
+    if (this.totalPiso == undefined) this.totalPiso = 0
+    if (this.totalValorTerapeuta == undefined) this.totalValorTerapeuta = 0
+    if (this.totalValorEncargada == undefined) this.totalValorEncargada = 0
+    if (this.totalValorAOtros == undefined) this.totalValorAOtros = 0
+    if (this.TotalValorBebida == undefined) this.TotalValorBebida = 0
+    if (this.TotalValorTabaco == undefined) this.TotalValorTabaco = 0
+    if (this.totalValorVitaminas == undefined) this.totalValorVitaminas = 0
+    if (this.totalValorPropina == undefined) this.totalValorPropina = 0
+    if (this.totalValorOtroServ == undefined) this.totalValorOtroServ = 0
+    if (this.totalValor == undefined) this.totalValor = 0
   }
 
   getServicio() {
     this.servicioService.getServicio().subscribe((datoServicio) => {
-      this.servicio = datoServicio;
+      this.servicio = datoServicio
       if (datoServicio.length != 0) {
-        this.sumaTotalServicios();
+        this.sumaTotalServicios()
       }
     })
   }
@@ -151,144 +151,148 @@ export class TablaComponent implements OnInit {
     }
 
     // Filter by Servicio
-    const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalServicio = servicios.reduce((accumulator, serv) => {
-      return accumulator + serv.servicio;
-    }, 0)
-
-    // Filter by Pisos
-    const pisoss = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalPiso = pisoss.reduce((accumulator, serv) => {
-      return accumulator + serv.numberPiso1;
-    }, 0)
-
-    // Filter by Terapeuta
-    const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
-      return accumulator + serv.numberTerap;
-    }, 0)
-
-    // Filter by Encargada
-    const encargada = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
-      return accumulator + serv.numberEncarg;
-    }, 0)
-
-    // Filter by Valor Otro
-    const valorOtro = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
-      return accumulator + serv.numberOtro;
-    }, 0)
-
-    // Filter by Valor Bebida
-    const valorBebida = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
-      return accumulator + serv.bebidas;
-    }, 0)
-
-    // Filter by Valor Tabaco
-    const valorTabaco = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
-      return accumulator + serv.tabaco;
-    }, 0)
-
-    // Filter by Valor Vitamina
-    const valorVitamina = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
-      return accumulator + serv.vitaminas;
-    }, 0)
-
-    // Filter by Valor Propina
-    const valorPropina = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
-      return accumulator + serv.propina;
-    }, 0)
-
-    // Filter by Valor Total
-    const valorTotal = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValor = valorTotal.reduce((accumulator, serv) => {
-      return accumulator + serv.totalServicio;
-    }, 0)
+    if (Array.isArray(this.servicio)) {
+      const servicios = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalServicio = servicios.reduce((accumulator, serv) => {
+        return accumulator + serv.servicio
+      }, 0)
 
 
-    // Filter by Valor Propina
-    const valorOtros = this.servicio.filter(serv => condicionTerapeuta(serv)
-      && condicionEncargada(serv) && condicionFormaPago(serv)
-      && condicionBuscar(serv) && condicionEntreFechas(serv))
-    this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
-      return accumulator + serv.otros;
-    }, 0)
+
+      // Filter by Pisos
+      const pisoss = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalPiso = pisoss.reduce((accumulator, serv) => {
+        return accumulator + serv.numberPiso1
+      }, 0)
+
+      // Filter by Terapeuta
+      const terapeuta = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
+        return accumulator + serv.numberTerap
+      }, 0)
+
+      // Filter by Encargada
+      const encargada = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
+        return accumulator + serv.numberEncarg
+      }, 0)
+
+      // Filter by Valor Otro
+      const valorOtro = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
+        return accumulator + serv.numberOtro
+      }, 0)
+
+      // Filter by Valor Bebida
+      const valorBebida = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
+        return accumulator + serv.bebidas
+      }, 0)
+
+      // Filter by Valor Tabaco
+      const valorTabaco = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
+        return accumulator + serv.tabaco
+      }, 0)
+
+      // Filter by Valor Vitamina
+      const valorVitamina = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
+        return accumulator + serv.vitaminas
+      }, 0)
+
+      // Filter by Valor Propina
+      const valorPropina = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
+        return accumulator + serv.propina
+      }, 0)
+
+      // Filter by Valor Total
+      const valorTotal = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValor = valorTotal.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+
+      // Filter by Valor Propina
+      const valorOtros = this.servicio.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv) && condicionFormaPago(serv)
+        && condicionBuscar(serv) && condicionEntreFechas(serv))
+      this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
+        return accumulator + serv.otros
+      }, 0)
+    }
   }
 
   sumaTotalServicios() {
-    const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
-    this.totalServicio = totalServ;
+    const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
+    this.totalServicio = totalServ
 
-    const totalPisos = this.servicio.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0);
-    this.totalPiso = totalPisos;
+    const totalPisos = this.servicio.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)
+    this.totalPiso = totalPisos
 
-    const totalTera = this.servicio.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0);
-    this.totalValorTerapeuta = totalTera;
+    const totalTera = this.servicio.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
+    this.totalValorTerapeuta = totalTera
 
-    const totalEncarg = this.servicio.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0);
-    this.totalValorEncargada = totalEncarg;
+    const totalEncarg = this.servicio.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
+    this.totalValorEncargada = totalEncarg
 
-    const totalOtr = this.servicio.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0);
-    this.totalValorAOtros = totalOtr;
+    const totalOtr = this.servicio.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
+    this.totalValorAOtros = totalOtr
 
-    const totalValorBebida = this.servicio.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0);
-    this.TotalValorBebida = totalValorBebida;
+    const totalValorBebida = this.servicio.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
+    this.TotalValorBebida = totalValorBebida
 
-    const totalValorTab = this.servicio.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0);
-    this.TotalValorTabaco = totalValorTab;
+    const totalValorTab = this.servicio.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
+    this.TotalValorTabaco = totalValorTab
 
-    const totalValorVitamina = this.servicio.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0);
-    this.totalValorVitaminas = totalValorVitamina;
+    const totalValorVitamina = this.servicio.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
+    this.totalValorVitaminas = totalValorVitamina
 
-    const totalValorProp = this.servicio.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0);
-    this.totalValorPropina = totalValorProp;
+    const totalValorProp = this.servicio.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
+    this.totalValorPropina = totalValorProp
 
-    const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0);
-    this.totalValorOtroServ = totalValorOtroServicio;
+    const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
+    this.totalValorOtroServ = totalValorOtroServicio
 
-    const totalvalors = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0);
-    this.totalValor = totalvalors;
+    const totalvalors = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0)
+    this.totalValor = totalvalors
   }
 
   getTerapeuta() {
     this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta) => {
-      this.terapeuta = datosTerapeuta;
-    });
+      this.terapeuta = datosTerapeuta
+    })
   }
 
   getEncargada() {
     this.loginService.getUsuarios().subscribe((datosEncargada) => {
-      this.encargada = datosEncargada;
-    });
+      this.encargada = datosEncargada
+    })
   }
 
   dateStart(event: any) {
-    this.fechaInicio = event.target.value;
+    this.fechaInicio = event.target.value
   }
 
   dateEnd(event: any) {
@@ -296,20 +300,20 @@ export class TablaComponent implements OnInit {
   }
 
   busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
   notas(targetModal, modal) {
-    var notaMensaje = [];
+    var notaMensaje = []
     this.servicioService.getById(targetModal).then((datoServicio) => {
-      notaMensaje = datoServicio[0];
+      notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
         this.modalService.open(modal, {
           centered: true,
           backdrop: 'static',
-        });
-    });
+        })
+    })
   }
 
   exportTableToExcel() {
@@ -323,6 +327,6 @@ export class TablaComponent implements OnInit {
   editamos(id: string) {
     this.router.navigate([
       `menu/${this.idUser['id']}/nuevo-servicio/${id}`,
-    ]);
+    ])
   }
 }

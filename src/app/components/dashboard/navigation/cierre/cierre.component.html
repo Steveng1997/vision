@@ -134,7 +134,7 @@
         </table>
 
         <h5 class="noHayCierre"
-            *ngIf="cierreTrue.length == 0"> Actualmente no hay cierres </h5>
+            *ngIf="cierreTrue?.length === 0"> Actualmente no hay cierres </h5>
 
         <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
             nextLabel="Siguiente">

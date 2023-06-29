@@ -224,9 +224,7 @@ export class CierreComponent implements OnInit {
       const condicionEncargada = serv => {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
       }
-
-      debugger
-
+      
       const mostrarFech = this.servicio.filter(serv => condicionEncargada(serv))
       if (mostrarFech.length != 0) {
         this.mostrarFecha = true

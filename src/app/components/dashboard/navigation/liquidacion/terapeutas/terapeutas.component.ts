@@ -13,8 +13,7 @@ import { LiquidacioneTerapService } from 'src/app/core/services/liquidacionesTer
 @Component({
   selector: 'app-terapeutas',
   templateUrl: './terapeutas.component.html',
-  styleUrls: ['./terapeutas.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./terapeutas.component.css']
 })
 export class TerapeutasComponent implements OnInit {
 

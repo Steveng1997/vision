@@ -143,7 +143,6 @@ export class NuevoServicioComponent implements OnInit {
     this.horaInicialServicio = this.horaStarted;
     this.horaFinalServicio = this.horaStarted;
     this.valueServiceEdit();
-
   }
 
   getLastDate() {
@@ -1230,7 +1229,7 @@ export class NuevoServicioComponent implements OnInit {
   valueServiceEdit() {
     let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0,
       propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0;
-
+      
     if (this.editarService[0]['servicio'] != null) {
       servicioEdit = Number(this.editarService[0]['servicio'])
     } else {

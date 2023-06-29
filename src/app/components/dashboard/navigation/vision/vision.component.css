@@ -1,11 +1,3 @@
-tr.mat-mdc-footer-row {
-  font-weight: bold;
-}
-
-.mat-mdc-table-sticky {
-  border-top: 1px solid #e0e0e0;
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
 
   .nota {
@@ -57,7 +49,7 @@ tr.mat-mdc-footer-row {
   .container {
     width: 100%;
     max-width: 1000px;
-    margin-bottom: 8%;
+    margin-bottom: 5%;
   }
 
   .table {
@@ -111,8 +103,13 @@ tr.mat-mdc-footer-row {
     font-size: 22px;
   }
 
-  .table thead {
-    display: none;
+  .columnTable {
+    contain: strict;
+    -webkit-writing-mode: vertical-lr;
+  }
+
+  .columnTableTotal {
+    position: absolute;
   }
 
   .table tr {
@@ -128,8 +125,9 @@ tr.mat-mdc-footer-row {
 
   .table td {
     display: flow-root;
-    border-bottom: 1px solid #ddd;
     text-align: right;
+    min-inline-size: auto;
+    mix-blend-mode: darken;
   }
 
   .table td:last-child {
@@ -141,6 +139,14 @@ tr.mat-mdc-footer-row {
     font-weight: bold;
     text-transform: uppercase;
     float: left;
+  }
+
+  .acomodarInput {
+    margin-top: 5%;
+  }
+
+  .notaDisponible {
+    margin: auto;
   }
 }
 

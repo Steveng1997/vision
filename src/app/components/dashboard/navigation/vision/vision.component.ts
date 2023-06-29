@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ServicioService } from 'src/app/core/services/servicio';
-import { FormBuilder } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoginService } from 'src/app/core/services/login';
-import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import { ServicioService } from 'src/app/core/services/servicio'
+import { FormBuilder } from '@angular/forms'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { LoginService } from 'src/app/core/services/login'
+import { TrabajadoresService } from 'src/app/core/services/trabajadores'
 
 @Component({
   selector: 'app-vision',
@@ -14,22 +14,22 @@ import { TrabajadoresService } from 'src/app/core/services/trabajadores';
 
 export class VisionComponent implements OnInit {
 
-  vision: any = [];
-  page!: number;
-  dateConvertion = new Date();
-  fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion);
-  restante: string;
-  totalServicio: number;
-  idUser: string;
-  terapeutas: any = [];
+  vision: any = []
+  page!: number
+  dateConvertion = new Date()
+  fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion)
+  restante: string
+  totalServicio: number
+  idUser: string
+  terapeutas: any = []
 
   // TOTALES
-  totalVision: number;
-  totalBebida: number;
-  totalTabaco: number;
-  totalVitamina: number;
-  totalPropina: number;
-  totalOtros: number;
+  totalVision: number
+  totalBebida: number
+  totalTabaco: number
+  totalVitamina: number
+  totalPropina: number
+  totalOtros: number
 
   constructor(
     public router: Router,
@@ -45,50 +45,60 @@ export class VisionComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'VISIÓN'
 
-    this.idUser = this.activeRoute.snapshot.paramMap.get('id');
+    this.idUser = this.activeRoute.snapshot.paramMap.get('id')
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    this.getServicio();
-    this.getTerapeuta();
+    this.getServicio()
+    this.getTerapeuta()
+    this.totalUndefined()
+  }
+
+  totalUndefined() {
+    if (this.totalVision == undefined) this.totalVision = 0
+    if (this.totalBebida == undefined) this.totalBebida = 0
+    if (this.totalTabaco == undefined) this.totalTabaco = 0
+    if (this.totalVitamina == undefined) this.totalVitamina = 0
+    if (this.totalPropina == undefined) this.totalPropina = 0
+    if (this.totalOtros == undefined) this.totalOtros = 0
   }
 
   getTerapeuta() {
     this.terapService.getAllTerapeuta().subscribe((rp) => {
       this.terapeutas = rp
       if (rp.length != 0) {
-        this.calculardiferencia(rp[0]['horaEnd']);
+        this.calculardiferencia(rp[0]['horaEnd'])
       }
-    });
+    })
   }
 
   getServicio() {
     this.servicioService.getFechaHoy().then((datoServicio) => {
-      this.vision = datoServicio;
+      this.vision = datoServicio
 
       if (datoServicio.length != 0) {
-        this.sumaTotalServicio();
-        this.sumaTotalVision();
+        this.sumaTotalServicio()
+        this.sumaTotalVision()
       }
-    });
+    })
   }
 
   sumaTotalServicio() {
-    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
-    this.totalServicio = totalServ;
+    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
+    this.totalServicio = totalServ
   }
 
   notas(targetModal, modal) {
-    var notaMensaje = [];
+    var notaMensaje = []
     this.servicioService.getById(targetModal).then((datoServicio) => {
-      notaMensaje = datoServicio[0];
+      notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
         this.modalService.open(modal, {
           centered: true,
           backdrop: 'static',
-        });
-    });
+        })
+    })
   }
 
   calculardiferencia(horaFin: string): string {
@@ -129,27 +139,27 @@ export class VisionComponent implements OnInit {
   editamos(id: string) {
     this.router.navigate([
       `menu/${this.idUser['id']}/nuevo-servicio/${id}`
-    ]);
+    ])
   }
 
   // Suma de TOTALES
   sumaTotalVision() {
-    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0);
-    this.totalVision = totalServ;
+    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
+    this.totalVision = totalServ
 
-    const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0);
-    this.totalBebida = totalValorBebida;
+    const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
+    this.totalBebida = totalValorBebida
 
-    const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0);
-    this.totalTabaco = totalValorTab;
+    const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
+    this.totalTabaco = totalValorTab
 
-    const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0);
-    this.totalVitamina = totalValorVitamina;
+    const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
+    this.totalVitamina = totalValorVitamina
 
-    const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0);
-    this.totalPropina = totalValorProp;
+    const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
+    this.totalPropina = totalValorProp
 
-    const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0);
-    this.totalOtros = totalValorOtroServicio;
+    const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
+    this.totalOtros = totalValorOtroServicio
   }
 }
