@@ -111,6 +111,21 @@ export class ServicioService {
   // Get
   // -----------------------------------------------------------------------------------
 
+  geyByCurrentDesc(): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('id', 'desc').where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+  
   getServicio() {
     return this.db
       .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc'))
@@ -129,12 +144,6 @@ export class ServicioService {
       .valueChanges();
   }
 
-  // geyByCierreFalse() {
-  //   return this.db
-  //     .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
-  //     .valueChanges();
-  // }
-
   geyByCierreFalse(): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -149,12 +158,6 @@ export class ServicioService {
         });
     });
   }
-
-  // geyByCierreTrue() {
-  //   return this.db
-  //     .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
-  //     .valueChanges();
-  // }
 
   geyByCierreTrue(): Promise<any> {
     return new Promise((resolve, _reject) => {
@@ -297,6 +300,22 @@ export class ServicioService {
       this.db
         .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
           .where('liquidado', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargadaNoCierre(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+          .where('cierre', '==', false))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {

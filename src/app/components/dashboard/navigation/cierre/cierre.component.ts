@@ -40,6 +40,7 @@ export class CierreComponent implements OnInit {
   fechaConvertion = new Date().toISOString().substring(0, 10);
   horaConvertion = new Date().toTimeString().substring(0, 5);
   mostrarFecha: boolean;
+  fechaDesde: any;
 
   // Pagos
   totalValueServicio: number;
@@ -137,6 +138,12 @@ export class CierreComponent implements OnInit {
 
         if (datoCierreTrue != 0) {
           this.sumaTotalServicios(this.cierreTrue);
+
+          this.servicioService.geyByCurrentDesc().then((datoCierreTrue) => {
+            this.fechaDesde = datoCierreTrue[0]['fecha'];
+          })
+
+
         }
       }
 
@@ -224,7 +231,7 @@ export class CierreComponent implements OnInit {
       const condicionEncargada = serv => {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
       }
-      
+
       const mostrarFech = this.servicio.filter(serv => condicionEncargada(serv))
       if (mostrarFech.length != 0) {
         this.mostrarFecha = true
@@ -404,7 +411,7 @@ export class CierreComponent implements OnInit {
 
   guardar() {
     if (this.selectedEncargada) {
-      this.servicioService.getEncargadaNoLiquidada(this.selectedEncargada).then((datos) => {
+      this.servicioService.getEncargadaNoCierre(this.selectedEncargada).then((datos) => {
         for (let index = 0; index < datos.length; index++) {
           this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
             Swal.fire({
@@ -417,6 +424,7 @@ export class CierreComponent implements OnInit {
           })
         }
 
+        debugger;
 
         this.cierreService.registerCierre(this.selectedEncargada, this.fechaConvertion, this.fechaConvertion, this.horaConvertion,
           datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],

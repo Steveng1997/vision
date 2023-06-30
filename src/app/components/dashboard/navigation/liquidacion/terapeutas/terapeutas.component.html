@@ -104,7 +104,7 @@
         </tbody>
     </table>
 
-    <h5 class="noHayCierre" *ngIf="liquidaciones.length == 0"> Actualmente no hay Liquidación para Terapeutas
+    <h5 class="noHayCierre" *ngIf="liquidaciones?.length == 0"> Actualmente no hay Liquidación para Terapeutas
     </h5>
 
     <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
