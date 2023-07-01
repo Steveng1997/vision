@@ -22,14 +22,16 @@ export class LiquidacioneTerapService {
     return result;
   }
 
-  registerLiquidacionesTerapeutas(terapeuta, encargada, fechaLiquidado, horaLiquidado,
+  registerLiquidacionesTerapeutas(terapeuta, encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
     tratamiento, importe) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: terapeuta,
       encargada: encargada,
-      fechaLiquidado: fechaLiquidado,
-      horaLiquidado: horaLiquidado,
+      desdeFechaLiquidado: desdeFechaLiquidado,
+      hastaFechaLiquidado: hastaFechaLiquidado,
+      desdeHoraLiquidado: desdeHoraLiquidado,
+      hastaHoraLiquidado: hastaHoraLiquidado,
       tratamiento: tratamiento,
       importe: importe
     };

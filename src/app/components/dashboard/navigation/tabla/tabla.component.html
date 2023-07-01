@@ -119,33 +119,35 @@
                     <!-- 8 -->
                     <th scope="col">Tratamiento</th>
                     <!-- 9 -->
-                    <th scope="col">€ a piso</th>
+                    <th scope="col">€ a piso 1</th>
                     <!-- 10 -->
-                    <th scope="col">€ a terap.</th>
+                    <th scope="col">€ a piso 2</th>
                     <!-- 11 -->
-                    <th scope="col">€ a enc.</th>
+                    <th scope="col">€ a terap.</th>
                     <!-- 12 -->
-                    <th scope="col">€ a otros</th>
+                    <th scope="col">€ a enc.</th>
                     <!-- 13 -->
-                    <th scope="col">Bebida</th>
+                    <th scope="col">€ a otros</th>
                     <!-- 14 -->
-                    <th scope="col">Tabaco</th>
+                    <th scope="col">Bebida</th>
                     <!-- 15 -->
-                    <th scope="col">Vitamina</th>
+                    <th scope="col">Tabaco</th>
                     <!-- 16 -->
-                    <th scope="col">Propina</th>
+                    <th scope="col">Vitamina</th>
                     <!-- 17 -->
-                    <th scope="col">Otros</th>
+                    <th scope="col">Propina</th>
                     <!-- 18 -->
-                    <th scope="col">Total</th>
+                    <th scope="col">Otros</th>
                     <!-- 19 -->
+                    <th scope="col">Total</th>
+                    <!-- 20 -->
                     <th scope="col">Cliente</th>
                 </tr>
             </thead>
             <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
-                | paginate: { itemsPerPage: 10, currentPage: page }">
+                | paginate: { itemsPerPage: 25, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 1 -->
                     <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
@@ -166,24 +168,26 @@
                     <!-- 9 -->
                     <td (click)="editamos(serv.id)">{{serv.numberPiso1 + ' €'}}</td>
                     <!-- 10 -->
-                    <td (click)="editamos(serv.id)">{{serv.numberTerap + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.numberPiso2 + ' €'}}</td>
                     <!-- 11 -->
-                    <td (click)="editamos(serv.id)">{{serv.numberEncarg + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.numberTerap + ' €'}}</td>
                     <!-- 12 -->
-                    <td (click)="editamos(serv.id)">{{serv.numberOtro + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.numberEncarg + ' €'}}</td>
                     <!-- 13 -->
-                    <td (click)="editamos(serv.id)">{{serv.bebidas + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.numberOtro + ' €'}}</td>
                     <!-- 14 -->
-                    <td (click)="editamos(serv.id)">{{serv.tabaco + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.bebidas + ' €'}}</td>
                     <!-- 15 -->
-                    <td (click)="editamos(serv.id)">{{serv.vitaminas + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.tabaco + ' €'}}</td>
                     <!-- 16 -->
-                    <td (click)="editamos(serv.id)">{{serv.propina + ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.vitaminas + ' €'}}</td>
                     <!-- 17 -->
-                    <td (click)="editamos(serv.id)">{{serv.otros+ ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.propina + ' €'}}</td>
                     <!-- 18 -->
-                    <td (click)="editamos(serv.id)">{{serv.totalServicio+ ' €'}}</td>
+                    <td (click)="editamos(serv.id)">{{serv.otros+ ' €'}}</td>
                     <!-- 19 -->
+                    <td (click)="editamos(serv.id)">{{serv.totalServicio+ ' €'}}</td>
+                    <!-- 20 -->
                     <td (click)="editamos(serv.id)">{{serv.cliente + ' €'}}</td>
                 </tr>
 

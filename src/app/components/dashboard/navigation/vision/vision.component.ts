@@ -64,7 +64,7 @@ export class VisionComponent implements OnInit {
   }
 
   getTerapeuta() {
-    this.terapService.getAllTerapeuta().subscribe((rp) => {
+    this.terapService.getAllTerapeutaByOrden().subscribe((rp) => {
       this.terapeutas = rp
       if (rp.length != 0) {
         this.calculardiferencia(rp[0]['horaEnd'])
@@ -73,7 +73,7 @@ export class VisionComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getFechaHoy().then((datoServicio) => {
+    this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio
 
       if (datoServicio.length != 0) {

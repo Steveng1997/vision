@@ -20,7 +20,7 @@
           <th scope="col">Restante</th>
         </tr>
       </thead>
-      <tbody *ngFor="let vis of terapeutas ">
+      <tbody *ngFor="let vis of terapeutas">
         <tr>
           <td
             [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">

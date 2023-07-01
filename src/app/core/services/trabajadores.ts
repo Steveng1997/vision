@@ -87,6 +87,12 @@ export class TrabajadoresService {
       .valueChanges()
   }
 
+  getAllTerapeutaByOrden() {
+    return this.db
+    .collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc'))
+    .valueChanges()
+  }
+
   getTerapeuta(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Usuario } from 'src/app/core/models/usuarios';
-import { LoginService } from 'src/app/core/services/login';
-import Swal from 'sweetalert2';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { Usuario } from 'src/app/core/models/usuarios'
+import { LoginService } from 'src/app/core/services/login'
+import Swal from 'sweetalert2'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -13,15 +13,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  public usuarioRegistro: string;
-  public passRegistro: string;
-  usuarios: Usuario[];
+  public usuarioRegistro: string
+  public passRegistro: string
+  usuarios: Usuario[]
 
   formTemplate = new FormGroup({
     nombre: new FormControl(''),
     usuario: new FormControl(''),
     pass: new FormControl(''),
-  });
+  })
 
 
   constructor(
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
                 if (respUserPass.length > 0) {
                   this.router.navigate([
                     `menu/${resp[0]['id']}/vision/${resp[0]['id']}`,
-                  ]);
+                  ])
                 } else {
                   Swal.fire({
                     icon: 'error',
@@ -73,14 +73,14 @@ export class LoginComponent implements OnInit {
           icon: 'error',
           title: 'Oops...',
           text: 'El campo de la contraseña se encuentra vacío',
-        });
+        })
       }
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'El campo del usuario se encuentra vacío',
-      });
+      })
     }
   }
 
@@ -88,14 +88,14 @@ export class LoginComponent implements OnInit {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   openRegistro(targetModal) {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   registro(formValue) {
@@ -104,21 +104,21 @@ export class LoginComponent implements OnInit {
         if (this.formTemplate.value.pass) {
           this.serviceLogin.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
             if (nameRegistro[0] == undefined) {
-              this.serviceLogin.registerUser(formValue);
+              this.serviceLogin.registerUser(formValue)
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
                 timer: 2500,
-              });
-              this.modalService.dismissAll();
+              })
+              this.modalService.dismissAll()
             } else {
               Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Ya existe este usuario',
-              });
+              })
             }
           })
         } else {
@@ -126,21 +126,21 @@ export class LoginComponent implements OnInit {
             icon: 'error',
             title: 'Oops...',
             text: 'El campo de la contraseña se encuentra vacío',
-          });
+          })
         }
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'El campo del usuario se encuentra vacío',
-        });
+        })
       }
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'El campo del nombre se encuentra vacío',
-      });
+      })
     }
   }
 }

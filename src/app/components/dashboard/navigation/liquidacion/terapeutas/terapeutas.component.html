@@ -1,7 +1,7 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<div *ngIf="liqTep" class="text-center mt-4 mb-4">
-    <button class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
+<div class="text-center mt-4 mb-4">
+    <button *ngIf="liqTep" class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
     <div>
         <label> Nueva liquidación </label>
     </div>
@@ -73,9 +73,9 @@
                 <!-- 2 -->
                 <td>{{serv.encargada}}</td>
                 <!-- 3 -->
-                <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
+                <td>{{serv.desdeFechaLiquidado + ' - ' + serv.desdeHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td>{{serv.fechaLiquidado + ' - ' + serv.horaLiquidado}}</td>
+                <td>{{serv.hastaFechaLiquidado + ' - ' + serv.hastaHoraLiquidado}}</td>
                 <!-- 5 -->
                 <td>{{serv.tratamiento}}</td>
                 <!-- 6 -->

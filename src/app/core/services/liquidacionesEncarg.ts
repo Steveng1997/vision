@@ -22,13 +22,15 @@ export class LiquidacioneEncargService {
     return result;
   }
 
-  registerLiquidacionesEncargada(encargada, fechaLiquidado, horaLiquidado,
+  registerLiquidacionesEncargada(encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
     tratamiento, importe) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
-      fechaLiquidado: fechaLiquidado,
-      horaLiquidado: horaLiquidado,
+      desdeFechaLiquidado: desdeFechaLiquidado,
+      hastaFechaLiquidado: hastaFechaLiquidado,
+      desdeHoraLiquidado: desdeHoraLiquidado,
+      hastaHoraLiquidado: hastaHoraLiquidado,
       tratamiento: tratamiento,
       importe: importe
     };

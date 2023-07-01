@@ -83,12 +83,11 @@ export class EncargadosComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES ENCARGADAS'
-
     this.liqEncargada = true;
     this.addEncarg = false;
     this.selected = false;
+    document.getElementById('idTitulo').style.display = 'block'
+    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES ENCARGADAS'
     this.getLiquidaciones();
     this.getServicio();
     this.getEncargada();
@@ -124,7 +123,7 @@ export class EncargadosComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getByLiquidFalse().subscribe((datoServicio) => {
+    this.servicioService.getByLiquidEncargadaFalse().subscribe((datoServicio) => {
       this.servicio = datoServicio;
       if (datoServicio.length != 0) {
         this.sumaTotalServicios();
@@ -307,18 +306,29 @@ export class EncargadosComponent implements OnInit {
   }
 
   guardar() {
-    let conteo = 0;
+    let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '';
+
     if (this.selectedEncargada) {
+      this.servicioService.getEncargadaNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoEncargada) => {
+        fechaDesdeDato = datoEncargada[0]['fechaHoyInicio'];
+        horaDesdeDato = datoEncargada[0]['horaStart']
+      })
+      this.servicioService.getEncargadaNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosEncargada) => {
+        fechaHastaDato = datosEncargada[0]['fechaHoyInicio'];
+        horaHastaDato = datosEncargada[0]['horaStart']
+      })
+
       this.servicioService.getEncargadaNoLiquidada(this.selectedEncargada).then((datos) => {
         for (let index = 0; index < datos.length; index++) {
           conteo = datos.length;
-          this.servicioService.updateLiquidacion(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
+          this.servicioService.updateLiquidacionEncarg(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
           })
         }
-        this.liquidacionService.registerLiquidacionesEncargada(this.selectedEncargada, this.fechaConvertion, this.horaConvertion, conteo, this.totalComision).then((datos) => {
+
+        this.liquidacionService.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision).then((datos) => {
           this.liqEncargada = true;
           this.addEncarg = false;
-          window.location.reload();
+          // window.location.reload();
           Swal.fire({
             position: 'top-end',
             icon: 'success',

@@ -418,13 +418,13 @@
                             (change)="horaInicio($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600" />
                     </div>
 
-                    <div class="col-6" style="display: grid; margin-top: 5%;">
+                    <div class="col-6">
                         <mat-label>Duración(min.)</mat-label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.minuto" name="minuto"
                             (ngModelChange)="minutos($event)">
                     </div>
 
-                    <div class="col-6" style="display: grid; margin-top: 5%; text-align: center; align-self: center;">
+                    <div class="col-6" style="display: grid; text-align: center; align-self: center;">
                         <mat-drawer-container class="example-container">
                             <mat-drawer-content>Hora fin:</mat-drawer-content>
                         </mat-drawer-container>
@@ -703,7 +703,7 @@
 
                 <div class="col-6">
                     <button mat-raised-button style="display: grid; margin: auto;"
-                        (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Editar</button>
+                        (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Guardar</button>
                 </div>
 
                 <div class="col-6" *ngIf="buttonDelete">
