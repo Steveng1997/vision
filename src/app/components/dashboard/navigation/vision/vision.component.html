@@ -23,14 +23,14 @@
       <tbody *ngFor="let vis of terapeutas">
         <tr>
           <td
-            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd) === '00:00'}">
+            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd, vis.nombre) !== '' , 'disponible':calculardiferencia(vis.horaEnd, vis.nombre) === '', 'disponible2':calculardiferencia(vis.horaEnd, vis.nombre) === '00:00'}">
           </td>
           <td>{{vis.nombre}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">
+          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre) === ''}">
             {{vis.salida}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd) === ''}">
+          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre) === ''}">
             {{vis.horaEnd}}</td>
-          <td>{{calculardiferencia(vis.horaEnd)}}</td>
+          <td>{{calculardiferencia(vis.horaEnd, vis.nombre)}}</td>
         </tr>
       </tbody>
     </table>

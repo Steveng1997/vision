@@ -22,6 +22,7 @@ export class VisionComponent implements OnInit {
   totalServicio: number
   idUser: string
   terapeutas: any = []
+  horaEnd: string
 
   // TOTALES
   totalVision: number
@@ -67,7 +68,9 @@ export class VisionComponent implements OnInit {
     this.terapService.getAllTerapeutaByOrden().subscribe((rp) => {
       this.terapeutas = rp
       if (rp.length != 0) {
-        this.calculardiferencia(rp[0]['horaEnd'])
+        for (let i = 0; i <= rp.length; i++) {
+          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
+        }
       }
     })
   }
@@ -101,7 +104,7 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  calculardiferencia(horaFin: string): string {
+  calculardiferencia(horaFin: string, nombre: string): string {
     let hora_actual: any = new Date()
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
       '0' + hora_actual.getMinutes() : hora_actual.getMinutes()
@@ -124,6 +127,15 @@ export class VisionComponent implements OnInit {
     var minutos_final = hora_final.split(':')
       .reduce((p, c) => parseInt(p) * 60 + parseInt(c))
 
+    this.terapService.getByNombre(nombre).then((datoMinute) => {
+      for (let i = 0; i < datoMinute.length; i++) {
+        debugger
+        if (datoMinute[i]['horaEnd'] <= hora_inicio) {
+          this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
+        }
+      }
+    })
+
     // Si la hora final es anterior a la hora inicial sale
     if (minutos_final < minutos_inicio) return ''
 
@@ -133,7 +145,8 @@ export class VisionComponent implements OnInit {
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
-    return horas + ':' + (minutos < 10 ? '0' : '') + minutos
+    this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
+    return this.horaEnd
   }
 
   editamos(id: string) {
