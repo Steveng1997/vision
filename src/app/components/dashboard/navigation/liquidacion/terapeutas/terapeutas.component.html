@@ -39,7 +39,7 @@
                 <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
             </div>
 
-            <mat-form-field class="col-6 acomodarInput mt-3">
+            <mat-form-field class="col-6 mt-3">
                 <mat-label>Buscar</mat-label>
                 <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
             </mat-form-field>
@@ -65,7 +65,7 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody (click)="editamosServicio(serv.idTerapeuta)" *ngFor="let serv of (liquidaciones | terapeuta: selectedTerapeuta | 
+        <tbody (click)="editamosServicio(serv.idTerapeuta)" *ngFor="let serv of (liquidacionesTerapeutas | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
             <tr style="cursor: pointer;">
@@ -105,7 +105,7 @@
         </tbody>
     </table>
 
-    <h5 class="noHayCierre" *ngIf="liquidaciones?.length == 0"> Actualmente no hay Liquidación para Terapeutas
+    <h5 class="noHayCierre" *ngIf="liquidacionesTerapeutas?.length == 0"> Actualmente no hay Liquidación para Terapeutas
     </h5>
 
     <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
@@ -199,7 +199,7 @@
                                 <th scope="col">Otros</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let serv of (servicioNoLiquidada | terapeuta: selectedTerapeuta | 
+                        <tbody *ngFor="let serv of (servicioNoLiquidadaTerapeuta | terapeuta: selectedTerapeuta | 
                     encargada: selectedEncargada) | paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer;">
                                 <!-- 1 -->
@@ -360,8 +360,8 @@
         </div>
     </form>
 
-    <button *ngIf="selected && servicioNoLiquidada.length > 0" mat-raised-button style="display: grid; margin: auto;"
-        (click)="guardar()" color="primary">Guardar</button>
+    <button *ngIf="selected && servicioNoLiquidadaTerapeuta.length > 0" mat-raised-button
+        style="display: grid; margin: auto;" (click)="guardar()" color="primary">Guardar</button>
 </div>
 
 <!-- Editar Terapeuta -->

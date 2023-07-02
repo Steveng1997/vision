@@ -22,8 +22,8 @@ export class TerapeutasComponent implements OnInit {
   editTerap: boolean
   filtredBusqueda: string
   Liquidada: any
-  servicioNoLiquidada: any
-  liquidaciones: any
+  servicioNoLiquidadaTerapeuta: any
+  liquidacionesTerapeutas: any
   datosLiquidadoTerap: any
   page!: number
 
@@ -122,7 +122,7 @@ export class TerapeutasComponent implements OnInit {
 
   getLiquidaciones() {
     this.liquidacionTerapService.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones) => {
-      this.liquidaciones = datoLiquidaciones
+      this.liquidacionesTerapeutas = datoLiquidaciones
     })
   }
 
@@ -134,7 +134,7 @@ export class TerapeutasComponent implements OnInit {
 
   getServicioFalceLiquid() {
     this.servicioService.getByLiquidTerapFalse().subscribe((datoServicio) => {
-      this.servicioNoLiquidada = datoServicio
+      this.servicioNoLiquidadaTerapeuta = datoServicio
     })
   }
 
@@ -207,7 +207,7 @@ export class TerapeutasComponent implements OnInit {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
       }
 
-      const mostrarFech = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const mostrarFech = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       if (mostrarFech.length != 0) {
         this.mostrarFecha = true
@@ -216,49 +216,49 @@ export class TerapeutasComponent implements OnInit {
       }
 
       // Filter by servicio
-      const servicios = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const servicios = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.totalServicio = servicios.reduce((accumulator, serv) => {
         return accumulator + serv.servicio
       }, 0)
 
       // Filter by Propina
-      const propinas = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const propinas = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.totalValorPropina = propinas.reduce((accumulator, serv) => {
         return accumulator + serv.propina
       }, 0)
 
       // Filter by Pago
-      const terapeuta = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const terapeuta = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
         return accumulator + serv.numberTerap
       }, 0)
 
       // Filter by Bebida
-      const bebida = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const bebida = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.TotalValorBebida = bebida.reduce((accumulator, serv) => {
         return accumulator + serv.bebidas
       }, 0)
 
       // Filter by Tabaco
-      const tabac = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const tabac = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.TotalValorTabaco = tabac.reduce((accumulator, serv) => {
         return accumulator + serv.tabaco
       }, 0)
 
       // Filter by Vitamina
-      const vitamina = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const vitamina = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.totalValorVitaminas = vitamina.reduce((accumulator, serv) => {
         return accumulator + serv.vitaminas
       }, 0)
 
       // Filter by Vitamina
-      const otroServicio = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+      const otroServicio = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
       this.totalValorOtroServ = otroServicio.reduce((accumulator, serv) => {
         return accumulator + serv.otros
@@ -297,7 +297,7 @@ export class TerapeutasComponent implements OnInit {
 
         // Recibido
 
-        const numbTerap = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+        const numbTerap = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
           && condicionEncargada(serv))
         this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
           return accumulator + serv.numberTerap
