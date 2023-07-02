@@ -23,7 +23,7 @@ export class LiquidacioneTerapService {
   }
 
   registerLiquidacionesTerapeutas(terapeuta, encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
-    tratamiento, importe) {
+    tratamiento, importe, idTerapeuta) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: terapeuta,
@@ -33,7 +33,8 @@ export class LiquidacioneTerapService {
       desdeHoraLiquidado: desdeHoraLiquidado,
       hastaHoraLiquidado: hastaHoraLiquidado,
       tratamiento: tratamiento,
-      importe: importe
+      importe: importe,
+      idTerapeuta: idTerapeuta,
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -45,7 +46,7 @@ export class LiquidacioneTerapService {
         );
     });
   }
-  
+
   // -----------------------------------------------------------------------------------
   // End register
   // -----------------------------------------------------------------------------------
@@ -58,5 +59,45 @@ export class LiquidacioneTerapService {
     return this.db
       .collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc'))
       .valueChanges();
+  }
+
+  getIdTerap(idTerap): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerap))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  // -----------------------------------------------------------------------------------
+  // Get
+  // -----------------------------------------------------------------------------------
+
+  // -----------------------------------------------------------------------------------
+  // Update
+  // -----------------------------------------------------------------------------------
+
+
+  update(idDocument, nombreTerap, idTerapeuta) {
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('nombre', '==', nombreTerap))
+      .doc(idDocument)
+      .update({
+        idTerapeuta: idTerapeuta
+      });
+  }
+
+  updateById(idDocument, idTerapeuta, importe) {
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerapeuta))
+      .doc(idDocument)
+      .update({
+        importe: importe
+      });
   }
 }

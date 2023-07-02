@@ -424,8 +424,6 @@ export class CierreComponent implements OnInit {
           })
         }
 
-        debugger;
-
         this.cierreService.registerCierre(this.selectedEncargada, this.fechaConvertion, this.fechaConvertion, this.horaConvertion,
           datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
           datos[0]['valueTarjeta'], datos[0]['valueTrans']).then((datos) => { });

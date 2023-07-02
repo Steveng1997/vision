@@ -92,6 +92,9 @@ export class ServicioService {
       currentDate: currentDate,
       liquidadoEncargada: false,
       liquidadoTerapeuta: false,
+      idTerapeuta: '',
+      idEncargada: '',
+      idCierre: '',
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -148,6 +151,12 @@ export class ServicioService {
   getByLiquidTerapTrue() {
     return this.db
       .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoTerapeuta', '==', true))
+      .valueChanges();
+  }
+
+  getByIdTerap(idTerap) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idTerapeuta', '==', idTerap))
       .valueChanges();
   }
 
@@ -538,12 +547,13 @@ export class ServicioService {
       .delete();
   }
 
-  updateLiquidacionTerap(idDocument, id) {
+  updateLiquidacionTerap(idDocument, id, idTerapeuta) {
     return this.db
       .collection('servicio', (ref) => ref.where('id', '==', id))
       .doc(idDocument)
       .update({
         liquidadoTerapeuta: true,
+        idTerapeuta: idTerapeuta
       });
   }
 
