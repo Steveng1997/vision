@@ -165,13 +165,7 @@ export class TerapeutasComponent implements OnInit {
   addLiquidacion() {
     this.liqTep = false
     this.editTerap = false
-    this.validate()
     this.addTerap = true
-  }
-
-  validate() {
-    // if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion
-    // if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion
   }
 
   notas(targetModal, modal) {

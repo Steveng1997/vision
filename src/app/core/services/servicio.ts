@@ -160,6 +160,12 @@ export class ServicioService {
       .valueChanges();
   }
 
+  getByIdEncarg(idEncarg) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idEncargada', '==', idEncarg))
+      .valueChanges();
+  }
+
   geyByCierreFalse(): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -311,6 +317,22 @@ export class ServicioService {
     });
   }
 
+  getEncargadaAndLiquidacion(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+          .where('liquidadoEncargada', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getEncargadaNoLiquidadaTerap(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -439,11 +461,43 @@ export class ServicioService {
     });
   }
 
+  getEncargFechaAsc(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getTerapeutaFechaDesc(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
         .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
           .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargFechaDesc(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
@@ -557,12 +611,13 @@ export class ServicioService {
       });
   }
 
-  updateLiquidacionEncarg(idDocument, id) {
+  updateLiquidacionEncarg(idDocument, id, idEncargada) {
     return this.db
       .collection('servicio', (ref) => ref.where('id', '==', id))
       .doc(idDocument)
       .update({
         liquidadoEncargada: true,
+        idEncargada: idEncargada
       });
   }
 

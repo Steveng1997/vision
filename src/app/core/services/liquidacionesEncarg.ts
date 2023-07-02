@@ -23,7 +23,7 @@ export class LiquidacioneEncargService {
   }
 
   registerLiquidacionesEncargada(encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
-    tratamiento, importe) {
+    tratamiento, importe, idEncargada) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
@@ -32,7 +32,8 @@ export class LiquidacioneEncargService {
       desdeHoraLiquidado: desdeHoraLiquidado,
       hastaHoraLiquidado: hastaHoraLiquidado,
       tratamiento: tratamiento,
-      importe: importe
+      importe: importe,
+      idEncargada: idEncargada
     };
     return new Promise<any>((resolve, reject) => {
       this.db
@@ -57,5 +58,45 @@ export class LiquidacioneEncargService {
     return this.db
       .collection('liquidacionesEncargada', (ref) => ref.orderBy('id', 'desc'))
       .valueChanges();
+  }
+
+  getIdEncarg(idEncarg): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncarg))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  // -----------------------------------------------------------------------------------
+  // Get
+  // -----------------------------------------------------------------------------------
+
+  // -----------------------------------------------------------------------------------
+  // Update
+  // -----------------------------------------------------------------------------------
+
+
+  update(idDocument, nombreEncarg, idEncargada) {
+    return this.db.collection('liquidacionesEncargada', (ref) => ref.where('nombre', '==', nombreEncarg))
+      .doc(idDocument)
+      .update({
+        idEncargada: idEncargada
+      });
+  }
+
+  updateById(idDocument, idEncargada, importe) {
+    return this.db.collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncargada))
+      .doc(idDocument)
+      .update({
+        importe: importe
+      });
   }
 }

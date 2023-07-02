@@ -129,7 +129,6 @@ export class VisionComponent implements OnInit {
 
     this.terapService.getByNombre(nombre).then((datoMinute) => {
       for (let i = 0; i < datoMinute.length; i++) {
-        debugger
         if (datoMinute[i]['horaEnd'] <= hora_inicio) {
           this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
         }

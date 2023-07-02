@@ -33,7 +33,7 @@
 }
 
 .inputEncargada {
-    text-align: center;
+    place-content: center;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {

@@ -3,7 +3,7 @@
 <form *ngIf="liqTep" [formGroup]="formTemplate">
 
     <div class="text-center mt-4 mb-4">
-        <button type="button" class="btnCircle" (click)="addLiquidacion()">+</button>
+        <button class="btnCircle" (click)="addLiquidacion()">+</button>
         <div>
             <label> Nueva liquidación </label>
         </div>
@@ -368,21 +368,21 @@
 <div *ngIf="editTerap">
 
     <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">Editar liquidación
-        Terapeuta {{this.datosLiquidadoTerap[0]['terapeuta']}} <br> con su encargada
-        {{this.datosLiquidadoTerap[0]['encargada']}}
+        Terapeuta {{datosLiquidadoTerap[0]['terapeuta']}} <br> con su encargada
+        {{datosLiquidadoTerap[0]['encargada']}}
     </h4>
 
     <div class="container">
 
         <div class="row" style="margin-top: 4%;">
-            <div class="col-6">
+            <div class="col-9">
                 <mat-drawer-container class="example-container">
                     <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
                         {{selectedTerapeuta}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
 
-            <div class="col-6">
+            <div class="col-3">
                 <mat-drawer-container style="float: right;">
                     <mat-drawer-content style="font-weight: bold;">{{totalComision + ' €'}}</mat-drawer-content>
                 </mat-drawer-container>
