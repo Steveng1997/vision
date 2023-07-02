@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
@@ -46,7 +46,6 @@ export class TerapeutasComponent implements OnInit {
   fechaAsc: string
   fechaDesc: string
   fechaConvertion = new Date().toISOString().substring(0, 10)
-  horaConvertion = new Date().toTimeString().substring(0, 5)
   mostrarFecha: boolean
 
   // Servicios
@@ -171,8 +170,8 @@ export class TerapeutasComponent implements OnInit {
   }
 
   validate() {
-    if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion
-    if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion
+    // if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion
+    // if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion
   }
 
   notas(targetModal, modal) {
@@ -196,16 +195,24 @@ export class TerapeutasComponent implements OnInit {
         return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
       }
 
-      this.servicioService.getTerapeutaFechaAsc(this.selectedTerapeuta).then((fechaAsce) => {
+      this.servicioService.getTerapeutaFechaAsc(this.selectedTerapeuta, this.selectedEncargada).then((fechaAsce) => {
         this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
       })
 
-      this.servicioService.getTerapeutaFechaDesc(this.selectedTerapeuta).then((fechaDesce) => {
+      this.servicioService.getTerapeutaFechaDesc(this.selectedTerapeuta, this.selectedEncargada).then((fechaDesce) => {
         this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
       })
 
       const condicionEncargada = serv => {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+      }
+
+      const mostrarFech = this.servicioNoLiquidada.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv))
+      if (mostrarFech.length != 0) {
+        this.mostrarFecha = true
+      } else {
+        this.mostrarFecha = false
       }
 
       // Filter by servicio
@@ -389,10 +396,7 @@ export class TerapeutasComponent implements OnInit {
 
         // Recibido
 
-        let sumatoriaRecibido = 0
-
         for (let index = 0; index < this.datosLiquidadoTerap.length; index++) {
-          debugger
           const numbTerap = this.datosLiquidadoTerap.filter(serv => serv)
           this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
             return accumulator + serv.numberTerap
@@ -404,7 +408,6 @@ export class TerapeutasComponent implements OnInit {
   }
 
   editarTerapeuta() {
-    debugger
     this.liquidacionTerapService.getIdTerap(this.datosLiquidadoTerap[0]['idTerapeuta']).then((datos) => {
       for (let index = 0; index < datos.length; index++) {
         this.liquidacionTerapService.updateById(datos[index]['idDocument'], datos[index]['idTerapeuta'], this.totalComision).then((datos) => {

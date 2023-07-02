@@ -17,7 +17,7 @@ import { CierreService } from 'src/app/core/services/cierre';
 })
 export class CierreComponent implements OnInit {
 
-  liqEncargada: boolean;
+  liqCierre: boolean;
   addCierre: boolean;
   filtredBusqueda: string;
   servicio: any;
@@ -113,7 +113,7 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
     this.tablas = false;
-    this.liqEncargada = true;
+    this.liqCierre = true;
     this.addCierre = false;
 
     this.getServicio();
@@ -184,7 +184,7 @@ export class CierreComponent implements OnInit {
 
   addLiquidacion() {
     this.validate();
-    this.liqEncargada = false;
+    this.liqCierre = false;
     this.addCierre = true;
   }
 

@@ -81,6 +81,21 @@ export class TrabajadoresService {
     });
   }
 
+  getByNombre(nombre): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db
+        .collection('terapeutas', (ref) => ref.where('nombre', '==', nombre))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
   getAllTerapeuta() {
     return this.db
       .collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc'))
@@ -143,6 +158,14 @@ export class TrabajadoresService {
       .update({
         horaEnd: horaEnd,
         salida: salida
+      });
+  }
+
+  updateHoraEnd(idDocument, nombreTerap, horaEnd ) {
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
+      .doc(idDocument)
+      .update({
+        horaEnd: ''
       });
   }
 

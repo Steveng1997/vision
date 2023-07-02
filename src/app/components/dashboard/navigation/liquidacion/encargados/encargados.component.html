@@ -1,13 +1,13 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<div *ngIf="liqEncargada" class="text-center mt-4 mb-4">
-    <button class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
-    <div>
-        <label> Nueva liquidación </label>
-    </div>
-</div>
-
 <form *ngIf="liqEncargada" [formGroup]="formTemplate">
+
+    <div class="text-center mt-4 mb-4">
+        <button class="btnCircle" (click)="addLiquidacion()">+</button>
+        <div>
+            <label> Nueva liquidación </label>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -195,7 +195,7 @@
                                 <!-- 4 -->
                                 <td>{{serv.salida}}</td>
                                 <!-- 5 -->
-                                <td>{{serv.hora}}</td>
+                                <td>{{serv.horaStart}}</td>
                                 <!-- 6 -->
                                 <td>{{serv.servicio}}</td>
                                 <!-- 7 -->
@@ -352,6 +352,6 @@
         </div>
     </form>
 
-    <button *ngIf="selected" mat-raised-button style="display: grid; margin: auto" (click)="guardar()"
-        color="primary">Guardar</button>
+    <button *ngIf="selected && servicio.length > 0" mat-raised-button style="display: grid; margin: auto"
+        (click)="guardar()" color="primary">Guardar</button>
 </div>

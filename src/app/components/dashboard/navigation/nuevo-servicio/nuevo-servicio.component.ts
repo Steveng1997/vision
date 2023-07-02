@@ -731,7 +731,7 @@ export class NuevoServicioComponent implements OnInit {
 
       defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
       this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
-      this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+      // this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
 
       let hora = this.horaFinalServicio.slice(0, 2)
       let minutes = this.horaFinalServicio.slice(3, 5)
@@ -759,7 +759,7 @@ export class NuevoServicioComponent implements OnInit {
 
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
     this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
-    this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+    // this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
 
     let hora = this.horaFinalServicio.slice(0, 2)
     let minutes = this.horaFinalServicio.slice(3, 5)

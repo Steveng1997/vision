@@ -1,13 +1,14 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<div *ngIf="liqTep" class="text-center mt-4 mb-4">
-    <button class="btn btn-primary rounded-circle" (click)="addLiquidacion()">+</button>
-    <div>
-        <label> Nueva liquidación </label>
-    </div>
-</div>
-
 <form *ngIf="liqTep" [formGroup]="formTemplate">
+
+    <div class="text-center mt-4 mb-4">
+        <button type="button" class="btnCircle" (click)="addLiquidacion()">+</button>
+        <div>
+            <label> Nueva liquidación </label>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
 
@@ -38,7 +39,7 @@
                 <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
             </div>
 
-            <mat-form-field class="col-6 acomodarInput">
+            <mat-form-field class="col-6 acomodarInput mt-3">
                 <mat-label>Buscar</mat-label>
                 <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
             </mat-form-field>
@@ -123,7 +124,7 @@
         <div class="container">
             <div class="row">
 
-                <mat-form-field class="col-9">
+                <mat-form-field class="col-6">
                     <mat-label>Terapeuta</mat-label>
                     <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
                         (ngModelChange)="calcularSumaDeServicios()">
@@ -133,7 +134,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field class="col-3">
+                <mat-form-field class="col-6">
                     <mat-label>Encargada</mat-label>
                     <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
                         (ngModelChange)="calcularSumaDeServicios()">
@@ -145,14 +146,14 @@
             </div>
 
             <div *ngIf="selected" class="row" style="margin-top: 4%;">
-                <div class="col-6">
+                <div class="col-9">
                     <mat-drawer-container class="example-container">
                         <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
                             {{selectedTerapeuta}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
 
-                <div class="col-6">
+                <div class="col-3">
                     <mat-drawer-container style="float: right;">
                         <mat-drawer-content style="font-weight: bold;">{{totalComision + ' €'}}</mat-drawer-content>
                     </mat-drawer-container>
@@ -163,7 +164,7 @@
 
             <div class="col-auto" *ngIf="mostrarFecha">
                 <mat-drawer-container style="float: left;">
-                    <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc}}</mat-drawer-content>
+                    <mat-drawer-content>{{fechaAsc + ' - ' + fechaDesc}}</mat-drawer-content>
                 </mat-drawer-container>
             </div>
 
@@ -200,32 +201,32 @@
                         </thead>
                         <tbody *ngFor="let serv of (servicioNoLiquidada | terapeuta: selectedTerapeuta | 
                     encargada: selectedEncargada) | paginate: { itemsPerPage: 10, currentPage: page }">
-                            <tr>
+                            <tr style="cursor: pointer;">
                                 <!-- 1 -->
                                 <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)">
                                 </td>
                                 <!-- 2 -->
-                                <td>{{serv.fecha}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.fecha}}</td>
                                 <!-- 3 -->
-                                <td>{{serv.salida}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.salida}}</td>
                                 <!-- 4 -->
-                                <td>{{serv.hora}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.horaStart}}</td>
                                 <!-- 5 -->
-                                <td>{{serv.servicio}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.servicio}}</td>
                                 <!-- 6 -->
-                                <td>{{serv.propina}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.propina}}</td>
                                 <!-- 7 -->
-                                <td>{{serv.formaPago}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.formaPago}}</td>
                                 <!-- 8 -->
-                                <td>{{serv.numberTerap}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.numberTerap}}</td>
                                 <!-- 9 -->
-                                <td>{{serv.bebidas}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.bebidas}}</td>
                                 <!-- 10 -->
-                                <td>{{serv.tabaco}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.tabaco}}</td>
                                 <!-- 11 -->
-                                <td>{{serv.vitaminas}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.vitaminas}}</td>
                                 <!-- 12 -->
-                                <td>{{serv.otros}}</td>
+                                <td (click)="editamos(serv.id)">{{serv.otros}}</td>
                             </tr>
 
                             <!-- Modal -->
@@ -359,8 +360,8 @@
         </div>
     </form>
 
-    <button *ngIf="selected" mat-raised-button style="display: grid; margin: auto;" (click)="guardar()"
-        color="primary">Guardar</button>
+    <button *ngIf="selected && servicioNoLiquidada.length > 0" mat-raised-button style="display: grid; margin: auto;"
+        (click)="guardar()" color="primary">Guardar</button>
 </div>
 
 <!-- Editar Terapeuta -->
