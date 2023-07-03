@@ -17,7 +17,8 @@ export class VisionComponent implements OnInit {
   vision: any = []
   page!: number
   dateConvertion = new Date()
-  fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion)
+  // fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion)
+  fechaDiaHoy = ''
   restante: string
   totalServicio: number
   idUser: string
@@ -75,7 +76,18 @@ export class VisionComponent implements OnInit {
     })
   }
 
+  fechadeHoy() {
+    let convertDia
+    let currentDate = new Date()
+    let dia = currentDate.getDate()
+    let mes = currentDate.toJSON().substring(5, 7)
+    if (dia > 0 && dia < 10) convertDia = '0' + dia
+    this.fechaDiaHoy = `${currentDate.getFullYear()}/${mes}/${convertDia}`
+    // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
+  }
+
   getServicio() {
+    this.fechadeHoy()
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio
 
