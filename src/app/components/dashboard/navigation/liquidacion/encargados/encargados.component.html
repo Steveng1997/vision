@@ -54,7 +54,7 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody (click)="editamosServicio(serv.idTerapeuta)" *ngFor="let serv of (liquidacionesEncargada | encargada: selectedEncargada 
+        <tbody (click)="editamosServicio(serv.idEncargada)" *ngFor="let serv of (liquidacionesEncargada | encargada: selectedEncargada 
         | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
             <tr style="cursor: pointer;">

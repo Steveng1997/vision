@@ -461,6 +461,24 @@ export class ServicioService {
     });
   }
 
+  getTerapeutaFechaAscByLiqTrue(terapeuta: string, encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+
+
   getEncargFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
@@ -482,6 +500,22 @@ export class ServicioService {
       this.db
         .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
           .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getTerapeutaFechaDescByLiqFalse(terapeuta: string, encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {

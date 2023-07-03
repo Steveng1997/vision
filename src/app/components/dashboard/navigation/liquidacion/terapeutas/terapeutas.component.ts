@@ -189,6 +189,10 @@ export class TerapeutasComponent implements OnInit {
         return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
       }
 
+      const condicionEncargada = serv => {
+        return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+      }
+
       this.servicioService.getTerapeutaFechaAsc(this.selectedTerapeuta, this.selectedEncargada).then((fechaAsce) => {
         this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
       })
@@ -196,10 +200,6 @@ export class TerapeutasComponent implements OnInit {
       this.servicioService.getTerapeutaFechaDesc(this.selectedTerapeuta, this.selectedEncargada).then((fechaDesce) => {
         this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
       })
-
-      const condicionEncargada = serv => {
-        return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
-      }
 
       const mostrarFech = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
@@ -312,8 +312,17 @@ export class TerapeutasComponent implements OnInit {
     this.addTerap = false
     this.editTerap = true
 
+    debugger
     this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
       this.datosLiquidadoTerap = datosTerapeuta;
+
+      this.servicioService.getTerapeutaFechaAscByLiqTrue(datosTerapeuta[0]['terapeuta'], datosTerapeuta[0]['encargada']).then((fechaAsce) => {
+        this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+      })
+
+      this.servicioService.getTerapeutaFechaDescByLiqFalse(datosTerapeuta[0]['terapeuta'], datosTerapeuta[0]['encargada']).then((fechaDesce) => {
+        this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+      })
 
       // Filter by servicio
       const servicios = this.datosLiquidadoTerap.filter(serv => serv)
