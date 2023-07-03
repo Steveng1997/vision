@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Trabajadores } from 'src/app/core/models/trabajadores';
-import { LoginService } from 'src/app/core/services/login';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { FormGroup, FormControl } from '@angular/forms'
+import { Trabajadores } from 'src/app/core/models/trabajadores'
+import { LoginService } from 'src/app/core/services/login'
 // Service
-import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { TrabajadoresService } from 'src/app/core/services/trabajadores'
 
 // Alert
-import Swal from 'sweetalert2';
-import { Usuario } from 'src/app/core/models/usuarios';
+import Swal from 'sweetalert2'
+import { Usuario } from 'src/app/core/models/usuarios'
 
 @Component({
   selector: 'app-configuracion',
@@ -20,11 +20,11 @@ export class ConfiguracionComponent implements OnInit {
 
   // Encargada
 
-  nombreEncargada: string = '';
-  encargada: any[] = [];
-  pageEncargada!: number;
-  idEncargada: string;
-  encargadaModal: any[] = [];
+  nombreEncargada: string = ''
+  encargada: any[] = []
+  pageEncargada!: number
+  idEncargada: string
+  encargadaModal: any[] = []
 
   formTemplate = new FormGroup({
     nombre: new FormControl(''),
@@ -37,21 +37,21 @@ export class ConfiguracionComponent implements OnInit {
     vitamina: new FormControl(''),
     propina: new FormControl(''),
     otros: new FormControl('')
-  });
+  })
 
   // Terapeuta
 
-  nombreTerapeuta: string = '';
-  numberServicio: string = '';
-  numberBebida: string = '';
-  numberTabaco: string = '';
-  numberVitamina: string = '';
-  numberOtrosTep: string = '';
-  numberPropinaTep: string = '';
-  terapeuta: any[] = [];
-  pageTerapeuta!: number;
-  idTerapeuta: string;
-  terapeutaModal: any[] = [];
+  nombreTerapeuta: string = ''
+  numberServicio: string = ''
+  numberBebida: string = ''
+  numberTabaco: string = ''
+  numberVitamina: string = ''
+  numberOtrosTep: string = ''
+  numberPropinaTep: string = ''
+  terapeuta: any[] = []
+  pageTerapeuta!: number
+  idTerapeuta: string
+  terapeutaModal: any[] = []
 
   constructor(
     public router: Router,
@@ -61,8 +61,8 @@ export class ConfiguracionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTerapeuta();
-    this.getEncargada();
+    this.getTerapeuta()
+    this.getEncargada()
 
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'CONFIGURACIÓN'
@@ -72,87 +72,87 @@ export class ConfiguracionComponent implements OnInit {
     this.modalService.open(targetEncargada, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   modalTablaEncargada(targetEncargada, encargadas) {
     this.usuarioService.getById(targetEncargada).then((datosNameEncargada) => {
-      return (this.encargadaModal = datosNameEncargada);
-    });
+      return (this.encargadaModal = datosNameEncargada)
+    })
 
     this.modalService.open(encargadas, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   getEncargada() {
     this.usuarioService.getUsuarios().subscribe((datosEncargada) => {
-      this.encargada = datosEncargada;
-    });
+      this.encargada = datosEncargada
+    })
   }
 
   numberEncargada() {
     if (this.formTemplate.value.fijoDia == '') {
-      this.formTemplate.value.fijoDia = '0';
+      this.formTemplate.value.fijoDia = '0'
     }
 
     if (this.formTemplate.value.servicio == '') {
-      this.formTemplate.value.servicio = '0';
+      this.formTemplate.value.servicio = '0'
     }
 
     if (this.formTemplate.value.bebida == '') {
-      this.formTemplate.value.bebida = '0';
+      this.formTemplate.value.bebida = '0'
     }
 
     if (this.formTemplate.value.tabaco == '') {
-      this.formTemplate.value.tabaco = '0';
+      this.formTemplate.value.tabaco = '0'
     }
 
     if (this.formTemplate.value.vitamina == '') {
-      this.formTemplate.value.vitamina = '0';
+      this.formTemplate.value.vitamina = '0'
     }
 
     if (this.formTemplate.value.propina == '') {
-      this.formTemplate.value.propina = '0';
+      this.formTemplate.value.propina = '0'
     }
 
     if (this.formTemplate.value.otros == '') {
-      this.formTemplate.value.otros = '0';
+      this.formTemplate.value.otros = '0'
     }
   }
 
   resetEncargada() {
-    this.formTemplate.reset();
+    this.formTemplate.reset()
   }
 
   cerrarEncargada() {
-    this.resetEncargada();
+    this.resetEncargada()
   }
 
   registro(formValue) {
     if (this.formTemplate.value.nombre) {
       if (this.formTemplate.value.usuario) {
         if (this.formTemplate.value.pass) {
-          this.numberEncargada();
+          this.numberEncargada()
           this.usuarioService.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
             if (nameRegistro[0] == undefined) {
-              this.usuarioService.registerEncargada(formValue);
+              this.usuarioService.registerEncargada(formValue)
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
                 timer: 2500,
-              });
-              this.modalService.dismissAll();
-              this.resetEncargada();
+              })
+              this.modalService.dismissAll()
+              this.resetEncargada()
             } else {
               Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Ya existe este usuario',
-              });
+              })
             }
           })
         } else {
@@ -160,34 +160,34 @@ export class ConfiguracionComponent implements OnInit {
             icon: 'error',
             title: 'Oops...',
             text: 'El campo de la contraseña se encuentra vacío',
-          });
+          })
         }
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'El campo del usuario se encuentra vacío',
-        });
+        })
       }
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'El campo del nombre se encuentra vacío',
-      });
+      })
     }
   }
 
   editarEncargada(idDocument, idEstudiante, encargad: Usuario) {
-    this.usuarioService.updateUser(idDocument, idEstudiante, encargad);
-    this.modalService.dismissAll();
+    this.usuarioService.updateUser(idDocument, idEstudiante, encargad)
+    this.modalService.dismissAll()
     Swal.fire({
       position: 'top-end',
       icon: 'success',
       title: '¡Editado Correctamente!',
       showConfirmButton: false,
       timer: 2500,
-    });
+    })
   }
 
   deleteEncargada(id) {
@@ -208,15 +208,15 @@ export class ConfiguracionComponent implements OnInit {
               title: '¡Eliminado Correctamente!',
               showConfirmButton: false,
               timer: 2500,
-            });
+            })
 
-            this.usuarioService.deleteEncargadas(datoEncargada[0]['idDocument'], id);
-            this.getEncargada();
-            this.modalService.dismissAll();
+            this.usuarioService.deleteEncargadas(datoEncargada[0]['idDocument'], id)
+            this.getEncargada()
+            this.modalService.dismissAll()
           }
-        });
+        })
       }
-    });
+    })
   }
 
   // Terapeuta
@@ -225,69 +225,69 @@ export class ConfiguracionComponent implements OnInit {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   modalTablaTerapeuta(targetModal, terap) {
     this.trabajadorService.getByIdTerapeuta(targetModal).then((datosNameTerapeuta) => {
-      return (this.terapeutaModal = datosNameTerapeuta);
-    });
+      return (this.terapeutaModal = datosNameTerapeuta)
+    })
 
     this.modalService.open(terap, {
       centered: true,
       backdrop: 'static',
-    });
+    })
   }
 
   getTerapeuta() {
     this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta) => {
-      this.terapeuta = datosTerapeuta;
-    });
+      this.terapeuta = datosTerapeuta
+    })
   }
 
   resetTerapeuta() {
-    this.nombreTerapeuta = '';
-    this.numberServicio = '';
-    this.numberBebida = '';
-    this.numberTabaco = '';
-    this.numberVitamina = '';
-    this.numberOtrosTep = '';
-    this.numberPropinaTep = '';
+    this.nombreTerapeuta = ''
+    this.numberServicio = ''
+    this.numberBebida = ''
+    this.numberTabaco = ''
+    this.numberVitamina = ''
+    this.numberOtrosTep = ''
+    this.numberPropinaTep = ''
   }
 
   cerrarTerapeuta() {
-    this.resetTerapeuta();
+    this.resetTerapeuta()
   }
 
   numberTerapeuta() {
     if (this.numberServicio == undefined) {
-      this.numberServicio = '';
+      this.numberServicio = ''
     }
 
     if (this.numberBebida == undefined) {
-      this.numberBebida = '';
+      this.numberBebida = ''
     }
 
     if (this.numberTabaco == undefined) {
-      this.numberTabaco = '';
+      this.numberTabaco = ''
     }
 
     if (this.numberVitamina == undefined) {
-      this.numberVitamina = '';
+      this.numberVitamina = ''
     }
 
     if (this.numberOtrosTep == undefined) {
-      this.numberOtrosTep = '';
+      this.numberOtrosTep = ''
     }
 
     if (this.numberPropinaTep == undefined) {
-      this.numberPropinaTep = '';
+      this.numberPropinaTep = ''
     }
   }
 
   addTerapeuta() {
     if (this.nombreTerapeuta != '') {
-      this.numberTerapeuta();
+      this.numberTerapeuta()
       this.trabajadorService.getTerapeuta(this.nombreTerapeuta).then((nameExit) => {
         if (nameExit.length != 0) {
           Swal.fire({
@@ -298,55 +298,55 @@ export class ConfiguracionComponent implements OnInit {
           }).then((result) => {
             if (result.isConfirmed) {
               this.trabajadorService.registerTerapeuta(this.nombreTerapeuta, this.numberServicio, this.numberBebida, this.numberTabaco,
-                this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep);
+                this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep)
               Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
                 timer: 2500,
-              });
-              this.modalService.dismissAll();
-              this.resetTerapeuta();
+              })
+              this.modalService.dismissAll()
+              this.resetTerapeuta()
             } else if (result.isDenied) {
-              this.modalService.dismissAll();
-              this.resetTerapeuta();
+              this.modalService.dismissAll()
+              this.resetTerapeuta()
             }
           })
 
         } else {
           this.trabajadorService.registerTerapeuta(this.nombreTerapeuta, this.numberServicio, this.numberBebida, this.numberTabaco,
-            this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep);
+            this.numberVitamina, this.numberOtrosTep, this.numberPropinaTep)
           Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: '¡Insertado Correctamente!',
             showConfirmButton: false,
             timer: 2500,
-          });
-          this.modalService.dismissAll();
-          this.resetTerapeuta();
+          })
+          this.modalService.dismissAll()
+          this.resetTerapeuta()
         }
-      });
+      })
     }
     else {
       Swal.fire({
         icon: 'error',
         title: 'El campo nombre se encuentra vacío.',
-      });
+      })
     }
   }
 
   editarTerapeuta(idDocument, idEstudiante, terap: Trabajadores) {
-    this.trabajadorService.updateTerapeutas(idDocument, idEstudiante, terap);
-    this.modalService.dismissAll();
+    this.trabajadorService.updateTerapeutas(idDocument, idEstudiante, terap)
+    this.modalService.dismissAll()
     Swal.fire({
       position: 'top-end',
       icon: 'success',
       title: '¡Editado Correctamente!',
       showConfirmButton: false,
       timer: 2500,
-    });
+    })
   }
 
   deleteTerapeuta(id) {
@@ -367,14 +367,14 @@ export class ConfiguracionComponent implements OnInit {
               title: '¡Eliminado Correctamente!',
               showConfirmButton: false,
               timer: 2500,
-            });
+            })
 
-            this.trabajadorService.deleteTerapeuta(datoTerapeuta[0]['idDocument'], id);
-            this.getTerapeuta();
-            this.modalService.dismissAll();
+            this.trabajadorService.deleteTerapeuta(datoTerapeuta[0]['idDocument'], id)
+            this.getTerapeuta()
+            this.modalService.dismissAll()
           }
-        });
+        })
       }
-    });
+    })
   }
 }

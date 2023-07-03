@@ -208,13 +208,12 @@ export class NuevoServicioComponent implements OnInit {
 
   fechadeHoy() {
     let convertDia
-      let currentDate = new Date()
-      let dia = currentDate.getDate()
-      let mes = currentDate.toJSON().substring(5, 7)
-      if (dia > 0 && dia < 10) convertDia = '0' + dia
-      debugger
-      this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
-      // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
+    let currentDate = new Date()
+    let dia = currentDate.getDate()
+    let mes = currentDate.toJSON().substring(5, 7)
+    if (dia > 0 && dia < 10) convertDia = '0' + dia
+    this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
+    // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
   }
 
   addServicio(formValue): any {
@@ -452,7 +451,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   totalServicio() {
-    let piso1 = 0; let piso2 = 0; let terap = 0; let encargada = 0; let otros = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0
 
     if (this.formTemplate.value.numberPiso1 === null) {
       piso1 = 0
@@ -1194,7 +1193,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   totalServicioEdit() {
-    let piso1 = 0; let piso2 = 0; let terap = 0; let encargada = 0; let otros = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0
 
     if (this.editarService[0]['numberPiso1'] === null) {
       piso1 = 0

@@ -1,10 +1,10 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
-import { LoginService } from 'src/app/core/services/login';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { MatSidenav } from '@angular/material/sidenav';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { delay, filter } from 'rxjs/operators';
+import { Component, ViewChild, OnInit } from '@angular/core'
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router'
+import { LoginService } from 'src/app/core/services/login'
+import { BreakpointObserver } from '@angular/cdk/layout'
+import { MatSidenav } from '@angular/material/sidenav'
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
+import { delay, filter } from 'rxjs/operators'
 
 @UntilDestroy()
 @Component({
@@ -14,12 +14,12 @@ import { delay, filter } from 'rxjs/operators';
 })
 
 export class SidenavWrapperComponent implements OnInit {
-  usuarios: any[] = [];
-  public idUser: any;
+  usuarios: any[] = []
+  public idUser: any
   @ViewChild(MatSidenav)
-  sidenav!: MatSidenav;
+  sidenav!: MatSidenav
 
-  isLiquidacion = false;
+  isLiquidacion = false
 
   constructor(
     public router: Router,
@@ -29,7 +29,7 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.idUser = this.activeRoute.snapshot.paramMap.get('id');
+    this.idUser = this.activeRoute.snapshot.paramMap.get('id')
     this.serviceLogin.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
@@ -37,7 +37,7 @@ export class SidenavWrapperComponent implements OnInit {
   }
 
   liquidacion() {
-    this.isLiquidacion = !this.isLiquidacion;
+    this.isLiquidacion = !this.isLiquidacion
   }
 
   ngAfterViewInit() {
@@ -47,12 +47,12 @@ export class SidenavWrapperComponent implements OnInit {
       .pipe(delay(1), untilDestroyed(this))
       .subscribe((res) => {
         if (res.matches) {
-          this.sidenav.mode = 'over';
-          this.sidenav.close();
+          this.sidenav.mode = 'over'
+          this.sidenav.close()
         } else {
-          this.sidenav.mode = 'side';
-          this.sidenav.open();
+          this.sidenav.mode = 'side'
+          this.sidenav.open()
         }
-      });
+      })
   }
 }

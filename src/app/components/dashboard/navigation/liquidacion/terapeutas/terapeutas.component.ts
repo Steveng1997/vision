@@ -311,10 +311,9 @@ export class TerapeutasComponent implements OnInit {
     this.liqTep = false
     this.addTerap = false
     this.editTerap = true
-
-    debugger
+    
     this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
-      this.datosLiquidadoTerap = datosTerapeuta;
+      this.datosLiquidadoTerap = datosTerapeuta
 
       this.servicioService.getTerapeutaFechaAscByLiqTrue(datosTerapeuta[0]['terapeuta'], datosTerapeuta[0]['encargada']).then((fechaAsce) => {
         this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
