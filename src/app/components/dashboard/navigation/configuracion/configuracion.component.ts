@@ -143,7 +143,7 @@ export class ConfiguracionComponent implements OnInit {
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 1000,
               })
               this.modalService.dismissAll()
               this.resetEncargada()
@@ -304,7 +304,7 @@ export class ConfiguracionComponent implements OnInit {
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 1000,
               })
               this.modalService.dismissAll()
               this.resetTerapeuta()
@@ -322,7 +322,7 @@ export class ConfiguracionComponent implements OnInit {
             icon: 'success',
             title: '¡Insertado Correctamente!',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 1000,
           })
           this.modalService.dismissAll()
           this.resetTerapeuta()

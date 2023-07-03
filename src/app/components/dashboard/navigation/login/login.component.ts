@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 1000,
               })
               this.modalService.dismissAll()
             } else {

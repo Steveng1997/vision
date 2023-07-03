@@ -362,7 +362,7 @@ export class NuevoServicioComponent implements OnInit {
                 icon: 'success',
                 title: '¡Insertado Correctamente!',
                 showConfirmButton: false,
-                timer: 2500,
+                timer: 1000,
               })
               this.router.navigate([
                 `menu/${this.idUser['id']}/vision/${this.idUser['id']}`
