@@ -24,7 +24,8 @@ export class NuevoServicioComponent implements OnInit {
   fechaActual = new Date().toISOString().substring(0, 10)
   horaStarted = new Date().toTimeString().substring(0, 5)
   dateConvertion = new Date()
-  fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion)
+  // fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion)
+  fechaHoyInicio = ''
   currentDate = new Date().getTime()
 
   terapeuta: any[] = []
@@ -205,11 +206,23 @@ export class NuevoServicioComponent implements OnInit {
     return this.idUnico
   }
 
+  fechadeHoy() {
+    let convertDia
+      let currentDate = new Date()
+      let dia = currentDate.getDate()
+      let mes = currentDate.toJSON().substring(5, 7)
+      if (dia > 0 && dia < 10) convertDia = '0' + dia
+      debugger
+      this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
+      // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
+  }
+
   addServicio(formValue): any {
     this.crearIdUnico()
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
         this.errorMetodo()
+        this.fechadeHoy()
         if (this.sumaErrorMetodo == 0) {
           if (this.restamosCobro == 0) {
             if (!this.validacionesFormaPagoAdd()) return

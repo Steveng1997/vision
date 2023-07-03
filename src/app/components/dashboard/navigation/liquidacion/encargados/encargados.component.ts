@@ -296,6 +296,14 @@ export class EncargadosComponent implements OnInit {
     this.servicioService.getByIdEncarg(id).subscribe((datosEncargada) => {
       this.datosLiquidadoEncargada = datosEncargada;
 
+      this.servicioService.getEncargadaFechaAscByLiqTrue(datosEncargada[0]['encargada']).then((fechaAsce) => {
+        this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+      })
+
+      this.servicioService.getEncargadaFechaDescByLiqTrue(datosEncargada[0]['encargada']).then((fechaDesce) => {
+        this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+      })
+
       // Filter by servicio
       const servicios = this.datosLiquidadoEncargada.filter(serv => serv)
       this.totalServicio = servicios.reduce((accumulator, serv) => {
