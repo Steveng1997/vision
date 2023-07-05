@@ -81,7 +81,8 @@ export class TrabajadoresService {
     });
   }
 
-  getByNombre(nombre): Promise<any> {
+
+  getByNombre(nombre: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.db
         .collection('terapeutas', (ref) => ref.where('nombre', '==', nombre))
