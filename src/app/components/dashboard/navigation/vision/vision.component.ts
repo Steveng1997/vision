@@ -139,23 +139,23 @@ export class VisionComponent implements OnInit {
     var minutos_final = hora_final.split(':')
       .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
-      debugger
+    debugger
 
-    if (hora_inicio.length === 4){
+    if (hora_inicio.length === 4) {
       let hora = 0, minutes = 0;
-      hora = hora_inicio.slice(0,1);
-      minutes = hora_inicio.slice(2,4);
+      hora = hora_inicio.slice(0, 1);
+      minutes = hora_inicio.slice(2, 4);
       convertHora = '0' + hora
       hora_inicio = `${convertHora}:${minutes}`;
     }
 
-      this.terapService.getByNombre(nombre).then((datoMinute) => {
-        for (let i = 0; i < datoMinute.length; i++) {
-          if (datoMinute[i]['horaEnd'] <= hora_inicio) {
-                this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
-          }
+    this.terapService.getByNombre(nombre).then((datoMinute) => {
+      for (let i = 0; i < datoMinute.length; i++) {
+        if (datoMinute[i]['horaEnd'] <= hora_inicio) {
+          this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
         }
-      })
+      }
+    })
 
     // Si la hora final es anterior a la hora inicial sale
     if (minutos_final < minutos_inicio) return ''
