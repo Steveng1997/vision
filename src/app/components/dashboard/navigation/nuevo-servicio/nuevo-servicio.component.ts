@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
-import { FormGroup, FormControl } from '@angular/forms'
-import Swal from 'sweetalert2'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 // Service
-import { TrabajadoresService } from 'src/app/core/services/trabajadores'
-import { ServicioService } from 'src/app/core/services/servicio'
-import { LoginService } from 'src/app/core/services/login'
-import { Servicio } from 'src/app/core/models/servicio'
+import { TrabajadoresService } from 'src/app/core/services/trabajadores';
+import { ServicioService } from 'src/app/core/services/servicio';
+import { LoginService } from 'src/app/core/services/login';
+import { Servicio } from 'src/app/core/models/servicio';
 
 @Component({
   selector: 'app-nuevo-servicio',
@@ -18,71 +18,70 @@ import { Servicio } from 'src/app/core/models/servicio'
 })
 export class NuevoServicioComponent implements OnInit {
 
-  horaStartTerapeuta = ''
-  horaEndTerapeuta = ''
+  horaStartTerapeuta = '';
+  horaEndTerapeuta = '';
 
-  fechaActual = new Date().toISOString().substring(0, 10)
-  horaStarted = new Date().toTimeString().substring(0, 5)
-  dateConvertion = new Date()
-  // fechaHoyInicio = new Intl.DateTimeFormat("az").format(this.dateConvertion)
-  fechaHoyInicio = ''
-  currentDate = new Date().getTime()
+  fechaActual = new Date().toISOString().substring(0, 10);
+  horaStarted = new Date().toTimeString().substring(0, 5);
+  dateConvertion = new Date();
+  fechaHoyInicio = '';
+  currentDate = new Date().getTime();
 
-  terapeuta: any[] = []
+  terapeuta: any[] = [];
 
-  fechaLast = []
-  encargada: any[] = []
+  fechaLast = [];
+  encargada: any[] = [];
 
-  chageDate = ''
-  formaPago: string = ''
-  salidaTrabajador = ''
+  chageDate = '';
+  formaPago: string = '';
+  salidaTrabajador = '';
 
-  horaInicialServicio: string
-  fechaPrint: string
-  servicioTotal = 0
+  horaInicialServicio: string;
+  fechaPrint: string;
+  servicioTotal = 0;
 
-  horaFinalServicio: string
+  horaFinalServicio: string;
 
-  sumatoriaServicios = 0
-  restamosCobro = 0
-  sumatoriaCobros = 0
+  sumatoriaServicios = 0;
+  restamosCobro = 0;
+  sumatoriaCobros = 0;
 
   // Cobros 
-  valueEfectivo = 0
-  valueBizum = 0
-  valueTarjeta = 0
-  valueTrans = 0
-  validateEfect = true
-  validateBizum = true
-  validateTarjeta = true
-  validateTrans = true
+  valueEfectivo = 0;
+  valueBizum = 0;
+  valueTarjeta = 0;
+  valueTrans = 0;
+  validateEfect = true;
+  validateBizum = true;
+  validateTarjeta = true;
+  validateTrans = true;
 
   // value Encargada & Terapeuta
-  valueEfectTerapeuta = 0
-  valueBizuTerapeuta = 0
-  valueTarjeTerapeuta = 0
-  valueTransTerapeuta = 0
+  valueEfectTerapeuta = 0;
+  valueBizuTerapeuta = 0;
+  valueTarjeTerapeuta = 0;
+  valueTransTerapeuta = 0;
 
-  valueEfectEncargada = 0
-  valueBizuEncargada = 0
-  valueTarjeEncargada = 0
-  valueTransEncargada = 0
+  valueEfectEncargada = 0;
+  valueBizuEncargada = 0;
+  valueTarjeEncargada = 0;
+  valueTransEncargada = 0;
 
   // Editar
 
-  sumatoriaServiciosEdit = 0
-  restamosCobroEdit = 0
-  sumatoriaCobrosEdit = 0
+  sumatoriaServiciosEdit = 0;
+  restamosCobroEdit = 0;
+  sumatoriaCobrosEdit = 0;
 
-  idEditar: string
-  editarService: Servicio[]
-  sumaErrorMetodo: number
-  editamos = false
-  idUserAdministrador: string
-  idUser: string
-  buttonDelete = false
+  idEditar: string;
+  editarService: Servicio[];
+  sumaErrorMetodo: number;
+  editamos = false;
+  idUserAdministrador: string;
+  idUser: string;
+  buttonDelete = false;
 
-  idUnico: string
+  idUnico: string;
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -134,53 +133,53 @@ export class NuevoServicioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
+    document.getElementById('idTitulo').style.display = 'block';
+    document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO';
 
-    this.cargar()
-    this.getEncargada()
-    this.getTerapeuta()
-    this.getLastDate()
-    this.horaInicialServicio = this.horaStarted
-    this.horaFinalServicio = this.horaStarted
+    this.cargar();
+    this.getEncargada();
+    this.getTerapeuta();
+    this.getLastDate();
+    this.horaInicialServicio = this.horaStarted;
+    this.horaFinalServicio = this.horaStarted;
   }
 
   getLastDate() {
     this.servicioService.getServicio().subscribe((datoLastDate) => {
       if (datoLastDate[0] != undefined) {
-        this.fechaLast[0] = datoLastDate[0]
+        this.fechaLast[0] = datoLastDate[0];
       } else {
-        this.fechaLast = datoLastDate['00:00']
+        this.fechaLast = datoLastDate['00:00'];
       }
     })
   }
 
   getTerapeuta() {
     this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta) => {
-      this.terapeuta = datosTerapeuta
+      this.terapeuta = datosTerapeuta;
     })
   }
 
   getEncargada() {
     this.serviceLogin.getUsuarios().subscribe((datosEncargada) => {
-      this.encargada = datosEncargada
+      this.encargada = datosEncargada;
     })
   }
 
   isDisabled(date: NgbDateStruct, current: { month: number }) {
-    return date.month !== current.month
+    return date.month !== current.month;
   }
 
   changeFecha(event) {
-    this.chageDate = event.target.value.substring(5, 10)
+    this.chageDate = event.target.value.substring(5, 10);
   }
 
   validarFechaVencida() {
-    const splitDate = this.fechaActual.split('-')
-    const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
-    const currentDate = new Date()
-    const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
-    const currentHours = currentDate.getHours()
+    const splitDate = this.fechaActual.split('-');
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`);
+    const currentDate = new Date();
+    const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`);
+    const currentHours = currentDate.getHours();
     if (selectDate < currentDateWithoutHours && currentHours <= 12) {
       Swal.fire({
         icon: 'error',
@@ -198,39 +197,38 @@ export class NuevoServicioComponent implements OnInit {
   crearIdUnico() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0
-      d = Math.floor(d / 16)
+      var r = (d + Math.random() * 16) % 16 | 0;
+      d = Math.floor(d / 16);
       return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
     })
-    this.idUnico = uuid
+    this.idUnico = uuid;
     return this.idUnico
   }
 
   fechadeHoy() {
-    let convertDia
-    let currentDate = new Date()
-    let dia = currentDate.getDate()
-    let mes = currentDate.toJSON().substring(5, 7)
-    if (dia > 0 && dia < 10) convertDia = '0' + dia
-    this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
-    // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
+    let convertDia;
+    let currentDate = new Date();
+    let dia = currentDate.getDate();
+    let mes = currentDate.toJSON().substring(5, 7);
+    if (dia > 0 && dia < 10) convertDia = '0' + dia;
+    this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`;
   }
 
   addServicio(formValue): any {
-    this.crearIdUnico()
+    this.crearIdUnico();
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
-        this.errorMetodo()
-        this.fechadeHoy()
+        this.errorMetodo();
+        this.fechadeHoy();
         if (this.sumaErrorMetodo == 0) {
           if (this.restamosCobro == 0) {
             if (!this.validacionesFormaPagoAdd()) return
-            this.totalServicio()
-            this.efectCheckToggle(this.validateEfect)
-            this.bizumCheckToggle(this.validateBizum)
-            this.tarjCheckToggle(this.validateTarjeta)
-            this.transCheckToggle(this.validateTrans)
-            this.encargadaAndTerapeuta()
+            this.totalServicio();
+            this.efectCheckToggle(this.validateEfect);
+            this.bizumCheckToggle(this.validateBizum);
+            this.tarjCheckToggle(this.validateTarjeta);
+            this.transCheckToggle(this.validateTrans);
+            this.encargadaAndTerapeuta();
             if (this.formTemplate.value.numberPiso1 > 0) {
               if (this.formTemplate.value.efectPiso1 == true) {
                 this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
@@ -345,17 +343,17 @@ export class NuevoServicioComponent implements OnInit {
               this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberTerap > 0 ||
               this.formTemplate.value.numberOtro > 0) {
 
-              let idDocument
+              let idDocument;
 
               this.trabajadorService.getTerapeuta(this.formTemplate.value.terapeuta).then((rp) => {
-                const idDocument1 = rp.filter(tp => tp.nombre)
-                idDocument = idDocument1[0]['idDocument']
+                const idDocument1 = rp.filter(tp => tp.nombre);
+                idDocument = idDocument1[0]['idDocument'];
                 this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio, this.formTemplate.value.salida)
               })
 
               this.servicioService.getIdDocument(this.idUnico).then((rp) => {
                 if (rp.length > 1)
-                  this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id'])
+                  this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id']);
               })
               Swal.fire({
                 position: 'top-end',
@@ -366,7 +364,7 @@ export class NuevoServicioComponent implements OnInit {
               })
               this.router.navigate([
                 `menu/${this.idUser['id']}/vision/${this.idUser['id']}`
-              ])
+              ]);
             } else {
               Swal.fire({
                 icon: 'error',
@@ -415,340 +413,369 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   errorMetodo() {
-    let errorPiso1 = 0, errorPiso2 = 0, errorTerapeuta = 0, errorEncargada = 0, errorOtro = 0
+    let errorPiso1 = 0, errorPiso2 = 0, errorTerapeuta = 0, errorEncargada = 0, errorOtro = 0;
 
     if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.efectPiso1 == false &&
       this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.tarjPiso1 == false &&
       this.formTemplate.value.transPiso1 == false) {
-      errorPiso1 = 1
+      errorPiso1 = 1;
     }
 
     if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.efectPiso2 == false &&
       this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.tarjPiso2 == false &&
       this.formTemplate.value.transPiso2 == false) {
-      errorPiso2 = 1
+      errorPiso2 = 1;
     }
 
     if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.efectTerap == false &&
       this.formTemplate.value.bizuTerap == false && this.formTemplate.value.tarjTerap == false &&
       this.formTemplate.value.transTerap == false) {
-      errorTerapeuta = 1
+      errorTerapeuta = 1;
     }
 
     if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.efectEncarg == false &&
       this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.tarjEncarg == false &&
       this.formTemplate.value.transEncarg == false) {
-      errorEncargada = 1
+      errorEncargada = 1;
     }
 
     if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.efectOtro == false &&
       this.formTemplate.value.bizuOtro == false && this.formTemplate.value.tarjOtro == false &&
       this.formTemplate.value.transOtro == false) {
-      errorOtro = 1
+      errorOtro = 1;
     }
 
-    this.sumaErrorMetodo = errorPiso1 + errorPiso2 + errorTerapeuta + errorEncargada + errorOtro
+    this.sumaErrorMetodo = errorPiso1 + errorPiso2 + errorTerapeuta + errorEncargada + errorOtro;
   }
 
   totalServicio() {
-    let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0;
 
     if (this.formTemplate.value.numberPiso1 === null) {
-      piso1 = 0
-      this.formTemplate.value.numberPiso1 = 0
+      piso1 = 0;
+      this.formTemplate.value.numberPiso1 = 0;
     } else {
-      piso1 = Number(this.formTemplate.value.numberPiso1)
+      piso1 = Number(this.formTemplate.value.numberPiso1);
     }
 
     if (this.formTemplate.value.numberPiso2 == null) {
-      piso2 = 0
-      this.formTemplate.value.numberPiso2 = 0
+      piso2 = 0;
+      this.formTemplate.value.numberPiso2 = 0;
     } else {
-      piso2 = Number(this.formTemplate.value.numberPiso2)
+      piso2 = Number(this.formTemplate.value.numberPiso2);
     }
 
     if (this.formTemplate.value.numberTerap == null) {
-      terap = 0
-      this.formTemplate.value.numberTerap = 0
+      terap = 0;
+      this.formTemplate.value.numberTerap = 0;
     } else {
-      terap = Number(this.formTemplate.value.numberTerap)
+      terap = Number(this.formTemplate.value.numberTerap);
     }
 
     if (this.formTemplate.value.numberEncarg == null) {
-      encargada = 0
-      this.formTemplate.value.numberEncarg = 0
+      encargada = 0;
+      this.formTemplate.value.numberEncarg = 0;
     } else {
-      encargada = Number(this.formTemplate.value.numberEncarg)
+      encargada = Number(this.formTemplate.value.numberEncarg);
     }
 
     if (this.formTemplate.value.numberOtro == null) {
-      otros = 0
-      this.formTemplate.value.numberOtro = 0
+      otros = 0;
+      this.formTemplate.value.numberOtro = 0;
     } else {
-      otros = Number(this.formTemplate.value.numberOtro)
+      otros = Number(this.formTemplate.value.numberOtro);
     }
 
-    this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros)
+    this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros);
 
     if (this.formTemplate.value.servicio == null) {
-      otros = 0
-      this.formTemplate.value.servicio = 0
+      otros = 0;
+      this.formTemplate.value.servicio = 0;
     } else {
-      otros = Number(this.formTemplate.value.servicio)
+      otros = Number(this.formTemplate.value.servicio);
     }
 
     if (this.formTemplate.value.bebidas == null) {
-      otros = 0
-      this.formTemplate.value.bebidas = 0
+      otros = 0;
+      this.formTemplate.value.bebidas = 0;
     } else {
-      otros = Number(this.formTemplate.value.bebidas)
+      otros = Number(this.formTemplate.value.bebidas);
     }
 
     if (this.formTemplate.value.tabaco == null) {
-      otros = 0
-      this.formTemplate.value.tabaco = 0
+      otros = 0;
+      this.formTemplate.value.tabaco = 0;
     } else {
-      otros = Number(this.formTemplate.value.tabaco)
+      otros = Number(this.formTemplate.value.tabaco);
     }
 
     if (this.formTemplate.value.vitaminas == null) {
-      otros = 0
-      this.formTemplate.value.vitaminas = 0
+      otros = 0;
+      this.formTemplate.value.vitaminas = 0;
     } else {
-      otros = Number(this.formTemplate.value.vitaminas)
+      otros = Number(this.formTemplate.value.vitaminas);
     }
 
     if (this.formTemplate.value.propina == null) {
-      otros = 0
-      this.formTemplate.value.propina = 0
+      otros = 0;
+      this.formTemplate.value.propina = 0;
     } else {
-      otros = Number(this.formTemplate.value.propina)
+      otros = Number(this.formTemplate.value.propina);
     }
 
     if (this.formTemplate.value.otros == null) {
-      otros = 0
-      this.formTemplate.value.otros = 0
+      otros = 0;
+      this.formTemplate.value.otros = 0;
     } else {
-      otros = Number(this.formTemplate.value.otros)
+      otros = Number(this.formTemplate.value.otros);
     }
   }
 
   efectCheckToggle(event: any) {
-    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
 
     if (!this.validacionesFormaPagoAdd()) return
     if (event) {
 
       if (this.formTemplate.value.numberPiso1 != null &&
         this.formTemplate.value.efectPiso1 == true) {
-        piso1 = Number(this.formTemplate.value.numberPiso1)
+        piso1 = Number(this.formTemplate.value.numberPiso1);
       } else {
-        piso1 = 0
+        piso1 = 0;
       }
 
       if (this.formTemplate.value.numberPiso2 != null &&
         this.formTemplate.value.efectPiso2 == true) {
-        piso2 = Number(this.formTemplate.value.numberPiso2)
+        piso2 = Number(this.formTemplate.value.numberPiso2);
       } else {
-        piso2 = 0
+        piso2 = 0;
       }
 
       if (this.formTemplate.value.numberTerap != null &&
         this.formTemplate.value.efectTerap == true) {
-        terap = Number(this.formTemplate.value.numberTerap)
+        terap = Number(this.formTemplate.value.numberTerap);
       } else {
-        terap = 0
+        terap = 0;
       }
 
       if (this.formTemplate.value.numberEncarg != null &&
         this.formTemplate.value.efectEncarg == true) {
-        terap = Number(this.formTemplate.value.numberEncarg)
+        terap = Number(this.formTemplate.value.numberEncarg);
       } else {
-        encarg = 0
+        encarg = 0;
       }
 
       if (this.formTemplate.value.numberOtro != null &&
         this.formTemplate.value.efectOtro == true) {
-        otroservic = Number(this.formTemplate.value.numberOtro)
+        otroservic = Number(this.formTemplate.value.numberOtro);
       } else {
-        otroservic = 0
+        otroservic = 0;
       }
 
-      suma = piso1 + piso2 + terap + encarg + otroservic
-      this.valueEfectivo = suma
-      this.formaPago = 'Efectivo'
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueEfectivo = suma;
+      this.formaPago = 'Efectivo';
       return
     }
   }
 
   bizumCheckToggle(event: any) {
-    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
 
     if (!this.validacionesFormaPagoAdd()) return
     if (event) {
 
       if (this.formTemplate.value.numberPiso1 != null &&
         this.formTemplate.value.bizuPiso1 == true) {
-        piso1 = Number(this.formTemplate.value.numberPiso1)
+        piso1 = Number(this.formTemplate.value.numberPiso1);
       } else {
-        piso1 = 0
+        piso1 = 0;
       }
 
       if (this.formTemplate.value.numberPiso2 != null &&
         this.formTemplate.value.bizuPiso2 == true) {
-        piso2 = Number(this.formTemplate.value.numberPiso2)
+        piso2 = Number(this.formTemplate.value.numberPiso2);
       } else {
-        piso2 = 0
+        piso2 = 0;
       }
 
       if (this.formTemplate.value.numberTerap != null &&
         this.formTemplate.value.bizuTerap == true) {
-        terap = Number(this.formTemplate.value.numberTerap)
+        terap = Number(this.formTemplate.value.numberTerap);
       } else {
-        terap = 0
+        terap = 0;
       }
 
       if (this.formTemplate.value.numberEncarg != null &&
         this.formTemplate.value.bizuEncarg == true) {
-        terap = Number(this.formTemplate.value.numberEncarg)
+        terap = Number(this.formTemplate.value.numberEncarg);
       } else {
-        encarg = 0
+        encarg = 0;
       }
 
       if (this.formTemplate.value.numberOtro != null &&
         this.formTemplate.value.bizuOtro == true) {
-        otroservic = Number(this.formTemplate.value.numberOtro)
+        otroservic = Number(this.formTemplate.value.numberOtro);
       } else {
-        otroservic = 0
+        otroservic = 0;
       }
 
-      suma = piso1 + piso2 + terap + encarg + otroservic
-      this.valueBizum = suma
-      this.formaPago = 'Bizum'
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueBizum = suma;
+      this.formaPago = 'Bizum';
       return
     }
-
   }
 
   tarjCheckToggle(event: any) {
-    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
 
     if (!this.validacionesFormaPagoAdd()) return
     if (event) {
 
       if (this.formTemplate.value.numberPiso1 != null &&
         this.formTemplate.value.tarjPiso1 == true) {
-        piso1 = Number(this.formTemplate.value.numberPiso1)
+        piso1 = Number(this.formTemplate.value.numberPiso1);
       } else {
-        piso1 = 0
+        piso1 = 0;
       }
 
       if (this.formTemplate.value.numberPiso2 != null &&
         this.formTemplate.value.tarjPiso2 == true) {
-        piso2 = Number(this.formTemplate.value.numberPiso2)
+        piso2 = Number(this.formTemplate.value.numberPiso2);
       } else {
-        piso2 = 0
+        piso2 = 0;
       }
 
       if (this.formTemplate.value.numberTerap != null &&
         this.formTemplate.value.tarjTerap == true) {
-        terap = Number(this.formTemplate.value.numberTerap)
+        terap = Number(this.formTemplate.value.numberTerap);
       } else {
-        terap = 0
+        terap = 0;
       }
 
       if (this.formTemplate.value.numberEncarg != null &&
         this.formTemplate.value.tarjEncarg == true) {
-        terap = Number(this.formTemplate.value.numberEncarg)
+        terap = Number(this.formTemplate.value.numberEncarg);
       } else {
-        encarg = 0
+        encarg = 0;
       }
 
       if (this.formTemplate.value.numberOtro != null &&
         this.formTemplate.value.tarjOtro == true) {
-        otroservic = Number(this.formTemplate.value.numberOtro)
+        otroservic = Number(this.formTemplate.value.numberOtro);
       } else {
-        otroservic = 0
+        otroservic = 0;
       }
 
-      suma = piso1 + piso2 + terap + encarg + otroservic
-      this.valueTarjeta = suma
-      this.formaPago = 'Tarjeta'
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueTarjeta = suma;
+      this.formaPago = 'Tarjeta';
       return
     }
   }
 
   transCheckToggle(event: any) {
-    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0;
 
     if (!this.validacionesFormaPagoAdd()) return
     if (event) {
 
       if (this.formTemplate.value.numberPiso1 != null &&
         this.formTemplate.value.transPiso1 == true) {
-        piso1 = Number(this.formTemplate.value.numberPiso1)
+        piso1 = Number(this.formTemplate.value.numberPiso1);
       } else {
-        piso1 = 0
+        piso1 = 0;
       }
 
       if (this.formTemplate.value.numberPiso2 != null &&
         this.formTemplate.value.transPiso2 == true) {
-        piso2 = Number(this.formTemplate.value.numberPiso2)
+        piso2 = Number(this.formTemplate.value.numberPiso2);
       } else {
-        piso2 = 0
+        piso2 = 0;
       }
 
       if (this.formTemplate.value.numberTerap != null &&
         this.formTemplate.value.transTerap == true) {
-        terap = Number(this.formTemplate.value.numberTerap)
+        terap = Number(this.formTemplate.value.numberTerap);
       } else {
-        terap = 0
+        terap = 0;
       }
 
       if (this.formTemplate.value.numberEncarg != null &&
         this.formTemplate.value.transEncarg == true) {
-        terap = Number(this.formTemplate.value.numberEncarg)
+        terap = Number(this.formTemplate.value.numberEncarg);
       } else {
-        encarg = 0
+        encarg = 0;
       }
 
       if (this.formTemplate.value.numberOtro != null &&
         this.formTemplate.value.transOtro == true) {
-        otroservic = Number(this.formTemplate.value.numberOtro)
+        otroservic = Number(this.formTemplate.value.numberOtro);
       } else {
-        otroservic = 0
+        otroservic = 0;
       }
 
-      suma = piso1 + piso2 + terap + encarg + otroservic
-      this.valueTrans = suma
-      this.formaPago = 'Transacción'
+      suma = piso1 + piso2 + terap + encarg + otroservic;
+      this.valueTrans = suma;
+      this.formaPago = 'Transacción';
       return
     }
   }
 
-  horaInicio(event: any) {
-    this.horaFinalServicio = event.target.value.toString()
-    this.horaInicialServicio = event.target.value.toString()
+  horaInicioEdit(event: any) {
+    this.horaFinalServicio = event.target.value.toString();
+    this.horaInicialServicio = event.target.value.toString();
 
     if (this.formTemplate.value.minuto != '') {
-      let sumarsesion = Number(this.formTemplate.value.minuto)
+      let sumarsesion = Number(this.formTemplate.value.minuto), horas = 0, minutos = 0, convertHora = '';
 
       // Create date by Date and Hour
-      const splitDate = this.fechaActual.toString().split('-')
-      const splitHour = this.horaInicialServicio.split(':')
+      const splitDate = this.fechaActual.toString().split('-');
+      const splitHour = this.horaInicialServicio.split(':');
 
       let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
         Number(splitDate[2]), Number(splitHour[0]),
-        Number(splitHour[1]))
+        Number(splitHour[1]));
 
-      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-      this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
-      // this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
+      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion);
 
-      let hora = this.horaFinalServicio.slice(0, 2)
-      let minutes = this.horaFinalServicio.slice(3, 5)
-      this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      horas = defineDate.getHours();
+      minutos = defineDate.getMinutes()
+
+      if (horas > 0 && horas < 10) convertHora = '0' + horas
+
+      let hora = convertHora;
+      let minutes = minutos;
       this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    }
+  }
+
+  horaInicio(event: any) {
+    this.horaFinalServicio = event.target.value.toString();
+    this.horaInicialServicio = event.target.value.toString();
+
+    if (this.formTemplate.value.minuto != '') {
+      let sumarsesion = Number(this.formTemplate.value.minuto), horas = 0, minutos = 0, convertHora = '';
+
+      // Create date by Date and Hour
+      const splitDate = this.fechaActual.toString().split('-');
+      const splitHour = this.horaInicialServicio.split(':');
+
+      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
+        Number(splitDate[2]), Number(splitHour[0]),
+        Number(splitHour[1]));
+
+      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion);
+
+      horas = defineDate.getHours();
+      minutos = defineDate.getMinutes()
+
+      if (horas > 0 && horas < 10) convertHora = '0' + horas
+
+      let hora = convertHora;
+      let minutes = minutos;
+      this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
     }
   }
 
@@ -758,8 +785,34 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   minutos(event: any) {
-    let sumarsesion = event
-    if (event === null) sumarsesion = 0
+    let sumarsesion = event, horas = 0, minutos = 0, convertHora = '';
+
+    if (event === null) sumarsesion = 0;
+
+    // Create date by Date and Hour
+    const splitDate = this.fechaActual.toString().split('-');
+    const splitHour = this.horaInicialServicio.split(':');
+
+    let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1),
+      Number(splitDate[2]), Number(splitHour[0]),
+      Number(splitHour[1]));
+
+    defineDate.setMinutes(defineDate.getMinutes() + sumarsesion);
+
+    horas = defineDate.getHours();
+    minutos = defineDate.getMinutes()
+
+    if (horas > 0 && horas < 10) convertHora = '0' + horas
+
+    let hora = convertHora;
+    let minutes = minutos;
+    this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+  }
+
+  minutosEdit(event: any) {
+    let sumarsesion = event, horas = 0, minutos = 0, convertHora = '';
+
+    if (event === null) sumarsesion = 0;
 
     // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-')
@@ -770,12 +823,14 @@ export class NuevoServicioComponent implements OnInit {
       Number(splitHour[1]))
 
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-    this.horaFinalServicio = `${defineDate.getHours()}:${defineDate.getMinutes()}`
-    // this.editarService[0]['horaEnd'] = `${defineDate.getHours()}:${defineDate.getMinutes()}`
 
-    let hora = this.horaFinalServicio.slice(0, 2)
-    let minutes = this.horaFinalServicio.slice(3, 5)
-    this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    horas = defineDate.getHours();
+    minutos = defineDate.getMinutes()
+
+    if (horas > 0 && horas < 10) convertHora = '0' + horas
+
+    let hora = convertHora;
+    let minutes = minutos;
     this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
   }
 

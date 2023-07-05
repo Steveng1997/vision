@@ -415,13 +415,13 @@
                         </mat-drawer-container>
 
                         <input type="time" class="form-control" [(ngModel)]="edServ.horaStart" name="horaStart"
-                            (change)="horaInicio($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600" />
+                            (change)="horaInicioEdit($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600" />
                     </div>
 
                     <div class="col-6">
                         <mat-label>Duración(min.)</mat-label>
                         <input type="number" class="form-control" [(ngModel)]="edServ.minuto" name="minuto"
-                            (ngModelChange)="minutos($event)">
+                            (ngModelChange)="minutosEdit($event)">
                     </div>
 
                     <div class="col-6" style="display: grid; text-align: center; align-self: center;">
