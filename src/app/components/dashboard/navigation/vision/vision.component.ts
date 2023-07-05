@@ -81,9 +81,12 @@ export class VisionComponent implements OnInit {
     let currentDate = new Date()
     let dia = currentDate.getDate()
     let mes = currentDate.toJSON().substring(5, 7)
-    if (dia > 0 && dia < 10) convertDia = '0' + dia
-    this.fechaDiaHoy = `${currentDate.getFullYear()}/${mes}/${convertDia}`
-    // this.fechaHoyInicio = new Date(`${mes}/${convertDia}/${currentDate.getFullYear()}`).toString()
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.fechaDiaHoy = `${currentDate.getFullYear()}/${mes}/${convertDia}`
+    } else {
+      this.fechaDiaHoy = `${currentDate.getFullYear()}/${mes}/${dia}`
+    }
   }
 
   getServicio() {
@@ -134,12 +137,8 @@ export class VisionComponent implements OnInit {
     }
 
     // Calcula los minutos de cada hora
-    var minutos_inicio = hora_inicio.split(':')
-      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
-    var minutos_final = hora_final.split(':')
-      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
-
-    debugger
+    var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+    var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
     if (hora_inicio.length === 4) {
       let hora = 0, minutes = 0;

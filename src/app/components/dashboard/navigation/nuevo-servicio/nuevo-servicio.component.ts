@@ -745,11 +745,15 @@ export class NuevoServicioComponent implements OnInit {
       horas = defineDate.getHours();
       minutos = defineDate.getMinutes()
 
-      if (horas > 0 && horas < 10) convertHora = '0' + horas
-
-      let hora = convertHora;
-      let minutes = minutos;
-      this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      if (horas > 0 && horas < 10) {
+        convertHora = '0' + horas
+        let hora = convertHora;
+        let minutes = minutos;
+        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      } else {
+        let minutes = minutos;
+        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      }
     }
   }
 
@@ -773,11 +777,15 @@ export class NuevoServicioComponent implements OnInit {
       horas = defineDate.getHours();
       minutos = defineDate.getMinutes()
 
-      if (horas > 0 && horas < 10) convertHora = '0' + horas
-
-      let hora = convertHora;
-      let minutes = minutos;
-      this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+      if (horas > 0 && horas < 10) {
+        convertHora = '0' + horas
+        let hora = convertHora;
+        let minutes = minutos;
+        this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+      } else {
+        let minutes = minutos;
+        this.horaFinalServicio = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+      }
     }
   }
 
@@ -790,6 +798,7 @@ export class NuevoServicioComponent implements OnInit {
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = '';
 
     if (event === null) sumarsesion = 0;
+    debugger
 
     // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-');
@@ -804,11 +813,15 @@ export class NuevoServicioComponent implements OnInit {
     horas = defineDate.getHours();
     minutos = defineDate.getMinutes()
 
-    if (horas > 0 && horas < 10) convertHora = '0' + horas
-
-    let hora = convertHora;
-    let minutes = minutos;
-    this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+    if (horas > 0 && horas < 10) {
+      convertHora = '0' + horas
+      let hora = convertHora;
+      let minutes = minutos;
+      this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+    } else {
+      let minutes = minutos;
+      this.horaFinalServicio = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes;
+    }
   }
 
   minutosEdit(event: any) {
@@ -829,15 +842,18 @@ export class NuevoServicioComponent implements OnInit {
     horas = defineDate.getHours();
     minutos = defineDate.getMinutes()
 
-    if (horas > 0 && horas < 10) convertHora = '0' + horas
-
-    let hora = convertHora;
-    let minutes = minutos;
-    this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    if (horas > 0 && horas < 10) {
+      convertHora = '0' + horas
+      let hora = convertHora;
+      let minutes = minutos;
+      this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    } else {
+      let minutes = minutos;
+      this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    }
   }
 
   valueService() {
-
     let servicio = 0, bebida = 0, tabaco = 0, vitaminas = 0,
       propina = 0, otros = 0, sumatoria = 0
 
