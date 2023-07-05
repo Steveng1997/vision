@@ -345,6 +345,8 @@ export class NuevoServicioComponent implements OnInit {
 
               let idDocument;
 
+              debugger
+
               this.trabajadorService.getTerapeuta(this.formTemplate.value.terapeuta).then((rp) => {
                 const idDocument1 = rp.filter(tp => tp.nombre);
                 idDocument = idDocument1[0]['idDocument'];

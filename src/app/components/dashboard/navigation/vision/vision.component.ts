@@ -117,15 +117,15 @@ export class VisionComponent implements OnInit {
   }
 
   calculardiferencia(horaFin: string, nombre: string): string {
-    let hora_actual: any = new Date()
+    let hora_actual: any = new Date(), convertHora = '';
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
-      '0' + hora_actual.getMinutes() : hora_actual.getMinutes()
-    hora_actual = hora_actual.getHours() + ':' + minutes
-    const hora_inicio = hora_actual
-    const hora_final: any = horaFin
+      '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
+    hora_actual = hora_actual.getHours() + ':' + minutes;
+    let hora_inicio = hora_actual;
+    const hora_final: any = horaFin;
 
     // Expresión regular para comprobar formato
-    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
+    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora)
@@ -135,17 +135,27 @@ export class VisionComponent implements OnInit {
 
     // Calcula los minutos de cada hora
     var minutos_inicio = hora_inicio.split(':')
-      .reduce((p, c) => parseInt(p) * 60 + parseInt(c))
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
     var minutos_final = hora_final.split(':')
-      .reduce((p, c) => parseInt(p) * 60 + parseInt(c))
+      .reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
-    this.terapService.getByNombre(nombre).then((datoMinute) => {
-      for (let i = 0; i < datoMinute.length; i++) {
-        if (datoMinute[i]['horaEnd'] <= hora_inicio) {
-          this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
+      debugger
+
+    if (hora_inicio.length === 4){
+      let hora = 0, minutes = 0;
+      hora = hora_inicio.slice(0,1);
+      minutes = hora_inicio.slice(2,4);
+      convertHora = '0' + hora
+      hora_inicio = `${convertHora}:${minutes}`;
+    }
+
+      this.terapService.getByNombre(nombre).then((datoMinute) => {
+        for (let i = 0; i < datoMinute.length; i++) {
+          if (datoMinute[i]['horaEnd'] <= hora_inicio) {
+                this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
+          }
         }
-      }
-    })
+      })
 
     // Si la hora final es anterior a la hora inicial sale
     if (minutos_final < minutos_inicio) return ''
