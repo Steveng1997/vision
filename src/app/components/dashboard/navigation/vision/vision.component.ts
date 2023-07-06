@@ -17,9 +17,7 @@ export class VisionComponent implements OnInit {
   vision: any = []
   page!: number
   dateConvertion = new Date()
-  // fechaDiaHoy = new Intl.DateTimeFormat("az").format(this.dateConvertion)
   fechaDiaHoy = ''
-  restante: number
   totalServicio: number
   idUser: string
   terapeutas: any = []
@@ -33,6 +31,7 @@ export class VisionComponent implements OnInit {
   totalPropina: number
   totalOtros: number
 
+  aqui: string;
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -142,14 +141,6 @@ export class VisionComponent implements OnInit {
     var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
     var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
-    // if (hora_inicio.length === 5) {
-    //   let hora = 0, minutes = 0;
-    //   hora = hora_inicio.slice(0, 1);
-    //   minutes = hora_inicio.slice(2, 4);
-    //   convertHora = '0' + hora
-    //   hora_inicio = `${convertHora}:${minutes}`;
-    // }
-
     this.terapService.getByNombre(nombre).then((datoMinute) => {
       for (let i = 0; i < datoMinute.length; i++) {
         if (datoMinute[i]['horaEnd'] < hora_inicio || datoMinute[i]['horaEnd'] == hora_inicio) {
@@ -167,8 +158,14 @@ export class VisionComponent implements OnInit {
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
-    this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
-    this.restante = minutos;
+    // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
+    this.aqui = horas + ':' + (minutos < 10 ? '0' : '') + minutos
+
+    if (minutos > 0 && minutos < 10) {
+      this.horaEnd = minutos.toString()
+    } else {
+      this.horaEnd = minutos.toString()
+    }
 
     return this.horaEnd
   }
