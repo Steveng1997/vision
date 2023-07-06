@@ -119,8 +119,7 @@ export class VisionComponent implements OnInit {
   }
 
   calculardiferencia(horaFin: string, nombre: string): string {
-    let hora_actual: any = new Date();
-    let convertHora = ''
+    let hora_actual: any = new Date(), convertHora = '';
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
       '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
     hora_actual = hora_actual.getHours() + ':' + minutes;
@@ -140,9 +139,15 @@ export class VisionComponent implements OnInit {
     var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
     var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
+    if(hora_inicio.length === 4){
+      convertHora = '0' + hora_inicio
+    } else {
+      convertHora = hora_inicio
+    }
+
     this.terapService.getByNombre(nombre).then((datoMinute) => {
       for (let i = 0; i < datoMinute.length; i++) {
-        if (datoMinute[i]['horaEnd'] < hora_inicio || datoMinute[i]['horaEnd'] == hora_inicio) {
+        if (datoMinute[i]['horaEnd'] <= convertHora ) {
           this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
         }
       }
