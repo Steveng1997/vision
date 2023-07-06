@@ -119,7 +119,6 @@ export class VisionComponent implements OnInit {
   }
 
   calculardiferencia(horaFin: string, nombre: string): string {
-    debugger
     let hora_actual: any = new Date();
     let convertHora = ''
     let minutes = hora_actual.getMinutes().toString().length === 1 ?

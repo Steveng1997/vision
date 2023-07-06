@@ -219,6 +219,7 @@ export class NuevoServicioComponent implements OnInit {
     this.crearIdUnico()
     if (this.formTemplate.value.terapeuta != '') {
       if (this.formTemplate.value.encargada != '') {
+        
         // this.errorMetodo()
         this.fechadeHoy()
         // if (this.sumaErrorMetodo == 0) {
@@ -230,8 +231,6 @@ export class NuevoServicioComponent implements OnInit {
             this.tarjCheckToggle(this.validateTarjeta)
             this.transCheckToggle(this.validateTrans)
             this.encargadaAndTerapeuta()
-
-            debugger
 
             if (registro === 0) {
               if (this.formTemplate.value.numberPiso1 > 0) {
