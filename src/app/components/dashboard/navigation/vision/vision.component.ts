@@ -67,9 +67,13 @@ export class VisionComponent implements OnInit {
   getTerapeuta() {
     this.terapService.getAllTerapeutaByOrden().subscribe((rp) => {
       this.terapeutas = rp
-      if (rp.length != 0) {
-        for (let i = 0; i <= rp.length; i++) {
-          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
+      console.log(rp)
+      if (rp.length > 0) {
+        for (let i = 0; rp.length; i++) {
+          console.log(rp[i]['horaEnd'])
+          if (rp[i]['horaEnd'] !== undefined || rp[i]['horaEnd'] !== '' || rp[i]['horaEnd'] !== null) {
+            this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
+          }
         }
       }
     })
@@ -139,7 +143,7 @@ export class VisionComponent implements OnInit {
     var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
     var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
 
-    if(hora_inicio.length === 4){
+    if (hora_inicio.length === 4) {
       convertHora = '0' + hora_inicio
     } else {
       convertHora = hora_inicio
@@ -147,7 +151,7 @@ export class VisionComponent implements OnInit {
 
     this.terapService.getByNombre(nombre).then((datoMinute) => {
       for (let i = 0; i < datoMinute.length; i++) {
-        if (datoMinute[i]['horaEnd'] <= convertHora ) {
+        if (datoMinute[i]['horaEnd'] <= convertHora) {
           this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
         }
       }

@@ -84,6 +84,7 @@ export class NuevoServicioComponent implements OnInit {
   idUnico: string
 
   seRegistro = false
+  masdeOne = false
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -216,13 +217,60 @@ export class NuevoServicioComponent implements OnInit {
     this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
   }
 
+  selectCount(formValue) {
+
+    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.efectPiso1 == true
+      && this.formTemplate.value.numberPiso2 > 0 && this.formTemplate.value.efectPiso2 == true
+      && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.efectTerap == true
+      && this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.efectEncarg == true
+      && this.formTemplate.value.numberOtro > 0 && this.formTemplate.value.efectOtro == true) {
+      this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+        this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+        0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+      this.masdeOne = true;
+      return true
+    }
+
+    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.bizuPiso1 == true
+      && this.formTemplate.value.numberPiso2 > 0 && this.formTemplate.value.bizuPiso2 == true
+      && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.bizuTerap == true
+      && this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.bizuEncarg == true
+      && this.formTemplate.value.numberOtro > 0 && this.formTemplate.value.bizuOtro == true) {
+      this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+        this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+        0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+      this.masdeOne = true;
+      return true
+    }
+
+    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.tarjPiso1 == true
+      && this.formTemplate.value.numberPiso2 > 0 && this.formTemplate.value.tarjPiso2 == true
+      && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.tarjTerap == true
+      && this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.tarjEncarg == true
+      && this.formTemplate.value.numberOtro > 0 && this.formTemplate.value.tarjOtro == true) {
+      this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+        this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+        this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+      this.masdeOne = true;
+      return true
+    }
+
+    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.transPiso1 == true
+      && this.formTemplate.value.numberPiso2 > 0 && this.formTemplate.value.transPiso2 == true
+      && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.transTerap == true
+      && this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.transEncarg == true
+      && this.formTemplate.value.numberOtro > 0 && this.formTemplate.value.transOtro == true) {
+      this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+        this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+        this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+      this.masdeOne = true;
+      return true
+    }
+    return true
+  }
+
   numberPiso1(formValue) {
     if (this.seRegistro === false && this.formTemplate.value.numberPiso1 > 0) {
-
-      this.formTemplate.value.numberPiso2 = 0
-      this.formTemplate.value.numberTerap = 0
-      this.formTemplate.value.numberEncarg = 0
-      this.formTemplate.value.numberOtro = 0
 
       if (this.formTemplate.value.efectPiso1 == true) {
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
@@ -628,11 +676,16 @@ export class NuevoServicioComponent implements OnInit {
             encargada = this.formTemplate.value.numberEncarg
             otros = this.formTemplate.value.numberOtro
 
-            if (!this.numberPiso1(formValue)) return
-            if (!this.numberPiso2(formValue, piso2)) return
-            if (!this.numberTerapeuta(formValue, terapeuta)) return
-            if (!this.numberEncargada(formValue, encargada)) return
-            if (!this.numberOtros(formValue, otros)) return
+            if (!this.selectCount(formValue)) return
+
+            if (this.masdeOne === false) {
+              if (!this.numberPiso1(formValue)) return
+              if (!this.numberPiso2(formValue, piso2)) return
+              if (!this.numberTerapeuta(formValue, terapeuta)) return
+              if (!this.numberEncargada(formValue, encargada)) return
+              if (!this.numberOtros(formValue, otros)) return
+            }
+
 
             if (this.seRegistro === true) {
 
