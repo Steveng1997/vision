@@ -1,4 +1,3 @@
-
 export const environment = {
     production: true,
     databaseURL: "https://vision-d5b15-default-rtdb.firebaseio.com",

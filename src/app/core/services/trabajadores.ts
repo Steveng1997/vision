@@ -96,7 +96,7 @@ export class TrabajadoresService {
         });
     });
   }
-
+  
   getAllTerapeuta() {
     return this.db
       .collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc'))
@@ -105,8 +105,8 @@ export class TrabajadoresService {
 
   getAllTerapeutaByOrden() {
     return this.db
-    .collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc'))
-    .valueChanges()
+      .collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc'))
+      .valueChanges()
   }
 
   getTerapeuta(nombre: string): Promise<any> {
@@ -162,7 +162,7 @@ export class TrabajadoresService {
       });
   }
 
-  updateHoraEnd(idDocument, nombreTerap ) {
+  updateHoraEnd(idDocument, nombreTerap) {
     return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
       .doc(idDocument)
       .update({

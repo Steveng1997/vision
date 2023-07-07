@@ -85,9 +85,10 @@ export class TablaComponent implements OnInit {
     this.loginService.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    this.getServicio()
+
     this.getEncargada()
     this.getTerapeuta()
+    this.getServicio()
     this.totalesUndefined()
   }
 
