@@ -67,13 +67,9 @@ export class VisionComponent implements OnInit {
   getTerapeuta() {
     this.terapService.getAllTerapeutaByOrden().subscribe((rp) => {
       this.terapeutas = rp
-      console.log(rp)
       if (rp.length > 0) {
         for (let i = 0; rp.length; i++) {
-          console.log(rp[i]['horaEnd'])
-          if (rp[i]['horaEnd'] !== undefined || rp[i]['horaEnd'] !== '' || rp[i]['horaEnd'] !== null) {
-            this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
-          }
+          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
         }
       }
     })

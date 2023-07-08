@@ -84,7 +84,7 @@ export class EncargadosComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES TERAPEUTAS'
+    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES ENCARGADAS'
 
     this.liqEncarg = true
     this.addEncarg = false
