@@ -85,12 +85,9 @@ export class NuevoServicioComponent implements OnInit {
 
   seRegistro = false
   masde5 = false
+  masde4 = false
+  masde3 = false
   masde2 = false
-  selectNumberPiso1 = 0
-  selectNumberPiso2 = 0
-  selectNumberTerap = 0
-  selectNumberEncarg = 0
-  selectNumberOtros = 0
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -223,10 +220,6 @@ export class NuevoServicioComponent implements OnInit {
     this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
   }
 
-  dosCobroSelect(formValue) {
-    return true
-  }
-
   TodosCobroSelect(formValue) {
 
     if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.efectPiso1 == true
@@ -279,388 +272,544 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  numberPiso1(formValue) {
-    if (this.seRegistro === false && this.formTemplate.value.numberPiso1 > 0) {
+  prueba(formValue, piso1, piso2, terapeuta, encargada, otros) {
 
-      if (this.formTemplate.value.efectPiso1 == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-        this.seRegistro = true;
-        return true
+    this.masde5 = false
+    this.masde4 = false
+    this.masde3 = false
+    this.masde2 = false
+
+    // Efectivo
+
+    if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+      otros === 0 && this.formTemplate.value.efectOtro == false) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    if (piso1 === 0 && this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+      otros > 0 && this.formTemplate.value.efectOtro == true) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    // Bizum
+
+    if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+      otros === 0 && this.formTemplate.value.bizuOtro == false) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    if (piso1 === 0 && this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+      otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    // Tarjeta
+
+    if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+      otros === 0 && this.formTemplate.value.tarjOtro == false) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    if (piso1 === 0 && this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+      otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    // Transaccion
+
+    if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
+      otros === 0 && this.formTemplate.value.transOtro == false) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    if (piso1 === 0 && this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+      terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
+      otros > 0 && this.formTemplate.value.transOtro == true) {
+      console.log('aqui hay 4')
+      this.masde4 = true
+    }
+
+    if (this.masde4 == false) {
+
+      //Efectivo
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
       }
-      if (this.formTemplate.value.bizuPiso1 == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        this.seRegistro = true;
-        return true
+
+      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true
+        && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
       }
-      if (this.formTemplate.value.tarjPiso1 == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-        this.seRegistro = true;
-        return true
+
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == false
+        && otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('aqui hay 3')
+        this.masde3 = true
       }
-      if (this.formTemplate.value.transPiso1 == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        this.seRegistro = true;
-        return true
+
+      //Bizum
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == false &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true
+        && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == false
+        && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      //Tarjeta
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == false &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true
+        && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == false
+        && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      //Transaccion
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == false &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true
+        && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 3')
+        this.masde3 = true
+      }
+
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == false
+        && otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('aqui hay 3')
+        this.masde3 = true
       }
     }
-    return true
-  }
 
-  numberPiso2(formValue, numberPiso2) {
-    if (this.seRegistro === false && numberPiso2 > 0) {
+    if (this.masde4 == false && this.masde3 == false) {
 
-      this.formTemplate.value.numberPiso1 = 0
-      this.formTemplate.value.numberPiso2 = numberPiso2
-      this.formTemplate.value.numberTerap = 0
-      this.formTemplate.value.numberEncarg = 0
-      this.formTemplate.value.numberOtro = 0
-
-      if (this.formTemplate.value.efectPiso2 == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.bizuPiso2) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.tarjPiso2) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.transPiso2) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-    } else {
-
-      if (numberPiso2 > 0) {
-
-        this.formTemplate.value.servicio = 0
-        this.formTemplate.value.bebidas = 0
-        this.formTemplate.value.tabaco = 0
-        this.formTemplate.value.vitaminas = 0
-        this.formTemplate.value.propina = 0
-        this.formTemplate.value.otros = 0
-        this.formTemplate.value.numberPiso1 = 0
-        this.formTemplate.value.numberPiso2 = numberPiso2
-        this.formTemplate.value.numberTerap = 0
-        this.formTemplate.value.numberEncarg = 0
-        this.formTemplate.value.numberOtro = 0
-        this.servicioTotal = 0
-
-        if (this.formTemplate.value.efectPiso2 == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.bizuPiso2) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-            0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.tarjPiso2) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-            this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.transPiso2) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-            this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-      }
-    }
-    return true
-  }
-
-  numberTerapeuta(formValue, terapeuta) {
-    if (this.seRegistro === false && terapeuta > 0) {
-
-      this.formTemplate.value.numberPiso1 = 0
-      this.formTemplate.value.numberPiso2 = 0
-      this.formTemplate.value.numberTerap = terapeuta
-      this.formTemplate.value.numberEncarg = 0
-      this.formTemplate.value.numberOtro = 0
-
-      if (this.formTemplate.value.efectTerap == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.bizuTerap == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.tarjTerap == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.transTerap == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-    } else {
-
-      if (terapeuta > 0) {
-
-        this.formTemplate.value.servicio = 0
-        this.formTemplate.value.bebidas = 0
-        this.formTemplate.value.tabaco = 0
-        this.formTemplate.value.vitaminas = 0
-        this.formTemplate.value.propina = 0
-        this.formTemplate.value.otros = 0
-        this.formTemplate.value.numberPiso1 = 0
-        this.formTemplate.value.numberPiso2 = 0
-        this.formTemplate.value.numberTerap = terapeuta
-        this.formTemplate.value.numberEncarg = 0
-        this.formTemplate.value.numberOtro = 0
-        this.servicioTotal = 0
-
-        if (this.formTemplate.value.efectTerap == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.bizuTerap == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-            0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.tarjTerap == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-            this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.transTerap == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-            this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-      }
-    }
-    return true
-  }
-
-  numberEncargada(formValue, encargada) {
-    if (this.seRegistro === false && encargada > 0) {
-
-      this.formTemplate.value.numberPiso1 = 0
-      this.formTemplate.value.numberPiso2 = 0
-      this.formTemplate.value.numberTerap = 0
-      this.formTemplate.value.numberEncarg = encargada
-      this.formTemplate.value.numberOtro = 0
-
-      if (this.formTemplate.value.efectEncarg == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.bizuEncarg == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.tarjEncarg == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-        this.seRegistro = true
-        return true
-      }
-      if (this.formTemplate.value.transEncarg == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        this.seRegistro = true
-        return true
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
       }
 
-    } else {
-
-      if (encargada > 0) {
-
-        this.formTemplate.value.servicio = 0
-        this.formTemplate.value.bebidas = 0
-        this.formTemplate.value.tabaco = 0
-        this.formTemplate.value.vitaminas = 0
-        this.formTemplate.value.propina = 0
-        this.formTemplate.value.otros = 0
-        this.formTemplate.value.numberPiso1 = 0
-        this.formTemplate.value.numberPiso2 = 0
-        this.formTemplate.value.numberTerap = 0
-        this.formTemplate.value.numberEncarg = encargada
-        this.formTemplate.value.numberOtro = 0
-        this.servicioTotal = 0
-
-        if (this.formTemplate.value.efectEncarg == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.bizuEncarg == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-            0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.tarjEncarg == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-            this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.transEncarg == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-            this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-      }
-    }
-    return true
-  }
-
-  numberOtros(formValue, otros) {
-    if (this.seRegistro === false && otros > 0) {
-
-      this.formTemplate.value.numberPiso1 = 0
-      this.formTemplate.value.numberPiso2 = 0
-      this.formTemplate.value.numberTerap = 0
-      this.formTemplate.value.numberEncarg = 0
-      this.formTemplate.value.numberOtro = otros
-
-      if (this.formTemplate.value.efectOtro == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-
-        this.seRegistro
-      }
-      if (this.formTemplate.value.bizuOtro == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-
-        this.seRegistro
-      }
-      if (this.formTemplate.value.tarjOtro == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-
-        this.seRegistro
-      }
-      if (this.formTemplate.value.transOtro == true) {
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-
-        this.seRegistro
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
       }
 
-    } else {
-      if (otros > 0) {
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
 
-        this.formTemplate.value.servicio = 0
-        this.formTemplate.value.bebidas = 0
-        this.formTemplate.value.tabaco = 0
-        this.formTemplate.value.vitaminas = 0
-        this.formTemplate.value.propina = 0
-        this.formTemplate.value.otros = 0
-        this.formTemplate.value.numberPiso1 = 0
-        this.formTemplate.value.numberPiso2 = 0
-        this.formTemplate.value.numberTerap = 0
-        this.formTemplate.value.numberEncarg = 0
-        this.formTemplate.value.numberOtro = otros
-        this.servicioTotal = 0
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
 
-        if (this.formTemplate.value.efectOtro == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.bizuOtro == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-            0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.tarjOtro == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-            this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
-        if (this.formTemplate.value.transOtro == true) {
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-            this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-          this.seRegistro = true
-          return true
-        }
+      // piso 2 en Efectivo
+
+      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // terapeuta en Efectivo
+
+      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Encargada en Efectivo
+
+      if (encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
+        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+
+      // Bizum
+
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Piso2 en Bizum
+
+      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Terapeuta en Bizum
+
+      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Encargada en Bizum
+
+      if (encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
+        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Tarjeta
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Piso2 en Tarjeta
+
+      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Terapeuta en Tarjeta
+
+      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Encargada en Tarjeta
+
+      if (encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
+        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Transaccion
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && otros > 0 && this.formTemplate.value.transOtro == true &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Piso2 en Transaccion
+
+      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && otros > 0 && this.formTemplate.value.transOtro == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Terapeuta en Transaccion
+
+      if (terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transOtro == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.transTerap == true && otros > 0 && this.formTemplate.value.transOtro == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transEncarg == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
+      }
+
+      // Encargada en Transaccion
+
+      if (encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true &&
+        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false) {
+        console.log('aqui hay 2')
+        this.masde2 = true
       }
     }
-    return true
+
+    if (this.masde4 === false && this.masde3 === false && this.masde2 === false) {
+
+      // Efectivo Piso1
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Efectivo Piso2
+      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Efectivo Terapeuta
+      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Efectivo Encargada
+      if (encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Efectivo Otros
+      if (otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Bizum Piso1
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Bizum Piso2
+      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Bizum Terapeuta
+      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Bizum Encargada
+      if (encargada > 0 && this.formTemplate.value.bizuEncarg == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Bizum Otros
+      if (otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Tarjeta Piso1
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Tarjeta Piso2
+      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Tarjeta Terapeuta
+      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Tarjeta Encargada
+      if (encargada > 0 && this.formTemplate.value.tarjEncarg == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Tarjeta Otros
+      if (otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Transaccion Piso1
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Transaccion Piso2
+      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Transaccion Terapeuta
+      if (terapeuta > 0 && this.formTemplate.value.transTerap == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Transaccion Encargada
+      if (encargada > 0 && this.formTemplate.value.transEncarg == true) {
+        console.log('aqui hay 1')
+      }
+
+      // Transaccion Otros
+      if (otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('aqui hay 1')
+      }
+    }
   }
 
   addServicio(formValue): any {
@@ -679,8 +828,9 @@ export class NuevoServicioComponent implements OnInit {
             this.transCheckToggle(this.validateTrans)
             this.encargadaAndTerapeuta()
 
-            let piso2 = 0, terapeuta = 0, encargada = 0, otros = 0
+            let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0
 
+            piso1 = this.formTemplate.value.numberPiso1
             piso2 = this.formTemplate.value.numberPiso2
             terapeuta = this.formTemplate.value.numberTerap
             encargada = this.formTemplate.value.numberEncarg
@@ -689,11 +839,7 @@ export class NuevoServicioComponent implements OnInit {
             if (!this.TodosCobroSelect(formValue)) return
 
             if (this.masde5 === false) {
-              if (!this.numberPiso1(formValue)) return
-              if (!this.numberPiso2(formValue, piso2)) return
-              if (!this.numberTerapeuta(formValue, terapeuta)) return
-              if (!this.numberEncargada(formValue, encargada)) return
-              if (!this.numberOtros(formValue, otros)) return
+              this.prueba(formValue, piso1, piso2, terapeuta, encargada, otros)
             }
 
 
