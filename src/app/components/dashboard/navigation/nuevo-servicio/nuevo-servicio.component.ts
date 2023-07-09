@@ -300,541 +300,763 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas4Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
-
-    this.masde5 = false
-    this.masde4 = false
-    this.masde3 = false
-    this.masde2 = false
-
-    // Efectivo
-
-    if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
-      otros === 0 && this.formTemplate.value.efectOtro == false) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    if (piso1 === 0 && this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
-      otros > 0 && this.formTemplate.value.efectOtro == true) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    // Bizum
-
-    if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
-      otros === 0 && this.formTemplate.value.bizuOtro == false) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    if (piso1 === 0 && this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
-      otros > 0 && this.formTemplate.value.bizuOtro == true) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    // Tarjeta
-
-    if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
-      otros === 0 && this.formTemplate.value.tarjOtro == false) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    if (piso1 === 0 && this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
-      otros > 0 && this.formTemplate.value.tarjOtro == true) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    // Transaccion
-
-    if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
-      otros === 0 && this.formTemplate.value.transOtro == false) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    if (piso1 === 0 && this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-      terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
-      otros > 0 && this.formTemplate.value.transOtro == true) {
-      console.log('aqui hay 4')
-      this.masde4 = true
-    }
-
-    if (this.masde4 == false) {
-
-      //Efectivo
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false &&
+    if (this.masde5 == false) {
+      // Efectivo
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
         this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
+        console.log('mas de 4 para Efectivo')
+        this.masde4 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true
-        && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
+      if (this.formTemplate.value.efectPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 4 para Efectivo')
+        this.masde4 = true
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false &&
-        terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == false
-        && otros > 0 && this.formTemplate.value.efectOtro == true) {
-        console.log('aqui hay 3')
-        this.masde3 = true
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 4 para Efectivo')
+        this.masde4 = true
+        this.piso1Efectpiso1 = 1
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      //Bizum
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == false &&
-        this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == false &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 4 para Efectivo')
+        this.masde4 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true
-        && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false &&
-        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == false
-        && otros > 0 && this.formTemplate.value.bizuOtro == true) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      //Tarjeta
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == false &&
-        this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true
-        && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false &&
-        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == false
-        && otros > 0 && this.formTemplate.value.tarjOtro == true) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      //Transaccion
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == false &&
-        this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-        terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true
-        && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-
-      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false &&
-        terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == false
-        && otros > 0 && this.formTemplate.value.transOtro == true) {
-        console.log('aqui hay 3')
-        this.masde3 = true
-      }
-    }
-
-  mas3Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
-
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-        this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
-        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
-        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // piso 2 en Efectivo
-
-      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // terapeuta en Efectivo
-
-      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Encargada en Efectivo
-
-      if (encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true &&
-        this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 4 para Efectivo')
+        this.masde4 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.otroEfectOtro = 1
       }
 
       // Bizum
-
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
-        this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 4 para Bizum')
+        this.masde4 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (this.formTemplate.value.bizuPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 4 para Bizum')
+        this.masde4 = true
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
-        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 4 para Bizum')
+        this.masde4 = true
+        this.piso1bizupiso1 = 1
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
-        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == false &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 4 para Bizum')
+        this.masde4 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      // Piso2 en Bizum
-
-      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Terapeuta en Bizum
-
-      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Encargada en Bizum
-
-      if (encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true &&
-        this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 4 para Bizum')
+        this.masde4 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
+        this.otrobizuOtro = 1
       }
 
       // Tarjeta
-
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-        this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 4 para Tarjeta')
+        this.masde4 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (this.formTemplate.value.tarjPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 4 para Tarjeta')
+        this.masde4 = true
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
-        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 4 para Tarjeta')
+        this.masde4 = true
+        this.piso1tarjpiso1 = 1
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
-        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == false &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 4 para Tarjeta')
+        this.masde4 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
       }
 
-      // Piso2 en Tarjeta
-
-      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Terapeuta en Tarjeta
-
-      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Encargada en Tarjeta
-
-      if (encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true &&
-        this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 4 para Tarjeta')
+        this.masde4 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+        this.otrotarjOtro = 1
       }
 
       // Transaccion
-
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-        this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 4 para Transaccion')
+        this.masde4 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (this.formTemplate.value.transPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 4 para Transaccion')
+        this.masde4 = true
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
-        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 4 para Transaccion')
+        this.masde4 = true
+        this.piso1transpiso1 = 1
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && otros > 0 && this.formTemplate.value.transOtro == true &&
-        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == false &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 4 para Transaccion')
+        this.masde4 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
       }
 
-      // Piso2 en Transaccion
-
-      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && otros > 0 && this.formTemplate.value.transOtro == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Terapeuta en Transaccion
-
-      if (terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transOtro == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      if (terapeuta > 0 && this.formTemplate.value.transTerap == true && otros > 0 && this.formTemplate.value.transOtro == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transEncarg == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
-      }
-
-      // Encargada en Transaccion
-
-      if (encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true &&
-        this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false) {
-        console.log('aqui hay 2')
-        this.masde2 = true
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 4 para Transaccion')
+        this.masde4 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+        this.otrotransOtro = 1
       }
     }
+  }
 
-    if (this.masde4 === false && this.masde3 === false && this.masde2 === false) {
-
-      // Efectivo Piso1
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
-        console.log('aqui hay 1')
+  mas3Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
+    if (this.masde5 == false && this.masde4 == false) {
+      // Efectivo
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
       }
 
-      // Efectivo Piso2
-      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.efectPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
       }
 
-      // Efectivo Terapeuta
-      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.efectPiso1 == false &&
+        this.formTemplate.value.efectPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      // Efectivo Encargada
-      if (encargada > 0 && this.formTemplate.value.efectEncarg == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.terapEfectTerap = 1
+        this.otroEfectOtro = 1
       }
 
-      // Efectivo Otros
-      if (otros > 0 && this.formTemplate.value.efectOtro == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
       }
 
-      // Bizum Piso1
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == false &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.encargEfectEncarg = 1
       }
 
-      // Bizum Piso2
-      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectPiso2 == false &&
+        this.formTemplate.value.efectTerap == false &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      // Bizum Terapeuta
-      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == false &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.otroEfectOtro = 1
       }
 
-      // Bizum Encargada
-      if (encargada > 0 && this.formTemplate.value.bizuEncarg == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.efectPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == false &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso2Efectpiso2 = 1
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
       }
 
-      // Bizum Otros
-      if (otros > 0 && this.formTemplate.value.bizuOtro == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.efectPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false &&
+        otros > 0 && this.formTemplate.value.efectOtro == true) {
+        console.log('mas de 3 para Efectivo')
+        this.masde3 = true
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.otroEfectOtro = 1
       }
 
-      // Tarjeta Piso1
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true) {
-        console.log('aqui hay 1')
+      // Bizum
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
       }
 
-      // Tarjeta Piso2
-      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.bizuPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
       }
 
-      // Tarjeta Terapeuta
-      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.bizuPiso1 == false &&
+        this.formTemplate.value.bizuPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      // Tarjeta Encargada
-      if (encargada > 0 && this.formTemplate.value.tarjEncarg == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.terapbizuTerap = 1
+        this.otrobizuOtro = 1
       }
 
-      // Tarjeta Otros
-      if (otros > 0 && this.formTemplate.value.tarjOtro == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.terapbizuTerap = 1
+        this.encargbizuEncarg = 1
       }
 
-      // Transaccion Piso1
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == false &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.encargbizuEncarg = 1
       }
 
-      // Transaccion Piso2
-      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuPiso2 == false &&
+        this.formTemplate.value.bizuTerap == false &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      // Transaccion Terapeuta
-      if (terapeuta > 0 && this.formTemplate.value.transTerap == true) {
-        console.log('aqui hay 1')
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == false &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso1bizupiso1 = 1
+        this.piso2bizupiso2 = 1
+        this.otrobizuOtro = 1
       }
 
-      // Transaccion Encargada
-      if (encargada > 0 && this.formTemplate.value.transEncarg == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.bizuPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == false &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso2bizupiso2 = 1
+        this.encargbizuEncarg = 1
+        this.otrobizuOtro = 1
       }
 
-      // Transaccion Otros
-      if (otros > 0 && this.formTemplate.value.transOtro == true) {
-        console.log('aqui hay 1')
+      if (this.formTemplate.value.bizuPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false &&
+        otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        console.log('mas de 3 para Bizum')
+        this.masde3 = true
+        this.piso2bizupiso2 = 1
+        this.terapbizuTerap = 1
+        this.otrobizuOtro = 1
       }
+
+      // Tarjeta
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false &&
+        this.formTemplate.value.tarjPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.teraptarjTerap = 1
+        this.otrotarjOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.teraptarjTerap = 1
+        this.encargtarjEncarg = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == false &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.encargtarjEncarg = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjPiso2 == false &&
+        this.formTemplate.value.tarjTerap == false &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == false &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso1tarjpiso1 = 1
+        this.piso2tarjpiso2 = 1
+        this.otrotarjOtro = 1
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == false &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso2tarjpiso2 = 1
+        this.encargtarjEncarg = 1
+        this.otrotarjOtro = 1
+      }
+
+      if (this.formTemplate.value.tarjPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false &&
+        otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        console.log('mas de 3 para Tarjeta')
+        this.masde3 = true
+        this.piso2tarjpiso2 = 1
+        this.teraptarjTerap = 1
+        this.otrotarjOtro = 1
+      }
+
+      // Transaccion
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+      }
+
+      if (this.formTemplate.value.transPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
+      }
+
+      if (this.formTemplate.value.transPiso1 == false &&
+        this.formTemplate.value.transPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.teraptransTerap = 1
+        this.otrotransOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transPiso2 == false &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.teraptransTerap = 1
+        this.encargtransEncarg = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == false &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.encargtransEncarg = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transPiso2 == false &&
+        this.formTemplate.value.transTerap == false &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
+      }
+
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == false &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso1transpiso1 = 1
+        this.piso2transpiso2 = 1
+        this.otrotransOtro = 1
+      }
+
+      if (this.formTemplate.value.transPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == false &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso2transpiso2 = 1
+        this.encargtransEncarg = 1
+        this.otrotransOtro = 1
+      }
+
+      if (this.formTemplate.value.transPiso1 == false &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false &&
+        otros > 0 && this.formTemplate.value.transOtro == true) {
+        console.log('mas de 3 para Transaccion')
+        this.masde3 = true
+        this.piso2transpiso2 = 1
+        this.teraptransTerap = 1
+        this.otrotransOtro = 1
+      }
+
+    }
+
+  }
+
+  mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
+    if (this.masde4 == false && this.masde3 == false)
+    {
+
     }
   }
 
