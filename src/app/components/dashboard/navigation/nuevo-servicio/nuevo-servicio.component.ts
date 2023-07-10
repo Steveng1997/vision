@@ -1824,7 +1824,6 @@ export class NuevoServicioComponent implements OnInit {
     if (this.masde3 == true && this.masde4 == false) {
 
       // Efectivo
-
       if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 &&
         encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.formTemplate.value.numberPiso1 = 0
@@ -1840,9 +1839,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1861,9 +1867,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1882,9 +1895,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1903,9 +1923,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapEfectTerap = 1
         this.otroEfectOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1924,9 +1951,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1945,9 +1979,17 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1966,9 +2008,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.otroEfectOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -1987,9 +2036,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.encargEfectEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2008,9 +2064,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
-          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+              0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2030,9 +2093,17 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        debugger
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2051,9 +2122,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2072,9 +2150,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2093,10 +2178,17 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        return true
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+          return true
+        })
       }
 
       if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
@@ -2114,9 +2206,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2135,9 +2234,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2156,9 +2262,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.otrobizuOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2177,9 +2290,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.encargbizuEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2198,9 +2318,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
-          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+              0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2220,9 +2347,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2241,9 +2375,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2262,9 +2403,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2283,9 +2431,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2304,9 +2459,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2325,9 +2487,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2346,9 +2515,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.otrotarjOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2367,9 +2543,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.encargtarjEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2388,9 +2571,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
-          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+              this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2410,9 +2600,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2431,9 +2628,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2452,9 +2656,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2473,9 +2684,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptransTerap = 1
         this.otrotransOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2494,9 +2712,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2515,9 +2740,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberTerap(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2536,9 +2768,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.otrotransOtro = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberOtros(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2557,9 +2796,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.encargtransEncarg = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberEncargada(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
         return true
       }
 
@@ -2578,10 +2824,16 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
-        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
-          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
-          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        return true
+
+        this.servicioService.getIdUnico(this.idUnico).then((serviceWhithId) => {
+          if (serviceWhithId.length != 0) {
+            this.servicioService.updateNumberPiso1(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.updateNumberPiso2(serviceWhithId[0]['idDocument'], this.idUnico)
+            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+              this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+              this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+          }
+        })
       }
     }
     return true
@@ -3410,11 +3662,9 @@ export class NuevoServicioComponent implements OnInit {
           return true
         }
       }
-
     }
     return true
   }
-
 
 
 
@@ -4979,4 +5229,4 @@ export class NuevoServicioComponent implements OnInit {
       this.editarService[0]['valueTransEncargada'] = 0
     }
   }
-} 
+}

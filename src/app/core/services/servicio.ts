@@ -621,6 +621,24 @@ export class ServicioService {
     });
   }
 
+  getIdUnico(idUnico: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)
+          .where('cierre', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+
+
   // -----------------------------------------------------------------------------------
   // Get
   // -----------------------------------------------------------------------------------
@@ -647,6 +665,51 @@ export class ServicioService {
         servicio: 0,
         totalServicio: 0,
         minuto: 0,
+      });
+  }
+
+  updateNumberPiso1(idDocumentServicio, idUnico) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberPiso1: 0,
+      });
+  }
+
+  updateNumberPiso2(idDocumentServicio, idUnico) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberPiso2: 0,
+      });
+  }
+
+  updateNumberEncargada(idDocumentServicio, idUnico) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberEncarg: 0,
+      });
+  }
+
+  updateNumberTerap(idDocumentServicio, idUnico) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberTerap: 0,
+      });
+  }
+
+  updateNumberOtros(idDocumentServicio, idUnico) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberOtro: 0,
       });
   }
 
