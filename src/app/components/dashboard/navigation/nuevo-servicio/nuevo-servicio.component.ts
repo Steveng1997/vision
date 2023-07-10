@@ -1830,6 +1830,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargEfectEncarg = 1
@@ -1845,6 +1851,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberOtro = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2Efectpiso2 = 1
@@ -1855,11 +1867,17 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.piso1bizupiso1 == 1 && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        this.encargbizuEncarg == 1 && this.otrobizuOtro == 1) {
+      if (this.piso1bizupiso1 == 1 && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && this.encargbizuEncarg == 1 && this.otrobizuOtro == 1) {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberEncarg = 0
         this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2Efectpiso2 = 1
@@ -1875,6 +1893,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.terapEfectTerap = 1
@@ -1885,11 +1909,17 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && encargada > 0 && this.formTemplate.value.efectEncarg == true
-        && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargEfectEncarg = 1
@@ -1900,11 +1930,17 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.otrobizuOtro == 1 && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.otrobizuOtro == 1 &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true) {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.terapEfectTerap = 1
@@ -1920,6 +1956,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberTerap = 0
         this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2Efectpiso2 = 1
@@ -1935,6 +1977,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberTerap = 0
         this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1Efectpiso1 = 1
@@ -1950,6 +1998,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberEncarg = 0
         this.formTemplate.value.numberTerap = 0
         this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1Efectpiso1 = 1
@@ -1966,6 +2020,12 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.numberPiso1 = 0
         this.formTemplate.value.numberPiso2 = 0
         this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargbizuEncarg = 1
@@ -1978,237 +2038,549 @@ export class NuevoServicioComponent implements OnInit {
 
       if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
-        this.piso2bizupiso2 = 1
-        this.encargbizuEncarg = 1
+        this.piso2Efectpiso2 = 1
+        this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        this.encargEfectEncarg == 1 && this.otroEfectOtro == 1) {
+      if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && this.encargEfectEncarg == 1 && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 && terapeuta > 0 && this.formTemplate.value.bizuTerap &&
-        otros > 0 && this.formTemplate.value.bizuOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 && encargada > 0 && this.formTemplate.value.bizuEncarg &&
-        otros > 0 && this.formTemplate.value.bizuOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 && terapeuta > 0 && this.formTemplate.value.bizuTerap &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 &&
+        terapeuta > 0 && this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 && piso2 > 0 && this.formTemplate.value.bizuPiso2 &&
-        otros > 0 && this.formTemplate.value.bizuOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 &&
+        piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 && piso1 > 0 && this.formTemplate.value.bizuPiso1 &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true) {
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
-      if (this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 && this.otrobizuOtro == 1 && piso1 > 0 && this.formTemplate.value.bizuPiso1 &&
-        piso2 > 0 && this.formTemplate.value.bizuPiso2) {
+      if (this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 && this.otrobizuOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true) {
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1bizupiso1 = 1
-        this.encargbizuEncarg = 1
+        this.piso2bizupiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
       // Tarjeta
       if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
       if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        this.encargEfectEncarg == 1 && this.otroEfectOtro == 1) {
+      if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && this.encargEfectEncarg == 1 && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 && terapeuta > 0 && this.formTemplate.value.tarjTerap &&
-        otros > 0 && this.formTemplate.value.tarjOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 && encargada > 0 && this.formTemplate.value.tarjEncarg &&
-        otros > 0 && this.formTemplate.value.tarjOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 && terapeuta > 0 && this.formTemplate.value.tarjTerap &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 &&
+        terapeuta > 0 && this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 && piso2 > 0 && this.formTemplate.value.tarjPiso2 &&
-        otros > 0 && this.formTemplate.value.tarjOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 &&
+        piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 && piso1 > 0 && this.formTemplate.value.tarjPiso1 &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true) {
         console.log('escogido aqui')
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
-      if (this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 && this.otrotarjOtro == 1 && piso1 > 0 && this.formTemplate.value.tarjPiso1 &&
-        piso2 > 0 && this.formTemplate.value.tarjPiso2) {
+      if (this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 && this.otrotarjOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true) {
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1tarjpiso1 = 1
-        this.encargtarjEncarg = 1
+        this.piso2tarjpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
       // Transaccion
       if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
       if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.transPiso2 == true && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.transEncarg == true && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
       if (this.piso1Efectpiso1 == 1 && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
         this.encargEfectEncarg == 1 && this.otroEfectOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 && terapeuta > 0 && this.formTemplate.value.transTerap &&
-        otros > 0 && this.formTemplate.value.transOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.encargEfectEncarg == 1 &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.teraptransTerap = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 && encargada > 0 && this.formTemplate.value.transEncarg &&
-        otros > 0 && this.formTemplate.value.transOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 && terapeuta > 0 && this.formTemplate.value.transTerap &&
-        encargada > 0 && this.formTemplate.value.transEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.otroEfectOtro == 1 &&
+        terapeuta > 0 && this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 && piso2 > 0 && this.formTemplate.value.transPiso2 &&
-        otros > 0 && this.formTemplate.value.transOtro) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.encargEfectEncarg == 1 &&
+        piso2 > 0 && this.formTemplate.value.transPiso2 == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 && piso1 > 0 && this.formTemplate.value.transPiso1 &&
-        encargada > 0 && this.formTemplate.value.transEncarg) {
+      if (this.piso1Efectpiso1 == 1 && this.terapEfectTerap == 1 && this.otroEfectOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.transPiso1 == true && encargada > 0 && this.formTemplate.value.transEncarg == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
-      if (this.teraptransTerap == 1 && this.encargtransEncarg == 1 && this.otrotransOtro == 1 && piso1 > 0 && this.formTemplate.value.transPiso1 &&
-        piso2 > 0 && this.formTemplate.value.transPiso2) {
+      if (this.teraptransTerap == 1 && this.encargtransEncarg == 1 && this.otrotransOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true) {
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.servicio = 0
+        this.formTemplate.value.bebidas = 0
+        this.formTemplate.value.tabaco = 0
+        this.formTemplate.value.vitaminas = 0
+        this.formTemplate.value.propina = 0
+        this.formTemplate.value.otros = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.piso1transpiso1 = 1
-        this.encargtransEncarg = 1
+        this.piso2transpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
     }
@@ -2224,6 +2596,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Efectivo')
         this.masde1 = true
         this.piso1Efectpiso1 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -2233,6 +2608,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Efectivo')
         this.masde1 = true
         this.piso2Efectpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -2242,6 +2620,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Efectivo')
         this.masde1 = true
         this.terapEfectTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -2251,6 +2632,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Efectivo')
         this.masde1 = true
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -2260,6 +2644,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Efectivo')
         this.masde1 = true
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -2270,6 +2657,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Bizum')
         this.masde1 = true
         this.piso1bizupiso1 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -2279,6 +2669,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Bizum')
         this.masde1 = true
         this.piso2bizupiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -2288,6 +2681,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Bizum')
         this.masde1 = true
         this.terapbizuTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -2297,6 +2693,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Bizum')
         this.masde1 = true
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -2306,6 +2705,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Bizum')
         this.masde1 = true
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -2316,6 +2718,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Tarjeta')
         this.masde1 = true
         this.piso1tarjpiso1 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -2325,6 +2730,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Tarjeta')
         this.masde1 = true
         this.piso2tarjpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -2334,6 +2742,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Tarjeta')
         this.masde1 = true
         this.teraptarjTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -2343,6 +2754,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Tarjeta')
         this.masde1 = true
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -2352,6 +2766,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Tarjeta')
         this.masde1 = true
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -2362,6 +2779,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Transaccion')
         this.masde1 = true
         this.piso1transpiso1 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -2371,6 +2791,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Transaccion')
         this.masde1 = true
         this.piso2transpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -2380,6 +2803,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Transaccion')
         this.masde1 = true
         this.teraptransTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -2389,6 +2815,9 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Transaccion')
         this.masde1 = true
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -2398,13 +2827,598 @@ export class NuevoServicioComponent implements OnInit {
         console.log('mas de 1 para Transaccion')
         this.masde1 = true
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
+      if (this.masde4 = true && this.masde3 == false && this.masde2 == false) {
+        // Efectivo
+        if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.piso1bizupiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.encargbizuEncarg == 1 && this.piso1bizupiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 && this.piso1bizupiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        // Ronda dos 
+        if (this.piso1tarjpiso1 == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.piso1tarjpiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.encargtarjEncarg == 1 && this.piso1tarjpiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 && this.piso1tarjpiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        // Ronda 3
+        if (this.piso1transpiso1 == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.piso1transpiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.encargtransEncarg == 1 && this.piso1transpiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 && this.piso1transpiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        // Bizum
+        if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && this.piso1bizupiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.piso2bizupiso2 == 1 && this.encargbizuEncarg == 1 && this.piso1bizupiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrobizuOtro == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 && this.piso1bizupiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        // Ronda dos 
+        if (this.piso1tarjpiso1 == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.teraptarjTerap == 1 && this.piso1tarjpiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.piso2tarjpiso2 == 1 && this.encargtarjEncarg == 1 && this.piso1tarjpiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotarjOtro == 1 && this.teraptarjTerap == 1 && this.encargtarjEncarg == 1 && this.piso1tarjpiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        // Ronda 3
+        if (this.piso1transpiso1 == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 &&
+          otros > 0 && this.formTemplate.value.efectOtro == true) {
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.otroEfectOtro = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 &&
+          piso1 > 0 && this.formTemplate.value.efectPiso1 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso1Efectpiso1 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.teraptransTerap == 1 && this.piso1transpiso1 == 1 &&
+          encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.encargEfectEncarg = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.piso2transpiso2 == 1 && this.encargtransEncarg == 1 && this.piso1transpiso1 == 1 &&
+          terapeuta > 0 && this.formTemplate.value.efectTerap == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberPiso2 = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.terapEfectTerap = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+
+        if (this.otrotransOtro == 1 && this.teraptransTerap == 1 && this.encargtransEncarg == 1 && this.piso1transpiso1 == 1 &&
+          piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+          this.formTemplate.value.numberOtro = 0
+          this.formTemplate.value.numberTerap = 0
+          this.formTemplate.value.numberEncarg = 0
+          this.formTemplate.value.numberPiso1 = 0
+          this.formTemplate.value.servicio = 0
+          this.formTemplate.value.bebidas = 0
+          this.formTemplate.value.tabaco = 0
+          this.formTemplate.value.vitaminas = 0
+          this.formTemplate.value.propina = 0
+          this.formTemplate.value.otros = 0
+          this.piso2Efectpiso2 = 1
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+            this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+            0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+          return true
+        }
+      }
 
     }
     return true
   }
+
+
+
+
+  // Agregamos los servicios
   addServicio(formValue): any {
     this.crearIdUnico()
     if (this.formTemplate.value.terapeuta != '') {
