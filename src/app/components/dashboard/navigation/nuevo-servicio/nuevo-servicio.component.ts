@@ -87,6 +87,7 @@ export class NuevoServicioComponent implements OnInit {
   masde4 = false
   masde3 = false
   masde2 = false
+  masde1 = false
 
   // Efectivo numbers
   piso1Efectpiso1 = 0
@@ -314,6 +315,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -328,6 +332,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -342,6 +349,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -356,6 +366,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -370,6 +383,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -385,6 +401,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -399,6 +418,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -413,6 +435,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -427,6 +452,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -441,6 +469,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -456,6 +487,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -470,6 +504,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -484,6 +521,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -498,6 +538,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -512,6 +555,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -527,6 +573,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -541,6 +590,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -555,6 +607,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -569,6 +624,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -583,6 +641,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
     }
@@ -590,6 +651,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas3Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
+
     if (this.masde5 == false && this.masde4 == false) {
 
       // Efectivo
@@ -602,6 +664,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -615,6 +680,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -628,6 +696,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -641,6 +712,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -654,6 +728,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -667,6 +744,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -680,6 +760,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -693,6 +776,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -706,6 +792,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -719,6 +808,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -732,6 +824,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -745,6 +840,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -758,6 +856,9 @@ export class NuevoServicioComponent implements OnInit {
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -771,6 +872,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -784,6 +888,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -797,6 +904,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -810,6 +920,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -823,6 +936,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -836,6 +952,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -849,6 +968,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -862,6 +984,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -875,6 +1000,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -888,6 +1016,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -901,6 +1032,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -914,6 +1048,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -927,6 +1064,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -940,6 +1080,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -953,6 +1096,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -966,6 +1112,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -979,6 +1128,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -992,6 +1144,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1005,6 +1160,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1018,6 +1176,9 @@ export class NuevoServicioComponent implements OnInit {
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1031,6 +1192,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1044,6 +1208,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1057,6 +1224,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1070,6 +1240,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1083,6 +1256,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1096,6 +1272,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1109,6 +1288,9 @@ export class NuevoServicioComponent implements OnInit {
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
     }
@@ -1125,6 +1307,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1135,6 +1320,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1145,6 +1333,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1155,6 +1346,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1165,6 +1359,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1175,6 +1372,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1185,6 +1385,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1195,6 +1398,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapEfectTerap = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1205,6 +1411,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargEfectEncarg = 1
         this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1215,6 +1424,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
         return true
       }
 
@@ -1225,6 +1437,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1235,6 +1450,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1245,6 +1463,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1255,6 +1476,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1bizupiso1 = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1265,6 +1489,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1275,6 +1502,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1285,6 +1515,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2bizupiso2 = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1295,6 +1528,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapbizuTerap = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1305,6 +1541,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1315,6 +1554,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1325,6 +1567,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1335,6 +1580,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1345,6 +1593,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1355,6 +1606,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1tarjpiso1 = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1365,6 +1619,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1375,6 +1632,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1385,6 +1645,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2tarjpiso2 = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1395,6 +1658,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptarjTerap = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1405,6 +1671,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtarjEncarg = 1
         this.otrotarjOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1415,6 +1684,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
+          this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
         return true
       }
 
@@ -1425,6 +1697,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1435,6 +1710,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1445,6 +1723,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1455,6 +1736,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso1transpiso1 = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1465,6 +1749,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1475,6 +1762,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1485,6 +1775,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.piso2transpiso2 = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1495,6 +1788,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptransTerap = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1505,6 +1801,9 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.encargtransEncarg = 1
         this.otrotransOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
 
@@ -1515,17 +1814,165 @@ export class NuevoServicioComponent implements OnInit {
         this.masde2 = true
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
+          this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
         return true
       }
     }
 
     if (this.masde3 == true && this.masde4 == false) {
+
+      // Efectivo
+
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.terapbizuTerap == 1 &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true && this.otrobizuOtro == 1) {
+        this.formTemplate.value.numberOtro = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.piso2Efectpiso2 = 1
+        this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        this.encargbizuEncarg == 1 && this.otrobizuOtro == 1) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberOtro = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.piso2Efectpiso2 = 1
+        this.terapEfectTerap = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.encargbizuEncarg == 1 &&
+        terapeuta > 0 && this.formTemplate.value.efectTerap == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberEncarg = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.terapEfectTerap = 1
+        this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.terapbizuTerap == 1 && encargada > 0 && this.formTemplate.value.efectEncarg == true
+        && otros > 0 && this.formTemplate.value.efectOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.encargEfectEncarg = 1
+        this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && this.piso2bizupiso2 == 1 && this.otrobizuOtro == 1 && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+        encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberOtro = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.terapEfectTerap = 1
+        this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 &&
+        piso2 > 0 && this.formTemplate.value.efectPiso2 == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberEncarg = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.piso2Efectpiso2 = 1
+        this.otroEfectOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.piso1bizupiso1 == 1 && this.terapbizuTerap == 1 && this.otrobizuOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.efectPiso1 == true && encargada > 0 && this.formTemplate.value.efectEncarg == true) {
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.piso1Efectpiso1 = 1
+        this.encargEfectEncarg = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      if (this.terapbizuTerap == 1 && this.encargbizuEncarg == 1 && this.otrobizuOtro == 1 &&
+        piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true) {
+        this.formTemplate.value.numberEncarg = 0
+        this.formTemplate.value.numberTerap = 0
+        this.formTemplate.value.numberOtro = 0
+        console.log('escogido aqui')
+        this.masde2 = true
+        this.piso1Efectpiso1 = 1
+        this.piso2Efectpiso2 = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
+          0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Bizum
       if (this.piso1Efectpiso1 == 1 && this.piso2Efectpiso2 == 1 && this.terapEfectTerap == 1 &&
         encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
+        this.formTemplate.value.numberPiso1 = 0
+        this.formTemplate.value.numberPiso2 = 0
+        this.formTemplate.value.numberTerap = 0
         console.log('escogido aqui')
         this.masde2 = true
         this.encargbizuEncarg = 1
         this.otrobizuOtro = 1
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
+          this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
+          0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
         return true
       }
 
@@ -1770,10 +2217,191 @@ export class NuevoServicioComponent implements OnInit {
 
   mas1Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
 
-    if(this.masde4 == false && this.masde3 == false && this.masde2 == false )
-    {
-      if(piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false
-        && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false)
+    if (this.masde4 == false && this.masde3 == false && this.masde2 == false) {
+      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false &&
+        this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 1 para Efectivo')
+        this.masde1 = true
+        this.piso1Efectpiso1 = 1
+        return true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectPiso1 == false &&
+        this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 1 para Efectivo')
+        this.masde1 = true
+        this.piso2Efectpiso2 = 1
+        return true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectPiso1 == false &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectEncarg == false &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 1 para Efectivo')
+        this.masde1 = true
+        this.terapEfectTerap = 1
+        return true
+      }
+
+      if (encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectPiso1 == false &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectOtro == false) {
+        console.log('mas de 1 para Efectivo')
+        this.masde1 = true
+        this.encargEfectEncarg = 1
+        return true
+      }
+
+      if (otros > 0 && this.formTemplate.value.efectOtro == true && this.formTemplate.value.efectPiso1 == false &&
+        this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == false) {
+        console.log('mas de 1 para Efectivo')
+        this.masde1 = true
+        this.otroEfectOtro = 1
+        return true
+      }
+
+      // Bizum
+      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false &&
+        this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 1 para Bizum')
+        this.masde1 = true
+        this.piso1bizupiso1 = 1
+        return true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuPiso1 == false &&
+        this.formTemplate.value.bizuTerap == false && this.formTemplate.value.bizuEncarg == false &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 1 para Bizum')
+        this.masde1 = true
+        this.piso2bizupiso2 = 1
+        return true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuPiso1 == false &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuEncarg == false &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 1 para Bizum')
+        this.masde1 = true
+        this.terapbizuTerap = 1
+        return true
+      }
+
+      if (encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuPiso1 == false &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuOtro == false) {
+        console.log('mas de 1 para Bizum')
+        this.masde1 = true
+        this.encargbizuEncarg = 1
+        return true
+      }
+
+      if (otros > 0 && this.formTemplate.value.bizuOtro == true && this.formTemplate.value.bizuPiso1 == false &&
+        this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == false) {
+        console.log('mas de 1 para Bizum')
+        this.masde1 = true
+        this.otroEfectOtro = 1
+        return true
+      }
+
+      // Tarjeta
+      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false &&
+        this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 1 para Tarjeta')
+        this.masde1 = true
+        this.piso1tarjpiso1 = 1
+        return true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjPiso1 == false &&
+        this.formTemplate.value.tarjTerap == false && this.formTemplate.value.tarjEncarg == false &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 1 para Tarjeta')
+        this.masde1 = true
+        this.piso2tarjpiso2 = 1
+        return true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjPiso1 == false &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjEncarg == false &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 1 para Tarjeta')
+        this.masde1 = true
+        this.teraptarjTerap = 1
+        return true
+      }
+
+      if (encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjPiso1 == false &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjOtro == false) {
+        console.log('mas de 1 para Tarjeta')
+        this.masde1 = true
+        this.encargtarjEncarg = 1
+        return true
+      }
+
+      if (otros > 0 && this.formTemplate.value.tarjOtro == true && this.formTemplate.value.tarjPiso1 == false &&
+        this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == false) {
+        console.log('mas de 1 para Tarjeta')
+        this.masde1 = true
+        this.otroEfectOtro = 1
+        return true
+      }
+
+      // Transaccion
+      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false &&
+        this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 1 para Transaccion')
+        this.masde1 = true
+        this.piso1transpiso1 = 1
+        return true
+      }
+
+      if (piso2 > 0 && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transPiso1 == false &&
+        this.formTemplate.value.transTerap == false && this.formTemplate.value.transEncarg == false &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 1 para Transaccion')
+        this.masde1 = true
+        this.piso2transpiso2 = 1
+        return true
+      }
+
+      if (terapeuta > 0 && this.formTemplate.value.transTerap == true && this.formTemplate.value.transPiso1 == false &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transEncarg == false &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 1 para Transaccion')
+        this.masde1 = true
+        this.teraptransTerap = 1
+        return true
+      }
+
+      if (encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transPiso1 == false &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transOtro == false) {
+        console.log('mas de 1 para Transaccion')
+        this.masde1 = true
+        this.encargtransEncarg = 1
+        return true
+      }
+
+      if (otros > 0 && this.formTemplate.value.transOtro == true && this.formTemplate.value.transPiso1 == false &&
+        this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == false) {
+        console.log('mas de 1 para Transaccion')
+        this.masde1 = true
+        this.otrotransOtro = 1
+        return true
+      }
+
+
     }
     return true
   }
