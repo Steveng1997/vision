@@ -253,55 +253,56 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   TodosCobroSelect(formValue) {
+    if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 || this.formTemplate.value.numberTerap > 0 ||
+      this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
 
-    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.numberPiso2 > 0 &&
-      this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.efectTerap == true &&
-      this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.numberOtro > 0 &&
-      this.formTemplate.value.efectOtro == true) {
-      this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-        this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-      this.masde5 = true;
-      return true
-    }
+      // Efectivo
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        this.masde5 = true;
+        return true
+      }
 
-    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.numberPiso2 > 0 &&
-      this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.bizuTerap == true &&
-      this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.numberOtro > 0 &&
-      this.formTemplate.value.bizuOtro == true) {
-      this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-        this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-      this.masde5 = true;
-      return true
-    }
+      // Bizum
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        this.masde5 = true;
+        return true
+      }
 
-    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.numberPiso2 > 0 &&
-      this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.tarjTerap == true &&
-      this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.numberOtro > 0 &&
-      this.formTemplate.value.tarjOtro == true) {
-      this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-        this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-      this.masde5 = true;
-      return true
-    }
+      // Tarjeta
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+        this.masde5 = true;
+        return true
+      }
 
-    if (this.formTemplate.value.numberPiso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.numberPiso2 > 0 &&
-      this.formTemplate.value.transPiso2 == true && this.formTemplate.value.numberTerap > 0 && this.formTemplate.value.transTerap == true &&
-      this.formTemplate.value.numberEncarg > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.numberOtro > 0 &&
-      this.formTemplate.value.transOtro == true) {
-      this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-        this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-      this.masde5 = true;
-      return true
+      // Transaccion
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+        this.masde5 = true;
+        return true
+      }
     }
     return true
   }
 
-  mas4Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
+  mas4Select(formValue) {
 
-    if (this.masde5 == false) {
+    if (this.masde5 == false && this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 || this.formTemplate.value.numberTerap > 0 ||
+      this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
+
       // Efectivo
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true
+        && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde4 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -312,8 +313,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde4 = true
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
@@ -324,8 +325,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde4 = true
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
@@ -336,8 +337,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde4 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -348,8 +349,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == true) {
         this.masde4 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -361,8 +362,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Bizum
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.bizuTerap == true && encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
         this.masde4 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -373,8 +374,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde4 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
@@ -385,8 +386,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde4 = true
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
@@ -397,8 +398,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde4 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -409,8 +410,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == false && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == true) {
         this.masde4 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -422,8 +423,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Tarjeta
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
         this.masde4 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -434,8 +435,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde4 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
@@ -446,8 +447,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && terapeuta > 0 &&
-        this.formTemplate.value.tarjTerap == true && encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde4 = true
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
@@ -458,8 +459,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true &&
-        this.formTemplate.value.tarjTerap == false && encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde4 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -470,8 +471,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == false && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == true) {
         this.masde4 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -483,8 +484,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Transaccion
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
         this.masde4 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -495,8 +496,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde4 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
@@ -507,8 +508,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && terapeuta > 0 &&
-        this.formTemplate.value.transTerap == true && encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde4 = true
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
@@ -519,9 +520,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true &&
-        this.formTemplate.value.transTerap == false && encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 &&
-        this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde4 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -532,8 +532,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == false && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == true) {
         this.masde4 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -547,13 +547,14 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  mas3Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
+  mas3Select(formValue) {
 
-    if (this.masde5 == false && this.masde4 == false) {
+    if (this.masde5 == false && this.masde4 == false && this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 ||
+      this.formTemplate.value.numberTerap > 0 || this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
 
       // Efectivo
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -563,8 +564,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde3 = true
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
@@ -574,8 +575,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.terapEfectTerap = 1
         this.encargEfectEncarg = 1
@@ -585,8 +586,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
@@ -596,8 +597,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.terapEfectTerap = 1
@@ -607,8 +608,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-        this.formTemplate.value.efectTerap == false && encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -618,8 +619,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.encargEfectEncarg = 1
@@ -629,8 +630,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true &&
-        this.formTemplate.value.efectTerap == false && this.formTemplate.value.efectEncarg == false && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.piso1Efectpiso1 = 1
         this.piso2Efectpiso2 = 1
@@ -640,8 +641,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
@@ -651,8 +652,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == false && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == true) {
         this.masde3 = true
         this.piso2Efectpiso2 = 1
         this.terapEfectTerap = 1
@@ -663,8 +664,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Bizum
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == false) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -674,8 +675,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
         this.masde3 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
@@ -685,8 +686,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.terapbizuTerap = 1
         this.encargbizuEncarg = 1
@@ -696,8 +697,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        this.formTemplate.value.bizuEncarg == false && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
@@ -707,8 +708,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.terapbizuTerap = 1
@@ -718,8 +719,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == false) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -729,8 +730,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == false && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.encargbizuEncarg = 1
@@ -740,8 +741,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.bizuPiso1 == true && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
-        this.formTemplate.value.bizuEncarg == false && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.piso1bizupiso1 = 1
         this.piso2bizupiso2 = 1
@@ -751,8 +752,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
-        encargada > 0 && this.formTemplate.value.bizuEncarg == true && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == false &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.piso2bizupiso2 = 1
         this.encargbizuEncarg = 1
@@ -762,8 +763,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.bizuPiso1 == false && piso2 > 0 && this.formTemplate.value.bizuPiso2 == true && terapeuta > 0 && this.formTemplate.value.bizuTerap == true &&
-        this.formTemplate.value.bizuEncarg == false && otros > 0 && this.formTemplate.value.bizuOtro == true) {
+      if (this.formTemplate.value.bizuPiso1 == false && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == false && this.formTemplate.value.bizuOtro == true) {
         this.masde3 = true
         this.piso2bizupiso2 = 1
         this.terapbizuTerap = 1
@@ -774,8 +775,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Tarjeta
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == false) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -785,8 +786,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
         this.masde3 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
@@ -796,8 +797,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.teraptarjTerap = 1
         this.encargtarjEncarg = 1
@@ -807,8 +808,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        this.formTemplate.value.tarjEncarg == false && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
@@ -818,8 +819,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.teraptarjTerap = 1
@@ -829,8 +830,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
-        encargada > 0 && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == false) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -840,8 +841,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false && encargada > 0 &&
-        this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.encargtarjEncarg = 1
@@ -851,8 +852,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.tarjPiso1 == true && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
-        this.formTemplate.value.tarjEncarg == false && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.piso1tarjpiso1 = 1
         this.piso2tarjpiso2 = 1
@@ -862,8 +863,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false && encargada > 0 &&
-        this.formTemplate.value.tarjEncarg == true && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == false &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.piso2tarjpiso2 = 1
         this.encargtarjEncarg = 1
@@ -873,8 +874,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.tarjPiso1 == false && piso2 > 0 && this.formTemplate.value.tarjPiso2 == true && terapeuta > 0 && this.formTemplate.value.tarjTerap == true &&
-        this.formTemplate.value.tarjEncarg == false && otros > 0 && this.formTemplate.value.tarjOtro == true) {
+      if (this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.tarjOtro == true) {
         this.masde3 = true
         this.piso2tarjpiso2 = 1
         this.teraptarjTerap = 1
@@ -885,8 +886,8 @@ export class NuevoServicioComponent implements OnInit {
       }
 
       // Transaccion
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 &&
-        this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == false) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -896,8 +897,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
         this.masde3 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
@@ -907,8 +908,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.teraptransTerap = 1
         this.encargtransEncarg = 1
@@ -918,8 +919,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        this.formTemplate.value.transEncarg == false && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
@@ -929,8 +930,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.teraptransTerap = 1
@@ -940,8 +941,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
-        encargada > 0 && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == false) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -951,8 +952,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false && encargada > 0 &&
-        this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == false && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.encargtransEncarg = 1
@@ -962,8 +963,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.transPiso1 == true && piso2 > 0 && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
-        this.formTemplate.value.transEncarg == false && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.piso1transpiso1 = 1
         this.piso2transpiso2 = 1
@@ -973,8 +974,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
-        encargada > 0 && this.formTemplate.value.transEncarg == true && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == false &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.piso2transpiso2 = 1
         this.encargtransEncarg = 1
@@ -984,8 +985,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.transPiso1 == false && piso2 > 0 && this.formTemplate.value.transPiso2 == true && terapeuta > 0 && this.formTemplate.value.transTerap == true &&
-        this.formTemplate.value.transEncarg == false && otros > 0 && this.formTemplate.value.transOtro == true) {
+      if (this.formTemplate.value.transPiso1 == false && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == false && this.formTemplate.value.transOtro == true) {
         this.masde3 = true
         this.piso2transpiso2 = 1
         this.teraptransTerap = 1
@@ -999,10 +1000,11 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
-    if (this.masde5 == false && this.masde4 == false && this.masde3 == false) {
+
+    if (this.masde5 == false && this.masde4 == false && this.masde3 == false && piso1 > 0 || piso2.numberPiso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
       // Efectivo
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
         this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
@@ -1012,7 +1014,7 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == true &&
         this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
@@ -1022,8 +1024,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.encargEfectEncarg = 1
@@ -1032,8 +1034,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (piso1 > 0 && this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
-        this.formTemplate.value.efectEncarg == false && otros > 0 && this.formTemplate.value.efectOtro == true) {
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == true) {
         this.masde2 = true
         this.piso1Efectpiso1 = 1
         this.otroEfectOtro = 1
@@ -1042,7 +1044,7 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && terapeuta > 0 && this.formTemplate.value.efectTerap == true &&
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
         this.formTemplate.value.efectEncarg == false && this.formTemplate.value.efectOtro == false) {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
@@ -1052,8 +1054,8 @@ export class NuevoServicioComponent implements OnInit {
         return true
       }
 
-      if (this.formTemplate.value.efectPiso1 == false && piso2 > 0 && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
-        encargada > 0 && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
+      if (this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == false &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == false) {
         this.masde2 = true
         this.piso2Efectpiso2 = 1
         this.encargEfectEncarg = 1
@@ -28022,8 +28024,8 @@ export class NuevoServicioComponent implements OnInit {
             otros = this.formTemplate.value.numberOtro
 
             if (!this.TodosCobroSelect(formValue)) return
-            if (!this.mas4Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
-            if (!this.mas3Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
+            if (!this.mas4Select(formValue)) return
+            if (!this.mas3Select(formValue)) return
             if (!this.mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
             if (!this.masde2Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
 
