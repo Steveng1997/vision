@@ -621,11 +621,26 @@ export class ServicioService {
     });
   }
 
-  getIdUnico(idUnico: string): Promise<any> {
+  getIdUnicoByCierre(idUnico: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
         .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)
           .where('cierre', '==', false))
+        .valueChanges({ idField: 'idDocument' })
+        .subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getIdUnico(idUnico: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db
+        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
