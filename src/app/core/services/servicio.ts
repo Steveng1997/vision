@@ -692,12 +692,30 @@ export class ServicioService {
       });
   }
 
+  updateWithValueNumberPiso1(idDocumentServicio, idUnico, piso1) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberPiso1: piso1,
+      });
+  }
+
   updateNumberPiso2(idDocumentServicio, idUnico) {
     return this.db
       .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
       .doc(idDocumentServicio)
       .update({
         numberPiso2: 0,
+      });
+  }
+
+  updateWithValueNumberPiso2(idDocumentServicio, idUnico, piso2) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberPiso2: piso2,
       });
   }
 
@@ -710,6 +728,15 @@ export class ServicioService {
       });
   }
 
+  updateWithValueNumberEncargada(idDocumentServicio, idUnico, encargada) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberEncarg: encargada,
+      });
+  }
+
   updateNumberTerap(idDocumentServicio, idUnico) {
     return this.db
       .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
@@ -719,12 +746,30 @@ export class ServicioService {
       });
   }
 
+  updateWithValueNumberTerap(idDocumentServicio, idUnico, terapeuta) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberTerap: terapeuta,
+      });
+  }
+
   updateNumberOtros(idDocumentServicio, idUnico) {
     return this.db
       .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
       .doc(idDocumentServicio)
       .update({
         numberOtro: 0,
+      });
+  }
+
+  updateWithValueNumberOtros(idDocumentServicio, idUnico, otro) {
+    return this.db
+      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+      .doc(idDocumentServicio)
+      .update({
+        numberOtro: otro,
       });
   }
 
