@@ -82,7 +82,7 @@ export class NuevoServicioComponent implements OnInit {
 
   idUnico: string
 
-  hayServicio = false
+  formaPagos = ''
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -339,9 +339,9 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
         this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true) {
 
+        this.formaPagos = "Efectivo"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
           this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-        return true
       }
 
       // Bizum
@@ -356,9 +356,9 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
         this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true) {
 
+        this.formaPagos = "Bizum"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
           this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-        return true
       }
 
       // Tarjeta
@@ -373,9 +373,9 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
         this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true) {
 
+        this.formaPagos = "Tarjeta"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
           this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-        return true
       }
 
       // Transaccion
@@ -390,9 +390,9 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
         this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true) {
 
+        this.formaPagos = "Transaccion"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
           this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-        return true
       }
     }
 
@@ -418,62 +418,65 @@ export class NuevoServicioComponent implements OnInit {
 
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
-      if (this.hayServicio === false) {
-        // Efectivo
-        if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectPiso1 == true &&
-          this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectEncarg == true ||
-          this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso2 == true &&
-          this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true ||
-          this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectTerap == true &&
-          this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
-          this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true) {
+      // Efectivo
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectEncarg == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true ||
+        this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true) {
 
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-            this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
-          return true
-        }
+        this.formaPagos = 'Efectivo'
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
 
-        // Bizum
-        if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.bizuPiso1 == true &&
-          this.formTemplate.value.bizuTerap == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuEncarg == true ||
-          this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso2 == true &&
-          this.formTemplate.value.bizuTerap == true || this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true ||
-          this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuTerap == true &&
-          this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
-          this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true) {
 
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-            this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
-          return true
-        }
+      // Bizum
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuTerap == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuEncarg == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == true || this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true ||
+        this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true) {
 
-        // Tarjeta
-        if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.tarjPiso1 == true &&
-          this.formTemplate.value.tarjTerap == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjEncarg == true ||
-          this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso2 == true &&
-          this.formTemplate.value.tarjTerap == true || this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true ||
-          this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjTerap == true &&
-          this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
-          this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true) {
+        this.formaPagos = 'Bizum'
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        return true
+      }
 
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-            this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
-          return true
-        }
+      // Tarjeta
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjTerap == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjEncarg == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == true || this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true ||
+        this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true) {
 
-        // Transaccion
-        if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true || this.formTemplate.value.transPiso1 == true &&
-          this.formTemplate.value.transTerap == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transEncarg == true ||
-          this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso2 == true &&
-          this.formTemplate.value.transTerap == true || this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true ||
-          this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transTerap == true &&
-          this.formTemplate.value.transOtro == true || this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
-          this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true) {
+        this.formaPagos = 'Tarjeta'
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+        return true
+      }
 
-          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-            this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
-          return true
-        }
+      // Transaccion
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true || this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transTerap == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transEncarg == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == true || this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true ||
+        this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transOtro == true || this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true) {
+
+        this.formaPagos = 'Transaccion'
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+        return true
       }
     }
 
@@ -484,34 +487,8 @@ export class NuevoServicioComponent implements OnInit {
 
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
-      let countEfect = 0, countbizu = 0, counttarj = 0, counttrans = 0
-
-      if (this.formTemplate.value.efectPiso1 == true) countEfect += 1
-      if (this.formTemplate.value.efectPiso2 == true) countEfect += 1
-      if (this.formTemplate.value.efectTerap == true) countEfect += 1
-      if (this.formTemplate.value.efectEncarg == true) countEfect += 1
-      if (this.formTemplate.value.efectOtro == true) countEfect += 1
-
-      if (this.formTemplate.value.bizuPiso1 == true) countbizu += 1
-      if (this.formTemplate.value.bizuPiso2 == true) countbizu += 1
-      if (this.formTemplate.value.bizuTerap == true) countbizu += 1
-      if (this.formTemplate.value.bizuEncarg == true) countbizu += 1
-      if (this.formTemplate.value.bizuOtro == true) countbizu += 1
-
-      if (this.formTemplate.value.tarjPiso1 == true) counttarj += 1
-      if (this.formTemplate.value.tarjPiso2 == true) counttarj += 1
-      if (this.formTemplate.value.tarjTerap == true) counttarj += 1
-      if (this.formTemplate.value.tarjEncarg == true) counttarj += 1
-      if (this.formTemplate.value.tarjOtro == true) counttarj += 1
-
-      if (this.formTemplate.value.transPiso1 == true) counttrans += 1
-      if (this.formTemplate.value.transPiso2 == true) counttrans += 1
-      if (this.formTemplate.value.transTerap == true) counttrans += 1
-      if (this.formTemplate.value.transEncarg == true) counttrans += 1
-      if (this.formTemplate.value.transOtro == true) counttrans += 1
-
       // Efectivo
-      if (countEfect < 3) {
+      if (this.formaPagos == 'Bizum' || this.formaPagos == 'Tarjeta' || this.formaPagos == 'Transaccion') {
         if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectPiso1 == true &&
           this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectEncarg == true ||
           this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso2 == true &&
@@ -520,34 +497,31 @@ export class NuevoServicioComponent implements OnInit {
           this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
           this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true) {
 
-          if (countbizu == 3 || counttarj == 3 || counttrans == 3 || countbizu == 2 || counttarj == 2 || counttrans == 2) {
+          if (this.formTemplate.value.efectPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
+          if (this.formTemplate.value.efectPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
+          if (this.formTemplate.value.efectEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
+          if (this.formTemplate.value.efectTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
+          if (this.formTemplate.value.efectOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
 
-            if (this.formTemplate.value.efectPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
-            if (this.formTemplate.value.efectPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
-            if (this.formTemplate.value.efectEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
-            if (this.formTemplate.value.efectTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
-            if (this.formTemplate.value.efectOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
+          this.todoenCero()
 
-            this.todoenCero()
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+            this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0,
+            this.valueEfectEncargada, 0, 0, 0, this.currentDate).then((register) => {
 
-            this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-              this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0,
-              this.valueEfectEncargada, 0, 0, 0, this.currentDate).then((register) => {
+              if (this.formTemplate.value.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
+              if (this.formTemplate.value.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
+              if (this.formTemplate.value.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
+              if (this.formTemplate.value.efectTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
+              if (this.formTemplate.value.efectOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
 
-                if (this.formTemplate.value.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
-                if (this.formTemplate.value.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
-                if (this.formTemplate.value.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
-                if (this.formTemplate.value.efectTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
-                if (this.formTemplate.value.efectOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
-
-              })
-            return true
-          }
+            })
+          return true
         }
       }
 
       // Bizum
-      if (countbizu < 3) {
+      if (this.formaPagos == 'Efectivo' || this.formaPagos == 'Tarjeta' || this.formaPagos == 'Transaccion') {
         if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.bizuPiso1 == true &&
           this.formTemplate.value.bizuTerap == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuEncarg == true ||
           this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso2 == true &&
@@ -556,34 +530,33 @@ export class NuevoServicioComponent implements OnInit {
           this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
           this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true) {
 
-          if (countEfect == 3 || counttarj == 3 || counttrans == 3 || countEfect == 2 || counttarj == 2 || counttrans == 2) {
+          if (this.formTemplate.value.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
+          if (this.formTemplate.value.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
+          if (this.formTemplate.value.bizuEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
+          if (this.formTemplate.value.bizuTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
+          if (this.formTemplate.value.bizuOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
 
-            if (this.formTemplate.value.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
-            if (this.formTemplate.value.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
-            if (this.formTemplate.value.bizuEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
-            if (this.formTemplate.value.bizuTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
-            if (this.formTemplate.value.bizuOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
+          this.todoenCero()
 
-            this.todoenCero()
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+            this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0,
+            this.valueBizuEncargada, 0, 0, this.currentDate).then((register) => {
 
-            this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-              this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0,
-              this.valueBizuEncargada, 0, 0, this.currentDate).then((register) => {
+              console.log(register)
 
-                if (this.formTemplate.value.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
-                if (this.formTemplate.value.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
-                if (this.formTemplate.value.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
-                if (this.formTemplate.value.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
-                if (this.formTemplate.value.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
+              if (this.formTemplate.value.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
+              if (this.formTemplate.value.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
+              if (this.formTemplate.value.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
+              if (this.formTemplate.value.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
+              if (this.formTemplate.value.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
 
-              })
-            return true
-          }
+            })
+          return true
         }
       }
 
       // Tarjeta
-      if (counttarj < 3) {
+      if (this.formaPagos == 'Efectivo' || this.formaPagos == 'Bizum' || this.formaPagos == 'Transaccion') {
         if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.tarjPiso1 == true &&
           this.formTemplate.value.tarjTerap == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjEncarg == true ||
           this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso2 == true &&
@@ -592,34 +565,31 @@ export class NuevoServicioComponent implements OnInit {
           this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
           this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true) {
 
-          if (countEfect == 3 || countbizu == 3 || counttrans == 3 || countEfect == 2 || countbizu == 2 || counttrans == 2) {
+          if (this.formTemplate.value.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
+          if (this.formTemplate.value.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
+          if (this.formTemplate.value.tarjEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
+          if (this.formTemplate.value.tarjTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
+          if (this.formTemplate.value.tarjOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
 
-            if (this.formTemplate.value.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
-            if (this.formTemplate.value.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
-            if (this.formTemplate.value.tarjEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
-            if (this.formTemplate.value.tarjTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
-            if (this.formTemplate.value.tarjOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
+          this.todoenCero()
 
-            this.todoenCero()
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+            this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0,
+            this.valueTarjeEncargada, 0, this.currentDate).then((register) => {
 
-            this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-              this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0,
-              this.valueTarjeEncargada, 0, this.currentDate).then((register) => {
+              if (this.formTemplate.value.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
+              if (this.formTemplate.value.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
+              if (this.formTemplate.value.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
+              if (this.formTemplate.value.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
+              if (this.formTemplate.value.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
 
-                if (this.formTemplate.value.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
-                if (this.formTemplate.value.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
-                if (this.formTemplate.value.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
-                if (this.formTemplate.value.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
-                if (this.formTemplate.value.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
-
-              })
-            return true
-          }
+            })
+          return true
         }
       }
 
       // Transaccion
-      if (counttrans < 3) {
+      if (this.formaPagos == 'Efectivo' || this.formaPagos == 'Bizum' || this.formaPagos == 'Tarjeta') {
         if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true || this.formTemplate.value.transPiso1 == true &&
           this.formTemplate.value.transTerap == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transEncarg == true ||
           this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso2 == true &&
@@ -628,29 +598,26 @@ export class NuevoServicioComponent implements OnInit {
           this.formTemplate.value.transOtro == true || this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
           this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true) {
 
-          if (countEfect == 3 || countbizu == 3 || counttarj == 3 || countEfect == 2 || countbizu == 2 || counttarj == 2) {
+          if (this.formTemplate.value.transPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
+          if (this.formTemplate.value.transPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
+          if (this.formTemplate.value.transEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
+          if (this.formTemplate.value.transTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
+          if (this.formTemplate.value.transOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
 
-            if (this.formTemplate.value.transPiso1 == true) this.servicioService.updateNumberPiso1(idDocument, piso1)
-            if (this.formTemplate.value.transPiso2 == true) this.servicioService.updateNumberPiso2(idDocument, piso2)
-            if (this.formTemplate.value.transEncarg == true) this.servicioService.updateNumberEncargada(idDocument, encargada)
-            if (this.formTemplate.value.transTerap == true) this.servicioService.updateNumberTerap(idDocument, terapeuta)
-            if (this.formTemplate.value.transOtro == true) this.servicioService.updateNumberOtros(idDocument, otros)
+          this.todoenCero()
 
-            this.todoenCero()
+          this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+            this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0,
+            this.valueTransEncargada, this.currentDate).then((register) => {
 
-            this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
-              this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0,
-              this.valueTransEncargada, this.currentDate).then((register) => {
+              if (this.formTemplate.value.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
+              if (this.formTemplate.value.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
+              if (this.formTemplate.value.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
+              if (this.formTemplate.value.transTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
+              if (this.formTemplate.value.transOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
 
-                if (this.formTemplate.value.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(register.id, this.idUnico, piso1)
-                if (this.formTemplate.value.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(register.id, this.idUnico, piso2)
-                if (this.formTemplate.value.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(register.id, this.idUnico, encargada)
-                if (this.formTemplate.value.transTerap == true) this.servicioService.updateWithValueNumberTerap(register.id, this.idUnico, terapeuta)
-                if (this.formTemplate.value.transOtro == true) this.servicioService.updateWithValueNumberOtros(register.id, this.idUnico, otros)
-
-              })
-            return true
-          }
+            })
+          return true
         }
       }
     }
@@ -686,12 +653,12 @@ export class NuevoServicioComponent implements OnInit {
             if (!this.TodosCobroSelect(formValue)) return
             if (!this.mas4Select(formValue)) return
             if (!this.mas3Select(formValue)) return
-            if (!this.mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
 
             this.servicioService.getIdUnico(this.idUnico).then((idUnicoExit) => {
               if (idUnicoExit.length > 0) {
-                this.hayServicio = true
                 if (!this.mas2SelectUpdate(formValue, piso1, piso2, terapeuta, encargada, otros, idUnicoExit[0]['idDocument'])) return
+              } else {
+                if (!this.mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
               }
             })
 
