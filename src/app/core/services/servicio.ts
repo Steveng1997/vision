@@ -640,7 +640,7 @@ export class ServicioService {
   getIdUnico(idUnico: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
-        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
+        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico).orderBy('idUnico', 'desc'))
         .valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
