@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    if (this.usuarioRegistro != '') {
-      if (this.passRegistro != '') {
+    debugger
+    if (this.usuarioRegistro != undefined) {
+      if (this.passRegistro != undefined) {
         this.serviceLogin.getByUsuario(this.usuarioRegistro).then((resp => {
           if (resp[0] != undefined) {
             if (resp[0]['activo'] == true) {
