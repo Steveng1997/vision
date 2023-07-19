@@ -129,6 +129,16 @@ export class VisionComponent implements OnInit {
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
+    if (horaFin <= hora_actual && horaFin != "") {
+      this.terapService.getByNombre(nombre).then((datoMinute) => {
+        for (let i = 0; i < datoMinute.length; i++) {
+          if (datoMinute[i]['horaEnd'] <= hora_actual) {
+            this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
+          }
+        }
+      })
+    }
+
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora)
       && hora_final.match(formatohora))) {
@@ -145,14 +155,6 @@ export class VisionComponent implements OnInit {
       convertHora = hora_inicio
     }
 
-    this.terapService.getByNombre(nombre).then((datoMinute) => {
-      for (let i = 0; i < datoMinute.length; i++) {
-        if (datoMinute[i]['horaEnd'] <= convertHora) {
-          this.terapService.updateHoraEnd(datoMinute[i]['idDocument'], nombre)
-        }
-      }
-    })
-
     // Si la hora final es anterior a la hora inicial sale
     if (minutos_final < minutos_inicio) return ''
 
@@ -165,12 +167,7 @@ export class VisionComponent implements OnInit {
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.aqui = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 
-    if (minutos > 0 && minutos < 10) {
-      this.horaEnd = minutos.toString()
-    } else {
-      this.horaEnd = minutos.toString()
-    }
-
+    this.horaEnd = minutos.toString()
     return this.horaEnd
   }
 

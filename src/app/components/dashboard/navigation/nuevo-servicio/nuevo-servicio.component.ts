@@ -1032,8 +1032,7 @@ export class NuevoServicioComponent implements OnInit {
                 if (!this.mas1Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
               }
             }
-
-            debugger
+            
             if (this.formaPagos != "") {
               if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
                 if (this.completoEfectivo == 0) {
