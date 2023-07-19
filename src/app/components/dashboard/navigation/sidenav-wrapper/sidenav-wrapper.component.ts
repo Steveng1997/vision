@@ -55,4 +55,9 @@ export class SidenavWrapperComponent implements OnInit {
         }
       })
   }
+
+  toolbar(){
+    this.sidenav.mode = 'over'
+    this.sidenav.close()
+  }
 }

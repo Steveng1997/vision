@@ -1084,7 +1084,7 @@ export class NuevoServicioComponent implements OnInit {
             //   }
             // })
 
-            Swal.fire('Congratulation!', '¡Insertado Correctamente!', 'success')
+            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
 
             this.router.navigate([`menu/${this.idUser['id']}/vision/${this.idUser['id']}`])
           } else {

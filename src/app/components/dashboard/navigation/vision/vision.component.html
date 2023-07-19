@@ -73,7 +73,7 @@
           <th scope="col">Otros</th>
         </tr>
       </thead>
-      <tbody *ngFor="let vis of vision ">
+      <tbody *ngFor="let vis of vision | paginate: { itemsPerPage: 10, currentPage: page } ">
         <tr style="cursor: pointer;">
           <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
           <td (click)="editamos(vis.id)">{{vis.terapeuta}}</td>
@@ -111,5 +111,9 @@
       </tbody>
 
     </table>
+
+    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+      nextLabel="Siguiente">
+    </pagination-controls>
   </div>
 </div>
