@@ -129,23 +129,28 @@ export class VisionComponent implements OnInit {
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-
-    debugger
-
+  
     if (horaFin != "") {
-      if (hora_inicio.length == 4) {
-        hora_inicio = '0' + hora_inicio
-      }
-      if (hora_final <= hora_inicio) {
-        this.terapService.getByNombre(nombre).then((datoMinute) => {
-          for (let i = 0; i < datoMinute.length; i++) {
-            if (datoMinute[i]['horaEnd'] <= hora_actual) {
-              this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
-            }
+        if (hora_inicio.length == 4) {
+          hora_inicio = '0' + hora_inicio
+
+          if (hora_final <= hora_inicio) {
+            this.terapService.getByNombre(nombre).then((datoMinute) => {
+              for (let i = 0; i < datoMinute.length; i++) {
+                if (datoMinute[i]['horaEnd'] <= hora_actual) {
+                  this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
+                }
+              }
+            })
           }
-        })
+        }
+
+        if(hora_final >= hora_inicio){
+          setTimeout(function () {
+            location.reload()
+          }, 60000)
+        }
       }
-    }
 
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora)
