@@ -29,11 +29,12 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    document.getElementById('idTitulo').innerHTML = 'Visión'
+
     this.idUser = this.activeRoute.snapshot.paramMap.get('id')
     this.serviceLogin.getById(this.idUser).then((rp) => {
       this.idUser = rp[0]
     })
-    document.getElementById('idTitulo').innerHTML = 'Visión'
   }
 
   liquidacion() {
@@ -56,7 +57,7 @@ export class SidenavWrapperComponent implements OnInit {
       })
   }
 
-  toolbar(){
+  toolbar() {
     this.sidenav.mode = 'over'
     this.sidenav.close()
   }

@@ -69,6 +69,7 @@ export class VisionComponent implements OnInit {
       this.terapeutas = rp
       if (rp.length > 0) {
         for (let i = 0; rp.length; i++) {
+          debugger
           this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
         }
       }
@@ -129,14 +130,21 @@ export class VisionComponent implements OnInit {
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
-    if (horaFin <= hora_actual && horaFin != "") {
-      this.terapService.getByNombre(nombre).then((datoMinute) => {
-        for (let i = 0; i < datoMinute.length; i++) {
-          if (datoMinute[i]['horaEnd'] <= hora_actual) {
-            this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
+    debugger
+
+    if (horaFin != "") {
+      if (hora_inicio.length == 4) {
+        hora_inicio = '0' + hora_inicio
+      }
+      if (hora_final <= hora_inicio) {
+        this.terapService.getByNombre(nombre).then((datoMinute) => {
+          for (let i = 0; i < datoMinute.length; i++) {
+            if (datoMinute[i]['horaEnd'] <= hora_actual) {
+              this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
+            }
           }
-        }
-      })
+        })
+      }
     }
 
     // Si algún valor no tiene formato correcto sale

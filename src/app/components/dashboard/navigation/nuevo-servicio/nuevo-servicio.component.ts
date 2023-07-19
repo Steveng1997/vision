@@ -1032,7 +1032,7 @@ export class NuevoServicioComponent implements OnInit {
                 if (!this.mas1Select(formValue, piso1, piso2, terapeuta, encargada, otros)) return
               }
             }
-            
+
             if (this.formaPagos != "") {
               if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
                 if (this.completoEfectivo == 0) {
@@ -1083,9 +1083,11 @@ export class NuevoServicioComponent implements OnInit {
             //   }
             // })
 
-            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
+            setTimeout(() => {
+              this.router.navigate([`menu/${this.idUser['id']}/vision/${this.idUser['id']}`])
+            }, 3000);
 
-            this.router.navigate([`menu/${this.idUser['id']}/vision/${this.idUser['id']}`])
+            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
           } else {
             Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
           }
