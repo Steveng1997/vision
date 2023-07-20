@@ -1,7 +1,7 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
 <div *ngIf="!editamos">
-    <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">Nuevo Servicio</h4>
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Nuevo Servicio</h4>
 
     <form [formGroup]="formTemplate" (ngSubmit)="addServicio(formTemplate.value)">
 
@@ -180,19 +180,19 @@
 
             <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
 
-                <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                <mat-drawer-container style="font-size: small;" class="col-2">
                     <mat-drawer-content>EFECT</mat-drawer-content>
                 </mat-drawer-container>
 
-                <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                <mat-drawer-container style="font-size: small;" class="col-2">
                     <mat-drawer-content>BIZUM</mat-drawer-content>
                 </mat-drawer-container>
 
-                <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                <mat-drawer-container style="font-size: small;" class="col-2">
                     <mat-drawer-content>TARJETA</mat-drawer-content>
                 </mat-drawer-container>
 
-                <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                <mat-drawer-container style="font-size: small;" class="col-2">
                     <mat-drawer-content>TRANS</mat-drawer-content>
                 </mat-drawer-container>
             </div>
@@ -345,7 +345,7 @@
 <div class="container" *ngIf="editamos">
     <div class="row" *ngFor="let edServ of editarService">
 
-        <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">Editar</h4>
+        <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Editar</h4>
         <form>
             <div class="container">
                 <div class="row">
@@ -415,7 +415,8 @@
                         </mat-drawer-container>
 
                         <input type="time" class="form-control" [(ngModel)]="edServ.horaStart" name="horaStart"
-                            (change)="horaInicioEdit($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600" />
+                            (change)="horaInicioEdit($event)" [value]="horaStarted" min="18:00" max="21:00"
+                            step="3600" />
                     </div>
 
                     <div class="col-6">
@@ -525,19 +526,19 @@
 
                 <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
 
-                    <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                    <mat-drawer-container style="font-size: small;" class="col-2">
                         <mat-drawer-content>EFECT</mat-drawer-content>
                     </mat-drawer-container>
 
-                    <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                    <mat-drawer-container style="font-size: small;" class="col-2">
                         <mat-drawer-content>BIZUM</mat-drawer-content>
                     </mat-drawer-container>
 
-                    <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                    <mat-drawer-container style="font-size: small;" class="col-2">
                         <mat-drawer-content>TARJETA</mat-drawer-content>
                     </mat-drawer-container>
 
-                    <mat-drawer-container style="font-family: cursive; font-size: small;" class="col-2">
+                    <mat-drawer-container style="font-size: small;" class="col-2">
                         <mat-drawer-content>TRANS</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
