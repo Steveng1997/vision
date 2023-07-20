@@ -454,7 +454,6 @@ export class TerapeutasComponent implements OnInit {
             this.liqTep = true
             this.addTerap = false
             this.editTerap = false
-            // window.location.reload()
             Swal.fire({
               position: 'top-end',
               icon: 'success',

@@ -69,7 +69,6 @@ export class VisionComponent implements OnInit {
       this.terapeutas = rp
       if (rp.length > 0) {
         for (let i = 0; rp.length; i++) {
-          debugger
           this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
         }
       }
@@ -129,28 +128,22 @@ export class VisionComponent implements OnInit {
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-  
+
     if (horaFin != "") {
-        if (hora_inicio.length == 4) {
-          hora_inicio = '0' + hora_inicio
+      if (hora_inicio.length == 4) {
+        hora_inicio = '0' + hora_inicio
 
-          if (hora_final <= hora_inicio) {
-            this.terapService.getByNombre(nombre).then((datoMinute) => {
-              for (let i = 0; i < datoMinute.length; i++) {
-                if (datoMinute[i]['horaEnd'] <= hora_actual) {
-                  this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
-                }
+        if (hora_final <= hora_inicio) {
+          this.terapService.getByNombre(nombre).then((datoMinute) => {
+            for (let i = 0; i < datoMinute.length; i++) {
+              if (datoMinute[i]['horaEnd'] <= hora_actual) {
+                this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
               }
-            })
-          }
-        }
-
-        if(hora_final >= hora_inicio){
-          setTimeout(function () {
-            location.reload()
-          }, 60000)
+            }
+          })
         }
       }
+    }
 
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora)
@@ -180,7 +173,11 @@ export class VisionComponent implements OnInit {
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.aqui = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 
-    this.horaEnd = minutos.toString()
+    if (this.aqui.slice(0, 1) === "0") {
+      this.horaEnd = this.aqui.slice(3, 4)
+    } else {
+      this.horaEnd = this.aqui
+    }
     return this.horaEnd
   }
 
