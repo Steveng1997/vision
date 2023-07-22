@@ -14,7 +14,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargadas">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -54,20 +54,20 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody *ngFor="let serv of (liquidacionesEncargada | encargada: selectedEncargadas
+        <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: selectedEncargada
         | fechaInicial: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda) | 
-        paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(serv.idEncargada)">
+        paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
             <tr style="cursor: pointer;">
                 <!-- 1 -->
-                <td>{{serv.encargada}}</td>
+                <td>{{liqEncarg.encargada}}</td>
                 <!-- 2 -->
-                <td>{{serv.desdeFechaLiquidado + ' - ' + serv.desdeHoraLiquidado}}</td>
+                <td>{{liqEncarg.desdeFechaLiquidado + ' - ' + liqEncarg.desdeHoraLiquidado}}</td>
                 <!-- 3 -->
-                <td>{{serv.hastaFechaLiquidado + ' - ' + serv.hastaHoraLiquidado}}</td>
+                <td>{{liqEncarg.hastaFechaLiquidado + ' - ' + liqEncarg.hastaHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td>{{serv.tratamiento}}</td>
+                <td>{{liqEncarg.tratamiento}}</td>
                 <!-- 5 -->
-                <td>{{serv.importe}}</td>
+                <td>{{liqEncarg.importe}}</td>
             </tr>
 
             <!-- Modal -->
@@ -82,7 +82,7 @@
                 <div class="modal-body" style="text-align: center;">
                     <!-- Aqui se coloca lo adentro -->
 
-                    <h4>{{serv.nota}}</h4>
+                    <h4>{{liqEncarg.nota}}</h4>
 
                     <!-- Afuera -->
                 </div>
@@ -178,8 +178,7 @@
                                 <th scope="col">Otros</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: selectedEncargada) | 
-                        fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda |
+                        <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: selectedEncargada) |
                         paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer;">
                                 <!-- 1 -->

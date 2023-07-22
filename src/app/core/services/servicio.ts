@@ -11,9 +11,8 @@ export class ServicioService {
   servicio: Servicio[] = [];
   cursoDoc: AngularFirestoreDocument<Servicio>;
 
-  // -----------------------------------------------------------------------------------
   // Register
-  // -----------------------------------------------------------------------------------
+
   makeid(length) {
     var result = '';
     var characters =
@@ -97,30 +96,19 @@ export class ServicioService {
       idCierre: '',
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('servicio')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('servicio').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   geyByCurrentDesc(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('id', 'desc').where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('id', 'desc').where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -131,47 +119,33 @@ export class ServicioService {
   }
 
   getServicio() {
-    return this.db
-      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc'))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
   }
 
   getByLiquidEncargadaFalse() {
-    return this.db
-      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoEncargada', '==', false))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoEncargada', '==', false)).valueChanges();
   }
 
   getByLiquidTerapFalse() {
-    return this.db
-      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoTerapeuta', '==', false))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoTerapeuta', '==', false)).valueChanges();
   }
 
   getByLiquidTerapTrue() {
-    return this.db
-      .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoTerapeuta', '==', true))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('liquidadoTerapeuta', '==', true)).valueChanges();
   }
 
   getByIdTerap(idTerap) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idTerapeuta', '==', idTerap))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.where('idTerapeuta', '==', idTerap)).valueChanges();
   }
 
   getByIdEncarg(idEncarg) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idEncargada', '==', idEncarg))
-      .valueChanges();
+    return this.db.collection('servicio', (ref) => ref.where('idEncargada', '==', idEncarg)).valueChanges();
   }
 
   geyByCierreFalse(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -183,10 +157,8 @@ export class ServicioService {
 
   geyByCierreTrue(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -198,24 +170,19 @@ export class ServicioService {
 
   getById(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('id', '==', id))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('id', '==', id)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getByEditar(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('id', '==', id).where('editar', '==', true))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('id', '==', id).where('editar', '==', true)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -228,9 +195,7 @@ export class ServicioService {
 
   getTerapeutaByAsc(terapeuta: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'asc'))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'asc')).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -243,9 +208,7 @@ export class ServicioService {
 
   getTerapeutaByDesc(terapeuta: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'desc'))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'desc')).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -258,9 +221,7 @@ export class ServicioService {
 
   getTerapeuta(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('terapeuta', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', nombre)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -273,9 +234,7 @@ export class ServicioService {
 
   getIdDocument(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('idUnico', '==', id))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('idUnico', '==', id)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -288,9 +247,7 @@ export class ServicioService {
 
   getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', nombre)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -303,10 +260,8 @@ export class ServicioService {
 
   getTerapeutaEncargada(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta)
-          .where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta)
+        .where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -319,11 +274,8 @@ export class ServicioService {
 
   getEncargadaAndLiquidacion(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoEncargada', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoEncargada', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -335,11 +287,8 @@ export class ServicioService {
 
   getEncargadaNoLiquidadaTerap(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoTerapeuta', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoTerapeuta', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -351,11 +300,8 @@ export class ServicioService {
 
   getEncargadaNoLiquidada(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoEncargada', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoEncargada', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -367,11 +313,8 @@ export class ServicioService {
 
   getEncargadaNoLiquidadaByFechaDesc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoEncargada', '==', false).orderBy('fechaHoyInicio', 'desc'))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoEncargada', '==', false).orderBy('fechaHoyInicio', 'desc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -383,11 +326,8 @@ export class ServicioService {
 
   getTerapNoLiquidadaByFechaDesc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoTerapeuta', '==', false).orderBy('fechaHoyInicio', 'desc'))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoTerapeuta', '==', false).orderBy('fechaHoyInicio', 'desc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -399,11 +339,8 @@ export class ServicioService {
 
   getEncargadaNoLiquidadaByFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoEncargada', '==', false).orderBy('fechaHoyInicio', 'asc'))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoEncargada', '==', false).orderBy('fechaHoyInicio', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -415,11 +352,8 @@ export class ServicioService {
 
   getTerapNoLiquidadaByFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('liquidadoTerapeuta', '==', false).orderBy('fechaHoyInicio', 'asc'))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('liquidadoTerapeuta', '==', false).orderBy('fechaHoyInicio', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -431,11 +365,8 @@ export class ServicioService {
 
   getEncargadaNoCierre(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-          .where('cierre', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -447,11 +378,9 @@ export class ServicioService {
 
   getTerapeutaFechaAsc(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
-          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+        .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -463,11 +392,9 @@ export class ServicioService {
 
   getTerapeutaFechaAscByLiqTrue(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
-          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+        .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -479,11 +406,9 @@ export class ServicioService {
 
   getEncargadaFechaAscByLiqTrue(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
-          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+        .where('encargada', '==', encargada).where('liquidadoEncargada', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -495,11 +420,9 @@ export class ServicioService {
 
   getEncargFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
-          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+        .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -511,11 +434,9 @@ export class ServicioService {
 
   getTerapeutaFechaDesc(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -527,11 +448,9 @@ export class ServicioService {
 
   getTerapeutaFechaDescByLiqFalse(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-          .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('terapeuta', '==', terapeuta).where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -543,11 +462,8 @@ export class ServicioService {
 
   getEncargadaFechaDescByLiqTrue(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', true))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('encargada', '==', encargada).where('liquidadoEncargada', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -559,11 +475,8 @@ export class ServicioService {
 
   getEncargFechaDesc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-          .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('encargada', '==', encargada).where('liquidadoEncargada', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -575,11 +488,8 @@ export class ServicioService {
 
   getEncargadaFechaAsc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('id', 'asc')
-          .where('encargada', '==', encargada))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('id', 'asc').where('encargada', '==', encargada))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -591,11 +501,8 @@ export class ServicioService {
 
   getEncargadaFechaDesc(encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('id', 'desc')
-          .where('encargada', '==', encargada))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('id', 'desc').where('encargada', '==', encargada))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -608,10 +515,8 @@ export class ServicioService {
 
   getFechaHoy(fechaHoy): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('fechaHoyInicio', '==', fechaHoy))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('fechaHoyInicio', '==', fechaHoy))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -623,11 +528,8 @@ export class ServicioService {
 
   getIdUnicoByCierre(idUnico: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)
-          .where('cierre', '==', false))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)
+        .where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -639,10 +541,8 @@ export class ServicioService {
 
   getIdUnico(idUnico: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico).orderBy('idUnico', 'desc'))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico).orderBy('idUnico', 'desc'))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -652,172 +552,106 @@ export class ServicioService {
     });
   }
 
-
-
-  // -----------------------------------------------------------------------------------
-  // Get
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Update
-  // -----------------------------------------------------------------------------------
 
   updateServicio(idDocumentServicio, idServicio, servi: Servicio) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('id', '==', idServicio))
-      .doc(idDocumentServicio)
-      .update(servi);
+    return this.db.collection('servicio', (ref) => ref.where('id', '==', idServicio)).doc(idDocumentServicio).update(servi);
   }
 
   updateAllServicio(idDocumentServicio, idServicio) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('id', '==', idServicio))
-      .doc(idDocumentServicio)
-      .update({
-        numberPiso1: 0,
-        numberTerap: 0,
-        propina: 0,
-        servicio: 0,
-        totalServicio: 0,
-        minuto: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('id', '==', idServicio)).doc(idDocumentServicio).update({
+      numberPiso1: 0,
+      numberTerap: 0,
+      propina: 0,
+      servicio: 0,
+      totalServicio: 0,
+      minuto: 0,
+    });
   }
 
   updateNumberPiso1(idDocumentServicio, idUnico) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberPiso1: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberPiso1: 0,
+    });
   }
 
   updateWithValueNumberPiso1(idDocumentServicio, idUnico, piso1) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberPiso1: piso1,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberPiso1: piso1,
+    });
   }
 
   updateNumberPiso2(idDocumentServicio, idUnico) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberPiso2: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberPiso2: 0,
+    });
   }
 
   updateWithValueNumberPiso2(idDocumentServicio, idUnico, piso2) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberPiso2: piso2,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberPiso2: piso2,
+    });
   }
 
   updateNumberEncargada(idDocumentServicio, idUnico) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberEncarg: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberEncarg: 0,
+    });
   }
 
   updateWithValueNumberEncargada(idDocumentServicio, idUnico, encargada) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberEncarg: encargada,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberEncarg: encargada,
+    });
   }
 
   updateNumberTerap(idDocumentServicio, idUnico) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberTerap: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberTerap: 0,
+    });
   }
 
   updateWithValueNumberTerap(idDocumentServicio, idUnico, terapeuta) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberTerap: terapeuta,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberTerap: terapeuta,
+    });
   }
 
   updateNumberOtros(idDocumentServicio, idUnico) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberOtro: 0,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberOtro: 0,
+    });
   }
 
   updateWithValueNumberOtros(idDocumentServicio, idUnico, otro) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('idUnico', '==', idUnico))
-      .doc(idDocumentServicio)
-      .update({
-        numberOtro: otro,
-      });
-  }
-
-  // -----------------------------------------------------------------------------------
-  // End Update
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
-  // Delete
-  // -----------------------------------------------------------------------------------
-
-  async deleteServicio(idDocument, id): Promise<any> {
-    this.db
-      .collection('servicio', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .delete();
+    return this.db.collection('servicio', (ref) => ref.where('idUnico', '==', idUnico)).doc(idDocumentServicio).update({
+      numberOtro: otro,
+    });
   }
 
   updateLiquidacionTerap(idDocument, id, idTerapeuta) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .update({
-        liquidadoTerapeuta: true,
-        idTerapeuta: idTerapeuta
-      });
+    return this.db.collection('servicio', (ref) => ref.where('id', '==', id)).doc(idDocument).update({
+      liquidadoTerapeuta: true,
+      idTerapeuta: idTerapeuta
+    });
   }
 
   updateLiquidacionEncarg(idDocument, id, idEncargada) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .update({
-        liquidadoEncargada: true,
-        idEncargada: idEncargada
-      });
+    return this.db.collection('servicio', (ref) => ref.where('id', '==', id)).doc(idDocument).update({
+      liquidadoEncargada: true,
+      idEncargada: idEncargada
+    });
   }
 
   updateCierre(idDocument, id) {
-    return this.db
-      .collection('servicio', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .update({
-        cierre: true,
-      });
+    return this.db.collection('servicio', (ref) => ref.where('id', '==', id)).doc(idDocument).update({
+      cierre: true,
+    });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End Delete
-  // -----------------------------------------------------------------------------------
+  // Delete
+
+  async deleteServicio(idDocument, id): Promise<any> {
+    this.db.collection('servicio', (ref) => ref.where('id', '==', id)).doc(idDocument).delete();
+  }
 }

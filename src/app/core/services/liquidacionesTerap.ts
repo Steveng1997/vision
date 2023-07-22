@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
 export class LiquidacioneTerapService {
   constructor(public router: Router, private db: AngularFirestore) { }
 
-  // -----------------------------------------------------------------------------------
   // Register
-  // -----------------------------------------------------------------------------------
 
   makeid(length) {
     var result = '';
@@ -37,36 +35,25 @@ export class LiquidacioneTerapService {
       idTerapeuta: idTerapeuta,
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('liquidacionesTerapeuta')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('liquidacionesTerapeuta').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   getLiquidacionesTerapeuta() {
     return this.db
-      .collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc'))
-      .valueChanges();
+      .collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc')).valueChanges();
   }
 
   getIdTerap(idTerap): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db
         .collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerap))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -76,27 +63,18 @@ export class LiquidacioneTerapService {
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // Get
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Update
-  // -----------------------------------------------------------------------------------
-
 
   update(idDocument, nombreTerap, idTerapeuta) {
     return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('nombre', '==', nombreTerap))
-      .doc(idDocument)
-      .update({
+      .doc(idDocument).update({
         idTerapeuta: idTerapeuta
       });
   }
 
   updateById(idDocument, idTerapeuta, importe) {
     return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerapeuta))
-      .doc(idDocument)
-      .update({
+      .doc(idDocument).update({
         importe: importe
       });
   }

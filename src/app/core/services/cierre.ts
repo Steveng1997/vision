@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
 export class CierreService {
   constructor(public router: Router, private db: AngularFirestore) { }
 
-  // -----------------------------------------------------------------------------------
   // Register
-  // -----------------------------------------------------------------------------------
 
   makeid(length) {
     var result = '';
@@ -38,27 +36,16 @@ export class CierreService {
       transaccion: transaccion,
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('cierre')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('cierre').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   getLiquidacionesEncargada() {
-    return this.db
-      .collection('cierre', (ref) => ref.orderBy('id', 'desc'))
-      .valueChanges();
+    return this.db.collection('cierre', (ref) => ref.orderBy('id', 'desc')).valueChanges();
   }
 }

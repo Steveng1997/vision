@@ -42,7 +42,7 @@ import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
 import { CierreComponent } from './navigation/cierre/cierre.component';
-import { BusquedaEncargadaPipe } from 'src/app/core/pipe/busquedaEncargada';
+import { BusquedaEncargadaPipe } from 'src/app/core/pipe/busquedaEncargada.pipe';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,

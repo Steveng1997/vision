@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
 export class LiquidacioneEncargService {
   constructor(public router: Router, private db: AngularFirestore) { }
 
-  // -----------------------------------------------------------------------------------
   // Register
-  // -----------------------------------------------------------------------------------
 
   makeid(length) {
     var result = '';
@@ -36,36 +34,23 @@ export class LiquidacioneEncargService {
       idEncargada: idEncargada
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('liquidacionesEncargada')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('liquidacionesEncargada').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   getLiquidacionesEncargada() {
-    return this.db
-      .collection('liquidacionesEncargada', (ref) => ref.orderBy('id', 'desc'))
-      .valueChanges();
+    return this.db.collection('liquidacionesEncargada', (ref) => ref.orderBy('id', 'desc')).valueChanges();
   }
 
   getIdEncarg(idEncarg): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncarg))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+      this.db.collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncarg))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
@@ -75,27 +60,18 @@ export class LiquidacioneEncargService {
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // Get
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Update
-  // -----------------------------------------------------------------------------------
-
 
   update(idDocument, nombreEncarg, idEncargada) {
     return this.db.collection('liquidacionesEncargada', (ref) => ref.where('nombre', '==', nombreEncarg))
-      .doc(idDocument)
-      .update({
+      .doc(idDocument).update({
         idEncargada: idEncargada
       });
   }
 
   updateById(idDocument, idEncargada, importe) {
     return this.db.collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncargada))
-      .doc(idDocument)
-      .update({
+      .doc(idDocument).update({
         importe: importe
       });
   }

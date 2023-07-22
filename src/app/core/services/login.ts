@@ -49,13 +49,10 @@ export class LoginService {
       activo: true
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('usuarios')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('usuarios').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
@@ -76,44 +73,30 @@ export class LoginService {
       activo: true
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('usuarios')
-        .add(formularioall)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('usuarios').add(formularioall).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   getById(id): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('id', '==', id))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('usuarios', (ref) => ref.where('id', '==', id)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getByIdAndAdministrador(id): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('id', '==', id).where('rol', '==', 'administrador'))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('usuarios', (ref) => ref.where('id', '==', id).where('rol', '==', 'administrador')).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -125,31 +108,24 @@ export class LoginService {
   }
 
   getByIdAll(id) {
-    return this.db
-      .collection('usuarios', (ref) => ref.where('id', '==', id))
-      .valueChanges();
+    return this.db.collection('usuarios', (ref) => ref.where('id', '==', id)).valueChanges();
   }
 
   getByUsuario(usuario): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('usuario', '==', usuario))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('usuarios', (ref) => ref.where('usuario', '==', usuario)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('nombre', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('usuarios', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -162,9 +138,7 @@ export class LoginService {
 
   getByUserAndPass(usuario, pass): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('usuario', '==', usuario).where('pass', '==', pass))
-        .valueChanges({ idField: 'idDocument' })
+      this.db.collection('usuarios', (ref) => ref.where('usuario', '==', usuario).where('pass', '==', pass)).valueChanges({ idField: 'idDocument' })
         .subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -176,41 +150,18 @@ export class LoginService {
   }
 
   getUsuarios() {
-    return this.db
-      .collection('usuarios', (ref) => ref.orderBy('id', 'asc'))
-      .valueChanges();
+    return this.db.collection('usuarios', (ref) => ref.orderBy('id', 'asc')).valueChanges();
   }
 
-  // -----------------------------------------------------------------------------------
-  // End Get
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Update
-  // -----------------------------------------------------------------------------------
 
   updateUser(idDocument, idUsuario, usuario: Usuario) {
-    return this.db.collection('usuarios', (ref) => ref.where('id', '==', idUsuario))
-      .doc(idDocument)
-      .update(usuario);
+    return this.db.collection('usuarios', (ref) => ref.where('id', '==', idUsuario)).doc(idDocument).update(usuario);
   }
 
-  // -----------------------------------------------------------------------------------
-  // End Update
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Delete
-  // -----------------------------------------------------------------------------------
 
   async deleteEncargadas(idDocument, id): Promise<any> {
-    this.db
-      .collection('usuarios', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .delete();
+    this.db.collection('usuarios', (ref) => ref.where('id', '==', id)).doc(idDocument).delete();
   }
-
-  // -----------------------------------------------------------------------------------
-  // End Delete
-  // -----------------------------------------------------------------------------------
 }

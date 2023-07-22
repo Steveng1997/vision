@@ -18,9 +18,7 @@ export class TrabajadoresService {
   trabajadores: Trabajadores[] = [];
   cursoDoc: AngularFirestoreDocument<Trabajadores>;
 
-  // -----------------------------------------------------------------------------------
   // Register
-  // -----------------------------------------------------------------------------------
 
   makeid(length: number) {
     var result = '';
@@ -48,154 +46,101 @@ export class TrabajadoresService {
       salida: '',
     };
     return new Promise<any>((resolve, reject) => {
-      this.db
-        .collection('terapeutas')
-        .add(trabajador)
-        .then(
-          (response) => resolve(response),
-          (error) => reject(error)
-        );
+      this.db.collection('terapeutas').add(trabajador).then(
+        (response) => resolve(response),
+        (error) => reject(error)
+      );
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End register
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Get
-  // -----------------------------------------------------------------------------------
 
   getByIdTerapeuta(id): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('terapeutas', (ref) => ref.where('id', '==', id))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('terapeutas', (ref) => ref.where('id', '==', id)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
 
   getByNombre(nombre: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db
-        .collection('terapeutas', (ref) => ref.where('nombre', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
-  
+
   getAllTerapeuta() {
-    return this.db
-      .collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc'))
-      .valueChanges()
+    return this.db.collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc')).valueChanges()
   }
 
   getAllTerapeutaByOrden() {
-    return this.db
-      .collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc'))
-      .valueChanges()
+    return this.db.collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc')).valueChanges()
   }
 
   getTerapeuta(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('terapeutas', (ref) => ref.where('nombre', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('usuarios', (ref) => ref.where('nombre', '==', nombre))
-        .valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('usuarios', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End Get
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Update
-  // -----------------------------------------------------------------------------------
 
   updateTerapeutas(idDocument, idTerapeuta, terapeuta: Trabajadores) {
-    return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta))
-      .doc(idDocument)
-      .update(terapeuta);
+    return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta)).doc(idDocument).update(terapeuta);
   }
 
   update(idDocument, nombreTerap, horaEnd, salida) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
-      .doc(idDocument)
-      .update({
-        horaEnd: horaEnd,
-        salida: salida
-      });
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
+      horaEnd: horaEnd,
+      salida: salida
+    });
   }
 
   updateHoraEnd(idDocument, nombreTerap) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
-      .doc(idDocument)
-      .update({
-        horaEnd: ''
-      });
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
+      horaEnd: ''
+    });
   }
 
   updateHoraAndSalida(idDocument, nombreTerap) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap))
-      .doc(idDocument)
-      .update({
-        horaEnd: "",
-        salida: ""
-      });
+    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
+      horaEnd: "",
+      salida: ""
+    });
   }
 
-  // -----------------------------------------------------------------------------------
-  // End Update
-  // -----------------------------------------------------------------------------------
-
-  // -----------------------------------------------------------------------------------
   // Delete
-  // -----------------------------------------------------------------------------------
 
   async deleteTerapeuta(idDocument, id): Promise<any> {
-    this.db
-      .collection('terapeutas', (ref) => ref.where('id', '==', id))
-      .doc(idDocument)
-      .delete();
+    this.db.collection('terapeutas', (ref) => ref.where('id', '==', id)).doc(idDocument).delete();
   }
-
-  // -----------------------------------------------------------------------------------
-  // End Delete
-  // -----------------------------------------------------------------------------------
-
 }

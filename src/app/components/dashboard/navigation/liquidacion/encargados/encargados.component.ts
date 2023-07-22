@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
@@ -29,7 +29,6 @@ export class EncargadosComponent implements OnInit {
   // Encargada
   encargada: any[] = []
   selectedEncargada: string
-  selectedEncargadas: string
 
   encargadaName: any[] = []
 
@@ -55,6 +54,7 @@ export class EncargadosComponent implements OnInit {
   TotalValorTabaco: number
   totalValorVitaminas: number
   totalValorOtroServ: number
+  totalValorTerapeuta: number
 
   // Comision
   comisionServicio: number
@@ -212,6 +212,11 @@ export class EncargadosComponent implements OnInit {
         return accumulator + serv.numberEncarg
       }, 0)
 
+      const terapeuta = this.servicioNoLiquidadaEncargada.filter(serv => condicionEncargada(serv))
+      this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
+        return accumulator + serv.numberTerap
+      }, 0)
+
       // Filter by Bebida
       const bebida = this.servicioNoLiquidadaEncargada.filter(serv => condicionEncargada(serv))
       this.TotalValorBebida = bebida.reduce((accumulator, serv) => {
@@ -267,12 +272,7 @@ export class EncargadosComponent implements OnInit {
           this.sumaComision = Number(sumComision.toFixed(1))
         }
 
-        // Recibido
-
-        const numbTerap = this.servicioNoLiquidadaEncargada.filter(serv => condicionEncargada(serv))
-        this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
-          return accumulator + serv.numberTerap
-        }, 0)
+        this.recibidoTerap = this.totalValorEncargada + this.totalValorTerapeuta
 
         return this.totalComision = this.sumaComision - Number(this.recibidoTerap)
       })

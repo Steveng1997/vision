@@ -12,7 +12,9 @@ export class BusquedaEncargadaPipe implements PipeTransform {
 
     if (items) {
 
-      return items.filter((item) => item.encargada.match(param.toLowerCase().slice(1))  > -1);
+      return items.filter((item) => item.encargada.match(param.toLowerCase().slice(1)) ||
+        item.desdeFechaLiquidado.match(param) || item.hastaFechaLiquidado.match(param)
+        || item.importe.match(param) || item.tratamiento.match(param) > -1);
     }
   }
 }
