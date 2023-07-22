@@ -69,6 +69,7 @@ export class VisionComponent implements OnInit {
       this.terapeutas = rp
       if (rp.length > 0) {
         for (let i = 0; rp.length; i++) {
+          debugger
           this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
         }
       }
@@ -119,6 +120,7 @@ export class VisionComponent implements OnInit {
   }
 
   calculardiferencia(horaFin: string, nombre: string): string {
+    debugger
     let hora_actual: any = new Date(), convertHora = '';
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
       '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
@@ -174,7 +176,7 @@ export class VisionComponent implements OnInit {
     this.aqui = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 
     if (this.aqui.slice(0, 1) === "0") {
-      this.horaEnd = this.aqui.slice(3, 4)
+      this.horaEnd = this.aqui.slice(2, 4)
     } else {
       this.horaEnd = this.aqui
     }
