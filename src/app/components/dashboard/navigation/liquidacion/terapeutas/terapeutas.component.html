@@ -41,7 +41,7 @@
 
             <mat-form-field class="col-6 mt-3">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                <input type="text" matInput (ngModelChange)="busqueda($event, $event)" formControlName="busqueda" />
             </mat-form-field>
         </div>
     </div>
@@ -65,22 +65,24 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody (click)="editamosServicio(serv.idTerapeuta)" *ngFor="let serv of (liquidacionesTerapeutas | terapeuta: selectedTerapeuta | 
-                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
-                | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
+        <tbody
+            *ngFor="let liqTerap of (liquidacionesTerapeutas | terapeuta: selectedTerapeuta | 
+                encargada: selectedEncargada | fechaFinalEncargada: fechaInicio:fechaFinal 
+                | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
+            (click)="editamosServicio(liqTerap.idTerapeuta)">
             <tr style="cursor: pointer;">
                 <!-- 1 -->
-                <td>{{serv.terapeuta}}</td>
+                <td>{{'a' +liqTerap.terapeuta}}</td>
                 <!-- 2 -->
-                <td>{{serv.encargada}}</td>
+                <td>{{liqTerap.encargada}}</td>
                 <!-- 3 -->
-                <td>{{serv.desdeFechaLiquidado + ' - ' + serv.desdeHoraLiquidado}}</td>
+                <td>{{liqTerap.desdeFechaLiquidado + ' - ' + liqTerap.desdeHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td>{{serv.hastaFechaLiquidado + ' - ' + serv.hastaHoraLiquidado}}</td>
+                <td>{{liqTerap.hastaFechaLiquidado + ' - ' + liqTerap.hastaHoraLiquidado}}</td>
                 <!-- 5 -->
-                <td>{{serv.tratamiento}}</td>
+                <td>{{liqTerap.tratamiento}}</td>
                 <!-- 6 -->
-                <td>{{serv.importe}}</td>
+                <td>{{liqTerap.importe}}</td>
             </tr>
 
             <!-- Modal -->
@@ -95,7 +97,7 @@
                 <div class="modal-body" style="text-align: center;">
                     <!-- Aqui se coloca lo adentro -->
 
-                    <h4>{{serv.nota}}</h4>
+                    <h4>{{liqTerap.nota}}</h4>
 
                     <!-- Afuera -->
                 </div>
@@ -116,7 +118,7 @@
 <!-- Agregar Terapeuta -->
 <div *ngIf="addTerap">
 
-    <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">NUEVA LIQUIDACIÓN DE
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA LIQUIDACIÓN DE
         UNA TERAPEUTA </h4>
 
     <form [formGroup]="formTemplate">
@@ -367,7 +369,7 @@
 <!-- Editar Terapeuta -->
 <div *ngIf="editTerap">
 
-    <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">Editar liquidación
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Editar liquidación
         Terapeuta {{datosLiquidadoTerap[0]['terapeuta']}} <br> con su encargada
         {{datosLiquidadoTerap[0]['encargada']}}
     </h4>
@@ -393,7 +395,8 @@
 
         <div class="col-auto">
             <mat-drawer-container style="float: left;">
-                <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc}}</mat-drawer-content>
+                <mat-drawer-content>{{fechaAsc + ' : ' + horaAsc + ' - ' + fechaDesc + ' : ' +
+                    horaDesc}}</mat-drawer-content>
             </mat-drawer-container>
         </div>
 

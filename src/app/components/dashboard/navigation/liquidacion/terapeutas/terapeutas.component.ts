@@ -21,6 +21,7 @@ export class TerapeutasComponent implements OnInit {
   addTerap: boolean
   editTerap: boolean
   filtredBusqueda: string
+  filtredBusquedaNumber: number
   Liquidada: any
   servicioNoLiquidadaTerapeuta: any
   liquidacionesTerapeutas: any
@@ -44,13 +45,16 @@ export class TerapeutasComponent implements OnInit {
 
   // Conversión
   fechaAsc: string
+  horaAsc: string
   fechaDesc: string
+  horaDesc: string
   fechaConvertion = new Date().toISOString().substring(0, 10)
   mostrarFecha: boolean
 
   // Servicios
   totalServicio: number
   totalValorPropina: number
+  totalValorEncargada: number
   totalValorTerapeuta: number
   TotalValorBebida: number
   TotalValorTabaco: number
@@ -158,8 +162,9 @@ export class TerapeutasComponent implements OnInit {
     this.fechaFinal = event.target.value
   }
 
-  busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra)
+  busqueda(event: any, eventNumber: number) {
+    this.filtredBusquedaNumber = Number(eventNumber)
+    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
   addLiquidacion() {
@@ -230,6 +235,12 @@ export class TerapeutasComponent implements OnInit {
         return accumulator + serv.numberTerap
       }, 0)
 
+      const encargada = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
+        && condicionEncargada(serv))
+      this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
+        return accumulator + serv.numberEncarg
+      }, 0)
+
       // Filter by Bebida
       const bebida = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
         && condicionEncargada(serv))
@@ -291,11 +302,7 @@ export class TerapeutasComponent implements OnInit {
 
         // Recibido
 
-        const numbTerap = this.servicioNoLiquidadaTerapeuta.filter(serv => condicionTerapeuta(serv)
-          && condicionEncargada(serv))
-        this.recibidoTerap = numbTerap.reduce((accumulator, serv) => {
-          return accumulator + serv.numberTerap
-        }, 0)
+        this.recibidoTerap = this.totalValorEncargada + this.totalValorTerapeuta
 
         return this.totalComision = this.sumaComision - Number(this.recibidoTerap)
       })
@@ -311,9 +318,14 @@ export class TerapeutasComponent implements OnInit {
     this.liqTep = false
     this.addTerap = false
     this.editTerap = true
-    
-    this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
-      this.datosLiquidadoTerap = datosTerapeuta
+
+    this.liquidacionTerapService.getIdTerap(id).then((datosTerapeuta) => {
+      this.horaAsc = datosTerapeuta[0]['hastaHoraLiquidado']
+      this.horaDesc = datosTerapeuta[0]['desdeHoraLiquidado']
+    })
+
+    this.servicioService.getByIdEncarg(id).subscribe((datosTerapeuta) => {
+      this.datosLiquidadoTerap = datosTerapeuta;
 
       this.servicioService.getTerapeutaFechaAscByLiqTrue(datosTerapeuta[0]['terapeuta'], datosTerapeuta[0]['encargada']).then((fechaAsce) => {
         this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
@@ -434,12 +446,12 @@ export class TerapeutasComponent implements OnInit {
       if (this.selectedEncargada) {
 
         this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
-          fechaDesdeDato = datoTerap[0]['fechaHoyInicio']
-          horaDesdeDato = datoTerap[0]['horaStart']
+          fechaHastaDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
+          horaHastaDato = datoTerap[0]['horaStart']
         })
         this.servicioService.getTerapNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosTerapeuta) => {
-          fechaHastaDato = datosTerapeuta[0]['fechaHoyInicio']
-          horaHastaDato = datosTerapeuta[0]['horaStart']
+          fechaDesdeDato = datosTerapeuta[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
+          horaDesdeDato = datosTerapeuta[0]['horaStart']
         })
 
         this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datos) => {
@@ -451,6 +463,7 @@ export class TerapeutasComponent implements OnInit {
           }
 
           this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision, idTerapeuta).then((datos) => {
+            this.getLiquidaciones()
             this.liqTep = true
             this.addTerap = false
             this.editTerap = false

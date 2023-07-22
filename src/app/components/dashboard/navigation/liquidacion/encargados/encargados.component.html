@@ -55,7 +55,7 @@
             </tr>
         </thead>
         <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: selectedEncargada
-        | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:numberFiltro) |
+        | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) |
         paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
             <tr style="cursor: pointer;">
                 <!-- 1 -->
@@ -103,7 +103,7 @@
 <!-- Agregar Encargada -->
 <div *ngIf="addEncarg">
 
-    <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">NUEVA LIQUIDACIÓN DE
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA LIQUIDACIÓN DE
         UNA Encargada </h4>
 
     <form [formGroup]="formTemplate">
@@ -350,7 +350,7 @@
 <!-- Editar Terapeuta -->
 <div *ngIf="editEncarg">
 
-    <h4 style="text-align: center; margin-bottom: 5%; font-family: cursive; font-size: x-large;">Editar liquidación
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Editar liquidación
         Encargada {{datosLiquidadoEncargada[0]['encargada']}}
     </h4>
 

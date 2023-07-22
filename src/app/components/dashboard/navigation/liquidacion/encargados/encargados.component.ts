@@ -20,6 +20,7 @@ export class EncargadosComponent implements OnInit {
   addEncarg: boolean
   editEncarg: boolean
   filtredBusqueda: string
+  filtredBusquedaNumber: number
   Liquidada: any
   servicioNoLiquidadaEncargada: any
   liquidacionesEncargada: any
@@ -150,9 +151,7 @@ export class EncargadosComponent implements OnInit {
   }
 
   busqueda(event: any, eventNumber: number) {
-    this.numberFiltro = Number(eventNumber)
-    this.filtredBusqueda = event
-    this.numberFiltro = Number(this.filtredBusqueda)
+    this.filtredBusquedaNumber = Number(eventNumber)
     this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
@@ -396,8 +395,6 @@ export class EncargadosComponent implements OnInit {
 
   editarEncargada() {
     this.liqudacionEncargServ.getIdEncarg(this.datosLiquidadoEncargada[0]['idEncargada']).then((datos) => {
-      this.horaAsc = datos[0]['hastaHoraLiquidado']
-      this.horaDesc = datos[0]['desdeHoraLiquidado']
       for (let index = 0; index < datos.length; index++) {
         this.liqudacionEncargServ.updateById(datos[index]['idDocument'], datos[index]['idEncargada'], this.totalComision).then((datos) => {
           this.liqEncarg = true
@@ -420,11 +417,11 @@ export class EncargadosComponent implements OnInit {
     if (this.selectedEncargada) {
 
       this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
-        fechaDesdeDato = datoTerap[0]['horaStart']
-        horaDesdeDato = datoTerap[0]['fechaHoyInicio']
+        fechaDesdeDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
+        horaDesdeDato = datoTerap[0]['horaStart']
       })
       this.servicioService.getTerapNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosEncargada) => {
-        fechaHastaDato = datosEncargada[0]['fechaHoyInicio']
+        fechaHastaDato = datosEncargada[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
         horaHastaDato = datosEncargada[0]['horaStart']
       })
 
@@ -437,7 +434,7 @@ export class EncargadosComponent implements OnInit {
         }
 
         this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada).then((datos) => {
-
+          this.getLiquidaciones()
           this.liqEncarg = true
           this.addEncarg = false
           this.editEncarg = false
