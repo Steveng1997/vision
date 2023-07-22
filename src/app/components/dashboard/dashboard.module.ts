@@ -42,13 +42,14 @@ import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe';
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe';
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe';
 import { CierreComponent } from './navigation/cierre/cierre.component';
+import { BusquedaEncargadaPipe } from 'src/app/core/pipe/busquedaEncargada';
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent,
     CierreComponent, NuevoServicioComponent,
     EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent,
     TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FormaPagoPipe,
-    BusquedaPipe, LoginComponent],
+    BusquedaPipe, BusquedaEncargadaPipe, LoginComponent],
 
   imports: [
     CommonModule,

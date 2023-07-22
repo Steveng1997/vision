@@ -702,14 +702,19 @@
         <div class="container" *ngFor="let edServ of editarService">
             <div class="row">
 
-                <div class="col-6">
+                <div class="col-4">
                     <button mat-raised-button style="display: grid; margin: auto;"
                         (click)="editarServicio(edServ.idDocument, edServ.id, edServ)" color="primary">Guardar</button>
                 </div>
 
-                <div class="col-6" *ngIf="buttonDelete">
+                <div class="col-4">
+                    <button mat-raised-button style="display: grid; margin: auto;"
+                        (click)="cancelar()" color="primary">Cancelar</button>
+                </div>
+
+                <div class="col-4" *ngIf="buttonDelete">
                     <button mat-raised-button style="display: grid; margin: auto;" (click)="eliminarServicio(edServ.id)"
-                        color="warn">Eliminar</button>
+                        color="warn">Eliminar Servicio</button>
                 </div>
             </div>
         </div>

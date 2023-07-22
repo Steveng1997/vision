@@ -14,7 +14,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargadas">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -32,7 +32,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda">
             </mat-form-field>
         </div>
     </div>
@@ -54,9 +54,9 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody (click)="editamosServicio(serv.idEncargada)" *ngFor="let serv of (liquidacionesEncargada | encargada: selectedEncargada 
-        | fechaInicial: fechaInicio:fechaFinal 
-                | busqueda: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }">
+        <tbody *ngFor="let serv of (liquidacionesEncargada | encargada: selectedEncargadas
+        | fechaInicial: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda) | 
+        paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(serv.idEncargada)">
             <tr style="cursor: pointer;">
                 <!-- 1 -->
                 <td>{{serv.encargada}}</td>
@@ -167,7 +167,7 @@
                                 <!-- 8 -->
                                 <th scope="col">Pago</th>
                                 <!-- 9 -->
-                                <th scope="col">€ a terap</th>
+                                <th scope="col">€ a Encarg</th>
                                 <!-- 10 -->
                                 <th scope="col">Bebida</th>
                                 <!-- 11 -->
@@ -179,6 +179,7 @@
                             </tr>
                         </thead>
                         <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: selectedEncargada) | 
+                        fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda |
                         paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer;">
                                 <!-- 1 -->
@@ -242,20 +243,22 @@
                             <!-- 4 -->
                             <td scope="col"></td>
                             <!-- 5 -->
-                            <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
-                            <!-- 6 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
-                            <!-- 7 -->
                             <td scope="col"></td>
+                            <!-- 6 -->
+                            <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
+                            <!-- 7 -->
+                            <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
                             <!-- 8 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorEncargada + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold"></td>
                             <!-- 9 -->
-                            <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold">{{totalValorEncargada + ' €'}}</td>
                             <!-- 10 -->
-                            <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
                             <!-- 11 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
                             <!-- 12 -->
+                            <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
+                            <!-- 13 -->
                             <td scope="col" style="font-weight: bold">{{totalValorOtroServ + ' €'}}</td>
                         </tr>
                     </table>
@@ -373,7 +376,8 @@
 
         <div class="col-auto">
             <mat-drawer-container style="float: left;">
-                <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc}}</mat-drawer-content>
+                <mat-drawer-content>{{fechaAsc + ' : ' + horaAsc + ' - ' + fechaDesc + ' : ' +
+                    horaDesc}}</mat-drawer-content>
             </mat-drawer-container>
         </div>
 
@@ -572,6 +576,6 @@
         </div>
     </div>
 
-    <button *ngIf="editEncarg" mat-raised-button style="display: grid; margin: auto;" (click)="editarEncargada()"
-        color="primary">Guardar</button>
+    <!-- <button *ngIf="editEncarg" mat-raised-button style="display: grid; margin: auto;" (click)="editarEncargada()"
+        color="primary">Guardar</button> -->
 </div>

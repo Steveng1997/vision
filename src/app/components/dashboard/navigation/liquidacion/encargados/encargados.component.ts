@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
@@ -29,6 +29,7 @@ export class EncargadosComponent implements OnInit {
   // Encargada
   encargada: any[] = []
   selectedEncargada: string
+  selectedEncargadas: string
 
   encargadaName: any[] = []
 
@@ -40,7 +41,9 @@ export class EncargadosComponent implements OnInit {
 
   // Conversión
   fechaAsc: string
+  horaAsc: string
   fechaDesc: string
+  horaDesc: string
   fechaConvertion = new Date().toISOString().substring(0, 10)
   mostrarFecha: boolean
 
@@ -77,7 +80,6 @@ export class EncargadosComponent implements OnInit {
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
     FechaFin: new FormControl(''),
-    terapeuta: new FormControl(''),
     encargada: new FormControl(''),
     busqueda: new FormControl(''),
   })
@@ -147,19 +149,13 @@ export class EncargadosComponent implements OnInit {
   }
 
   busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra)
+    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
   addLiquidacion() {
     this.liqEncarg = false
     this.editEncarg = false
-    this.validate()
     this.addEncarg = true
-  }
-
-  validate() {
-    // if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion
-    // if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion
   }
 
   notas(targetModal, modal) {
@@ -284,14 +280,18 @@ export class EncargadosComponent implements OnInit {
   }
 
   editamos(id: string) {
-    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
-    ])
+    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,])
   }
 
   editamosServicio(id: string) {
     this.liqEncarg = false
     this.addEncarg = false
     this.editEncarg = true
+
+    this.liqudacionEncargServ.getIdEncarg(id).then((datos) => {
+      this.horaAsc = datos[0]['hastaHoraLiquidado']
+      this.horaDesc = datos[0]['desdeHoraLiquidado']
+    })
 
     this.servicioService.getByIdEncarg(id).subscribe((datosEncargada) => {
       this.datosLiquidadoEncargada = datosEncargada;
@@ -392,6 +392,8 @@ export class EncargadosComponent implements OnInit {
 
   editarEncargada() {
     this.liqudacionEncargServ.getIdEncarg(this.datosLiquidadoEncargada[0]['idEncargada']).then((datos) => {
+      this.horaAsc = datos[0]['hastaHoraLiquidado']
+      this.horaDesc = datos[0]['desdeHoraLiquidado']
       for (let index = 0; index < datos.length; index++) {
         this.liqudacionEncargServ.updateById(datos[index]['idDocument'], datos[index]['idEncargada'], this.totalComision).then((datos) => {
           this.liqEncarg = true
@@ -431,6 +433,7 @@ export class EncargadosComponent implements OnInit {
         }
 
         this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada).then((datos) => {
+
           this.liqEncarg = true
           this.addEncarg = false
           this.editEncarg = false
