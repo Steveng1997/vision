@@ -11,7 +11,7 @@ export class EncargadaPipe implements PipeTransform {
     }
 
     if (items) {
-      return items.filter((item, index) => item.encargada === param);
+        return items.filter((item, index) => item.encargada === param);
     }
   }
 

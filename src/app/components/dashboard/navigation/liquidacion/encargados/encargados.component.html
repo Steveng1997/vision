@@ -32,7 +32,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda">
+                <input type="text" matInput (ngModelChange)="busqueda($event, $event)" formControlName="busqueda">
             </mat-form-field>
         </div>
     </div>
@@ -55,7 +55,7 @@
             </tr>
         </thead>
         <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: selectedEncargada
-        | fechaInicial: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda) | 
+        | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:numberFiltro) |
         paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
             <tr style="cursor: pointer;">
                 <!-- 1 -->

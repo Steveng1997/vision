@@ -25,6 +25,7 @@ export class EncargadosComponent implements OnInit {
   liquidacionesEncargada: any
   datosLiquidadoEncargada: any
   page!: number
+  numberFiltro: number
 
   // Encargada
   encargada: any[] = []
@@ -148,7 +149,10 @@ export class EncargadosComponent implements OnInit {
     this.fechaFinal = event.target.value
   }
 
-  busqueda(event: any) {
+  busqueda(event: any, eventNumber: number) {
+    this.numberFiltro = Number(eventNumber)
+    this.filtredBusqueda = event
+    this.numberFiltro = Number(this.filtredBusqueda)
     this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
@@ -416,8 +420,8 @@ export class EncargadosComponent implements OnInit {
     if (this.selectedEncargada) {
 
       this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
-        fechaDesdeDato = datoTerap[0]['fechaHoyInicio']
-        horaDesdeDato = datoTerap[0]['horaStart']
+        fechaDesdeDato = datoTerap[0]['horaStart']
+        horaDesdeDato = datoTerap[0]['fechaHoyInicio']
       })
       this.servicioService.getTerapNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosEncargada) => {
         fechaHastaDato = datosEncargada[0]['fechaHoyInicio']
