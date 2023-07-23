@@ -1075,7 +1075,8 @@ export class NuevoServicioComponent implements OnInit {
             this.trabajadorService.getTerapeuta(this.formTemplate.value.terapeuta).then((rp) => {
               const idDocument1 = rp.filter(tp => tp.nombre)
               idDocument = idDocument1[0]['idDocument']
-              this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio, this.formTemplate.value.salida)
+              this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio,
+                this.formTemplate.value.salida, this.fechaHoyInicio)
             })
 
             // this.servicioService.getIdDocument(this.idUnico).then((rp) => {
@@ -2031,7 +2032,8 @@ export class NuevoServicioComponent implements OnInit {
     this.trabajadorService.getTerapeuta(this.editarService[0]['terapeuta']).then((rp) => {
       const idDocument1 = rp.filter(tp => tp.nombre)
       idDocument = idDocument1[0]['idDocument']
-      this.trabajadorService.update(idDocument, this.editarService[0]['terapeuta'], this.horaFinalServicio, this.editarService[0]['salida'])
+      this.trabajadorService.update(idDocument, this.editarService[0]['terapeuta'], this.horaFinalServicio,
+        this.editarService[0]['salida'], this.editarService[0]['fechaHoyInicio'])
     })
 
     Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })

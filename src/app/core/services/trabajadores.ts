@@ -44,6 +44,7 @@ export class TrabajadoresService {
       activo: true,
       horaEnd: '',
       salida: '',
+      fechaEnd: '',
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('terapeutas').add(trabajador).then(
@@ -118,23 +119,25 @@ export class TrabajadoresService {
     return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta)).doc(idDocument).update(terapeuta);
   }
 
-  update(idDocument, nombreTerap, horaEnd, salida) {
+  update(idDocument, nombreTerap, horaEnd, salida, fechaEnd) {
     return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
       horaEnd: horaEnd,
-      salida: salida
+      salida: salida,
+      fechaEnd: fechaEnd
     });
   }
 
-  updateHoraEnd(idDocument, nombreTerap) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
-      horaEnd: ''
-    });
-  }
+  // updateHoraEnd(idDocument, nombreTerap) {
+  //   return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
+  //     horaEnd: ''
+  //   });
+  // }
 
   updateHoraAndSalida(idDocument, nombreTerap) {
     return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
       horaEnd: "",
-      salida: ""
+      salida: "",
+      fechaEnd: ""
     });
   }
 

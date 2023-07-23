@@ -69,7 +69,7 @@ export class VisionComponent implements OnInit {
       this.terapeutas = rp
       if (rp.length > 0) {
         for (let i = 0; rp.length; i++) {
-          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'])
+          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'], rp[i]['fechaEnd'])
         }
       }
     })
@@ -118,13 +118,17 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  calculardiferencia(horaFin: string, nombre: string): string {
-    let hora_actual: any = new Date(), convertHora = '';
+  calculardiferencia(horaFin: string, nombre: string, fecha: string): string {
+    let hora_actual: any = new Date(), convertHora = '', fechaEnd = new Date().toISOString().substring(0, 10), convertFecha = ''
+
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
       '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
     hora_actual = hora_actual.getHours() + ':' + minutes;
     let hora_inicio = hora_actual;
     const hora_final: any = horaFin;
+
+    // Convertimos fecha
+    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -132,7 +136,8 @@ export class VisionComponent implements OnInit {
     if (horaFin != "") {
       if (hora_inicio.length == 4) {
         hora_inicio = '0' + hora_inicio
-
+      }
+      if (convertFecha != "" && convertFecha <= fechaEnd) {
         if (hora_final <= hora_inicio) {
           this.terapService.getByNombre(nombre).then((datoMinute) => {
             for (let i = 0; i < datoMinute.length; i++) {
