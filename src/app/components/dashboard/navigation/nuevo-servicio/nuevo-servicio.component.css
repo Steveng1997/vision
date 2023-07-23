@@ -1,21 +1,33 @@
 .parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mat-divider {
-    border-top-color: red;
+  border-top-color: red;
 }
 
 .bs-timepicker-field {
-    width: 45px;
+  width: 45px;
 }
 
 .btn:not(:disabled):not(.disabled) {
-    display: none;
+  display: none;
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: white;
+  background-color: white;
+}
+
+@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
+  .botonesEditar {
+    margin-top: 7%;
+  }
+}
+
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
+  .botonesEditar {
+    margin-top: 2%;
+  }
 }

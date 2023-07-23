@@ -119,7 +119,7 @@ export class ServicioService {
   }
 
   getServicio() {
-    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
+    return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').orderBy('horaStart', 'desc')).valueChanges();
   }
 
   getByLiquidEncargadaFalse() {

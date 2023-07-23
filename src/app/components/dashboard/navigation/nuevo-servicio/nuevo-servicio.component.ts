@@ -21,6 +21,7 @@ export class NuevoServicioComponent implements OnInit {
   horaStartTerapeuta = ''
   horaEndTerapeuta = ''
 
+  // fechaActual = new Date().toISOString().substring(0, 10)
   fechaActual = new Date().toISOString().substring(0, 10)
   horaStarted = new Date().toTimeString().substring(0, 5)
   dateConvertion = new Date()
@@ -1456,7 +1457,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   minutos(event: any) {
-debugger
+    debugger
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
 
     if (event === null) sumarsesion = 0
@@ -2014,9 +2015,8 @@ debugger
   }
 
   editarServicio(idDocument, idServicio, serv: Servicio) {
-
-    debugger
-
+    let idUsuario = ''
+    idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     if (!this.validarFechaVencida()) return
     if (!this.validacionFormasPagoEdit()) return
     if (!this.validacionesFormaPagoEdit()) return
@@ -2035,7 +2035,7 @@ debugger
     })
 
     Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
-    this.router.navigate([`menu/${this.encargada[0]['id']}/tabla/${this.encargada[0]['id']}`])
+    this.router.navigate([`menu/${idUsuario}/tabla/${idUsuario}`])
   }
 
   valueServiceEdit() {
@@ -2375,6 +2375,8 @@ debugger
   }
 
   eliminarServicio(id) {
+    let idUsuario = ''
+    idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.servicioService.getById(id).then((datoEliminado) => {
       if (datoEliminado) {
         Swal.fire({
@@ -2394,7 +2396,7 @@ debugger
             })
 
             this.servicioService.deleteServicio(datoEliminado[0]['idDocument'], id)
-            this.router.navigate([`menu/${this.encargada[0]['id']}/vision/${this.encargada[0]['id']}`])
+            this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
             Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
           }
         })

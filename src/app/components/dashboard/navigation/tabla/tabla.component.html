@@ -149,7 +149,7 @@
             <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
                 | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
-                | paginate: { itemsPerPage: 10, currentPage: page }">
+                | paginate: { itemsPerPage: 100, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 1 -->
                     <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)"></td>
