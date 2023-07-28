@@ -22,7 +22,7 @@ export class NuevoServicioComponent implements OnInit {
   horaEndTerapeuta = ''
 
   // fechaActual = new Date().toISOString().substring(0, 10)
-  fechaActual = new Date().toISOString().substring(0, 10)
+  fechaActual = ''
   horaStarted = new Date().toTimeString().substring(0, 5)
   dateConvertion = new Date()
   fechaHoyInicio = ''
@@ -149,12 +149,28 @@ export class NuevoServicioComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
 
+    this.fecha()
     this.cargar()
     this.getEncargada()
     this.getTerapeuta()
     this.getLastDate()
     this.horaInicialServicio = this.horaStarted
     this.horaFinalServicio = this.horaStarted
+  }
+
+  fecha() {
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.fechaActual = `${año}-${convertMes}-${dia}`
+    } else {
+      this.fechaActual = `${año}-${mes}-${dia}`
+    }
   }
 
   getLastDate() {
@@ -1392,8 +1408,34 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicioEdit(event: any) {
+    debugger
     this.horaFinalServicio = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
+
+    if (this.editarService[0]['minuto'] != 0) {
+      let sumarsesion = Number(this.editarService[0]['minuto']), horas = 0, minutos = 0, convertHora = ''
+
+      // Create date by Date and Hour
+      const splitDate = this.fechaActual.toString().split('-')
+      const splitHour = this.horaInicialServicio.split(':')
+
+      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+
+      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+
+      horas = defineDate.getHours()
+      minutos = defineDate.getMinutes()
+
+      if (horas > 0 && horas < 10) {
+        convertHora = '0' + horas
+        let hora = convertHora
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      } else {
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      }
+    }
 
     if (this.formTemplate.value.minuto != '') {
       let sumarsesion = Number(this.formTemplate.value.minuto), horas = 0, minutos = 0, convertHora = ''
@@ -1493,7 +1535,8 @@ export class NuevoServicioComponent implements OnInit {
 
     // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-')
-    const splitHour = this.horaInicialServicio.split(':')
+    // const splitHour = this.horaInicialServicio.split(':')
+    const splitHour = this.editarService[0]['horaStart'].split(':')
 
     let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
 
@@ -2032,12 +2075,13 @@ export class NuevoServicioComponent implements OnInit {
     this.trabajadorService.getTerapeuta(this.editarService[0]['terapeuta']).then((rp) => {
       const idDocument1 = rp.filter(tp => tp.nombre)
       idDocument = idDocument1[0]['idDocument']
-      this.trabajadorService.update(idDocument, this.editarService[0]['terapeuta'], this.horaFinalServicio,
+
+      this.trabajadorService.update(idDocument, this.editarService[0]['terapeuta'], this.editarService[0]['horaEnd'],
         this.editarService[0]['salida'], this.editarService[0]['fechaHoyInicio'])
     })
 
     Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
-    this.router.navigate([`menu/${idUsuario}/tabla/${idUsuario}`])
+    this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
   }
 
   valueServiceEdit() {

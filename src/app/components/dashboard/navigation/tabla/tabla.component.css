@@ -10,7 +10,7 @@
 
 .acomodarInput {
   margin-top: 3%;
-} 
+}
 
 .espacioTotales {
   left: 63%;
@@ -21,6 +21,11 @@
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
   .acomodarInput {
     margin-top: 5%;
   }
