@@ -1408,7 +1408,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicioEdit(event: any) {
-    debugger
     this.horaFinalServicio = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
@@ -1500,7 +1499,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   minutos(event: any) {
-    debugger
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
 
     if (event === null) sumarsesion = 0

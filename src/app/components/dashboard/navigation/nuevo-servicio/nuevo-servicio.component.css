@@ -21,6 +21,14 @@
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
+  .inputSelect {
+    margin-top: 12%;
+  }
+
+  .inputCliente{
+    margin-top: 4%;
+  }
+
   .botonesEditar {
     margin-top: 7%;
   }

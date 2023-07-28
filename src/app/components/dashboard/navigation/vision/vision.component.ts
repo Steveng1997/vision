@@ -132,7 +132,6 @@ export class VisionComponent implements OnInit {
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-    debugger
 
     if (horaFin != "") {
       if (hora_inicio.length == 4) {
