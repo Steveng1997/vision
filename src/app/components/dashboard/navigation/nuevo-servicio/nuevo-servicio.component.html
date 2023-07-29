@@ -15,7 +15,7 @@
                     <div>
                         <select class="form-select" formControlName="terapeuta" name="terapeuta"
                             (ngModelChange)="terapeu($event)">
-                            <option selected value>Selecciona</option>
+                            <option selected value="">Selecciona</option>
                             <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
                             </option>
                         </select>
@@ -43,28 +43,23 @@
 
             <!---------------------------------------- TIEMPO ---------------------------------------->
 
-            <div>
-                <label class="tiempoTitulo" style="font-weight: bold; font-size: larger;">TIEMPO</label>
-                <hr class="dividerTiempo">
 
-                <div class="row">
-                    <div class="col-6">
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <label class="titulos font-weight-bold">TIEMPO</label>
+            <hr>
 
-                    <div class="col-6">
-                        <mat-drawer-container class="example-container" style="float: right;"
-                            *ngFor="let hor of fechaLast">
-                            <mat-drawer-content>{{horaStartTerapeuta + '-' + horaEndTerapeuta}}</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="font-weight-bold">Último servicio:</label>
+                </div>
+
+                <div class="col-6" *ngIf="horaStartTerapeuta != ''">
+                    <label style="float: right;" *ngFor="let hor of fechaLast">
+                        {{horaStartTerapeuta + '-' + horaEndTerapeuta}}
+                    </label>
                 </div>
             </div>
 
-            <div class="row tiempo">
-
+            <div class="row titulos">
                 <div class="col-6 font-weight-bold">
                     <div>
                         <label>Fecha</label>
@@ -84,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="col-6 font-weight-bold">
+                <div class="col-6 font-weight-bold duracionHora">
                     <div>
                         <label>Duración(min.)</label>
                     </div>
@@ -94,36 +89,42 @@
                     </div>
                 </div>
 
-                <div class="col-6 font-weight-bold" style="text-align: center; align-self: center;">
-                    <div>
+                <div class="col-6 font-weight-bold duracionHora">
+                    <div style="text-align: center; align-self: center;">
                         <label>Hora fin:</label>
                     </div>
-                    <div> {{horaFinalServicio}} </div>
+                    <div style="text-align: center; font-size: larger;"> {{horaFinalServicio}} </div>
+                </div>
+
+                <div class="row font-weight-bold lugarSalida">
+                    <div class="col-5" style="display: grid">
+                        <label style="align-self: center">Lugar Salida</label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" class="form-control" formControlName="salida" />
+                    </div>
                 </div>
             </div>
 
             <!---------------------------------------- Servicios ---------------------------------------->
 
-            <mat-list>
-                <div class="row">
-                    <div class="col-6">
-                        <mat-drawer-container>
-                            <mat-drawer-content
-                                style="font-weight: bold; font-size: larger;">SERVICIOS</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
-
-                    <div class="col-6">
-                        <mat-drawer-container style="float: right;">
-                            <mat-drawer-content
-                                style="font-weight: bold; font-size: larger;">{{sumatoriaServicios}}</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <div class="row">
+                <div class="col-4">
+                    <label class="titulos font-weight-bold">SERVICIOS</label>
                 </div>
-                <mat-divider></mat-divider>
-            </mat-list>
 
-            <div class="row" style="margin-bottom: 1%; margin-top: 2%;">
+                <div class="col-8">
+                    <label class="font-weight-bold">{{sumatoriaServicios}}</label>
+                </div>
+            </div>
+
+            <hr class="dividerTiempo">
+
+            <div class="row">
+                <label>Detalle el importe de los servicios</label>
+            </div>
+
+            <div class="row titulos">
                 <div class="col-4">
                     <label>Tratamiento</label>
                     <input type="number" class="form-control" (ngModelChange)="valueService()"
@@ -153,11 +154,6 @@
                     <label>Otros</label>
                     <input type="number" class="form-control" (ngModelChange)="valueService()"
                         formControlName="otros" />
-                </div>
-
-                <div class="col-4" style="margin-top: 2%">
-                    <label>Lugar Salida</label>
-                    <input type="text" class="form-control" formControlName="salida" />
                 </div>
             </div>
 

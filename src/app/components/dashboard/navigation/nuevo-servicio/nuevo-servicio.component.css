@@ -21,18 +21,24 @@
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
-  .tiempo {
+  .titulos {
     margin-top: 8%;
+    font-size: 1rem;
   }
 
-  .tiempoTitulo{
-    margin-top: 8%;
+  hr {
+    color: red;
+    margin-top: -2%;
+    margin-bottom: 0%;
   }
 
-  .dividerTiempo{
-    color: red; 
-    margin-top: 0%; 
-    margin-bottom: 2%;
+
+  .lugarSalida {
+    margin-top: 7%;
+  }
+
+  .duracionHora {
+    margin-top: 7%;
   }
 
   .inputSelect {
@@ -49,18 +55,24 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-  .tiempo {
+  .titulos {
     margin-top: 3%;
+    font-size: 1rem;
   }
 
-  .tiempoTitulo{
-    margin-top: 3%;
-  }
-
-  .dividerTiempo{
-    color: red; 
-    margin-top: 0%; 
+  hr {
+    border-width: medium;
+    color: red;
+    margin-top: 0%;
     margin-bottom: 1%;
+  }
+
+  .lugarSalida {
+    margin-top: 3%;
+  }
+
+  .duracionHora {
+    margin-top: 3%;
   }
 
   .inputCliente {
