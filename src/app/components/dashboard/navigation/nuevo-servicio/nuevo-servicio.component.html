@@ -8,41 +8,35 @@
         <div class="container">
             <div class="row inputSelect">
 
-                <div class="col-6 font-weight-bold">
-                    <div>
-                        <label>Terapeuta</label>
-                    </div>
-                    <div>
-                        <select class="form-select" formControlName="terapeuta" name="terapeuta"
-                            (ngModelChange)="terapeu($event)">
-                            <option selected value="">Selecciona</option>
-                            <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
-                            </option>
-                        </select>
-                    </div>
+                <!-- <div class="col-6 font-weight-bold"> -->
+                <div class="col-6">
+                    <label style="display: contents;">Terapeuta</label>
+
+                    <select class="form-select" formControlName="terapeuta" name="terapeuta"
+                        (ngModelChange)="terapeu($event)">
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
+                        </option>
+                    </select>
                 </div>
 
-                <div class="col-6 font-weight-bold">
-                    <div>
-                        <label>Encargada</label>
-                    </div>
-                    <div>
-                        <select class="form-select" formControlName="encargada" name="encargada">
-                            <option selected value>Selecciona</option>
-                            <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
-                            </option>
-                        </select>
-                    </div>
+                <div class="col-6">
+                    <label style="display: contents;">Encargada</label>
+
+                    <select class="form-select" formControlName="encargada" name="encargada">
+                        <option selected value>Selecciona</option>
+                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        </option>
+                    </select>
                 </div>
 
-                <div class="inputCliente font-weight-bold">
-                    <label for="inputsm">Cliente</label>
+                <div class="inputCliente">
+                    <label style="display: contents;">Cliente</label>
                     <input class="form-control input-sm" type="text" formControlName="cliente">
                 </div>
             </div>
 
             <!---------------------------------------- TIEMPO ---------------------------------------->
-
 
             <label class="titulos font-weight-bold">TIEMPO</label>
             <hr>
@@ -60,43 +54,31 @@
             </div>
 
             <div class="row titulos">
-                <div class="col-6 font-weight-bold">
-                    <div>
-                        <label>Fecha</label>
-                    </div>
-                    <div>
-                        <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
-                    </div>
+                <div class="col-6">
+                    <label style="display: contents;">Fecha</label>
+                    <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
                 </div>
 
-                <div class="col-6 font-weight-bold">
-                    <div>
-                        <label>Hora inicio</label>
-                    </div>
-                    <div>
-                        <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted"
-                            min="18:00" max="21:00" step="3600" />
-                    </div>
+                <div class="col-6">
+                    <label style="display: contents;">Hora inicio</label>
+                    <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted"
+                        min="18:00" max="21:00" step="3600" />
                 </div>
 
-                <div class="col-6 font-weight-bold duracionHora">
-                    <div>
-                        <label>Duración(min.)</label>
-                    </div>
-                    <div>
-                        <input class=" form-control" type="number" formControlName="minuto"
-                            (ngModelChange)="minutos($event)">
-                    </div>
+                <div class="col-6 duracionHora">
+                    <label style="display: contents;">Duración(min.)</label>
+                    <input class=" form-control" type="number" formControlName="minuto"
+                        (ngModelChange)="minutos($event)">
                 </div>
 
-                <div class="col-6 font-weight-bold duracionHora">
+                <div class="col-6 duracionHora">
                     <div style="text-align: center; align-self: center;">
                         <label>Hora fin:</label>
                     </div>
                     <div style="text-align: center; font-size: larger;"> {{horaFinalServicio}} </div>
                 </div>
 
-                <div class="row font-weight-bold lugarSalida">
+                <div class="row lugarSalida">
                     <div class="col-5" style="display: grid">
                         <label style="align-self: center">Lugar Salida</label>
                     </div>
@@ -108,21 +90,18 @@
 
             <!---------------------------------------- Servicios ---------------------------------------->
 
-            <div class="row">
+            <div class="row titulos">
                 <div class="col-4">
-                    <label class="titulos font-weight-bold">SERVICIOS</label>
+                    <label class="font-weight-bold">SERVICIOS</label>
                 </div>
 
                 <div class="col-8">
-                    <label class="font-weight-bold">{{sumatoriaServicios}}</label>
+                    <label class="font-weight-bold sumaServicios">{{sumatoriaServicios + ' €'}}</label>
                 </div>
             </div>
+            <hr>
+            <label>Detalla el importe de los servicios</label>
 
-            <hr class="dividerTiempo">
-
-            <div class="row">
-                <label>Detalle el importe de los servicios</label>
-            </div>
 
             <div class="row titulos">
                 <div class="col-4">
@@ -161,24 +140,17 @@
             <!---------------------------------------- COBROS  ---------------------------------------->
 
 
-            <mat-list>
-                <div class="row">
-                    <div class="col-6">
-                        <mat-drawer-container>
-                            <mat-drawer-content
-                                style="font-weight: bold; font-size: larger;">COBROS</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
-
-                    <div class="col-6">
-                        <mat-drawer-container style="float: right;">
-                            <mat-drawer-content
-                                style="font-weight: bold; font-size: larger;">{{sumatoriaCobros}}</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <div class="row titulos">
+                <div class="col-4">
+                    <label class="font-weight-bold">COBROS</label>
                 </div>
-                <mat-divider></mat-divider>
-            </mat-list>
+
+                <div class="col-8">
+                    <label class="font-weight-bold sumaServicios">{{sumatoriaCobros + ' €'}}</label>
+                </div>
+            </div>
+            <hr>
+            <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
 
             <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
 
@@ -345,360 +317,336 @@
 <!------------------------------------------ Editar ------------------------------------------>
 
 <div class="container" *ngIf="editamos">
-    <div class="row" *ngFor="let edServ of editarService">
+    <div *ngFor="let edServ of editarService">
 
-        <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Editar</h4>
-        <form>
-            <div class="container">
-                <div class="row">
+        <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Editar</h4>
 
-                    <mat-form-field class="col-6">
-                        <mat-select [(ngModel)]="edServ.terapeuta" name="terapeuta">
-                            <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                                {{terap.nombre}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+        <div class="container">
+            <div class="row inputSelect">
 
-                    <mat-form-field class="col-6">
-                        <mat-select [(ngModel)]="edServ.encargada" name="encargada">
-                            <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                                {{encarg.nombre}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                <div class="col-6">
+                    <label style="display: contents;">Terapeuta</label>
+                    <select class="form-select" [(ngModel)]="edServ.terapeuta" name="terapeuta">
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
+                        </option>
+                    </select>
                 </div>
 
-                <div class="parent">
-                    <mat-form-field class="col-6">
-                        <mat-label>Cliente</mat-label>
-                        <input matInput type="text" [(ngModel)]="edServ.cliente" name="cliente">
-                    </mat-form-field>
+                <div class="col-6">
+                    <label style="display: contents;">Encargada</label>
+                    <select class="form-select" [(ngModel)]="edServ.encargada" name="encargada">
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        </option>
+                    </select>
                 </div>
 
-                <!---------------------------------------- TIEMPO ---------------------------------------->
+                <div class="inputCliente">
+                    <label style="display: contents;">Cliente</label>
+                    <input class="form-control input-sm" type="text" [(ngModel)]="edServ.cliente" name="cliente">
+                </div>
+            </div>
 
-                <mat-list>
-                    <mat-drawer-container>
-                        <mat-drawer-content style="font-weight: bold; font-size: larger;">TIEMPO</mat-drawer-content>
-                    </mat-drawer-container>
-                    <mat-divider></mat-divider>
-                </mat-list>
+            <!---------------------------------------- TIEMPO ---------------------------------------->
 
-                <div class="row" style="margin-bottom: 2%;">
-                    <div class="col-6">
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <label class="titulos font-weight-bold">TIEMPO</label>
+            <hr>
 
-                    <div class="col-6">
-                        <mat-drawer-container class="example-container" style="float: right;">
-                            <mat-drawer-content>{{edServ['horaStart'] + '-' +
-                                edServ['horaEnd']}}</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="font-weight-bold">Último servicio:</label>
                 </div>
 
-                <div class="row" style="margin-bottom: 3%;">
+                <div class="col-6">
+                    <label style="float: right;">
+                        {{edServ['horaStart'] + '-' + edServ['horaEnd']}}
+                    </label>
+                </div>
+            </div>
 
-                    <div class="col-6" style="display: inline-block; align-self: center;">
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content>Fecha</mat-drawer-content>
-                        </mat-drawer-container>
-
-                        <input type="date" class="form-control" [(ngModel)]="edServ.fecha" name="fecha"
-                            (change)="fechaEscogidaEdit($event)" [value]="fechaActual">
-                    </div>
-
-                    <div class="col-6">
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content>Hora inicio</mat-drawer-content>
-                        </mat-drawer-container>
-
-                        <input type="time" class="form-control" [(ngModel)]="edServ.horaStart" name="horaStart"
-                            (change)="horaInicioEdit($event)" min="18:00" max="21:00" step="3600" />
-                    </div>
-
-                    <div class="col-6">
-                        <mat-label>Duración(min.)</mat-label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.minuto" name="minuto"
-                            (ngModelChange)="minutosEdit($event)">
-                    </div>
-
-                    <div class="col-6" style="display: grid; text-align: center; align-self: center;">
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content>Hora fin:</mat-drawer-content>
-                        </mat-drawer-container>
-                        <mat-drawer-container class="example-container">
-                            <mat-drawer-content style="font-weight: bold;">{{edServ['horaEnd']}}</mat-drawer-content>
-                        </mat-drawer-container>
-                    </div>
+            <div class="row titulos">
+                <div class="col-6">
+                    <label style="display: contents;">Fecha</label>
+                    <input type="date" class="form-control" [(ngModel)]="edServ.fecha" name="fecha"
+                        (change)="fechaEscogidaEdit($event)" [value]="fechaActual">
                 </div>
 
-                <!---------------------------------------- Servicios ---------------------------------------->
+                <div class="col-6">
+                    <label style="display: contents;">Hora inicio</label>
+                    <input type="time" class="form-control" [(ngModel)]="edServ.horaStart" name="horaStart"
+                        (change)="horaInicioEdit($event)" min="18:00" max="21:00" step="3600" />
+                </div>
 
-                <mat-list>
-                    <div class="row">
-                        <div class="col-6">
-                            <mat-drawer-container>
-                                <mat-drawer-content
-                                    style="font-weight: bold; font-size: larger;">SERVICIOS</mat-drawer-content>
-                            </mat-drawer-container>
-                        </div>
+                <div class="col-6 duracionHora">
+                    <label style="display: contents;">Duración(min.)</label>
+                    <input class=" form-control" type="number" [(ngModel)]="edServ.minuto" name="minuto"
+                        (ngModelChange)="minutosEdit($event)">
+                </div>
 
-                        <div class="col-6">
-                            <mat-drawer-container style="float: right;">
-                                <mat-drawer-content
-                                    style="font-weight: bold; font-size: larger;">{{edServ['totalServicio']}}</mat-drawer-content>
-                            </mat-drawer-container>
-                        </div>
+                <div class="col-6 duracionHora">
+                    <div style="text-align: center; align-self: center;">
+                        <label>Hora fin:</label>
                     </div>
-                    <mat-divider></mat-divider>
-                </mat-list>
+                    <div style="text-align: center; font-size: larger;"> {{edServ['horaEnd']}} </div>
+                </div>
 
-
-                <div class="row" style="margin-bottom: 1%; margin-top: 2%;">
-
-                    <div class="col-4">
-                        <label>Tratamiento</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.servicio" name="servicio"
-                            (ngModelChange)="valueServiceEdit()" />
+                <div class="row lugarSalida">
+                    <div class="col-5" style="display: grid">
+                        <label style="align-self: center">Lugar Salida</label>
                     </div>
-
-                    <div class="col-4">
-                        <label>Bebidas</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.bebidas" name="bebidas"
-                            (ngModelChange)="valueServiceEdit()" />
-                    </div>
-
-                    <div class="col-4">
-                        <label>Tabaco</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.tabaco" name="tabaco"
-                            (ngModelChange)="valueServiceEdit()" />
-                    </div>
-
-                    <div class="col-4" style="margin-top: 2%">
-                        <label>Vitaminas</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.vitaminas" name="vitaminas"
-                            (ngModelChange)="valueServiceEdit()" />
-                    </div>
-
-                    <div class="col-4" style="margin-top: 2%">
-                        <label>Propina</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.propina" name="propina"
-                            (ngModelChange)="valueServiceEdit()" />
-                    </div>
-
-                    <div class="col-4" style="margin-top: 2%">
-                        <label>Otros</label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.otros" name="otros"
-                            (ngModelChange)="valueServiceEdit()" />
-                    </div>
-
-                    <div class="col-4" style="margin-top: 2%">
-                        <label>Lugar Salida</label>
+                    <div class="col-7">
                         <input type="text" class="form-control" [(ngModel)]="edServ.salida" name="salida"
                             (ngModelChange)="valueServiceEdit()" />
                     </div>
                 </div>
 
 
-                <!---------------------------------------- COBROS  ---------------------------------------->
-
-                <mat-list>
-                    <div class="row">
-                        <div class="col-6">
-                            <mat-drawer-container>
-                                <mat-drawer-content
-                                    style="font-weight: bold; font-size: larger;">COBROS</mat-drawer-content>
-                            </mat-drawer-container>
-                        </div>
-
-                        <div class="col-6">
-                            <mat-drawer-container style="float: right;">
-                                <mat-drawer-content
-                                    style="font-weight: bold; font-size: larger;">{{sumatoriaCobrosEdit}}</mat-drawer-content>
-                            </mat-drawer-container>
-                        </div>
-                    </div>
-                    <mat-divider></mat-divider>
-                </mat-list>
-
-                <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
-
-                    <mat-drawer-container style="font-size: small;" class="col-2">
-                        <mat-drawer-content>EFECT</mat-drawer-content>
-                    </mat-drawer-container>
-
-                    <mat-drawer-container style="font-size: small;" class="col-2">
-                        <mat-drawer-content>BIZUM</mat-drawer-content>
-                    </mat-drawer-container>
-
-                    <mat-drawer-container style="font-size: small;" class="col-2">
-                        <mat-drawer-content>TARJETA</mat-drawer-content>
-                    </mat-drawer-container>
-
-                    <mat-drawer-container style="font-size: small;" class="col-2">
-                        <mat-drawer-content>TRANS</mat-drawer-content>
-                    </mat-drawer-container>
-                </div>
-
-                <!------------------------------------------------- Piso 1 ------------------------------------------------->
-
-                <div class="row">
-                    <div class="col-4">
-                        <mat-label>Piso 1</mat-label>
-                        <input type="number" class="form-control" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
-                            (ngModelChange)="valueCobrosEdit()">
-                    </div>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.efectPiso1" name="efectPiso1"
-                            (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.bizuPiso1" name="bizuPiso1"
-                            (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.tarjPiso1" name="tarjPiso1"
-                            (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.transPiso1" name="transPiso1"
-                            (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-                </div>
-
-
-                <!------------------------------------------------- Piso 2 ------------------------------------------------->
-
-                <div class="row">
-                    <div class="col-4">
-                        <mat-label>Piso 2</mat-label>
-                        <input matInput type="number" [(ngModel)]="edServ.numberPiso2" name="numberPiso2"
-                            (ngModelChange)="valueCobrosEdit()" class="form-control">
-                    </div>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.efectPiso2" name="efectPiso2"
-                            (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.bizuPiso2" name="bizuPiso2"
-                            (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.tarjPiso2" name="tarjPiso2"
-                            (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.transPiso2" name="transPiso2"
-                            (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-                </div>
-
-                <!------------------------------------------------- Terapeuta ------------------------------------------------->
-
-                <div class="row">
-                    <div class="col-4">
-                        <mat-label>Terapeuta</mat-label>
-                        <input matInput type="number" [(ngModel)]="edServ.numberTerap" name="numberTerap"
-                            (ngModelChange)="valueCobrosEdit()" class="form-control">
-                    </div>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.efectTerap" name="efectTerap"
-                            (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.bizuTerap" name="bizuTerap"
-                            (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.tarjTerap" name="tarjTerap"
-                            (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.transTerap" name="transTerap"
-                            (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <mat-label>Encargada</mat-label>
-                        <input matInput type="number" [(ngModel)]="edServ.numberEncarg" name="numberEncarg"
-                            (ngModelChange)="valueCobrosEdit()" class="form-control">
-                    </div>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.efectEncarg" name="efectEncarg"
-                            (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.bizuEncarg" name="bizuEncarg"
-                            (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.tarjEncarg" name="tarjEncarg"
-                            (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.transEncarg" name="transEncarg"
-                            (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-                </div>
-
-                <div class="row" style="margin-bottom: 5%;">
-                    <div class="col-4">
-                        <mat-label>Otro</mat-label>
-                        <input matInput type="number" [(ngModel)]="edServ.numberOtro" name="numberOtro"
-                            (ngModelChange)="valueCobrosEdit()" class="form-control">
-                    </div>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.efectOtro" name="efectOtro"
-                            (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.bizuOtro" name="bizuOtro"
-                            (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.tarjOtro" name="tarjOtro"
-                            (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-
-                    <mar-form-field class="col-2">
-                        <mat-checkbox [(ngModel)]="edServ.transOtro" name="transOtro"
-                            (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
-                    </mar-form-field>
-                </div>
-
-                <!-- Fin servicio -->
-
-                <mat-form-field style="display: grid; align-self: center;">
-                    <mat-label>Notas:</mat-label>
-                    <textarea matInput [(ngModel)]="edServ.nota" name="nota"></textarea>
-                </mat-form-field>
             </div>
-        </form>
+
+            <!---------------------------------------- Servicios ---------------------------------------->
+
+            <div class="row titulos">
+                <div class="col-4">
+                    <label class="font-weight-bold">SERVICIOS</label>
+                </div>
+
+                <div class="col-8">
+                    <label class="font-weight-bold sumaServicios">{{edServ['totalServicio'] + ' €'}}</label>
+                </div>
+            </div>
+            <hr>
+            <label>Detalla el importe de los servicios</label>
+
+
+            <div class="row titulos">
+                <div class="col-4">
+                    <label>Tratamiento</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.servicio" name="servicio"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+
+                <div class="col-4">
+                    <label>Bebidas</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.bebidas" name="bebidas"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+
+                <div class="col-4">
+                    <label>Tabaco</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.tabaco" name="tabaco"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+
+                <div class="col-4" style="margin-top: 2%">
+                    <label>Vitaminas</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.vitaminas" name="vitaminas"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+
+                <div class="col-4" style="margin-top: 2%">
+                    <label>Propina</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.propina" name="propina"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+
+                <div class="col-4" style="margin-top: 2%">
+                    <label>Otros</label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.otros" name="otros"
+                        (ngModelChange)="valueServiceEdit()" />
+                </div>
+            </div>
+
+
+            <!---------------------------------------- COBROS  ---------------------------------------->
+
+
+            <div class="row titulos">
+                <div class="col-4">
+                    <label class="font-weight-bold">COBROS</label>
+                </div>
+
+                <div class="col-8">
+                    <label class="font-weight-bold sumaServicios">{{sumatoriaCobros + ' €'}}</label>
+                </div>
+            </div>
+            <hr>
+            <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
+
+            <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
+
+                <mat-drawer-container style="font-size: small;" class="col-2">
+                    <mat-drawer-content>EFECT</mat-drawer-content>
+                </mat-drawer-container>
+
+                <mat-drawer-container style="font-size: small;" class="col-2">
+                    <mat-drawer-content>BIZUM</mat-drawer-content>
+                </mat-drawer-container>
+
+                <mat-drawer-container style="font-size: small;" class="col-2">
+                    <mat-drawer-content>TARJETA</mat-drawer-content>
+                </mat-drawer-container>
+
+                <mat-drawer-container style="font-size: small;" class="col-2">
+                    <mat-drawer-content>TRANS</mat-drawer-content>
+                </mat-drawer-container>
+            </div>
+
+            <!------------------------------------------------- Piso 1 ------------------------------------------------->
+
+            <div class="row">
+                <div class="col-4">
+                    <mat-label>Piso 1</mat-label>
+                    <input type="number" class="form-control" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
+                        (ngModelChange)="valueCobrosEdit()">
+                </div>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.efectPiso1" name="efectPiso1"
+                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.bizuPiso1" name="bizuPiso1"
+                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.tarjPiso1" name="tarjPiso1"
+                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.transPiso1" name="transPiso1"
+                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+            </div>
+
+
+            <!------------------------------------------------- Piso 2 ------------------------------------------------->
+
+            <div class="row">
+                <div class="col-4">
+                    <mat-label>Piso 2</mat-label>
+                    <input matInput type="number" [(ngModel)]="edServ.numberPiso2" name="numberPiso2"
+                        (ngModelChange)="valueCobrosEdit()" class="form-control">
+                </div>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.efectPiso2" name="efectPiso2"
+                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.bizuPiso2" name="bizuPiso2"
+                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.tarjPiso2" name="tarjPiso2"
+                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.transPiso2" name="transPiso2"
+                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+            </div>
+
+            <!------------------------------------------------- Terapeuta ------------------------------------------------->
+
+            <div class="row">
+                <div class="col-4">
+                    <mat-label>Terapeuta</mat-label>
+                    <input matInput type="number" [(ngModel)]="edServ.numberTerap" name="numberTerap"
+                        (ngModelChange)="valueCobrosEdit()" class="form-control">
+                </div>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.efectTerap" name="efectTerap"
+                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.bizuTerap" name="bizuTerap"
+                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.tarjTerap" name="tarjTerap"
+                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.transTerap" name="transTerap"
+                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <mat-label>Encargada</mat-label>
+                    <input matInput type="number" [(ngModel)]="edServ.numberEncarg" name="numberEncarg"
+                        (ngModelChange)="valueCobrosEdit()" class="form-control">
+                </div>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.efectEncarg" name="efectEncarg"
+                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.bizuEncarg" name="bizuEncarg"
+                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.tarjEncarg" name="tarjEncarg"
+                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.transEncarg" name="transEncarg"
+                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+            </div>
+
+            <div class="row" style="margin-bottom: 5%;">
+                <div class="col-4">
+                    <mat-label>Otro</mat-label>
+                    <input matInput type="number" [(ngModel)]="edServ.numberOtro" name="numberOtro"
+                        (ngModelChange)="valueCobrosEdit()" class="form-control">
+                </div>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.efectOtro" name="efectOtro"
+                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.bizuOtro" name="bizuOtro"
+                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.tarjOtro" name="tarjOtro"
+                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+
+                <mar-form-field class="col-2">
+                    <mat-checkbox [(ngModel)]="edServ.transOtro" name="transOtro"
+                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                </mar-form-field>
+            </div>
+
+            <!-- Fin servicio -->
+
+            <mat-form-field style="display: grid; align-self: center;">
+                <mat-label>Notas:</mat-label>
+                <textarea matInput [(ngModel)]="edServ.nota" name="nota"></textarea>
+            </mat-form-field>
+        </div>
+
 
         <div class="container botonesEditar" *ngFor="let edServ of editarService">
             <div class="row">

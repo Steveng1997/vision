@@ -37,6 +37,10 @@
     margin-top: 7%;
   }
 
+  /* .sumaServicios{
+    
+  } */
+
   .duracionHora {
     margin-top: 7%;
   }
@@ -69,6 +73,10 @@
 
   .lugarSalida {
     margin-top: 3%;
+  }
+
+  .sumaServicios{
+  float: right;
   }
 
   .duracionHora {
