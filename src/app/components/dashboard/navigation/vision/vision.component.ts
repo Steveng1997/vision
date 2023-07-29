@@ -119,7 +119,12 @@ export class VisionComponent implements OnInit {
   }
 
   calculardiferencia(horaFin: string, nombre: string, fecha: string): string {
-    let hora_actual: any = new Date(), convertHora = '', fechaEnd = new Date().toISOString().substring(0, 10), convertFecha = ''
+    let hora_actual: any = new Date(), convertHora = '', fechaEnd = '', convertFecha = '',
+      fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = ''
+
+    dia = fechaHoy.getDate()
+    mes = fechaHoy.getMonth() + 1
+    año = fechaHoy.getFullYear()
 
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
       '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
@@ -130,6 +135,13 @@ export class VisionComponent implements OnInit {
     // Convertimos fecha
     if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
 
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      fechaEnd = `${año}-${convertMes}-${dia}`
+    } else {
+      fechaEnd = `${año}-${mes}-${dia}`
+    }
+
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
@@ -137,14 +149,14 @@ export class VisionComponent implements OnInit {
       if (hora_inicio.length == 4) {
         hora_inicio = '0' + hora_inicio
       }
-      if (convertFecha <= fechaEnd) {
+      if (convertFecha < fechaEnd) {
         this.terapService.getByNombre(nombre).then((datoMinute) => {
           for (let i = 0; i < datoMinute.length; i++) {
             this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
           }
         })
       }
-      if (fechaEnd != "" && hora_final <= hora_inicio) {
+      if (hora_final <= hora_inicio) {
         this.terapService.getByNombre(nombre).then((datoMinute) => {
           for (let i = 0; i < datoMinute.length; i++) {
             if (datoMinute[i]['horaEnd'] <= hora_actual) {

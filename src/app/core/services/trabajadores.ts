@@ -127,12 +127,6 @@ export class TrabajadoresService {
     });
   }
 
-  // updateHoraEnd(idDocument, nombreTerap) {
-  //   return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
-  //     horaEnd: ''
-  //   });
-  // }
-
   updateHoraAndSalida(idDocument, nombreTerap) {
     return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
       horaEnd: "",

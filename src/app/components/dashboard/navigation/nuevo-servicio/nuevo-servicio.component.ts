@@ -1002,7 +1002,6 @@ export class NuevoServicioComponent implements OnInit {
             terapeuta = this.formTemplate.value.numberTerap
             encargada = this.formTemplate.value.numberEncarg
             otros = this.formTemplate.value.numberOtro
-            debugger
             fecha = this.fechaActual.replace("-", "/").replace("-", "/")
 
             this.conteoNumber()

@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="form-group inputCliente font-weight-bold">
+                <div class="inputCliente font-weight-bold">
                     <label for="inputsm">Cliente</label>
                     <input class="form-control input-sm" type="text" formControlName="cliente">
                 </div>
@@ -43,62 +43,68 @@
 
             <!---------------------------------------- TIEMPO ---------------------------------------->
 
-            <mat-list>
+            <div>
+                <label class="tiempoTitulo" style="font-weight: bold; font-size: larger;">TIEMPO</label>
+                <hr style="color: red;"/>
+
+                <div class="row">
+                    <div class="col-6">
+                        <mat-drawer-container class="example-container">
+                            <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
+                        </mat-drawer-container>
+                    </div>
+    
+                    <div class="col-6">
+                        <mat-drawer-container class="example-container" style="float: right;" *ngFor="let hor of fechaLast">
+                            <mat-drawer-content>{{horaStartTerapeuta + '-' + horaEndTerapeuta}}</mat-drawer-content>
+                        </mat-drawer-container>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <mat-list>
                 <mat-drawer-container>
                     <mat-drawer-content style="font-weight: bold; font-size: larger;">TIEMPO</mat-drawer-content>
                 </mat-drawer-container>
                 <mat-divider></mat-divider>
-            </mat-list>
+            </mat-list> -->
 
+            <div class="row tiempo">
 
-            <div class="row" style="margin-bottom: 2%;">
-                <div class="col-6">
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
-                    </mat-drawer-container>
+                <div class="col-6 font-weight-bold">
+                    <div>
+                        <label>Fecha</label>
+                    </div>
+                    <div>
+                        <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
+                    </div>
                 </div>
 
-                <div class="col-6">
-                    <mat-drawer-container class="example-container" style="float: right;" *ngFor="let hor of fechaLast">
-                        <mat-drawer-content>{{horaStartTerapeuta + '-' + horaEndTerapeuta}}</mat-drawer-content>
-                    </mat-drawer-container>
-                </div>
-            </div>
-
-            <div class="row" style="margin-bottom: 3%;">
-
-                <div class="col-6" style="display: inline-block; align-self: center;">
-
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content>Fecha</mat-drawer-content>
-                    </mat-drawer-container>
-
-                    <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
+                <div class="col-6 font-weight-bold">
+                    <div>
+                        <label>Hora inicio</label>
+                    </div>
+                    <div>
+                        <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted"
+                            min="18:00" max="21:00" step="3600" />
+                    </div>
                 </div>
 
-                <div class="col-6">
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content>Hora inicio</mat-drawer-content>
-                    </mat-drawer-container>
-
-                    <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted"
-                        min="18:00" max="21:00" step="3600" />
+                <div class="col-6 font-weight-bold">
+                    <div>
+                        <label>Duración(min.)</label>
+                    </div>
+                    <div>
+                        <input class=" form-control" type="number" formControlName="minuto"
+                            (ngModelChange)="minutos($event)">
+                    </div>
                 </div>
 
-                <div class="col-6">
-                    <mat-label>Duración(min.)</mat-label>
-                    <input class="form-control" type="number" formControlName="minuto"
-                        (ngModelChange)="minutos($event)">
-
-                </div>
-
-                <div class="col-6" style="text-align: center; align-self: center;">
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content>Hora fin:</mat-drawer-content>
-                    </mat-drawer-container>
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content style="font-weight: bold;">{{horaFinalServicio}}</mat-drawer-content>
-                    </mat-drawer-container>
+                <div class="col-6 font-weight-bold" style="text-align: center; align-self: center;">
+                    <div>
+                        <label>Hora fin:</label>
+                    </div>
+                    <div> {{horaFinalServicio}} </div>
                 </div>
             </div>
 
