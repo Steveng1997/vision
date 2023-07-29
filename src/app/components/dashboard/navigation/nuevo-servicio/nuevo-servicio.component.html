@@ -45,7 +45,7 @@
 
             <div>
                 <label class="tiempoTitulo" style="font-weight: bold; font-size: larger;">TIEMPO</label>
-                <hr style="color: red;"/>
+                <hr class="dividerTiempo">
 
                 <div class="row">
                     <div class="col-6">
@@ -53,21 +53,15 @@
                             <mat-drawer-content style="font-weight: bold;">Último servicio:</mat-drawer-content>
                         </mat-drawer-container>
                     </div>
-    
+
                     <div class="col-6">
-                        <mat-drawer-container class="example-container" style="float: right;" *ngFor="let hor of fechaLast">
+                        <mat-drawer-container class="example-container" style="float: right;"
+                            *ngFor="let hor of fechaLast">
                             <mat-drawer-content>{{horaStartTerapeuta + '-' + horaEndTerapeuta}}</mat-drawer-content>
                         </mat-drawer-container>
                     </div>
                 </div>
             </div>
-
-            <!-- <mat-list>
-                <mat-drawer-container>
-                    <mat-drawer-content style="font-weight: bold; font-size: larger;">TIEMPO</mat-drawer-content>
-                </mat-drawer-container>
-                <mat-divider></mat-divider>
-            </mat-list> -->
 
             <div class="row tiempo">
 

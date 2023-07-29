@@ -29,6 +29,12 @@
     margin-top: 8%;
   }
 
+  .dividerTiempo{
+    color: red; 
+    margin-top: 0%; 
+    margin-bottom: 2%;
+  }
+
   .inputSelect {
     margin-top: 12%;
   }
@@ -49,6 +55,12 @@
 
   .tiempoTitulo{
     margin-top: 3%;
+  }
+
+  .dividerTiempo{
+    color: red; 
+    margin-top: 0%; 
+    margin-bottom: 1%;
   }
 
   .inputCliente {

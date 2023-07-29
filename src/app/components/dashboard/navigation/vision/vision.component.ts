@@ -16,12 +16,12 @@ export class VisionComponent implements OnInit {
 
   vision: any = []
   page!: number
-  dateConvertion = new Date()
   fechaDiaHoy = ''
   totalServicio: number
   idUser: string
   terapeutas: any = []
   horaEnd: string
+  horaHoy: string
 
   // TOTALES
   totalVision: number
@@ -31,7 +31,6 @@ export class VisionComponent implements OnInit {
   totalPropina: number
   totalOtros: number
 
-  aqui: string;
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -132,9 +131,6 @@ export class VisionComponent implements OnInit {
     let hora_inicio = hora_actual;
     const hora_final: any = horaFin;
 
-    // Convertimos fecha
-    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
-
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
       fechaEnd = `${año}-${convertMes}-${dia}`
@@ -142,13 +138,18 @@ export class VisionComponent implements OnInit {
       fechaEnd = `${año}-${mes}-${dia}`
     }
 
+    // Convertimos fecha
+    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
+
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
     if (horaFin != "" && convertFecha != "") {
+
       if (hora_inicio.length == 4) {
         hora_inicio = '0' + hora_inicio
       }
+
       if (convertFecha < fechaEnd) {
         this.terapService.getByNombre(nombre).then((datoMinute) => {
           for (let i = 0; i < datoMinute.length; i++) {
@@ -156,10 +157,12 @@ export class VisionComponent implements OnInit {
           }
         })
       }
-      if (hora_final <= hora_inicio) {
+
+      if (convertFecha != "" && hora_final <= hora_inicio) {
         this.terapService.getByNombre(nombre).then((datoMinute) => {
           for (let i = 0; i < datoMinute.length; i++) {
-            if (datoMinute[i]['horaEnd'] <= hora_actual) {
+            debugger
+            if (datoMinute[i]['horaEnd'] <= hora_inicio) {
               this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
             }
           }
@@ -193,12 +196,12 @@ export class VisionComponent implements OnInit {
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
-    this.aqui = horas + ':' + (minutos < 10 ? '0' : '') + minutos
+    this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 
-    if (this.aqui.slice(0, 1) === "0") {
-      this.horaEnd = this.aqui.slice(2, 4)
+    if (this.horaHoy.slice(0, 1) === "0") {
+      this.horaEnd = this.horaHoy.slice(2, 4)
     } else {
-      this.horaEnd = this.aqui
+      this.horaEnd = this.horaHoy
     }
     return this.horaEnd
   }
