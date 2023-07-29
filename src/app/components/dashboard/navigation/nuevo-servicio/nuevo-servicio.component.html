@@ -15,7 +15,8 @@
                     <div>
                         <select class="form-select" formControlName="terapeuta" name="terapeuta"
                             (ngModelChange)="terapeu($event)">
-                            <option *ngFor="let terap of terapeuta" selected value="terap.nombre">{{terap.nombre}}
+                            <option selected value>Selecciona</option>
+                            <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
                             </option>
                         </select>
                     </div>
@@ -27,13 +28,14 @@
                     </div>
                     <div>
                         <select class="form-select" formControlName="encargada" name="encargada">
-                            <option *ngFor="let encarg of encargada" selected value="encarg.nombre">{{encarg.nombre}}
+                            <option selected value>Selecciona</option>
+                            <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
                             </option>
                         </select>
                     </div>
                 </div>
 
-                <div class="form-group inputCliente">
+                <div class="form-group inputCliente font-weight-bold">
                     <label for="inputsm">Cliente</label>
                     <input class="form-control input-sm" type="text" formControlName="cliente">
                 </div>
@@ -410,7 +412,7 @@
                         </mat-drawer-container>
 
                         <input type="date" class="form-control" [(ngModel)]="edServ.fecha" name="fecha"
-                            (change)="fechaEscogida($event)" [value]="fechaActual">
+                            (change)="fechaEscogidaEdit($event)" [value]="fechaActual">
                     </div>
 
                     <div class="col-6">

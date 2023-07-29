@@ -995,13 +995,15 @@ export class NuevoServicioComponent implements OnInit {
             this.transCheckToggle(this.validateTrans)
             this.encargadaAndTerapeuta()
 
-            let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0
+            let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0, fecha = ''
 
             piso1 = this.formTemplate.value.numberPiso1
             piso2 = this.formTemplate.value.numberPiso2
             terapeuta = this.formTemplate.value.numberTerap
             encargada = this.formTemplate.value.numberEncarg
             otros = this.formTemplate.value.numberOtro
+            debugger
+            fecha = this.fechaActual.replace("-", "/").replace("-", "/")
 
             this.conteoNumber()
 
@@ -1092,14 +1094,8 @@ export class NuevoServicioComponent implements OnInit {
               const idDocument1 = rp.filter(tp => tp.nombre)
               idDocument = idDocument1[0]['idDocument']
               this.trabajadorService.update(idDocument, this.formTemplate.value.terapeuta, this.horaFinalServicio,
-                this.formTemplate.value.salida, this.fechaHoyInicio)
+                this.formTemplate.value.salida, fecha)
             })
-
-            // this.servicioService.getIdDocument(this.idUnico).then((rp) => {
-            //   if (rp.length > 1) {
-            //     this.servicioService.updateAllServicio(rp[0]['idDocument'], rp[0]['id'])
-            //   }
-            // })
 
             setTimeout(() => {
               this.router.navigate([`menu/${this.idUser['id']}/vision/${this.idUser['id']}`])
@@ -1494,8 +1490,11 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   fechaEscogida(event: any) {
-    this.editarService[0]['fecha'] = event.target.value
     this.fechaActual = event.target.value
+  }
+
+  fechaEscogidaEdit(event: any) {
+    this.editarService[0]['fecha'] = event.target.value
   }
 
   minutos(event: any) {

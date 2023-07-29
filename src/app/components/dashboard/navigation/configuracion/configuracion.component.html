@@ -110,7 +110,7 @@
                 </tr>
             </thead>
             <tbody (click)="modalTablaEncargada(encg.id, modalTabl)"
-                *ngFor="let encg of encargada | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
+                *ngFor="let encg of encargada | paginate: { itemsPerPage: 20, currentPage: pageTerapeuta }">
                 <tr style="cursor: pointer;">
                     <td data-label="" [ngClass]="{'color1':encg.activo == false, 'color2':encg.activo === true}">
                     </td>
@@ -326,7 +326,7 @@
                 </tr>
             </thead>
             <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
-                *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 5, currentPage: pageTerapeuta }">
+                *ngFor="let terap of terapeuta | paginate: { itemsPerPage: 20, currentPage: pageTerapeuta }">
                 <tr style="cursor: pointer;">
                     <td data-label="" [ngClass]="{'color1':terap.activo == false, 'color2':terap.activo === true}">
                     </td>
