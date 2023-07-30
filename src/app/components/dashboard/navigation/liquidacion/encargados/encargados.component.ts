@@ -37,7 +37,7 @@ export class EncargadosComponent implements OnInit {
   // Fecha
   fechaInicio: string
   fechaFinal: string
-
+  idUnico: string
   selected: boolean
 
   // Conversión
@@ -412,6 +412,18 @@ export class EncargadosComponent implements OnInit {
     })
   }
 
+  crearIdUnico() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+    this.idUnico = uuid
+    return this.idUnico
+  }
+
+
   guardar() {
     let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idEncargada = '';
     if (this.selectedEncargada) {
@@ -433,19 +445,20 @@ export class EncargadosComponent implements OnInit {
           })
         }
 
-        this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada).then((datos) => {
-          this.getLiquidaciones()
-          this.liqEncarg = true
-          this.addEncarg = false
-          this.editEncarg = false
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Liquidado Correctamente!',
-            showConfirmButton: false,
-            timer: 2500,
+        this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
+          horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada, this.idUnico).then((datos) => {
+            this.getLiquidaciones()
+            this.liqEncarg = true
+            this.addEncarg = false
+            this.editEncarg = false
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Liquidado Correctamente!',
+              showConfirmButton: false,
+              timer: 2500,
+            })
           })
-        })
       })
     } else {
       Swal.fire({

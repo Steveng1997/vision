@@ -46,7 +46,7 @@ export class LiquidacioneTerapService {
   // Get
 
   getLiquidacionesTerapeuta() {
-    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc')).valueChanges();
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
   }
 
   getIdTerap(idTerap): Promise<any> {

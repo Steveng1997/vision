@@ -3,7 +3,7 @@
 <div *ngIf="!editamos">
     <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Nuevo Servicio</h4>
 
-    <form [formGroup]="formTemplate2" (ngSubmit)="addServicio(formTemplate.value)">
+    <form [formGroup]="formTemplate" (ngSubmit)="addServicio(formTemplate.value)">
 
         <div class="container">
             <div class="row inputSelect">
@@ -162,10 +162,9 @@
 
                 <div class="col-4" style="display: grid;">
                     <select class="form-select" style="place-self: flex-end;" formControlName="formaPago1"
-                        name="formaPago1">
+                        name="formaPago1" (ngModelChange)="formaPagoValue()">
                         <option selected value="">Selecciona</option>
-                        <option value="piso1">Piso 1</option>
-                        <option value="piso2">Piso 2</option>
+                        <option value="piso1">Piso</option>
                         <option value="terapeuta">Terapeuta</option>
                         <option value="encargada">Encargada</option>
                         <option value="otros">Otros</option>
@@ -196,10 +195,9 @@
 
                 <div class="col-4" style="display: grid;">
                     <select class="form-select" style="place-self: flex-end;" formControlName="formaPago3"
-                        name="formaPago1" (ngModelChange)="terapeu($event)">
+                        name="formaPago3" (ngModelChange)="formaPagoValue()">
                         <option selected value="">Selecciona</option>
-                        <option value="piso1">Piso 1</option>
-                        <option value="piso2">Piso 2</option>
+                        <option value="piso2">Piso</option>
                         <option value="terapeuta">Terapeuta</option>
                         <option value="encargada">Encargada</option>
                         <option value="otros">Otros</option>
@@ -208,7 +206,7 @@
 
                 <div class="col-4" style="display: grid;">
                     <select class="form-select" style="place-self: flex-end;" formControlName="formaPago4"
-                        name="formaPago2" (ngModelChange)="terapeu($event)">
+                        name="formaPago4">
                         <option selected value="">Selecciona</option>
                         <option value="efectivo">Efectivo</option>
                         <option value="bizum">Bizum</option>

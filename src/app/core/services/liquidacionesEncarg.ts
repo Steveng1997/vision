@@ -21,7 +21,7 @@ export class LiquidacioneEncargService {
   }
 
   registerLiquidacionesEncargada(encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
-    tratamiento, importe, idEncargada) {
+    tratamiento, importe, idEncargada, currentDate) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
@@ -31,7 +31,8 @@ export class LiquidacioneEncargService {
       hastaHoraLiquidado: hastaHoraLiquidado,
       tratamiento: tratamiento,
       importe: importe,
-      idEncargada: idEncargada
+      idEncargada: idEncargada,
+      currentDate: currentDate
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('liquidacionesEncargada').add(formularioall).then(
@@ -44,7 +45,7 @@ export class LiquidacioneEncargService {
   // Get
 
   getLiquidacionesEncargada() {
-    return this.db.collection('liquidacionesEncargada', (ref) => ref.orderBy('id', 'desc')).valueChanges();
+    return this.db.collection('liquidacionesEncargada', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
   }
 
   getIdEncarg(idEncarg): Promise<any> {
