@@ -1,53 +1,60 @@
 .color2 {
-    background: blue;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 10%;
-    margin-left: 20%;
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: 20%;
 }
 
-.btnCircle{
-    width: 45px;
-    height: 45px;
-    border-radius: 60px;
-    font-size: 15px;
-    text-align: center;
-    background-color: #0d6efd;
-    border: thick;
-    color: white;
+.btnCircle {
+  width: 45px;
+  height: 45px;
+  border-radius: 60px;
+  font-size: 15px;
+  text-align: center;
+  background-color: #0d6efd;
+  border: thick;
+  color: white;
 }
 
 .mat-divider {
-    border-top-color: red;
+  border-top-color: red;
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: white;
+  background-color: white;
 }
 
 .table-secondary {
-    --bs-table-bg: cornflowerblue;
-    white-space: nowrap;
+  --bs-table-bg: cornflowerblue;
+  white-space: nowrap;
 }
 
-.inputEncargada{
-    text-align: center;
+.inputEncargada {
+  text-align: center;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+  .columnFechas {
+    text-align-last: center;
+  }
 
-    .classTable {
-        margin-top: 15%;
-    }
+  .trFechas {
+    white-space: nowrap;
+  }
 
-    .noHayCierre {
-        font-family: cursive;
-        font-size: x-large;
-        color: red;
-        container-type: inline-size;
-    }
+  .classTable {
+    margin-top: 15%;
+  }
+
+  .noHayCierre {
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
+    container-type: inline-size;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,15 +62,14 @@
    Query para Pantalla grande */
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+  .classTable {
+    margin-top: 8%;
+  }
 
-    .classTable {
-        margin-top: 8%;
-    }
-
-    .noHayCierre {
-        text-align: center;
-        font-family: cursive;
-        font-size: x-large;
-        color: red;
-    }
+  .noHayCierre {
+    text-align: center;
+    font-family: cursive;
+    font-size: x-large;
+    color: red;
+  }
 }

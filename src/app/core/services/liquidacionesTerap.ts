@@ -21,7 +21,7 @@ export class LiquidacioneTerapService {
   }
 
   registerLiquidacionesTerapeutas(terapeuta, encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
-    tratamiento, importe, idTerapeuta) {
+    tratamiento, importe, idTerapeuta, currentDate) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: terapeuta,
@@ -33,6 +33,7 @@ export class LiquidacioneTerapService {
       tratamiento: tratamiento,
       importe: importe,
       idTerapeuta: idTerapeuta,
+      currentDate: currentDate
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('liquidacionesTerapeuta').add(formularioall).then(
@@ -45,14 +46,12 @@ export class LiquidacioneTerapService {
   // Get
 
   getLiquidacionesTerapeuta() {
-    return this.db
-      .collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc')).valueChanges();
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.orderBy('id', 'desc')).valueChanges();
   }
 
   getIdTerap(idTerap): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db
-        .collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerap))
+      this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerap))
         .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
@@ -66,16 +65,14 @@ export class LiquidacioneTerapService {
   // Update
 
   update(idDocument, nombreTerap, idTerapeuta) {
-    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('nombre', '==', nombreTerap))
-      .doc(idDocument).update({
-        idTerapeuta: idTerapeuta
-      });
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
+      idTerapeuta: idTerapeuta
+    });
   }
 
   updateById(idDocument, idTerapeuta, importe) {
-    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerapeuta))
-      .doc(idDocument).update({
-        importe: importe
-      });
+    return this.db.collection('liquidacionesTerapeuta', (ref) => ref.where('idTerapeuta', '==', idTerapeuta)).doc(idDocument).update({
+      importe: importe
+    });
   }
 }

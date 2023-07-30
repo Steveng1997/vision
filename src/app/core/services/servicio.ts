@@ -107,14 +107,13 @@ export class ServicioService {
 
   geyByCurrentDesc(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('id', 'desc').where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.orderBy('id', 'desc').where('cierre', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
@@ -144,27 +143,25 @@ export class ServicioService {
 
   geyByCierreFalse(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   geyByCierreTrue(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
@@ -182,87 +179,80 @@ export class ServicioService {
 
   getByEditar(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('id', '==', id).where('editar', '==', true)).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('id', '==', id).where('editar', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getTerapeutaByAsc(terapeuta: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'asc')).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getTerapeutaByDesc(terapeuta: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'desc')).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).orderBy('id', 'desc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getTerapeuta(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', nombre)).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getIdDocument(id: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('idUnico', '==', id)).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('idUnico', '==', id)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getEncargada(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('encargada', '==', nombre)).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
     });
   }
 
   getTerapeutaEncargada(terapeuta: string, encargada: string): Promise<any> {
     return new Promise((resolve, _reject) => {
       this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta)
-        .where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false)).valueChanges({ idField: 'idDocument' })
-        .subscribe((rp) => {
+        .where('encargada', '==', encargada).where('liquidadoTerapeuta', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {

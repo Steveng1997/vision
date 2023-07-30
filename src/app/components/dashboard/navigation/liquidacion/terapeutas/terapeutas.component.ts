@@ -69,7 +69,7 @@ export class TerapeutasComponent implements OnInit {
   comisionVitamina: number
   comisionOtros: number
   sumaComision: number
-
+  idUnico: string
   recibidoTerap: any
   totalComision: number
 
@@ -315,6 +315,7 @@ export class TerapeutasComponent implements OnInit {
   }
 
   editamosServicio(id: string) {
+    debugger
     this.liqTep = false
     this.addTerap = false
     this.editTerap = true
@@ -324,7 +325,7 @@ export class TerapeutasComponent implements OnInit {
       this.horaDesc = datosTerapeuta[0]['desdeHoraLiquidado']
     })
 
-    this.servicioService.getByIdEncarg(id).subscribe((datosTerapeuta) => {
+    this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
       this.datosLiquidadoTerap = datosTerapeuta;
 
       this.servicioService.getTerapeutaFechaAscByLiqTrue(datosTerapeuta[0]['terapeuta'], datosTerapeuta[0]['encargada']).then((fechaAsce) => {
@@ -440,6 +441,17 @@ export class TerapeutasComponent implements OnInit {
     })
   }
 
+  crearIdUnico() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+    this.idUnico = uuid
+    return this.idUnico
+  }
+
   guardar() {
     let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idTerapeuta = '';
     if (this.selectedTerapeuta) {
@@ -462,19 +474,20 @@ export class TerapeutasComponent implements OnInit {
             })
           }
 
-          this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada, fechaDesdeDato, fechaHastaDato, horaDesdeDato, horaHastaDato, conteo, this.totalComision, idTerapeuta).then((datos) => {
-            this.getLiquidaciones()
-            this.liqTep = true
-            this.addTerap = false
-            this.editTerap = false
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
+          this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
+            horaDesdeDato, horaHastaDato, conteo, this.totalComision, idTerapeuta, this.idUnico).then((datos) => {
+              this.getLiquidaciones()
+              this.liqTep = true
+              this.addTerap = false
+              this.editTerap = false
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Liquidado Correctamente!',
+                showConfirmButton: false,
+                timer: 2500,
+              })
             })
-          })
         })
       } else {
         Swal.fire({
