@@ -1,23 +1,9 @@
-.example-container {
-  height: 270px;
-  overflow: auto;
-}
-
 table {
   width: 100%;
-  /* border: solid; */
 }
 
 .table-secondary {
   --bs-table-bg: cornflowerblue;
-}
-
-tr.mat-mdc-footer-row {
-  font-weight: bold;
-}
-
-.mat-mdc-table-sticky {
-  border-top: 1px solid #e0e0e0;
 }
 
 .nota {
@@ -64,7 +50,7 @@ tr.mat-mdc-footer-row {
   margin-left: 20%;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
 
   .padre {
     display: grid;
@@ -74,9 +60,29 @@ tr.mat-mdc-footer-row {
     width: auto;
     margin-bottom: 8%;
   }
+
+  hr {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 2%;
+    margin-bottom: -7%;
+    width: 87%;
+  }
+  
+  .linea{
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: -5%;
+    margin-bottom: 7%;
+    width: 95%;
+  }
 }
 
-@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .totalHoy {
     display: grid;
   }
@@ -91,78 +97,24 @@ tr.mat-mdc-footer-row {
     width: max-content;
     margin-bottom: 3%;
   }
-}
 
-/* ------------------------------------------------------------------------------------------------
- ---------------------------------------------------------------------------------------------------
- Query para Pantalla grande */
-
-@media only screen and (min-device-width: 1279px) and (max-device-width: 1282px) {
-
-  .totalHoy {
+  hr {
     display: grid;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: auto;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 2%;
+    margin-bottom: -2%;
+    width: 87%;
   }
 
-  .ocupacion {
-    text-align: center;
-  }
-
-  .padre {
+  .linea{
     display: grid;
-    place-items: center;
-  }
-
-  .hijo {
-    text-align: center;
-    width: max-content;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: -2%;
     margin-bottom: 3%;
-  }
-}
-
-@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
-
-  .totalHoy {
-    display: grid;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: auto;
-  }
-
-  .ocupacion {
-    text-align: center;
-  }
-
-  .padre {
-    display: grid;
-    place-items: center;
-  }
-
-  .hijo {
-    text-align: center;
-    width: max-content;
-    margin-bottom: 3%;
-  }
-}
-
-@media only screen and (min-device-width: 1700px) and (max-device-width: 2000px) {
-  .totalHoy {
-    display: grid;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: auto;
-  }
-
-  .padre {
-    display: grid;
-    place-items: center;
-  }
-
-  .hijo {
-    text-align: center;
-    width: max-content;
-    margin-bottom: 3%;
+    width: 95%;
   }
 }
