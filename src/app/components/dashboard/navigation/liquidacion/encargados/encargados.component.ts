@@ -445,6 +445,7 @@ export class EncargadosComponent implements OnInit {
           })
         }
 
+        this.crearIdUnico()
         this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
           horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada, this.idUnico).then((datos) => {
             this.getLiquidaciones()

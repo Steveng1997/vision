@@ -97,16 +97,35 @@ export class NuevoServicioComponent implements OnInit {
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
-    formaPago1: new FormControl(''),
-    formaPago2: new FormControl(''),
-    formaPago3: new FormControl(''),
-    formaPago4: new FormControl(''),
     encargada: new FormControl(''),
     cliente: new FormControl(''),
     hora: new FormControl(''),
     minuto: new FormControl(''),
-    pago1: new FormControl(),
-    pago2: new FormControl(),
+    efectPiso1: new FormControl(false),
+    bizuPiso1: new FormControl(false),
+    tarjPiso1: new FormControl(false),
+    transPiso1: new FormControl(false),
+    efectPiso2: new FormControl(false),
+    bizuPiso2: new FormControl(false),
+    tarjPiso2: new FormControl(false),
+    transPiso2: new FormControl(false),
+    efectTerap: new FormControl(false),
+    bizuTerap: new FormControl(false),
+    tarjTerap: new FormControl(false),
+    transTerap: new FormControl(false),
+    efectEncarg: new FormControl(false),
+    bizuEncarg: new FormControl(false),
+    tarjEncarg: new FormControl(false),
+    transEncarg: new FormControl(false),
+    efectOtro: new FormControl(false),
+    bizuOtro: new FormControl(false),
+    tarjOtro: new FormControl(false),
+    transOtro: new FormControl(false),
+    numberPiso1: new FormControl(),
+    numberPiso2: new FormControl(),
+    numberTerap: new FormControl(),
+    numberEncarg: new FormControl(),
+    numberOtro: new FormControl(),
     nota: new FormControl(''),
     servicio: new FormControl(),
     bebidas: new FormControl(),
@@ -139,7 +158,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   fecha() {
-    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = ''
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
 
     dia = fecha.getDate()
     mes = fecha.getMonth() + 1
@@ -150,6 +169,13 @@ export class NuevoServicioComponent implements OnInit {
       this.fechaActual = `${año}-${convertMes}-${dia}`
     } else {
       this.fechaActual = `${año}-${mes}-${dia}`
+    }
+
+    if(dia > 0 && dia < 10){
+      convertDia = '0' + dia
+      this.fechaActual = `${año}-${convertMes}-${convertDia}`
+    } else {
+      this.fechaActual = `${año}-${convertMes}-${dia}`
     }
   }
 
@@ -227,9 +253,200 @@ export class NuevoServicioComponent implements OnInit {
     this.fechaHoyInicio = `${currentDate.getFullYear()}/${mes}/${convertDia}`
   }
 
+  TodosCobroSelect(formValue) {
+    if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 || this.formTemplate.value.numberTerap > 0 ||
+      this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
+
+      // Efectivo
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Bizum
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Tarjeta
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+        return true
+      }
+
+      // Transaccion
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+        return true
+      }
+    }
+    return true
+  }
+
+  mas4Select(formValue) {
+
+    if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 || this.formTemplate.value.numberTerap > 0 ||
+      this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
+
+      // Efectivo
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true
+        && this.formTemplate.value.efectEncarg == true || this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
+        this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso1 == true &&
+        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true &&
+        this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true &&
+        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true) {
+
+        this.formaPagos = "Efectivo"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Bizum
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true
+        && this.formTemplate.value.bizuEncarg == true || this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
+        this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso1 == true &&
+        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true &&
+        this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true &&
+        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true) {
+
+        this.formaPagos = "Bizum"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Tarjeta
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true
+        && this.formTemplate.value.tarjEncarg == true || this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
+        this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso1 == true &&
+        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true &&
+        this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true &&
+        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true) {
+
+        this.formaPagos = "Tarjeta"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+        return true
+      }
+
+      // Transaccion
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true
+        && this.formTemplate.value.transEncarg == true || this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
+        this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso1 == true &&
+        this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true &&
+        this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true &&
+        this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true) {
+
+        this.formaPagos = "Transaccion"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+        return true
+      }
+    }
+    return true
+  }
+
+  mas3Select(formValue) {
+
+    if (this.formTemplate.value.numberPiso1 > 0 || this.formTemplate.value.numberPiso2 > 0 || this.formTemplate.value.numberTerap > 0 ||
+      this.formTemplate.value.numberEncarg > 0 || this.formTemplate.value.numberOtro > 0) {
+
+      // Efectivo
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true ||
+        this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true ||
+        this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
+        this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true) {
+
+        this.formaPagos = "Efectivo"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta, 0, 0, 0, this.valueEfectEncargada, 0, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Bizum
+      if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true ||
+        this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true ||
+        this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
+        this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true) {
+
+        this.formaPagos = "Bizum"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta, 0, 0, 0, this.valueBizuEncargada, 0, 0, this.currentDate)
+        return true
+      }
+
+      // Tarjeta
+      if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true ||
+        this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true ||
+        this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
+        this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true) {
+
+        this.formaPagos = "Tarjeta"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0, this.valueTarjeTerapeuta, 0, 0, 0, this.valueTarjeEncargada, 0, this.currentDate)
+        return true
+      }
+
+      // Transaccion
+      if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true ||
+        this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true ||
+        this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
+        this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true) {
+
+        this.formaPagos = "Transaccion"
+        this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio, this.servicioTotal, this.horaFinalServicio,
+          this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0, this.valueTransTerapeuta, 0, 0, 0, this.valueTransEncargada, this.currentDate)
+        return true
+      }
+    }
+
+    return true
+  }
+
   todoenCero() {
-    this.formTemplate.value.pago1 = 0
-    this.formTemplate.value.pago2 = 0
+    this.formTemplate.value.numberPiso1 = 0
+    this.formTemplate.value.numberPiso2 = 0
+    this.formTemplate.value.numberEncarg = 0
+    this.formTemplate.value.numberTerap = 0
+    this.formTemplate.value.numberOtro = 0
     this.formTemplate.value.servicio = 0
     this.formTemplate.value.bebidas = 0
     this.formTemplate.value.tabaco = 0
@@ -241,17 +458,29 @@ export class NuevoServicioComponent implements OnInit {
 
   conteoNumber() {
 
-    if (this.formTemplate.value.formaPago2 == 'efectivo') this.countEfect += 1
-    if (this.formTemplate.value.formaPago4 == 'efectivo') this.countEfect += 1
+    if (this.formTemplate.value.efectPiso1 == true) this.countEfect += 1
+    if (this.formTemplate.value.efectPiso2 == true) this.countEfect += 1
+    if (this.formTemplate.value.efectTerap == true) this.countEfect += 1
+    if (this.formTemplate.value.efectEncarg == true) this.countEfect += 1
+    if (this.formTemplate.value.efectOtro == true) this.countEfect += 1
 
-    if (this.formTemplate.value.formaPago2 == 'bizum') this.countbizu += 1
-    if (this.formTemplate.value.formaPago4 == 'bizum') this.countbizu += 1
+    if (this.formTemplate.value.bizuPiso1 == true) this.countbizu += 1
+    if (this.formTemplate.value.bizuPiso2 == true) this.countbizu += 1
+    if (this.formTemplate.value.bizuTerap == true) this.countbizu += 1
+    if (this.formTemplate.value.bizuEncarg == true) this.countbizu += 1
+    if (this.formTemplate.value.bizuOtro == true) this.countbizu += 1
 
-    if (this.formTemplate.value.formaPago2 == 'tarjeta') this.counttarj += 1
-    if (this.formTemplate.value.formaPago4 == 'tarjeta') this.counttarj += 1
+    if (this.formTemplate.value.tarjPiso1 == true) this.counttarj += 1
+    if (this.formTemplate.value.tarjPiso2 == true) this.counttarj += 1
+    if (this.formTemplate.value.tarjTerap == true) this.counttarj += 1
+    if (this.formTemplate.value.tarjEncarg == true) this.counttarj += 1
+    if (this.formTemplate.value.tarjOtro == true) this.counttarj += 1
 
-    if (this.formTemplate.value.formaPago2 == 'transferencia') this.counttrans += 1
-    if (this.formTemplate.value.formaPago4 == 'transferencia') this.counttrans += 1
+    if (this.formTemplate.value.transPiso1 == true) this.counttrans += 1
+    if (this.formTemplate.value.transPiso2 == true) this.counttrans += 1
+    if (this.formTemplate.value.transTerap == true) this.counttrans += 1
+    if (this.formTemplate.value.transEncarg == true) this.counttrans += 1
+    if (this.formTemplate.value.transOtro == true) this.counttrans += 1
   }
 
   mas2Select(formValue, piso1, piso2, terapeuta, encargada, otros) {
@@ -259,7 +488,7 @@ export class NuevoServicioComponent implements OnInit {
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
       // Efectivo
-      if (this.formTemplate.value.formaPago2 == true && this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectPiso1 == true &&
+      if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectPiso1 == true &&
         this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectEncarg == true ||
         this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso2 == true &&
         this.formTemplate.value.efectTerap == true || this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true ||
@@ -755,24 +984,6 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  formaPagoValue() {
-    if (this.formTemplate.value.formaPago1 == 'terapeuta' && this.formTemplate.value.formaPago3 == 'terapeuta') {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No deben ser iguales para los dos pagos' })
-      return false
-    }
-
-    if (this.formTemplate.value.formaPago1 == 'encargada' && this.formTemplate.value.formaPago3 == 'encargada') {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No deben ser iguales para los dos pagos' })
-      return false
-    }
-
-    if (this.formTemplate.value.formaPago1 == 'otros' && this.formTemplate.value.formaPago3 == 'otros') {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No deben ser iguales para los dos pagos' })
-      return false
-    }
-    return true
-  }
-
   // Agregamos los servicios
   addServicio(formValue): any {
     this.crearIdUnico()
@@ -781,18 +992,34 @@ export class NuevoServicioComponent implements OnInit {
         if (this.formTemplate.value.servicio != null) {
           this.fechadeHoy()
           if (this.restamosCobro == 0) {
-            debugger
-            if (!this.formaPagoValue()) return
             if (!this.validacionFormasPago()) return
+            if (!this.validacionesFormaPagoAdd()) return
             this.totalServicio()
+            this.efectCheckToggle(this.validateEfect)
+            this.bizumCheckToggle(this.validateBizum)
+            this.tarjCheckToggle(this.validateTarjeta)
+            this.transCheckToggle(this.validateTrans)
+            this.encargadaAndTerapeuta()
 
             let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0, fecha = ''
 
-            piso1 = this.formTemplate.value.pago1
-            piso2 = this.formTemplate.value.pago2
+            piso1 = this.formTemplate.value.numberPiso1
+            piso2 = this.formTemplate.value.numberPiso2
+            terapeuta = this.formTemplate.value.numberTerap
+            encargada = this.formTemplate.value.numberEncarg
+            otros = this.formTemplate.value.numberOtro
             fecha = this.fechaActual.replace("-", "/").replace("-", "/")
 
             this.conteoNumber()
+
+            if (!this.TodosCobroSelect(formValue)) return
+            if (!this.mas4Select(formValue)) return
+
+            if (this.formaPagos == "") {
+              if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3) {
+                if (!this.mas3Select(formValue)) return
+              }
+            }
 
             if (this.formaPagos == "") {
               if (this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
@@ -893,66 +1120,259 @@ export class NuevoServicioComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500 })
     }
   }
-
+  
   totalServicio() {
-    let valuePago1 = 0, valuePago2 = 0, valueServicio = 0, valueBebidas = 0, valueVitamina = 0, valueTabaco = 0, valueOtros = 0, valuePropina = 0
 
-    if (this.formTemplate.value.pago1 === null) {
-      valuePago1 = 0
-      this.formTemplate.value.pago1 = 0
+    let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0
+
+    if (this.formTemplate.value.numberPiso1 === null) {
+      piso1 = 0
+      this.formTemplate.value.numberPiso1 = 0
     } else {
-      valuePago1 = Number(this.formTemplate.value.pago1)
+      piso1 = Number(this.formTemplate.value.numberPiso1)
     }
 
-    if (this.formTemplate.value.pago2 == null) {
-      valuePago2 = 0
-      this.formTemplate.value.pago2 = 0
+    if (this.formTemplate.value.numberPiso2 == null) {
+      piso2 = 0
+      this.formTemplate.value.numberPiso2 = 0
     } else {
-      valuePago2 = Number(this.formTemplate.value.pago2)
+      piso2 = Number(this.formTemplate.value.numberPiso2)
     }
 
-    this.servicioTotal = Number(valuePago1 + valuePago2)
+    if (this.formTemplate.value.numberTerap == null) {
+      terap = 0
+      this.formTemplate.value.numberTerap = 0
+    } else {
+      terap = Number(this.formTemplate.value.numberTerap)
+    }
+
+    if (this.formTemplate.value.numberEncarg == null) {
+      encargada = 0
+      this.formTemplate.value.numberEncarg = 0
+    } else {
+      encargada = Number(this.formTemplate.value.numberEncarg)
+    }
+
+    if (this.formTemplate.value.numberOtro == null) {
+      otros = 0
+      this.formTemplate.value.numberOtro = 0
+    } else {
+      otros = Number(this.formTemplate.value.numberOtro)
+    }
+
+    this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros)
 
     if (this.formTemplate.value.servicio == null) {
-      valueServicio = 0
+      otros = 0
       this.formTemplate.value.servicio = 0
     } else {
-      valueServicio = Number(this.formTemplate.value.servicio)
+      otros = Number(this.formTemplate.value.servicio)
     }
 
     if (this.formTemplate.value.bebidas == null) {
-      valueBebidas = 0
+      otros = 0
       this.formTemplate.value.bebidas = 0
     } else {
-      valueBebidas = Number(this.formTemplate.value.bebidas)
+      otros = Number(this.formTemplate.value.bebidas)
     }
 
     if (this.formTemplate.value.tabaco == null) {
-      valueTabaco = 0
+      otros = 0
       this.formTemplate.value.tabaco = 0
     } else {
-      valueTabaco = Number(this.formTemplate.value.tabaco)
+      otros = Number(this.formTemplate.value.tabaco)
     }
 
     if (this.formTemplate.value.vitaminas == null) {
-      valueVitamina = 0
+      otros = 0
       this.formTemplate.value.vitaminas = 0
     } else {
-      valueVitamina = Number(this.formTemplate.value.vitaminas)
+      otros = Number(this.formTemplate.value.vitaminas)
     }
 
     if (this.formTemplate.value.propina == null) {
-      valuePropina = 0
+      otros = 0
       this.formTemplate.value.propina = 0
     } else {
-      valuePropina = Number(this.formTemplate.value.propina)
+      otros = Number(this.formTemplate.value.propina)
     }
 
     if (this.formTemplate.value.otros == null) {
-      valueOtros = 0
+      otros = 0
       this.formTemplate.value.otros = 0
     } else {
-      valueOtros = Number(this.formTemplate.value.otros)
+      otros = Number(this.formTemplate.value.otros)
+    }
+  }
+
+  efectCheckToggle(event: any) {
+
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    if (!this.validacionesFormaPagoAdd()) return
+
+    if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.efectPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1)
+      } else {
+        piso1 = 0
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.efectPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2)
+      } else {
+        piso2 = 0
+      }
+
+      if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.efectTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap)
+      } else {
+        terap = 0
+      }
+
+      if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.efectEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg)
+      } else {
+        encarg = 0
+      }
+
+      if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.efectOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro)
+      } else {
+        otroservic = 0
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic
+      this.valueEfectivo = suma
+      return
+    }
+  }
+
+  bizumCheckToggle(event: any) {
+
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    if (!this.validacionesFormaPagoAdd()) return
+
+    if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.bizuPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1)
+      } else {
+        piso1 = 0
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.bizuPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2)
+      } else {
+        piso2 = 0
+      }
+
+      if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.bizuTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap)
+      } else {
+        terap = 0
+      }
+
+      if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.bizuEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg)
+      } else {
+        encarg = 0
+      }
+
+      if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.bizuOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro)
+      } else {
+        otroservic = 0
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic
+      this.valueBizum = suma
+      return
+    }
+  }
+
+  tarjCheckToggle(event: any) {
+
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+
+    if (!this.validacionesFormaPagoAdd()) return
+    if (event) {
+
+      if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.tarjPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1)
+      } else {
+        piso1 = 0
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.tarjPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2)
+      } else {
+        piso2 = 0
+      }
+
+      if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.tarjTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap)
+      } else {
+        terap = 0
+      }
+
+      if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.tarjEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg)
+      } else {
+        encarg = 0
+      }
+
+      if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.tarjOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro)
+      } else {
+        otroservic = 0
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic
+      this.valueTarjeta = suma
+      return
+    }
+  }
+
+  transCheckToggle(event: any) {
+
+    let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+    if (!this.validacionesFormaPagoAdd()) return
+
+    if (event) {
+      if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.transPiso1 == true) {
+        piso1 = Number(this.formTemplate.value.numberPiso1)
+      } else {
+        piso1 = 0
+      }
+
+      if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.transPiso2 == true) {
+        piso2 = Number(this.formTemplate.value.numberPiso2)
+      } else {
+        piso2 = 0
+      }
+
+      if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.transTerap == true) {
+        terap = Number(this.formTemplate.value.numberTerap)
+      } else {
+        terap = 0
+      }
+
+      if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.transEncarg == true) {
+        terap = Number(this.formTemplate.value.numberEncarg)
+      } else {
+        encarg = 0
+      }
+
+      if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.transOtro == true) {
+        otroservic = Number(this.formTemplate.value.numberOtro)
+      } else {
+        otroservic = 0
+      }
+
+      suma = piso1 + piso2 + terap + encarg + otroservic
+      this.valueTrans = suma
+      return
     }
   }
 
@@ -1150,52 +1570,71 @@ export class NuevoServicioComponent implements OnInit {
     this.sumatoriaServicios = sumatoria
     this.restamosCobro = sumatoria
 
-    const restamos = Number(this.formTemplate.value.pago1) + Number(this.formTemplate.value.pago2)
+    const restamos = Number(this.formTemplate.value.numberPiso1) + Number(this.formTemplate.value.numberPiso2) + Number(this.formTemplate.value.numberTerap) +
+      Number(this.formTemplate.value.numberEncarg) + Number(this.formTemplate.value.numberOtro)
 
-    if (this.formTemplate.value.formaPago1 == 'piso1') {
+    if (this.formTemplate.value.numberPiso1 != null || this.formTemplate.value.numberPiso1 != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.formaPago3 == 'piso2') {
+    if (this.formTemplate.value.numberPiso2 != null || this.formTemplate.value.numberPiso2 != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.formaPago1 == 'terapeuta' || this.formTemplate.value.formaPago3 == 'terapeuta') {
+    if (this.formTemplate.value.numberTerap != null || this.formTemplate.value.numberTerap != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.formaPago1 == 'encargada' || this.formTemplate.value.formaPago3 == 'encargada') {
+    if (this.formTemplate.value.numberEncarg != null || this.formTemplate.value.numberEncarg != '') {
       this.restamosCobro = sumatoria - restamos
     }
 
-    if (this.formTemplate.value.formaPago1 == 'otros' || this.formTemplate.value.formaPago3 == 'otros') {
+    if (this.formTemplate.value.numberOtro != null || this.formTemplate.value.numberOtro != '') {
       this.restamosCobro = sumatoria - restamos
     }
   }
 
   valueCobros() {
 
-    let valuepiso1 = 0, valuepiso2 = 0, restamos = 0, resultado = 0
+    let valuepiso1 = 0, valuepiso2 = 0, valueterapeuta = 0, valueEncarg = 0, valueotros = 0, restamos = 0, resultado = 0
 
-    if (this.formTemplate.value.pago1 != '' || this.formTemplate.value.pago1 != null) {
-      valuepiso1 = Number(this.formTemplate.value.pago1)
+    if (this.formTemplate.value.numberPiso1 != '' || this.formTemplate.value.numberPiso1 != null) {
+      valuepiso1 = Number(this.formTemplate.value.numberPiso1)
     } else {
       valuepiso1 = 0
     }
 
-    if (this.formTemplate.value.pago2 != '' || this.formTemplate.value.pago2 != null) {
-      valuepiso2 = Number(this.formTemplate.value.pago2)
+    if (this.formTemplate.value.numberPiso2 != '' || this.formTemplate.value.numberPiso2 != null) {
+      valuepiso2 = Number(this.formTemplate.value.numberPiso2)
     } else {
       valuepiso2 = 0
+    }
+
+    if (this.formTemplate.value.numberTerap != '' || this.formTemplate.value.numberTerap != null) {
+      valueterapeuta = Number(this.formTemplate.value.numberTerap)
+    } else {
+      valueterapeuta = 0
+    }
+
+    if (this.formTemplate.value.numberEncarg != '' || this.formTemplate.value.numberEncarg != null) {
+      valueEncarg = Number(this.formTemplate.value.numberEncarg)
+    } else {
+      valueEncarg = 0
+    }
+
+    if (this.formTemplate.value.numberOtro != '' && this.formTemplate.value.numberOtro != null) {
+      valueotros = Number(this.formTemplate.value.numberOtro)
+    } else {
+      valueotros = 0
     }
 
     if (this.formTemplate.value.servicio != '' && this.formTemplate.value.servicio != null) {
       resultado = Number(this.formTemplate.value.servicio) - valuepiso1
     }
 
-    this.sumatoriaCobros = valuepiso1 + valuepiso2
+    this.sumatoriaCobros = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros
 
-    restamos = valuepiso1 + valuepiso2
+    restamos = valuepiso1 + valuepiso2 + valueterapeuta + valueEncarg + valueotros
     resultado = this.sumatoriaServicios - restamos
     this.restamosCobro = resultado
   }
@@ -1217,19 +1656,236 @@ export class NuevoServicioComponent implements OnInit {
     this.horaEndTerapeuta = ''
   }
 
-  validacionFormasPago() {
-    if (this.formTemplate.value.pago1 != null && this.formTemplate.value.formaPago2 == "") {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para pago 1' })
+  encargadaAndTerapeuta() {
+
+    if (this.formTemplate.value.efectTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueEfectTerapeuta = Number(this.formTemplate.value.numberTerap)
+    } else {
+      this.valueEfectTerapeuta = 0
+    }
+
+    if (this.formTemplate.value.bizuTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueBizuTerapeuta = Number(this.formTemplate.value.numberTerap)
+    } else {
+      this.valueBizuTerapeuta = 0
+    }
+
+    if (this.formTemplate.value.tarjTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueTarjeTerapeuta = Number(this.formTemplate.value.numberTerap)
+    } else {
+      this.valueTarjeTerapeuta = 0
+    }
+
+    if (this.formTemplate.value.transTerap == true && this.formTemplate.value.numberTerap != '') {
+      this.valueTransTerapeuta = Number(this.formTemplate.value.numberTerap)
+    } else {
+      this.valueTransTerapeuta = 0
+    }
+
+    // Encargada
+
+    if (this.formTemplate.value.efectEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueEfectEncargada = Number(this.formTemplate.value.numberEncarg)
+    } else {
+      this.valueEfectEncargada = 0
+    }
+
+    if (this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueBizuEncargada = Number(this.formTemplate.value.numberEncarg)
+    } else {
+      this.valueBizuEncargada = 0
+    }
+
+    if (this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueTarjeEncargada = Number(this.formTemplate.value.numberEncarg)
+    } else {
+      this.valueTarjeEncargada = 0
+    }
+
+    if (this.formTemplate.value.transEncarg == true && this.formTemplate.value.numberEncarg != '') {
+      this.valueTransEncargada = Number(this.formTemplate.value.numberEncarg)
+    } else {
+      this.valueTransEncargada = 0
+    }
+  }
+
+  validacionesFormaPagoAdd() {
+
+    // Efectivo
+    if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.bizuPiso1 == true || this.formTemplate.value.efectPiso2 == true &&
+      this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.efectTerap == true && this.formTemplate.value.bizuTerap == true ||
+      this.formTemplate.value.efectEncarg == true && this.formTemplate.value.bizuEncarg == true || this.formTemplate.value.efectOtro == true &&
+      this.formTemplate.value.bizuOtro == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.tarjPiso1 == true ||
+      this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.efectTerap == true &&
+      this.formTemplate.value.tarjTerap == true || this.formTemplate.value.efectEncarg == true && this.formTemplate.value.tarjEncarg == true ||
+      this.formTemplate.value.efectOtro == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.efectPiso1 == true &&
+      this.formTemplate.value.transPiso1 == true || this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.transPiso2 == true ||
+      this.formTemplate.value.efectTerap == true && this.formTemplate.value.transTerap == true || this.formTemplate.value.efectEncarg == true &&
+      this.formTemplate.value.transEncarg == true || this.formTemplate.value.efectOtro == true && this.formTemplate.value.transOtro == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
-    if (this.formTemplate.value.pago2 != null && this.formTemplate.value.formaPago4 == "") {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para pago 2' })
+
+    // Bizum
+    if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.efectPiso1 == true || this.formTemplate.value.bizuPiso2 == true &&
+      this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.bizuTerap == true && this.formTemplate.value.efectTerap == true ||
+      this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.efectEncarg == true || this.formTemplate.value.bizuOtro == true &&
+      this.formTemplate.value.efectOtro == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.tarjPiso1 == true ||
+      this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.bizuTerap == true &&
+      this.formTemplate.value.tarjTerap == true || this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.tarjEncarg == true ||
+      this.formTemplate.value.bizuOtro == true && this.formTemplate.value.tarjOtro == true || this.formTemplate.value.bizuPiso1 == true &&
+      this.formTemplate.value.transPiso1 == true || this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.transPiso2 == true ||
+      this.formTemplate.value.bizuTerap == true && this.formTemplate.value.transTerap == true || this.formTemplate.value.bizuEncarg == true &&
+      this.formTemplate.value.transEncarg == true || this.formTemplate.value.bizuOtro == true && this.formTemplate.value.transOtro == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+
+    // Tarjeta
+    if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.efectPiso1 == true || this.formTemplate.value.tarjPiso2 == true &&
+      this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.tarjTerap == true && this.formTemplate.value.efectTerap == true ||
+      this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.efectEncarg == true || this.formTemplate.value.tarjOtro == true &&
+      this.formTemplate.value.efectOtro == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.bizuPiso1 == true ||
+      this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.tarjTerap == true &&
+      this.formTemplate.value.bizuTerap == true || this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.bizuEncarg == true ||
+      this.formTemplate.value.tarjOtro == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.tarjPiso1 == true &&
+      this.formTemplate.value.transPiso1 == true || this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.transPiso2 == true ||
+      this.formTemplate.value.tarjTerap == true && this.formTemplate.value.transTerap == true || this.formTemplate.value.tarjEncarg == true &&
+      this.formTemplate.value.transEncarg == true || this.formTemplate.value.tarjOtro == true && this.formTemplate.value.transOtro == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+
+    // Trans
+    if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.efectPiso1 == true || this.formTemplate.value.transPiso2 == true &&
+      this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.transTerap == true && this.formTemplate.value.efectTerap == true ||
+      this.formTemplate.value.transEncarg == true && this.formTemplate.value.efectEncarg == true || this.formTemplate.value.transOtro == true &&
+      this.formTemplate.value.efectOtro == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.bizuPiso1 == true ||
+      this.formTemplate.value.transPiso2 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.transTerap == true &&
+      this.formTemplate.value.bizuTerap == true || this.formTemplate.value.transEncarg == true && this.formTemplate.value.bizuEncarg == true ||
+      this.formTemplate.value.transOtro == true && this.formTemplate.value.bizuOtro == true || this.formTemplate.value.transPiso1 == true &&
+      this.formTemplate.value.tarjPiso1 == true || this.formTemplate.value.transPiso2 == true && this.formTemplate.value.tarjPiso2 == true ||
+      this.formTemplate.value.transTerap == true && this.formTemplate.value.tarjTerap == true || this.formTemplate.value.transEncarg == true &&
+      this.formTemplate.value.tarjEncarg == true || this.formTemplate.value.transOtro == true && this.formTemplate.value.tarjOtro == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+    return true
+  }
+
+  validacionFormasPago() {
+    if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.bizuPiso1 == false &&
+      this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.transPiso1 == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
+      return false
+    }
+    if (this.formTemplate.value.numberPiso2 != null && this.formTemplate.value.efectPiso2 == false && this.formTemplate.value.bizuPiso2 == false &&
+      this.formTemplate.value.tarjPiso2 == false && this.formTemplate.value.transPiso2 == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 2' })
+      return false
+    }
+    if (this.formTemplate.value.numberTerap != null && this.formTemplate.value.efectTerap == false && this.formTemplate.value.bizuTerap == false &&
+      this.formTemplate.value.tarjTerap == false && this.formTemplate.value.transTerap == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para terapeuta' })
+      return false
+    }
+    if (this.formTemplate.value.numberEncarg != null && this.formTemplate.value.efectEncarg == false && this.formTemplate.value.bizuEncarg == false &&
+      this.formTemplate.value.tarjEncarg == false && this.formTemplate.value.transEncarg == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para encargada' })
+      return false
+    }
+    if (this.formTemplate.value.numberOtro != null && this.formTemplate.value.efectOtro == false && this.formTemplate.value.bizuOtro == false &&
+      this.formTemplate.value.tarjOtro == false && this.formTemplate.value.transOtro == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para otros' })
       return false
     }
     return true
   }
 
   // -------------------------------------------- Editamos  // ---------------------------------------------
+
+  validacionesFormaPagoEdit() {
+    // Efectivo Editar
+    if (this.editarService[0]['efectPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
+      this.editarService[0]['efectPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
+      this.editarService[0]['efectTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
+      this.editarService[0]['efectEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
+      this.editarService[0]['efectOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['efectPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
+      this.editarService[0]['efectPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
+      this.editarService[0]['efectTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
+      this.editarService[0]['efectEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
+      this.editarService[0]['efectOtro'] == true && this.editarService[0]['tarjOtro'] == true ||
+      this.editarService[0]['efectPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
+      this.editarService[0]['efectPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
+      this.editarService[0]['efectTerap'] == true && this.editarService[0]['transTerap'] == true ||
+      this.editarService[0]['efectEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
+      this.editarService[0]['efectOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+
+    // Bizum Editar
+    if (this.editarService[0]['bizuPiso1'] == true && this.editarService[0]['efectPiso1'] == true ||
+      this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
+      this.editarService[0]['bizuTerap'] == true && this.editarService[0]['efectTerap'] == true ||
+      this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
+      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['bizuPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
+      this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
+      this.editarService[0]['bizuTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
+      this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
+      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['tarjOtro'] == true ||
+      this.editarService[0]['bizuPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
+      this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
+      this.editarService[0]['bizuTerap'] == true && this.editarService[0]['transTerap'] == true ||
+      this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
+      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+
+    // Tarjeta Editar
+    if (this.editarService[0]['tarjPiso1'] == true && this.editarService[0]['efectPiso1'] == true ||
+      this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
+      this.editarService[0]['tarjTerap'] == true && this.editarService[0]['efectTerap'] == true ||
+      this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
+      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['tarjPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
+      this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
+      this.editarService[0]['tarjTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
+      this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
+      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['tarjPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
+      this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
+      this.editarService[0]['tarjTerap'] == true && this.editarService[0]['transTerap'] == true ||
+      this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
+      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+
+    // Trans Editar
+    if (this.editarService[0]['transPiso1'] == true && this.editarService[0]['efectPiso1'] == true ||
+      this.editarService[0]['transPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
+      this.editarService[0]['transTerap'] == true && this.editarService[0]['efectTerap'] == true ||
+      this.editarService[0]['transEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
+      this.editarService[0]['transOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['transPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
+      this.editarService[0]['transPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
+      this.editarService[0]['transTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
+      this.editarService[0]['transEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
+      this.editarService[0]['transOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['transPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
+      this.editarService[0]['transPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
+      this.editarService[0]['transTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
+      this.editarService[0]['transEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
+      this.editarService[0]['transOtro'] == true && this.editarService[0]['tarjOtro'] == true) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
+      return false
+    }
+    return true
+  }
 
   validacionFormasPagoEdit() {
     if (this.editarService[0]['numberPiso1'] != 0 && this.editarService[0]['efectPiso1'] == false && this.editarService[0]['bizuPiso1'] == false &&
@@ -1377,6 +2033,7 @@ export class NuevoServicioComponent implements OnInit {
     idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     if (!this.validarFechaVencida()) return
     if (!this.validacionFormasPagoEdit()) return
+    if (!this.validacionesFormaPagoEdit()) return
     this.totalServicioEdit()
     this.efectCheckToggleEdit(this.validateEfect)
     this.bizumCheckToggleEdit(this.validateBizum)
@@ -1512,6 +2169,7 @@ export class NuevoServicioComponent implements OnInit {
   efectCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0
 
+    if (!this.validacionesFormaPagoEdit()) return
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != 0 && this.editarService[0]['efectPiso1'] === true) {
@@ -1554,6 +2212,7 @@ export class NuevoServicioComponent implements OnInit {
   bizumCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
+    if (!this.validacionesFormaPagoEdit()) return
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != 0 && this.editarService[0]['bizuPiso1'] === true) {
@@ -1596,6 +2255,7 @@ export class NuevoServicioComponent implements OnInit {
   tarjCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
+    if (!this.validacionesFormaPagoEdit()) return
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != 0 && this.editarService[0]['tarjPiso1'] === true) {
@@ -1638,6 +2298,7 @@ export class NuevoServicioComponent implements OnInit {
   transCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
+    if (!this.validacionesFormaPagoEdit()) return
     if (event) {
 
       if (this.editarService[0]['numberPiso1'] != 0 && this.editarService[0]['transPiso1'] === true) {
@@ -1758,7 +2419,6 @@ export class NuevoServicioComponent implements OnInit {
       }
     })
   }
-
 
   cancelar() {
     this.router.navigate([`menu/${this.encargada[0]['id']}/vision/${this.encargada[0]['id']}`])

@@ -31,6 +31,19 @@ export class VisionComponent implements OnInit {
   totalPropina: number
   totalOtros: number
 
+  // TOTALES formas de Pago
+  totalEfectivo: number
+  totalBizum: number
+  totalTarjeta: number
+  totalTrasnf: number
+
+  // Conteo fecha
+  count: number = 0
+  fechaHoyActual: string
+  atrasCount: number = 0
+  siguienteCount: number = 0
+  fechaFormat = new Date()
+
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -52,6 +65,20 @@ export class VisionComponent implements OnInit {
     this.getServicio()
     this.getTerapeuta()
     this.totalUndefined()
+  }
+
+  totalesZero() {
+    this.totalVision = 0
+    this.totalServicio = 0
+    this.totalBebida = 0
+    this.totalTabaco = 0
+    this.totalVitamina = 0
+    this.totalPropina = 0
+    this.totalOtros = 0
+    this.totalEfectivo = 0
+    this.totalBizum = 0
+    this.totalTarjeta = 0
+    this.totalTrasnf = 0
   }
 
   totalUndefined() {
@@ -89,19 +116,14 @@ export class VisionComponent implements OnInit {
 
   getServicio() {
     this.fechadeHoy()
+    this.fechaHoyActual = 'Hoy'
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio
 
       if (datoServicio.length != 0) {
-        this.sumaTotalServicio()
         this.sumaTotalVision()
       }
     })
-  }
-
-  sumaTotalServicio() {
-    const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
-    this.totalServicio = totalServ
   }
 
   notas(targetModal, modal) {
@@ -119,17 +141,17 @@ export class VisionComponent implements OnInit {
 
   calculardiferencia(horaFin: string, nombre: string, fecha: string): string {
     let hora_actual: any = new Date(), convertHora = '', fechaEnd = '', convertFecha = '',
-      fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = ''
+      fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
 
     dia = fechaHoy.getDate()
     mes = fechaHoy.getMonth() + 1
     año = fechaHoy.getFullYear()
 
     let minutes = hora_actual.getMinutes().toString().length === 1 ?
-      '0' + hora_actual.getMinutes() : hora_actual.getMinutes();
-    hora_actual = hora_actual.getHours() + ':' + minutes;
-    let hora_inicio = hora_actual;
-    const hora_final: any = horaFin;
+      '0' + hora_actual.getMinutes() : hora_actual.getMinutes()
+    hora_actual = hora_actual.getHours() + ':' + minutes
+    let hora_inicio = hora_actual
+    const hora_final: any = horaFin
 
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
@@ -138,11 +160,19 @@ export class VisionComponent implements OnInit {
       fechaEnd = `${año}-${mes}-${dia}`
     }
 
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      fechaEnd = `${año}-${convertMes}-${convertDia}`
+    } else {
+      fechaEnd = `${año}-${convertMes}-${dia}`
+    }
+
     // Convertimos fecha
-    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
+    // if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
+    if (fecha != "") convertFecha = fecha
 
     // Expresión regular para comprobar formato
-    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
 
     if (horaFin != "" && convertFecha != "") {
 
@@ -161,7 +191,6 @@ export class VisionComponent implements OnInit {
       if (convertFecha != "" && hora_final <= hora_inicio) {
         this.terapService.getByNombre(nombre).then((datoMinute) => {
           for (let i = 0; i < datoMinute.length; i++) {
-            debugger
             if (datoMinute[i]['horaEnd'] <= hora_inicio) {
               this.terapService.updateHoraAndSalida(datoMinute[i]['idDocument'], nombre)
             }
@@ -177,8 +206,8 @@ export class VisionComponent implements OnInit {
     }
 
     // Calcula los minutos de cada hora
-    var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
-    var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c));
+    var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c))
+    var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c))
 
     if (hora_inicio.length === 4) {
       convertHora = '0' + hora_inicio
@@ -215,7 +244,7 @@ export class VisionComponent implements OnInit {
   // Suma de TOTALES
   sumaTotalVision() {
     const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
-    this.totalVision = totalServ
+    this.totalServicio = totalServ
 
     const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
     this.totalBebida = totalValorBebida
@@ -231,5 +260,272 @@ export class VisionComponent implements OnInit {
 
     const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
     this.totalOtros = totalValorOtroServicio
+
+    this.totalVision = this.totalServicio + this.totalBebida + this.totalTabaco +
+      this.totalVitamina + this.totalPropina + this.totalOtros
+
+    // total de las Formas de pagos
+
+    const totalValorEfectivo = this.vision.map(({ valueEfectivo }) => valueEfectivo).reduce((acc, value) => acc + value, 0)
+    this.totalEfectivo = totalValorEfectivo
+
+    const totalValorBizum = this.vision.map(({ valueBizum }) => valueBizum).reduce((acc, value) => acc + value, 0)
+    this.totalBizum = totalValorBizum
+
+    const totalValorTarjeta = this.vision.map(({ valueTarjeta }) => valueTarjeta).reduce((acc, value) => acc + value, 0)
+    this.totalTarjeta = totalValorTarjeta
+
+    const totalValorTransferencia = this.vision.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value, 0)
+    this.totalTrasnf = totalValorTransferencia
+  }
+
+  atras() {
+
+    if (this.siguienteCount > 0) {
+      this.siguienteCount = 0
+      this.count = 0
+      this.count++
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaActualmente = ''
+
+      for (let i = 0; i < this.count; i++) {
+        this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
+        convertDia = this.fechaFormat.toString().substring(8, 10)
+        convertmes = this.fechaFormat.toString().substring(4, 7)
+        convertAño = this.fechaFormat.toString().substring(11, 15)
+
+        if (convertmes == 'Dec') mes = "12"
+        if (convertmes == 'Nov') mes = "11"
+        if (convertmes == 'Oct') mes = "10"
+        if (convertmes == 'Sep') mes = "09"
+        if (convertmes == 'Aug') mes = "08"
+        if (convertmes == 'Jul') mes = "07"
+        if (convertmes == 'Jun') mes = "06"
+        if (convertmes == 'May') mes = "05"
+        if (convertmes == 'Apr') mes = "04"
+        if (convertmes == 'Mar') mes = "03"
+        if (convertmes == 'Feb') mes = "02"
+        if (convertmes == 'Jan') mes = "01"
+
+        this.fechaHoyActual = `${mes}/${convertDia}`
+        fechaActualmente = `${convertAño}/${mes}/${convertDia}`
+
+        this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
+          this.vision = datoServicio
+
+          if (datoServicio.length > 0) {
+            this.sumaTotalVision()
+          } else {
+            this.totalesZero()
+          }
+        })
+
+        this.atrasCount = this.count
+
+        return true
+      }
+    } else {
+      this.atrasCount = 0
+      this.siguienteCount = 0
+      this.count = 0
+      this.count++
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', convertFecha = '', fechaActualmente = ''
+      // var result = new Date(new Date().toISOString())
+      for (let i = 0; i < this.count; i++) {
+
+        // result.setDate(result.getDate() + this.count)
+        this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
+        convertFecha = this.fechaFormat.toString()
+        this.fechaFormat = new Date(convertFecha)
+        // result.setDate(result.getDate() - this.count)
+        // convertFecha = result.toString()
+        // this.fechaFormat = new Date(convertFecha)
+        convertDia = this.fechaFormat.toString().substring(8, 10)
+        convertmes = this.fechaFormat.toString().substring(4, 7)
+        convertAño = this.fechaFormat.toString().substring(11, 15)
+
+        if (convertmes == 'Dec') mes = "12"
+        if (convertmes == 'Nov') mes = "11"
+        if (convertmes == 'Oct') mes = "10"
+        if (convertmes == 'Sep') mes = "09"
+        if (convertmes == 'Aug') mes = "08"
+        if (convertmes == 'Jul') mes = "07"
+        if (convertmes == 'Jun') mes = "06"
+        if (convertmes == 'May') mes = "05"
+        if (convertmes == 'Apr') mes = "04"
+        if (convertmes == 'Mar') mes = "03"
+        if (convertmes == 'Feb') mes = "02"
+        if (convertmes == 'Jan') mes = "01"
+
+        this.fechaHoyActual = `${mes}/${convertDia}`
+        fechaActualmente = `${convertAño}/${mes}/${convertDia}`
+
+        this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
+          this.vision = datoServicio
+
+          if (datoServicio.length > 0) {
+            this.sumaTotalVision()
+          } else {
+            this.totalesZero()
+          }
+        })
+
+        this.atrasCount = this.count
+
+        return true
+      }
+    }
+    return false
+  }
+
+  siguiente() {
+
+    let fechaDia = new Date(), mesDelDia = 0, convertMess = '', messs = '', convertimosMes = 0
+    mesDelDia = fechaDia.getMonth() + 1
+
+    if (this.atrasCount > 0) {
+      this.atrasCount = 0
+      this.count = 0
+      this.count++
+      convertMess = this.fechaFormat.toString().substring(4, 7)
+      if (convertMess == 'Dec') messs = "12"
+      if (convertMess == 'Nov') messs = "11"
+      if (convertMess == 'Oct') messs = "10"
+      if (convertMess == 'Sep') messs = "09"
+      if (convertMess == 'Aug') messs = "08"
+      if (convertMess == 'Jul') messs = "07"
+      if (convertMess == 'Jun') messs = "06"
+      if (convertMess == 'May') messs = "05"
+      if (convertMess == 'Apr') messs = "04"
+      if (convertMess == 'Mar') messs = "03"
+      if (convertMess == 'Feb') messs = "02"
+      if (convertMess == 'Jan') messs = "01"
+
+      convertimosMes = Number(messs)
+
+      // if (convertimosMes < mesDelDia) {
+      this.atrasCount = 0
+      this.count = 0
+      this.count++
+
+      let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0, añoHoy = 0, convertMesHoy = ''
+
+      diaHoy = fechHoy.getDate()
+      mesHoy = fechHoy.getMonth() + 1
+      añoHoy = fechHoy.getFullYear()
+
+      if (mesHoy > 0 && mesHoy < 10) {
+        convertMesHoy = '0' + mesHoy
+        fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+      } else {
+        fechaEnd = `${añoHoy}/${mesHoy}/${diaHoy}`
+      }
+
+      if (diaHoy > 0 && diaHoy < 10) {
+        convertDiaHoy = '0' + diaHoy
+        fechaEnd = `${añoHoy}/${convertMesHoy}/${convertDiaHoy}`
+      } else {
+        fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+      }
+
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '', fechaActualmente = ''
+
+      for (let i = 0; i < this.count; i++) {
+        this.fechaFormat.setDate(this.fechaFormat.getDate() + this.count)
+        convertDia = this.fechaFormat.toString().substring(8, 10)
+        convertmes = this.fechaFormat.toString().substring(4, 7)
+        convertAño = this.fechaFormat.toString().substring(11, 15)
+
+        if (convertmes == 'Dec') mes = "12"
+        if (convertmes == 'Nov') mes = "11"
+        if (convertmes == 'Oct') mes = "10"
+        if (convertmes == 'Sep') mes = "09"
+        if (convertmes == 'Aug') mes = "08"
+        if (convertmes == 'Jul') mes = "07"
+        if (convertmes == 'Jun') mes = "06"
+        if (convertmes == 'May') mes = "05"
+        if (convertmes == 'Apr') mes = "04"
+        if (convertmes == 'Mar') mes = "03"
+        if (convertmes == 'Feb') mes = "02"
+        if (convertmes == 'Jan') mes = "01"
+
+        fechaHoy = `${convertAño}/${mes}/${convertDia}`
+
+        if (fechaEnd == fechaHoy) {
+          this.fechaHoyActual = 'Hoy'
+        }
+        else {
+          fechaActualmente = `${convertAño}/${mes}/${convertDia}`
+          this.fechaHoyActual = `${mes}/${convertDia}`
+        }
+
+        this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
+          this.vision = datoServicio
+
+          if (datoServicio.length > 0) {
+            this.sumaTotalVision()
+          } else {
+            this.totalesZero()
+          }
+        })
+
+        this.atrasCount = 0
+        this.count = 0
+        return true
+      }
+    }
+    // }
+
+    else {
+      this.atrasCount = 0
+      this.siguienteCount = 0
+      this.count = 0
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', convertFecha = '', fechaActualmente = ''
+      this.count++
+
+      var result = new Date(new Date().toISOString())
+      for (let i = 0; i < this.count; i++) {
+        // result.setDate(result.getDate() + this.count)
+        this.fechaFormat.setDate(this.fechaFormat.getDate() + this.count)
+        convertFecha = this.fechaFormat.toString()
+        this.fechaFormat = new Date(convertFecha)
+
+        convertDia = this.fechaFormat.toString().substring(8, 10)
+        convertmes = this.fechaFormat.toString().substring(4, 7)
+        convertAño = this.fechaFormat.toString().substring(11, 15)
+
+        if (convertmes == 'Dec') mes = "12"
+        if (convertmes == 'Nov') mes = "11"
+        if (convertmes == 'Oct') mes = "10"
+        if (convertmes == 'Sep') mes = "09"
+        if (convertmes == 'Aug') mes = "08"
+        if (convertmes == 'Jul') mes = "07"
+        if (convertmes == 'Jun') mes = "06"
+        if (convertmes == 'May') mes = "05"
+        if (convertmes == 'Apr') mes = "04"
+        if (convertmes == 'Mar') mes = "03"
+        if (convertmes == 'Feb') mes = "02"
+        if (convertmes == 'Jan') mes = "01"
+
+        fechaActualmente = `${convertAño}/${mes}/${convertDia}`
+        this.fechaHoyActual = `${mes}/${convertDia}`
+
+        this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
+          this.vision = datoServicio
+
+          if (datoServicio.length > 0) {
+            this.sumaTotalVision()
+          } else {
+            this.totalesZero()
+          }
+        })
+
+        this.siguienteCount = this.count
+
+        return true
+      }
+    }
+
+
+    return false
   }
 }

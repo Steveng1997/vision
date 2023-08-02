@@ -1,144 +1,212 @@
-<div class="row text-center">
-  <div class="col-6">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-      class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;"
-      routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}">
-      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-    </svg>
-    <div>
-      Agregar
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="row text-center">
+    <div class="col-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+        class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;"
+        routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+      </svg>
+      <div>
+        Agregar
+      </div>
+    </div>
+    <div class="col-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+        class="bi bi-arrow-repeat text-primary" viewBox="0 0 16 16" onclick="location.reload()"
+        style="cursor: pointer;">
+        <path
+          d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+        <path fill-rule="evenodd"
+          d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+      </svg>
+      <div>
+        Refrescar Pagina
+      </div>
     </div>
   </div>
-  <div class="col-6">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-      class="bi bi-arrow-repeat text-primary" viewBox="0 0 16 16" onclick="location.reload()" style="cursor: pointer;">
-      <path
-        d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-      <path fill-rule="evenodd"
-        d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-    </svg>
-    <div>
-      Refrescar Pagina
+
+  <hr>
+
+  <!-- Ocupacion -->
+  <div style="text-align: center; margin-top: 3rem">
+    <h4 style="font-family: monospace; font-size: x-large"> OCUPACIÓN </h4>
+  </div>
+
+  <div class="padre">
+    <div class="hijo">
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th scope="col"></th>
+            <th scope="col">Terapeuta</th>
+            <th scope="col">Salida</th>
+            <th scope="col">Fin</th>
+            <th scope="col">Restante</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let vis of terapeutas">
+          <tr>
+            <td
+              [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '00:00'}">
+            </td>
+            <td>{{vis.nombre}}</td>
+            <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+              {{vis.salida}}</td>
+            <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+              {{vis.horaEnd}}</td>
+            <td>{{calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd)}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr class="linea">
 
-<!-- Ocupacion -->
-<div style="text-align: center; margin-top: 3rem">
-  <h4 style="font-family: monospace; font-size: x-large"> OCUPACIÓN </h4>
-</div>
+  <div class="row text-center">
 
-<div class="padre">
-  <div class="hijo">
-    <table class="table">
-      <thead>
-        <tr class="table-secondary">
-          <th scope="col"></th>
-          <th scope="col">Terapeuta</th>
-          <th scope="col">Salida</th>
-          <th scope="col">Fin</th>
-          <th scope="col">Restante</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let vis of terapeutas">
-        <tr>
-          <td
-            [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '00:00'}">
-          </td>
-          <td>{{vis.nombre}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
-            {{vis.salida}}</td>
-          <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
-            {{vis.horaEnd}}</td>
-          <td>{{calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd)}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="col-6">
+
+      <div class="row">
+        <div class="col-4 btnRight">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="atras()"
+            class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+            <path fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+          </svg>
+        </div>
+        <div class="col-4">
+          <label>{{fechaHoyActual}}</label>
+        </div>
+        <div class="col-4 btnLeft">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="siguiente()"
+            class="bi bi-arrow-right-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+            <path fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+          </svg>
+        </div>
+      </div>
+
+      <hr class="lineaHoy">
+      <div class="row">
+        <div class="col-9">
+          <label>Tratamientos</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalServicio}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Bebidas</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalBebida}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Tabaco</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalTabaco}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Vitaminas</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalVitamina}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Propina</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalPropina}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Otros</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalOtros}}</p>
+        </div>
+      </div>
+
+      <hr class="lineaHoy">
+      <div class="row">
+        <div class="col-9">
+          <label>TOTAL</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalVision}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <label></label>
+      <hr class="lineaHoyFormaPago">
+
+      <div class="row">
+        <div class="col-9">
+          <label>Efectivo</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalEfectivo}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Bizum</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalBizum}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Tarjeta</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalTarjeta}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label>Transferencia</label>
+        </div>
+        <div class="col-3" style="margin-left: -12%;">
+          <p>{{totalTrasnf}}</p>
+        </div>
+      </div>
+
+      <hr class="lineaHoy">
+    </div>
+
   </div>
-</div>
+</body>
 
-<hr class="linea">
-
-<div class="padre">
-  <div class="hijo">
-    <table class="table">
-      <thead>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td style="font-weight: bold; font-size: large; color: crimson;">Total</td>
-          <td style="border-top: solid; border-bottom: solid;  border-left: solid;">
-            {{totalVision
-            + ' €'}}</td>
-          <td style="border-top: solid; border-bottom: solid;"></td>
-          <td style="border-top: solid; border-bottom: solid;">{{totalBebida + ' €'}}</td>
-          <td style="border-top: solid; border-bottom: solid;">{{totalTabaco + ' €'}}</td>
-          <td style="border-top: solid; border-bottom: solid;">{{totalVitamina + ' €'}}</td>
-          <td style="border-top: solid; border-bottom: solid;">{{totalPropina + ' €'}}</td>
-          <td style="border-top: solid; border-bottom: solid; border-right: solid;">{{totalOtros + '
-            €'}}</td>
-        </tr>
-        <tr class="table-secondary">
-          <th scope="col">Nota</th>
-          <th scope="col">Terap.</th>
-          <th scope="col">Encarg.</th>
-          <th scope="col">Hora</th>
-          <th scope="col">Tiempo</th>
-          <th scope="col">Tratamiento</th>
-          <th scope="col">Salida</th>
-          <th scope="col">Bebida</th>
-          <th scope="col">Tabaco</th>
-          <th scope="col">Vitamina</th>
-          <th scope="col">Propina</th>
-          <th scope="col">Otros</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let vis of vision | paginate: { itemsPerPage: 10, currentPage: page } ">
-        <tr style="cursor: pointer;">
-          <td [ngClass]="{'nota':vis.nota !== ''}" (click)="notas(vis.id, modalTabl)"></td>
-          <td (click)="editamos(vis.id)">{{vis.terapeuta}}</td>
-          <td (click)="editamos(vis.id)">{{vis.encargada}}</td>
-          <td (click)="editamos(vis.id)">{{vis.horaStart + '-' + vis.horaEnd}}</td>
-          <td (click)="editamos(vis.id)">{{vis.minuto}}</td>
-          <td (click)="editamos(vis.id)">{{vis.servicio + ' €'}}</td>
-          <td (click)="editamos(vis.id)">{{vis.salida}}</td>
-          <td (click)="editamos(vis.id)">{{vis.bebidas + ' €'}}</td>
-          <td (click)="editamos(vis.id)">{{vis.tabaco + ' €'}}</td>
-          <td (click)="editamos(vis.id)">{{vis.vitaminas + ' €'}}</td>
-          <td (click)="editamos(vis.id)">{{vis.propina+ ' €'}}</td>
-          <td (click)="editamos(vis.id)">{{vis.otros + ' €'}}</td>
-        </tr>
-
-        <!-- Modal -->
-        <ng-template class="custom-modal" #modalTabl let-modal>
-          <div class="modal-header">
-            <h5 class="modal-title"> Nota </h5>
-            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body" style="text-align: center;">
-            <!-- Aqui se coloca lo adentro -->
-
-            <h4>{{vis.nota}}</h4>
-
-            <!-- Afuera -->
-          </div>
-        </ng-template>
-
-        <!-- Fin Modal -->
-      </tbody>
-
-    </table>
-
-    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-      nextLabel="Siguiente">
-    </pagination-controls>
-  </div>
-</div>
+</html>

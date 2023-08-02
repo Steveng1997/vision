@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 table {
   width: 100%;
 }
@@ -70,15 +74,45 @@ table {
     margin-bottom: -7%;
     width: 87%;
   }
-  
-  .linea{
+
+  .linea {
     display: grid;
     margin: auto;
     border-width: initial;
     color: blue;
     margin-top: -5%;
     margin-bottom: 7%;
-    width: 95%;
+    width: 87%;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    width: 90%;
+  }
+
+  .lineaHoyFormaPago {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 4%;
+    margin-bottom: 3%;
+    width: 90%;
+  }
+
+  .btnLeft {
+    display: grid;
+    justify-content: left;
+  }
+
+  .btnRight {
+    display: grid;
+    justify-content: right;
   }
 }
 
@@ -108,13 +142,43 @@ table {
     width: 87%;
   }
 
-  .linea{
+  .linea {
     display: grid;
     margin: auto;
     border-width: initial;
     color: blue;
     margin-top: -2%;
     margin-bottom: 3%;
-    width: 95%;
+    width: 87%;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    width: 74%;
+  }
+
+  .lineaHoyFormaPago {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-top: 0%;
+    margin-bottom: 3%;
+    width: 74%;
+  }
+
+  .btnLeft {
+    display: grid;
+    justify-content: left;
+  }
+
+  .btnRight {
+    display: grid;
+    justify-content: right;
   }
 }

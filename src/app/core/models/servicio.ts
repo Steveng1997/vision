@@ -2,10 +2,6 @@ export class Servicio {
   id?: number;
   idDocument?: string;
   terapeuta?: string;
-  formaPago1?: string;
-  formaPago2?: string;
-  formaPago3?: string;
-  formaPago4?: string;
   encargada?: string;
   cliente?: string;
   fecha?: string;
@@ -31,8 +27,11 @@ export class Servicio {
   bizuOtro?: boolean;
   tarjOtro?: boolean;
   transOtro?: boolean;
-  pago1?: number;
-  pago2?: number;
+  numberPiso1?: number;
+  numberPiso2?: number;
+  numberTerap?: number;
+  numberEncarg?: number;
+  numberOtro?: number;
   nota?: string;
   salida?: string;
   liquidado?: boolean;

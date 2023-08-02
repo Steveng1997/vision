@@ -24,12 +24,6 @@
   .acomodarInput {
     margin-top: 5%;
   }
-
-  .tabla {
-    display: grid;
-    place-items: center;
-    margin-top: 0%;
-  }
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,8 +36,6 @@
   }
 
   .tabla {
-    display: grid;
-    place-items: center;
     margin-top: 3%;
   }
 }

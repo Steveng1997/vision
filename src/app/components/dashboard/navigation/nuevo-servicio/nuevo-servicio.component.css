@@ -5,11 +5,14 @@
   }
 
   hr {
-    color: red;
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
     margin-top: -2%;
     margin-bottom: 0%;
   }
-    
+
   .lugarSalida {
     margin-top: 7%;
   }
@@ -38,8 +41,10 @@
   }
 
   hr {
-    border-width: medium;
-    color: red;
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
     margin-top: 0%;
     margin-bottom: 1%;
   }
@@ -48,8 +53,8 @@
     margin-top: 3%;
   }
 
-  .sumaServicios{
-  float: right;
+  .sumaServicios {
+    float: right;
   }
 
   .duracionHora {

@@ -456,7 +456,7 @@ export class TerapeutasComponent implements OnInit {
     let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idTerapeuta = '';
     if (this.selectedTerapeuta) {
       if (this.selectedEncargada) {
-
+debugger
         this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
           fechaHastaDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
           horaHastaDato = datoTerap[0]['horaStart']
@@ -474,6 +474,7 @@ export class TerapeutasComponent implements OnInit {
             })
           }
 
+          this.crearIdUnico()
           this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
             horaDesdeDato, horaHastaDato, conteo, this.totalComision, idTerapeuta, this.idUnico).then((datos) => {
               this.getLiquidaciones()
