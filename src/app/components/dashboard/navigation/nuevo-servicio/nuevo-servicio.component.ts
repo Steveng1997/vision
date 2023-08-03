@@ -171,11 +171,35 @@ export class NuevoServicioComponent implements OnInit {
       this.fechaActual = `${año}-${mes}-${dia}`
     }
 
-    if(dia > 0 && dia < 10){
+    if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
       this.fechaActual = `${año}-${convertMes}-${convertDia}`
     } else {
       this.fechaActual = `${año}-${convertMes}-${dia}`
+    }
+  }
+
+  fechaOrdenada() {
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = '',
+      convertAno = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+    convertAno = año.toString().substring(2, 4)
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.fechaActual = `${dia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaActual = `${dia}-${mes}-${convertAno}`
+    }
+
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.fechaActual = `${convertDia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaActual = `${dia}-${convertMes}-${convertAno}`
     }
   }
 
@@ -1011,6 +1035,7 @@ export class NuevoServicioComponent implements OnInit {
             fecha = this.fechaActual.replace("-", "/").replace("-", "/")
 
             this.conteoNumber()
+            this.fechaOrdenada()
 
             if (!this.TodosCobroSelect(formValue)) return
             if (!this.mas4Select(formValue)) return
@@ -1120,7 +1145,7 @@ export class NuevoServicioComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500 })
     }
   }
-  
+
   totalServicio() {
 
     let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0

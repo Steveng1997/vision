@@ -41,12 +41,11 @@
     </div>
 </form>
 
-<div style="display: grid; place-items: center; margin-top: 3%;">
+<div *ngIf="tableCierre" style="display: grid; place-items: center; margin-top: 3%;">
     <div style="text-align: center; width: max-content;">
         <table class="table">
             <thead>
                 <tr>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -73,8 +72,6 @@
                     <!-- 4 -->
                     <th scope="col">Hasta</th>
                     <!-- 5 -->
-                    <th scope="col">Hora</th>
-                    <!-- 5 -->
                     <th scope="col">Tratamiento</th>
                     <!-- 6 -->
                     <th scope="col">TOTAL</th>
@@ -88,30 +85,28 @@
                     <th scope="col">Trans.</th>
                 </tr>
             </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (cierreTrue | encargada: selectedEncargada 
+            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (cierre | encargada: selectedEncargada 
             | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 2 -->
                     <td>{{serv.encargada}}</td>
                     <!-- 3 -->
-                    <td>{{fechaDesde}}</td>
+                    <td>{{fechaDesde + ' - ' + serv.horaDesde}}</td>
                     <!-- 4 -->
-                    <td>{{serv.fecha}}</td>
+                    <td>{{serv.fechaHasta + ' - ' + serv.horaHasta}}</td>
                     <!-- 5 -->
-                    <td>{{serv.horaEnd}}</td>
-                    <!-- 5 -->
-                    <td>{{serv.servicio}}</td>
+                    <td>{{serv.tratamiento}}</td>
                     <!-- 6 -->
-                    <td>{{serv.totalServicio + ' €'}}</td>
+                    <td>{{serv.total + ' €'}}</td>
                     <!-- 7 -->
-                    <td>{{serv.valueEfectivo + ' €'}}</td>
+                    <td>{{serv.efectivo + ' €'}}</td>
                     <!-- 8 -->
-                    <td>{{serv.valueBizum + ' €'}}</td>
+                    <td>{{serv.bizum + ' €'}}</td>
                     <!-- 9 -->
-                    <td>{{serv.valueTarjeta + ' €'}}</td>
+                    <td>{{serv.tarjeta + ' €'}}</td>
                     <!-- 10 -->
-                    <td>{{serv.valueTrans + ' €'}}</td>
+                    <td>{{serv.transaccion + ' €'}}</td>
                 </tr>
 
                 <!-- Modal -->
@@ -187,9 +182,10 @@
 
                 <mat-divider></mat-divider>
 
-                <div class="col-auto" *ngIf="mostrarFecha">
+                <div class="col-auto" *ngIf="mostrarFecha" style="display: contents;">
                     <mat-drawer-container style="float: left;">
-                        <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc + ' ' + hora}}</mat-drawer-content>
+                        <mat-drawer-content>{{fechaDesc + ' - ' + horaDesc + ' - ' + fechaAsc + ' ' +
+                            horaAsc}}</mat-drawer-content>
                     </mat-drawer-container>
                 </div>
 

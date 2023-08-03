@@ -20,20 +20,22 @@ export class CierreService {
     return result;
   }
 
-  registerCierre(encargada, fechaDesde, fechaHasta, horaFecha, tratamiento, total,
-    efectivo, bizum, tarjeta, transaccion) {
+  registerCierre(encargada, fechaDesde, fechaHasta, horaDesde, horaHasta, tratamiento, total,
+    efectivo, bizum, tarjeta, transaccion, idUnico) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
       fechaDesde: fechaDesde,
       fechaHasta: fechaHasta,
-      horaFecha: horaFecha,
+      horaDesde: horaDesde,
+      horaHasta: horaHasta,
       tratamiento: tratamiento,
       total: total,
       efectivo: efectivo,
       bizum: bizum,
       tarjeta: tarjeta,
       transaccion: transaccion,
+      idUnico: idUnico
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('cierre').add(formularioall).then(
@@ -45,7 +47,20 @@ export class CierreService {
 
   // Get
 
-  getLiquidacionesEncargada() {
-    return this.db.collection('cierre', (ref) => ref.orderBy('id', 'desc')).valueChanges();
+  getAllCierre() {
+    return this.db.collection('cierre', (ref) => ref.orderBy('idUnico', 'desc')).valueChanges();
+  }
+
+  getServicioByEncargadaAndIdUnico(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+        .where('cierre', '==', false).orderBy('currentDate', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
   }
 }

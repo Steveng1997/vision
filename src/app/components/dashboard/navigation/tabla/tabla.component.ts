@@ -117,6 +117,27 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
+
+    debugger
+    if (this.formTemplate.value.fechaInicio != "") {
+      let mes = '', dia = '', año = '', fecha = ''
+      fecha = this.formTemplate.value.fechaInicio
+      dia = fecha.substring(8, 11)
+      mes = fecha.substring(5, 7)
+      año = fecha.substring(2, 4)
+      this.fechaInicio = `${dia}-${mes}-${año}`
+    }
+
+    if (this.formTemplate.value.FechaFin != "") {
+      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      diaFin = fechaFin.substring(8, 11)
+      mesFin = fechaFin.substring(5, 7)
+      añoFin = fechaFin.substring(2, 4)
+      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+
+
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -135,10 +156,10 @@ export class TablaComponent implements OnInit {
     }
 
     const condicionEntreFechas = serv => {
-      if (this.formTemplate.value.fechaInicio === "" && this.formTemplate.value.FechaFin === "") return true
-      if (this.formTemplate.value.fechaInicio === "" && serv.fecha <= this.formTemplate.value.FechaFin) return true
-      if (this.formTemplate.value.FechaFin === "" && serv.fecha === this.formTemplate.value.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
-      if (serv.fecha >= this.formTemplate.value.fechaInicio && serv.fecha <= this.formTemplate.value.FechaFin) return true
+      if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
+      if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
+      if (serv.fecha >= this.fechaInicio && serv.fecha <= this.fechaFinal) return true
 
       return false
     }
@@ -161,8 +182,6 @@ export class TablaComponent implements OnInit {
       this.totalServicio = servicios.reduce((accumulator, serv) => {
         return accumulator + serv.servicio
       }, 0)
-
-
 
       // Filter by Pisos
       const pisoss = this.servicio.filter(serv => condicionTerapeuta(serv)
@@ -303,14 +322,6 @@ export class TablaComponent implements OnInit {
     this.loginService.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada
     })
-  }
-
-  dateStart(event: any) {
-    this.fechaInicio = event.target.value
-  }
-
-  dateEnd(event: any) {
-    this.fechaFinal = event.target.value
   }
 
   busqueda(event: any) {

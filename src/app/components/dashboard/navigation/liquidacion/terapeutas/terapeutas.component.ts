@@ -315,7 +315,6 @@ export class TerapeutasComponent implements OnInit {
   }
 
   editamosServicio(id: string) {
-    debugger
     this.liqTep = false
     this.addTerap = false
     this.editTerap = true
@@ -456,7 +455,6 @@ export class TerapeutasComponent implements OnInit {
     let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idTerapeuta = '';
     if (this.selectedTerapeuta) {
       if (this.selectedEncargada) {
-debugger
         this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
           fechaHastaDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
           horaHastaDato = datoTerap[0]['horaStart']

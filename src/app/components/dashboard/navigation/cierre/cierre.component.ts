@@ -18,10 +18,12 @@ export class CierreComponent implements OnInit {
 
   liqCierre: boolean
   addCierre: boolean
+  tableCierre: boolean
   filtredBusqueda: string
   servicio: any
   page!: number
   cierreTrue = []
+  cierre = []
 
   // Encargada
   encargada: any[] = []
@@ -35,9 +37,12 @@ export class CierreComponent implements OnInit {
   // Conversión
   fechaAsc: string
   fechaDesc: string
-  hora: string
-  fechaConvertion = new Date().toISOString().substring(0, 10)
-  horaConvertion = new Date().toTimeString().substring(0, 5)
+  horaAsc: string
+  horaDesc: string
+  fechaAnterior: string
+  fechaHoy: string
+  horaAnterior: string
+  horaHoy = new Date().toTimeString().substring(0, 5)
   mostrarFecha: boolean
   fechaDesde: any
 
@@ -89,6 +94,7 @@ export class CierreComponent implements OnInit {
   totalesTransferencia: number
 
   tablas: boolean
+  idUnico: string
 
   constructor(
     public router: Router,
@@ -112,17 +118,50 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
     this.tablas = false
+    this.tableCierre = true
     this.liqCierre = true
     this.addCierre = false
 
+    this.getCierre()
     this.getServicio()
     this.getEncargada()
     this.getCierreTrue()
     this.totalesUndefined()
   }
+
+  fechaOrdenada() {
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = '',
+      convertAno = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+    convertAno = año.toString().substring(2, 4)
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${mes}-${convertAno}`
+    }
+
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.fechaHoy = `${convertDia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    }
+  }
+
   editamos(id: string) {
     this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
     ])
+  }
+
+  getCierre() {
+    this.cierreService.getAllCierre().subscribe((datoCierre) => {
+      this.cierre = datoCierre
+    })
   }
 
   getCierreTrue() {
@@ -141,11 +180,8 @@ export class CierreComponent implements OnInit {
           this.servicioService.geyByCurrentDesc().then((datoCierreTrue) => {
             this.fechaDesde = datoCierreTrue[0]['fecha']
           })
-
-
         }
       }
-
     })
   }
 
@@ -182,15 +218,9 @@ export class CierreComponent implements OnInit {
   }
 
   addLiquidacion() {
-    this.validate()
     this.liqCierre = false
     this.addCierre = true
-  }
-
-  validate() {
-    if (this.fechaAsc == undefined) this.fechaAsc = this.fechaConvertion
-    if (this.fechaDesc == undefined) this.fechaDesc = this.fechaConvertion
-    if (this.hora == undefined) this.hora = this.horaConvertion
+    this.tableCierre = false
   }
 
   sumaTotalServicios(datoCierreTrue) {
@@ -305,13 +335,16 @@ export class CierreComponent implements OnInit {
       this.sumaPeriodo = this.totalValuePiso + this.totalValuePiso2 +
         this.totalValueTerap + this.totalValueEncarg + this.totalValueOtros
 
-      this.servicioService.getEncargadaFechaAsc(this.selectedEncargada).then((fechaAsce) => {
-        this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
-        this.hora = fechaAsce[0]['horaStart']
+      // Este debe ser el Primero
+      this.servicioService.getEncargadaFechaAsc(this.selectedEncargada).then((fechaDesc) => {
+        this.fechaAsc = fechaDesc[0]['fechaHoyInicio']
+        this.horaAsc = fechaDesc[0]['horaStart']
       })
 
-      this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaDesce) => {
-        this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+      // este debe ser el ultimo
+      this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaAscedent) => {
+        this.fechaDesc = fechaAscedent[0]['fechaHoyInicio']
+        this.horaDesc = fechaAscedent[0]['horaStart']
       })
 
       // Filter by Total Efectivo
@@ -408,24 +441,92 @@ export class CierreComponent implements OnInit {
     }
   }
 
+  crearIdUnico() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+    this.idUnico = uuid
+    return this.idUnico
+  }
+
   guardar() {
+    debugger
     if (this.selectedEncargada) {
-      this.servicioService.getEncargadaNoCierre(this.selectedEncargada).then((datos) => {
-        for (let index = 0; index < datos.length; index++) {
-          this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
+
+      this.cierreService.getAllCierre().subscribe((datosCierre) => {
+        if (datosCierre.length > 0) {
+          this.fechaAnterior = datosCierre[0]['fechaHasta']
+          this.horaAnterior = datosCierre[0]['horaHasta']
+
+          this.servicioService.getEncargadaNoCierre(this.selectedEncargada).then((datos) => {
+            for (let index = 0; index < datos.length; index++) {
+              this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
+              })
+            }
+
+            this.fechaOrdenada()
+            this.crearIdUnico()
+
+            this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
+              this.horaHoy, datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
+              datos[0]['valueTarjeta'], datos[0]['valueTrans'], this.idUnico).then((datos) => {
+                this.getCierreTrue()
+                this.tableCierre = true
+                this.addCierre = false
+                this.liqCierre = true
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Liquidado Correctamente!',
+                  showConfirmButton: false,
+                  timer: 2500,
+                })
+              })
+          })
+
+        } else {
+          this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datosForFecha) => {
+            this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
+            this.horaAnterior = datosForFecha[0]['horaStart']
+
+            let convertMes = '', convertDia = '', convertAno = ''
+
+            convertDia = this.fechaAnterior.toString().substring(8, 11)
+            convertMes = this.fechaAnterior.toString().substring(5, 7)
+            convertAno = this.fechaAnterior.toString().substring(2, 4)
+
+            this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
+
+            this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
+              for (let index = 0; index < datos.length; index++) {
+                this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
+                })
+              }
+
+              this.fechaOrdenada()
+              this.crearIdUnico()
+
+              this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
+                this.horaHoy, datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
+                datos[0]['valueTarjeta'], datos[0]['valueTrans'], this.idUnico).then((datos) => {
+                  this.getCierreTrue()
+                  this.tableCierre = true
+                  this.addCierre = false
+                  this.liqCierre = true
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Liquidado Correctamente!',
+                    showConfirmButton: false,
+                    timer: 2500,
+                  })
+                })
             })
           })
         }
-
-        this.cierreService.registerCierre(this.selectedEncargada, this.fechaConvertion, this.fechaConvertion, this.horaConvertion,
-          datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
-          datos[0]['valueTarjeta'], datos[0]['valueTrans']).then((datos) => { })
       })
     } else {
       Swal.fire({

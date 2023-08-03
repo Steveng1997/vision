@@ -24,13 +24,13 @@
             </mat-form-field>
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio"
-                    (ngModelChange)="calcularSumaDeServicios()">
+                <input type="date" class="form-control" formControlName="fechaInicio"
+                    (change)="calcularSumaDeServicios()">
             </div>
 
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin"
+                <input type="date" class="form-control" formControlName="FechaFin"
                     (ngModelChange)="calcularSumaDeServicios()">
             </div>
 
@@ -64,7 +64,7 @@
 <div class="container">
     <div class="tabla">
         <div style="text-align: center; width: max-content;">
-            <table class="table" id="excel-table">
+            <table class="table" id="excel-table" align="center" style="width:auto; height:20px;">
                 <thead>
                     <tr>
                         <td></td>

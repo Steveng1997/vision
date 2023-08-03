@@ -36,6 +36,10 @@ export class VisionComponent implements OnInit {
   totalBizum: number
   totalTarjeta: number
   totalTrasnf: number
+  totalTerap: number
+  totalEncarg: number
+  totalOtro: number
+  totalPisos: number
 
   // Conteo fecha
   count: number = 0
@@ -83,6 +87,7 @@ export class VisionComponent implements OnInit {
 
   totalUndefined() {
     if (this.totalVision == undefined) this.totalVision = 0
+    if (this.totalServicio == undefined) this.totalServicio = 0
     if (this.totalBebida == undefined) this.totalBebida = 0
     if (this.totalTabaco == undefined) this.totalTabaco = 0
     if (this.totalVitamina == undefined) this.totalVitamina = 0
@@ -153,6 +158,8 @@ export class VisionComponent implements OnInit {
     let hora_inicio = hora_actual
     const hora_final: any = horaFin
 
+    debugger
+
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
       fechaEnd = `${año}-${convertMes}-${dia}`
@@ -168,8 +175,8 @@ export class VisionComponent implements OnInit {
     }
 
     // Convertimos fecha
-    // if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
-    if (fecha != "") convertFecha = fecha
+    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
+    // if (fecha != "") convertFecha = fecha
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
@@ -277,15 +284,49 @@ export class VisionComponent implements OnInit {
 
     const totalValorTransferencia = this.vision.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value, 0)
     this.totalTrasnf = totalValorTransferencia
+
+    const totalValorTerapeuta = this.vision.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
+    this.totalTerap = totalValorTerapeuta
+
+    const totalValorEncargada = this.vision.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
+    this.totalEncarg = totalValorEncargada
+
+    const totalPiso1 = this.vision.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)
+
+    const totalPiso2 = this.vision.map(({ numberPiso2 }) => numberPiso2).reduce((acc, value) => acc + value, 0)
+
+    this.totalPisos = totalPiso1 + totalPiso2
+
   }
 
   atras() {
+
+    let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
+      añoHoy = 0, convertMesHoy = '', convertAno = ''
+
+    diaHoy = fechHoy.getDate()
+    mesHoy = fechHoy.getMonth() + 1
+    añoHoy = fechHoy.getFullYear()
+
+    if (mesHoy > 0 && mesHoy < 10) {
+      convertMesHoy = '0' + mesHoy
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+    } else {
+      fechaEnd = `${añoHoy}/${mesHoy}/${diaHoy}`
+    }
+
+    if (diaHoy > 0 && diaHoy < 10) {
+      convertDiaHoy = '0' + diaHoy
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${convertDiaHoy}`
+    } else {
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+    }
 
     if (this.siguienteCount > 0) {
       this.siguienteCount = 0
       this.count = 0
       this.count++
-      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaActualmente = ''
+      let convertmes = '', convertDia = '', convertAño = '', fechaHoy = '', mes = '', fechaActualmente = ''
 
       for (let i = 0; i < this.count; i++) {
         this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
@@ -306,7 +347,15 @@ export class VisionComponent implements OnInit {
         if (convertmes == 'Feb') mes = "02"
         if (convertmes == 'Jan') mes = "01"
 
-        this.fechaHoyActual = `${mes}/${convertDia}`
+        fechaHoy = `${convertAño}/${mes}/${convertDia}`
+
+        if (fechaEnd == fechaHoy) {
+          this.fechaHoyActual = 'Hoy'
+        }
+        else {
+          this.fechaHoyActual = `${mes}/${convertDia}`
+        }
+
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
 
         this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
@@ -328,17 +377,14 @@ export class VisionComponent implements OnInit {
       this.siguienteCount = 0
       this.count = 0
       this.count++
-      let convertmes = '', convertDia = '', convertAño = '', mes = '', convertFecha = '', fechaActualmente = ''
-      // var result = new Date(new Date().toISOString())
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
+        convertFecha = '', fechaActualmente = ''
+
       for (let i = 0; i < this.count; i++) {
 
-        // result.setDate(result.getDate() + this.count)
         this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
         convertFecha = this.fechaFormat.toString()
         this.fechaFormat = new Date(convertFecha)
-        // result.setDate(result.getDate() - this.count)
-        // convertFecha = result.toString()
-        // this.fechaFormat = new Date(convertFecha)
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)
         convertAño = this.fechaFormat.toString().substring(11, 15)
@@ -356,7 +402,15 @@ export class VisionComponent implements OnInit {
         if (convertmes == 'Feb') mes = "02"
         if (convertmes == 'Jan') mes = "01"
 
-        this.fechaHoyActual = `${mes}/${convertDia}`
+        fechaHoy = `${convertAño}/${mes}/${convertDia}`
+
+        if (fechaEnd == fechaHoy) {
+          this.fechaHoyActual = 'Hoy'
+        }
+        else {
+          this.fechaHoyActual = `${mes}/${convertDia}`
+        }
+
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
 
         this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
@@ -382,6 +436,27 @@ export class VisionComponent implements OnInit {
     let fechaDia = new Date(), mesDelDia = 0, convertMess = '', messs = '', convertimosMes = 0
     mesDelDia = fechaDia.getMonth() + 1
 
+    let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0, añoHoy = 0, convertMesHoy = ''
+
+    diaHoy = fechHoy.getDate()
+    mesHoy = fechHoy.getMonth() + 1
+    añoHoy = fechHoy.getFullYear()
+
+
+    if (mesHoy > 0 && mesHoy < 10) {
+      convertMesHoy = '0' + mesHoy
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+    } else {
+      fechaEnd = `${añoHoy}/${mesHoy}/${diaHoy}`
+    }
+
+    if (diaHoy > 0 && diaHoy < 10) {
+      convertDiaHoy = '0' + diaHoy
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${convertDiaHoy}`
+    } else {
+      fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
+    }
+
     if (this.atrasCount > 0) {
       this.atrasCount = 0
       this.count = 0
@@ -401,31 +476,9 @@ export class VisionComponent implements OnInit {
       if (convertMess == 'Jan') messs = "01"
 
       convertimosMes = Number(messs)
-
-      // if (convertimosMes < mesDelDia) {
       this.atrasCount = 0
       this.count = 0
       this.count++
-
-      let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0, añoHoy = 0, convertMesHoy = ''
-
-      diaHoy = fechHoy.getDate()
-      mesHoy = fechHoy.getMonth() + 1
-      añoHoy = fechHoy.getFullYear()
-
-      if (mesHoy > 0 && mesHoy < 10) {
-        convertMesHoy = '0' + mesHoy
-        fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
-      } else {
-        fechaEnd = `${añoHoy}/${mesHoy}/${diaHoy}`
-      }
-
-      if (diaHoy > 0 && diaHoy < 10) {
-        convertDiaHoy = '0' + diaHoy
-        fechaEnd = `${añoHoy}/${convertMesHoy}/${convertDiaHoy}`
-      } else {
-        fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
-      }
 
       let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '', fechaActualmente = ''
 
@@ -454,9 +507,10 @@ export class VisionComponent implements OnInit {
           this.fechaHoyActual = 'Hoy'
         }
         else {
-          fechaActualmente = `${convertAño}/${mes}/${convertDia}`
           this.fechaHoyActual = `${mes}/${convertDia}`
         }
+
+        fechaActualmente = `${convertAño}/${mes}/${convertDia}`
 
         this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
           this.vision = datoServicio
@@ -479,12 +533,13 @@ export class VisionComponent implements OnInit {
       this.atrasCount = 0
       this.siguienteCount = 0
       this.count = 0
-      let convertmes = '', convertDia = '', convertAño = '', mes = '', convertFecha = '', fechaActualmente = ''
       this.count++
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
+        convertFecha = '', fechaActualmente = ''
 
       var result = new Date(new Date().toISOString())
       for (let i = 0; i < this.count; i++) {
-        // result.setDate(result.getDate() + this.count)
+
         this.fechaFormat.setDate(this.fechaFormat.getDate() + this.count)
         convertFecha = this.fechaFormat.toString()
         this.fechaFormat = new Date(convertFecha)
@@ -506,8 +561,16 @@ export class VisionComponent implements OnInit {
         if (convertmes == 'Feb') mes = "02"
         if (convertmes == 'Jan') mes = "01"
 
+        fechaHoy = `${convertAño}/${mes}/${convertDia}`
+
+        if (fechaEnd == fechaHoy) {
+          this.fechaHoyActual = 'Hoy'
+        }
+        else {
+          this.fechaHoyActual = `${mes}/${convertDia}`
+        }
+
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
-        this.fechaHoyActual = `${mes}/${convertDia}`
 
         this.servicioService.getFechaHoy(fechaActualmente).then((datoServicio) => {
           this.vision = datoServicio

@@ -9,21 +9,20 @@
 <body>
   <div class="row text-center">
     <div class="col-6">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-        class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;"
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle text-primary circleIzquierda"
+        viewBox="0 0 16 16" style="cursor: pointer;"
         routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
         <path
           d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
       </svg>
       <div>
-        Agregar
+        Nuevo servicio
       </div>
     </div>
     <div class="col-6">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-        class="bi bi-arrow-repeat text-primary" viewBox="0 0 16 16" onclick="location.reload()"
-        style="cursor: pointer;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-repeat text-primary circleDerecha"
+        viewBox="0 0 16 16" onclick="location.reload()" style="cursor: pointer;">
         <path
           d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
         <path fill-rule="evenodd"
@@ -33,13 +32,6 @@
         Refrescar Pagina
       </div>
     </div>
-  </div>
-
-  <hr>
-
-  <!-- Ocupacion -->
-  <div style="text-align: center; margin-top: 3rem">
-    <h4 style="font-family: monospace; font-size: x-large"> OCUPACIÓN </h4>
   </div>
 
   <div class="padre">
@@ -71,13 +63,9 @@
     </div>
   </div>
 
-  <hr class="linea">
-
-  <div class="row text-center">
-
-    <div class="col-6">
-
-      <div class="row">
+  <div style="display: grid; place-items: center;">
+    <div class="totalHoy">
+      <div class="row flechaFecha">
         <div class="col-4 btnRight">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="atras()"
             class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
@@ -96,117 +84,168 @@
           </svg>
         </div>
       </div>
-
-      <hr class="lineaHoy">
-      <div class="row">
-        <div class="col-9">
-          <label>Tratamientos</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalServicio}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Bebidas</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalBebida}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Tabaco</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalTabaco}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Vitaminas</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalVitamina}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Propina</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalPropina}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Otros</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalOtros}}</p>
-        </div>
-      </div>
-
-      <hr class="lineaHoy">
-      <div class="row">
-        <div class="col-9">
-          <label>TOTAL</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalVision}}</p>
-        </div>
-      </div>
     </div>
-
-    <div class="col-6">
-      <label></label>
-      <hr class="lineaHoyFormaPago">
-
-      <div class="row">
-        <div class="col-9">
-          <label>Efectivo</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalEfectivo}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Bizum</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalBizum}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Tarjeta</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalTarjeta}}</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <label>Transferencia</label>
-        </div>
-        <div class="col-3" style="margin-left: -12%;">
-          <p>{{totalTrasnf}}</p>
-        </div>
-      </div>
-
-      <hr class="lineaHoy">
-    </div>
-
   </div>
+
+
+
+  <div class="columnTable">
+    <div class="row text-center tableTotales">
+
+      <div class="col-6 columnCol">
+
+        <label class="textServicios">Servicios</label>
+        <hr class="lineaHoy">
+        <div class="colmnIzquierda">
+          <div class="row">
+            <div class="col-9">
+              <label>Tratamientos</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalServicio}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9">
+              <label>Bebidas</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalBebida}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9">
+              <label>Tabaco</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalTabaco}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9">
+              <label>Vitaminas</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalVitamina}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9">
+              <label>Propina</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalPropina}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9">
+              <label>Otros</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalOtros}}</p>
+            </div>
+          </div>
+
+          <hr class="lineaHoy">
+          <div class="row">
+            <div class="col-9">
+              <label>TOTAL</label>
+            </div>
+            <div class="col-3" style="margin-left: auto;">
+              <p>{{totalVision}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-6 columnCol">
+        <label class="textServicios">Servicios</label>
+        <hr class="lineaHoyFormaPago">
+
+        <div class="row">
+          <div class="col-9">
+            <label>Piso</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalPisos}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Efectivo</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalEfectivo}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Bizum</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalBizum}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Tarjeta</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalTarjeta}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Transferencia</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalTrasnf}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Terapeuta</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalTerap}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Encargada</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalEncarg}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <label>Otros</label>
+          </div>
+          <div class="col-3" style="margin-left: auto;">
+            <p>{{totalOtro}}</p>
+          </div>
+        </div>
+
+        <!-- <hr class="lineaHoy"> -->
+      </div>
+
+    </div>
+  </div>
+
 </body>
 
 </html>
