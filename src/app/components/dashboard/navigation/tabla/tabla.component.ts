@@ -117,8 +117,6 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-
-    debugger
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
       fecha = this.formTemplate.value.fechaInicio

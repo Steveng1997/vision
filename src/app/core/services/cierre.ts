@@ -21,7 +21,7 @@ export class CierreService {
   }
 
   registerCierre(encargada, fechaDesde, fechaHasta, horaDesde, horaHasta, tratamiento, total,
-    efectivo, bizum, tarjeta, transaccion, idUnico) {
+    efectivo, bizum, tarjeta, transaccion, currentDate) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
@@ -35,7 +35,7 @@ export class CierreService {
       bizum: bizum,
       tarjeta: tarjeta,
       transaccion: transaccion,
-      idUnico: idUnico
+      currentDate: currentDate
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('cierre').add(formularioall).then(
@@ -48,7 +48,7 @@ export class CierreService {
   // Get
 
   getAllCierre() {
-    return this.db.collection('cierre', (ref) => ref.orderBy('idUnico', 'desc')).valueChanges();
+    return this.db.collection('cierre', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
   }
 
   getServicioByEncargadaAndIdUnico(encargada: string): Promise<any> {

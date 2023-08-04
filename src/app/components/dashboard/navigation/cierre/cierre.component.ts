@@ -23,7 +23,7 @@ export class CierreComponent implements OnInit {
   servicio: any
   page!: number
   cierreTrue = []
-  cierre = []
+  cierre: any
 
   // Encargada
   encargada: any[] = []
@@ -94,7 +94,7 @@ export class CierreComponent implements OnInit {
   totalesTransferencia: number
 
   tablas: boolean
-  idUnico: string
+  currentDate = new Date().getTime()
 
   constructor(
     public router: Router,
@@ -441,19 +441,8 @@ export class CierreComponent implements OnInit {
     }
   }
 
-  crearIdUnico() {
-    var d = new Date().getTime()
-    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0
-      d = Math.floor(d / 16)
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-    })
-    this.idUnico = uuid
-    return this.idUnico
-  }
-
   guardar() {
-    debugger
+    let conteo = 0
     if (this.selectedEncargada) {
 
       this.cierreService.getAllCierre().subscribe((datosCierre) => {
@@ -463,20 +452,20 @@ export class CierreComponent implements OnInit {
 
           this.servicioService.getEncargadaNoCierre(this.selectedEncargada).then((datos) => {
             for (let index = 0; index < datos.length; index++) {
-              this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
-              })
+              conteo = datos.length
+              this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'])
             }
 
             this.fechaOrdenada()
-            this.crearIdUnico()
 
             this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
-              this.horaHoy, datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
-              datos[0]['valueTarjeta'], datos[0]['valueTrans'], this.idUnico).then((datos) => {
-                this.getCierreTrue()
+              this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
+              this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
+                this.getCierre()
                 this.tableCierre = true
-                this.addCierre = false
                 this.liqCierre = true
+                this.addCierre = false
+                this.selectedEncargada == undefined
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',
@@ -502,20 +491,20 @@ export class CierreComponent implements OnInit {
 
             this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
               for (let index = 0; index < datos.length; index++) {
+                conteo = datos.length
                 this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
                 })
               }
 
               this.fechaOrdenada()
-              this.crearIdUnico()
-
               this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
-                this.horaHoy, datos[0]['servicio'], datos[0]['totalServicio'], datos[0]['valueEfectivo'], datos[0]['valueBizum'],
-                datos[0]['valueTarjeta'], datos[0]['valueTrans'], this.idUnico).then((datos) => {
-                  this.getCierreTrue()
+                this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
+                this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
+                  this.getCierre()
                   this.tableCierre = true
                   this.addCierre = false
                   this.liqCierre = true
+                  this.selectedEncargada == undefined
                   Swal.fire({
                     position: 'top-end',
                     icon: 'success',
