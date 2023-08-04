@@ -95,6 +95,7 @@ export class CierreComponent implements OnInit {
 
   tablas: boolean
   currentDate = new Date().getTime()
+  existe: boolean
 
   constructor(
     public router: Router,
@@ -160,7 +161,14 @@ export class CierreComponent implements OnInit {
 
   getCierre() {
     this.cierreService.getAllCierre().subscribe((datoCierre) => {
-      this.cierre = datoCierre
+      if (datoCierre.length > 0) {
+        this.cierre = datoCierre
+        this.sumaTotalServicios()
+        this.fechaAnterior = datoCierre[0]['fechaHasta']
+        this.horaAnterior = datoCierre[0]['horaHasta']
+        this.existe = true
+      }
+      else this.existe = false
     })
   }
 
@@ -175,8 +183,6 @@ export class CierreComponent implements OnInit {
         this.cierreTrue = [...personasMapArr.values()]
 
         if (datoCierreTrue != 0) {
-          this.sumaTotalServicios(this.cierreTrue)
-
           this.servicioService.geyByCurrentDesc().then((datoCierreTrue) => {
             this.fechaDesde = datoCierreTrue[0]['fecha']
           })
@@ -218,25 +224,30 @@ export class CierreComponent implements OnInit {
   }
 
   addLiquidacion() {
+    this.getServicio()
+    this.calcularSumaDeServicios()
     this.liqCierre = false
-    this.addCierre = true
     this.tableCierre = false
+    this.addCierre = true
+
+
+    if (this.selectedEncargada == undefined) this.tablas = false
   }
 
-  sumaTotalServicios(datoCierreTrue) {
-    const totalServ = datoCierreTrue.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value)
+  sumaTotalServicios() {
+    const totalServ = this.cierre.map(({ total }) => total).reduce((acc, value) => acc + value)
     this.totalValueServicio = totalServ
 
-    const totalEfec = datoCierreTrue.map(({ valueEfectivo }) => valueEfectivo).reduce((acc, value) => acc + value)
+    const totalEfec = this.cierre.map(({ efectivo }) => efectivo).reduce((acc, value) => acc + value)
     this.totalValueEfectivo = totalEfec
 
-    const totalBizum = datoCierreTrue.map(({ valueBizum }) => valueBizum).reduce((acc, value) => acc + value)
+    const totalBizum = this.cierre.map(({ bizum }) => bizum).reduce((acc, value) => acc + value)
     this.totalValueBizum = totalBizum
 
-    const totalTarj = datoCierreTrue.map(({ valueTarjeta }) => valueTarjeta).reduce((acc, value) => acc + value)
+    const totalTarj = this.cierre.map(({ tarjeta }) => tarjeta).reduce((acc, value) => acc + value)
     this.totalValueTarjeta = totalTarj
 
-    const totalTransf = datoCierreTrue.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value)
+    const totalTransf = this.cierre.map(({ transaccion }) => transaccion).reduce((acc, value) => acc + value)
     this.totalValueTrans = totalTransf
   }
 
@@ -371,7 +382,6 @@ export class CierreComponent implements OnInit {
         return accumulator + serv.valueTrans
       }, 0)
 
-      // --------------------------------------------------------------------- //
       // Caja - Encargada
 
       // Filter by Encargada Efectivo
@@ -398,9 +408,6 @@ export class CierreComponent implements OnInit {
         return accumulator + serv.valueTransEncargada
       }, 0)
 
-
-
-      // --------------------------------------------------------------------- //
       // Caja - Terapeuta
 
       // Filter by Terapeuta Efectivo
@@ -439,18 +446,60 @@ export class CierreComponent implements OnInit {
       this.sumaTransfe = Number(this.cajaEncargTrans) + Number(this.cajaTerapTrans)
       this.totalCajaTransfer = Number(this.totalValueServicio) - this.sumaTransfe
     }
+
+    if (this.selectedEncargada == undefined) {
+      this.tablas = false
+    }
   }
 
   guardar() {
     let conteo = 0
+
     if (this.selectedEncargada) {
+      if (this.existe === true) {
 
-      this.cierreService.getAllCierre().subscribe((datosCierre) => {
-        if (datosCierre.length > 0) {
-          this.fechaAnterior = datosCierre[0]['fechaHasta']
-          this.horaAnterior = datosCierre[0]['horaHasta']
+        this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
+          for (let index = 0; index < datos.length; index++) {
+            conteo = datos.length
+            this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'])
+          }
 
-          this.servicioService.getEncargadaNoCierre(this.selectedEncargada).then((datos) => {
+          this.fechaOrdenada()
+
+          this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
+            this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
+            this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
+              this.getCierre()
+              this.tableCierre = true
+              this.liqCierre = true
+              this.addCierre = false
+              this.selectedEncargada = undefined
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Liquidado Correctamente!',
+                showConfirmButton: false,
+                timer: 2500,
+              })
+            })
+        })
+      }
+
+      if (this.existe === false) {
+
+        this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datosForFecha) => {
+          this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
+          this.horaAnterior = datosForFecha[0]['horaStart']
+
+          let convertMes = '', convertDia = '', convertAno = ''
+
+          convertDia = this.fechaAnterior.toString().substring(8, 11)
+          convertMes = this.fechaAnterior.toString().substring(5, 7)
+          convertAno = this.fechaAnterior.toString().substring(2, 4)
+
+          this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
+
+          this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
             for (let index = 0; index < datos.length; index++) {
               conteo = datos.length
               this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'])
@@ -463,9 +512,9 @@ export class CierreComponent implements OnInit {
               this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
                 this.getCierre()
                 this.tableCierre = true
-                this.liqCierre = true
                 this.addCierre = false
-                this.selectedEncargada == undefined
+                this.liqCierre = true
+                this.selectedEncargada = undefined
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',
@@ -474,49 +523,10 @@ export class CierreComponent implements OnInit {
                   timer: 2500,
                 })
               })
+            // })
           })
-
-        } else {
-          this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datosForFecha) => {
-            this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
-            this.horaAnterior = datosForFecha[0]['horaStart']
-
-            let convertMes = '', convertDia = '', convertAno = ''
-
-            convertDia = this.fechaAnterior.toString().substring(8, 11)
-            convertMes = this.fechaAnterior.toString().substring(5, 7)
-            convertAno = this.fechaAnterior.toString().substring(2, 4)
-
-            this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
-
-            this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
-              for (let index = 0; index < datos.length; index++) {
-                conteo = datos.length
-                this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id']).then((datos) => {
-                })
-              }
-
-              this.fechaOrdenada()
-              this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
-                this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
-                this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
-                  this.getCierre()
-                  this.tableCierre = true
-                  this.addCierre = false
-                  this.liqCierre = true
-                  this.selectedEncargada == undefined
-                  Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Liquidado Correctamente!',
-                    showConfirmButton: false,
-                    timer: 2500,
-                  })
-                })
-            })
-          })
-        }
-      })
+        })
+      }
     } else {
       Swal.fire({
         icon: 'error',
