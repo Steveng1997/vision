@@ -117,6 +117,11 @@ export class TablaComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
+
+    if (this.formTemplate.value.busqueda != "") {
+      this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+    }
+
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
       fecha = this.formTemplate.value.fechaInicio
@@ -135,7 +140,6 @@ export class TablaComponent implements OnInit {
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
 
-
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
     }
@@ -145,12 +149,7 @@ export class TablaComponent implements OnInit {
     }
 
     const condicionFormaPago = serv => {
-      if (!this.selectedFormPago) return true
-
-      const formasDePago = serv.formaPago.split(',')
-      let formaDePagoResult = undefined
-      formaDePagoResult = formasDePago.find(formaDePago => (formaDePago === this.selectedFormPago))
-      return (formaDePagoResult !== undefined) ? true : false
+      return (this.selectedFormPago) ? serv.formaPago === this.selectedFormPago : true
     }
 
     const condicionEntreFechas = serv => {
@@ -320,10 +319,6 @@ export class TablaComponent implements OnInit {
     this.loginService.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada
     })
-  }
-
-  busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
   }
 
   notas(targetModal, modal) {

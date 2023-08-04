@@ -17,7 +17,7 @@ export class BusquedaPipe implements PipeTransform {
         || item.encargada.match(param.toLowerCase().slice(1)) || item.fecha.match(param)
         || item.horaStart.match(param) || item.cliente.match(param.toLowerCase().slice(1))
         || item.horaEnd.match(param) || item.salida.match(param) 
-        || item.formaPago.indexOf(param.toLowerCase()) > -1);
+        || item.formaPago.indexOf(param.toLowerCase().slice(1)) > -1);
     }
   }
 }
