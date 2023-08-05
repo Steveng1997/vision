@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
@@ -22,7 +22,6 @@ export class TerapeutasComponent implements OnInit {
   editTerap: boolean
   filtredBusqueda: string
   filtredBusquedaNumber: number
-  Liquidada: any
   servicioNoLiquidadaTerapeuta: any
   liquidacionesTerapeutas: any
   datosLiquidadoTerap: any
@@ -48,7 +47,10 @@ export class TerapeutasComponent implements OnInit {
   horaAsc: string
   fechaDesc: string
   horaDesc: string
-  fechaConvertion = new Date().toISOString().substring(0, 10)
+  fechaAnterior: string
+  horaAnterior: string
+  horaHoy = new Date().toTimeString().substring(0, 5)
+  fechaHoy: string
   mostrarFecha: boolean
 
   // Servicios
@@ -73,6 +75,17 @@ export class TerapeutasComponent implements OnInit {
   recibidoTerap: any
   totalComision: number
 
+  currentDate = new Date().getTime()
+  existe: boolean
+
+  formTemplate = new FormGroup({
+    fechaInicio: new FormControl(''),
+    FechaFin: new FormControl(''),
+    terapeuta: new FormControl(''),
+    encargada: new FormControl(''),
+    busqueda: new FormControl(''),
+  })
+
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -83,14 +96,6 @@ export class TerapeutasComponent implements OnInit {
     public liquidacionTerapService: LiquidacioneTerapService,
   ) { }
 
-  formTemplate = new FormGroup({
-    fechaInicio: new FormControl(''),
-    FechaFin: new FormControl(''),
-    terapeuta: new FormControl(''),
-    encargada: new FormControl(''),
-    busqueda: new FormControl(''),
-  })
-
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES TERAPEUTAS'
@@ -100,7 +105,6 @@ export class TerapeutasComponent implements OnInit {
     this.selected = false
     this.editTerap = false
     this.getLiquidaciones()
-    this.getServicio()
     this.getServicioFalceLiquid()
     this.getEncargada()
     this.getTerapeuta()
@@ -124,16 +128,85 @@ export class TerapeutasComponent implements OnInit {
     if (this.totalComision == undefined) this.totalComision = 0
   }
 
+  fechaOrdenada() {
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = '',
+      convertAno = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+    convertAno = año.toString().substring(2, 4)
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${mes}-${convertAno}`
+    }
+
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.fechaHoy = `${convertDia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    }
+  }
+
   getLiquidaciones() {
     this.liquidacionTerapService.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones) => {
       this.liquidacionesTerapeutas = datoLiquidaciones
+
+      if (datoLiquidaciones.length > 0) {
+        this.fechaAnterior = datoLiquidaciones[0]['hastaFechaLiquidado']
+        this.horaAnterior = datoLiquidaciones[0]['hastaHoraLiquidado']
+        this.existe = true
+      } else this.existe = false
     })
   }
 
-  getServicio() {
-    this.servicioService.getByLiquidTerapTrue().subscribe((datoServicio) => {
-      this.Liquidada = datoServicio
-    })
+  filtro() {
+
+    this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+    this.filtredBusquedaNumber = Number(this.formTemplate.value.busqueda)
+
+    if (this.formTemplate.value.fechaInicio != "") {
+      let mes = '', dia = '', año = '', fecha = ''
+      fecha = this.formTemplate.value.fechaInicio
+      dia = fecha.substring(8, 11)
+      mes = fecha.substring(5, 7)
+      año = fecha.substring(2, 4)
+      this.fechaInicio = `${dia}-${mes}-${año}`
+    }
+
+    if (this.formTemplate.value.FechaFin != "") {
+      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      diaFin = fechaFin.substring(8, 11)
+      mesFin = fechaFin.substring(5, 7)
+      añoFin = fechaFin.substring(2, 4)
+      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+
+    const condicionEncargada = serv => {
+      return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+    }
+
+    const condicionEntreFechas = serv => {
+      if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
+      if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
+      if (serv.fecha >= this.fechaInicio && serv.fecha <= this.fechaFinal) return true
+
+      return false
+    }
+
+    const condicionBuscar = serv => {
+      if (!this.filtredBusqueda) return true
+      const criterio = this.filtredBusqueda.toLowerCase()
+      return (serv.encargada.toLowerCase().match(criterio)
+        || serv.fechaDesde.toLowerCase().match(criterio)
+        || serv.fechaHasta.toLowerCase().match(criterio)) ? true : false
+    }
   }
 
   getServicioFalceLiquid() {
@@ -154,22 +227,13 @@ export class TerapeutasComponent implements OnInit {
     })
   }
 
-  dateStart(event: any) {
-    this.fechaInicio = event.target.value
-  }
-
-  dateEnd(event: any) {
-    this.fechaFinal = event.target.value
-  }
-
-  busqueda(event: any, eventNumber: number) {
-    this.filtredBusquedaNumber = Number(eventNumber)
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-  }
-
   addLiquidacion() {
+    this.selectedEncargada = ""
+    this.selectedTerapeuta = ""
+    this.calcularSumaDeServicios()
     this.liqTep = false
     this.editTerap = false
+    this.selected = false
     this.addTerap = true
   }
 
@@ -187,7 +251,7 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    if (this.selectedEncargada != undefined && this.selectedTerapeuta != undefined) {
+    if (this.selectedEncargada != "" && this.selectedTerapeuta != "") {
       this.selected = true
 
       const condicionTerapeuta = serv => {
@@ -440,54 +504,92 @@ export class TerapeutasComponent implements OnInit {
     })
   }
 
-  crearIdUnico() {
-    var d = new Date().getTime()
-    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0
-      d = Math.floor(d / 16)
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-    })
-    this.idUnico = uuid
-    return this.idUnico
-  }
-
   guardar() {
-    let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idTerapeuta = '';
+    let conteo = 0, idTerapeuta = '';
     if (this.selectedTerapeuta) {
       if (this.selectedEncargada) {
-        this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
-          fechaHastaDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
-          horaHastaDato = datoTerap[0]['horaStart']
-        })
-        this.servicioService.getTerapNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosTerapeuta) => {
-          fechaDesdeDato = datosTerapeuta[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
-          horaDesdeDato = datosTerapeuta[0]['horaStart']
-        })
+        if (this.existe === true) {
 
-        this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datos) => {
-          idTerapeuta = datos[0]['id']
-          for (let index = 0; index < datos.length; index++) {
-            conteo = datos.length
-            this.servicioService.updateLiquidacionTerap(datos[index]['idDocument'], datos[index]['id'], idTerapeuta).then((datos) => {
-            })
-          }
-
-          this.crearIdUnico()
-          this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
-            horaDesdeDato, horaHastaDato, conteo, this.totalComision, idTerapeuta, this.idUnico).then((datos) => {
-              this.getLiquidaciones()
-              this.liqTep = true
-              this.addTerap = false
-              this.editTerap = false
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Liquidado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
+          this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datos) => {
+            idTerapeuta = datos[0]['id']
+            for (let index = 0; index < datos.length; index++) {
+              conteo = datos.length
+              this.servicioService.updateLiquidacionTerap(datos[index]['idDocument'], datos[index]['id'], idTerapeuta).then((datos) => {
               })
+            }
+
+            this.fechaOrdenada()
+
+            this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada,
+              this.fechaAnterior, this.fechaHoy, this.horaAnterior, this.horaHoy, conteo, this.totalComision,
+              idTerapeuta, this.currentDate).then((datos) => {
+                this.getLiquidaciones()
+                this.liqTep = true
+                this.addTerap = false
+                this.editTerap = false
+                this.selected = false
+                this.mostrarFecha = false
+                this.selectedEncargada = ""
+                this.selectedTerapeuta = ""
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Liquidado Correctamente!',
+                  showConfirmButton: false,
+                  timer: 2500,
+                })
+              })
+          })
+        }
+
+        if (this.existe === false) {
+
+          this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datosForFecha) => {
+            this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
+            this.horaAnterior = datosForFecha[0]['horaStart']
+
+            let convertMes = '', convertDia = '', convertAno = ''
+
+            convertDia = this.fechaAnterior.toString().substring(8, 11)
+            convertMes = this.fechaAnterior.toString().substring(5, 7)
+            convertAno = this.fechaAnterior.toString().substring(2, 4)
+
+            this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
+
+            this.servicioService.getTerapeutaEncargada(this.selectedTerapeuta, this.selectedEncargada).then((datos) => {
+              idTerapeuta = datos[0]['id']
+              for (let index = 0; index < datos.length; index++) {
+                conteo = datos.length
+                this.servicioService.updateLiquidacionTerap(datos[index]['idDocument'], datos[index]['id'], idTerapeuta).then((datos) => {
+                })
+              }
+
+              this.fechaOrdenada()
+
+              this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.selectedTerapeuta, this.selectedEncargada,
+                this.fechaAnterior, this.fechaHoy, this.horaAnterior, this.horaHoy, conteo, this.totalComision,
+                idTerapeuta, this.currentDate).then((datos) => {
+                  this.getLiquidaciones()
+                  this.liqTep = true
+                  this.addTerap = false
+                  this.editTerap = false
+                  this.selected = false
+                  this.mostrarFecha = false
+                  this.selectedEncargada = ""
+                  this.selectedTerapeuta = ""
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Liquidado Correctamente!',
+                    showConfirmButton: false,
+                    timer: 2500,
+                  })
+                })
+
             })
-        })
+          })
+
+        }
       } else {
         Swal.fire({
           icon: 'error',

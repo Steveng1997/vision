@@ -24,8 +24,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
-                    (ngModelChange)="calcularSumaDeServicios()">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada" (ngModelChange)="filtro()">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -33,17 +32,17 @@
             </mat-form-field>
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+                <input type="date" class="form-control" formControlName="fechaInicio" (ngModelChange)="filtro()">
             </div>
 
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
+                <input type="date" class="form-control" formControlName="FechaFin" (ngModelChange)="filtro()">
             </div>
 
             <mat-form-field class="col-6">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event)" formControlName="busqueda" />
+                <input type="text" matInput formControlName="busqueda" (ngModelChange)="filtro()" />
             </mat-form-field>
         </div>
     </div>
@@ -94,13 +93,13 @@
                 </tr>
             </thead>
             <tbody (click)="editamos(serv.id)" *ngFor="let serv of (cierre | encargada: selectedEncargada 
-            | fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda) 
+            | fechaCierre: fechaInicio:fechaFinal | busquedaCierre: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 2 -->
                     <td>{{serv.encargada}}</td>
                     <!-- 3 -->
-                    <td>{{fechaDesde + ' - ' + serv.horaDesde}}</td>
+                    <td>{{serv.fechaDesde + ' - ' + serv.horaDesde}}</td>
                     <!-- 4 -->
                     <td>{{serv.fechaHasta + ' - ' + serv.horaHasta}}</td>
                     <!-- 5 -->
@@ -140,7 +139,7 @@
             </tbody>
         </table>
 
-        <p class="noHayCierre" *ngIf="cierreTrue?.length === 0"> Actualmente no hay
+        <p class="noHayCierre" *ngIf="cierre?.length === 0"> Actualmente no hay
             cierres </p>
 
         <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"

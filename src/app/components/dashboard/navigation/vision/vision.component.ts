@@ -158,8 +158,6 @@ export class VisionComponent implements OnInit {
     let hora_inicio = hora_actual
     const hora_final: any = horaFin
 
-    debugger
-
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
       fechaEnd = `${año}-${convertMes}-${dia}`

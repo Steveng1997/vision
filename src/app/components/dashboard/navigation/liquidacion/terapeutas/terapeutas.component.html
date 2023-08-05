@@ -19,7 +19,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Terapeuta</mat-label>
-                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
+                <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta" (ngModelChange)="filtro()">
                     <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                         {{terap.nombre}}
                     </mat-option>
@@ -28,7 +28,7 @@
 
             <mat-form-field class="col-6">
                 <mat-label>Encargada</mat-label>
-                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada">
+                <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada" (ngModelChange)="filtro()">
                     <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
                         {{encarg.nombre}}
                     </mat-option>
@@ -36,17 +36,17 @@
             </mat-form-field>
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateStart($event)" formControlName="fechaInicio">
+                <input type="date" class="form-control" (ngModelChange)="filtro()" formControlName="fechaInicio">
             </div>
 
 
             <div class="col-6">
-                <input type="date" class="form-control" (change)="dateEnd($event)" formControlName="FechaFin">
+                <input type="date" class="form-control" (ngModelChange)="filtro()" formControlName="FechaFin">
             </div>
 
             <mat-form-field class="col-6 mt-3">
                 <mat-label>Buscar</mat-label>
-                <input type="text" matInput (ngModelChange)="busqueda($event, $event)" formControlName="busqueda" />
+                <input type="text" matInput (ngModelChange)="filtro()" formControlName="busqueda" />
             </mat-form-field>
         </div>
     </div>
@@ -70,11 +70,10 @@
                 <th scope="col">Importe</th>
             </tr>
         </thead>
-        <tbody
+        <tbody (click)="editamosServicio(liqTerap.idTerapeuta)"
             *ngFor="let liqTerap of (liquidacionesTerapeutas | terapeuta: selectedTerapeuta | 
                 encargada: selectedEncargada | fechaFinalEncargada: fechaInicio:fechaFinal 
-                | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
-            (click)="editamosServicio(liqTerap.idTerapeuta)">
+                | busquedaTerapeuta: filtredBusqueda:filtredBusquedaNumber) | paginate: { itemsPerPage: 10, currentPage: page }">
             <tr style="cursor: pointer;">
                 <!-- 1 -->
                 <td>{{liqTerap.terapeuta}}</td>
@@ -112,8 +111,8 @@
         </tbody>
     </table>
 
-    <h5 class="noHayCierre" *ngIf="liquidacionesTerapeutas?.length == 0"> Actualmente no hay Liquidación para Terapeutas
-    </h5>
+    <p class="noHayCierre" *ngIf="liquidacionesTerapeutas?.length === 0"> Actualmente no hay Liquidación para Terapeutas
+    </p>
 
     <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
         nextLabel="Siguiente">
@@ -131,48 +130,42 @@
         <div class="container">
             <div class="row">
 
-                <mat-form-field class="col-6">
-                    <mat-label>Terapeuta</mat-label>
-                    <mat-select formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
+                <div class="col-6">
+                    <label style="display: contents;">Terapeuta</label>
+                    <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
                         (ngModelChange)="calcularSumaDeServicios()">
-                        <mat-option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                            {{terap.nombre}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
+                        </option>
+                    </select>
+                </div>
 
-                <mat-form-field class="col-6">
-                    <mat-label>Encargada</mat-label>
-                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
+                <div class="col-6">
+                    <label style="display: contents;">Encargada</label>
+                    <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
                         (ngModelChange)="calcularSumaDeServicios()">
-                        <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                            {{encarg.nombre}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div *ngIf="selected" class="row" style="margin-top: 4%;">
                 <div class="col-9">
-                    <mat-drawer-container class="example-container">
-                        <mat-drawer-content style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
-                            {{selectedTerapeuta}}</mat-drawer-content>
-                    </mat-drawer-container>
+                    <label style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
+                        {{selectedTerapeuta}}</label>
                 </div>
 
                 <div class="col-3">
-                    <mat-drawer-container style="float: right;">
-                        <mat-drawer-content style="font-weight: bold;">{{totalComision + ' €'}}</mat-drawer-content>
-                    </mat-drawer-container>
+                    <label style="float: right; font-weight: bold;">{{totalComision + ' €'}}</label>
                 </div>
             </div>
 
-            <mat-divider *ngIf="selected"></mat-divider>
+            <hr class="lineaHoy" *ngIf="selected">
 
-            <div class="col-auto" *ngIf="mostrarFecha">
-                <mat-drawer-container style="float: left;">
-                    <mat-drawer-content>{{fechaDesc + ' - ' + fechaAsc}}</mat-drawer-content>
-                </mat-drawer-container>
+            <div class="col-auto" style="display: contents" *ngIf="mostrarFecha">
+                <label style="float: left;">{{fechaDesc + ' - ' + fechaAsc}}</label>
             </div>
 
             <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">

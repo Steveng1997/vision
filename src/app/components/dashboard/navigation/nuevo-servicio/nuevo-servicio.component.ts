@@ -1008,7 +1008,6 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  // Agregamos los servicios
   addServicio(formValue): any {
     this.crearIdUnico()
     if (this.formTemplate.value.terapeuta != '') {

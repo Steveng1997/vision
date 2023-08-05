@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
@@ -126,7 +126,6 @@ export class CierreComponent implements OnInit {
     this.getCierre()
     this.getServicio()
     this.getEncargada()
-    this.getCierreTrue()
     this.totalesUndefined()
   }
 
@@ -161,8 +160,9 @@ export class CierreComponent implements OnInit {
 
   getCierre() {
     this.cierreService.getAllCierre().subscribe((datoCierre) => {
+      this.cierre = datoCierre
+
       if (datoCierre.length > 0) {
-        this.cierre = datoCierre
         this.sumaTotalServicios()
         this.fechaAnterior = datoCierre[0]['fechaHasta']
         this.horaAnterior = datoCierre[0]['horaHasta']
@@ -172,24 +172,25 @@ export class CierreComponent implements OnInit {
     })
   }
 
-  getCierreTrue() {
-    this.servicioService.geyByCierreTrue().then((datoCierreTrue) => {
-      if (datoCierreTrue.length != 0) {
-        // Esta linea de codigo hace que no se repita las terapeutas
-        let personasMap = datoCierreTrue.map(item => {
-          return [item['idUnico'], item]
-        })
-        var personasMapArr = new Map(personasMap)
-        this.cierreTrue = [...personasMapArr.values()]
+  // getCierreFalse() {
+  //   debugger
+  //   this.servicioService.geyByCierreTrue().then((datoCierreTrue) => {
+  //     if (datoCierreTrue.length != 0) {
+  //       // Esta linea de codigo hace que no se repita las terapeutas
+  //       let personasMap = datoCierreTrue.map(item => {
+  //         return [item['idUnico'], item]
+  //       })
+  //       var personasMapArr = new Map(personasMap)
+  //       this.cierreTrue = [...personasMapArr.values()]
 
-        if (datoCierreTrue != 0) {
-          this.servicioService.geyByCurrentDesc().then((datoCierreTrue) => {
-            this.fechaDesde = datoCierreTrue[0]['fecha']
-          })
-        }
-      }
-    })
-  }
+  //       if (datoCierreTrue != 0) {
+  //         this.servicioService.geyByCurrentDesc().then((datoCierreTrue) => {
+  //           this.fechaDesde = datoCierreTrue[0]['fecha']
+  //         })
+  //       }
+  //     }
+  //   })
+  // }
 
   getServicio() {
     this.servicioService.geyByCierreFalse().then((datoServicio) => {
@@ -201,18 +202,6 @@ export class CierreComponent implements OnInit {
     this.loginService.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada
     })
-  }
-
-  dateStart(event: any) {
-    this.fechaInicio = event.target.value
-  }
-
-  dateEnd(event: any) {
-    this.fechaFinal = event.target.value
-  }
-
-  busqueda(event: any) {
-    this.filtredBusqueda = event.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra)
   }
 
   totalesUndefined() {
@@ -229,7 +218,6 @@ export class CierreComponent implements OnInit {
     this.liqCierre = false
     this.tableCierre = false
     this.addCierre = true
-
 
     if (this.selectedEncargada == undefined) this.tablas = false
   }
@@ -266,6 +254,7 @@ export class CierreComponent implements OnInit {
 
   calcularSumaDeServicios() {
     if (this.selectedEncargada != undefined) {
+      // this.getCierreFalse()
       this.tablas = true
 
       const condicionEncargada = serv => {
@@ -468,20 +457,20 @@ export class CierreComponent implements OnInit {
 
           this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
             this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
-            this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
-              this.getCierre()
-              this.tableCierre = true
-              this.liqCierre = true
-              this.addCierre = false
-              this.selectedEncargada = undefined
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Liquidado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
-              })
-            })
+            this.totalesTarjeta, this.totalesTransferencia, this.currentDate)
+
+          this.getCierre()
+          this.tableCierre = true
+          this.liqCierre = true
+          this.addCierre = false
+          this.selectedEncargada = undefined
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Liquidado Correctamente!',
+            showConfirmButton: false,
+            timer: 2500,
+          })
         })
       }
 
@@ -509,21 +498,20 @@ export class CierreComponent implements OnInit {
 
             this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
               this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
-              this.totalesTarjeta, this.totalesTransferencia, this.currentDate).then((datos) => {
-                this.getCierre()
-                this.tableCierre = true
-                this.addCierre = false
-                this.liqCierre = true
-                this.selectedEncargada = undefined
-                Swal.fire({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: 'Liquidado Correctamente!',
-                  showConfirmButton: false,
-                  timer: 2500,
-                })
-              })
-            // })
+              this.totalesTarjeta, this.totalesTransferencia, this.currentDate)
+
+            this.getCierre()
+            this.tableCierre = true
+            this.addCierre = false
+            this.liqCierre = true
+            this.selectedEncargada = undefined
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Liquidado Correctamente!',
+              showConfirmButton: false,
+              timer: 2500,
+            })
           })
         })
       }
@@ -535,6 +523,84 @@ export class CierreComponent implements OnInit {
         showConfirmButton: false,
         timer: 2500,
       })
+    }
+  }
+
+  filtro() {
+
+    if (this.formTemplate.value.busqueda != "") {
+      this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+    }
+
+    if (this.formTemplate.value.fechaInicio != "") {
+      let mes = '', dia = '', año = '', fecha = ''
+      fecha = this.formTemplate.value.fechaInicio
+      dia = fecha.substring(8, 11)
+      mes = fecha.substring(5, 7)
+      año = fecha.substring(2, 4)
+      this.fechaInicio = `${dia}-${mes}-${año}`
+    }
+
+    if (this.formTemplate.value.FechaFin != "") {
+      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      diaFin = fechaFin.substring(8, 11)
+      mesFin = fechaFin.substring(5, 7)
+      añoFin = fechaFin.substring(2, 4)
+      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+
+    const condicionEncargada = serv => {
+      return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
+    }
+
+    const condicionEntreFechas = serv => {
+      if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
+      if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
+      if (serv.fecha >= this.fechaInicio && serv.fecha <= this.fechaFinal) return true
+
+      return false
+    }
+
+    const condicionBuscar = serv => {
+      if (!this.filtredBusqueda) return true
+      const criterio = this.filtredBusqueda.toLowerCase()
+      return (serv.encargada.toLowerCase().match(criterio)
+        || serv.fechaDesde.toLowerCase().match(criterio)
+        || serv.fechaHasta.toLowerCase().match(criterio)) ? true : false
+    }
+
+    if (Array.isArray(this.cierre)) {
+      const total = this.cierre.filter(cierr => condicionEncargada(cierr)
+        && condicionBuscar(cierr) && condicionEntreFechas(cierr))
+      this.totalValueServicio = total.reduce((accumulator, cierr) => {
+        return accumulator + cierr.total
+      }, 0)
+
+      const efectivo = this.cierre.filter(cierr => condicionEncargada(cierr)
+        && condicionBuscar(cierr) && condicionEntreFechas(cierr))
+      this.totalValueEfectivo = efectivo.reduce((accumulator, cierr) => {
+        return accumulator + cierr.efectivo
+      }, 0)
+
+      const bizum = this.cierre.filter(cierr => condicionEncargada(cierr)
+        && condicionBuscar(cierr) && condicionEntreFechas(cierr))
+      this.totalValueBizum = bizum.reduce((accumulator, cierr) => {
+        return accumulator + cierr.bizum
+      }, 0)
+
+      const tarjeta = this.cierre.filter(cierr => condicionEncargada(cierr)
+        && condicionBuscar(cierr) && condicionEntreFechas(cierr))
+      this.totalValueTarjeta = tarjeta.reduce((accumulator, cierr) => {
+        return accumulator + cierr.tarjeta
+      }, 0)
+
+      const transaccion = this.cierre.filter(cierr => condicionEncargada(cierr)
+        && condicionBuscar(cierr) && condicionEntreFechas(cierr))
+      this.totalValueTrans = transaccion.reduce((accumulator, cierr) => {
+        return accumulator + cierr.transaccion
+      }, 0)
     }
   }
 }

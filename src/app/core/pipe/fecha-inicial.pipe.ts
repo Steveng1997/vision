@@ -10,8 +10,6 @@ export class FechaInicialPipe implements PipeTransform {
       return items;
     }
 
-    debugger
-
     if (items) {
       if (paramFechaInicial === undefined && paramFechaFinal === undefined) return
       if (paramFechaInicial === undefined) return items.filter((item, index) => item.fecha <= paramFechaFinal)

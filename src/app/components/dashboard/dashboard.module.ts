@@ -45,12 +45,15 @@ import { CierreComponent } from './navigation/cierre/cierre.component';
 import { BusquedaEncargadaPipe } from 'src/app/core/pipe/busquedaEncargada.pipe';
 import { FechaInicialEncargadaPipe } from 'src/app/core/pipe/fechaInicial-encargada.pipe';
 import { FechaFinalEncargadaPipe } from 'src/app/core/pipe/fechaFinal-encargada.pipe';
+import { BusquedaCierrePipe } from 'src/app/core/pipe/busquedaCierre.pipe';
+import { FechaCierrePipe } from 'src/app/core/pipe/fechaCierre.pipe';
+import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe';
 
 @NgModule({
-  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent, 
-    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe, 
+  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent,
+    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe,
     FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
-    FechaFinalEncargadaPipe, LoginComponent],
+    FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],
 
   imports: [
     CommonModule,

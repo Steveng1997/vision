@@ -452,6 +452,7 @@ export class EncargadosComponent implements OnInit {
             this.liqEncarg = true
             this.addEncarg = false
             this.editEncarg = false
+            this.selectedEncargada = undefined
             Swal.fire({
               position: 'top-end',
               icon: 'success',

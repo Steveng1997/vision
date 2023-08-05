@@ -155,7 +155,7 @@ export class ServicioService {
 
   geyByCierreTrue(): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
         if (rp[0]?.idDocument) {
           resolve(rp);
         } else {
