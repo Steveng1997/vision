@@ -24,6 +24,8 @@ export class CierreComponent implements OnInit {
   page!: number
   cierreTrue = []
   cierre: any
+  editCierre: boolean
+  datosCierre: any
 
   // Encargada
   encargada: any[] = []
@@ -119,6 +121,7 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
     this.tablas = false
+    this.editCierre = false
     this.tableCierre = true
     this.liqCierre = true
     this.addCierre = false
@@ -154,8 +157,183 @@ export class CierreComponent implements OnInit {
   }
 
   editamos(id: string) {
-    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
-    ])
+    this.tablas = false
+    this.editCierre = true
+    this.tableCierre = false
+    this.addCierre = false
+    this.liqCierre = false
+
+    this.cierreService.getIdTerap(id).then((datosCierre) => {
+      this.horaAsc = datosCierre[0]['horaHasta']
+      this.horaDesc = datosCierre[0]['horaDesde']
+    })
+
+    this.servicioService.getByIdCierre(id).subscribe((datosCierre) => {
+      this.datosCierre = datosCierre;
+
+      this.cierreService.getEncargadaFechaAscByCierreTrue(datosCierre[0]['encargada']).then((fechaAsce) => {
+        this.fechaAsc = datosCierre[0]['fechaHoyInicio']
+      })
+
+      this.cierreService.getEncargadaFechaDescByCierreFalse(datosCierre[0]['encargada']).then((fechaDesce) => {
+        this.fechaDesc = datosCierre[0]['fechaHoyInicio']
+      })
+
+      // Filter by servicio
+      const servicios = this.datosCierre.filter(serv => serv)
+      this.ingresoPeriodo = servicios.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+
+      // Caja Efectivo
+      const cajaEfectivo = this.datosCierre.filter(serv => serv)
+      this.totalCajaEfectivo = cajaEfectivo.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+      // Ingresos Efectivo
+      const ingresosEfectivo = this.datosCierre.filter(serv => serv)
+      this.totalesEfectivo = ingresosEfectivo.reduce((accumulator, serv) => {
+        return accumulator + serv.valueEfectivo
+      }, 0)
+
+      // Caja - Encargada
+
+      // Filter by Encargada Efectivo
+      const totalEncargadaEfect = this.datosCierre.filter(serv => serv)
+      this.cajaEncargEfect = totalEncargadaEfect.reduce((accumulator, serv) => {
+        return accumulator + serv.valueEfectEncargada
+      }, 0)
+
+      // Filter by Encargada Bizu
+      const totalEncargadaBizum = this.datosCierre.filter(serv => serv)
+      this.cajaEncargBizum = totalEncargadaBizum.reduce((accumulator, serv) => {
+        return accumulator + serv.valueBizuEncargada
+      }, 0)
+
+      // Filter by Encargada Tarjeta
+      const totalEncargadaTarjeta = this.datosCierre.filter(serv => serv)
+      this.cajaEncargTarj = totalEncargadaTarjeta.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTarjeEncargada
+      }, 0)
+
+      // Filter by Encargada Transferencia
+      const totalEncargadaTransf = this.datosCierre.filter(serv => serv)
+      this.cajaEncargTrans = totalEncargadaTransf.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTransEncargada
+      }, 0)
+
+      // Caja - Terapeuta
+
+      // Filter by Terapeuta Efectivo
+      const totalTerapeutaEfectivo = this.datosCierre.filter(serv => serv)
+      this.cajaTerapEfect = totalTerapeutaEfectivo.reduce((accumulator, serv) => {
+        return accumulator + serv.valueEfectTerapeuta
+      }, 0)
+
+      // Filter by Terapeuta Bizum
+      const totalTerapeutaBizum = this.datosCierre.filter(serv => serv)
+      this.cajaTerapBizum = totalTerapeutaBizum.reduce((accumulator, serv) => {
+        return accumulator + serv.valueBizuTerapeuta
+      }, 0)
+
+      // Filter by Terapeuta Tarjeta
+      const totalTerapeutaTarjeta = this.datosCierre.filter(serv => serv)
+      this.cajaTerapTarj = totalTerapeutaTarjeta.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTarjeTerapeuta
+      }, 0)
+
+      // Filter by Terapeuta Transferencia
+      const totalTerapeutaTransf = this.datosCierre.filter(serv => serv)
+      this.cajaTerapTrans = totalTerapeutaTransf.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTransTerapeuta
+      }, 0)
+
+      // Pagos Efectivo
+      this.sumaEfectivo = Number(this.cajaEncargEfect) + Number(this.cajaTerapEfect)
+
+      // Caja Bizum
+      const cajaBizum = this.datosCierre.filter(serv => serv)
+      this.totalCajaBizu = cajaBizum.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+      // Ingresos Bizum
+      const ingresosBizum = this.datosCierre.filter(serv => serv)
+      this.totalesBizum = ingresosBizum.reduce((accumulator, serv) => {
+        return accumulator + serv.valueBizum
+      }, 0)
+
+      // Pagos Bizum
+      this.sumaBizum = Number(this.cajaEncargBizum) + Number(this.cajaTerapBizum)
+
+      // Caja Tarjeta
+      const cajaTarjet = this.datosCierre.filter(serv => serv)
+      this.totalCajaTarjeta = cajaTarjet.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+      // Ingresos Tarjeta
+      const ingresosTarjeta = this.datosCierre.filter(serv => serv)
+      this.totalesTarjeta = ingresosTarjeta.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTarjeta
+      }, 0)
+
+      // Pagos Tarjeta
+      this.sumaTarjeta = Number(this.cajaEncargTarj) + Number(this.cajaTerapTarj)
+
+      // Caja Transferencia
+      const cajaTransf = this.datosCierre.filter(serv => serv)
+      this.totalCajaTransfer = cajaTransf.reduce((accumulator, serv) => {
+        return accumulator + serv.totalServicio
+      }, 0)
+
+      // Ingresos Transferencia
+      const ingresosTransf = this.datosCierre.filter(serv => serv)
+      this.totalesTransferencia = ingresosTransf.reduce((accumulator, serv) => {
+        return accumulator + serv.valueTrans
+      }, 0)
+
+      // Pagos Transferencia
+      this.sumaTransfe = Number(this.cajaEncargTrans) + Number(this.cajaTerapTrans)
+
+      // Tabla #2
+
+      // Filter by Piso
+      const piso1 = this.datosCierre.filter(serv => serv)
+      this.totalValuePiso = piso1.reduce((accumulator, serv) => {
+        return accumulator + serv.numberPiso1
+      }, 0)
+
+      // Filter by Piso 2
+      const piso2 = this.datosCierre.filter(serv => serv)
+      this.totalValuePiso2 = piso2.reduce((accumulator, serv) => {
+        return accumulator + serv.numberPiso2
+      }, 0)
+
+      // Filter by Terapeuta
+      const terap = this.datosCierre.filter(serv => serv)
+      this.totalValueTerap = terap.reduce((accumulator, serv) => {
+        return accumulator + serv.numberTerap
+      }, 0)
+
+      // Filter by Encargada
+      const encarg = this.datosCierre.filter(serv => serv)
+      this.totalValueEncarg = encarg.reduce((accumulator, serv) => {
+        return accumulator + serv.numberEncarg
+      }, 0)
+
+      // Filter by Otro
+      const otros = this.datosCierre.filter(serv => serv)
+      this.totalValueOtros = otros.reduce((accumulator, serv) => {
+        return accumulator + serv.numberOtro
+      }, 0)
+
+      // Total Periodo
+      this.sumaPeriodo = this.totalValuePiso + this.totalValuePiso2 +
+        this.totalValueTerap + this.totalValueEncarg + this.totalValueOtros
+    })
   }
 
   getCierre() {
@@ -218,6 +396,7 @@ export class CierreComponent implements OnInit {
     this.liqCierre = false
     this.tableCierre = false
     this.addCierre = true
+    this.editCierre = false
 
     if (this.selectedEncargada == undefined) this.tablas = false
   }
@@ -442,22 +621,23 @@ export class CierreComponent implements OnInit {
   }
 
   guardar() {
-    let conteo = 0
+    let conteo = 0, idCierre = ''
 
     if (this.selectedEncargada) {
       if (this.existe === true) {
 
-        this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
+        this.cierreService.getEncargadaByCierre(this.selectedEncargada).then((datos) => {
+          idCierre = datos[0]['id']
           for (let index = 0; index < datos.length; index++) {
             conteo = datos.length
-            this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'])
+            this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'], idCierre)
           }
 
           this.fechaOrdenada()
 
           this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
             this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
-            this.totalesTarjeta, this.totalesTransferencia, this.currentDate)
+            this.totalesTarjeta, this.totalesTransferencia, this.currentDate, idCierre)
 
           this.getCierre()
           this.tableCierre = true
@@ -476,7 +656,7 @@ export class CierreComponent implements OnInit {
 
       if (this.existe === false) {
 
-        this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datosForFecha) => {
+        this.cierreService.getEncargadaByCierre(this.selectedEncargada).then((datosForFecha) => {
           this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
           this.horaAnterior = datosForFecha[0]['horaStart']
 
@@ -489,16 +669,17 @@ export class CierreComponent implements OnInit {
           this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
 
           this.cierreService.getServicioByEncargadaAndIdUnico(this.selectedEncargada).then((datos) => {
+            idCierre = datos[0]['id']
             for (let index = 0; index < datos.length; index++) {
               conteo = datos.length
-              this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'])
+              this.servicioService.updateCierre(datos[index]['idDocument'], datos[index]['id'], idCierre)
             }
 
             this.fechaOrdenada()
 
             this.cierreService.registerCierre(this.selectedEncargada, this.fechaAnterior, this.fechaHoy, this.horaAnterior,
               this.horaHoy, conteo, this.totalCajaEfectivo, this.totalesEfectivo, this.totalesBizum,
-              this.totalesTarjeta, this.totalesTransferencia, this.currentDate)
+              this.totalesTarjeta, this.totalesTransferencia, this.currentDate, idCierre)
 
             this.getCierre()
             this.tableCierre = true

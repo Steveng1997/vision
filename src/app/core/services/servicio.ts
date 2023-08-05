@@ -137,6 +137,10 @@ export class ServicioService {
     return this.db.collection('servicio', (ref) => ref.where('idTerapeuta', '==', idTerap)).valueChanges();
   }
 
+  getByIdCierre(idCierre) {
+    return this.db.collection('servicio', (ref) => ref.where('idCierre', '==', idCierre)).valueChanges();
+  }
+
   getByIdEncarg(idEncarg) {
     return this.db.collection('servicio', (ref) => ref.where('idEncargada', '==', idEncarg)).valueChanges();
   }
@@ -633,9 +637,10 @@ export class ServicioService {
     });
   }
 
-  updateCierre(idDocument, id) {
+  updateCierre(idDocument, id, idCierre) {
     return this.db.collection('servicio', (ref) => ref.where('id', '==', id)).doc(idDocument).update({
       cierre: true,
+      idCierre: idCierre
     });
   }
 

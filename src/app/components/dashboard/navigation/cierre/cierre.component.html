@@ -2,7 +2,7 @@
 
 
 
-<form [formGroup]="formTemplate" *ngIf="liqCierre">
+<form *ngIf="liqCierre" [formGroup]="formTemplate">
 
     <div class="text-center mt-4 mb-4">
 
@@ -92,7 +92,7 @@
                     <th scope="col">Trans.</th>
                 </tr>
             </thead>
-            <tbody (click)="editamos(serv.id)" *ngFor="let serv of (cierre | encargada: selectedEncargada 
+            <tbody (click)="editamos(serv.idCierre)" *ngFor="let serv of (cierre | encargada: selectedEncargada 
             | fechaCierre: fechaInicio:fechaFinal | busquedaCierre: filtredBusqueda) 
             | paginate: { itemsPerPage: 10, currentPage: page }">
                 <tr style="cursor: pointer;">
@@ -363,4 +363,196 @@
 
     <button *ngIf="tablas" mat-raised-button style="display: grid; margin: auto;" (click)="guardar()"
         color="primary">Guardar</button>
+</div>
+
+
+<!-- Editar Cierre -->
+<div *ngIf="editCierre">
+
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Cierre de {{datosCierre[0]['encargada']}}
+    </h4>
+
+    <div class="container">
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-9">
+                <label style="font-weight: bold; font-size: larger;">Cierre Encargada {{selectedEncargada}}</label>
+            </div>
+
+            <div class="col-3">
+                <label style="font-weight: bold; float: right;">{{ingresoPeriodo + ' €'}}</label>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="col-auto" style="display: contents;">
+            <mat-drawer-container style="float: left;">
+                <mat-drawer-content>{{fechaDesc + ' - ' + horaDesc + ' - ' + fechaAsc + ' ' +
+                    horaAsc}}</mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+
+        <!-- Table Cierre -->
+
+        <div style="display: grid; place-items: center;" class="classTable">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col"></th>
+                            <th scope="col">Caja</th>
+                            <th scope="col">Ingresos</th>
+                            <th scope="col">Pagos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Efectivo</th>
+                            <td>{{totalCajaEfectivo + ' €'}}</td>
+                            <td>{{totalesEfectivo + ' €'}}</td>
+                            <td>{{sumaEfectivo + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bizum</th>
+                            <td>{{totalCajaBizu + ' €'}}</td>
+                            <td>{{totalesBizum + ' €'}}</td>
+                            <td>{{sumaBizum + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tarjeta</th>
+                            <td>{{totalCajaTarjeta + ' €'}}</td>
+                            <td>{{totalesTarjeta + ' €'}}</td>
+                            <td>{{sumaTarjeta + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Transf</th>
+                            <td>{{totalCajaTransfer + ' €'}}</td>
+                            <td>{{totalesTransferencia + ' €'}}</td>
+                            <td>{{sumaTransfe + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Fin Table Cierre -->
+
+        <h4 class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
+
+        <!-- Table -->
+
+        <div style="display: grid; place-items: center; margin-top: 3%;">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <!-- 2 -->
+                            <th scope="col">Terapeuta</th>
+                            <!-- 3 -->
+                            <th scope="col">Salida</th>
+                            <!-- 4 -->
+                            <th scope="col">Hora</th>
+                            <!-- 5 -->
+                            <th scope="col">Pago</th>
+                            <!-- 5 -->
+                            <th scope="col">€ a piso</th>
+                            <!-- 6 -->
+                            <th scope="col">€ a piso 2</th>
+                            <!-- 7 -->
+                            <th scope="col">€ a terap.</th>
+                            <!-- 8 -->
+                            <th scope="col">€ a enc.</th>
+                            <!-- 9 -->
+                            <th scope="col">€ a otros</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cierre of (datosCierre | encargada: selectedEncargada) 
+                            | paginate: { itemsPerPage: 5, currentPage: page }">
+                        <tr>
+                            <!-- 1 -->
+                            <td>{{cierre.terapeuta}}</td>
+                            <!-- 2 -->
+                            <td>{{cierre.salida}}</td>
+                            <!-- 3 -->
+                            <td>{{cierre.horaStart + ' - ' + cierre.horaStart}}</td>
+                            <!-- 4 -->
+                            <td>{{cierre.formaPago}}</td>
+                            <!-- 5 -->
+                            <td>{{cierre.numberPiso1 + ' €'}}</td>
+                            <!-- 6 -->
+                            <td>{{cierre.numberPiso2 + ' €'}}</td>
+                            <!-- 7 -->
+                            <td>{{cierre.numberTerap + ' €'}}</td>
+                            <!-- 8 -->
+                            <td>{{cierre.numberEncarg + ' €'}}</td>
+                            <!-- 9 -->
+                            <td>{{cierre.numberOtro + ' €'}}</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td style="border-top: solid;"></td>
+                            <td style="border-top: solid;"></td>
+                            <td style="border-top: solid;"></td>
+                            <td style="border-top: solid;">Total</td>
+                            <td style="border-top: solid;">{{totalValuePiso + ' €'}}</td>
+                            <td style="border-top: solid;">{{totalValuePiso2 + ' €'}}</td>
+                            <td style="border-top: solid;">{{totalValueTerap + ' €'}}</td>
+                            <td style="border-top: solid;">{{totalValueEncarg + ' €'}}</td>
+                            <td style="border-top: solid;">{{totalValueOtros + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                    nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
+
+        <!-- fin Tabla -->
+
+        <h4 class="PagosPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
+
+        <!-- Table Cierre -->
+
+        <div style="display: grid; place-items: center;" class="classTable">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col"></th>
+                            <th scope="col">Efectivo</th>
+                            <th scope="col">Bizum</th>
+                            <th scope="col">Tarjeta</th>
+                            <th scope="col">Transf</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cierre of datosCierre | encargada: selectedEncargada">
+                        <tr>
+                            <td>{{cierre.terapeuta}}</td>
+                            <td data-label="Efectivo">{{cierre.valueEfectivo + ' €'}}</td>
+                            <td data-label="Bizum">{{cierre.valueBizum + ' €'}}</td>
+                            <td data-label="Tarjeta">{{cierre.valueTarjeta + ' €'}}</td>
+                            <td data-label="Transferencia">{{cierre.valueTrans + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody class="table3">
+                        <tr>
+                            <td style="border-top: solid;">Total</td>
+                            <td data-label="Efectivo" style="border-top: solid;">{{totalesEfectivo + ' €'}}</td>
+                            <td data-label="Bizum" style="border-top: solid;">{{totalesBizum + ' €'}}</td>
+                            <td data-label="Tarjeta" style="border-top: solid;">{{totalesTarjeta + ' €'}}</td>
+                            <td data-label="Transferencia" style="border-top: solid;">{{totalesTransferencia + '
+                                €'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Fin Table Cierre -->
+    </div>
 </div>

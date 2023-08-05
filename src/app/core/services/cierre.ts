@@ -21,7 +21,7 @@ export class CierreService {
   }
 
   registerCierre(encargada, fechaDesde, fechaHasta, horaDesde, horaHasta, tratamiento, total,
-    efectivo, bizum, tarjeta, transaccion, currentDate) {
+    efectivo, bizum, tarjeta, transaccion, currentDate, idCierre) {
     let formularioall = {
       id: `uid${this.makeid(10)}`,
       encargada: encargada,
@@ -35,7 +35,8 @@ export class CierreService {
       bizum: bizum,
       tarjeta: tarjeta,
       transaccion: transaccion,
-      currentDate: currentDate
+      currentDate: currentDate,
+      idCierre: idCierre
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('cierre').add(formularioall).then(
@@ -55,6 +56,60 @@ export class CierreService {
     return new Promise((resolve, _reject) => {
       this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
         .where('cierre', '==', false).orderBy('currentDate', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getIdTerap(idCierre): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('cierre', (ref) => ref.where('idCierre', '==', idCierre))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargadaByCierre(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
+      .where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+        if (rp[0]?.idDocument) {
+          resolve(rp);
+        } else {
+          resolve(rp);
+        }
+      });
+    });
+  }
+
+  getEncargadaFechaAscByCierreTrue(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
+        .where('encargada', '==', encargada).where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargadaFechaDescByCierreFalse(encargada: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('encargada', '==', encargada).where('cierre', '==', true))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {
