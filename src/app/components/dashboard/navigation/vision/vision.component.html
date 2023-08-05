@@ -65,8 +65,8 @@
               d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
           </svg>
         </div>
-        <div class="col-4">
-          <label>{{fechaHoyActual}}</label>
+        <div class="col-4" style="display: contents;">
+          <label style="align-self: flex-end; font-size: 1rem;">{{fechaHoyActual}}</label>
         </div>
         <div class="col-4 btnLeft">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="siguiente()"
@@ -85,7 +85,7 @@
       <div class="col-6 columnCol">
 
         <label class="textServicios">Servicios</label>
-        <hr class="lineaHoy">
+        <!-- <hr class="lineaHoy"> -->
         <div class="colmnIzquierda">
           <div class="row">
             <div class="col-9">
@@ -156,11 +156,11 @@
 
       <div class="col-6 columnColPago">
         <label class="textServicios">Cobros</label>
-        <hr class="lineaHoyFormaPago">
+        <!-- <hr class="lineaHoyFormaPago"> -->
 
         <div class="row">
           <div class="col-9">
-            <label>Piso</label>
+            <label style="font-weight: bold;">Piso</label>
           </div>
           <div class="col-3" style="margin-left: auto;">
             <p>{{totalPisos}}</p>
@@ -169,43 +169,43 @@
 
         <div class="row">
           <div class="col-9">
-            <label>Efectivo</label>
+            <label style="margin-left: 8%;">Efectivo</label>
           </div>
-          <div class="col-3" style="margin-left: auto;">
+          <div class="col-3">
             <p>{{totalEfectivo}}</p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-9">
-            <label>Bizum</label>
+            <label style="margin-left: 8%;">Bizum</label>
           </div>
-          <div class="col-3" style="margin-left: auto;">
+          <div class="col-3">
             <p>{{totalBizum}}</p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-9">
-            <label>Tarjeta</label>
+            <label style="margin-left: 8%;">Tarjeta</label>
           </div>
-          <div class="col-3" style="margin-left: auto;">
+          <div class="col-3">
             <p>{{totalTarjeta}}</p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-9">
-            <label>Transferencia</label>
+            <label style="margin-left: 8%;">Transferencia</label>
           </div>
-          <div class="col-3" style="margin-left: auto;">
+          <div class="col-3">
             <p>{{totalTrasnf}}</p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-9">
-            <label>Terapeuta</label>
+            <label style="font-weight: bold;">Terapeuta</label>
           </div>
           <div class="col-3" style="margin-left: auto;">
             <p>{{totalTerap}}</p>
@@ -214,7 +214,7 @@
 
         <div class="row">
           <div class="col-9">
-            <label>Encargada</label>
+            <label style="font-weight: bold;">Encargada</label>
           </div>
           <div class="col-3" style="margin-left: auto;">
             <p>{{totalEncarg}}</p>
@@ -223,7 +223,7 @@
 
         <div class="row">
           <div class="col-9">
-            <label>Otros</label>
+            <label style="font-weight: bold;">Otros</label>
           </div>
           <div class="col-3" style="margin-left: auto;">
             <p>{{totalOtro}}</p>

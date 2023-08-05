@@ -135,7 +135,6 @@ export class ConfiguracionComponent implements OnInit {
       if (this.formTemplate.value.usuario) {
         if (this.formTemplate.value.pass) {
           this.numberEncargada()
-          debugger
           this.formTemplate.value.nombre = this.formTemplate.value.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
           this.usuarioService.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
             if (nameRegistro[0] == undefined) {
@@ -181,7 +180,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   editarEncargada(idDocument, idEstudiante, encargad: Usuario) {
-    debugger
     encargad.nombre = encargad.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.usuarioService.updateUser(idDocument, idEstudiante, encargad)
     this.modalService.dismissAll()
@@ -343,7 +341,6 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   editarTerapeuta(idDocument, idEstudiante, terap: Trabajadores) {
-    debugger
     terap.nombre = terap.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.trabajadorService.updateTerapeutas(idDocument, idEstudiante, terap)
     this.modalService.dismissAll()

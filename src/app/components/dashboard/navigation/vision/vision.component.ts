@@ -291,12 +291,7 @@ export class VisionComponent implements OnInit {
     const totalValorEncargada = this.vision.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
     this.totalEncarg = totalValorEncargada
 
-    const totalPiso1 = this.vision.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)
-
-    const totalPiso2 = this.vision.map(({ numberPiso2 }) => numberPiso2).reduce((acc, value) => acc + value, 0)
-
-    this.totalPisos = totalPiso1 + totalPiso2
-
+    this.totalPisos = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
   }
 
   atras() {
@@ -455,8 +450,6 @@ export class VisionComponent implements OnInit {
     } else {
       fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
     }
-
-    debugger
 
     if (this.atrasCount > 0) {
       this.atrasCount = 0
