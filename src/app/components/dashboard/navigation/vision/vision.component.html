@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
+<div class="contenido">
   <div class="row text-center">
     <div class="col-6">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle text-primary circleIzquierda"
@@ -39,11 +31,11 @@
       <table class="table">
         <thead>
           <tr class="table-secondary">
-            <th scope="col"></th>
-            <th scope="col">Terapeuta</th>
-            <th scope="col">Salida</th>
-            <th scope="col">Fin</th>
-            <th scope="col">Restante</th>
+            <th scope="col" style="width: 0%;"></th>
+            <th scope="col" style="width: 0%;">Terapeuta</th>
+            <th scope="col" style="width: 0%;">Salida</th>
+            <th scope="col" style="width: 0%;">Fin</th>
+            <th scope="col" style="width: 0%;">Restante</th>
           </tr>
         </thead>
         <tbody *ngFor="let vis of terapeutas">
@@ -152,10 +144,10 @@
           <hr class="lineaHoy">
           <div class="row">
             <div class="col-9">
-              <label>TOTAL</label>
+              <label style="font-weight: bold;">TOTAL</label>
             </div>
             <div class="col-3" style="margin-left: auto;">
-              <p>{{totalVision}}</p>
+              <p style="font-weight: bold;">{{totalVision}}</p>
             </div>
           </div>
         </div>
@@ -163,7 +155,7 @@
       </div>
 
       <div class="col-6 columnColPago">
-        <label class="textServicios">Servicios</label>
+        <label class="textServicios">Cobros</label>
         <hr class="lineaHoyFormaPago">
 
         <div class="row">
@@ -237,13 +229,8 @@
             <p>{{totalOtro}}</p>
           </div>
         </div>
-
-        <!-- <hr class="lineaHoy"> -->
       </div>
 
     </div>
   </div>
-
-</body>
-
-</html>
+</div>

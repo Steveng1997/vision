@@ -159,15 +159,16 @@
         <div class="container">
 
             <div class="cajaEncargada">
-                <mat-form-field class="col-6">
-                    <mat-label>Encargada</mat-label>
-                    <mat-select formControlName="encargada" [(ngModel)]="selectedEncargada"
+
+                <div class="col-6">
+                    <label style="display: contents;">Encargada</label>
+                    <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
                         (ngModelChange)="calcularSumaDeServicios()">
-                        <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                            {{encarg.nombre}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div *ngIf="tablas">

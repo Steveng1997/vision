@@ -70,6 +70,14 @@ export class EncargadosComponent implements OnInit {
   recibidoTerap: any
   totalComision: number
 
+  fechaAnterior: string
+  horaAnterior: string
+  horaHoy = new Date().toTimeString().substring(0, 5)
+  fechaHoy: string
+
+  currentDate = new Date().getTime()
+  existe: boolean
+
   constructor(
     public router: Router,
     public fb: FormBuilder,
@@ -121,6 +129,12 @@ export class EncargadosComponent implements OnInit {
   getLiquidaciones() {
     this.liqudacionEncargServ.getLiquidacionesEncargada().subscribe((datoEncargLiq) => {
       this.liquidacionesEncargada = datoEncargLiq
+
+      if (datoEncargLiq.length > 0) {
+        this.fechaAnterior = datoEncargLiq[0]['hastaFechaLiquidado']
+        this.horaAnterior = datoEncargLiq[0]['hastaHoraLiquidado']
+        this.existe = true
+      } else this.existe = false
     })
   }
 
@@ -156,9 +170,36 @@ export class EncargadosComponent implements OnInit {
   }
 
   addLiquidacion() {
+    this.selectedEncargada = ""
+    this.calcularSumaDeServicios()
+    this.selected = false
     this.liqEncarg = false
     this.editEncarg = false
     this.addEncarg = true
+  }
+
+  fechaOrdenada() {
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = '',
+      convertAno = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+    convertAno = año.toString().substring(2, 4)
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${mes}-${convertAno}`
+    }
+
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.fechaHoy = `${convertDia}-${convertMes}-${convertAno}`
+    } else {
+      this.fechaHoy = `${dia}-${convertMes}-${convertAno}`
+    }
   }
 
   notas(targetModal, modal) {
@@ -175,7 +216,7 @@ export class EncargadosComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    if (this.selectedEncargada != undefined) {
+    if (this.selectedEncargada != "") {
       this.selected = true
 
       this.servicioService.getEncargFechaAsc(this.selectedEncargada).then((fechaAsce) => {
@@ -412,56 +453,88 @@ export class EncargadosComponent implements OnInit {
     })
   }
 
-  crearIdUnico() {
-    var d = new Date().getTime()
-    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0
-      d = Math.floor(d / 16)
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-    })
-    this.idUnico = uuid
-    return this.idUnico
-  }
-
-
   guardar() {
-    let conteo = 0, fechaDesdeDato = '', horaDesdeDato = '', fechaHastaDato = '', horaHastaDato = '', idEncargada = '';
+    let conteo = 0, idEncargada = '';
+
     if (this.selectedEncargada) {
+      if (this.existe === true) {
 
-      this.servicioService.getTerapNoLiquidadaByFechaDesc(this.selectedEncargada).then((datoTerap) => {
-        fechaDesdeDato = datoTerap[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
-        horaDesdeDato = datoTerap[0]['horaStart']
-      })
-      this.servicioService.getTerapNoLiquidadaByFechaAsc(this.selectedEncargada).then((datosEncargada) => {
-        fechaHastaDato = datosEncargada[0]['fechaHoyInicio'].replace("/", '-').replace("/", "-")
-        horaHastaDato = datosEncargada[0]['horaStart']
-      })
-
-      this.servicioService.getEncargadaAndLiquidacion(this.selectedEncargada).then((datos) => {
-        idEncargada = datos[0]['id']
-        for (let index = 0; index < datos.length; index++) {
-          conteo = datos.length
-          this.servicioService.updateLiquidacionEncarg(datos[index]['idDocument'], datos[index]['id'], idEncargada).then((datos) => {
-          })
-        }
-
-        this.crearIdUnico()
-        this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada, fechaDesdeDato, fechaHastaDato,
-          horaDesdeDato, horaHastaDato, conteo, this.totalComision, idEncargada, this.idUnico).then((datos) => {
-            this.getLiquidaciones()
-            this.liqEncarg = true
-            this.addEncarg = false
-            this.editEncarg = false
-            this.selectedEncargada = undefined
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
+        this.servicioService.getEncargadaAndLiquidacion(this.selectedEncargada).then((datos) => {
+          idEncargada = datos[0]['id']
+          for (let index = 0; index < datos.length; index++) {
+            conteo = datos.length
+            this.servicioService.updateLiquidacionEncarg(datos[index]['idDocument'], datos[index]['id'], idEncargada).then((datos) => {
             })
+          }
+
+          this.fechaOrdenada()
+
+          this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada,
+            this.fechaAnterior, this.fechaHoy, this.horaAnterior, this.horaHoy,
+            conteo, this.totalComision, idEncargada, this.currentDate).then((datos) => {
+              this.getLiquidaciones()
+              this.liqEncarg = true
+              this.addEncarg = false
+              this.editEncarg = false
+              this.selected = false
+              this.mostrarFecha = false
+              this.selectedEncargada = ""
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Liquidado Correctamente!',
+                showConfirmButton: false,
+                timer: 2500,
+              })
+            })
+        })
+      }
+
+      if (this.existe === false) {
+
+        this.servicioService.getEncargadaAndLiquidacion(this.selectedEncargada).then((datosForFecha) => {
+          this.fechaAnterior = datosForFecha[0]['fechaHoyInicio']
+          this.horaAnterior = datosForFecha[0]['horaStart']
+
+          let convertMes = '', convertDia = '', convertAno = ''
+
+          convertDia = this.fechaAnterior.toString().substring(8, 11)
+          convertMes = this.fechaAnterior.toString().substring(5, 7)
+          convertAno = this.fechaAnterior.toString().substring(2, 4)
+
+          this.fechaAnterior = `${convertDia}-${convertMes}-${convertAno}`
+
+          this.servicioService.getEncargadaAndLiquidacion(this.selectedEncargada).then((datos) => {
+            idEncargada = datos[0]['id']
+            for (let index = 0; index < datos.length; index++) {
+              conteo = datos.length
+              this.servicioService.updateLiquidacionEncarg(datos[index]['idDocument'], datos[index]['id'], idEncargada).then((datos) => {
+              })
+            }
+
+            this.fechaOrdenada()
+
+            this.liqudacionEncargServ.registerLiquidacionesEncargada(this.selectedEncargada,
+              this.fechaAnterior, this.fechaHoy, this.horaAnterior, this.horaHoy,
+              conteo, this.totalComision, idEncargada, this.currentDate).then((datos) => {
+                this.getLiquidaciones()
+                this.liqEncarg = true
+                this.addEncarg = false
+                this.editEncarg = false
+                this.selected = false
+                this.mostrarFecha = false
+                this.selectedEncargada = ""
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Liquidado Correctamente!',
+                  showConfirmButton: false,
+                  timer: 2500,
+                })
+              })
           })
-      })
+        })
+      }
     } else {
       Swal.fire({
         icon: 'error',

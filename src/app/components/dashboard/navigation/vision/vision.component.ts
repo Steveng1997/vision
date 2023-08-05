@@ -72,6 +72,7 @@ export class VisionComponent implements OnInit {
   }
 
   totalesZero() {
+    this.totalPisos = 0
     this.totalVision = 0
     this.totalServicio = 0
     this.totalBebida = 0
@@ -83,6 +84,7 @@ export class VisionComponent implements OnInit {
     this.totalBizum = 0
     this.totalTarjeta = 0
     this.totalTrasnf = 0
+    this.totalTerap = 0
   }
 
   totalUndefined() {
@@ -440,7 +442,6 @@ export class VisionComponent implements OnInit {
     mesHoy = fechHoy.getMonth() + 1
     añoHoy = fechHoy.getFullYear()
 
-
     if (mesHoy > 0 && mesHoy < 10) {
       convertMesHoy = '0' + mesHoy
       fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
@@ -454,6 +455,8 @@ export class VisionComponent implements OnInit {
     } else {
       fechaEnd = `${añoHoy}/${convertMesHoy}/${diaHoy}`
     }
+
+    debugger
 
     if (this.atrasCount > 0) {
       this.atrasCount = 0

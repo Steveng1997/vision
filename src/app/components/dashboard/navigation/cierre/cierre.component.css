@@ -3,7 +3,7 @@
   white-space: nowrap;
 }
 
-.btnCircle{
+.btnCircle {
   width: 45px;
   height: 45px;
   border-radius: 60px;
@@ -12,10 +12,6 @@
   background-color: #0d6efd;
   border: thick;
   color: white;
-}
-
-.cajaEncargada {
-  text-align: center;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
@@ -48,7 +44,12 @@
     display: contents;
     font-size: x-large;
     color: red;
-}
+  }
+
+  .cajaEncargada {
+    text-align: -webkit-center;
+    margin-top: 10%;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +89,11 @@
     font-size: x-large;
     color: red;
   }
+
+  .cajaEncargada {
+    text-align: -webkit-center;
+    margin-top: 10%;
+  }
 }
 
 @media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
@@ -122,6 +128,10 @@
     font-family: cursive;
     font-size: x-large;
     color: red;
+  }
+
+  .cajaEncargada {
+    text-align: -webkit-center;
   }
 }
 
@@ -158,6 +168,10 @@
     font-size: x-large;
     color: red;
   }
+
+  .cajaEncargada {
+    text-align: -webkit-center;
+  }
 }
 
 @media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
@@ -191,5 +205,9 @@
     font-family: cursive;
     font-size: x-large;
     color: red;
+  }
+
+  .cajaEncargada {
+    text-align: -webkit-center;
   }
 }

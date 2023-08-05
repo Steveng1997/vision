@@ -1,6 +1,6 @@
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .titulos {
-    margin-top: 8%;
+    margin-top: 2%;
     font-size: 1rem;
   }
 
@@ -32,11 +32,19 @@
   .botonesEditar {
     margin-top: 7%;
   }
+
+  .btnGuardar {
+    margin-bottom: 4%
+  }
+
+  .botones {
+    margin-bottom: 4%
+  }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .titulos {
-    margin-top: 3%;
+    margin-top: 1%;
     font-size: 1rem;
   }
 
@@ -67,5 +75,13 @@
 
   .botonesEditar {
     margin-top: 2%;
+  }
+
+  .btnGuardar {
+    margin-bottom: 4%
+  }
+
+  .botones {
+    margin-bottom: 4%
   }
 }
