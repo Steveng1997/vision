@@ -31,24 +31,26 @@
       <table class="table">
         <thead>
           <tr class="table-secondary">
-            <th scope="col" style="width: 0%;"></th>
-            <th scope="col" style="width: 0%;">Terapeuta</th>
-            <th scope="col" style="width: 0%;">Salida</th>
-            <th scope="col" style="width: 0%;">Fin</th>
-            <th scope="col" style="width: 0%;">Restante</th>
+            <th scope="col"></th>
+            <th scope="col">Terapeuta</th>
+            <th scope="col">Salida</th>
+            <th scope="col">Fin</th>
+            <th scope="col">Restante</th>
           </tr>
         </thead>
         <tbody *ngFor="let vis of terapeutas">
-          <tr>
+          <tr style="cursor: pointer;" (click)="editNombre(vis.nombre)">
             <td
               [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '00:00'}">
             </td>
-            <td>{{vis.nombre}}</td>
-            <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+            <td style="line-height: normal">{{vis.nombre}}</td>
+            <td style="line-height: normal"
+              [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
               {{vis.salida}}</td>
-            <td [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+            <td style="line-height: normal"
+              [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
               {{vis.horaEnd}}</td>
-            <td>{{calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd)}}</td>
+            <td style="line-height: normal">{{calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd)}}</td>
           </tr>
         </tbody>
       </table>
@@ -82,155 +84,99 @@
   <div class="columnTable">
     <div class="row text-center tableTotales">
 
-      <div class="col-6 columnCol">
+      <!-- SERVICIOS -->
 
+      <div class="col-6 columnCol" style="font-size: 14px;">
         <label class="textServicios">Servicios</label>
-        <!-- <hr class="lineaHoy"> -->
+        <hr class="lineaHoy">
         <div class="colmnIzquierda">
+
           <div class="row">
-            <div class="col-9">
-              <label>Tratamientos</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalServicio}}</p>
+            <div class="col-9"> <label>Tratamientos</label> </div>
+            <div class="col-3"> {{totalServicio}} </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9"> <label>Bebidas</label> </div>
+            <div class="col-3"> {{totalBebida}} </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9"> <label>Tabaco</label> </div>
+            <div class="col-3"> {{totalTabaco}} </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9"> <label>Vitaminas</label> </div>
+            <div class="col-3"> {{totalVitamina}} </div>
+          </div>
+
+          <div class="row">
+            <div class="col-9"> <label>Propina</label> </div>
+            <div class="col-3"> {{totalPropina}}
             </div>
           </div>
 
           <div class="row">
-            <div class="col-9">
-              <label>Bebidas</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalBebida}}</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-9">
-              <label>Tabaco</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalTabaco}}</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-9">
-              <label>Vitaminas</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalVitamina}}</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-9">
-              <label>Propina</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalPropina}}</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-9">
-              <label>Otros</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p>{{totalOtros}}</p>
-            </div>
+            <div class="col-9"> <label>Otros</label> </div>
+            <div class="col-3"> {{totalOtros}} </div>
           </div>
 
           <hr class="lineaHoy">
-          <div class="row">
-            <div class="col-9">
-              <label style="font-weight: bold;">TOTAL</label>
-            </div>
-            <div class="col-3" style="margin-left: auto;">
-              <p style="font-weight: bold;">{{totalVision}}</p>
-            </div>
+
+          <div class="row" style="font-weight: bold">
+            <div class="col-9"> <label>TOTAL</label> </div>
+            <div class="col-3"> {{totalVision}} </div>
           </div>
         </div>
-
       </div>
 
-      <div class="col-6 columnColPago">
+      <!-- COBROS -->
+
+      <div class="col-6 columnColPago" style="font-size: 14px;">
         <label class="textServicios">Cobros</label>
-        <!-- <hr class="lineaHoyFormaPago"> -->
+        <hr class="lineaHoyFormaPago">
 
-        <div class="row">
-          <div class="col-9">
-            <label style="font-weight: bold;">Piso</label>
-          </div>
-          <div class="col-3" style="margin-left: auto;">
-            <p>{{totalPisos}}</p>
-          </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-9"> <label>Piso</label> </div>
+          <div class="col-3" style="display: grid;"> {{totalPisos}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="margin-left: 8%;">Efectivo</label>
-          </div>
-          <div class="col-3">
-            <p>{{totalEfectivo}}</p>
-          </div>
+        <div class="row" style="margin-left: 5%">
+          <div class="col-9"> <label>Efectivo</label> </div>
+          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalEfectivo}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="margin-left: 8%;">Bizum</label>
-          </div>
-          <div class="col-3">
-            <p>{{totalBizum}}</p>
-          </div>
+        <div class="row" style="margin-left: 5%">
+          <div class="col-9"> <label>Bizum</label> </div>
+          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalBizum}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="margin-left: 8%;">Tarjeta</label>
-          </div>
-          <div class="col-3">
-            <p>{{totalTarjeta}}</p>
-          </div>
+        <div class="row" style="margin-left: 5%">
+          <div class="col-9"> <label>Tarjeta</label> </div>
+          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTarjeta}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="margin-left: 8%;">Transferencia</label>
-          </div>
-          <div class="col-3">
-            <p>{{totalTrasnf}}</p>
-          </div>
+        <div class="row" style="margin-left: 5%">
+          <div class="col-9"> <label>Transferencia</label> </div>
+          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTrasnf}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="font-weight: bold;">Terapeuta</label>
-          </div>
-          <div class="col-3" style="margin-left: auto;">
-            <p>{{totalTerap}}</p>
-          </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-9"> <label>Terapeuta</label> </div>
+          <div class="col-3" style="display: grid;"> {{totalTerap}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="font-weight: bold;">Encargada</label>
-          </div>
-          <div class="col-3" style="margin-left: auto;">
-            <p>{{totalEncarg}}</p>
-          </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-9"> <label>Encargada</label> </div>
+          <div class="col-3" style="display: grid;"> {{totalEncarg}} </div>
         </div>
 
-        <div class="row">
-          <div class="col-9">
-            <label style="font-weight: bold;">Otros</label>
-          </div>
-          <div class="col-3" style="margin-left: auto;">
-            <p>{{totalOtro}}</p>
-          </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-9"> <label>Otros</label> </div>
+          <div class="col-3" style="display: grid;"> {{totalOtro}} </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

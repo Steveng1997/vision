@@ -8,6 +8,12 @@
   margin-left: 20%;
 }
 
+.table-secondary {
+  --bs-table-bg: transparent;
+  background-color: transparent;
+  outline: outset;
+}
+
 .acomodarInput {
   margin-top: 3%;
 }
@@ -16,8 +22,39 @@
   left: 63%;
 }
 
-.table-secondary {
-  --bs-table-bg: cornflowerblue;
+tr {
+  line-height: 0%;
+}
+
+th {
+  white-space: nowrap;
+}
+
+.quitarBordes {
+  border-style: hidden;
+  border-bottom: outset;
+  border-left: outset;
+  border-right: outset;
+}
+
+.quitarBordesVacio {
+  border-style: hidden;
+  line-height: 0%;
+}
+
+.quitarBordeTable {
+  border-right: outset;
+}
+
+.quitarbordesTotal {
+  border-bottom: solid;
+  border-left: solid;
+  border-right: solid;
+}
+
+.bordeTotal {
+  border-top: solid;
+  border-right: solid;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {

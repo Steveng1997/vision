@@ -136,9 +136,7 @@
                 </div>
             </div>
 
-
             <!---------------------------------------- COBROS  ---------------------------------------->
-
 
             <div class="row titulos">
                 <div class="col-4">
@@ -332,8 +330,8 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Terapeuta</label>
-                    <select class="form-select" [(ngModel)]="edServ.terapeuta" name="terapeuta">
-                        <option selected value="">Selecciona</option>
+                    <select class="form-select" [(ngModel)]="editarTerapeuta">
+                        <!-- <option selected value="">Selecciona</option> -->
                         <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
                         </option>
                     </select>
@@ -342,7 +340,6 @@
                 <div class="col-6">
                     <label style="display: contents;">Encargada</label>
                     <select class="form-select" [(ngModel)]="edServ.encargada" name="encargada">
-                        <option selected value="">Selecciona</option>
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
                         </option>
                     </select>
@@ -473,7 +470,7 @@
                 </div>
 
                 <div class="col-8">
-                    <label class="font-weight-bold sumaServicios">{{sumatoriaCobros + ' €'}}</label>
+                    <label class="font-weight-bold sumaServicios">{{sumatoriaCobrosEdit + ' €'}}</label>
                 </div>
             </div>
             <hr>
@@ -644,14 +641,6 @@
                         (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
                 </mar-form-field>
             </div>
-
-            <!-- Fin servicio -->
-
-            <mat-form-field style="display: grid; align-self: center;">
-                <mat-label>Notas:</mat-label>
-                <textarea matInput [(ngModel)]="edServ.nota" name="nota"></textarea>
-            </mat-form-field>
-        </div>
 
         <!-- Fin servicio -->
 

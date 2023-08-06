@@ -343,8 +343,6 @@ export class TablaComponent implements OnInit {
   }
 
   editamos(id: string) {
-    this.router.navigate([
-      `menu/${this.idUser['id']}/nuevo-servicio/${id}`,
-    ])
+    this.router.navigate([`menu/${this.idUser['id']}/nuevo-servicio/${id}`])
   }
 }

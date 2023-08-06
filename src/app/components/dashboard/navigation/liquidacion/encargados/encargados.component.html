@@ -46,33 +46,35 @@
 <div *ngIf="liqEncarg" class="container">
     <table class="table">
         <thead>
-            <tr class="table-secondary">
+            <tr class="table-secondary" style="line-height: 0%;">
                 <!-- 1 -->
-                <th scope="col">Encargada</th>
+                <th scope="col" style="width: 0%; white-space: nowrap;">Encargada</th>
                 <!-- 2 -->
-                <th scope="col">Desde</th>
+                <th scope="col" style="width: 0%; white-space: nowrap;">Desde</th>
                 <!-- 3 -->
-                <th scope="col">Hasta</th>
+                <th scope="col" style="width: 0%; white-space: nowrap;">Hasta</th>
                 <!-- 4 -->
-                <th scope="col">Tratamiento</th>
+                <th scope="col" style="width: 0%; white-space: nowrap;">Tratamiento</th>
                 <!-- 5 -->
-                <th scope="col">Importe</th>
+                <th scope="col" style="width: 0%; white-space: nowrap;">Importe</th>
             </tr>
         </thead>
         <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: selectedEncargada
         | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) |
         paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
-            <tr style="cursor: pointer;">
+            <tr style="cursor: pointer; line-height: 0%;">
                 <!-- 1 -->
-                <td>{{liqEncarg.encargada}}</td>
+                <td style="white-space: nowrap;">{{liqEncarg.encargada}}</td>
                 <!-- 2 -->
-                <td>{{liqEncarg.desdeFechaLiquidado + ' - ' + liqEncarg.desdeHoraLiquidado}}</td>
+                <td style="white-space: nowrap;">{{liqEncarg.desdeFechaLiquidado + ' - ' +
+                    liqEncarg.desdeHoraLiquidado}}</td>
                 <!-- 3 -->
-                <td>{{liqEncarg.hastaFechaLiquidado + ' - ' + liqEncarg.hastaHoraLiquidado}}</td>
+                <td style="white-space: nowrap;">{{liqEncarg.hastaFechaLiquidado + ' - ' +
+                    liqEncarg.hastaHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td>{{liqEncarg.tratamiento}}</td>
+                <td style="white-space: nowrap;">{{liqEncarg.tratamiento}}</td>
                 <!-- 5 -->
-                <td>{{liqEncarg.importe}}</td>
+                <td style="white-space: nowrap;">{{liqEncarg.importe}}</td>
             </tr>
 
             <!-- Modal -->
@@ -152,67 +154,67 @@
 
             <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">
                 <div style="text-align: center; width: max-content;">
-                    <table class="table">
+                    <table class="table" style="line-height: 0%;">
                         <thead>
-                            <tr class="table-secondary">
+                            <tr class="table-secondary" style="line-height: 0%;">
                                 <!-- 1 -->
-                                <th scope="col">Nota</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Nota</th>
                                 <!-- 2 -->
-                                <th scope="col">Fecha</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Fecha</th>
                                 <!-- 3 -->
-                                <th scope="col">Salida</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Salida</th>
                                 <!-- 4 -->
-                                <th scope="col">Terapeuta</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Terapeuta</th>
                                 <!-- 5 -->
-                                <th scope="col">Hora</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Hora</th>
                                 <!-- 6 -->
-                                <th scope="col">Tratamiento</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Tratamiento</th>
                                 <!-- 7 -->
-                                <th scope="col">Propina</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Propina</th>
                                 <!-- 8 -->
-                                <th scope="col">Pago</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Pago</th>
                                 <!-- 9 -->
-                                <th scope="col">€ a Encarg</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">€ a Encarg</th>
                                 <!-- 10 -->
-                                <th scope="col">Bebida</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Bebida</th>
                                 <!-- 11 -->
-                                <th scope="col">Tabaco</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Tabaco</th>
                                 <!-- 12 -->
-                                <th scope="col">Vitamina</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Vitamina</th>
                                 <!-- 13 -->
-                                <th scope="col">Otros</th>
+                                <th scope="col" style="width: 0%; white-space: nowrap;">Otros</th>
                             </tr>
                         </thead>
                         <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: selectedEncargada) |
                         paginate: { itemsPerPage: 10, currentPage: page }">
-                            <tr style="cursor: pointer;">
+                            <tr style="cursor: pointer; line-height: 0%;">
                                 <!-- 1 -->
                                 <td [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)">
                                 </td>
                                 <!-- 2 -->
-                                <td (click)="editamos(serv.id)">{{serv.fecha}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.fecha}}</td>
                                 <!-- 3 -->
-                                <td (click)="editamos(serv.id)">{{serv.terapeuta}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.terapeuta}}</td>
                                 <!-- 4 -->
-                                <td (click)="editamos(serv.id)">{{serv.salida}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.salida}}</td>
                                 <!-- 5 -->
-                                <td (click)="editamos(serv.id)">{{serv.horaStart}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.horaStart}}</td>
                                 <!-- 6 -->
-                                <td (click)="editamos(serv.id)">{{serv.servicio}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.servicio}}</td>
                                 <!-- 7 -->
-                                <td (click)="editamos(serv.id)">{{serv.propina}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.propina}}</td>
                                 <!-- 8 -->
-                                <td (click)="editamos(serv.id)">{{serv.formaPago}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.formaPago}}</td>
                                 <!-- 9 -->
-                                <td (click)="editamos(serv.id)">{{serv.numberEncarg}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.numberEncarg}}</td>
                                 <!-- 10 -->
-                                <td (click)="editamos(serv.id)">{{serv.bebidas}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.bebidas}}</td>
                                 <!-- 11 -->
-                                <td (click)="editamos(serv.id)">{{serv.tabaco}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.tabaco}}</td>
                                 <!-- 12 -->
-                                <td (click)="editamos(serv.id)">{{serv.vitaminas}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.vitaminas}}</td>
                                 <!-- 13 -->
-                                <td (click)="editamos(serv.id)">{{serv.otros}}</td>
+                                <td (click)="editamos(serv.id)" style="white-space: nowrap;">{{serv.otros}}</td>
                             </tr>
 
                             <!-- Modal -->
@@ -237,33 +239,40 @@
 
                         </tbody>
 
-                        <tr>
+                        <tr style="line-height: 0%;">
                             <!-- 1 -->
-                            <td scope="col"></td>
+                            <td scope="col" style="white-space: nowrap;"></td>
                             <!-- 2 -->
-                            <td scope="col"></td>
+                            <td scope="col" style="white-space: nowrap;"></td>
                             <!-- 3 -->
-                            <td scope="col"></td>
+                            <td scope="col" style="white-space: nowrap;"></td>
                             <!-- 4 -->
-                            <td scope="col"></td>
+                            <td scope="col" style="white-space: nowrap;"></td>
                             <!-- 5 -->
-                            <td scope="col"></td>
+                            <td scope="col" style="white-space: nowrap;"></td>
                             <!-- 6 -->
-                            <td scope="col" style="font-weight: bold">{{totalServicio + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{totalServicio + ' €'}}
+                            </td>
                             <!-- 7 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorPropina + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{totalValorPropina + ' €'}}
+                            </td>
                             <!-- 8 -->
-                            <td scope="col" style="font-weight: bold"></td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;"></td>
                             <!-- 9 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorEncargada + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{totalValorEncargada + '
+                                €'}}</td>
                             <!-- 10 -->
-                            <td scope="col" style="font-weight: bold">{{TotalValorBebida + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{TotalValorBebida + ' €'}}
+                            </td>
                             <!-- 11 -->
-                            <td scope="col" style="font-weight: bold">{{TotalValorTabaco + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{TotalValorTabaco + ' €'}}
+                            </td>
                             <!-- 12 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorVitaminas + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{totalValorVitaminas + '
+                                €'}}</td>
                             <!-- 13 -->
-                            <td scope="col" style="font-weight: bold">{{totalValorOtroServ + ' €'}}</td>
+                            <td scope="col" style="font-weight: bold; white-space: nowrap;">{{totalValorOtroServ + '
+                                €'}}</td>
                         </tr>
                     </table>
 
@@ -278,51 +287,51 @@
 
         <div *ngIf="selected" style="display: grid; place-items: center; margin-top: 0%;">
             <div style="text-align: center; width: max-content;">
-                <table class="table">
+                <table class="table" style="line-height: 0%;">
                     <thead>
                         <tr class="table-secondary">
-                            <th scope="col"></th>
-                            <th scope="col">Suma</th>
-                            <th scope="col">Comisión</th>
-                            <th scope="col">Total</th>
+                            <th scope="col" style="white-space: nowrap;"></th>
+                            <th scope="col" style="white-space: nowrap;">Suma</th>
+                            <th scope="col" style="white-space: nowrap;">Comisión</th>
+                            <th scope="col" style="white-space: nowrap;">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Tratamiento</th>
-                            <td>{{totalServicio + ' €'}}</td>
-                            <td>{{encargadaName['servicio'] + ' %'}}</td>
-                            <td>{{comisionServicio + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Tratamiento</th>
+                            <td style="white-space: nowrap;">{{totalServicio + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['servicio'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionServicio + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Propina</th>
-                            <td>{{totalValorPropina + ' €'}}</td>
-                            <td>{{encargadaName['propina'] + ' %'}}</td>
-                            <td>{{comisionPropina + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Propina</th>
+                            <td style="white-space: nowrap;">{{totalValorPropina + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['propina'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionPropina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Bebida</th>
-                            <td>{{TotalValorBebida + ' €'}}</td>
-                            <td>{{encargadaName['bebida'] + ' %'}}</td>
-                            <td>{{comisionBebida + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Bebida</th>
+                            <td style="white-space: nowrap;">{{TotalValorBebida + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['bebida'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionBebida + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Tabaco</th>
-                            <td>{{TotalValorTabaco + ' €'}}</td>
-                            <td>{{encargadaName['tabaco'] + ' %'}}</td>
-                            <td>{{comisionTabaco + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Tabaco</th>
+                            <td style="white-space: nowrap;">{{TotalValorTabaco + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['tabaco'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionTabaco + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Vitamina</th>
-                            <td>{{totalValorVitaminas + ' €'}}</td>
-                            <td>{{encargadaName['vitamina'] + ' %'}}</td>
-                            <td>{{comisionVitamina + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Vitamina</th>
+                            <td style="white-space: nowrap;">{{totalValorVitaminas + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['vitamina'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionVitamina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Otros</th>
-                            <td>{{totalValorOtroServ + ' €'}}</td>
-                            <td>{{encargadaName['otros'] + ' %'}}</td>
-                            <td>{{comisionOtros + ' €'}}</td>
+                            <th scope="row" style="white-space: nowrap;">Otros</th>
+                            <td style="white-space: nowrap;">{{totalValorOtroServ + ' €'}}</td>
+                            <td style="white-space: nowrap;">{{encargadaName['otros'] + ' %'}}</td>
+                            <td style="white-space: nowrap;">{{comisionOtros + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row"></th>

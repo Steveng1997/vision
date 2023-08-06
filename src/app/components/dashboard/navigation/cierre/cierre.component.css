@@ -14,6 +14,18 @@
   color: white;
 }
 
+.table-secondary {
+  --bs-table-bg: auto;
+}
+
+tr {
+  line-height: 0%;
+}
+
+th {
+  white-space: nowrap;
+}
+
 @media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
   .tableCierre {
     margin-top: 15%;

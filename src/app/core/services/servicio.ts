@@ -27,7 +27,8 @@ export class ServicioService {
   registerServicio(formularioall, idUnico, formaPago, fecha, horaStart, totalServicio, horaEnd, fechaHoyInicio,
     valueEfectivo, valueBizum, valueTarjeta, valueTrans, valueEfectTerapeuta, valueBizuTerapeuta,
     valueTarjeTerapeuta, valueTransTerapeuta, valueEfectEncargada, valueBizuEncargada, valueTarjeEncargada,
-    valueTransEncargada, currentDate) {
+    valueTransEncargada, currentDate, valuePiso1Efectivo, valuePiso1Bizum, valuePiso1Tarjeta,
+    valuePiso1Transaccion, valuePiso2Efectivo, valuePiso2Bizum, valuePiso2Tarjeta, valuePiso2Transaccion) {
     formularioall = {
       id: `uid${this.makeid(10)}`,
       terapeuta: formularioall.terapeuta,
@@ -94,6 +95,15 @@ export class ServicioService {
       idTerapeuta: '',
       idEncargada: '',
       idCierre: '',
+
+      valuePiso1Efectivo: valuePiso1Efectivo,
+      valuePiso1Bizum: valuePiso1Bizum,
+      valuePiso1Tarjeta: valuePiso1Tarjeta,
+      valuePiso1Transaccion: valuePiso1Transaccion,
+      valuePiso2Efectivo: valuePiso2Efectivo,
+      valuePiso2Bizum: valuePiso2Bizum,
+      valuePiso2Tarjeta: valuePiso2Tarjeta,
+      valuePiso2Transaccion: valuePiso2Transaccion
     };
     return new Promise<any>((resolve, reject) => {
       this.db.collection('servicio').add(formularioall).then(
@@ -458,6 +468,19 @@ export class ServicioService {
     return new Promise((resolve, _reject) => {
       this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
         .where('encargada', '==', encargada).where('liquidadoEncargada', '==', true)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+          if (rp[0]?.idDocument) {
+            resolve(rp);
+          } else {
+            resolve(rp);
+          }
+        });
+    });
+  }
+
+  getEncargadaWithCurrentDate(nombre: string): Promise<any> {
+    return new Promise((resolve, _reject) => {
+      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
+        .where('terapeuta', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {

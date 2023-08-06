@@ -1,6 +1,16 @@
-.contenido {
-  overflow-x: hidden;
-  overflow-y: hidden;
+tr {
+  line-height: 0%;
+}
+
+th {
+  white-space: nowrap;
+}
+
+table,
+tr,
+td {
+  border-style: hidden;
+  line-height: 0%;
 }
 
 table {
@@ -8,7 +18,8 @@ table {
 }
 
 .table-secondary {
-  --bs-table-bg: cornflowerblue;
+  --bs-table-bg: transparent;
+  background-color: transparent;
 }
 
 .nota {
@@ -28,7 +39,7 @@ table {
   border-radius: 50%;
   display: block;
   margin-top: 20%;
-  margin-left: 20%;
+  margin-left: -34%;
 }
 
 .disponible2 {
@@ -38,7 +49,7 @@ table {
   border-radius: 50%;
   display: block;
   margin-top: 20%;
-  margin-left: 20%;
+  margin-left: -34%;
 }
 
 .disponibleEncargada {
@@ -52,7 +63,7 @@ table {
   border-radius: 50%;
   display: block;
   margin-top: 20%;
-  margin-left: 20%;
+  margin-left: -34%;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
@@ -79,6 +90,7 @@ table {
 
   .flechaFecha {
     margin-bottom: 14%;
+    width: 145%;
   }
 
   .hijo {
@@ -141,10 +153,10 @@ table {
   }
 
   .tableTotales {
-    margin-top: -4%;
+    margin-top: -6%;
     margin-left: inherit;
     justify-self: center;
-    line-height: 46%;
+    line-height: 100%;
   }
 
   .columnTable {
@@ -163,13 +175,23 @@ table {
 
   .textServicios {
     margin-top: 15%;
-    margin-bottom: 9%;
+    margin-bottom: 0%;
     font-weight: bold;
+  }
+
+  .totalHoy {
+    display: grid;
+    justify-items: center;
+  }
+
+  .contenido {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: -9%;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-
   .circleIzquierda {
     width: 25%;
     height: 25%;
@@ -182,18 +204,18 @@ table {
 
   .totalHoy {
     display: grid;
-    max-width: 15%;
-    place-items: center;
+    justify-items: center;
   }
 
   .flechaFecha {
     margin-bottom: 25%;
+    width: 145%;
   }
 
   .padre {
     display: grid;
     place-items: center;
-    margin-top: -6%;
+    margin-top: -2%;
   }
 
   .hijo {
@@ -250,7 +272,7 @@ table {
 
   .textServicios {
     margin-top: 0%;
-    margin-bottom: 10%;
+    margin-bottom: 0%;
     font-weight: bold;
   }
 
@@ -268,12 +290,12 @@ table {
     margin-top: 4%;
     margin-left: inherit;
     justify-self: center;
-    line-height: 50%;
+    line-height: 100%;
   }
 
   .columnTable {
-    margin-top: -4%;
     display: grid;
+    margin-top: -4%;
   }
 
   .columnCol {
@@ -289,4 +311,10 @@ table {
   .fechas {
     margin-top: -3%
   }
+
+  .contenido {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: -2%;
+  }  
 }

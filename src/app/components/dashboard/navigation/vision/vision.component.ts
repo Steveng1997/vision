@@ -68,7 +68,6 @@ export class VisionComponent implements OnInit {
     })
     this.getServicio()
     this.getTerapeuta()
-    this.totalUndefined()
   }
 
   totalesZero() {
@@ -85,16 +84,7 @@ export class VisionComponent implements OnInit {
     this.totalTarjeta = 0
     this.totalTrasnf = 0
     this.totalTerap = 0
-  }
-
-  totalUndefined() {
-    if (this.totalVision == undefined) this.totalVision = 0
-    if (this.totalServicio == undefined) this.totalServicio = 0
-    if (this.totalBebida == undefined) this.totalBebida = 0
-    if (this.totalTabaco == undefined) this.totalTabaco = 0
-    if (this.totalVitamina == undefined) this.totalVitamina = 0
-    if (this.totalPropina == undefined) this.totalPropina = 0
-    if (this.totalOtros == undefined) this.totalOtros = 0
+    this.totalOtro = 0
   }
 
   getTerapeuta() {
@@ -123,7 +113,7 @@ export class VisionComponent implements OnInit {
 
   getServicio() {
     this.fechadeHoy()
-    this.fechaHoyActual = 'Hoy'
+    this.fechaHoyActual = 'HOY'
     this.servicioService.getFechaHoy(this.fechaDiaHoy).then((datoServicio) => {
       this.vision = datoServicio
 
@@ -250,6 +240,9 @@ export class VisionComponent implements OnInit {
 
   // Suma de TOTALES
   sumaTotalVision() {
+    let efectPiso1 = 0, efectPiso2 = 0, bizumPiso1 = 0, bizumPiso2 = 0, tarjetaPiso1 = 0, tarjetaPiso2 = 0,
+      transfPiso1 = 0, transfPiso2 = 0
+
     const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
     this.totalServicio = totalServ
 
@@ -273,23 +266,46 @@ export class VisionComponent implements OnInit {
 
     // total de las Formas de pagos
 
-    const totalValorEfectivo = this.vision.map(({ valueEfectivo }) => valueEfectivo).reduce((acc, value) => acc + value, 0)
-    this.totalEfectivo = totalValorEfectivo
+    const totalPiso1Efect = this.vision.map(({ valuePiso1Efectivo }) => valuePiso1Efectivo).reduce((acc, value) => acc + value, 0)
+    efectPiso1 = totalPiso1Efect
 
-    const totalValorBizum = this.vision.map(({ valueBizum }) => valueBizum).reduce((acc, value) => acc + value, 0)
-    this.totalBizum = totalValorBizum
+    const totalPiso2Efect = this.vision.map(({ valuePiso2Efectivo }) => valuePiso2Efectivo).reduce((acc, value) => acc + value, 0)
+    efectPiso2 = totalPiso2Efect
 
-    const totalValorTarjeta = this.vision.map(({ valueTarjeta }) => valueTarjeta).reduce((acc, value) => acc + value, 0)
-    this.totalTarjeta = totalValorTarjeta
+    this.totalEfectivo = efectPiso1 + efectPiso2
 
-    const totalValorTransferencia = this.vision.map(({ valueTrans }) => valueTrans).reduce((acc, value) => acc + value, 0)
-    this.totalTrasnf = totalValorTransferencia
+    const totalPiso1Bizum = this.vision.map(({ valuePiso1Bizum }) => valuePiso1Bizum).reduce((acc, value) => acc + value, 0)
+    bizumPiso1 = totalPiso1Bizum
+
+    const totalPiso2Bizum = this.vision.map(({ valuePiso2Bizum }) => valuePiso2Bizum).reduce((acc, value) => acc + value, 0)
+    bizumPiso2 = totalPiso2Bizum
+
+    this.totalBizum = bizumPiso1 + bizumPiso2
+
+    const totalPiso1Tarjeta = this.vision.map(({ valuePiso1Tarjeta }) => valuePiso1Tarjeta).reduce((acc, value) => acc + value, 0)
+    tarjetaPiso1 = totalPiso1Tarjeta
+
+    const totalPiso2Tarjeta = this.vision.map(({ valuePiso2Tarjeta }) => valuePiso2Tarjeta).reduce((acc, value) => acc + value, 0)
+    tarjetaPiso2 = totalPiso2Tarjeta
+
+    this.totalTarjeta = tarjetaPiso1 + tarjetaPiso2
+
+    const totalPiso1Transaccion = this.vision.map(({ valuePiso1Transaccion }) => valuePiso1Transaccion).reduce((acc, value) => acc + value, 0)
+    transfPiso1 = totalPiso1Transaccion
+
+    const totalPiso2Transaccion = this.vision.map(({ valuePiso2Transaccion }) => valuePiso2Transaccion).reduce((acc, value) => acc + value, 0)
+    transfPiso2 = totalPiso2Transaccion
+
+    this.totalTrasnf = transfPiso1 + transfPiso2
 
     const totalValorTerapeuta = this.vision.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
     this.totalTerap = totalValorTerapeuta
 
     const totalValorEncargada = this.vision.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
     this.totalEncarg = totalValorEncargada
+
+    const totalValorOtro = this.vision.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
+    this.totalOtro = totalValorOtro
 
     this.totalPisos = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
   }
@@ -321,13 +337,15 @@ export class VisionComponent implements OnInit {
       this.siguienteCount = 0
       this.count = 0
       this.count++
-      let convertmes = '', convertDia = '', convertAño = '', fechaHoy = '', mes = '', fechaActualmente = ''
+      let convertmes = '', convertDia = '', convertAño = '', fechaHoy = '', mes = '',
+        fechaActualmente = '', convertionAño
 
       for (let i = 0; i < this.count; i++) {
         this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)
         convertAño = this.fechaFormat.toString().substring(11, 15)
+        convertionAño = this.fechaFormat.toString().substring(13, 15)
 
         if (convertmes == 'Dec') mes = "12"
         if (convertmes == 'Nov') mes = "11"
@@ -345,10 +363,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}/${mes}/${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'Hoy'
+          this.fechaHoyActual = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${mes}/${convertDia}`
+          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
@@ -373,7 +391,7 @@ export class VisionComponent implements OnInit {
       this.count = 0
       this.count++
       let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
-        convertFecha = '', fechaActualmente = ''
+        convertFecha = '', fechaActualmente = '', convertionAño
 
       for (let i = 0; i < this.count; i++) {
 
@@ -383,6 +401,7 @@ export class VisionComponent implements OnInit {
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)
         convertAño = this.fechaFormat.toString().substring(11, 15)
+        convertionAño = this.fechaFormat.toString().substring(13, 15)
 
         if (convertmes == 'Dec') mes = "12"
         if (convertmes == 'Nov') mes = "11"
@@ -400,10 +419,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}/${mes}/${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'Hoy'
+          this.fechaHoyActual = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${mes}/${convertDia}`
+          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
@@ -474,13 +493,15 @@ export class VisionComponent implements OnInit {
       this.count = 0
       this.count++
 
-      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '', fechaActualmente = ''
+      let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
+        fechaActualmente = '', convertionAño = ''
 
       for (let i = 0; i < this.count; i++) {
         this.fechaFormat.setDate(this.fechaFormat.getDate() + this.count)
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)
         convertAño = this.fechaFormat.toString().substring(11, 15)
+        convertionAño = this.fechaFormat.toString().substring(13, 15)
 
         if (convertmes == 'Dec') mes = "12"
         if (convertmes == 'Nov') mes = "11"
@@ -498,10 +519,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}/${mes}/${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'Hoy'
+          this.fechaHoyActual = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${mes}/${convertDia}`
+          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
@@ -529,7 +550,7 @@ export class VisionComponent implements OnInit {
       this.count = 0
       this.count++
       let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
-        convertFecha = '', fechaActualmente = ''
+        convertFecha = '', fechaActualmente = '', convertionAño
 
       var result = new Date(new Date().toISOString())
       for (let i = 0; i < this.count; i++) {
@@ -541,6 +562,7 @@ export class VisionComponent implements OnInit {
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)
         convertAño = this.fechaFormat.toString().substring(11, 15)
+        convertionAño = this.fechaFormat.toString().substring(13, 15)
 
         if (convertmes == 'Dec') mes = "12"
         if (convertmes == 'Nov') mes = "11"
@@ -558,10 +580,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}/${mes}/${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'Hoy'
+          this.fechaHoyActual = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${mes}/${convertDia}`
+          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}/${mes}/${convertDia}`
@@ -581,8 +603,12 @@ export class VisionComponent implements OnInit {
         return true
       }
     }
-
-
     return false
+  }
+
+  editNombre(nombre: string) {
+    this.servicioService.getEncargadaWithCurrentDate(nombre).then((rp) => {
+      if (rp.length > 0) this.router.navigate([`menu/${this.idUser['id']}/nuevo-servicio/${rp[0]['id']}`])
+    })
   }
 }
