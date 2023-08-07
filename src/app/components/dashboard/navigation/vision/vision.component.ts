@@ -246,6 +246,12 @@ export class VisionComponent implements OnInit {
     const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
     this.totalServicio = totalServ
 
+    debugger
+    if (this.totalServicio > 999) {
+      // this.totalServicio = parseFloat(this.totalServicio.toString())
+      // this.totalServicio = Number(this.totalServicio.toLocaleString())
+    }
+
     const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
     this.totalBebida = totalValorBebida
 

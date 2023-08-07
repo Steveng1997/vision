@@ -187,7 +187,7 @@ table {
   .contenido {
     overflow-x: hidden;
     overflow-y: hidden;
-    margin-top: -9%;
+    margin-top: 0%;
   }
 }
 
@@ -315,6 +315,6 @@ table {
   .contenido {
     overflow-x: hidden;
     overflow-y: hidden;
-    margin-top: -2%;
+    margin-top: 0%;
   }  
 }
