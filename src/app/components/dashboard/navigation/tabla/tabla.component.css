@@ -12,19 +12,6 @@ table {
   width: max-content;
 }
 
-.table-secondary {
-  --bs-table-bg: transparent;
-  background-color: transparent;
-}
-
-.acomodarInput {
-  margin-top: 3%;
-}
-
-.espacioTotales {
-  left: 63%;
-}
-
 tr {
   line-height: 0%;
   font-size: 14px;
@@ -40,40 +27,38 @@ td {
   font-size: 14px;
 }
 
+.table-secondary {
+  --bs-table-bg: transparent;
+  background-color: transparent;
+}
+
+.acomodarInput {
+  margin-top: 3%;
+}
+
+.espacioTotales {
+  left: 63%;
+}
+
 .quitarBordes {
-  border-style: hidden;
-  border-bottom: outset;
-  border-left: outset;
-  border-right: outset;
   line-height: 100%;
 }
 
 .quitarBordesVacio {
   border-style: hidden;
-  line-height: 0%;
-  line-height: 100%;
-}
-
-.quitarBordeTable {
-  border-right: outset;
-}
-
-.quitarbordesTotal {
-  border-bottom: solid;
-  border-left: solid;
-  border-right: solid;
 }
 
 .lbelTotal {
   border: hidden;
   font-weight: bold;
   color: red;
-  border-right: solid;
   border-color: black;
+  padding: 14px 0px;
 }
 
 .bordeTotal {
-  border-top: solid;
+  border: hidden;
+  padding: 14px;
   text-align: right;
 }
 
