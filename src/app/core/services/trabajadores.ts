@@ -82,7 +82,7 @@ export class TrabajadoresService {
   }
 
   getAllTerapeuta() {
-    return this.db.collection('terapeutas', (ref) => ref.orderBy('nombre', 'asc')).valueChanges()
+    return this.db.collection('terapeutas', (ref) => ref.orderBy('id', 'asc')).valueChanges()
   }
 
   getAllTerapeutaByOrden() {

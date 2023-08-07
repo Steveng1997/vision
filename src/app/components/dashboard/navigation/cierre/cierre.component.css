@@ -15,7 +15,26 @@
 }
 
 .table-secondary {
-  --bs-table-bg: auto;
+  --bs-table-bg: transparent;
+  background-color: transparent;
+}
+
+.quitarBordesVacio {
+  border-style: hidden;
+  line-height: 0%;
+}
+
+.lbelTotal {
+  border: hidden;
+  font-weight: bold;
+  color: red;
+  border-right: solid;
+  border-color: black;
+}
+
+.bordeTotal {
+  border-top: solid;  
+  border-bottom: solid;
 }
 
 tr {
@@ -69,7 +88,6 @@ th {
  Query para Pantalla grande */
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
-
   .tableCierre {
     margin-top: 15%;
   }
@@ -109,7 +127,6 @@ th {
 }
 
 @media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
-
   .tableCierre {
     margin-top: 6%;
   }
@@ -148,7 +165,6 @@ th {
 }
 
 @media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
-
   .tableCierre {
     margin-top: 15%;
   }

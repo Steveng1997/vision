@@ -21,25 +21,19 @@ export class TablaComponent implements OnInit {
   fechaInicio: string
   fechaFinal: string
   filtredBusqueda: string
-
   page!: number
 
-  prestamosArray: any[] = []
-  equiposArray: any[] = []
-
   // Terapeuta
-
-  terapeuta: any[] = []
+  terapeuta: any
   selectedTerapeuta: string
 
   // Encargada
-
-  encargada: any[] = []
+  encargada: any
   selectedEncargada: string
   selectedFormPago: string
 
   servicio: any
-  horario: any[] = []
+  horario: any
 
   fileName = 'tabla.xlsx'
   idUser: string
@@ -64,6 +58,7 @@ export class TablaComponent implements OnInit {
     terapeuta: new FormControl(''),
     encargada: new FormControl(''),
     busqueda: new FormControl(''),
+    formaPago: new FormControl('')
   })
 
   constructor(
@@ -80,6 +75,10 @@ export class TablaComponent implements OnInit {
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'TABLA'
+
+    this.selectedTerapeuta = ""
+    this.selectedEncargada = ""
+    this.selectedFormPago = ""
 
     this.idUser = this.activeRoute.snapshot.paramMap.get('id')
     this.loginService.getById(this.idUser).then((rp) => {
@@ -116,11 +115,8 @@ export class TablaComponent implements OnInit {
     })
   }
 
-  calcularSumaDeServicios() {
-
-    if (this.formTemplate.value.busqueda != "") {
-      this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-    }
+  filtro() {
+    this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
@@ -139,6 +135,11 @@ export class TablaComponent implements OnInit {
       añoFin = fechaFin.substring(2, 4)
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
+
+    this.calcularSumaDeServicios()
+  }
+
+  calcularSumaDeServicios() {
 
     const condicionTerapeuta = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
@@ -163,12 +164,12 @@ export class TablaComponent implements OnInit {
 
     const condicionBuscar = serv => {
       if (!this.filtredBusqueda) return true
-      const criterio = this.filtredBusqueda.toLowerCase()
-      return (serv.terapeuta.toLowerCase().match(criterio)
-        || serv.encargada.toLowerCase().match(criterio)
-        || serv.formaPago.toLowerCase().match(criterio)
-        || serv.fecha.toLowerCase().match(criterio)
-        || serv.cliente.toLowerCase().match(criterio)) ? true : false
+      const criterio = this.filtredBusqueda
+      return (serv.terapeuta.match(criterio)
+        || serv.encargada.match(criterio)
+        || serv.formaPago.match(criterio)
+        || serv.fecha.match(criterio)
+        || serv.cliente.match(criterio)) ? true : false
     }
 
     // Filter by Servicio

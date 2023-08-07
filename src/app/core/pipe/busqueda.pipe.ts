@@ -5,19 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BusquedaPipe implements PipeTransform {
 
-  transform(items: any[], param: string): any {
+  transform(items: any, param: string): any {
 
-    if (!param || param?.length < 1) {
-      return items;
-    }
+    if (!param || param === undefined) return items;
+    if (!items) return [];
 
     if (items) {
-
-      return items.filter((item) => item.terapeuta.match(param.toLowerCase().slice(1))
-        || item.encargada.match(param.toLowerCase().slice(1)) || item.fecha.match(param)
-        || item.horaStart.match(param) || item.cliente.match(param.toLowerCase().slice(1))
-        || item.horaEnd.match(param) || item.salida.match(param) 
-        || item.formaPago.indexOf(param.toLowerCase().slice(1)) > -1);
+      return items.filter((item) => item.terapeuta.match(param.slice(0))
+        || item.encargada.match(param.slice(0)) || item.fecha.match(param.slice(0))
+        || item.horaStart.match(param.slice(0)) || item.horaEnd.match(param.slice(0))
+        || item.cliente.match(param.slice(0)) || item.salida.match(param.slice(0))
+        || item.formaPago.match(param.slice(0)));
     }
   }
 }

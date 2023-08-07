@@ -1,57 +1,139 @@
 .color2 {
-    background: blue;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 10%;
-    margin-left: 20%;
-}
-
-.mat-divider {
-    border-top-color: red;
-}
-
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: white;
-}
-
-.table-secondary {
-    --bs-table-bg: cornflowerblue;
-    white-space: nowrap;
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: 20%;
 }
 
 .inputEncargada {
-    place-content: center;
+  place-content: center;
+}
+
+table {
+  width: max-content;
+}
+
+.table-secondary {
+  --bs-table-bg: transparent;
+  background-color: transparent;
+}
+
+tr {
+  line-height: 0%;
+  font-size: 14px;
+}
+
+th {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+th,
+td {
+  font-size: 14px;
+}
+
+.quitarBordes {
+  border-style: hidden;
+  border-bottom: outset;
+  border-left: outset;
+  border-right: outset;
+  line-height: 100%;
+}
+
+.quitarBordesVacio {
+  border-style: hidden;
+  line-height: 0%;
+  line-height: 100%;
+}
+
+.quitarBordeTable {
+  border-right: outset;
+}
+
+.quitarbordesTotal {
+  border-bottom: solid;
+  border-left: solid;
+  border-right: solid;
+}
+
+.lbelTotal {
+  border: hidden;
+  font-weight: bold;
+  color: red;
+  border-right: solid;
+  border-color: black;
+}
+
+.bordeTotal {
+  border-top: solid;
+  text-align: right;
+}
+
+.quitarBordes2 {
+  border-style: hidden;
+  line-height: 100%;
+}
+
+.bordes {
+  border: hidden;
+}
+
+.quitarBordes4 {
+  border-style: hidden;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+  .acomodarInput {
+    margin-top: 2.5%;
+  }
 
-    .classTable {
-        margin-top: 15%;
-    }
+  .classTable {
+    margin-top: 15%;
+  }
 
-    .noHayCierre {
-        font-size: x-large;
-        color: red;
-        container-type: inline-size;
-    }
+  .noHayCierre {
+    font-size: 14px;
+    color: red;
+    container-type: inline-size;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
 }
 
-/* ------------------------------------------------------------------------------------------------
-   ---------------------------------------------------------------------------------------------------
-   Query para Pantalla grande */
-
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+  .acomodarInput {
+    margin-top: 1%;
+  }
 
-    .classTable {
-        margin-top: 8%;
-    }
+  .classTable {
+    margin-top: 8%;
+  }
 
-    .noHayCierre {
-        text-align: center;
-        font-family: cursive;
-        font-size: x-large;
-        color: red;
-    }
+  .noHayCierre {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -0.5%;
+    width: 100%;
+  }
 }

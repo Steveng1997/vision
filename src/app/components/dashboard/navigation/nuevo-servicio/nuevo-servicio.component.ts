@@ -38,7 +38,6 @@ export class NuevoServicioComponent implements OnInit {
   salidaTrabajador = ''
 
   horaInicialServicio: string
-  fechaPrint: string
   servicioTotal = 0
 
   horaFinalServicio: string
@@ -69,13 +68,11 @@ export class NuevoServicioComponent implements OnInit {
   valueTransEncargada = 0
 
   // Editar
-
   restamosCobroEdit = 0
   sumatoriaCobrosEdit = 0
 
   idEditar: string
   editarService: Servicio[]
-  editarTerapeuta: any
   editamos = false
   idUserAdministrador: string
   idUser: string
@@ -108,6 +105,7 @@ export class NuevoServicioComponent implements OnInit {
   valuePiso2Transaccion = 0
 
   terapEdit: any
+  terapeutaSelect: any
 
   formTemplate = new FormGroup({
     terapeuta: new FormControl(''),
@@ -216,12 +214,6 @@ export class NuevoServicioComponent implements OnInit {
   getTerapeuta() {
     this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta) => {
       this.terapeuta = datosTerapeuta
-    })
-  }
-
-  getTerapeutaEdit(nombre: string) {
-    this.trabajadorService.getByNombre(nombre).then((datosTerapeuta) => {
-      this.editarTerapeuta = datosTerapeuta[0]['nombre']
     })
   }
 
@@ -618,7 +610,6 @@ export class NuevoServicioComponent implements OnInit {
 
         return true
       }
-
 
       // Bizum
       if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.bizuPiso1 == true &&
@@ -1522,8 +1513,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   transCheckToggle(event: any) {
-
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
+
     if (!this.validacionesFormaPagoAdd()) return
 
     if (event) {
@@ -1956,6 +1947,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   validacionFormasPago() {
+
     if (this.formTemplate.value.numberPiso1 != null && this.formTemplate.value.efectPiso1 == false && this.formTemplate.value.bizuPiso1 == false &&
       this.formTemplate.value.tarjPiso1 == false && this.formTemplate.value.transPiso1 == false) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
@@ -2107,7 +2099,14 @@ export class NuevoServicioComponent implements OnInit {
 
     this.editarService[0]['fecha'] = `${dia}-${mes}-${año}`
   }
-  
+
+  getTerapeutaEdit(nombre: string) {
+    console.log(nombre)
+    this.trabajadorService.getByNombre(nombre).then((resp) => {
+      this.terapeutaSelect = resp
+    })
+  }
+
   cargar() {
     let fecha = new Date(), dia = '', mes = '', año = 0
 
@@ -2122,7 +2121,7 @@ export class NuevoServicioComponent implements OnInit {
         document.getElementById('idTitulo').innerHTML = 'Editar servicio'
 
         this.editarService = datosServicio
-        this.getTerapeutaEdit(datosServicio[0]['terapeuta'])
+        this.getTerapeutaEdit(datosServicio[0].terapeuta)
 
         // Fechas
         dia = this.editarService[0].fecha.substring(0, 2)

@@ -127,6 +127,14 @@ export class ServicioService {
     });
   }
 
+  getByTerapeutaAndEncargada(terapeuta: string, encargada: string) {
+    return this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).where('encargada', '==', encargada)).valueChanges();
+  }
+
+  getByEncargada(encargada: string) {
+    return this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada).where("liquidadoEncargada", "==", false)).valueChanges();
+  }
+
   getServicio() {
     return this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').orderBy('horaStart', 'desc')).valueChanges();
   }
@@ -479,8 +487,8 @@ export class ServicioService {
 
   getEncargadaWithCurrentDate(nombre: string): Promise<any> {
     return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-        .where('terapeuta', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
+      this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', nombre).orderBy('currentDate', 'desc'))
+        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
           if (rp[0]?.idDocument) {
             resolve(rp);
           } else {

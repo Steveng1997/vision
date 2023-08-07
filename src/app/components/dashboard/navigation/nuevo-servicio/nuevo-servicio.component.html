@@ -310,9 +310,11 @@
             </div>
 
             <div class="titulos">
-                <button type="submit" class="btn btn-primary titulos btnGuardar" style="display: grid; margin: auto;">
+                <button type="submit" mat-raised-button class="btn btn-primary titulos btnGuardar"
+                    style="display: grid; margin: auto;" color="primary">Guardar</button>
+                <!-- <button type="submit" class="btn btn-primary titulos btnGuardar" style="display: grid; margin: auto;">
                     Guardar
-                </button>
+                </button> -->
             </div>
         </div>
     </form>
@@ -321,18 +323,17 @@
 <!------------------------------------------ Editar ------------------------------------------>
 
 <div class="container" *ngIf="editamos">
-    <div *ngFor="let edServ of editarService">
+    <div>
 
         <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Editar</h4>
 
-        <div class="container">
+        <div class="container" *ngFor="let edServ of editarService">
             <div class="row inputSelect">
 
                 <div class="col-6">
                     <label style="display: contents;">Terapeuta</label>
-                    <select class="form-select" [(ngModel)]="editarTerapeuta">
-                        <!-- <option selected value="">Selecciona</option> -->
-                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
+                    <select class="form-select" [(ngModel)]="edServ.terapeuta" name="terapeuta">
+                        <option *ngFor="let terap of terapeutaSelect" [value]="terap.nombre">{{terap.nombre}}
                         </option>
                     </select>
                 </div>
@@ -642,35 +643,35 @@
                 </mar-form-field>
             </div>
 
-        <!-- Fin servicio -->
+            <!-- Fin servicio -->
 
-        <hr class="titulos">
+            <hr class="titulos">
 
-        <div class="row titulos">
-            <div class="col-12">
-                <label>Notas</label>
-                <textarea type="text" class="form-control" [(ngModel)]="edServ.nota" name="nota"></textarea>
+            <div class="row titulos">
+                <div class="col-12">
+                    <label>Notas</label>
+                    <textarea type="text" class="form-control" [(ngModel)]="edServ.nota" name="nota"></textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="titulos botonesEditar" *ngFor="let edServ of editarService">
-            <div class="row botones">
+            <div class="titulos botonesEditar" *ngFor="let edServ of editarService">
+                <div class="row botones">
 
-                <div class="col-4">
-                    <button class="btn btn-primary titulos" style="display: grid; margin: auto;"
-                        (click)="editarServicio(edServ.idDocument, edServ.id, edServ)">Guardar</button>
-                </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary titulos" style="display: grid; margin: auto;"
+                            (click)="editarServicio(edServ.idDocument, edServ.id, edServ)">Guardar</button>
+                    </div>
 
-                <div class="col-4">
-                    <button class="btn btn-success titulos" style="display: grid; margin: auto;"
-                        (click)="cancelar()">Cancelar</button>
-                </div>
+                    <div class="col-4">
+                        <button class="btn btn-success titulos" style="display: grid; margin: auto;"
+                            (click)="cancelar()">Cancelar</button>
+                    </div>
 
-                <div class="col-4" *ngIf="buttonDelete">
-                    <button class="btn btn-danger titulos" style="display: grid; margin: auto;"
-                        (click)="eliminarServicio(edServ.id)">Eliminar</button>
+                    <div class="col-4" *ngIf="buttonDelete">
+                        <button class="btn btn-danger titulos" style="display: grid; margin: auto;"
+                            (click)="eliminarServicio(edServ.id)">Eliminar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

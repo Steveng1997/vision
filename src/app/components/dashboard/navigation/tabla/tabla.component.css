@@ -8,10 +8,13 @@
   margin-left: 20%;
 }
 
+table {
+  width: max-content;
+}
+
 .table-secondary {
   --bs-table-bg: transparent;
   background-color: transparent;
-  outline: outset;
 }
 
 .acomodarInput {
@@ -24,10 +27,17 @@
 
 tr {
   line-height: 0%;
+  font-size: 14px;
 }
 
 th {
   white-space: nowrap;
+  font-size: 14px;
+}
+
+th,
+td {
+  font-size: 14px;
 }
 
 .quitarBordes {
@@ -35,11 +45,13 @@ th {
   border-bottom: outset;
   border-left: outset;
   border-right: outset;
+  line-height: 100%;
 }
 
 .quitarBordesVacio {
   border-style: hidden;
   line-height: 0%;
+  line-height: 100%;
 }
 
 .quitarBordeTable {
@@ -52,24 +64,28 @@ th {
   border-right: solid;
 }
 
+.lbelTotal {
+  border: hidden;
+  font-weight: bold;
+  color: red;
+  border-right: solid;
+  border-color: black;
+}
+
 .bordeTotal {
   border-top: solid;
-  border-right: solid;
+  text-align: right;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .acomodarInput {
-    margin-top: 5%;
+    margin-top: 4.5%;
   }
 }
 
-/* ------------------------------------------------------------------------------------------------
- ---------------------------------------------------------------------------------------------------
- Query para Pantalla grande */
-
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .acomodarInput {
-    margin-top: 2%;
+    margin-top: 3%;
   }
 
   .tabla {
