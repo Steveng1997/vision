@@ -40,6 +40,10 @@
   .botones {
     margin-bottom: 4%
   }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
@@ -83,5 +87,9 @@
 
   .botones {
     margin-bottom: 4%
+  }
+
+  .btnIconos {
+    margin-top: 2%;
   }
 }

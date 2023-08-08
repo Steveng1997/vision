@@ -47,17 +47,17 @@
 <div *ngIf="liqEncarg" class="container" style="margin-top: 3%; text-align: -webkit-center;">
     <table class="table">
         <thead>
-            <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal; outline: outset;">
+            <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
                 <!-- 1 -->
-                <th scope="col" class="quitarBordeTable">Encargada</th>
+                <th style="border-bottom: 1px solid blue; text-align: center;">Encargada</th>
                 <!-- 2 -->
-                <th scope="col" class="quitarBordeTable">Desde</th>
+                <th style="border-bottom: 1px solid blue; text-align: center;">Desde</th>
                 <!-- 3 -->
-                <th scope="col" class="quitarBordeTable">Hasta</th>
+                <th style="border-bottom: 1px solid blue; text-align: center;">Hasta</th>
                 <!-- 4 -->
-                <th scope="col" class="quitarBordeTable">Tratamiento</th>
+                <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
                 <!-- 5 -->
-                <th scope="col">Importe</th>
+                <th style="border-bottom: 1px solid blue; text-align: center;">Importe</th>
             </tr>
         </thead>
         <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: selectedEncargada
@@ -65,17 +65,18 @@
         paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
             <tr style="cursor: pointer">
                 <!-- 1 -->
-                <td class="quitarBordes" style="text-align: left;">{{liqEncarg.encargada}}</td>
+                <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">{{liqEncarg.encargada}}</td>
                 <!-- 2 -->
-                <td class="quitarBordes" style="text-align: left;">{{liqEncarg.desdeFechaLiquidado + ' - ' +
-                    liqEncarg.desdeHoraLiquidado}}</td>
+                <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
+                    {{liqEncarg.desdeFechaLiquidado + ' - ' + liqEncarg.desdeHoraLiquidado}}</td>
                 <!-- 3 -->
-                <td class="quitarBordes" style="text-align: left;">{{liqEncarg.hastaFechaLiquidado + ' - ' +
-                    liqEncarg.hastaHoraLiquidado}}</td>
+                <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
+                    {{liqEncarg.hastaFechaLiquidado + ' - ' + liqEncarg.hastaHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td class="quitarBordes" style="text-align: right;">{{liqEncarg.tratamiento}}</td>
+                <td class="quitarBordes" style="text-align: right; border-bottom: hidden;">{{liqEncarg.tratamiento}}
+                </td>
                 <!-- 5 -->
-                <td class="quitarBordes" style="text-align: right;">{{liqEncarg.importe}}</td>
+                <td class="quitarBordes" style="text-align: right; border-bottom: hidden;">{{liqEncarg.importe}}</td>
             </tr>
 
             <!-- Modal -->
@@ -151,78 +152,89 @@
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>
-                            <tr class="table-secondary quitarBordes"
-                                style="line-height: 0%; letter-spacing: normal; outline: outset;">
+                            <tr class="table-secondary quitarBordes" style="line-height: 0%">
                                 <!-- 1 -->
-                                <th scope="col" class="quitarBordeTable">Nota</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Nota</th>
                                 <!-- 2 -->
-                                <th scope="col" class="quitarBordeTable">Fecha</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Fecha</th>
                                 <!-- 3 -->
-                                <th scope="col" class="quitarBordeTable">Salida</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
                                 <!-- 4 -->
-                                <th scope="col" class="quitarBordeTable">Terapeuta</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Terapeuta</th>
                                 <!-- 5 -->
-                                <th scope="col" class="quitarBordeTable">Hora</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
                                 <!-- 6 -->
-                                <th scope="col" class="quitarBordeTable">Tratamiento</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
                                 <!-- 7 -->
-                                <th scope="col" class="quitarBordeTable">Propina</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Propina</th>
                                 <!-- 8 -->
-                                <th scope="col" class="quitarBordeTable">Pago</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
                                 <!-- 9 -->
-                                <th scope="col" class="quitarBordeTable">€ a Encarg</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a Encarg</th>
                                 <!-- 10 -->
-                                <th scope="col" class="quitarBordeTable">Bebida</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Bebida</th>
                                 <!-- 11 -->
-                                <th scope="col" class="quitarBordeTable">Tabaco</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Tabaco</th>
                                 <!-- 12 -->
-                                <th scope="col" class="quitarBordeTable">Vitamina</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Vitamina</th>
                                 <!-- 13 -->
-                                <th scope="col" class="quitarBordeTable">Otros</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Otros</th>
                             </tr>
                         </thead>
                         <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: selectedEncargada) |
                         paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer">
                                 <!-- 1 -->
-                                <td class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"
-                                    (click)="notas(serv.id, modalTabl)">
+                                <td class="quitarBordes" style="border-bottom: hidden;"
+                                    [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)">
                                 </td>
                                 <!-- 2 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: left; border-bottom: hidden;">
                                     {{serv.fecha}}</td>
                                 <!-- 3 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: left; border-bottom: hidden;">
                                     {{serv.terapeuta}}</td>
                                 <!-- 4 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: left; border-bottom: hidden;">
                                     {{serv.salida}}</td>
                                 <!-- 5 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: left; border-bottom: hidden;">
                                     {{serv.horaStart}}</td>
                                 <!-- 6 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.servicio}}</td>
                                 <!-- 7 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.propina}}</td>
                                 <!-- 8 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: left; border-bottom: hidden;">
                                     {{serv.formaPago}}</td>
                                 <!-- 9 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.numberEncarg}}</td>
                                 <!-- 10 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.bebidas}}</td>
                                 <!-- 11 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.tabaco}}</td>
                                 <!-- 12 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.vitaminas}}</td>
                                 <!-- 13 -->
-                                <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                                <td (click)="editamos(serv.id)" class="quitarBordes"
+                                    style="text-align: right; border-bottom: hidden;">
                                     {{serv.otros}}</td>
                             </tr>
 
@@ -298,67 +310,67 @@
             <div style="text-align: center; width: max-content;">
                 <table class="table">
                     <thead>
-                        <tr class="table-secondary quitarBordes4">
-                            <th scope="col" class="bordes"></th>
-                            <th scope="col" class="quitarBordeTable" style="outline: outset;">Suma</th>
-                            <th scope="col" class="quitarBordeTable" style="outline: outset;">Comisión</th>
-                            <th scope="col" class="quitarBordeTable" style="outline: outset;">Total</th>
+                        <tr class="table-secondary">
+                            <th style="border-bottom: hidden;"></th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Tratamiento</th>
-                            <td class="quitarBordes2">{{totalServicio + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['servicio'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionServicio + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Tratamiento</th>
+                            <td style="border-bottom: hidden;">{{totalServicio + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['servicio'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionServicio + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Propina</th>
-                            <td class="quitarBordes2">{{totalValorPropina + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['propina'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionPropina + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Propina</th>
+                            <td style="border-bottom: hidden;">{{totalValorPropina + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['propina'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionPropina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Bebida</th>
-                            <td class="quitarBordes2">{{TotalValorBebida + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['bebida'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionBebida + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Bebida</th>
+                            <td style="border-bottom: hidden;">{{TotalValorBebida + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['bebida'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionBebida + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Tabaco</th>
-                            <td class="quitarBordes2">{{TotalValorTabaco + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['tabaco'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionTabaco + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Tabaco</th>
+                            <td style="border-bottom: hidden;">{{TotalValorTabaco + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['tabaco'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionTabaco + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Vitamina</th>
-                            <td class="quitarBordes2">{{totalValorVitaminas + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['vitamina'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionVitamina + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Vitamina</th>
+                            <td style="border-bottom: hidden;">{{totalValorVitaminas + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['vitamina'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionVitamina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="quitarBordes2">Otros</th>
-                            <td class="quitarBordes2">{{totalValorOtroServ + ' €'}}</td>
-                            <td class="quitarBordes2">{{encargadaName['otros'] + ' %'}}</td>
-                            <td class="quitarBordes2">{{comisionOtros + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;">Otros</th>
+                            <td style="border-bottom: hidden;">{{totalValorOtroServ + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{encargadaName['otros'] + ' %'}}</td>
+                            <td style="border-bottom: hidden;">{{comisionOtros + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bordes"></th>
-                            <td class="bordes"></td>
-                            <td class="quitarBordes2">Suma</td>
-                            <td class="quitarBordes2">{{sumaComision + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden;"></th>
+                            <td style="border-bottom: hidden;"></td>
+                            <td style="border-bottom: hidden;">Suma</td>
+                            <td style="border-bottom: hidden;">{{sumaComision + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bordes"></th>
-                            <td class="bordes"></td>
-                            <td class="quitarBordes2" style="border-bottom: solid;">Recibido</td>
-                            <td class="quitarBordes2" style="border-bottom: solid;">{{recibidoTerap}}</td>
+                            <th scope="row" style="border-bottom: hidden;"></th>
+                            <td style="border-bottom: hidden;"></td>
+                            <td style="border-bottom: 1px solid blue; text-align: center;">Recibido</td>
+                            <td style="border-bottom: 1px solid blue; text-align: center;">{{recibidoTerap}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="bordes"></th>
-                            <td class="bordes"></td>
-                            <td class="quitarBordes2">Total</td>
-                            <td class="quitarBordes2">{{totalComision}}</td>
+                            <th scope="row" style="border-bottom: hidden;"></th>
+                            <td style="border-bottom: hidden;"></td>
+                            <td style="border-bottom: hidden;">Total</td>
+                            <td style="border-bottom: hidden;">{{totalComision}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -381,7 +393,8 @@
 <!-- Editar Encargada -->
 <div *ngIf="editEncarg">
 
-    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">Visualizacion de la liquidación
+    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">Visualizacion de la
+        liquidación
         de {{datosLiquidadoEncargada[0]['encargada']}}
     </label>
 
@@ -409,78 +422,89 @@
             <div style="text-align: center; width: max-content;">
                 <table class="table">
                     <thead>
-                        <tr class="table-secondary quitarBordes"
-                            style="line-height: 0%; letter-spacing: normal; outline: outset;">
+                        <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
                             <!-- 1 -->
-                            <th scope="col" class="quitarBordeTable">Nota</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Nota</th>
                             <!-- 2 -->
-                            <th scope="col" class="quitarBordeTable">Fecha</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Fecha</th>
                             <!-- 3 -->
-                            <th scope="col" class="quitarBordeTable">Terapeuta</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Terapeuta</th>
                             <!-- 4 -->
-                            <th scope="col" class="quitarBordeTable">Salida</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
                             <!-- 5 -->
-                            <th scope="col" class="quitarBordeTable">Hora</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
                             <!-- 6 -->
-                            <th scope="col" class="quitarBordeTable">Tratamiento</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
                             <!-- 7 -->
-                            <th scope="col" class="quitarBordeTable">Propina</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Propina</th>
                             <!-- 8 -->
-                            <th scope="col" class="quitarBordeTable">Pago</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
                             <!-- 9 -->
-                            <th scope="col" class="quitarBordeTable">€ a terap</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a terap</th>
                             <!-- 10 -->
-                            <th scope="col" class="quitarBordeTable">Bebida</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Bebida</th>
                             <!-- 11 -->
-                            <th scope="col" class="quitarBordeTable">Tabaco</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Tabaco</th>
                             <!-- 12 -->
-                            <th scope="col" class="quitarBordeTable">Vitamina</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Vitamina</th>
                             <!-- 13 -->
-                            <th scope="col" class="quitarBordeTable">Otros</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Otros</th>
                         </tr>
                     </thead>
                     <tbody *ngFor="let serv of (datosLiquidadoEncargada | encargada: selectedEncargada) | 
                     paginate: { itemsPerPage: 10, currentPage: page }">
                         <tr style="cursor: pointer;">
                             <!-- 1 -->
-                            <td class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"
-                                (click)="notas(serv.id, modalTabl)">
+                            <td class="quitarBordes" style="border-bottom: hidden;"
+                                [ngClass]="{'color2':serv.nota !== ''}" (click)="notas(serv.id, modalTabl)">
                             </td>
                             <!-- 2 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: left; border-bottom: hidden;">
                                 {{serv.fecha}}</td>
                             <!-- 3 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: left; border-bottom: hidden;">
                                 {{serv.terapeuta}}</td>
                             <!-- 4 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: left; border-bottom: hidden;">
                                 {{serv.salida}}</td>
                             <!-- 5 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">{{serv.hora}}
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: left; border-bottom: hidden;">{{serv.hora}}
                             </td>
                             <!-- 6 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.servicio}}</td>
                             <!-- 7 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.propina}}</td>
                             <!-- 8 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: left;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: left; border-bottom: hidden;">
                                 {{serv.formaPago}}</td>
                             <!-- 9 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.numberEncarg}}</td>
                             <!-- 10 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.bebidas}}</td>
                             <!-- 11 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.tabaco}}</td>
                             <!-- 12 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.vitaminas}}</td>
                             <!-- 13 -->
-                            <td (click)="editamos(serv.id)" class="quitarBordes" style="text-align: right;">
+                            <td (click)="editamos(serv.id)" class="quitarBordes"
+                                style="text-align: right; border-bottom: hidden;">
                                 {{serv.otros}}</td>
                         </tr>
 
@@ -547,67 +571,67 @@
         <div style="text-align: center; width: max-content;">
             <table class="table">
                 <thead>
-                    <tr class="table-secondary quitarBordes4">
-                        <th scope="col" class="bordes"></th>
-                        <th scope="col" class="quitarBordeTable" style="outline: outset;">Suma</th>
-                        <th scope="col" class="quitarBordeTable" style="outline: outset;">Comisión</th>
-                        <th scope="col" class="quitarBordeTable" style="outline: outset;">Total</th>
+                    <tr class="table-secondary">
+                        <th style="border-bottom: hidden;"></th>
+                        <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
+                        <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
+                        <th style="border-bottom: 1px solid blue; text-align: center;">Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Tratamiento</th>
-                        <td class="quitarBordes2">{{totalServicio + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['servicio'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionServicio + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Tratamiento</th>
+                        <td style="border-bottom: hidden;">{{totalServicio + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['servicio'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionServicio + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Propina</th>
-                        <td class="quitarBordes2">{{totalValorPropina + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['propina'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionPropina + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Propina</th>
+                        <td style="border-bottom: hidden;">{{totalValorPropina + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['propina'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionPropina + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Bebida</th>
-                        <td class="quitarBordes2">{{TotalValorBebida + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['bebida'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionBebida + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Bebida</th>
+                        <td style="border-bottom: hidden;">{{TotalValorBebida + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['bebida'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionBebida + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Tabaco</th>
-                        <td class="quitarBordes2">{{TotalValorTabaco + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['tabaco'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionTabaco + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Tabaco</th>
+                        <td style="border-bottom: hidden;">{{TotalValorTabaco + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['tabaco'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionTabaco + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Vitamina</th>
-                        <td class="quitarBordes2">{{totalValorVitaminas + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['vitamina'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionVitamina + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Vitamina</th>
+                        <td style="border-bottom: hidden;">{{totalValorVitaminas + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['vitamina'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionVitamina + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="quitarBordes2">Otros</th>
-                        <td class="quitarBordes2">{{totalValorOtroServ + ' €'}}</td>
-                        <td class="quitarBordes2">{{encargadaName['otros'] + ' %'}}</td>
-                        <td class="quitarBordes2">{{comisionOtros + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;">Otros</th>
+                        <td style="border-bottom: hidden;">{{totalValorOtroServ + ' €'}}</td>
+                        <td style="border-bottom: hidden;">{{encargadaName['otros'] + ' %'}}</td>
+                        <td style="border-bottom: hidden;">{{comisionOtros + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="bordes"></th>
-                        <td class="bordes"></td>
-                        <td class="quitarBordes2">Suma</td>
-                        <td class="quitarBordes2">{{sumaComision + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden;"></th>
+                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: hidden;">Suma</td>
+                        <td style="border-bottom: hidden;">{{sumaComision + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="bordes"></th>
-                        <td class="bordes"></td>
-                        <td class="quitarBordes2" style="border-bottom: solid;">Recibido</td>
-                        <td class="quitarBordes2" style="border-bottom: solid;">{{recibidoTerap}}</td>
+                        <th scope="row" style="border-bottom: hidden;"></th>
+                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: 1px solid blue; text-align: center;">Recibido</td>
+                        <td style="border-bottom: 1px solid blue; text-align: center;">{{recibidoTerap}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" class="bordes"></th>
-                        <td class="bordes"></td>
-                        <td class="quitarBordes2">Total</td>
-                        <td class="quitarBordes2">{{totalComision}}</td>
+                        <th scope="row" style="border-bottom: hidden;"></th>
+                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: hidden;">Total</td>
+                        <td style="border-bottom: hidden;">{{totalComision}}</td>
                     </tr>
                 </tbody>
             </table>

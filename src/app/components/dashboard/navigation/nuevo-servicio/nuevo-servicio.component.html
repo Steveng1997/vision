@@ -54,10 +54,6 @@
             </div>
 
             <div class="row titulos">
-                <!-- <div class="col-6">
-                    <label style="display: contents;">Fecha</label>
-                    <input type="date" class="form-control" (change)="fechaEscogida($event)" [value]="fechaActual">
-                </div> -->
 
                 <div class="col-6">
                     <div class="row">
@@ -66,7 +62,7 @@
                             <input type="date" class="form-control" formControlName="fechaInicio"
                                 (change)="fechaEscogida($event)" [value]="fechaActual">
                         </div>
-                        <div class="col-3" style="display: grid; align-content: center; justify-items: flex-start;">
+                        <div class="col-3 btnIconos" style="display: grid; align-content: center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-calendar-date" viewBox="0 0 16 16">
                                 <path
@@ -85,7 +81,7 @@
                             <input type="time" class="form-control" (change)="horaInicio($event)" [value]="horaStarted"
                                 min="18:00" max="21:00" step="3600" />
                         </div>
-                        <div class="col-3" style="display: grid; align-content: center; justify-items: flex-start;">
+                        <div class="col-3 btnIconos" style="display: grid; align-content: center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-clock" viewBox="0 0 16 16">
                                 <path

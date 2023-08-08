@@ -1,8 +1,3 @@
-.table-secondary {
-  --bs-table-bg: cornflowerblue;
-  white-space: nowrap;
-}
-
 .btnCircle {
   width: 45px;
   height: 45px;
@@ -14,35 +9,50 @@
   color: white;
 }
 
+table {
+  width: max-content;
+}
+
 .table-secondary {
   --bs-table-bg: transparent;
   background-color: transparent;
 }
 
+tr {
+  line-height: 0%;
+  font-size: 14px;
+}
+
+th {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+th,
+td {
+  font-size: 14px;
+}
+
+.quitarBordes {
+  line-height: 100%;
+}
+
 .quitarBordesVacio {
   border-style: hidden;
-  line-height: 0%;
 }
 
 .lbelTotal {
   border: hidden;
   font-weight: bold;
   color: red;
-  border-right: solid;
   border-color: black;
+  padding: 14px 0px;
 }
 
 .bordeTotal {
-  border-top: solid;  
-  border-bottom: solid;
-}
-
-tr {
-  line-height: 0%;
-}
-
-th {
-  white-space: nowrap;
+  border: hidden;
+  padding: 14px;
+  text-align: right;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
@@ -59,7 +69,7 @@ th {
   }
 
   .PagosPeriodo {
-    margin-top: 2%;
+    margin-top: -8%;
     margin-bottom: -10%;
     text-transform: inherit;
     font-weight: bold;
@@ -81,13 +91,23 @@ th {
     text-align: -webkit-center;
     margin-top: 10%;
   }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------
  Query para Pantalla grande */
 
-@media only screen and (min-device-width: 1023px) and (max-device-width: 1030px) {
+@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
   .tableCierre {
     margin-top: 15%;
   }
@@ -101,7 +121,7 @@ th {
   }
 
   .PagosPeriodo {
-    margin-top: 8%;
+    margin-top: 3%;
     margin-bottom: -4%;
     text-transform: inherit;
     font-weight: bold;
@@ -110,7 +130,8 @@ th {
   }
 
   .classTable {
-    margin-top: 10%;
+    margin-top: 6%;
+    margin-bottom: -6%;
   }
 
   .noHayCierre {
@@ -124,118 +145,14 @@ th {
     text-align: -webkit-center;
     margin-top: 10%;
   }
-}
 
-@media only screen and (min-device-width: 1279px) and (max-device-width: 1280px) {
-  .tableCierre {
-    margin-top: 6%;
-  }
-
-  .ingresoPeriodo {
-    margin-top: 2%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
     color: blue;
-  }
-
-  .PagosPeriodo {
-    margin-top: 2%;
-    margin-bottom: -4%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
-    color: blue;
-  }
-
-  .classTable {
-    margin-top: 6%;
-  }
-
-  .noHayCierre {
-    text-align: center;
-    font-family: cursive;
-    font-size: x-large;
-    color: red;
-  }
-
-  .cajaEncargada {
-    text-align: -webkit-center;
-  }
-}
-
-@media only screen and (min-device-width: 1350px) and (max-device-width: 1380px) {
-  .tableCierre {
-    margin-top: 15%;
-  }
-
-  .ingresoPeriodo {
-    margin-top: 2%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
-    color: blue;
-  }
-
-  .PagosPeriodo {
-    margin-top: 2%;
-    margin-bottom: -4%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
-    color: blue;
-  }
-
-  .classTable {
-    margin-top: 6%;
-  }
-
-  .noHayCierre {
-    text-align: center;
-    font-family: cursive;
-    font-size: x-large;
-    color: red;
-  }
-
-  .cajaEncargada {
-    text-align: -webkit-center;
-  }
-}
-
-@media only screen and (min-device-width: 1381px) and (max-device-width: 2500px) {
-  .tableCierre {
-    margin-top: 8%;
-  }
-
-  .ingresoPeriodo {
-    margin-top: 2%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
-    color: blue;
-  }
-
-  .PagosPeriodo {
-    margin-top: 2%;
-    margin-bottom: -4%;
-    text-transform: inherit;
-    font-weight: bold;
-    font-size: 170%;
-    color: blue;
-  }
-
-  .classTable {
-    margin-top: 6%;
-  }
-
-  .noHayCierre {
-    text-align: center;
-    font-family: cursive;
-    font-size: x-large;
-    color: red;
-  }
-
-  .cajaEncargada {
-    text-align: -webkit-center;
+    margin-bottom: 0%;
+    margin-top: -0.5%;
+    width: 100%;
   }
 }

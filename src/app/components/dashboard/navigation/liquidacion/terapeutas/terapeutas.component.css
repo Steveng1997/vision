@@ -37,53 +37,25 @@ td {
 }
 
 .quitarBordes {
-  border-style: hidden;
-  border-bottom: outset;
-  border-left: outset;
-  border-right: outset;
   line-height: 100%;
 }
 
 .quitarBordesVacio {
   border-style: hidden;
-  line-height: 0%;
-  line-height: 100%;
-}
-
-.quitarBordeTable {
-  border-right: outset;
-}
-
-.quitarbordesTotal {
-  border-bottom: solid;
-  border-left: solid;
-  border-right: solid;
 }
 
 .lbelTotal {
   border: hidden;
   font-weight: bold;
   color: red;
-  border-right: solid;
   border-color: black;
+  padding: 14px 0px;
 }
 
 .bordeTotal {
-  border-top: solid;
-  text-align: right;
-}
-
-.quitarBordes2 {
-  border-style: hidden;
-  line-height: 100%;
-}
-
-.bordes {
   border: hidden;
-}
-
-.quitarBordes4{
-  border-style: hidden;
+  padding: 14px;
+  text-align: right;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 930px) {

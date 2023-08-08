@@ -95,9 +95,9 @@ export class CierreComponent implements OnInit {
   totalesTarjeta: number
   totalesTransferencia: number
 
-  tablas: boolean
   currentDate = new Date().getTime()
   existe: boolean
+  selected: boolean
 
   constructor(
     public router: Router,
@@ -120,11 +120,12 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
-    this.tablas = false
+    this.selectedEncargada = ""
     this.editCierre = false
     this.tableCierre = true
     this.liqCierre = true
     this.addCierre = false
+    this.selected = false
 
     this.getCierre()
     this.getServicio()
@@ -157,7 +158,6 @@ export class CierreComponent implements OnInit {
   }
 
   editamos(id: string) {
-    this.tablas = false
     this.editCierre = true
     this.tableCierre = false
     this.addCierre = false
@@ -397,8 +397,6 @@ export class CierreComponent implements OnInit {
     this.tableCierre = false
     this.addCierre = true
     this.editCierre = false
-
-    if (this.selectedEncargada == undefined) this.tablas = false
   }
 
   sumaTotalServicios() {
@@ -432,9 +430,8 @@ export class CierreComponent implements OnInit {
   }
 
   calcularSumaDeServicios() {
-    if (this.selectedEncargada != undefined) {
-      // this.getCierreFalse()
-      this.tablas = true
+    if (this.selectedEncargada != "") {
+      this.selected = true
 
       const condicionEncargada = serv => {
         return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
@@ -615,9 +612,9 @@ export class CierreComponent implements OnInit {
       this.totalCajaTransfer = Number(this.totalValueServicio) - this.sumaTransfe
     }
 
-    if (this.selectedEncargada == undefined) {
-      this.tablas = false
-    }
+    // if (this.selectedEncargada == undefined) {
+    //   this.tablas = false
+    // }
   }
 
   guardar() {
@@ -705,6 +702,15 @@ export class CierreComponent implements OnInit {
         timer: 2500,
       })
     }
+  }
+
+  regresar() {
+    this.selectedEncargada = ""
+    this.tableCierre = false
+    this.addCierre = false
+    this.liqCierre = true
+    this.mostrarFecha = false
+    this.selected = false
   }
 
   filtro() {
