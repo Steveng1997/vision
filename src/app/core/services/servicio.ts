@@ -128,11 +128,16 @@ export class ServicioService {
   }
 
   getByTerapeutaAndEncargada(terapeuta: string, encargada: string) {
-    return this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).where('encargada', '==', encargada)).valueChanges();
+    return this.db.collection('servicio', (ref) => ref.where('terapeuta', '==', terapeuta).where('encargada', '==', encargada)
+      .where('liquidadoTerapeuta', '==', false)).valueChanges();
   }
 
   getByEncargada(encargada: string) {
     return this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada).where("liquidadoEncargada", "==", false)).valueChanges();
+  }
+
+  getByCierre(encargada: string) {
+    return this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada).where("cierre", "==", false)).valueChanges();
   }
 
   getServicio() {

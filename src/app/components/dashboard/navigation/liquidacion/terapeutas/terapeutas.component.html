@@ -146,8 +146,7 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Terapeuta</label>
-                    <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
-                        (ngModelChange)="calcularSumaDeServicios()">
+                    <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
                         </option>
@@ -157,7 +156,7 @@
                 <div class="col-6">
                     <label style="display: contents;">Encargada</label>
                     <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
-                        (ngModelChange)="calcularSumaDeServicios()">
+                        (change)="calcularSumaDeServicios()">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
                         </option>

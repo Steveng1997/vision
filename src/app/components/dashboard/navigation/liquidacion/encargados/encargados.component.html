@@ -101,8 +101,8 @@
         </tbody>
     </table>
 
-    <h5 class="noHayCierre" *ngIf="liquidacionesEncargada?.length == 0"> Actualmente no hay Liquidación para Encargadas
-    </h5>
+    <p class="noHayCierre" *ngIf="liquidacionesEncargada?.length == 0"> Actualmente no hay Liquidación para Encargadas
+    </p>
 
     <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
         nextLabel="Siguiente">

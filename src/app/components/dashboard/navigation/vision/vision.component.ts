@@ -92,7 +92,7 @@ export class VisionComponent implements OnInit {
     this.totalPisos = 0
     this.totalVision = 0
     this.totalServicio = 0
-    this.totalBebida = 0
+    this.totalBebidas = '0'
     this.totalTabaco = 0
     this.totalVitamina = 0
     this.totalPropina = 0
@@ -264,7 +264,9 @@ export class VisionComponent implements OnInit {
     const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
     this.totalServicio = totalServ
 
-    if (this.totalServicio > 999) {
+    debugger
+
+    if (this.totalServicio > 0) {
 
       const coma = this.totalServicio.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -287,12 +289,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTratamiento = integer[0].toString()
-    }
+    } else this.totalTratamiento = "0"
 
     const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
     this.totalBebida = totalValorBebida
 
-    if (this.totalBebida > 999) {
+    if (this.totalBebida > 0) {
 
       const coma = this.totalBebida.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalBebida.toString().split(".") : this.totalBebida.toString().split("");
@@ -313,12 +315,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalBebidas = integer[0].toString()
-    }
+    } else this.totalBebidas = '0'
 
     const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
     this.totalTabaco = totalValorTab
 
-    if (this.totalTabaco > 999) {
+    if (this.totalTabaco > 0) {
 
       const coma = this.totalTabaco.toString().indexOf(".") !== -1 ? true : false;
       const arrayNumero = coma ?
@@ -341,12 +343,12 @@ export class VisionComponent implements OnInit {
 
       integerPart = [integerPart.toString().replace(/,/gi, "")]
       this.totalTabac = integerPart[0].toString()
-    }
+    } else this.totalTabac = "0"
 
     const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
     this.totalVitamina = totalValorVitamina
 
-    if (this.totalVitamina > 999) {
+    if (this.totalVitamina > 0) {
 
       const coma = this.totalVitamina.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -369,12 +371,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalVitamin = integer[0].toString()
-    }
+    } else this.totalVitamin = "0"
 
     const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
     this.totalPropina = totalValorProp
 
-    if (this.totalPropina > 999) {
+    if (this.totalPropina > 0) {
 
       const coma = this.totalPropina.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -397,12 +399,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalPropin = integer[0].toString()
-    }
+    } else this.totalPropin = "0"
 
     const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
     this.totalOtros = totalValorOtroServicio
 
-    if (this.totalOtros > 999) {
+    if (this.totalOtros > 0) {
 
       const coma = this.totalOtros.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -425,12 +427,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOtross = integer[0].toString()
-    }
+    } else this.totalOtross = "0"
 
     this.totalVision = this.totalServicio + this.totalBebida + this.totalTabaco +
       this.totalVitamina + this.totalPropina + this.totalOtros
 
-    if (this.totalVision > 999) {
+    if (this.totalVision > 0) {
 
       const coma = this.totalVision.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -453,7 +455,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalVisions = integer[0].toString()
-    }
+    } else this.totalVisions = "0"
 
     // total de las Formas de pagos
 
@@ -465,7 +467,7 @@ export class VisionComponent implements OnInit {
 
     this.totalEfectivo = efectPiso1 + efectPiso2
 
-    if (this.totalEfectivo > 999) {
+    if (this.totalEfectivo > 0) {
 
       const coma = this.totalEfectivo.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -488,7 +490,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalEfectiv = integer[0].toString()
-    }
+    } this.totalEfectiv = "0"
 
     const totalPiso1Bizum = this.vision.map(({ valuePiso1Bizum }) => valuePiso1Bizum).reduce((acc, value) => acc + value, 0)
     bizumPiso1 = totalPiso1Bizum
@@ -498,7 +500,7 @@ export class VisionComponent implements OnInit {
 
     this.totalBizum = bizumPiso1 + bizumPiso2
 
-    if (this.totalBizum > 999) {
+    if (this.totalBizum > 0) {
 
       const coma = this.totalBizum.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -521,7 +523,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalBizu = integer[0].toString()
-    }
+    } else this.totalBizu = "0"
 
     const totalPiso1Tarjeta = this.vision.map(({ valuePiso1Tarjeta }) => valuePiso1Tarjeta).reduce((acc, value) => acc + value, 0)
     tarjetaPiso1 = totalPiso1Tarjeta
@@ -531,7 +533,7 @@ export class VisionComponent implements OnInit {
 
     this.totalTarjeta = tarjetaPiso1 + tarjetaPiso2
 
-    if (this.totalTarjeta > 999) {
+    if (this.totalTarjeta > 0) {
 
       const coma = this.totalTarjeta.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -554,7 +556,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTarjet = integer[0].toString()
-    }
+    } else this.totalTarjet = "0"
 
     const totalPiso1Transaccion = this.vision.map(({ valuePiso1Transaccion }) => valuePiso1Transaccion).reduce((acc, value) => acc + value, 0)
     transfPiso1 = totalPiso1Transaccion
@@ -564,7 +566,7 @@ export class VisionComponent implements OnInit {
 
     this.totalTrasnf = transfPiso1 + transfPiso2
 
-    if (this.totalTrasnf > 999) {
+    if (this.totalTrasnf > 0) {
 
       const coma = this.totalTrasnf.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -587,12 +589,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTrasn = integer[0].toString()
-    }
+    } else this.totalTrasn = "0"
 
     const totalValorTerapeuta = this.vision.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
     this.totalTerap = totalValorTerapeuta
 
-    if (this.totalTerap > 999) {
+    if (this.totalTerap > 0) {
 
       const coma = this.totalTerap.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -615,12 +617,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTerape = integer[0].toString()
-    }
+    } else this.totalTerape = "0"
 
     const totalValorEncargada = this.vision.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
     this.totalEncarg = totalValorEncargada
 
-    if (this.totalEncarg > 999) {
+    if (this.totalEncarg > 0) {
 
       const coma = this.totalEncarg.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -643,12 +645,12 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalEncargada = integer[0].toString()
-    }
+    } else this.totalEncargada = "0"
 
     const totalValorOtro = this.vision.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
     this.totalOtro = totalValorOtro
 
-    if (this.totalOtro > 999) {
+    if (this.totalOtro > 0) {
 
       const coma = this.totalOtro.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -671,11 +673,11 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOtr = integer[0].toString()
-    }
+    } else this.totalOtr = "0"
 
     this.totalPisos = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
 
-    if (this.totalPisos > 999) {
+    if (this.totalPisos > 0) {
 
       const coma = this.totalPisos.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ?
@@ -698,7 +700,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalPiso = integer[0].toString()
-    }
+    } else this.totalPiso = "0"
 
   }
 

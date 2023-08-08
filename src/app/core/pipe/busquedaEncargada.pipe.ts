@@ -6,10 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BusquedaEncargadaPipe implements PipeTransform {
 
   transform(items: any, param: string, paramNumber: number): any {
-
-    // if (!param || param?.length < 1) return items;
-
-
+    
     if (!param) return items;
     if (!items) return [];
 

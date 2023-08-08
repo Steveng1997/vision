@@ -7,14 +7,13 @@ export class BusquedaCierrePipe implements PipeTransform {
 
   transform(items: any[], param: string): any {
 
-    if (!param || param?.length < 1) {
-      return items;
-    }
+    if (!param) return items;
+    if (!items) return [];
 
     if (items) {
-      return items.filter((item) => item.encargada.match(param.toLowerCase().slice(1))
+      return items.filter((item) => item.encargada.match(param.slice(0))
         || item.fechaDesde.match(param) || item.fechaHasta.match(param)
-        || item.horaDesde.match(param) || item.horaHasta.match(param));
+        || item.horaDesde.match(param.slice(0)) || item.horaHasta.match(param.slice(0)));
     }
   }
 }
