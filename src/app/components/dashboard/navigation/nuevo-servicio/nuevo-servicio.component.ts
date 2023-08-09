@@ -283,8 +283,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true &&
         this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true) {
 
-        if (this.formTemplate.value.efectPiso1) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.efectPiso2) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.efectPiso1 == true) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.efectPiso2 == true) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
 
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
           this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, this.valueEfectivo, 0, 0, 0, this.valueEfectTerapeuta,
@@ -299,8 +299,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true &&
         this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true) {
 
-        if (this.formTemplate.value.bizuPiso1) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.bizuPiso2) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.bizuPiso1 == true) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.bizuPiso2 == true) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
 
         this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
           this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, this.valueBizum, 0, 0, 0, this.valueBizuTerapeuta,
@@ -315,8 +315,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true &&
         this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true) {
 
-        if (this.formTemplate.value.tarjPiso1) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.tarjPiso2) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.tarjPiso1 == true) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.tarjPiso2 == true) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
 
         this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
           this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, this.valueTarjeta, 0, 0, 0,
@@ -331,8 +331,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true &&
         this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true) {
 
-        if (this.formTemplate.value.transPiso1) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.transPiso2) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.transPiso1 == true) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.transPiso2 == true) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
 
         this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
           this.servicioTotal, this.horaFinalServicio, this.fechaHoyInicio, 0, 0, 0, this.valueTrans, 0, 0, 0,
@@ -360,8 +360,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectPiso1 == true && this.formTemplate.value.efectPiso2 == true &&
         this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true) {
 
-        if (this.formTemplate.value.efectPiso1) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.efectPiso2) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.efectPiso1 == true) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.efectPiso2 == true) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Efectivo"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
@@ -381,8 +381,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuPiso1 == true && this.formTemplate.value.bizuPiso2 == true &&
         this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true) {
 
-        if (this.formTemplate.value.bizuPiso1) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.bizuPiso2) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.bizuPiso1 == true) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.bizuPiso2 == true) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Bizum"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
@@ -402,8 +402,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjPiso1 == true && this.formTemplate.value.tarjPiso2 == true &&
         this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true) {
 
-        if (this.formTemplate.value.tarjPiso1) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.tarjPiso2) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.tarjPiso1 == true) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.tarjPiso2 == true) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Tarjeta"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
@@ -423,8 +423,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.transOtro == true || this.formTemplate.value.transPiso1 == true && this.formTemplate.value.transPiso2 == true &&
         this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true) {
 
-        if (this.formTemplate.value.transPiso1) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.transPiso2) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.transPiso1 == true) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.transPiso2 == true) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Transaccion"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
@@ -455,8 +455,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
         this.formTemplate.value.efectPiso2 == true && this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectOtro == true) {
 
-        if (this.formTemplate.value.efectPiso1) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.efectPiso2) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.efectPiso1 == true) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.efectPiso2 == true) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Efectivo"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
@@ -479,8 +479,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
         this.formTemplate.value.bizuPiso2 == true && this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuOtro == true) {
 
-        if (this.formTemplate.value.bizuPiso1) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.bizuPiso2) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.bizuPiso1 == true) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.bizuPiso2 == true) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Bizum"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
@@ -503,8 +503,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
         this.formTemplate.value.tarjPiso2 == true && this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjOtro == true) {
 
-        if (this.formTemplate.value.tarjPiso1) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.tarjPiso2) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.tarjPiso1 == true) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.tarjPiso2 == true) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Tarjeta"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
@@ -527,8 +527,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
         this.formTemplate.value.transPiso2 == true && this.formTemplate.value.transTerap == true && this.formTemplate.value.transOtro == true) {
 
-        if (this.formTemplate.value.transPiso1) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.transPiso2) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.transPiso1 == true) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.transPiso2 == true) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
 
         this.formaPagos = "Transaccion"
         this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
@@ -559,7 +559,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   conteoNumber() {
-
     if (this.formTemplate.value.efectPiso1 == true) this.countEfect += 1
     if (this.formTemplate.value.efectPiso2 == true) this.countEfect += 1
     if (this.formTemplate.value.efectTerap == true) this.countEfect += 1
@@ -598,8 +597,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.efectOtro == true || this.formTemplate.value.efectEncarg == true && this.formTemplate.value.efectOtro == true ||
         this.formTemplate.value.efectTerap == true && this.formTemplate.value.efectEncarg == true) {
 
-        if (this.formTemplate.value.efectPiso1) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.efectPiso2) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.efectPiso1 == true) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.efectPiso2 == true) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Efectivo'
         this.servicioService.registerServicio(formValue, this.idUnico, 'Efectivo', this.fechaActual, this.horaInicialServicio,
@@ -620,8 +619,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.bizuOtro == true || this.formTemplate.value.bizuEncarg == true && this.formTemplate.value.bizuOtro == true ||
         this.formTemplate.value.bizuTerap == true && this.formTemplate.value.bizuEncarg == true) {
 
-        if (this.formTemplate.value.bizuPiso1) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.bizuPiso2) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.bizuPiso1 == true) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.bizuPiso2 == true) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Bizum'
         this.servicioService.registerServicio(formValue, this.idUnico, 'Bizum', this.fechaActual, this.horaInicialServicio,
@@ -642,8 +641,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.tarjOtro == true || this.formTemplate.value.tarjEncarg == true && this.formTemplate.value.tarjOtro == true ||
         this.formTemplate.value.tarjTerap == true && this.formTemplate.value.tarjEncarg == true) {
 
-        if (this.formTemplate.value.tarjPiso1) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.tarjPiso2) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.tarjPiso1 == true) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.tarjPiso2 == true) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Tarjeta'
         this.servicioService.registerServicio(formValue, this.idUnico, 'Tarjeta', this.fechaActual, this.horaInicialServicio,
@@ -664,8 +663,8 @@ export class NuevoServicioComponent implements OnInit {
         this.formTemplate.value.transOtro == true || this.formTemplate.value.transEncarg == true && this.formTemplate.value.transOtro == true ||
         this.formTemplate.value.transTerap == true && this.formTemplate.value.transEncarg == true) {
 
-        if (this.formTemplate.value.transPiso1) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.transPiso2) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.transPiso1 == true) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.transPiso2 == true) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Transaccion'
         this.servicioService.registerServicio(formValue, this.idUnico, 'Transacción', this.fechaActual, this.horaInicialServicio,
@@ -837,8 +836,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.efectPiso1 == true || this.formTemplate.value.efectPiso2 == true || this.formTemplate.value.efectTerap == true ||
         this.formTemplate.value.efectEncarg == true || this.formTemplate.value.efectOtro == true) {
 
-        if (this.formTemplate.value.efectPiso1) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.efectPiso2) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.efectPiso1 == true) this.valuePiso1Efectivo = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.efectPiso2 == true) this.valuePiso2Efectivo = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Efectivo'
         this.completoEfectivo = 1
@@ -855,8 +854,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.bizuPiso1 == true || this.formTemplate.value.bizuPiso2 == true || this.formTemplate.value.bizuTerap == true ||
         this.formTemplate.value.bizuEncarg == true || this.formTemplate.value.bizuOtro == true) {
 
-        if (this.formTemplate.value.bizuPiso1) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.bizuPiso2) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.bizuPiso1 == true) this.valuePiso1Bizum = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.bizuPiso2 == true) this.valuePiso2Bizum = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Bizum'
         this.completoBizum = 1
@@ -873,8 +872,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.tarjPiso1 == true || this.formTemplate.value.tarjPiso2 == true || this.formTemplate.value.tarjTerap == true ||
         this.formTemplate.value.tarjEncarg == true || this.formTemplate.value.tarjOtro == true) {
 
-        if (this.formTemplate.value.tarjPiso1) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.tarjPiso2) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.tarjPiso1 == true) this.valuePiso1Tarjeta = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.tarjPiso2 == true) this.valuePiso2Tarjeta = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Tarjeta'
         this.completoTarjeta = 1
@@ -891,8 +890,8 @@ export class NuevoServicioComponent implements OnInit {
       if (this.formTemplate.value.transPiso1 == true || this.formTemplate.value.transPiso2 == true || this.formTemplate.value.transTerap == true ||
         this.formTemplate.value.transEncarg == true || this.formTemplate.value.transOtro == true) {
 
-        if (this.formTemplate.value.transPiso1) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
-        if (this.formTemplate.value.transPiso2) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
+        if (this.formTemplate.value.transPiso1 == true) this.valuePiso1Transaccion = this.formTemplate.value.numberPiso1
+        if (this.formTemplate.value.transPiso2 == true) this.valuePiso2Transaccion = this.formTemplate.value.numberPiso2
 
         this.formaPagos = 'Transaccion'
         this.completoTrans = 1
@@ -2246,6 +2245,7 @@ export class NuevoServicioComponent implements OnInit {
       this.transCheckToggleEdit(this.validateTrans)
       this.encargadaAndTerapeutaEdit()
       this.fechaOrdenadaEdit()
+      this.editValue()
 
       this.servicioService.updateServicio(idDocument, idServicio, serv)
 
@@ -2546,6 +2546,20 @@ export class NuevoServicioComponent implements OnInit {
       this.editarService[0]['valueTrans'] = suma
       return
     }
+  }
+  
+  editValue(){
+    if (this.editarService[0]['efectPiso1'] == true) this.editarService[0]['valuePiso1Efectivo'] = this.editarService[0]['numberPiso1']
+    if (this.editarService[0]['efectPiso2'] == true) this.editarService[0]['valuePiso2Efectivo'] = this.editarService[0]['numberPiso2']
+
+    if (this.editarService[0]['bizuPiso1'] == true) this.editarService[0]['valuePiso1Bizum'] = this.editarService[0]['numberPiso1']
+    if (this.editarService[0]['bizuPiso2'] == true) this.editarService[0]['valuePiso2Bizum'] = this.editarService[0]['numberPiso2']
+
+    if (this.editarService[0]['tarjPiso1'] == true) this.editarService[0]['valuePiso1Tarjeta'] = this.editarService[0]['numberPiso1']
+    if (this.editarService[0]['tarjPiso2'] == true) this.editarService[0]['valuePiso2Tarjeta'] = this.editarService[0]['numberPiso2']
+
+    if (this.editarService[0]['transPiso1'] == true) this.editarService[0]['valuePiso1Transaccion'] = this.editarService[0]['numberPiso1']
+    if (this.editarService[0]['transPiso2'] == true) this.editarService[0]['valuePiso2Transaccion'] = this.editarService[0]['numberPiso2']
   }
 
   encargadaAndTerapeutaEdit() {

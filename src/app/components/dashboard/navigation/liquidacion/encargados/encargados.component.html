@@ -112,8 +112,7 @@
 <!-- Agregar Encargada -->
 <div *ngIf="addEncarg">
 
-    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA LIQUIDACIÓN DE
-        UNA ENCARGADA </label>
+    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA LIQUIDACIÓN</label>
 
     <form [formGroup]="formTemplate">
 
@@ -145,7 +144,8 @@
             <hr class="lineaHoy" *ngIf="selected">
 
             <div class="col-auto" *ngIf="mostrarFecha" style="display: contents">
-                <label style="float: left;">{{fechaAsc + ' - ' + fechaDesc}}</label>
+                <label style="float: left;">
+                    {{fechaDesc + ':' + horaDesc + ' - ' + fechaAsc + ':' + horaAsc}}</label>
             </div>
 
             <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">
@@ -319,58 +319,71 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Tratamiento</th>
-                            <td style="border-bottom: hidden;">{{totalServicio + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['servicio'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionServicio + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Tratamiento</th>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['servicio'] + ' %'}}
+                            </td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Propina</th>
-                            <td style="border-bottom: hidden;">{{totalValorPropina + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['propina'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionPropina + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Propina</th>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['propina'] + ' %'}}
+                            </td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Bebida</th>
-                            <td style="border-bottom: hidden;">{{TotalValorBebida + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['bebida'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionBebida + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Bebida </th>
+                            <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['bebida'] + ' %'}}
+                            </td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Tabaco</th>
-                            <td style="border-bottom: hidden;">{{TotalValorTabaco + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['tabaco'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionTabaco + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Tabaco</th>
+                            <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['tabaco'] + ' %'}}
+                            </td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Vitamina</th>
-                            <td style="border-bottom: hidden;">{{totalValorVitaminas + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['vitamina'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionVitamina + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Vitamina</th>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['vitamina'] + ' %'}}
+                            </td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
                         </tr>
                         <tr>
-                            <th scope="row" style="border-bottom: hidden;">Otros</th>
-                            <td style="border-bottom: hidden;">{{totalValorOtroServ + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{encargadaName['otros'] + ' %'}}</td>
-                            <td style="border-bottom: hidden;">{{comisionOtros + ' €'}}</td>
+                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                                Otros</th>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{encargadaName['otros'] + ' %'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
-                            <td style="border-bottom: hidden;">Suma</td>
-                            <td style="border-bottom: hidden;">{{sumaComision + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: start;">Suma</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{sumaComision + ' €'}}</td>
                         </tr>
                         <tr>
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
-                            <td style="border-bottom: 1px solid blue; text-align: center;">Recibido</td>
-                            <td style="border-bottom: 1px solid blue; text-align: center;">{{recibidoTerap}}</td>
+                            <td style="border-bottom: 1px solid blue; text-align: center; text-align: start;">Recibido
+                            </td>
+                            <td style="border-bottom: 1px solid blue; text-align: center; text-align: right;">
+                                {{recibidoTerap}}</td>
                         </tr>
                         <tr>
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
-                            <td style="border-bottom: hidden;">Total</td>
-                            <td style="border-bottom: hidden;">{{totalComision}}</td>
+                            <td style="border-bottom: hidden; text-align: start;">Total</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalComision}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -378,14 +391,14 @@
         </div>
     </form>
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 4%">
         <div class="col-6">
-            <button *ngIf="selected && servicioNoLiquidadaEncargada.length > 0" mat-flat-button color="accent"
+            <button *ngIf="selected && servicioNoLiquidadaEncargada.length > 0" mat-flat-button color="primary"
                 style="display: grid; margin: auto;" (click)="guardar()">Guardar</button>
         </div>
         <div class="col-6">
             <button *ngIf="selected && servicioNoLiquidadaEncargada.length > 0" mat-flat-button color="primary"
-                style="display: grid; margin: auto;" (click)="regresar()">Regresar</button>
+                style="display: grid; margin: auto;" (click)="cancelar()">Cancelar</button>
         </div>
     </div>
 </div>
@@ -393,9 +406,8 @@
 <!-- Editar Encargada -->
 <div *ngIf="editEncarg">
 
-    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">Visualizacion de la
-        liquidación
-        de {{datosLiquidadoEncargada[0]['encargada']}}
+    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">
+        Visualizacion de la liquidación de {{datosLiquidadoEncargada[0]['encargada']}}
     </label>
 
     <div class="container">
@@ -580,64 +592,70 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Tratamiento</th>
-                        <td style="border-bottom: hidden;">{{totalServicio + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['servicio'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionServicio + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Tratamiento</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['servicio'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Propina</th>
-                        <td style="border-bottom: hidden;">{{totalValorPropina + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['propina'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionPropina + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Propina</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['propina'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Bebida</th>
-                        <td style="border-bottom: hidden;">{{TotalValorBebida + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['bebida'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionBebida + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Bebida</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['bebida'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Tabaco</th>
-                        <td style="border-bottom: hidden;">{{TotalValorTabaco + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['tabaco'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionTabaco + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Tabaco</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['tabaco'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Vitamina</th>
-                        <td style="border-bottom: hidden;">{{totalValorVitaminas + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['vitamina'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionVitamina + ' €'}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Vitamina</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['vitamina'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
                     </tr>
                     <tr>
-                        <th scope="row" style="border-bottom: hidden;">Otros</th>
-                        <td style="border-bottom: hidden;">{{totalValorOtroServ + ' €'}}</td>
-                        <td style="border-bottom: hidden;">{{encargadaName['otros'] + ' %'}}</td>
-                        <td style="border-bottom: hidden;">{{comisionOtros + ' €'}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden;"></th>
-                        <td style="border-bottom: hidden;"></td>
-                        <td style="border-bottom: hidden;">Suma</td>
-                        <td style="border-bottom: hidden;">{{sumaComision + ' €'}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden;"></th>
-                        <td style="border-bottom: hidden;"></td>
-                        <td style="border-bottom: 1px solid blue; text-align: center;">Recibido</td>
-                        <td style="border-bottom: 1px solid blue; text-align: center;">{{recibidoTerap}}</td>
+                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                            Otros</th>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['otros'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                     </tr>
                     <tr>
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden;"></td>
-                        <td style="border-bottom: hidden;">Total</td>
-                        <td style="border-bottom: hidden;">{{totalComision}}</td>
+                        <td style="border-bottom: hidden; text-align: start;">Suma</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{sumaComision + ' €'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="border-bottom: hidden;"></th>
+                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
+                        <td style="border-bottom: 1px solid blue; text-align: right;">{{recibidoTerap}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="border-bottom: hidden;"></th>
+                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: hidden; text-align: start;">Total</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalComision}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <button *ngIf="editEncarg" mat-raised-button style="display: grid; margin: auto;" (click)="regresar()"
-        color="primary">Regresar</button>
+    <button *ngIf="editEncarg" mat-raised-button style="display: grid; margin: auto; margin-bottom: 4%;"
+        (click)="cancelar()" color="primary">Cancelar</button>
 </div>

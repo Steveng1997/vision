@@ -1,3 +1,7 @@
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+  border-width: thin;
+}
+
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .titulos {
     margin-top: 2%;
@@ -43,6 +47,15 @@
 
   .btnIconos {
     margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputs{
+    max-height: 38px;
   }
 }
 
@@ -91,5 +104,14 @@
 
   .btnIconos {
     margin-top: 2%;
+  }
+
+  .checkBox {
+    margin-top: 11%;
+    scale: 1.2;
+  }
+
+  .inputs{
+    max-height: 38px;
   }
 }

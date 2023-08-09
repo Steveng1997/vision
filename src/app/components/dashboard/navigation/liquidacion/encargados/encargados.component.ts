@@ -112,12 +112,12 @@ export class EncargadosComponent implements OnInit {
   }
 
   tableComision() {
-    if (this.encargadaName['servicio'] == undefined) this.encargadaName['servicio'] = 0
-    if (this.encargadaName['propina'] == undefined) this.encargadaName['propina'] = 0
-    if (this.encargadaName['bebida'] == undefined) this.encargadaName['bebida'] = 0
-    if (this.encargadaName['tabaco'] == undefined) this.encargadaName['tabaco'] = 0
-    if (this.encargadaName['vitamina'] == undefined) this.encargadaName['vitamina'] = 0
-    if (this.encargadaName['otros'] == undefined) this.encargadaName['otros'] = 0
+    if (this.encargadaName['servicio'] == "") this.encargadaName['servicio'] = 0
+    if (this.encargadaName['propina'] == "") this.encargadaName['propina'] = 0
+    if (this.encargadaName['bebida'] == "") this.encargadaName['bebida'] = 0
+    if (this.encargadaName['tabaco'] == "") this.encargadaName['tabaco'] = 0
+    if (this.encargadaName['vitamina'] == "") this.encargadaName['vitamina'] = 0
+    if (this.encargadaName['otros'] == "") this.encargadaName['otros'] = 0
     if (this.comisionServicio == undefined) this.comisionServicio = 0
     if (this.comisionPropina == undefined) this.comisionPropina = 0
     if (this.comisionBebida == undefined) this.comisionBebida = 0
@@ -232,12 +232,24 @@ export class EncargadosComponent implements OnInit {
           return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
         }
 
-        this.servicioService.getEncargFechaAsc(this.selectedEncargada).then((fechaAsce) => {
-          this.fechaAsc = fechaAsce[0]['fechaHoyInicio']
+        this.servicioService.getEncargFechaDesc(this.selectedEncargada).then((fechaDesc) => {
+          let año = "", mes = "", dia = ""
+          año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
+          mes = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
+          dia = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+
+          this.fechaAsc = `${dia}-${mes}-${año}`
+          this.horaAsc = fechaDesc[0]['horaStart']
         })
 
-        this.servicioService.getEncargFechaDesc(this.selectedEncargada).then((fechaDesce) => {
-          this.fechaDesc = fechaDesce[0]['fechaHoyInicio']
+        this.servicioService.getEncargFechaAsc(this.selectedEncargada).then((fechaAsc) => {
+          let año = "", mes = "", dia = ""
+          año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)
+          mes = fechaAsc[0]['fechaHoyInicio'].substring(8, 10)
+          dia = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
+
+          this.fechaDesc = `${dia}-${mes}-${año}`
+          this.horaDesc = fechaAsc[0]['horaStart']
         })
 
         const mostrarFech = this.servicioNoLiquidadaEncargada.filter(serv => condicionEncargada(serv))
@@ -299,6 +311,7 @@ export class EncargadosComponent implements OnInit {
 
         this.loginService.getEncargada(this.selectedEncargada).then((datosNameTerapeuta) => {
           this.encargadaName = datosNameTerapeuta[0]
+          this.tableComision()
 
           // Comision
           comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio']
@@ -405,6 +418,7 @@ export class EncargadosComponent implements OnInit {
 
       this.loginService.getEncargada(this.datosLiquidadoEncargada[0]['encargada']).then((datosNameTerapeuta) => {
         this.encargadaName = datosNameTerapeuta[0]
+        this.tableComision()
 
         // Comision
         comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio']
@@ -486,7 +500,7 @@ export class EncargadosComponent implements OnInit {
     }
   }
 
-  regresar() {
+  cancelar() {
     this.getLiquidaciones()
     this.liqEncarg = true
     this.addEncarg = false

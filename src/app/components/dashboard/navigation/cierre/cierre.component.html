@@ -157,7 +157,7 @@
 <!-- Agregar Encargada -->
 <div *ngIf="addCierre">
 
-    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA CIERRE</label>
+    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVO CIERRE</label>
 
     <form [formGroup]="formTemplate">
 
@@ -177,8 +177,8 @@
 
             <div *ngIf="selected" class="row" style="margin-top: 4%;">
                 <div class="col-9">
-                    <label style="font-weight: bold; font-size: larger;">Cierre Encargada
-                        {{selectedEncargada}}</label>
+                    <label style="font-weight: bold; font-size: larger;">
+                        Cierre Encargada {{selectedEncargada}}</label>
                 </div>
 
                 <div class="col-3">
@@ -189,8 +189,8 @@
             <hr class="lineaHoy" *ngIf="selected">
 
             <div class="col-auto" *ngIf="mostrarFecha" style="display: contents;">
-                <label style="float: left;">{{fechaDesc + ' - ' + horaDesc + ' - ' + fechaAsc + ' ' +
-                    horaAsc}}</label>
+                <label style="float: left;">
+                    {{fechaDesc + ':' + horaDesc + ' - ' + fechaAsc + ':' + horaAsc}}</label>
             </div>
 
             <!-- Table Cierre -->
@@ -367,14 +367,14 @@
         </div>
     </form>
 
-    <div class="row" *ngIf="selected" style="margin-top: 8%;">
+    <div class="row" *ngIf="selected" style="margin-top: 8%; margin-bottom: 4%;">
         <div class="col-6">
-            <button mat-flat-button color="accent" style="display: grid; margin: auto;"
+            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
                 (click)="guardar()">Guardar</button>
         </div>
         <div class="col-6">
             <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                (click)="regresar()">Regresar</button>
+                (click)="cancelar()">Cancelar</button>
         </div>
     </div>
 </div>
@@ -576,7 +576,8 @@
             </div>
         </div>
         <!-- Fin Table Cierre -->
-        <button *ngIf="editCierre" mat-raised-button style="display: grid; margin: auto; margin-top: 10%"
-            (click)="regresar()" color="primary">Regresar</button>
+        <button *ngIf="editCierre" mat-raised-button
+            style="display: grid; margin: auto; margin-top: 10%; margin-bottom: 4%;" (click)="cancelar()"
+            color="primary">Cancdelar</button>
     </div>
 </div>

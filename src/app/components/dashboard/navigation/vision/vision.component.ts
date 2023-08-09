@@ -264,8 +264,6 @@ export class VisionComponent implements OnInit {
     const totalServ = this.vision.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
     this.totalServicio = totalServ
 
-    debugger
-
     if (this.totalServicio > 0) {
 
       const coma = this.totalServicio.toString().indexOf(".") !== -1 ? true : false;
@@ -459,6 +457,8 @@ export class VisionComponent implements OnInit {
 
     // total de las Formas de pagos
 
+    debugger
+
     const totalPiso1Efect = this.vision.map(({ valuePiso1Efectivo }) => valuePiso1Efectivo).reduce((acc, value) => acc + value, 0)
     efectPiso1 = totalPiso1Efect
 
@@ -490,7 +490,7 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalEfectiv = integer[0].toString()
-    } this.totalEfectiv = "0"
+    } else this.totalEfectiv = "0"
 
     const totalPiso1Bizum = this.vision.map(({ valuePiso1Bizum }) => valuePiso1Bizum).reduce((acc, value) => acc + value, 0)
     bizumPiso1 = totalPiso1Bizum

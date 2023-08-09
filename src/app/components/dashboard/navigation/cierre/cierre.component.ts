@@ -419,14 +419,24 @@ export class CierreComponent implements OnInit {
         }
 
         // Este debe ser el Primero
-        this.servicioService.getEncargadaFechaAsc(this.selectedEncargada).then((fechaDesc) => {
-          this.fechaAsc = fechaDesc[0]['fechaHoyInicio']
+        this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaDesc) => {
+          let año = "", mes = "", dia = ""
+          año = fechaDesc[0]['fechaHoyInicio'].substring(2,4)
+          mes = fechaDesc[0]['fechaHoyInicio'].substring(8,10)
+          dia = fechaDesc[0]['fechaHoyInicio'].substring(5,7)
+
+          this.fechaAsc = `${dia}-${mes}-${año}`
           this.horaAsc = fechaDesc[0]['horaStart']
         })
 
         // este debe ser el ultimo
-        this.servicioService.getEncargadaFechaDesc(this.selectedEncargada).then((fechaAscedent) => {
-          this.fechaDesc = fechaAscedent[0]['fechaHoyInicio']
+        this.servicioService.getEncargadaFechaAsc (this.selectedEncargada).then((fechaAscedent) => {
+          let año = "", mes = "", dia = ""
+          año = fechaAscedent[0]['fechaHoyInicio'].substring(2,4)
+          mes = fechaAscedent[0]['fechaHoyInicio'].substring(8,10)
+          dia = fechaAscedent[0]['fechaHoyInicio'].substring(5,7)
+
+          this.fechaDesc = `${dia}-${mes}-${año}`
           this.horaDesc = fechaAscedent[0]['horaStart']
         })
 
@@ -680,7 +690,7 @@ export class CierreComponent implements OnInit {
     }
   }
 
-  regresar() {
+  cancelar() {
     this.selectedEncargada = ""
     this.editCierre = false
     this.addCierre = false
