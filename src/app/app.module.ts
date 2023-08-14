@@ -6,9 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Firebase
-import { AngularFireModule } from '@angular/fire/compat';
-
 // MAT
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,10 +20,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-// Conection a Firebase
-import { environment } from 'src/environments/enviroment';
-import firebase from 'firebase/compat/app';
 
 // Services
 import { TrabajadoresService } from './core/services/trabajadores';
@@ -61,8 +54,6 @@ import { CierreService } from './core/services/cierre';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
-    AngularFireModule.initializeApp(environment),
   ],
   providers: [
     TrabajadoresService,

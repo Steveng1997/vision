@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { Usuario } from 'src/app/core/models/usuarios'
-import { LoginService } from 'src/app/core/services/login'
 import Swal from 'sweetalert2'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { FormGroup, FormControl } from '@angular/forms'
+
+// Services
+import { LoginService } from 'src/app/core/services/login'
+
+// Models
+import { Encargada } from 'src/app/core/models/encargada'
 
 @Component({
   selector: 'app-login',
@@ -13,16 +16,21 @@ import { FormGroup, FormControl } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  public usuarioRegistro: string
-  public passRegistro: string
-  usuarios: Usuario[]
-
-  formTemplate = new FormGroup({
-    nombre: new FormControl(''),
-    usuario: new FormControl(''),
-    pass: new FormControl(''),
-  })
-
+  usuarios: Encargada = {
+    activo: true,
+    bebida: 0,
+    fijoDia: 0,
+    id: 0,
+    nombre: '',
+    otros: 0,
+    pass: '',
+    propina: 0,
+    rol: 'encargada',
+    servicio: 0,
+    tabaco: 0,
+    usuario: '',
+    vitamina: 0
+  }
 
   constructor(
     public router: Router,
@@ -34,12 +42,12 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    if (this.usuarioRegistro != undefined) {
-      if (this.passRegistro != undefined) {
-        this.serviceLogin.getByUsuario(this.usuarioRegistro).then((resp => {
-          if (resp[0] != undefined) {
+    if (this.usuarios.usuario != "") {
+      if (this.usuarios.pass != "") {
+        this.serviceLogin.getByUsuario(this.usuarios.usuario).subscribe((resp: any) => {
+          if (resp.length > 0) {
             if (resp[0]['activo'] == true) {
-              this.serviceLogin.getByUserAndPass(this.usuarioRegistro, this.passRegistro).then((respUserPass => {
+              this.serviceLogin.getByUserAndPass(this.usuarios.usuario, this.usuarios.pass).subscribe((respUserPass: any[]) => {
                 if (respUserPass.length > 0) {
                   this.router.navigate([
                     `menu/${resp[0]['id']}/vision/${resp[0]['id']}`,
@@ -51,7 +59,7 @@ export class LoginComponent implements OnInit {
                     text: 'La contraseña es incorrecta',
                   })
                 }
-              }))
+              })
             } else {
               Swal.fire({
                 icon: 'error',
@@ -66,7 +74,7 @@ export class LoginComponent implements OnInit {
               text: 'No existe este usuario en la base de datos',
             })
           }
-        }))
+        })
       }
       else {
         Swal.fire({
@@ -98,21 +106,22 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  registro(formValue) {
-    if (this.formTemplate.value.nombre) {
-      if (this.formTemplate.value.usuario) {
-        if (this.formTemplate.value.pass) {
-          this.serviceLogin.getByUsuario(this.formTemplate.value.usuario).then((nameRegistro) => {
-            if (nameRegistro[0] == undefined) {
-              this.serviceLogin.registerUser(formValue)
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Insertado Correctamente!',
-                showConfirmButton: false,
-                timer: 500,
+  registro() {
+    if (this.usuarios.nombre != '') {
+      if (this.usuarios.usuario != '') {
+        if (this.usuarios.pass != '') {
+          this.serviceLogin.getByUsuario(this.usuarios.usuario).subscribe((nameRegistro: any) => {
+            if (nameRegistro.length === 0) {
+              this.serviceLogin.registerEncargada(this.usuarios).subscribe(resp => {
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: '¡Insertado Correctamente!',
+                  showConfirmButton: false,
+                  timer: 500,
+                })
+                this.modalService.dismissAll()
               })
-              this.modalService.dismissAll()
             } else {
               Swal.fire({
                 icon: 'error',

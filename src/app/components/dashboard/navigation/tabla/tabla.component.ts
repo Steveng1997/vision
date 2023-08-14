@@ -36,7 +36,7 @@ export class TablaComponent implements OnInit {
   horario: any
 
   fileName = 'tabla.xlsx'
-  idUser: string
+  idUser: number
 
   // Servicios
   totalServicio: number
@@ -80,10 +80,13 @@ export class TablaComponent implements OnInit {
     this.selectedEncargada = ""
     this.selectedFormPago = ""
 
-    this.idUser = this.activeRoute.snapshot.paramMap.get('id')
-    this.loginService.getById(this.idUser).then((rp) => {
-      this.idUser = rp[0]
-    })
+    const params = this.activeRoute.snapshot.params;
+    this.idUser = Number(params['id'])
+    if (this.idUser) {
+      this.loginService.getById(this.idUser).subscribe((rp) => {
+        this.idUser = rp[0]
+      })
+    }
 
     this.getEncargada()
     this.getTerapeuta()
@@ -107,7 +110,7 @@ export class TablaComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getServicio().subscribe((datoServicio) => {
+    this.servicioService.getServicio().subscribe((datoServicio: any) => {
       this.servicio = datoServicio
       if (datoServicio.length != 0) {
         this.sumaTotalServicios()
@@ -324,7 +327,7 @@ export class TablaComponent implements OnInit {
 
   notas(targetModal, modal) {
     var notaMensaje = []
-    this.servicioService.getById(targetModal).then((datoServicio) => {
+    this.servicioService.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
@@ -344,6 +347,6 @@ export class TablaComponent implements OnInit {
   }
 
   editamos(id: string) {
-    this.router.navigate([`menu/${this.idUser['id']}/nuevo-servicio/${id}`])
+    this.router.navigate([`menu/${this.idUser['id']}/nuevo-servicio/${id}/true`])
   }
 }

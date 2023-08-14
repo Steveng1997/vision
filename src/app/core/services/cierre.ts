@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import 'firebase/compat/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 

@@ -2,357 +2,355 @@
 
 <div *ngIf="!editamos">
     <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Nuevo Servicio</h4>
+    <div class="container">
 
-    <form [formGroup]="formTemplate" (ngSubmit)="addServicio(formTemplate.value)">
+        <div class="row inputSelect">
 
-        <div class="container">
-            <div class="row inputSelect">
+            <!-- <div class="col-6 font-weight-bold"> -->
+            <div class="col-6">
+                <label style="display: contents;">Terapeuta</label>
 
-                <!-- <div class="col-6 font-weight-bold"> -->
-                <div class="col-6">
-                    <label style="display: contents;">Terapeuta</label>
-
-                    <select class="form-select inputs" formControlName="terapeuta" name="terapeuta"
-                        (ngModelChange)="terapeu($event)">
-                        <option selected value="">Selecciona</option>
-                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
-                        </option>
-                    </select>
-                </div>
-
-                <div class="col-6">
-                    <label style="display: contents;">Encargada</label>
-
-                    <select class="form-select inputs" formControlName="encargada" name="encargada">
-                        <option selected value>Selecciona</option>
-                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
-                        </option>
-                    </select>
-                </div>
-
-                <div class="inputCliente">
-                    <label style="display: contents;">Cliente</label>
-                    <input class="form-control input-sm inputs" type="text" formControlName="cliente">
-                </div>
+                <select class="form-select inputs" name="terapeuta" [(ngModel)]="servicio.terapeuta"
+                    (ngModelChange)="terapeu($event)">
+                    <option selected value="">Selecciona</option>
+                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
+                    </option>
+                </select>
             </div>
 
-            <!---------------------------------------- TIEMPO ---------------------------------------->
+            <div class="col-6">
+                <label style="display: contents;">Encargada</label>
 
-            <label class="titulos font-weight-bold">TIEMPO</label>
-            <hr>
-
-            <div class="row">
-                <div class="col-6">
-                    <label class="font-weight-bold">Último servicio:</label>
-                </div>
-
-                <div class="col-6" *ngIf="horaStartTerapeuta != ''">
-                    <label style="float: right;" *ngFor="let hor of fechaLast">
-                        {{horaStartTerapeuta + '-' + horaEndTerapeuta}}
-                    </label>
-                </div>
+                <select class="form-select inputs" name="encargada" [(ngModel)]="servicio.encargada">
+                    <option selected value>Selecciona</option>
+                    <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                    </option>
+                </select>
             </div>
 
-            <div class="row titulos">
-
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-9">
-                            <label style="display: contents;">Fecha</label>
-                            <input type="date" class="form-control inputs" formControlName="fechaInicio"
-                                (change)="fechaEscogida($event)" [value]="fechaActual">
-                        </div>
-                        <div class="col-3 btnIconos" style="display: grid; align-content: center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                <path
-                                    d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                <path
-                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-9">
-                            <label style="display: contents;">Hora inicio</label>
-                            <input type="time" class="form-control inputs" (change)="horaInicio($event)"
-                                [value]="horaStarted" min="18:00" max="21:00" step="3600" />
-                        </div>
-                        <div class="col-3 btnIconos" style="display: grid; align-content: center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-clock" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 duracionHora">
-                    <label style="display: contents;">Duración(min.)</label>
-                    <input class=" form-control inputs" type="number" formControlName="minuto"
-                        (ngModelChange)="minutos($event)">
-                </div>
-
-                <div class="col-6 duracionHora">
-                    <div style="text-align: center; align-self: center;">
-                        <label>Hora fin:</label>
-                    </div>
-                    <div style="text-align: center; font-size: larger;"> {{horaFinalServicio}} </div>
-                </div>
-
-                <div class="row lugarSalida">
-                    <div class="col-5" style="display: grid">
-                        <label style="align-self: center">Lugar Salida</label>
-                    </div>
-                    <div class="col-7">
-                        <input type="text" class="form-control inputs" formControlName="salida" />
-                    </div>
-                </div>
-            </div>
-
-            <!---------------------------------------- Servicios ---------------------------------------->
-
-            <div class="row titulos">
-                <div class="col-4">
-                    <label class="font-weight-bold">SERVICIOS</label>
-                </div>
-
-                <div class="col-8">
-                    <label class="font-weight-bold sumaServicios">{{sumatoriaServicios + ' €'}}</label>
-                </div>
-            </div>
-            <hr>
-            <label>Detalla el importe de los servicios</label>
-
-
-            <div class="row titulos">
-                <div class="col-4">
-                    <label>Tratamiento</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="servicio" />
-                </div>
-                <div class="col-4">
-                    <label>Bebidas</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="bebidas" />
-                </div>
-                <div class="col-4">
-                    <label>Tabaco</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="tabaco" />
-                </div>
-                <div class="col-4" style="margin-top: 2%">
-                    <label>Vitaminas</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="vitaminas" />
-                </div>
-                <div class="col-4" style="margin-top: 2%">
-                    <label>Propina</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="propina" />
-                </div>
-                <div class="col-4" style="margin-top: 2%">
-                    <label>Otros</label>
-                    <input type="number" class="form-control inputs" (ngModelChange)="valueService()"
-                        formControlName="otros" />
-                </div>
-            </div>
-
-            <!---------------------------------------- COBROS  ---------------------------------------->
-
-            <div class="row titulos">
-                <div class="col-4">
-                    <label class="font-weight-bold">COBROS</label>
-                </div>
-
-                <div class="col-8">
-                    <label class="font-weight-bold sumaServicios">{{sumatoriaCobros + ' €'}}</label>
-                </div>
-            </div>
-            <hr>
-            <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
-
-            <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
-
-                <mat-drawer-container style="font-size: small;" class="col-2">
-                    <mat-drawer-content>EFECT</mat-drawer-content>
-                </mat-drawer-container>
-
-                <mat-drawer-container style="font-size: small;" class="col-2">
-                    <mat-drawer-content>BIZUM</mat-drawer-content>
-                </mat-drawer-container>
-
-                <mat-drawer-container style="font-size: small;" class="col-2">
-                    <mat-drawer-content>TARJETA</mat-drawer-content>
-                </mat-drawer-container>
-
-                <mat-drawer-container style="font-size: small;" class="col-2">
-                    <mat-drawer-content>TRANS</mat-drawer-content>
-                </mat-drawer-container>
-            </div>
-
-            <div class="row titulos">
-                <div class="col-4">
-                    <mat-label>Piso 1</mat-label>
-                    <input type="number" formControlName="numberPiso1" (ngModelChange)="valueCobros()"
-                        class="form-control inputs">
-                </div>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="efectPiso1" class="checkBox"
-                        (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="bizuPiso1" class="checkBox"
-                        (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="tarjPiso1" class="checkBox"
-                        (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="transPiso1" class="checkBox"
-                        (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <mat-label>Piso 2</mat-label>
-                    <input matInput type="number" formControlName="numberPiso2" (ngModelChange)="valueCobros()"
-                        class="form-control inputs">
-                </div>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="efectPiso2" class="checkBox"
-                        (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="bizuPiso2" class="checkBox"
-                        (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="tarjPiso2" class="checkBox"
-                        (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="transPiso2" class="checkBox"
-                        (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <mat-label>Terapeuta</mat-label>
-                    <input matInput type="number" formControlName="numberTerap" (ngModelChange)="valueCobros()"
-                        class="form-control inputs">
-                </div>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="efectTerap" class="checkBox"
-                        (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="bizuTerap" class="checkBox"
-                        (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="tarjTerap" class="checkBox"
-                        (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="transTerap" class="checkBox"
-                        (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <mat-label>Encargada</mat-label>
-                    <input matInput type="number" formControlName="numberEncarg" (ngModelChange)="valueCobros()"
-                        class="form-control inputs">
-                </div>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="efectEncarg" class="checkBox"
-                        (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="bizuEncarg" class="checkBox"
-                        (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="tarjEncarg" class="checkBox"
-                        (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="transEncarg" class="checkBox"
-                        (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-            </div>
-
-            <div class="row" style="margin-bottom: 5%;">
-                <div class="col-4">
-                    <mat-label>Otro</mat-label>
-                    <input matInput type="number" formControlName="numberOtro" (ngModelChange)="valueCobros()"
-                        class="form-control inputs">
-                </div>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="efectOtro" class="checkBox"
-                        (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="bizuOtro" class="checkBox"
-                        (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="tarjOtro" class="checkBox"
-                        (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-
-                <mar-form-field class="col-2">
-                    <mat-checkbox formControlName="transOtro" class="checkBox"
-                        (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
-                </mar-form-field>
-            </div>
-
-            <!-- Fin servicio -->
-
-            <hr class="titulos">
-
-            <div class="row titulos">
-                <div class="col-12">
-                    <label>Notas</label>
-                    <textarea type="text" class="form-control inputs" formControlName="nota"></textarea>
-                </div>
-            </div>
-
-            <div class="titulos">
-                <button type="submit" mat-raised-button class="btn btn-primary titulos btnGuardar"
-                    style="display: grid; margin: auto;" color="primary">Guardar</button>
+            <div class="inputCliente">
+                <label style="display: contents;">Cliente</label>
+                <input class="form-control input-sm inputs" type="text" name="cliente" [(ngModel)]="servicio.cliente">
             </div>
         </div>
-    </form>
+
+        <!---------------------------------------- TIEMPO ---------------------------------------->
+
+        <label class="titulos font-weight-bold">TIEMPO</label>
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <label class="font-weight-bold">Último servicio:</label>
+            </div>
+
+            <div class="col-6" *ngIf="horaStartTerapeuta != ''">
+                <label style="float: right;" *ngFor="let hor of fechaLast">
+                    {{horaStartTerapeuta + '-' + horaEndTerapeuta}}
+                </label>
+            </div>
+        </div>
+
+        <div class="row titulos">
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-9">
+                        <label style="display: contents;">Fecha</label>
+                        <input type="date" class="form-control inputs" formControlName="fechaInicio"
+                            (change)="fechaEscogida($event)" [value]="fechaActual">
+                    </div>
+                    <div class="col-3 btnIconos" style="display: grid; align-content: center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-calendar-date" viewBox="0 0 16 16">
+                            <path
+                                d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                            <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-9">
+                        <label style="display: contents;">Hora inicio</label>
+                        <input type="time" class="form-control inputs" (change)="horaInicio($event)"
+                            [value]="horaStarted" min="18:00" max="21:00" step="3600" />
+                    </div>
+                    <div class="col-3 btnIconos" style="display: grid; align-content: center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-clock" viewBox="0 0 16 16">
+                            <path
+                                d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 duracionHora">
+                <label style="display: contents;">Duración(min.)</label>
+                <input class=" form-control inputs" type="number" name="minuto" [(ngModel)]="servicio.minuto"
+                    (ngModelChange)="minutos($event)">
+            </div>
+
+            <div class="col-6 duracionHora">
+                <div style="text-align: center; align-self: center;">
+                    <label>Hora fin:</label>
+                </div>
+                <div style="text-align: center; font-size: larger;"> {{horaFinalServicio}} </div>
+            </div>
+
+            <div class="row lugarSalida">
+                <div class="col-5" style="display: grid">
+                    <label style="align-self: center">Lugar Salida</label>
+                </div>
+                <div class="col-7">
+                    <input type="text" class="form-control inputs" name="salida" [(ngModel)]="servicio.salida" />
+                </div>
+            </div>
+        </div>
+
+        <!---------------------------------------- Servicios ---------------------------------------->
+
+        <div class="row titulos">
+            <div class="col-4">
+                <label class="font-weight-bold">SERVICIOS</label>
+            </div>
+
+            <div class="col-8">
+                <label class="font-weight-bold sumaServicios">{{sumatoriaServicios + ' €'}}</label>
+            </div>
+        </div>
+        <hr>
+        <label>Detalla el importe de los servicios</label>
+
+
+        <div class="row titulos">
+            <div class="col-4">
+                <label>Tratamiento</label>
+                <input type="number" name="servicio" [(ngModel)]="servicio.servicio" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
+            </div>
+            <div class="col-4">
+                <label>Bebidas</label>
+                <input type="number" class="form-control inputs" name="bebidas" [(ngModel)]="servicio.bebidas"
+                    (change)="valueService()" />
+            </div>
+            <div class="col-4">
+                <label>Tabaco</label>
+                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="tabaco"
+                    [(ngModel)]="servicio.tabaco" />
+            </div>
+            <div class="col-4" style="margin-top: 2%">
+                <label>Vitaminas</label>
+                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="vitaminas"
+                    [(ngModel)]="servicio.vitaminas" />
+            </div>
+            <div class="col-4" style="margin-top: 2%">
+                <label>Propina</label>
+                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="propina"
+                    [(ngModel)]="servicio.propina" />
+            </div>
+            <div class="col-4" style="margin-top: 2%">
+                <label>Otros</label>
+                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="otros"
+                    [(ngModel)]="servicio.otros" />
+            </div>
+        </div>
+
+        <!---------------------------------------- COBROS  ---------------------------------------->
+
+        <div class="row titulos">
+            <div class="col-4">
+                <label class="font-weight-bold">COBROS</label>
+            </div>
+
+            <div class="col-8">
+                <label class="font-weight-bold sumaServicios">{{sumatoriaCobros + ' €'}}</label>
+            </div>
+        </div>
+        <hr>
+        <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
+
+        <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
+
+            <mat-drawer-container style="font-size: small;" class="col-2">
+                <mat-drawer-content>EFECT</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container style="font-size: small;" class="col-2">
+                <mat-drawer-content>BIZUM</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container style="font-size: small;" class="col-2">
+                <mat-drawer-content>TARJETA</mat-drawer-content>
+            </mat-drawer-container>
+
+            <mat-drawer-container style="font-size: small;" class="col-2">
+                <mat-drawer-content>TRANS</mat-drawer-content>
+            </mat-drawer-container>
+        </div>
+
+        <div class="row titulos">
+            <div class="col-4">
+                <mat-label>Piso 1</mat-label>
+                <input type="number" name="numberPiso1" [(ngModel)]="servicio.numberPiso1"
+                    (ngModelChange)="valueCobros()" class="form-control inputs">
+            </div>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="efectPiso1" [(ngModel)]="servicio.efectPiso1" class="checkBox"
+                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="bizuPiso1" [(ngModel)]="servicio.bizuPiso1" class="checkBox"
+                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="tarjPiso1" [(ngModel)]="servicio.tarjPiso1" class="checkBox"
+                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="transPiso1" [(ngModel)]="servicio.transPiso1" class="checkBox"
+                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <mat-label>Piso 2</mat-label>
+                <input matInput type="number" name="numberPiso2" [(ngModel)]="servicio.numberPiso2"
+                    (ngModelChange)="valueCobros()" class="form-control inputs">
+            </div>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="efectPiso2" [(ngModel)]="servicio.efectPiso2" class="checkBox"
+                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="bizuPiso2" [(ngModel)]="servicio.bizuPiso2" class="checkBox"
+                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="tarjPiso2" [(ngModel)]="servicio.tarjPiso2" class="checkBox"
+                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="transPiso2" [(ngModel)]="servicio.transPiso2" class="checkBox"
+                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <mat-label>Terapeuta</mat-label>
+                <input matInput type="number" name="numberTerap" [(ngModel)]="servicio.numberTerap"
+                    (ngModelChange)="valueCobros()" class="form-control inputs">
+            </div>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="efectTerap" [(ngModel)]="servicio.efectTerap" class="checkBox"
+                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="bizuTerap" [(ngModel)]="servicio.bizuTerap" class="checkBox"
+                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="tarjTerap" [(ngModel)]="servicio.tarjTerap" class="checkBox"
+                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="transTerap" [(ngModel)]="servicio.transTerap" class="checkBox"
+                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <mat-label>Encargada</mat-label>
+                <input matInput type="number" name="numberEncarg" [(ngModel)]="servicio.numberEncarg"
+                    (ngModelChange)="valueCobros()" class="form-control inputs">
+            </div>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="efectEncarg" [(ngModel)]="servicio.efectEncarg" class="checkBox"
+                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="bizuEncarg" [(ngModel)]="servicio.bizuEncarg" class="checkBox"
+                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="tarjEncarg" [(ngModel)]="servicio.tarjEncarg" class="checkBox"
+                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="transEncarg" [(ngModel)]="servicio.transEncarg" class="checkBox"
+                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <div class="row" style="margin-bottom: 5%;">
+            <div class="col-4">
+                <mat-label>Otro</mat-label>
+                <input matInput class="form-control inputs" type="number" name="numberOtro"
+                    [(ngModel)]="servicio.numberOtro" (ngModelChange)="valueCobros()">
+            </div>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="efectOtro" [(ngModel)]="servicio.efectOtro" class="checkBox"
+                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="bizuOtro" [(ngModel)]="servicio.bizuOtro" class="checkBox"
+                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="tarjOtro" [(ngModel)]="servicio.tarjOtro" class="checkBox"
+                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+
+            <mar-form-field class="col-2">
+                <mat-checkbox name="transOtro" [(ngModel)]="servicio.transOtro" class="checkBox"
+                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+            </mar-form-field>
+        </div>
+
+        <!-- Fin servicio -->
+
+        <hr class="titulos">
+
+        <div class="row titulos">
+            <div class="col-12">
+                <label>Notas</label>
+                <textarea type="text" class="form-control inputs" name="nota" [(ngModel)]="servicio.nota"></textarea>
+            </div>
+        </div>
+
+        <div class="titulos">
+            <button type="submit" mat-raised-button class="btn btn-primary titulos btnGuardar"
+                style="display: grid; margin: auto;" color="primary" (click)="addServicio()">Guardar</button>
+        </div>
+
+    </div>
 </div>
 
 <!------------------------------------------ Editar ------------------------------------------>
@@ -694,7 +692,7 @@
 
                     <div class="col-4">
                         <button class="btn btn-primary titulos" style="display: grid; margin: auto;"
-                            (click)="editarServicio(edServ.idDocument, edServ.id, edServ)">Guardar</button>
+                            (click)="editarServicio(edServ.id, edServ)">Guardar</button>
                     </div>
 
                     <div class="col-4">

@@ -1,143 +1,75 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 // Model
-import { Trabajadores } from '../models/trabajadores';
-
-// Firebase
-import 'firebase/compat/app';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Terapeutas } from '../models/terapeutas';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrabajadoresService {
 
-  constructor(public router: Router, private db: AngularFirestore) { }
+  API_Encargada = 'http://localhost:3000/api/encargada';
+  API_Terapeuta = 'http://localhost:3000/api/terapeuta';
 
-  trabajadores: Trabajadores[] = [];
-  cursoDoc: AngularFirestoreDocument<Trabajadores>;
+  // API_Encargada = 'http://18.191.235.23:3000/api/encargada';
+  // API_Terapeuta = 'http://18.191.235.23:3000/api/terapeuta';
+
+  constructor(
+    public router: Router,
+    private http: HttpClient
+  ) { }
 
   // Register
 
-  makeid(length: number) {
-    var result = '';
-    var characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-
-  registerTerapeuta(nombre: string, servicio: string, bebida: string, tabaco: string, vitamina: string, otros: string, propina: string) {
-    let trabajador = {
-      id: `uid${this.makeid(10)}`,
-      nombre: nombre,
-      servicio: servicio,
-      bebida: bebida,
-      tabaco: tabaco,
-      vitamina: vitamina,
-      otros: otros,
-      propina: propina,
-      activo: true,
-      horaEnd: '',
-      salida: '',
-      fechaEnd: '',
-    };
-    return new Promise<any>((resolve, reject) => {
-      this.db.collection('terapeutas').add(trabajador).then(
-        (response) => resolve(response),
-        (error) => reject(error)
-      );
-    });
+  registerTerapeuta(terapeuta: Terapeutas) {
+    return this.http.post(`${this.API_Terapeuta}/registerTerapeuta`, terapeuta);
   }
 
   // Get
 
-  getByIdTerapeuta(id): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.db.collection('terapeutas', (ref) => ref.where('id', '==', id)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-        if (rp[0]?.idDocument) {
-          resolve(rp);
-        } else {
-          resolve(rp);
-        }
-      });
-    });
+  getByIdTerapeuta(id: number) {
+    return this.http.get(`${this.API_Terapeuta}/getId/${id}`);
   }
 
-
-  getByNombre(nombre: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-        if (rp[0]?.idDocument) {
-          resolve(rp);
-        } else {
-          resolve(rp);
-        }
-      });
-    });
+  getByNombre(nombre: string) {
+    return this.http.get(`${this.API_Terapeuta}/getNombre/${nombre}`);
   }
 
   getAllTerapeuta() {
-    return this.db.collection('terapeutas', (ref) => ref.orderBy('id', 'asc')).valueChanges()
+    return this.http.get(`${this.API_Terapeuta}/getByIdAsc`);
   }
 
   getAllTerapeutaByOrden() {
-    return this.db.collection('terapeutas', (ref) => ref.orderBy('horaEnd', 'desc')).valueChanges()
+    return this.http.get(`${this.API_Terapeuta}/getByHoraEndDesc`);
   }
 
-  getTerapeuta(nombre: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-        if (rp[0]?.idDocument) {
-          resolve(rp);
-        } else {
-          resolve(rp);
-        }
-      });
-    });
+  getTerapeuta(nombre: string) {
+    return this.http.get(`${this.API_Terapeuta}/getNombre/${nombre}`);
   }
 
-  getEncargada(nombre: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('usuarios', (ref) => ref.where('nombre', '==', nombre)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-        if (rp[0]?.idDocument) {
-          resolve(rp);
-        } else {
-          resolve(rp);
-        }
-      });
-    });
+  getEncargada(nombre: string) {
+    return this.http.get(`${this.API_Encargada}/nombreEncargada/${nombre}`);
   }
 
   // Update
 
-  updateTerapeutas(idDocument, idTerapeuta, terapeuta: Trabajadores) {
-    return this.db.collection('terapeutas', (ref) => ref.where('id', '==', idTerapeuta)).doc(idDocument).update(terapeuta);
+  updateTerapeutas(idTerapeuta: number, terapeuta: Terapeutas) {
+    return this.http.put(`${this.API_Terapeuta}/updateByTerapeuta/${idTerapeuta}`, terapeuta);
   }
 
-  update(idDocument, nombreTerap, horaEnd, salida, fechaEnd) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
-      horaEnd: horaEnd,
-      salida: salida,
-      fechaEnd: fechaEnd
-    });
+  update(nombreTerap, terapeuta: Terapeutas) {
+    return this.http.put(`${this.API_Terapeuta}/update3Item/${nombreTerap}`, terapeuta);
   }
 
-  updateHoraAndSalida(idDocument, nombreTerap) {
-    return this.db.collection('terapeutas', (ref) => ref.where('nombre', '==', nombreTerap)).doc(idDocument).update({
-      horaEnd: "",
-      salida: "",
-      fechaEnd: ""
-    });
+  updateHoraAndSalida(nombreTerap: string, terapeuta: Terapeutas) {
+    return this.http.put(`${this.API_Terapeuta}/updateByHoraAndSalida/${nombreTerap}`, terapeuta);
   }
 
   // Delete
 
-  async deleteTerapeuta(idDocument, id): Promise<any> {
-    this.db.collection('terapeutas', (ref) => ref.where('id', '==', id)).doc(idDocument).delete();
+  deleteTerapeuta(id: number) {
+    return this.http.delete(`${this.API_Terapeuta}/deleteTerapeuta/${id}`);
   }
 }

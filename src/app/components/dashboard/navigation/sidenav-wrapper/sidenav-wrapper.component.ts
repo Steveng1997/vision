@@ -31,10 +31,17 @@ export class SidenavWrapperComponent implements OnInit {
   ngOnInit(): void {
     document.getElementById('idTitulo').innerHTML = 'Visión'
 
-    this.idUser = this.activeRoute.snapshot.paramMap.get('id')
-    this.serviceLogin.getById(this.idUser).then((rp) => {
-      this.idUser = rp[0]
-    })
+    this.idUser = this.activeRoute.snapshot.params;
+    if (this.idUser.id) {
+      this.serviceLogin.getById(this.idUser.id).subscribe((res) => {
+        this.idUser = res[0]
+      })
+    }
+
+    // this.idUser = this.activeRoute.snapshot.paramMap.get('id')
+    // this.serviceLogin.getById(this.idUser).subscribe((rp) => {
+    //   this.idUser = rp[0]
+    // })
   }
 
   liquidacion() {
