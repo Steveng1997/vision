@@ -10,11 +10,11 @@ import { Terapeutas } from '../models/terapeutas';
 })
 export class TrabajadoresService {
 
-  // API_Encargada = 'http://localhost:3000/api/encargada';
-  // API_Terapeuta = 'http://localhost:3000/api/terapeuta';
+  API_Encargada = 'http://localhost:3000/api/encargada';
+  API_Terapeuta = 'http://localhost:3000/api/terapeuta';
 
-  API_Encargada = 'http://18.191.235.23:3000/api/encargada';
-  API_Terapeuta = 'http://18.191.235.23:3000/api/terapeuta';
+  // API_Encargada = 'http://18.191.235.23:3000/api/encargada';
+  // API_Terapeuta = 'http://18.191.235.23:3000/api/terapeuta';
 
   constructor(
     public router: Router,

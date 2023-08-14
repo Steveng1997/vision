@@ -9,8 +9,8 @@ import { Encargada } from '../models/encargada';
 @Injectable()
 export class LoginService {
 
-  API_URL = 'http://18.191.235.23:3000/api/encargada';
-  // API_URL = 'http://localhost:3000/api/encargada';
+  // API_URL = 'http://18.191.235.23:3000/api/encargada';
+  API_URL = 'http://localhost:3000/api/encargada';
 
   constructor(
     public router: Router,

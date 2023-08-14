@@ -115,7 +115,7 @@ export class NuevoServicioComponent implements OnInit {
     idUnico: "",
     liquidadoEncargada: false,
     liquidadoTerapeuta: false,
-    minuto: 0,
+    minuto: "",
     nota: "",
     numberEncarg: 0,
     numberOtro: 0,
@@ -319,6 +319,8 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.efectPiso1 == true) this.servicio.valuePiso1Efectivo = this.servicio.numberPiso1
         if (this.servicio.efectPiso2 == true) this.servicio.valuePiso2Efectivo = this.servicio.numberPiso2
 
+        this.servicio.formaPago = "Efectivo"
+
         this.servicioService.registerServicio(this.servicio).subscribe((res: any) => { })
         return true
       }
@@ -329,6 +331,8 @@ export class NuevoServicioComponent implements OnInit {
 
         if (this.servicio.bizuPiso1 == true) this.servicio.valuePiso1Bizum = this.servicio.numberPiso1
         if (this.servicio.bizuPiso2 == true) this.servicio.valuePiso2Bizum = this.servicio.numberPiso2
+
+        this.servicio.formaPago = "Bizum"
 
         this.servicioService.registerServicio(this.servicio).subscribe((res: any) => { })
         return true
@@ -341,6 +345,8 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.tarjPiso1 == true) this.servicio.valuePiso1Tarjeta = this.servicio.numberPiso1
         if (this.servicio.tarjPiso2 == true) this.servicio.valuePiso2Tarjeta = this.servicio.numberPiso2
 
+        this.servicio.formaPago = "Tarjeta"
+
         this.servicioService.registerServicio(this.servicio).subscribe((res: any) => { })
         return true
       }
@@ -351,6 +357,8 @@ export class NuevoServicioComponent implements OnInit {
 
         if (this.servicio.transPiso1 == true) this.servicio.valuePiso1Transaccion = this.servicio.numberPiso1
         if (this.servicio.transPiso2 == true) this.servicio.valuePiso2Transaccion = this.servicio.numberPiso2
+
+        this.servicio.formaPago = "Transaccion"
 
         this.servicioService.registerServicio(this.servicio).subscribe((res: any) => { })
         return true
@@ -655,14 +663,15 @@ export class NuevoServicioComponent implements OnInit {
           this.servicio.efectOtro == true || this.servicio.efectEncarg == true && this.servicio.efectOtro == true ||
           this.servicio.efectTerap == true && this.servicio.efectEncarg == true) {
 
-          if (this.servicio.efectPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio)
-          if (this.servicio.efectPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio)
-          if (this.servicio.efectEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio)
-          if (this.servicio.efectTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio)
-          if (this.servicio.efectOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio)
+          if (this.servicio.efectPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.servicio.formaPago = 'Efectivo'
+          this.completoEfectivo = 1
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
@@ -675,11 +684,11 @@ export class NuevoServicioComponent implements OnInit {
               this.servicio.numberTerap = terapeuta
               this.servicio.numberOtro = otros
 
-              if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio)
+              if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
             }
           })
           return true
@@ -696,14 +705,15 @@ export class NuevoServicioComponent implements OnInit {
           this.servicio.bizuOtro == true || this.servicio.bizuEncarg == true && this.servicio.bizuOtro == true ||
           this.servicio.bizuTerap == true && this.servicio.bizuEncarg == true) {
 
-          if (this.servicio.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio)
-          if (this.servicio.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio)
-          if (this.servicio.bizuEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio)
-          if (this.servicio.bizuTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio)
-          if (this.servicio.bizuOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio)
+          if (this.servicio.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.servicio.formaPago = 'Bizum'
+          this.completoBizum = 1
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
@@ -716,11 +726,11 @@ export class NuevoServicioComponent implements OnInit {
               this.servicio.numberTerap = terapeuta
               this.servicio.numberOtro = otros
 
-              if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio)
+              if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
             }
           })
           return true
@@ -737,14 +747,15 @@ export class NuevoServicioComponent implements OnInit {
           this.servicio.tarjOtro == true || this.servicio.tarjEncarg == true && this.servicio.tarjOtro == true ||
           this.servicio.tarjTerap == true && this.servicio.tarjEncarg == true) {
 
-          if (this.servicio.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio)
-          if (this.servicio.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio)
-          if (this.servicio.tarjEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio)
-          if (this.servicio.tarjTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio)
-          if (this.servicio.tarjOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio)
+          if (this.servicio.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.servicio.formaPago = 'Tarjeta'
+          this.completoTarjeta = 1
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
@@ -757,11 +768,11 @@ export class NuevoServicioComponent implements OnInit {
               this.servicio.numberTerap = terapeuta
               this.servicio.numberOtro = otros
 
-              if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio)
+              if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
             }
           })
           return true
@@ -778,14 +789,15 @@ export class NuevoServicioComponent implements OnInit {
           this.servicio.transOtro == true || this.servicio.transEncarg == true && this.servicio.transOtro == true ||
           this.servicio.transTerap == true && this.servicio.transEncarg == true) {
 
-          if (this.servicio.transPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio)
-          if (this.servicio.transPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio)
-          if (this.servicio.transEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio)
-          if (this.servicio.transTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio)
-          if (this.servicio.transOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio)
+          if (this.servicio.transPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.servicio.formaPago = 'Transaccion'
+          this.completoTrans = 1
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
@@ -798,11 +810,11 @@ export class NuevoServicioComponent implements OnInit {
               this.servicio.numberTerap = terapeuta
               this.servicio.numberOtro = otros
 
-              if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio)
-              if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio)
+              if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
+              if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], this.idUnico, this.servicio).subscribe((rp) => { })
             }
           })
           return true
@@ -884,11 +896,11 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.efectPiso1 == true || this.servicio.efectPiso2 == true || this.servicio.efectTerap == true ||
           this.servicio.efectEncarg == true || this.servicio.efectOtro == true) {
 
-          if (this.servicio.efectPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, piso1)
-          if (this.servicio.efectPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, piso2)
-          if (this.servicio.efectEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, encargada)
-          if (this.servicio.efectTerap == true) this.servicioService.updateNumberTerap(idsUnico, terapeuta)
-          if (this.servicio.efectOtro == true) this.servicioService.updateNumberOtros(idsUnico, otros)
+          if (this.servicio.efectPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.efectOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.completoEfectivo = 1
@@ -921,11 +933,11 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.bizuPiso1 == true || this.servicio.bizuPiso2 == true || this.servicio.bizuTerap == true ||
           this.servicio.bizuEncarg == true || this.servicio.bizuOtro == true) {
 
-          if (this.servicio.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, piso1)
-          if (this.servicio.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, piso2)
-          if (this.servicio.bizuEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, encargada)
-          if (this.servicio.bizuTerap == true) this.servicioService.updateNumberTerap(idsUnico, terapeuta)
-          if (this.servicio.bizuOtro == true) this.servicioService.updateNumberOtros(idsUnico, otros)
+          if (this.servicio.bizuPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.bizuOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.completoBizum = 1
@@ -958,11 +970,11 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.tarjPiso1 == true || this.servicio.tarjPiso2 == true || this.servicio.tarjTerap == true ||
           this.servicio.tarjEncarg == true || this.servicio.tarjOtro == true) {
 
-          if (this.servicio.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, piso1)
-          if (this.servicio.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, piso2)
-          if (this.servicio.tarjEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, encargada)
-          if (this.servicio.tarjTerap == true) this.servicioService.updateNumberTerap(idsUnico, terapeuta)
-          if (this.servicio.tarjOtro == true) this.servicioService.updateNumberOtros(idsUnico, otros)
+          if (this.servicio.tarjPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.tarjOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.completoTarjeta = 1
@@ -995,11 +1007,11 @@ export class NuevoServicioComponent implements OnInit {
         if (this.servicio.transPiso1 == true || this.servicio.transPiso2 == true || this.servicio.transTerap == true ||
           this.servicio.transEncarg == true || this.servicio.transOtro == true) {
 
-          if (this.servicio.transPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, piso1)
-          if (this.servicio.transPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, piso2)
-          if (this.servicio.transEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, encargada)
-          if (this.servicio.transTerap == true) this.servicioService.updateNumberTerap(idsUnico, terapeuta)
-          if (this.servicio.transOtro == true) this.servicioService.updateNumberOtros(idsUnico, otros)
+          if (this.servicio.transPiso1 == true) this.servicioService.updateNumberPiso1(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transPiso2 == true) this.servicioService.updateNumberPiso2(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transEncarg == true) this.servicioService.updateNumberEncargada(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transTerap == true) this.servicioService.updateNumberTerap(idsUnico, this.servicio).subscribe((rp) => { })
+          if (this.servicio.transOtro == true) this.servicioService.updateNumberOtros(idsUnico, this.servicio).subscribe((rp) => { })
 
           this.todoenCero()
           this.completoTrans = 1
@@ -1205,6 +1217,7 @@ export class NuevoServicioComponent implements OnInit {
             otros = this.servicio.numberOtro
             fecha = this.fechaActual.replace("-", "/").replace("-", "/")
             idsUnico = this.servicio.idUnico
+            this.servicio.currentDate = this.currentDate.toString()
 
             this.conteoNumber()
             this.fechaOrdenada()
@@ -1212,8 +1225,15 @@ export class NuevoServicioComponent implements OnInit {
             this.servicio.horaStart = this.horaStarted
             this.servicio.editar = true
 
+            debugger
+
             if (!this.TodosCobroSelect()) return
-            if (!this.mas4Select()) return
+
+            if (this.servicio.formaPago == "") {
+              if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4) {
+                if (!this.mas4Select()) return
+              }
+            }
 
             if (this.servicio.formaPago == "") {
               if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3) {
@@ -1239,19 +1259,18 @@ export class NuevoServicioComponent implements OnInit {
             }
 
             if (this.servicio.formaPago != "") {
-              // if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1)
-              if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4 ||
-                this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
-                this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                this.servicioService.getIdUnico(this.idUnico).subscribe((idUnicoExit: any) => {
-                  if (idUnicoExit.length > 0) {
-                    if (!this.mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                  }
-                })
+              if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
+                if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4 ||
+                  this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
+                  this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
+                  this.servicioService.getIdUnico(this.idUnico).subscribe((idUnicoExit: any) => {
+                    if (idUnicoExit.length > 0) {
+                      if (!this.mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                    }
+                  })
+                }
               }
             }
-
-            debugger
 
             if (this.servicio.formaPago == "") {
               if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
@@ -1500,7 +1519,7 @@ export class NuevoServicioComponent implements OnInit {
     this.horaFinalServicio = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
-    if (this.editarService[0]['minuto'] != 0) {
+    if (Number(this.editarService[0]['minuto']) != 0) {
       let sumarsesion = Number(this.editarService[0]['minuto']), horas = 0, minutos = 0, convertHora = ''
 
       // Create date by Date and Hour
@@ -1525,7 +1544,7 @@ export class NuevoServicioComponent implements OnInit {
       }
     }
 
-    if (this.servicio.minuto > 0) {
+    if (Number(this.servicio.minuto) > 0) {
       let sumarsesion = Number(this.servicio.minuto), horas = 0, minutos = 0, convertHora = ''
 
       // Create date by Date and Hour
@@ -1556,7 +1575,7 @@ export class NuevoServicioComponent implements OnInit {
     this.horaFinalServicio = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
-    if (this.servicio.minuto > 0) {
+    if (Number(this.servicio.minuto) > 0) {
       let sumarsesion = Number(this.servicio.minuto), horas = 0, minutos = 0, convertHora = ''
 
       // Create date by Date and Hour

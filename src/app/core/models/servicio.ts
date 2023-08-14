@@ -27,7 +27,7 @@ export class Servicio {
   idUnico?: string;
   liquidadoEncargada?: boolean;
   liquidadoTerapeuta?: boolean;
-  minuto?: number;
+  minuto?: string;
   nota?: string;
   numberEncarg?: number;
   numberOtro?: number;
