@@ -110,6 +110,7 @@ export class LoginComponent implements OnInit {
     if (this.usuarios.nombre != '') {
       if (this.usuarios.usuario != '') {
         if (this.usuarios.pass != '') {
+          this.usuarios.nombre = this.usuarios.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
           this.serviceLogin.getByUsuario(this.usuarios.usuario).subscribe((nameRegistro: any) => {
             if (nameRegistro.length === 0) {
               this.serviceLogin.registerEncargada(this.usuarios).subscribe(resp => { })

@@ -55,7 +55,7 @@ td {
   text-align: right;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
+@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .tableCierre {
     margin-top: 15%;
   }
@@ -101,13 +101,13 @@ td {
     margin-top: -1%;
     width: 100%;
   }
+
+  .acomodarInput {
+    margin-top: 2.5%;
+  }
 }
 
-/* ------------------------------------------------------------------------------------------------
- ---------------------------------------------------------------------------------------------------
- Query para Pantalla grande */
-
-@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .tableCierre {
     margin-top: 15%;
   }
@@ -154,5 +154,9 @@ td {
     margin-bottom: 0%;
     margin-top: -0.5%;
     width: 100%;
+  }
+
+  .acomodarInput {
+    margin-top: 1.5%;
   }
 }

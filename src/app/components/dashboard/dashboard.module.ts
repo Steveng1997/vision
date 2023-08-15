@@ -29,8 +29,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
 import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
-// import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
-// import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
+import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
+import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
 import { CierreComponent } from './navigation/cierre/cierre.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
@@ -50,15 +50,10 @@ import { FechaCierrePipe } from 'src/app/core/pipe/fechaCierre.pipe';
 import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe';
 
 @NgModule({
-  // declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent,
-  //   EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe,
-  //   FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
-  //   FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],
-
-  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, VisionComponent, TerapeutaPipe, EncargadaPipe, NuevoServicioComponent,
-    FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe, TablaComponent,
-    FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe
-  ],
+  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent,
+    EncargadosComponent, TerapeutasComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe,
+    FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
+    FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],
 
   imports: [
     CommonModule,

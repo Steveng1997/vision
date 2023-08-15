@@ -51,7 +51,6 @@ export class LoginService {
 
   getUsuarios() {
     return this.http.get(`${this.API_URL}/listaEncargada`);
-    // return this.db.collection('usuarios', (ref) => ref.orderBy('id', 'asc')).valueChanges();
   }
 
   // Update

@@ -1,79 +1,44 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'firebase/compat/app';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+
+// Model
+import { LiquidacionEncargada } from '../models/liquidacionEncarg';
 
 @Injectable()
 export class LiquidacioneEncargService {
-  constructor(public router: Router, private db: AngularFirestore) { }
+
+  API_URL = 'http://18.191.235.23:3000/api/liqEncargada';
+  // API_URL = 'http://localhost:3000/api/liqEncargada';
+
+  constructor(
+    public router: Router,
+    private http: HttpClient
+  ) { }
 
   // Register
 
-  makeid(length) {
-    var result = '';
-    var characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-
-  registerLiquidacionesEncargada(encargada, desdeFechaLiquidado, hastaFechaLiquidado, desdeHoraLiquidado, hastaHoraLiquidado,
-    tratamiento, importe, idEncargada, currentDate) {
-    let formularioall = {
-      id: `uid${this.makeid(10)}`,
-      encargada: encargada,
-      desdeFechaLiquidado: desdeFechaLiquidado,
-      hastaFechaLiquidado: hastaFechaLiquidado,
-      desdeHoraLiquidado: desdeHoraLiquidado,
-      hastaHoraLiquidado: hastaHoraLiquidado,
-      tratamiento: tratamiento,
-      importe: importe,
-      idEncargada: idEncargada,
-      currentDate: currentDate
-    };
-    return new Promise<any>((resolve, reject) => {
-      this.db.collection('liquidacionesEncargada').add(formularioall).then(
-        (response) => resolve(response),
-        (error) => reject(error)
-      );
-    });
+  registerLiquidacionesEncargada(liqEncarg: LiquidacionEncargada) {
+    return this.http.post(`${this.API_URL}/registerLiqEncarg`, liqEncarg);
   }
 
   // Get
 
   getLiquidacionesEncargada() {
-    return this.db.collection('liquidacionesEncargada', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
+    return this.http.get(`${this.API_URL}/getByLiquidacionesEncargada`);
   }
 
-  getIdEncarg(idEncarg): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncarg))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  getIdEncarg(idEncargada: number) {
+    return this.http.get(`${this.API_URL}/getByIdEncarg/${idEncargada}`);
   }
 
   // Update
 
-  update(idDocument, nombreEncarg, idEncargada) {
-    return this.db.collection('liquidacionesEncargada', (ref) => ref.where('nombre', '==', nombreEncarg))
-      .doc(idDocument).update({
-        idEncargada: idEncargada
-      });
+  update(encargada, liqEncarg: LiquidacionEncargada) {
+    return this.http.put(`${this.API_URL}/updateByTerapeuta/${encargada}`, liqEncarg);
   }
 
-  updateById(idDocument, idEncargada, importe) {
-    return this.db.collection('liquidacionesEncargada', (ref) => ref.where('idEncargada', '==', idEncargada))
-      .doc(idDocument).update({
-        importe: importe
-      });
+  updateById(idEncargada, liqEncarg: LiquidacionEncargada) {
+    return this.http.put(`${this.API_URL}/updateIdAndImporte/${idEncargada}`, liqEncarg);
   }
 }

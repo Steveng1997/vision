@@ -20,28 +20,28 @@
     <div class="container">
         <div class="row">
 
-            <mat-form-field class="col-6">
-                <mat-label>Encargada</mat-label>
-                <mat-select name="encargada" [(ngModel)]="cierres.encargada" (ngModelChange)="filtro()">
-                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
-                        {{encarg?.nombre}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
             <div class="col-6">
+                <label style="display: contents;">Encargada</label>
+                <select class="form-select" name="encargada" [(ngModel)]="cierres.encargada" (ngModelChange)="filtro()">
+                    <option selected value="">Selecciona</option>
+                    <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-6 acomodarInput">
+                <input type="text" class="form-control input-sm" formControlName="busqueda" (ngModelChange)="filtro()"
+                    style="font-size: 14px;" />
+            </div>
+
+            <div class="col-6" style="margin-top: 2%;">
                 <input type="date" class="form-control" formControlName="fechaInicio" (ngModelChange)="filtro()">
             </div>
 
 
-            <div class="col-6">
+            <div class="col-6" style="margin-top: 2%;">
                 <input type="date" class="form-control" formControlName="FechaFin" (ngModelChange)="filtro()">
             </div>
-
-            <mat-form-field class="col-6">
-                <mat-label>Buscar</mat-label>
-                <input type="text" matInput formControlName="busqueda" (ngModelChange)="filtro()" />
-            </mat-form-field>
         </div>
     </div>
 </form>
@@ -91,9 +91,9 @@
                     </th>
                 </tr>
             </thead>
-            <tbody (click)="editamos(serv.idCierre)" *ngFor="let serv of (cierre | encargada: cierres.encargada 
-            | fechaCierre: fechaInicio:fechaFinal | busquedaCierre: filtredBusqueda) 
-            | paginate: { itemsPerPage: 10, currentPage: page }">
+            <tbody *ngFor="let serv of (cierre | encargada: cierres.encargada | fechaCierre: fechaInicio:fechaFinal 
+            | busquedaCierre: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }"
+                (click)="editamos(serv.idCierre)">
                 <tr style="cursor: pointer;">
                     <!-- 2 -->
                     <td class="quitarBordes" style="border-bottom: hidden; text-align: left;">{{serv?.encargada}}</td>
@@ -104,7 +104,8 @@
                     <td class="quitarBordes" style="border-bottom: hidden; text-align: left;">{{serv?.fechaHasta + ' - '
                         + serv?.horaHasta}}</td>
                     <!-- 5 -->
-                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.tratamiento}}</td>
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.tratamiento}}
+                    </td>
                     <!-- 6 -->
                     <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.total + ' €'}}
                     </td>
@@ -353,7 +354,8 @@
                         <tbody class="table3">
                             <tr>
                                 <td style="border-bottom: hidden; font-weight: bold;">Total</td>
-                                <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                                <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}
+                                </td>
                                 <td data-label="Bizum" style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
                                 <td data-label="Tarjeta" style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
                                 <td data-label="Transferencia" style="border-bottom: hidden;">{{cierres.transaccion + '
@@ -390,7 +392,8 @@
 
         <div class="row" style="margin-top: 4%;">
             <div class="col-9">
-                <label style="font-weight: bold; font-size: larger;">Cierre Encargada {{datosCierre[0]['encargada']}}</label>
+                <label style="font-weight: bold; font-size: larger;">Cierre Encargada
+                    {{datosCierre[0]['encargada']}}</label>
             </div>
 
             <div class="col-3">
@@ -480,7 +483,7 @@
                             <th style="border-bottom: 1px solid blue; text-align: center;">€ a otros</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let cierre of (datosCierre | encargada: datosCierre.encargada) 
+                    <tbody *ngFor="let cierre of (datosCierre | encargada: cierres.encargada) 
                             | paginate: { itemsPerPage: 5, currentPage: page }">
                         <tr>
                             <!-- 1 -->
