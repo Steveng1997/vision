@@ -635,16 +635,17 @@ export class CierreComponent implements OnInit {
 
           setTimeout(() => {
             this.getCierre()
-            this.liqCierre = true
-            this.addCierre = false
-            this.editCierre = false
-            this.selected = false
-            this.mostrarFecha = false
-            this.cierres.encargada = ""
-            Swal.fire({
-              position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500
-            })
           }, 1000);
+
+          this.liqCierre = true
+          this.addCierre = false
+          this.editCierre = false
+          this.selected = false
+          this.mostrarFecha = false
+          this.cierres.encargada = ""
+          Swal.fire({
+            position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500
+          })
         })
       }
 
@@ -677,16 +678,17 @@ export class CierreComponent implements OnInit {
 
             setTimeout(() => {
               this.getCierre()
-              this.liqCierre = true
-              this.addCierre = false
-              this.editCierre = false
-              this.selected = false
-              this.mostrarFecha = false
-              this.cierres.encargada = ""
-              Swal.fire({
-                position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500,
-              })
             }, 1000);
+
+            this.liqCierre = true
+            this.addCierre = false
+            this.editCierre = false
+            this.selected = false
+            this.mostrarFecha = false
+            this.cierres.encargada = ""
+            Swal.fire({
+              position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500,
+            })
           })
         })
       } else {

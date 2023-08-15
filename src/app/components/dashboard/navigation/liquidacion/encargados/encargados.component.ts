@@ -550,20 +550,21 @@ export class EncargadosComponent implements OnInit {
 
           setTimeout(() => {
             this.getLiquidaciones()
-            this.liqEncarg = true
-            this.addEncarg = false
-            this.editEncarg = false
-            this.selected = false
-            this.mostrarFecha = false
-            this.liqEncargada.encargada = ""
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
-            })
           }, 1000);
+
+          this.liqEncarg = true
+          this.addEncarg = false
+          this.editEncarg = false
+          this.selected = false
+          this.mostrarFecha = false
+          this.liqEncargada.encargada = ""
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Liquidado Correctamente!',
+            showConfirmButton: false,
+            timer: 2500,
+          })
         })
       }
 
@@ -595,20 +596,21 @@ export class EncargadosComponent implements OnInit {
 
             setTimeout(() => {
               this.getLiquidaciones()
-              this.liqEncarg = true
-              this.addEncarg = false
-              this.editEncarg = false
-              this.selected = false
-              this.mostrarFecha = false
-              this.liqEncargada.encargada = ""
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Liquidado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
-              })
             }, 1000);
+
+            this.liqEncarg = true
+            this.addEncarg = false
+            this.editEncarg = false
+            this.selected = false
+            this.mostrarFecha = false
+            this.liqEncargada.encargada = ""
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Liquidado Correctamente!',
+              showConfirmButton: false,
+              timer: 2500,
+            })
           })
         })
       }
