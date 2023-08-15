@@ -8,7 +8,7 @@ import { VisionComponent } from './navigation/vision/vision.component';
 // import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
 // import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 import { LoginComponent } from './navigation/login/login.component';
-// import { CierreComponent } from './navigation/cierre/cierre.component';
+import { CierreComponent } from './navigation/cierre/cierre.component';
 
 const routes: Routes = [
   {
@@ -27,10 +27,10 @@ const routes: Routes = [
         path: 'tabla/:id',
         component: TablaComponent
       },
-      // {
-      //   path: 'cierre',
-      //   component: CierreComponent
-      // },
+      {
+        path: 'cierre',
+        component: CierreComponent
+      },
       {
         path: 'configuracion',
         component: ConfiguracionComponent

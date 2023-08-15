@@ -1,120 +1,53 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+
+// Model
+import { Cierre } from '../models/cierre';
 
 @Injectable()
 export class CierreService {
-  constructor(public router: Router, private db: AngularFirestore) { }
+
+  API_URL = 'http://18.191.235.23:3000/api/cierre';
+  API_SERVICIO = 'http://18.191.235.23:3000/api/servicio';
+
+  // API_URL = 'http://localhost:3000/api/cierre';  
+  // API_SERVICIO = 'http://localhost:3000/api/servicio';
+
+  constructor(
+    public router: Router,
+    private http: HttpClient
+  ) { }
 
   // Register
 
-  makeid(length) {
-    var result = '';
-    var characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
+  registerCierre(cierre: Cierre) {
+    return this.http.post(`${this.API_URL}/registerCierre`, cierre);
   }
 
-  registerCierre(encargada, fechaDesde, fechaHasta, horaDesde, horaHasta, tratamiento, total,
-    efectivo, bizum, tarjeta, transaccion, currentDate, idCierre) {
-    let formularioall = {
-      id: `uid${this.makeid(10)}`,
-      encargada: encargada,
-      fechaDesde: fechaDesde,
-      fechaHasta: fechaHasta,
-      horaDesde: horaDesde,
-      horaHasta: horaHasta,
-      tratamiento: tratamiento,
-      total: total,
-      efectivo: efectivo,
-      bizum: bizum,
-      tarjeta: tarjeta,
-      transaccion: transaccion,
-      currentDate: currentDate,
-      idCierre: idCierre
-    };
-    return new Promise<any>((resolve, reject) => {
-      this.db.collection('cierre').add(formularioall).then(
-        (response) => resolve(response),
-        (error) => reject(error)
-      );
-    });
-  }
-
-  // Get
+  // Get  
 
   getAllCierre() {
-    return this.db.collection('cierre', (ref) => ref.orderBy('currentDate', 'desc')).valueChanges();
+    return this.http.get(`${this.API_URL}/getByAllCierre`);
   }
 
-  getServicioByEncargadaAndIdUnico(encargada: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-        .where('cierre', '==', false).orderBy('currentDate', 'asc')).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  getServicioByEncargadaAndIdUnico(encargada: string) {
+    return this.http.get(`${this.API_SERVICIO}/getByServicioByEncargadaAndIdUnico/${encargada}`);
   }
 
-  getIdTerap(idCierre): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('cierre', (ref) => ref.where('idCierre', '==', idCierre))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  getIdCierre(idCierre: number) {
+    return this.http.get(`${this.API_URL}/getByIdCierre/${idCierre}`);
   }
 
-  getEncargadaByCierre(encargada: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.where('encargada', '==', encargada)
-      .where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-        if (rp[0]?.idDocument) {
-          resolve(rp);
-        } else {
-          resolve(rp);
-        }
-      });
-    });
+  getEncargadaByCierre(encargada: string) {
+    return this.http.get(`${this.API_SERVICIO}/getEncargadaAndCierre/${encargada}`);
   }
 
-  getEncargadaFechaAscByCierreTrue(encargada: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'asc')
-        .where('encargada', '==', encargada).where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  getEncargadaFechaAscByCierreTrue(encargada: string) {
+    return this.http.get(`${this.API_SERVICIO}/getByEncargadaFechaAscByCierreTrue/${encargada}`);
   }
 
-  getEncargadaFechaDescByCierreFalse(encargada: string): Promise<any> {
-    return new Promise((resolve, _reject) => {
-      this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc')
-        .where('encargada', '==', encargada).where('cierre', '==', true))
-        .valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-          if (rp[0]?.idDocument) {
-            resolve(rp);
-          } else {
-            resolve(rp);
-          }
-        });
-    });
+  getEncargadaFechaDescByCierreFalse(encargada: string) {
+    return this.http.get(`${this.API_SERVICIO}/getByEncargadaFechaDescByCierreFalse/${encargada}`);
   }
 }

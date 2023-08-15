@@ -309,6 +309,9 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   TodosCobroSelect() {
+
+    this.valirdarCero()
+
     if (Number(this.servicio.numberPiso1) > 0 || Number(this.servicio.numberPiso2) > 0 || Number(this.servicio.numberTerap) > 0
       || Number(this.servicio.numberEncarg) > 0 || Number(this.servicio.numberOtro) > 0) {
 
@@ -373,6 +376,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas4Select() {
+
+    this.valirdarCero()
 
     if (Number(this.servicio.numberPiso1) > 0 || Number(this.servicio.numberPiso2) > 0 || Number(this.servicio.numberTerap) > 0
       || Number(this.servicio.numberEncarg) > 0 || Number(this.servicio.numberOtro) > 0) {
@@ -457,6 +462,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas3Select() {
+
+    this.valirdarCero()
 
     if (Number(this.servicio.numberPiso1) > 0 || Number(this.servicio.numberPiso2) > 0 || Number(this.servicio.numberTerap) > 0
       || Number(this.servicio.numberEncarg) > 0 || Number(this.servicio.numberOtro) > 0) {
@@ -568,6 +575,19 @@ export class NuevoServicioComponent implements OnInit {
     this.servicio.totalServicio = 0
   }
 
+  valirdarCero() {
+    if (this.servicio.bebidas == "") this.servicio.bebidas = "0"
+    if (this.servicio.numberEncarg == "") this.servicio.numberEncarg = "0"
+    if (this.servicio.numberOtro == "") this.servicio.numberOtro = "0"
+    if (this.servicio.numberPiso1 == "") this.servicio.numberPiso1 = "0"
+    if (this.servicio.numberPiso2 == "") this.servicio.numberPiso2 = "0"
+    if (this.servicio.numberTerap == "") this.servicio.numberTerap = "0"
+    if (this.servicio.otros == "") this.servicio.otros = "0"
+    if (this.servicio.propina == "") this.servicio.propina = "0"
+    if (this.servicio.tabaco == "") this.servicio.tabaco = "0"
+    if (this.servicio.vitaminas == "") this.servicio.vitaminas = "0"
+  }
+
   conteoNumber() {
     if (this.servicio.efectPiso1 == true) this.countEfect += 1
     if (this.servicio.efectPiso2 == true) this.countEfect += 1
@@ -595,6 +615,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas2Select(piso1, piso2, terapeuta, encargada, otros) {
+
+    this.valirdarCero()
 
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
@@ -680,6 +702,12 @@ export class NuevoServicioComponent implements OnInit {
 
   mas2SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
 
+    this.servicio.numberPiso1 = piso1
+    this.servicio.numberPiso2 = piso2
+    this.servicio.numberTerap = terapeuta
+    this.servicio.numberEncarg = encargada
+    this.servicio.numberOtro = otros
+
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
       // Efectivo
@@ -704,23 +732,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -747,23 +777,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -790,23 +822,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -833,23 +867,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -859,6 +895,8 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   mas1Select() {
+
+    this.valirdarCero()
 
     if (Number(this.servicio.numberPiso1) > 0 || Number(this.servicio.numberPiso2) > 0 || Number(this.servicio.numberTerap) > 0
       || Number(this.servicio.numberEncarg) > 0 || Number(this.servicio.numberOtro) > 0) {
@@ -919,6 +957,12 @@ export class NuevoServicioComponent implements OnInit {
 
   mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
 
+    this.servicio.numberPiso1 = piso1
+    this.servicio.numberPiso2 = piso2
+    this.servicio.numberTerap = terapeuta
+    this.servicio.numberEncarg = encargada
+    this.servicio.numberOtro = otros
+
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
       // Efectivo
@@ -938,23 +982,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register: any) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -976,23 +1022,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register: any) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -1014,23 +1062,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -1051,23 +1101,25 @@ export class NuevoServicioComponent implements OnInit {
 
           this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-          this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
-            if (resp.length > 0) {
+          setTimeout(() => {
+            this.servicioService.getIdDescendente(idsUnico).subscribe((resp: any) => {
+              if (resp.length > 0) {
 
-              this.servicio.numberPiso1 = piso1
-              this.servicio.numberPiso2 = piso2
-              this.servicio.numberEncarg = encargada
-              this.servicio.numberTerap = terapeuta
-              this.servicio.numberOtro = otros
+                this.servicio.numberPiso1 = piso1
+                this.servicio.numberPiso2 = piso2
+                this.servicio.numberEncarg = encargada
+                this.servicio.numberTerap = terapeuta
+                this.servicio.numberOtro = otros
 
-              if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-              this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
-            }
-          })
+                if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+                this.servicioService.updatePisos(resp[0]['id'], idsUnico, this.servicio).subscribe((rp) => { })
+              }
+            })
+          }, 1000)
           return true
         }
       }
@@ -1092,23 +1144,25 @@ export class NuevoServicioComponent implements OnInit {
 
       this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-      this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
-        if (resp.length > 0) {
+      setTimeout(() => {
+        this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
+          if (resp.length > 0) {
 
-          this.servicio.numberPiso1 = piso1
-          this.servicio.numberPiso2 = piso2
-          this.servicio.numberEncarg = encargada
-          this.servicio.numberTerap = terapeuta
-          this.servicio.numberOtro = otros
+            this.servicio.numberPiso1 = piso1
+            this.servicio.numberPiso2 = piso2
+            this.servicio.numberEncarg = encargada
+            this.servicio.numberTerap = terapeuta
+            this.servicio.numberOtro = otros
 
-          if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-        }
-      })
+            if (this.servicio.efectPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.efectPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.efectEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.efectTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.efectOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+          }
+        })
+      }, 1000)
       return true
     }
     return true
@@ -1130,23 +1184,25 @@ export class NuevoServicioComponent implements OnInit {
 
       this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-      this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
-        if (resp.length > 0) {
+      setTimeout(() => {
+        this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
+          if (resp.length > 0) {
 
-          this.servicio.numberPiso1 = piso1
-          this.servicio.numberPiso2 = piso2
-          this.servicio.numberEncarg = encargada
-          this.servicio.numberTerap = terapeuta
-          this.servicio.numberOtro = otros
+            this.servicio.numberPiso1 = piso1
+            this.servicio.numberPiso2 = piso2
+            this.servicio.numberEncarg = encargada
+            this.servicio.numberTerap = terapeuta
+            this.servicio.numberOtro = otros
 
-          if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-        }
-      })
+            if (this.servicio.bizuPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.bizuPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.bizuEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.bizuTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.bizuOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+          }
+        })
+      }, 1000)
       return true
     }
     return true
@@ -1168,23 +1224,25 @@ export class NuevoServicioComponent implements OnInit {
 
       this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-      this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
-        if (resp.length > 0) {
+      setTimeout(() => {
+        this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
+          if (resp.length > 0) {
 
-          this.servicio.numberPiso1 = piso1
-          this.servicio.numberPiso2 = piso2
-          this.servicio.numberEncarg = encargada
-          this.servicio.numberTerap = terapeuta
-          this.servicio.numberOtro = otros
+            this.servicio.numberPiso1 = piso1
+            this.servicio.numberPiso2 = piso2
+            this.servicio.numberEncarg = encargada
+            this.servicio.numberTerap = terapeuta
+            this.servicio.numberOtro = otros
 
-          if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-        }
-      })
+            if (this.servicio.tarjPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.tarjPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.tarjEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.tarjTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.tarjOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+          }
+        })
+      }, 1000)
       return true
     }
     return true
@@ -1206,23 +1264,25 @@ export class NuevoServicioComponent implements OnInit {
 
       this.servicioService.registerServicio(this.servicio).subscribe((register) => { })
 
-      this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
-        if (resp.length > 0) {
+      setTimeout(() => {
+        this.servicioService.getIdDescendente(idUnico).subscribe((resp: any) => {
+          if (resp.length > 0) {
 
-          this.servicio.numberPiso1 = piso1
-          this.servicio.numberPiso2 = piso2
-          this.servicio.numberEncarg = encargada
-          this.servicio.numberTerap = terapeuta
-          this.servicio.numberOtro = otros
+            this.servicio.numberPiso1 = piso1
+            this.servicio.numberPiso2 = piso2
+            this.servicio.numberEncarg = encargada
+            this.servicio.numberTerap = terapeuta
+            this.servicio.numberOtro = otros
 
-          if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-          this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
-        }
-      })
+            if (this.servicio.transPiso1 == true) this.servicioService.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.transPiso2 == true) this.servicioService.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.transEncarg == true) this.servicioService.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.transTerap == true) this.servicioService.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            if (this.servicio.transOtro == true) this.servicioService.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+            this.servicioService.updatePisos(resp[0]['id'], idUnico, this.servicio).subscribe((rp) => { })
+          }
+        })
+      }, 1000)
       return true
     }
     return true
@@ -1283,76 +1343,82 @@ export class NuevoServicioComponent implements OnInit {
               }
             }
 
-            if (this.servicio.formaPago != "") {
-              if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
-                this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
-                  this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                    if (idUnicoExit.length > 0) {
-                      if (!this.mas2SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                    }
-                  })
-                }
-              }
-            }
-
-            if (this.servicio.formaPago != "") {
-              if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4 ||
-                this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
-                this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
+            setTimeout(() => {
+              if (this.servicio.formaPago != "") {
+                if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
+                  this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
                   if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
                     this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                       if (idUnicoExit.length > 0) {
-                        if (!this.mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                        if (!this.mas2SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
                       }
                     })
                   }
                 }
               }
-            }
+            }, 3000)
 
-            if (this.servicio.formaPago == "") {
-              if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-                if (!this.mas1Select()) return
-                console.log('aqui')
 
-                if (this.servicio.formaPago != "") {
+            setTimeout(() => {
+              if (this.servicio.formaPago != "") {
+                if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4 ||
+                  this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
+                  this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
                   if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-
-                    if (this.completoEfectivo == 0) {
+                    if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
                       this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                         if (idUnicoExit.length > 0) {
-                          if (!this.efectivoUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
-                        }
-                      })
-                    }
-
-                    if (this.completoBizum == 0) {
-                      this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                        if (idUnicoExit.length > 0) {
-                          if (!this.bizumUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
-                        }
-                      })
-                    }
-
-                    if (this.completoTarjeta == 0) {
-                      this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                        if (idUnicoExit.length > 0) {
-                          if (!this.tarjetaUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                        }
-                      })
-                    }
-
-                    if (this.completoTrans == 0) {
-                      this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                        if (idUnicoExit.length > 0) {
-                          if (!this.transaccionUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                          if (!this.mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
                         }
                       })
                     }
                   }
                 }
+              }
+            }, 3000)
+
+            if (this.servicio.formaPago == "") {
+              if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
+                if (!this.mas1Select()) return
+
+                setTimeout(() => {
+                  if (this.servicio.formaPago != "") {
+                    if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
+
+                      if (this.completoEfectivo == 0) {
+                        this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
+                          if (idUnicoExit.length > 0) {
+                            if (!this.efectivoUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
+                          }
+                        })
+                      }
+
+                      if (this.completoBizum == 0) {
+                        this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
+                          if (idUnicoExit.length > 0) {
+                            if (!this.bizumUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
+                          }
+                        })
+                      }
+
+                      if (this.completoTarjeta == 0) {
+                        this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
+                          if (idUnicoExit.length > 0) {
+                            if (!this.tarjetaUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                          }
+                        })
+                      }
+
+                      if (this.completoTrans == 0) {
+                        this.servicioService.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
+                          if (idUnicoExit.length > 0) {
+                            if (!this.transaccionUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                          }
+                        })
+                      }
+                    }
+                  }
+                }, 3000)
               }
             }
 
@@ -1362,10 +1428,13 @@ export class NuevoServicioComponent implements OnInit {
 
             this.trabajadorService.update(this.servicio.terapeuta, this.terapeutas).subscribe((rp: any) => { })
 
-            this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
-            this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
+            setTimeout(() => {
+              this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
+              this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
 
-            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
+            }, 5000)
+
           } else {
             Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
           }
@@ -2011,7 +2080,7 @@ export class NuevoServicioComponent implements OnInit {
 
     año = fecha.getFullYear()
 
-    const paramEditar = this.activatedRoute.snapshot.params['editar'];
+    const paramEditar = this.activatedRoute.snapshot.params['editar']
     this.idUserAdministrador = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
     this.idEditar = Number(this.activeRoute.snapshot.paramMap.get('id'))
     if (paramEditar == "true") {

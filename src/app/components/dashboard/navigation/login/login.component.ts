@@ -18,18 +18,18 @@ export class LoginComponent implements OnInit {
 
   usuarios: Encargada = {
     activo: true,
-    bebida: "",
-    fijoDia: "",
+    bebida: "0",
+    fijoDia: "0",
     id: 0,
     nombre: "",
-    otros: "",
+    otros: "0",
     pass: "",
-    propina: "",
-    rol: "encargada",
-    servicio: "",
-    tabaco: "",
+    propina: "0",
+    rol: 'encargada',
+    servicio: "0",
+    tabaco: "0",
     usuario: "",
-    vitamina: ""
+    vitamina: "0"
   }
 
   constructor(
@@ -112,16 +112,15 @@ export class LoginComponent implements OnInit {
         if (this.usuarios.pass != '') {
           this.serviceLogin.getByUsuario(this.usuarios.usuario).subscribe((nameRegistro: any) => {
             if (nameRegistro.length === 0) {
-              this.serviceLogin.registerEncargada(this.usuarios).subscribe(resp => {
-                Swal.fire({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: '¡Insertado Correctamente!',
-                  showConfirmButton: false,
-                  timer: 500,
-                })
-                this.modalService.dismissAll()
+              this.serviceLogin.registerEncargada(this.usuarios).subscribe(resp => { })
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '¡Insertado Correctamente!',
+                showConfirmButton: false,
+                timer: 500,
               })
+              this.modalService.dismissAll()
             } else {
               Swal.fire({
                 icon: 'error',

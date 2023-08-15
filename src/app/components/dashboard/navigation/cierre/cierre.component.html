@@ -1,0 +1,585 @@
+<script src="components/sweetalert/dist/sweetalert.min.js"></script>
+
+<form *ngIf="liqCierre" [formGroup]="formTemplate">
+
+    <div class="text-center mt-4 mb-4">
+
+        <div class="text-center mt-4 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" style="cursor: pointer;"
+                class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" (click)="addLiquidacion()">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+            <div>
+                <label> Nueva liquidación </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <mat-form-field class="col-6">
+                <mat-label>Encargada</mat-label>
+                <mat-select name="encargada" [(ngModel)]="cierres.encargada" (ngModelChange)="filtro()">
+                    <mat-option *ngFor="let encarg of encargada" [value]="encarg.nombre">
+                        {{encarg?.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="col-6">
+                <input type="date" class="form-control" formControlName="fechaInicio" (ngModelChange)="filtro()">
+            </div>
+
+
+            <div class="col-6">
+                <input type="date" class="form-control" formControlName="FechaFin" (ngModelChange)="filtro()">
+            </div>
+
+            <mat-form-field class="col-6">
+                <mat-label>Buscar</mat-label>
+                <input type="text" matInput formControlName="busqueda" (ngModelChange)="filtro()" />
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+
+<div *ngIf="liqCierre" style="display: grid; place-items: center; margin-top: 3%;">
+    <div style="text-align: center; width: max-content;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="quitarBordesVacio"></td>
+                    <td class="quitarBordesVacio"></td>
+                    <td class="quitarBordesVacio"></td>
+                    <td class="quitarBordesVacio lbelTotal" style="border-bottom: 1px solid blue;">TOTALES</td>
+                    <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValueServicio + ' €'}} </td>
+                    <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValueEfectivo + ' €'}}</td>
+                    <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValueBizum + ' €'}} </td>
+                    <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValueTarjeta + ' €'}}</td>
+                    <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValueTrans + ' €'}}</td>
+                </tr>
+                <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal;">
+                    <!-- 2 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Encargada
+                    </th>
+                    <!-- 3 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Desde
+                    </th>
+                    <!-- 4 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Hasta
+                    </th>
+                    <!-- 5 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                        Tratamiento</th>
+                    <!-- 6 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">TOTAL
+                    </th>
+                    <!-- 7 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Efectivo
+                    </th>
+                    <!-- 8 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Bizum
+                    </th>
+                    <!-- 9 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Tarjeta
+                    </th>
+                    <!-- 10 -->
+                    <th style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Trans.
+                    </th>
+                </tr>
+            </thead>
+            <tbody (click)="editamos(serv.idCierre)" *ngFor="let serv of (cierre | encargada: cierres.encargada 
+            | fechaCierre: fechaInicio:fechaFinal | busquedaCierre: filtredBusqueda) 
+            | paginate: { itemsPerPage: 10, currentPage: page }">
+                <tr style="cursor: pointer;">
+                    <!-- 2 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: left;">{{serv?.encargada}}</td>
+                    <!-- 3 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: left;">{{serv?.fechaDesde + ' - '
+                        + serv?.horaDesde}}</td>
+                    <!-- 4 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: left;">{{serv?.fechaHasta + ' - '
+                        + serv?.horaHasta}}</td>
+                    <!-- 5 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.tratamiento}}</td>
+                    <!-- 6 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.total + ' €'}}
+                    </td>
+                    <!-- 7 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.efectivo + ' €'}}
+                    </td>
+                    <!-- 8 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.bizum + ' €'}}
+                    </td>
+                    <!-- 9 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.tarjeta + ' €'}}
+                    </td>
+                    <!-- 10 -->
+                    <td class="quitarBordes" style="border-bottom: hidden; text-align: right;">{{serv?.transaccion + '
+                        €'}}</td>
+                </tr>
+
+                <!-- Modal -->
+                <ng-template class="custom-modal" #modalTabl let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Nota </h5>
+                        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body" style="text-align: center;">
+                        <!-- Aqui se coloca lo adentro -->
+
+                        <h4>{{serv.nota}}</h4>
+
+                        <!-- Afuera -->
+                    </div>
+                </ng-template>
+
+                <!-- Fin Modal -->
+
+            </tbody>
+        </table>
+
+        <p class="noHayCierre" *ngIf="cierre?.length === 0"> Actualmente no hay
+            cierres </p>
+
+        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente">
+        </pagination-controls>
+    </div>
+</div>
+
+<!-- Agregar Encargada -->
+<div *ngIf="addCierre">
+
+    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVO CIERRE</label>
+
+    <form [formGroup]="formTemplate">
+
+        <div class="container">
+            <div class="cajaEncargada">
+
+                <div class="col-6">
+                    <label style="display: flex;">Encargada</label>
+                    <select class="form-select" name="encargada" [(ngModel)]="cierres.encargada"
+                        (ngModelChange)="calcularSumaDeServicios()">
+                        <option selected value="">Selecciona</option>
+                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div *ngIf="selected" class="row" style="margin-top: 4%;">
+                <div class="col-9">
+                    <label style="font-weight: bold; font-size: larger;">
+                        Cierre Encargada {{cierres?.encargada}}</label>
+                </div>
+
+                <div class="col-3">
+                    <label style="font-weight: bold; float: right;">{{ingresoPeriodo + ' €'}}</label>
+                </div>
+            </div>
+
+            <hr class="lineaHoy" *ngIf="selected">
+
+            <div class="col-auto" *ngIf="mostrarFecha" style="display: contents;">
+                <label style="float: left;">
+                    {{fechaDesc + ':' + horaDesc + ' - ' + fechaAsc + ':' + horaAsc}}</label>
+            </div>
+
+            <!-- Table Cierre -->
+
+            <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">
+                <div style="text-align: center; width: max-content;">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-secondary quitarBordes" style="line-height: 0%">
+                                <th style="border-bottom: 1px solid blue; text-align: center;"></th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Caja</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Ingresos</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Pagos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="border-bottom: hidden;">Efectivo</th>
+                                <!-- AQUI DUDA -->
+                                <td style="border-bottom: hidden;">{{cierres.total + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{sumaEfectivo + ' €'}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="border-bottom: hidden;">Bizum</th>
+                                <td style="border-bottom: hidden;">{{totalCajaBizu + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{sumaBizum + ' €'}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="border-bottom: hidden;">Tarjeta</th>
+                                <td style="border-bottom: hidden;">{{totalCajaTarjeta + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{sumaTarjeta + ' €'}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="border-bottom: hidden;">Transf</th>
+                                <td style="border-bottom: hidden;">{{totalCajaTransfer + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{cierres.transaccion + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{sumaTransfe + ' €'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fin Table Cierre -->
+
+            <h4 *ngIf="selected" class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
+
+            <!-- Table -->
+
+            <div *ngIf="selected" style="display: grid; place-items: center; margin-top: 3%;">
+                <div style="text-align: center; width: max-content;">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-secondary">
+                                <!-- 2 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Terapeuta</th>
+                                <!-- 3 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
+                                <!-- 4 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
+                                <!-- 5 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
+                                <!-- 5 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a piso</th>
+                                <!-- 6 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a piso 2</th>
+                                <!-- 7 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a terap.</th>
+                                <!-- 8 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a enc.</th>
+                                <!-- 9 -->
+                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a otros</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let serv of (servicio | encargada: cierres.encargada) 
+                            | paginate: { itemsPerPage: 5, currentPage: page }">
+                            <tr>
+                                <!-- 1 -->
+                                <td style="border-bottom: hidden;">{{serv?.terapeuta}}</td>
+                                <!-- 2 -->
+                                <td style="border-bottom: hidden;">{{serv?.salida}}</td>
+                                <!-- 3 -->
+                                <td style="border-bottom: hidden;">{{serv?.horaStart + ' - ' + serv?.horaStart}}</td>
+                                <!-- 4 -->
+                                <td style="border-bottom: hidden;">{{serv?.formaPago}}</td>
+                                <!-- 5 -->
+                                <td style="border-bottom: hidden;">{{serv?.numberPiso1 + ' €'}}</td>
+                                <!-- 6 -->
+                                <td style="border-bottom: hidden;">{{serv?.numberPiso2 + ' €'}}</td>
+                                <!-- 7 -->
+                                <td style="border-bottom: hidden;">{{serv?.numberTerap + ' €'}}</td>
+                                <!-- 8 -->
+                                <td style="border-bottom: hidden;">{{serv?.numberEncarg + ' €'}}</td>
+                                <!-- 9 -->
+                                <td style="border-bottom: hidden;">{{serv?.numberOtro + ' €'}}</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                                <td class="quitarBordes"
+                                    style="text-align: center; border-bottom: hidden; font-weight: bold;">Total</td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                    {{totalValuePiso + ' €'}}</td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                    {{totalValuePiso2 + ' €'}}</td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                    {{totalValueTerap + ' €'}}</td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                    {{totalValueEncarg + ' €'}}</td>
+                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                    {{totalValueOtros + ' €'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                        nextLabel="Siguiente">
+                    </pagination-controls>
+                </div>
+            </div>
+
+            <!-- fin Tabla -->
+
+            <h4 *ngIf="selected" class="PagosPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
+
+            <!-- Table Cierre -->
+
+            <div *ngIf="selected" style="display: grid; place-items: center;" class="classTable">
+                <div style="text-align: center; width: max-content;">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-secondary">
+                                <th style="border-bottom: hidden;"></th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Efectivo</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Bizum</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Tarjeta</th>
+                                <th style="border-bottom: 1px solid blue; text-align: center;">Transf</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let encarg of servicio | encargada: cierres.encargada">
+                            <tr>
+                                <td style="border-bottom: hidden;">{{encarg.terapeuta}}</td>
+                                <td data-label="Efectivo" style="border-bottom: hidden;">
+                                    {{encarg.valueEfectivo + ' €'}}</td>
+                                <td data-label="Bizum" style="border-bottom: hidden;">
+                                    {{encarg.valueBizum + ' €'}}</td>
+                                <td data-label="Tarjeta" style="border-bottom: hidden;">
+                                    {{encarg.valueTarjeta + ' €'}}</td>
+                                <td data-label="Transferencia" style="border-bottom: hidden;">
+                                    {{encarg.valueTrans + ' €'}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="table3">
+                            <tr>
+                                <td style="border-bottom: hidden; font-weight: bold;">Total</td>
+                                <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                                <td data-label="Bizum" style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                                <td data-label="Tarjeta" style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                                <td data-label="Transferencia" style="border-bottom: hidden;">{{cierres.transaccion + '
+                                    €'}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Fin Table Cierre -->
+        </div>
+    </form>
+
+    <div class="row" *ngIf="selected" style="margin-top: 8%; margin-bottom: 4%;">
+        <div class="col-6">
+            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
+                (click)="guardar()">Guardar</button>
+        </div>
+        <div class="col-6">
+            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
+                (click)="cancelar()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Editar Cierre -->
+<div *ngIf="editCierre">
+
+    <h4 style="text-align: center; margin-bottom: 5%; font-size: x-large;">Cierre de {{datosCierre[0]['encargada']}}
+    </h4>
+
+    <div class="container">
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-9">
+                <label style="font-weight: bold; font-size: larger;">Cierre Encargada {{datosCierre[0]['encargada']}}</label>
+            </div>
+
+            <div class="col-3">
+                <label style="font-weight: bold; float: right;">{{ingresoPeriodo + ' €'}}</label>
+            </div>
+        </div>
+
+        <hr class="lineaHoy">
+
+        <div class="col-auto" style="display: contents;">
+            <label style="float: left;">{{fechaDesc + ' - ' + horaDesc + ' - ' + fechaAsc + ' ' +
+                horaAsc}}</label>
+        </div>
+
+        <!-- Table Cierre -->
+
+        <div style="display: grid; place-items: center;" class="classTable">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary quitarBordes" style="line-height: 0%">
+                            <th style="border-bottom: 1px solid blue; text-align: center;"></th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Caja</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Ingresos</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Pagos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="border-bottom: hidden;">Efectivo</th>
+                            <!-- AQUI DUDA -->
+                            <td style="border-bottom: hidden;">{{cierres.total + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{sumaEfectivo + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-bottom: hidden;">Bizum</th>
+                            <td style="border-bottom: hidden;">{{totalCajaBizu + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{sumaBizum + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-bottom: hidden;">Tarjeta</th>
+                            <td style="border-bottom: hidden;">{{totalCajaTarjeta + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{sumaTarjeta + ' €'}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-bottom: hidden;">Transf</th>
+                            <td style="border-bottom: hidden;">{{totalCajaTransfer + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{cierres.transaccion + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{sumaTransfe + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Fin Table Cierre -->
+
+        <h4 class="ingresoPeriodo">Ingresos periodo {{sumaPeriodo + ' €'}}</h4>
+
+        <!-- Table -->
+
+        <div style="display: grid; place-items: center; margin-top: 3%;">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <!-- 2 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Terapeuta</th>
+                            <!-- 3 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
+                            <!-- 4 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
+                            <!-- 5 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
+                            <!-- 5 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a piso</th>
+                            <!-- 6 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a piso 2</th>
+                            <!-- 7 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a terap.</th>
+                            <!-- 8 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a enc.</th>
+                            <!-- 9 -->
+                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a otros</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cierre of (datosCierre | encargada: datosCierre.encargada) 
+                            | paginate: { itemsPerPage: 5, currentPage: page }">
+                        <tr>
+                            <!-- 1 -->
+                            <td style="border-bottom: hidden;">{{cierre?.terapeuta}}</td>
+                            <!-- 2 -->
+                            <td style="border-bottom: hidden;">{{cierre?.salida}}</td>
+                            <!-- 3 -->
+                            <td style="border-bottom: hidden;">{{cierre?.horaStart + ' - ' + cierre?.horaStart}}</td>
+                            <!-- 4 -->
+                            <td style="border-bottom: hidden;">{{cierre?.formaPago}}</td>
+                            <!-- 5 -->
+                            <td style="border-bottom: hidden;">{{cierre?.numberPiso1 + ' €'}}</td>
+                            <!-- 6 -->
+                            <td style="border-bottom: hidden;">{{cierre?.numberPiso2 + ' €'}}</td>
+                            <!-- 7 -->
+                            <td style="border-bottom: hidden;">{{cierre?.numberTerap + ' €'}}</td>
+                            <!-- 8 -->
+                            <td style="border-bottom: hidden;">{{cierre?.numberEncarg + ' €'}}</td>
+                            <!-- 9 -->
+                            <td style="border-bottom: hidden;">{{cierre?.numberOtro + ' €'}}</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden"></td>
+                            <td class="quitarBordes"
+                                style="text-align: center; border-bottom: hidden; font-weight: bold;">Total</td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                {{totalValuePiso + ' €'}}</td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                {{totalValuePiso2 + ' €'}}</td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                {{totalValueTerap + ' €'}}</td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                {{totalValueEncarg + ' €'}}</td>
+                            <td class="quitarBordes" style="text-align: center; border-bottom: hidden">{{totalValueOtros
+                                + ' €'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                    nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
+
+        <!-- fin Tabla -->
+
+        <h4 class="PagosPeriodo">Pagos periodo {{sumaPeriodo + ' €'}}</h4>
+
+        <!-- Table Cierre -->
+
+        <div style="display: grid; place-items: center;" class="classTable">
+            <div style="text-align: center; width: max-content;">
+                <table class="table">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th style="border-bottom: hidden;"></th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Efectivo</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Bizum</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Tarjeta</th>
+                            <th style="border-bottom: 1px solid blue; text-align: center;">Transf</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cierre of datosCierre | encargada: datosCierre.encargada">
+                        <tr>
+                            <td style="border-bottom: hidden;">{{cierre.terapeuta}}</td>
+                            <td data-label="Efectivo" style="border-bottom: hidden;">
+                                {{cierre.valueEfectivo + ' €'}} </td>
+                            <td data-label="Bizum" style="border-bottom: hidden;">
+                                {{cierre.valueBizum + ' €'}}</td>
+                            <td data-label="Tarjeta" style="border-bottom: hidden;">
+                                {{cierre.valueTarjeta + ' €'}}</td>
+                            <td data-label="Transferencia" style="border-bottom: hidden;">
+                                {{cierre.valueTrans + ' €'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="table3">
+                        <tr>
+                            <td style="border-bottom: hidden; font-weight: bold;">Total</td>
+                            <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                            <td data-label="Bizum" style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                            <td data-label="Tarjeta" style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                            <td data-label="Transferencia" style="border-bottom: hidden;">{{cierres.transaccion + '
+                                €'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Fin Table Cierre -->
+        <button *ngIf="editCierre" mat-raised-button
+            style="display: grid; margin: auto; margin-top: 10%; margin-bottom: 4%;" (click)="cancelar()"
+            color="primary">Cancdelar</button>
+    </div>
+</div>

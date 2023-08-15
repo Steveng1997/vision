@@ -31,7 +31,7 @@ import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servic
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 // import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 // import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
-// import { CierreComponent } from './navigation/cierre/cierre.component';
+import { CierreComponent } from './navigation/cierre/cierre.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TablaComponent } from './navigation/tabla/tabla.component';
 import { LoginComponent } from './navigation/login/login.component';
@@ -55,7 +55,7 @@ import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe'
   //   FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
   //   FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],
 
-  declarations: [SidenavWrapperComponent, ConfiguracionComponent, VisionComponent, TerapeutaPipe, EncargadaPipe, NuevoServicioComponent,
+  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, VisionComponent, TerapeutaPipe, EncargadaPipe, NuevoServicioComponent,
     FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe, TablaComponent,
     FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe
   ],
