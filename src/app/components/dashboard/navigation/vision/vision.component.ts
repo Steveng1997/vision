@@ -71,17 +71,17 @@ export class VisionComponent implements OnInit {
 
   terapeuta: Terapeutas = {
     activo: true,
-    bebida: 0,
+    bebida: "",
     fechaEnd: "",
     horaEnd: "",
     id: 0,
     nombre: "",
-    otros: 0,
-    propina: 0,
+    otros: "",
+    propina: "",
     salida: "",
-    servicio: 0,
-    tabaco: 0,
-    vitamina: 0,
+    servicio: "",
+    tabaco: "",
+    vitamina: "",
   }
 
   constructor(

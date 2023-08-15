@@ -1,5 +1,5 @@
 export class Servicio {
-  bebidas?: number;
+  bebidas?: string;
   bizuEncarg?: boolean;
   bizuOtro?: boolean;
   bizuPiso1?: boolean;
@@ -29,16 +29,16 @@ export class Servicio {
   liquidadoTerapeuta?: boolean;
   minuto?: string;
   nota?: string;
-  numberEncarg?: number;
-  numberOtro?: number;
-  numberPiso1?: number;
-  numberPiso2?: number;
-  numberTerap?: number;
-  otros?: number;
-  propina?: number;
+  numberEncarg?: string;
+  numberOtro?: string;
+  numberPiso1?: string;
+  numberPiso2?: string;
+  numberTerap?: string;
+  otros?: string;
+  propina?: string;
   salida?: string;
-  servicio?: number;
-  tabaco?: number;
+  servicio?: string;
+  tabaco?: string;
   tarjEncarg?: boolean;
   tarjOtro?: boolean;
   tarjPiso1?: boolean;
@@ -71,5 +71,5 @@ export class Servicio {
   valueTrans?: number;
   valueTransEncargada?: number;
   valueTransTerapeuta?: number;
-  vitaminas?: number;
+  vitaminas?: string;
 }

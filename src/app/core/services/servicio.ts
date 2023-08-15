@@ -271,6 +271,10 @@ export class ServicioService {
     return this.http.put(`${this.API_URL}/updateByCierre/${id}`, servicio);;
   }
 
+  updatePisos(id: number, idUnico: string, servicio: Servicio) {
+    return this.http.put(`${this.API_URL}/updateByValuePisos/${id}/${idUnico}`, servicio);
+  }
+
   // Delete
 
   deleteServicio(id: number) {

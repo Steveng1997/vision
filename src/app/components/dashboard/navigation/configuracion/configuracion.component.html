@@ -118,22 +118,22 @@
                 <tr style="cursor: pointer;">
                     <td data-label="" [ngClass]="{'color1':encg.activo == 0, 'color2':encg.activo === 1}">
                     </td>
-                    <td>{{encg.nombre}}</td>
-                    <td>{{encg.usuario}}</td>
-                    <td>{{encg.pass}}</td>
-                    <td>{{encg.fijoDia}}</td>
-                    <td>{{encg.servicio + " %"}}</td>
-                    <td>{{encg.bebida + " %"}}</td>
-                    <td>{{encg.tabaco + " %"}}</td>
-                    <td>{{encg.vitamina + " %"}}</td>
-                    <td>{{encg.propina + " %"}}</td>
-                    <td>{{encg.otros + " %"}}</td>
+                    <td>{{encg?.nombre}}</td>
+                    <td>{{encg?.usuario}}</td>
+                    <td>{{encg?.pass}}</td>
+                    <td>{{encg?.fijoDia}}</td>
+                    <td>{{encg?.servicio + " %"}}</td>
+                    <td>{{encg?.bebida + " %"}}</td>
+                    <td>{{encg?.tabaco + " %"}}</td>
+                    <td>{{encg?.vitamina + " %"}}</td>
+                    <td>{{encg?.propina + " %"}}</td>
+                    <td>{{encg?.otros + " %"}}</td>
                 </tr>
 
                 <!-- Modal -->
                 <ng-template class="custom-modal" #modalTabl let-modal>
                     <div class="modal-header">
-                        <h5 class="modal-title"> {{encg.nombre}} </h5>
+                        <h5 class="modal-title"> {{encg?.nombre}} </h5>
 
                         <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -331,21 +331,21 @@
             <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
                 *ngFor="let terap of (terapeuta | paginate: { itemsPerPage: 20, currentPage: pageTerapeuta, id: 'pageTerapeuta'})">
                 <tr style="cursor: pointer;">
-                    <td data-label="" [ngClass]="{'color1':terap.activo == 0, 'color2':terap.activo === 1}">
+                    <td data-label="" [ngClass]="{'color1':terap?.activo == 0, 'color2':terap?.activo === 1}">
                     </td>
-                    <td>{{terap.nombre}}</td>
-                    <td>{{terap.servicio + " %"}}</td>
-                    <td>{{terap.bebida + " %"}}</td>
-                    <td>{{terap.tabaco + " %"}}</td>
-                    <td>{{terap.vitamina + " %"}}</td>
-                    <td>{{terap.otros + " %"}}</td>
-                    <td>{{terap.propina + " %"}}</td>
+                    <td>{{terap?.nombre}}</td>
+                    <td>{{terap?.servicio + " %"}}</td>
+                    <td>{{terap?.bebida + " %"}}</td>
+                    <td>{{terap?.tabaco + " %"}}</td>
+                    <td>{{terap?.vitamina + " %"}}</td>
+                    <td>{{terap?.otros + " %"}}</td>
+                    <td>{{terap?.propina + " %"}}</td>
                 </tr>
 
                 <!-- Modal -->
                 <ng-template class="custom-modal" #modalTabl let-modal>
                     <div class="modal-header">
-                        <h5 class="modal-title"> {{terap.nombre}} </h5>
+                        <h5 class="modal-title"> {{terap?.nombre}} </h5>
 
                         <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

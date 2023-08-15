@@ -18,18 +18,18 @@ export class LoginComponent implements OnInit {
 
   usuarios: Encargada = {
     activo: true,
-    bebida: 0,
-    fijoDia: 0,
+    bebida: "",
+    fijoDia: "",
     id: 0,
-    nombre: '',
-    otros: 0,
-    pass: '',
-    propina: 0,
-    rol: 'encargada',
-    servicio: 0,
-    tabaco: 0,
-    usuario: '',
-    vitamina: 0
+    nombre: "",
+    otros: "",
+    pass: "",
+    propina: "",
+    rol: "encargada",
+    servicio: "",
+    tabaco: "",
+    usuario: "",
+    vitamina: ""
   }
 
   constructor(

@@ -29,33 +29,33 @@ export class ConfiguracionComponent implements OnInit {
 
   encargadas: Encargada = {
     activo: true,
-    bebida: 0,
-    fijoDia: 0,
+    bebida: "",
+    fijoDia: "",
     id: 0,
     nombre: "",
-    otros: 0,
+    otros: "",
     pass: "",
-    propina: 0,
+    propina: "",
     rol: 'encargada',
-    servicio: 0,
-    tabaco: 0,
+    servicio: "",
+    tabaco: "",
     usuario: "",
-    vitamina: 0
+    vitamina: ""
   }
 
   terapeutas: Terapeutas = {
     activo: true,
-    bebida: 0,
+    bebida: "",
     fechaEnd: "",
     horaEnd: "",
     id: 0,
     nombre: "",
-    otros: 0,
-    propina: 0,
+    otros: "",
+    propina: "",
     salida: "",
-    servicio: 0,
-    tabaco: 0,
-    vitamina: 0,
+    servicio: "",
+    tabaco: "",
+    vitamina: "",
   }
 
   // Terapeuta
@@ -108,13 +108,13 @@ export class ConfiguracionComponent implements OnInit {
     if (this.encargadas.nombre != '') this.encargadas.nombre = ''
     if (this.encargadas.usuario != '') this.encargadas.usuario = ''
     if (this.encargadas.pass != '') this.encargadas.pass = ''
-    if (this.encargadas.fijoDia > 0) this.encargadas.fijoDia = 0
-    if (this.encargadas.servicio > 0) this.encargadas.servicio = 0
-    if (this.encargadas.bebida > 0) this.encargadas.bebida = 0
-    if (this.encargadas.tabaco > 0) this.encargadas.tabaco = 0
-    if (this.encargadas.vitamina > 0) this.encargadas.vitamina = 0
-    if (this.encargadas.propina > 0) this.encargadas.propina = 0
-    if (this.encargadas.otros > 0) this.encargadas.otros = 0
+    if (Number(this.encargadas.fijoDia) > 0) this.encargadas.fijoDia = ''
+    if (Number(this.encargadas.servicio) > 0) this.encargadas.servicio = ''
+    if (Number(this.encargadas.bebida) > 0) this.encargadas.bebida = ''
+    if (Number(this.encargadas.tabaco) > 0) this.encargadas.tabaco = ''
+    if (Number(this.encargadas.vitamina) > 0) this.encargadas.vitamina = ''
+    if (Number(this.encargadas.propina) > 0) this.encargadas.propina = ''
+    if (Number(this.encargadas.otros) > 0) this.encargadas.otros = ''
   }
 
   cerrarEncargada() {
@@ -216,12 +216,12 @@ export class ConfiguracionComponent implements OnInit {
 
   resetTerapeuta() {
     if (this.terapeutas.nombre != '') this.terapeutas.nombre = ''
-    if (this.terapeutas.servicio > 0) this.terapeutas.servicio = 0
-    if (this.terapeutas.bebida > 0) this.terapeutas.bebida = 0
-    if (this.terapeutas.tabaco > 0) this.terapeutas.tabaco = 0
-    if (this.terapeutas.vitamina > 0) this.terapeutas.vitamina = 0
-    if (this.terapeutas.propina > 0) this.terapeutas.propina = 0
-    if (this.terapeutas.otros > 0) this.terapeutas.otros = 0
+    if (Number(this.terapeutas.servicio) > 0) this.terapeutas.servicio = ''
+    if (Number(this.terapeutas.bebida) > 0) this.terapeutas.bebida = ''
+    if (Number(this.terapeutas.tabaco) > 0) this.terapeutas.tabaco = ''
+    if (Number(this.terapeutas.vitamina) > 0) this.terapeutas.vitamina = ''
+    if (Number(this.terapeutas.propina) > 0) this.terapeutas.propina = ''
+    if (Number(this.terapeutas.otros) > 0) this.terapeutas.otros = ''
   }
 
   cerrarTerapeuta() {

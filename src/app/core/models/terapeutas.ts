@@ -1,14 +1,14 @@
 export class  Terapeutas {
   activo?: boolean;
-  bebida?: number;
+  bebida?: string;
   fechaEnd?: string;
   horaEnd?: string;
   id?: number;
   nombre?: string;
-  otros?: number;
-  propina?: number;
+  otros?: string;
+  propina?: string;
   salida?: string;
-  servicio?: number;
-  tabaco?: number;
-  vitamina?: number;
+  servicio?: string;
+  tabaco?: string;
+  vitamina?: string;
 }

@@ -39,16 +39,16 @@
           <tbody *ngFor="let vis of terapeutas">
             <tr style="cursor: pointer;">
               <td
-                [ngClass]="{'ocupado':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) !== '' , 'disponible':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '', 'disponible2':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === '00:00'}">
+                [ngClass]="{'ocupado':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) !== '' , 'disponible':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '', 'disponible2':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '00:00'}">
               </td>
-              <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis.nombre}}</td>
+              <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
               <td style="line-height: normal"
-                [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+                [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
                 {{vis.salida}}</td>
               <td style="line-height: normal"
-                [ngClass]="{'disponibleEncargada':calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd) === ''}">
+                [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
                 {{vis.horaEnd}}</td>
-              <td style="line-height: normal">{{calculardiferencia(vis.horaEnd, vis.nombre, vis.fechaEnd)}}</td>
+              <td style="line-height: normal">{{calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd)}}</td>
             </tr>
           </tbody>
         </table>

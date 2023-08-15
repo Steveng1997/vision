@@ -1,15 +1,15 @@
 export class  Encargada {
   activo?: boolean;
-  bebida?: number;
-  fijoDia?: number;
+  bebida?: string;
+  fijoDia?: string;
   id?: number;
   nombre?: string;
-  otros?: number;
-  propina?: number;
+  otros?: string;
+  propina?: string;
   pass?: string;
   rol?: string;
-  servicio?: number;
-  tabaco?: number;
+  servicio?: string;
+  tabaco?: string;
   usuario?: string;
-  vitamina?: number;
+  vitamina?: string;
 }
