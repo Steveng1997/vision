@@ -117,6 +117,25 @@ export class ConfiguracionComponent implements OnInit {
     if (Number(this.encargadas.otros) > 0) this.encargadas.otros = ''
   }
 
+  validacionValueTerapeutas(){
+    if(this.terapeutas.bebida == "") this.terapeutas.bebida = "0"
+    if(this.terapeutas.otros == "") this.terapeutas.otros = "0"
+    if(this.terapeutas.propina == "") this.terapeutas.propina = "0"
+    if(this.terapeutas.servicio == "") this.terapeutas.servicio = "0"
+    if(this.terapeutas.tabaco == "") this.terapeutas.tabaco = "0"
+    if(this.terapeutas.vitamina == "") this.terapeutas.vitamina = "0"
+  }
+
+  validacionValueEncargadas(){
+    if(this.encargadas.bebida == "") this.encargadas.bebida = "0"
+    if(this.encargadas.fijoDia == "") this.encargadas.fijoDia = "0"
+    if(this.encargadas.otros == "") this.encargadas.otros = "0"
+    if(this.encargadas.propina == "") this.encargadas.propina = "0"
+    if(this.encargadas.servicio == "") this.encargadas.servicio = "0"
+    if(this.encargadas.tabaco == "") this.encargadas.tabaco = "0"
+    if(this.encargadas.vitamina == "") this.encargadas.vitamina = "0"
+  }
+
   cerrarEncargada() {
     this.resetEncargada()
   }
@@ -128,6 +147,7 @@ export class ConfiguracionComponent implements OnInit {
           this.encargadas.nombre = this.encargadas.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
           this.usuarioService.getByUsuario(this.encargadas.usuario).subscribe((nameRegistro: any) => {
             if (nameRegistro.length == 0) {
+              this.validacionValueEncargadas()
               this.usuarioService.registerEncargada(this.encargadas).subscribe((resp: any) => {
                 this.getEncargada()
                 Swal.fire({
@@ -216,12 +236,12 @@ export class ConfiguracionComponent implements OnInit {
 
   resetTerapeuta() {
     if (this.terapeutas.nombre != '') this.terapeutas.nombre = ''
-    if (Number(this.terapeutas.servicio) > 0) this.terapeutas.servicio = ''
-    if (Number(this.terapeutas.bebida) > 0) this.terapeutas.bebida = ''
-    if (Number(this.terapeutas.tabaco) > 0) this.terapeutas.tabaco = ''
-    if (Number(this.terapeutas.vitamina) > 0) this.terapeutas.vitamina = ''
-    if (Number(this.terapeutas.propina) > 0) this.terapeutas.propina = ''
-    if (Number(this.terapeutas.otros) > 0) this.terapeutas.otros = ''
+    if (Number(this.terapeutas.servicio) > 0) this.terapeutas.servicio = ""
+    if (Number(this.terapeutas.bebida) > 0) this.terapeutas.bebida = ""
+    if (Number(this.terapeutas.tabaco) > 0) this.terapeutas.tabaco = ""
+    if (Number(this.terapeutas.vitamina) > 0) this.terapeutas.vitamina = ""
+    if (Number(this.terapeutas.propina) > 0) this.terapeutas.propina = ""
+    if (Number(this.terapeutas.otros) > 0) this.terapeutas.otros = ""
   }
 
   cerrarTerapeuta() {
@@ -231,6 +251,7 @@ export class ConfiguracionComponent implements OnInit {
   registroTerapeuta() {
     if (this.terapeutas.nombre != '') {
       this.terapeutas.nombre = this.terapeutas.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+      this.validacionValueTerapeutas()
       this.trabajadorService.getTerapeuta(this.terapeutas.nombre).subscribe((res: any) => {
         if (res.length > 0) {
           Swal.fire({

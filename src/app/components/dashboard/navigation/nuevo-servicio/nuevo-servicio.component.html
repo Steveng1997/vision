@@ -136,28 +136,28 @@
             </div>
             <div class="col-4">
                 <label>Bebidas</label>
-                <input type="number" class="form-control inputs" name="bebidas" [(ngModel)]="servicio.bebidas"
-                    (change)="valueService()" />
+                <input type="number" name="bebidas" [(ngModel)]="servicio.bebidas" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
             </div>
             <div class="col-4">
                 <label>Tabaco</label>
-                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="tabaco"
-                    [(ngModel)]="servicio.tabaco" />
+                <input type="number" name="tabaco" [(ngModel)]="servicio.tabaco" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Vitaminas</label>
-                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="vitaminas"
-                    [(ngModel)]="servicio.vitaminas" />
+                <input type="number" name="vitaminas" [(ngModel)]="servicio.vitaminas" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Propina</label>
-                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="propina"
-                    [(ngModel)]="servicio.propina" />
+                <input type="number" name="propina" [(ngModel)]="servicio.propina" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Otros</label>
-                <input type="number" class="form-control inputs" (ngModelChange)="valueService()" name="otros"
-                    [(ngModel)]="servicio.otros" />
+                <input type="number" name="otros" [(ngModel)]="servicio.otros" (ngModelChange)="valueService()"
+                    class="form-control inputs" />
             </div>
         </div>
 
@@ -202,23 +202,23 @@
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectPiso1" [(ngModel)]="servicio.efectPiso1" class="checkBox"
-                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="efectPiso1" [(ngModel)]="servicio.efectPiso1"
+                    (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuPiso1" [(ngModel)]="servicio.bizuPiso1" class="checkBox"
-                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="bizuPiso1" [(ngModel)]="servicio.bizuPiso1"
+                    (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjPiso1" [(ngModel)]="servicio.tarjPiso1" class="checkBox"
-                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="tarjPiso1" [(ngModel)]="servicio.tarjPiso1"
+                    (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transPiso1" [(ngModel)]="servicio.transPiso1" class="checkBox"
-                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="transPiso1" [(ngModel)]="servicio.transPiso1"
+                    (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -230,23 +230,23 @@
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectPiso2" [(ngModel)]="servicio.efectPiso2" class="checkBox"
-                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="efectPiso2" [(ngModel)]="servicio.efectPiso2"
+                    (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuPiso2" [(ngModel)]="servicio.bizuPiso2" class="checkBox"
-                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="bizuPiso2" [(ngModel)]="servicio.bizuPiso2"
+                    (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjPiso2" [(ngModel)]="servicio.tarjPiso2" class="checkBox"
-                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="tarjPiso2" [(ngModel)]="servicio.tarjPiso2"
+                    (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transPiso2" [(ngModel)]="servicio.transPiso2" class="checkBox"
-                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="transPiso2" [(ngModel)]="servicio.transPiso2"
+                    (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -258,23 +258,23 @@
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectTerap" [(ngModel)]="servicio.efectTerap" class="checkBox"
-                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="efectTerap" [(ngModel)]="servicio.efectTerap"
+                    (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuTerap" [(ngModel)]="servicio.bizuTerap" class="checkBox"
-                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="bizuTerap" [(ngModel)]="servicio.bizuTerap"
+                    (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjTerap" [(ngModel)]="servicio.tarjTerap" class="checkBox"
-                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="tarjTerap" [(ngModel)]="servicio.tarjTerap"
+                    (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transTerap" [(ngModel)]="servicio.transTerap" class="checkBox"
-                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="transTerap" [(ngModel)]="servicio.transTerap"
+                    (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -286,51 +286,51 @@
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectEncarg" [(ngModel)]="servicio.efectEncarg" class="checkBox"
-                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="efectEncarg" [(ngModel)]="servicio.efectEncarg"
+                    (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuEncarg" [(ngModel)]="servicio.bizuEncarg" class="checkBox"
-                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="bizuEncarg" [(ngModel)]="servicio.bizuEncarg"
+                    (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjEncarg" [(ngModel)]="servicio.tarjEncarg" class="checkBox"
-                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="tarjEncarg" [(ngModel)]="servicio.tarjEncarg"
+                    (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transEncarg" [(ngModel)]="servicio.transEncarg" class="checkBox"
-                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="transEncarg" [(ngModel)]="servicio.transEncarg"
+                    (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
         <div class="row" style="margin-bottom: 5%;">
             <div class="col-4">
                 <mat-label>Otro</mat-label>
-                <input matInput class="form-control inputs" type="number" name="numberOtro"
-                    [(ngModel)]="servicio.numberOtro" (ngModelChange)="valueCobros()">
+                <input matInput type="number" name="numberOtro" [(ngModel)]="servicio.numberOtro"
+                    (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectOtro" [(ngModel)]="servicio.efectOtro" class="checkBox"
-                    (ngModelChange)="efectCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="efectOtro" [(ngModel)]="servicio.efectOtro"
+                    (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuOtro" [(ngModel)]="servicio.bizuOtro" class="checkBox"
-                    (ngModelChange)="bizumCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="bizuOtro" [(ngModel)]="servicio.bizuOtro" (ngModelChange)="bizumCheckToggle($event)"
+                    class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjOtro" [(ngModel)]="servicio.tarjOtro" class="checkBox"
-                    (ngModelChange)="tarjCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="tarjOtro" [(ngModel)]="servicio.tarjOtro" (ngModelChange)="tarjCheckToggle($event)"
+                    class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transOtro" [(ngModel)]="servicio.transOtro" class="checkBox"
-                    (ngModelChange)="transCheckToggle($event)"></mat-checkbox>
+                <mat-checkbox name="transOtro" [(ngModel)]="servicio.transOtro"
+                    (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
@@ -365,7 +365,7 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Terapeuta</label>
-                    <select class="form-select inputs" [(ngModel)]="edServ.terapeuta" name="terapeuta">
+                    <select class="form-select inputs" name="terapeuta" [(ngModel)]="edServ.terapeuta">
                         <option *ngFor="let terap of terapeutaSelect" [value]="terap.nombre">{{terap?.nombre}}
                         </option>
                     </select>
@@ -373,7 +373,7 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Encargada</label>
-                    <select class="form-select inputs" [(ngModel)]="edServ.encargada" name="encargada">
+                    <select class="form-select inputs" name="encargada" [(ngModel)]="edServ.encargada">
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg?.nombre}}
                         </option>
                     </select>
@@ -381,7 +381,7 @@
 
                 <div class="inputCliente">
                     <label style="display: contents;">Cliente</label>
-                    <input class="form-control input-sm inputs" type="text" [(ngModel)]="edServ.cliente" name="cliente">
+                    <input class="form-control input-sm inputs" type="text" name="cliente" [(ngModel)]="edServ.cliente">
                 </div>
             </div>
 
@@ -405,19 +405,19 @@
             <div class="row titulos">
                 <div class="col-6">
                     <label style="display: contents;">Fecha</label>
-                    <input type="date" class="form-control inputs" [(ngModel)]="edServ.fecha" name="fecha"
+                    <input type="date" class="form-control inputs" name="fecha" [(ngModel)]="edServ.fecha"
                         (change)="fechaEscogidaEdit($event)" [value]="fechaActual">
                 </div>
 
                 <div class="col-6">
                     <label style="display: contents;">Hora inicio</label>
-                    <input type="time" class="form-control inputs" [(ngModel)]="edServ.horaStart" name="horaStart"
+                    <input type="time" class="form-control inputs" name="horaStart" [(ngModel)]="edServ.horaStart"
                         (change)="horaInicioEdit($event)" min="18:00" max="21:00" step="3600" />
                 </div>
 
                 <div class="col-6 duracionHora">
                     <label style="display: contents;">Duración(min.)</label>
-                    <input class=" form-control inputs inputs" type="number" [(ngModel)]="edServ.minuto" name="minuto"
+                    <input class=" form-control inputs inputs" type="number" name="minuto" [(ngModel)]="edServ.minuto"
                         (ngModelChange)="minutosEdit($event)">
                 </div>
 
@@ -433,7 +433,7 @@
                         <label style="align-self: center">Lugar Salida</label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-control inputs" [(ngModel)]="edServ.salida" name="salida"
+                        <input type="text" class="form-control inputs" name="salida" [(ngModel)]="edServ.salida"
                             (ngModelChange)="valueServiceEdit()" />
                     </div>
                 </div>
@@ -459,38 +459,38 @@
             <div class="row titulos">
                 <div class="col-4">
                     <label>Tratamiento</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.servicio" name="servicio"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="servicio" [(ngModel)]="edServ.servicio"
+                        (ngModelChange)="valueServiceEdit()" class="form-control inputs" />
                 </div>
 
                 <div class="col-4">
                     <label>Bebidas</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.bebidas" name="bebidas"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="bebidas" [(ngModel)]="edServ.bebidas"
+                        (ngModelChange)="valueServiceEdit()" class="form-control inputs" />
                 </div>
 
                 <div class="col-4">
                     <label>Tabaco</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.tabaco" name="tabaco"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="tabaco" [(ngModel)]="edServ.tabaco" (ngModelChange)="valueServiceEdit()"
+                        class="form-control inputs" />
                 </div>
 
                 <div class="col-4" style="margin-top: 2%">
                     <label>Vitaminas</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.vitaminas" name="vitaminas"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="vitaminas" [(ngModel)]="edServ.vitaminas"
+                        (ngModelChange)="valueServiceEdit()" class="form-control inputs" />
                 </div>
 
                 <div class="col-4" style="margin-top: 2%">
                     <label>Propina</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.propina" name="propina"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="propina" [(ngModel)]="edServ.propina"
+                        (ngModelChange)="valueServiceEdit()" class="form-control inputs" />
                 </div>
 
                 <div class="col-4" style="margin-top: 2%">
                     <label>Otros</label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.otros" name="otros"
-                        (ngModelChange)="valueServiceEdit()" />
+                    <input type="number" name="otros" [(ngModel)]="edServ.otros" (ngModelChange)="valueServiceEdit()"
+                        class="form-control inputs" />
                 </div>
             </div>
 
@@ -534,28 +534,28 @@
             <div class="row">
                 <div class="col-4">
                     <mat-label>Piso 1</mat-label>
-                    <input type="number" class="form-control inputs" [(ngModel)]="edServ.numberPiso1" name="numberPiso1"
-                        (ngModelChange)="valueCobrosEdit()">
+                    <input type="number" name="numberPiso1" [(ngModel)]="edServ.numberPiso1"
+                        (ngModelChange)="valueCobrosEdit()" class="form-control inputs">
                 </div>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.efectPiso1" name="efectPiso1" class="checkBox"
-                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="efectPiso1" [(ngModel)]="edServ.efectPiso1"
+                        (ngModelChange)="efectCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.bizuPiso1" name="bizuPiso1" class="checkBox"
-                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="bizuPiso1" [(ngModel)]="edServ.bizuPiso1"
+                        (ngModelChange)="bizumCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.tarjPiso1" name="tarjPiso1" class="checkBox"
-                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="tarjPiso1" [(ngModel)]="edServ.tarjPiso1"
+                        (ngModelChange)="tarjCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.transPiso1" name="transPiso1" class="checkBox"
-                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="transPiso1" [(ngModel)]="edServ.transPiso1"
+                        (ngModelChange)="transCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
             </div>
 
@@ -565,28 +565,28 @@
             <div class="row">
                 <div class="col-4">
                     <mat-label>Piso 2</mat-label>
-                    <input matInput type="number" [(ngModel)]="edServ.numberPiso2" name="numberPiso2"
+                    <input matInput type="number" name="numberPiso2" [(ngModel)]="edServ.numberPiso2"
                         (ngModelChange)="valueCobrosEdit()" class="form-control inputs">
                 </div>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.efectPiso2" name="efectPiso2" class="checkBox"
-                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="efectPiso2" [(ngModel)]="edServ.efectPiso2"
+                        (ngModelChange)="efectCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.bizuPiso2" name="bizuPiso2" class="checkBox"
-                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="bizuPiso2" [(ngModel)]="edServ.bizuPiso2"
+                        (ngModelChange)="bizumCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.tarjPiso2" name="tarjPiso2" class="checkBox"
-                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="tarjPiso2" [(ngModel)]="edServ.tarjPiso2"
+                        (ngModelChange)="tarjCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.transPiso2" name="transPiso2" class="checkBox"
-                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="transPiso2" [(ngModel)]="edServ.transPiso2"
+                        (ngModelChange)="transCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
             </div>
 
@@ -595,56 +595,56 @@
             <div class="row">
                 <div class="col-4">
                     <mat-label>Terapeuta</mat-label>
-                    <input matInput type="number" [(ngModel)]="edServ.numberTerap" name="numberTerap"
+                    <input matInput type="number" name="numberTerap" [(ngModel)]="edServ.numberTerap"
                         (ngModelChange)="valueCobrosEdit()" class="form-control inputs">
                 </div>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.efectTerap" name="efectTerap" class="checkBox"
-                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="efectTerap" [(ngModel)]="edServ.efectTerap"
+                        (ngModelChange)="efectCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.bizuTerap" name="bizuTerap" class="checkBox"
-                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="bizuTerap" [(ngModel)]="edServ.bizuTerap"
+                        (ngModelChange)="bizumCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.tarjTerap" name="tarjTerap" class="checkBox"
-                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="tarjTerap" [(ngModel)]="edServ.tarjTerap"
+                        (ngModelChange)="tarjCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.transTerap" name="transTerap" class="checkBox"
-                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="transTerap" [(ngModel)]="edServ.transTerap"
+                        (ngModelChange)="transCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
             </div>
 
             <div class="row">
                 <div class="col-4">
                     <mat-label>Encargada</mat-label>
-                    <input matInput type="number" [(ngModel)]="edServ.numberEncarg" name="numberEncarg"
+                    <input matInput type="number" name="numberEncarg" [(ngModel)]="edServ.numberEncarg"
                         (ngModelChange)="valueCobrosEdit()" class="form-control inputs">
                 </div>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.efectEncarg" name="efectEncarg" class="checkBox"
-                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="efectEncarg" [(ngModel)]="edServ.efectEncarg"
+                        (ngModelChange)="efectCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.bizuEncarg" name="bizuEncarg" class="checkBox"
-                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="bizuEncarg" [(ngModel)]="edServ.bizuEncarg"
+                        (ngModelChange)="bizumCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.tarjEncarg" name="tarjEncarg" class="checkBox"
-                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="tarjEncarg" [(ngModel)]="edServ.tarjEncarg"
+                        (ngModelChange)="tarjCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.transEncarg" name="transEncarg" class="checkBox"
-                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="transEncarg" [(ngModel)]="edServ.transEncarg"
+                        (ngModelChange)="transCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
             </div>
 
@@ -656,23 +656,23 @@
                 </div>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.efectOtro" name="efectOtro" class="checkBox"
-                        (ngModelChange)="efectCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="efectOtro" [(ngModel)]="edServ.efectOtro"
+                        (ngModelChange)="efectCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.bizuOtro" name="bizuOtro" class="checkBox"
-                        (ngModelChange)="bizumCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="bizuOtro" [(ngModel)]="edServ.bizuOtro"
+                        (ngModelChange)="bizumCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.tarjOtro" name="tarjOtro" class="checkBox"
-                        (ngModelChange)="tarjCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="tarjOtro" [(ngModel)]="edServ.tarjOtro"
+                        (ngModelChange)="tarjCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
 
                 <mar-form-field class="col-2">
-                    <mat-checkbox [(ngModel)]="edServ.transOtro" name="transOtro" class="checkBox"
-                        (ngModelChange)="transCheckToggleEdit($event)"></mat-checkbox>
+                    <mat-checkbox name="transOtro" [(ngModel)]="edServ.transOtro"
+                        (ngModelChange)="transCheckToggleEdit($event)" class="checkBox"></mat-checkbox>
                 </mar-form-field>
             </div>
 
