@@ -1,7 +1,6 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
 <form *ngIf="liqTep" [formGroup]="formTemplate">
-    
 
     <div class="text-center mt-4 mb-4">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" style="cursor: pointer;"
@@ -69,17 +68,20 @@
         <thead>
             <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
                 <!-- 1 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Terapeuta</th>
+                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Terapeuta
+                </td>
                 <!-- 2 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Encargada</th>
+                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 45px;; 
+                word-wrap: break-word; line-height: normal;">Encargada</td>
                 <!-- 3 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Desde</th>
+                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Desde</td>
                 <!-- 4 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Hasta</th>
+                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Hasta</td>
                 <!-- 5 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
+                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
+                word-wrap: break-word; line-height: normal">Tratamiento</td>
                 <!-- 6 -->
-                <th style="border-bottom: 1px solid blue; text-align: center;">Importe</th>
+                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Importe</td>
             </tr>
         </thead>
         <tbody
@@ -89,9 +91,11 @@
             (click)="editamosServicio(liqTerap.idTerapeuta)">
             <tr style="cursor: pointer">
                 <!-- 1 -->
-                <td class="quitarBordes" style="text-align: left">{{liqTerap?.terapeuta}}</td>
+                <td class="quitarBordes" style="text-align: left;">{{liqTerap?.terapeuta}}
+                </td>
                 <!-- 2 -->
-                <td class="quitarBordes" style="text-align: left">{{liqTerap?.encargada}}</td>
+                <td class="quitarBordes" style="text-align: left; border-top: 1px solid blue">{{liqTerap?.encargada}}
+                </td>
                 <!-- 3 -->
                 <td class="quitarBordes" style="text-align: left">{{liqTerap?.desdeFechaLiquidado + ' - ' +
                     liqTerap?.desdeHoraLiquidado}}</td>
@@ -99,7 +103,8 @@
                 <td class="quitarBordes" style="text-align: left">{{liqTerap?.hastaFechaLiquidado + ' - ' +
                     liqTerap?.hastaHoraLiquidado}}</td>
                 <!-- 5 -->
-                <td class="quitarBordes" style="text-align: right">{{liqTerap?.tratamiento}}</td>
+                <td class="quitarBordes" style="text-align: right; border-top: 1px solid blue">{{liqTerap?.tratamiento}}
+                </td>
                 <!-- 6 -->
                 <td class="quitarBordes" style="text-align: right">{{liqTerap?.importe}}</td>
             </tr>
@@ -135,7 +140,7 @@
 </div>
 
 <!-- Agregar Terapeuta -->
-<div *ngIf="addTerap">
+<div *ngIf="addTerap" class="formAgregar">
 
     <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA LIQUIDACIÓN</label>
 
@@ -186,35 +191,37 @@
                 <div style="text-align: center; width: max-content;">
                     <table class="table">
                         <thead>
-                            <tr class="table-secondary quitarBordes" style="line-height: 0%">
+                            <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal;">
                                 <!-- 1 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Nota</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Nota</td>
                                 <!-- 2 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Fecha</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Fecha</td>
                                 <!-- 3 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Salida</td>
                                 <!-- 4 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Hora</td>
                                 <!-- 5 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
+                                <td style="text-align: center; padding: 0px 0px 0px 6px; display: inline-block; width: 50px; 
+                                word-wrap: break-word; line-height: normal">Tratamiento</td>
                                 <!-- 6 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Propina</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Propina</td>
                                 <!-- 7 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Pago</td>
                                 <!-- 8 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">€ a terap</th>
+                                <td style="text-align: center; padding: 0px 0px 0px 6px; display: inline-block; width: 50px; 
+                                word-wrap: break-word; line-height: normal">€ a terap
+                                </td>
                                 <!-- 9 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Bebida</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Bebida</td>
                                 <!-- 10 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Tabaco</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Tabaco</td>
                                 <!-- 11 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Vitamina</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Vitamina</td>
                                 <!-- 12 -->
-                                <th style="border-bottom: 1px solid blue; text-align: center;">Otros</th>
+                                <td style="border-bottom: 1px solid blue; text-align: center;">Otros</td>
                             </tr>
                         </thead>
-                        <tbody
-                            *ngFor="let serv of (servicioNoLiquidadaTerapeuta | terapeuta: liqTerapeuta.terapeuta | 
+                        <tbody *ngFor="let serv of (servicioNoLiquidadaTerapeuta | terapeuta: liqTerapeuta.terapeuta | 
                     encargada: liqTerapeuta.encargada) | paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer">
                                 <!-- 1 -->
@@ -235,7 +242,7 @@
                                     {{serv.horaStart}}</td>
                                 <!-- 5 -->
                                 <td class="quitarBordes" (click)="editamos(serv.id)"
-                                    style="text-align: right; border-bottom: hidden;">
+                                    style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                                     {{serv.servicio}}</td>
                                 <!-- 6 -->
                                 <td class="quitarBordes" (click)="editamos(serv.id)"
@@ -247,7 +254,7 @@
                                     {{serv.formaPago}}</td>
                                 <!-- 8 -->
                                 <td class="quitarBordes" (click)="editamos(serv.id)"
-                                    style="text-align: right; border-bottom: hidden;">
+                                    style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                                     {{serv.numberTerap}}</td>
                                 <!-- 9 -->
                                 <td class="quitarBordes" (click)="editamos(serv.id)"
@@ -332,8 +339,7 @@
         </div>
 
         <!-- Table Sumatoria -->
-
-        <div *ngIf="selected" style="display: grid; place-items: center; margin-top: 0%;">
+        <div *ngIf="selected" style="display: grid; place-items: center;" class="tableEdtit">
             <div style="text-align: center; width: max-content;">
                 <table class="table">
                     <thead>
@@ -345,66 +351,72 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                                 Tratamiento</th>
                             <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['servicio'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                                 Propina</th>
                             <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['propina'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Bebida</th>
                             <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['bebida'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Tabaco</th>
                             <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['tabaco'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Vitamina</th>
                             <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['vitamina'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                        <tr style="line-height: 40%">
+                            <th scope="row"
+                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Otros</th>
                             <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['otros'] + ' %'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                         </tr>
-                        <tr>
+                        <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
                             <td style="border-bottom: hidden; text-align: start;">Suma</td>
                             <td style="border-bottom: hidden; text-align: right;">{{sumaComision + ' €'}}</td>
                         </tr>
-                        <tr>
+                        <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
                             <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
                             <td style="border-bottom: 1px solid blue; text-align: right;">{{recibidoTerap}}</td>
                         </tr>
-                        <tr>
+                        <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
                             <td style="border-bottom: hidden; text-align: start;">Total</td>
@@ -461,29 +473,41 @@
                     <thead>
                         <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
                             <!-- 1 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Nota</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Nota</td>
                             <!-- 2 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Fecha</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Fecha</td>
                             <!-- 3 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Salida</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Salida</td>
                             <!-- 4 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Hora</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Hora</td>
                             <!-- 5 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Tratamiento</th>
+                            <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
+                            word-wrap: break-word; line-height: normal">Tratamiento</td>
                             <!-- 6 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Propina</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Propina</td>
                             <!-- 7 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Pago</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Pago</td>
                             <!-- 8 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">€ a terap</th>
+                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                            word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a terap</td>
                             <!-- 9 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Bebida</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Bebida</td>
                             <!-- 10 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Tabaco</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Tabaco</td>
                             <!-- 11 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Vitamina</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Vitamina</td>
                             <!-- 12 -->
-                            <th style="border-bottom: 1px solid blue; text-align: center;">Otros</th>
+                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                Otros</td>
                         </tr>
                     </thead>
                     <tbody *ngFor="let serv of (datosLiquidadoTerap | terapeuta: liqTerapeuta.terapeuta | 
@@ -508,7 +532,7 @@
                             </td>
                             <!-- 5 -->
                             <td class="quitarBordes" (click)="editamos(serv.id)"
-                                style="text-align: right; border-bottom: hidden;">
+                                style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                                 {{serv.servicio}}
                             </td>
                             <!-- 6 -->
@@ -600,7 +624,7 @@
 
     <!-- Table Sumatoria -->
 
-    <div style="display: grid; place-items: center; margin-top: 0%;">
+    |<div style="display: grid; place-items: center;" class="tableEdtit">
         <div style="text-align: center; width: max-content;">
             <table class="table">
                 <thead>
@@ -612,62 +636,68 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Tratamiento</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['servicio'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Propina</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['propina'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Bebida</th>
                         <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['bebida'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Tabaco</th>
                         <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['tabaco'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Vitamina</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['vitamina'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
                     </tr>
-                    <tr>
-                        <th scope="row" style="border-bottom: hidden; text-align: left; font-weight: normal;">
+                    <tr style="line-height: 40%">
+                        <th scope="row"
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Otros</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['otros'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                     </tr>
-                    <tr>
+                    <tr style="line-height: 40%">
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden; text-align: right;"></td>
                         <td style="border-bottom: hidden; text-align: start;">Suma</td>
                         <td style="border-bottom: hidden; text-align: right;">{{sumaComision + ' €'}}</td>
                     </tr>
-                    <tr>
+                    <tr style="line-height: 40%">
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden; text-align: right;"></td>
                         <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
                         <td style="border-bottom: 1px solid blue; text-align: right;">
                             {{recibidoTerap}}</td>
                     </tr>
-                    <tr>
+                    <tr style="line-height: 40%">
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden;"></td>
                         <td style="border-bottom: hidden; text-align: start;">Total</td>
@@ -678,6 +708,7 @@
         </div>
     </div>
 
-    <button *ngIf="editTerap" mat-raised-button style="display: grid; margin: auto;" style="margin-bottom: 4%"
-        (click)="cancelar()" color="primary">Cancelar</button>
+    <div style="display: grid; justify-content: center; margin-bottom: 4%">
+        <button *ngIf="editTerap" mat-raised-button (click)="cancelar()" color="primary">Cancelar</button>
+    </div>
 </div>

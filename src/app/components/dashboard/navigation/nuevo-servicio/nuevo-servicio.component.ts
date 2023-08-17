@@ -2203,6 +2203,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   editarServicio(idServicio, serv: Servicio) {
+    debugger
     if (this.restamosCobroEdit == 0) {
       let idUsuario = ''
       idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
@@ -2219,11 +2220,9 @@ export class NuevoServicioComponent implements OnInit {
       this.fechaOrdenadaEdit()
       this.editValue()
 
-      this.servicioService.updateServicio(idServicio, serv)
+      this.servicioService.updateServicio(idServicio, serv).subscribe((rp: any) => { })
 
       this.trabajadorService.getTerapeuta(this.editarService[0]['terapeuta']).subscribe((rp: any) => {
-        const idDocument1 = rp.filter(tp => tp.nombre)
-
         this.trabajadorService.update(this.editarService[0]['terapeuta'], this.terapeutas)
       })
 

@@ -65,8 +65,8 @@ export class ServicioService {
     return this.http.get(`${this.API_URL}/getIdCierre/${idCierre}`);
   }
 
-  getByIdEncarg(idEncarg: number) {
-    return this.http.get(`${this.API_URL}/getIdEncargada/${idEncarg}`);
+  getByIdEncarg(idEncargada: number) {
+    return this.http.get(`${this.API_URL}/getIdEncargada/${idEncargada}`);
   }
 
   geyByCierreFalse() {

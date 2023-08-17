@@ -136,7 +136,7 @@
                     <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Pago</td>
                     <!-- 8 -->
                     <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
-                    word-wrap: break-word; line-height: normal;"> Tratamiento
+                    word-wrap: break-word; line-height: normal"> Tratamiento
                         <!-- 9 -->
                     <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a piso
@@ -180,9 +180,8 @@
                     </td>
                 </tr>
             </thead>
-            <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | 
-                encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
-                | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
+            <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | encargada: selectedEncargada | 
+            fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
                 | paginate: { itemsPerPage: 100, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 1 -->
@@ -219,7 +218,7 @@
                         {{serv.servicio + ' €'}}</td>
                     <!-- 9 -->
                     <td class="quitarBordes" (click)="editamos(serv.id)"
-                        style="text-align: right; border-bottom: hidden; border-top: 1px solid blue ">
+                        style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                         {{serv.numberPiso1 + ' €'}}</td>
                     <!-- 10 -->
                     <td class="quitarBordes" (click)="editamos(serv.id)"

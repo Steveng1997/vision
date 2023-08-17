@@ -263,19 +263,21 @@ export class TerapeutasComponent implements OnInit {
 
           this.servicioService.getTerapeutaFechaDesc(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((fechaDesc) => {
             let año = "", mes = "", dia = ""
-            año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
-            mes = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
-            dia = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+            año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)            
+            mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+            dia = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
 
             this.fechaAsc = `${dia}-${mes}-${año}`
             this.horaAsc = fechaDesc[0]['horaStart']
           })
 
+          debugger
+
           this.servicioService.getTerapeutaFechaAsc(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((fechaAsc) => {
             let año = "", mes = "", dia = ""
-            año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)
-            mes = fechaAsc[0]['fechaHoyInicio'].substring(8, 10)
-            dia = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
+            año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)            
+            mes = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
+            dia = fechaAsc[0]['fechaHoyInicio'].substring(8, 10)
 
             this.fechaDesc = `${dia}-${mes}-${año}`
             this.horaDesc = fechaAsc[0]['horaStart']
@@ -402,6 +404,8 @@ export class TerapeutasComponent implements OnInit {
       this.horaAsc = datosTerapeuta[0]['hastaHoraLiquidado']
       this.horaDesc = datosTerapeuta[0]['desdeHoraLiquidado']
     })
+
+    debugger
 
     this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
       this.datosLiquidadoTerap = datosTerapeuta;

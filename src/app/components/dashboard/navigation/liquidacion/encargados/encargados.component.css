@@ -82,6 +82,10 @@ td {
     margin-top: -1%;
     width: 100%;
   }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
@@ -107,5 +111,13 @@ td {
     margin-bottom: 0%;
     margin-top: -0.5%;
     width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: 0%;
+  }
+
+  .formAgregar {
+    overflow-x: hidden;
   }
 }

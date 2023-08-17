@@ -248,9 +248,9 @@ export class EncargadosComponent implements OnInit {
 
           this.servicioService.getEncargFechaDesc(this.liqEncargada.encargada).subscribe((fechaDesc: any) => {
             let año = "", mes = "", dia = ""
-            año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
-            mes = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
-            dia = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+            año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)            
+            mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+            dia = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
 
             this.fechaAsc = `${dia}-${mes}-${año}`
             this.horaAsc = fechaDesc[0]['horaStart']
@@ -258,9 +258,9 @@ export class EncargadosComponent implements OnInit {
 
           this.servicioService.getEncargFechaAsc(this.liqEncargada.encargada).subscribe((fechaAsc) => {
             let año = "", mes = "", dia = ""
-            año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)
-            mes = fechaAsc[0]['fechaHoyInicio'].substring(8, 10)
-            dia = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
+            año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)            
+            mes = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
+            dia = fechaAsc[0]['fechaHoyInicio'].substring(8, 10)
 
             this.fechaDesc = `${dia}-${mes}-${año}`
             this.horaDesc = fechaAsc[0]['horaStart']
@@ -369,6 +369,7 @@ export class EncargadosComponent implements OnInit {
   }
 
   editamosServicio(id: number) {
+    debugger
     this.liqEncarg = false
     this.addEncarg = false
     this.editEncarg = true

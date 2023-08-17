@@ -430,9 +430,9 @@ export class CierreComponent implements OnInit {
         // Este debe ser el Primero
         this.servicioService.getEncargadaFechaDesc(this.cierres.encargada).subscribe((fechaDesc) => {
           let año = "", mes = "", dia = ""
-          año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
-          mes = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
-          dia = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+          año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)          
+          mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
+          dia = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
 
           this.fechaAsc = `${dia}-${mes}-${año}`
           this.horaAsc = fechaDesc[0]['horaStart']
@@ -441,9 +441,9 @@ export class CierreComponent implements OnInit {
         // este debe ser el ultimo
         this.servicioService.getEncargadaFechaAsc(this.cierres.encargada).subscribe((fechaAscedent) => {
           let año = "", mes = "", dia = ""
-          año = fechaAscedent[0]['fechaHoyInicio'].substring(2, 4)
-          mes = fechaAscedent[0]['fechaHoyInicio'].substring(8, 10)
-          dia = fechaAscedent[0]['fechaHoyInicio'].substring(5, 7)
+          año = fechaAscedent[0]['fechaHoyInicio'].substring(2, 4)          
+          mes = fechaAscedent[0]['fechaHoyInicio'].substring(5, 7)
+          dia = fechaAscedent[0]['fechaHoyInicio'].substring(8, 10)
 
           this.fechaDesc = `${dia}-${mes}-${año}`
           this.horaDesc = fechaAscedent[0]['horaStart']
