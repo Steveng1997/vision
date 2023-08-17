@@ -73,18 +73,6 @@ export class ServicioService {
     return this.http.get(`${this.API_URL}/getCierreFalse`);
   }
 
-  // geyByCierreTrue() {
-  //   return new Promise((resolve, _reject) => {
-  //     this.db.collection('servicio', (ref) => ref.orderBy('currentDate', 'desc').where('cierre', '==', false)).valueChanges({ idField: 'idDocument' }).subscribe((rp) => {
-  //       if (rp[0]?.idDocument) {
-  //         resolve(rp);
-  //       } else {
-  //         resolve(rp);
-  //       }
-  //     });
-  //   });
-  // }
-
   getById(id: number) {
     return this.http.get(`${this.API_URL}/getId/${id}`);
   }

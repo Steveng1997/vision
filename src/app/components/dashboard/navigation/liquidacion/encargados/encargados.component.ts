@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
@@ -30,6 +30,7 @@ export class EncargadosComponent implements OnInit {
   datosLiquidadoEncargada: any
   page!: number
   numberFiltro: number
+  idUser: number
 
   // Encargada
   encargada: any[] = []
@@ -96,6 +97,7 @@ export class EncargadosComponent implements OnInit {
     public servicioService: ServicioService,
     public loginService: LoginService,
     public liqudacionEncargServ: LiquidacioneEncargService,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   formTemplate = new FormGroup({
@@ -108,6 +110,9 @@ export class EncargadosComponent implements OnInit {
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES ENCARGADAS'
+
+    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
 
     this.liqEncargada.encargada = ""
 
@@ -364,8 +369,10 @@ export class EncargadosComponent implements OnInit {
     }
   }
 
-  editamos(id: string) {
-    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,])
+  editamos(id: number) {
+    this.servicioService.getByIdEncarg(id).subscribe((rp: any) => {
+      if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
+    })
   }
 
   editamosServicio(id: number) {

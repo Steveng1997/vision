@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
@@ -42,6 +42,7 @@ export class TerapeutasComponent implements OnInit {
   fechaFinal: string
 
   selected: boolean
+  idUser: number
 
   // Conversión
   fechaAsc: string
@@ -105,11 +106,15 @@ export class TerapeutasComponent implements OnInit {
     public servicioService: ServicioService,
     public loginService: LoginService,
     public liquidacionTerapService: LiquidacioneTerapService,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES TERAPEUTAS'
+
+    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
 
     this.liqTerapeuta.encargada = ""
     this.liqTerapeuta.terapeuta = ""
@@ -390,9 +395,10 @@ export class TerapeutasComponent implements OnInit {
     }
   }
 
-  editamos(id: string) {
-    this.router.navigate([`menu/${id}/nuevo-servicio/${id}`,
-    ])
+  editamos(id: number) {
+    this.servicioService.getByIdTerap(id).subscribe((rp: any) => {
+      if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
+    })
   }
 
   editamosServicio(id: number) {
