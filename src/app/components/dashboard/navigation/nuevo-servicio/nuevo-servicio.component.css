@@ -113,5 +113,6 @@
 
   .inputs{
     max-height: 38px;
+    /* max-width: max-content; */
   }
 }

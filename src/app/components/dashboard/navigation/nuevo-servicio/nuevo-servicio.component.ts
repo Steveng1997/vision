@@ -41,8 +41,6 @@ export class NuevoServicioComponent implements OnInit {
   horaInicialServicio: string
   servicioTotal = 0
 
-  horaFinalServicio: string
-
   sumatoriaServicios = 0
   restamosCobro = 0
   sumatoriaCobros = 0
@@ -196,7 +194,8 @@ export class NuevoServicioComponent implements OnInit {
     this.cargar()
     this.getLastDate()
     this.horaInicialServicio = this.horaStarted
-    this.horaFinalServicio = this.horaStarted
+    this.servicio.horaEnd = this.horaStarted
+    this.servicio.horaStart = this.horaStarted
   }
 
   fecha() {
@@ -222,7 +221,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   fechaOrdenada() {
-    let dia = '', mes = '', año = ''
+    let dia = '', mes = '', año = '', currentDate = new Date()
 
     dia = this.fechaActual.substring(8, 10)
     mes = this.fechaActual.substring(5, 7)
@@ -230,6 +229,8 @@ export class NuevoServicioComponent implements OnInit {
 
     this.fechaActual = `${dia}-${mes}-${año}`
     this.servicio.fecha = this.fechaActual
+
+    this.servicio.fechaHoyInicio = `${currentDate.getFullYear()}-${mes}-${dia}`
   }
 
   getLastDate() {
@@ -292,20 +293,6 @@ export class NuevoServicioComponent implements OnInit {
     this.servicio.idUnico = uuid
     this.idUnico = uuid
     return this.idUnico
-  }
-
-  fechadeHoy() {
-    let convertDia
-    let currentDate = new Date()
-    let dia = currentDate.getDate()
-    let mes = currentDate.toJSON().substring(5, 7)
-
-    if (dia > 0 && dia < 10) {
-      convertDia = '0' + dia
-    } else {
-      convertDia = dia
-    }
-    this.servicio.fechaHoyInicio = `${currentDate.getFullYear()}-${mes}-${convertDia}`
   }
 
   TodosCobroSelect() {
@@ -1293,7 +1280,7 @@ export class NuevoServicioComponent implements OnInit {
       if (this.servicio.encargada != '') {
         if (Number(this.servicio.servicio) > 0) {
           this.crearIdUnico()
-          this.fechadeHoy()
+          if (!this.validarFechaVencida()) return
           if (this.restamosCobro == 0) {
             if (!this.validacionFormasPago()) return
             if (!this.validacionesFormaPagoAdd()) return
@@ -1318,10 +1305,7 @@ export class NuevoServicioComponent implements OnInit {
             this.conteoNumber()
             this.fechaOrdenada()
 
-            this.servicio.horaStart = this.horaStarted
             this.servicio.editar = true
-
-            debugger
 
             if (!this.TodosCobroSelect()) return
 
@@ -1623,7 +1607,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicioEdit(event: any) {
-    this.horaFinalServicio = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
     if (Number(this.editarService[0]['minuto']) > 0) {
@@ -1678,8 +1661,7 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   horaInicio(event: any) {
-
-    this.horaFinalServicio = event.target.value.toString()
+    this.servicio.horaEnd = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
     if (Number(this.servicio.minuto) > 0) {
@@ -1700,10 +1682,10 @@ export class NuevoServicioComponent implements OnInit {
         convertHora = '0' + horas
         let hora = convertHora
         let minutes = minutos
-        this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+        this.servicio.horaEnd = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
       } else {
         let minutes = minutos
-        this.horaFinalServicio = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+        this.servicio.horaEnd = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
       }
     }
   }
@@ -1735,12 +1717,10 @@ export class NuevoServicioComponent implements OnInit {
       convertHora = '0' + horas
       let hora = convertHora
       let minutes = minutos
-      this.horaFinalServicio = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      this.servicio.horaEnd = this.horaFinalServicio
+      this.servicio.horaEnd = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
     } else {
       let minutes = minutos
-      this.horaFinalServicio = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      this.servicio.horaEnd = this.horaFinalServicio
+      this.servicio.horaEnd = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
     }
   }
 
@@ -2203,7 +2183,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   editarServicio(idServicio, serv: Servicio) {
-    debugger
     if (this.restamosCobroEdit == 0) {
       let idUsuario = ''
       idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']

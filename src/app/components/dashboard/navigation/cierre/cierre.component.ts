@@ -342,7 +342,6 @@ export class CierreComponent implements OnInit {
   }
 
   getCierre() {
-    debugger
     this.cierreService.getAllCierre().subscribe((datoCierre: any) => {
       this.cierre = datoCierre
 
@@ -672,8 +671,6 @@ export class CierreComponent implements OnInit {
             }
 
             this.fechaOrdenada()
-
-            debugger
             this.cierreService.registerCierre(this.cierres).subscribe((datos) => { })
 
             setTimeout(() => {

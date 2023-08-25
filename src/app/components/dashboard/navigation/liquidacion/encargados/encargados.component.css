@@ -12,10 +12,6 @@
   place-content: center;
 }
 
-table {
-  width: max-content;
-}
-
 .table-secondary {
   --bs-table-bg: transparent;
   background-color: transparent;
@@ -86,6 +82,47 @@ td {
   .tableEdtit {
     margin-top: -12%;
   }
+
+  .columnImporte {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechaDesde {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechHasta {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnEncargada {
+    padding: 24px 12px 0px 0px;
+    text-align: center;
+    max-width: 28px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnTratamiento {
+    padding: 24px 12px 0px 0px;
+    text-align: center;
+    max-width: 32px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  table {
+    width: inherit;
+  }
+
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
@@ -119,5 +156,44 @@ td {
 
   .formAgregar {
     overflow-x: hidden;
+  }
+
+  table {
+    width: auto;
+  }
+
+  .columnImporte {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechaDesde {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechHasta {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnEncargada {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnTratamiento {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
   }
 }

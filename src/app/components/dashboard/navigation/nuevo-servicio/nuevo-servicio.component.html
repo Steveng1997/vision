@@ -76,8 +76,9 @@
                 <div class="row">
                     <div class="col-9">
                         <label style="display: contents;">Hora inicio</label>
-                        <input type="time" class="form-control inputs" (change)="horaInicio($event)"
-                            [value]="horaStarted" min="18:00" max="21:00" step="3600" />
+                        <input type="time" name="horaStart" [(ngModel)]="servicio.horaStart"
+                            (change)="horaInicio($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600"
+                            class="form-control inputs" />
                     </div>
                     <div class="col-3 btnIconos" style="display: grid; align-content: center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -100,7 +101,7 @@
                 <div style="text-align: center; align-self: center;">
                     <label>Hora fin:</label>
                 </div>
-                <div style="text-align: center; font-size: larger;"> {{horaFinalServicio}} </div>
+                <div style="text-align: center; font-size: larger;"> {{servicio.horaEnd}} </div>
             </div>
 
             <div class="row lugarSalida">

@@ -32,6 +32,10 @@ export class LiquidacioneEncargService {
     return this.http.get(`${this.API_URL}/getByIdEncarg/${idEncargada}`);
   }
 
+  getByEncargada(encargada: string) {
+    return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
+  }
+
   // Update
 
   update(encargada, liqEncarg: LiquidacionEncargada) {
@@ -40,5 +44,9 @@ export class LiquidacioneEncargService {
 
   updateById(idEncargada, liqEncarg: LiquidacionEncargada) {
     return this.http.put(`${this.API_URL}/updateIdAndImporte/${idEncargada}`, liqEncarg);
+  }
+
+  updateEncargImporteId(id: number, liqEncarg: LiquidacionEncargada) {
+    return this.http.put(`${this.API_URL}/updateByEncargByImporteById/${id}`, liqEncarg);
   }
 }

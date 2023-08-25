@@ -49,38 +49,37 @@
         <thead>
             <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
                 <!-- 1 -->
-                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 45px;; 
-                word-wrap: break-word; line-height: normal;">Encargada</td>
+                <td class="columnEncargada">Encargada</td>
                 <!-- 2 -->
-                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Desde</td>
+                <td class="columnImporte">Importe</td>
                 <!-- 3 -->
-                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Hasta</td>
+                <td class="columnFechaDesde">Desde</td>
                 <!-- 4 -->
-                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
-                word-wrap: break-word; line-height: normal">Tratamiento</td>
+                <td class="columnFechHasta">Hasta</td>
                 <!-- 5 -->
-                <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">Importe</td>
+                <td class="columnTratamiento">Tratamiento</td>
             </tr>
         </thead>
         <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: liqEncargada.encargada
         | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) |
-        paginate: { itemsPerPage: 10, currentPage: page }" (click)="editamosServicio(liqEncarg.idEncargada)">
+        paginate: { itemsPerPage: 10, currentPage: page }"
+            (click)="editamosServicio(liqEncarg.idEncargada, liqEncarg.id)">
             <tr style="cursor: pointer">
                 <!-- 1 -->
-                <td class="quitarBordes" style="text-align: left; border-bottom: hidden; border-top: 1px solid blue">
+                <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
                     {{liqEncarg.encargada}}</td>
                 <!-- 2 -->
-                <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
-                    {{liqEncarg.desdeFechaLiquidado + ' - ' + liqEncarg.desdeHoraLiquidado}}</td>
+                <td class="quitarBordes" style="text-align: right; border-bottom: hidden;">{{liqEncarg.importe}}</td>
                 <!-- 3 -->
                 <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
-                    {{liqEncarg.hastaFechaLiquidado + ' - ' + liqEncarg.hastaHoraLiquidado}}</td>
+                    {{liqEncarg.desdeFechaLiquidado + ' - ' + liqEncarg.desdeHoraLiquidado}}</td>
                 <!-- 4 -->
-                <td class="quitarBordes" style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
+                <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
+                    {{liqEncarg.hastaFechaLiquidado + ' - ' + liqEncarg.hastaHoraLiquidado}}</td>
+                <!-- 5 -->
+                <td class="quitarBordes" style="text-align: right; border-bottom: hidden">
                     {{liqEncarg.tratamiento}}
                 </td>
-                <!-- 5 -->
-                <td class="quitarBordes" style="text-align: right; border-bottom: hidden;">{{liqEncarg.importe}}</td>
             </tr>
 
             <!-- Modal -->
@@ -687,6 +686,13 @@
         </div>
     </div>
 
-    <button *ngIf="editEncarg" mat-raised-button style="display: grid; margin: auto; margin-bottom: 4%;"
-        (click)="cancelar()" color="primary">Cancelar</button>
+    <div class="row" *ngIf="editEncarg">
+        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
+            <button mat-raised-button (click)="cancelar()" color="primary">Cancelar</button>
+        </div>
+
+        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
+            <button mat-raised-button (click)="editar()" color="primary">Editar</button>
+        </div>
+    </div>
 </div>

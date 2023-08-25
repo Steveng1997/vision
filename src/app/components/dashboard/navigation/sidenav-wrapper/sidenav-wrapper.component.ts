@@ -1,10 +1,10 @@
 import { Component, ViewChild, OnInit } from '@angular/core'
-import { NavigationEnd, Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { LoginService } from 'src/app/core/services/login'
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { MatSidenav } from '@angular/material/sidenav'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { delay, filter } from 'rxjs/operators'
+import { delay } from 'rxjs/operators'
 
 @UntilDestroy()
 @Component({
@@ -37,11 +37,6 @@ export class SidenavWrapperComponent implements OnInit {
         this.idUser = res[0]
       })
     }
-
-    // this.idUser = this.activeRoute.snapshot.paramMap.get('id')
-    // this.serviceLogin.getById(this.idUser).subscribe((rp) => {
-    //   this.idUser = rp[0]
-    // })
   }
 
   liquidacion() {

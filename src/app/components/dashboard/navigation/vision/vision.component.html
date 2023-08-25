@@ -1,179 +1,183 @@
-<div class="contenido">
-  <div class="row text-center">
-    <div class="col-6">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle text-primary circleIzquierda"
-        viewBox="0 0 16 16" style="cursor: pointer;" routerLink="/menu/{{idUser}}/nuevo-servicio/{{idUser}}/false">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path
-          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-      </svg>
-      <div>
-        Nuevo servicio
-      </div>
-    </div>
-    <div class="col-6">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-repeat text-primary circleDerecha"
-        viewBox="0 0 16 16" onclick="location.reload()" style="cursor: pointer;">
-        <path
-          d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-        <path fill-rule="evenodd"
-          d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-      </svg>
-      <div>
-        Refrescar Pagina
-      </div>
-    </div>
-
-    <div class="col-12 padre">
-      <div class="hijo">
-        <table class="table">
-          <thead>
-            <tr class="table-secondary">
-              <th scope="col"></th>
-              <th scope="col">Terapeuta</th>
-              <th scope="col">Salida</th>
-              <th scope="col">Fin</th>
-              <th scope="col">Restante</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let vis of terapeutas">
-            <tr style="cursor: pointer;">
-              <td
-                [ngClass]="{'ocupado':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) !== '' , 'disponible':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '', 'disponible2':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '00:00'}">
-              </td>
-              <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
-              <td style="line-height: normal"
-                [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
-                {{vis.salida}}</td>
-              <td style="line-height: normal"
-                [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
-                {{vis.horaEnd}}</td>
-              <td style="line-height: normal">{{calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd)}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="fechas" style="display: grid; place-items: center;">
-    <div class="totalHoy">
-      <div class="row flechaFecha">
-        <div class="col-4 btnRight">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="atras()"
-            class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
-            <path fill-rule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
-          </svg>
+<div class="container">
+  <div class="contenido">
+    <div class="row text-center">
+      <div class="col-6 linearNuevoServicio">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          class="bi bi-plus-circle text-primary circleIzquierda" viewBox="0 0 16 16" style="cursor: pointer;"
+          routerLink="/menu/{{idUser}}/nuevo-servicio/{{idUser}}/false">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
+        <div>
+          Nuevo servicio
         </div>
-        <div class="col-4" style="display: contents;">
-          <label style="align-self: flex-end; font-size: 1rem;">{{fechaHoyActual}}</label>
+      </div>
+      <div class="col-6 linearRefrescar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          class="bi bi-arrow-repeat text-primary circleDerecha" viewBox="0 0 16 16" onclick="location.reload()"
+          style="cursor: pointer;">
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+          <path fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+        </svg>
+        <div>
+          Refrescar Pagina
         </div>
-        <div class="col-4 btnLeft">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="siguiente()"
-            class="bi bi-arrow-right-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
-            <path fill-rule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-          </svg>
+      </div>
+
+      <div class="col-12 padre">
+        <div class="hijo">
+          <table class="table">
+            <thead>
+              <tr class="table-secondary">
+                <th scope="col"></th>
+                <th scope="col">Terapeuta</th>
+                <th scope="col">Salida</th>
+                <th scope="col">Fin</th>
+                <th scope="col">Restante</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let vis of terapeutas">
+              <tr style="cursor: pointer;">
+                <td
+                  [ngClass]="{'ocupado':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) !== '' , 'disponible':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '', 'disponible2':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '00:00'}">
+                </td>
+                <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
+                <td style="line-height: normal"
+                  [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
+                  {{vis.salida}}</td>
+                <td style="line-height: normal"
+                  [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
+                  {{vis.horaEnd}}</td>
+                <td style="line-height: normal">{{calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd)}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="columnTable">
-    <div class="row text-center tableTotales">
-
-      <!-- SERVICIOS -->
-
-      <div class="col-6 columnCol" style="font-size: 14px;">
-        <label class="textServicios">Servicios</label>
-        <hr class="lineaHoy">
-        <div class="colmnIzquierda">
-
-          <div class="row">
-            <div class="col-9"> <label>Tratamientos</label> </div>
-            <div class="col-3"> {{totalTratamiento}} </div>
+    <div class="fechas" style="display: grid; place-items: center;">
+      <div class="totalHoy columnHoy">
+        <div class="row flechaFecha">
+          <div class="col-4 btnRight">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="atras()"
+              class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
           </div>
-
-          <div class="row">
-            <div class="col-9"> <label>Bebidas</label> </div>
-            <div class="col-3"> {{totalBebidas}} </div>
+          <div class="col-4" style="display: contents;">
+            <label style="align-self: flex-end; font-size: 1rem;">{{fechaHoyActual}}</label>
           </div>
-
-          <div class="row">
-            <div class="col-9"> <label>Tabaco</label> </div>
-            <div class="col-3"> {{totalTabac}} </div>
+          <div class="col-4 btnLeft">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="siguiente()"
+              class="bi bi-arrow-right-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <div class="row">
-            <div class="col-9"> <label>Vitaminas</label> </div>
-            <div class="col-3"> {{totalVitamin}} </div>
-          </div>
+    <div class="columnTable">
+      <div class="row text-center tableTotales">
 
-          <div class="row">
-            <div class="col-9"> <label>Propina</label> </div>
-            <div class="col-3"> {{totalPropin}}
+        <!-- SERVICIOS -->
+
+        <div class="col-6 columnCol" style="font-size: 14px;">
+          <label class="textServicios">Servicios</label>
+          <hr class="lineaHoy">
+          <div class="colmnIzquierda">
+
+            <div class="row">
+              <div class="col-9"> <label>Tratamientos</label> </div>
+              <div class="col-3"> {{totalTratamiento}} </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9"> <label>Bebidas</label> </div>
+              <div class="col-3"> {{totalBebidas}} </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9"> <label>Tabaco</label> </div>
+              <div class="col-3"> {{totalTabac}} </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9"> <label>Vitaminas</label> </div>
+              <div class="col-3"> {{totalVitamin}} </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9"> <label>Propina</label> </div>
+              <div class="col-3"> {{totalPropin}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9"> <label>Otros</label> </div>
+              <div class="col-3"> {{totalOtross}} </div>
+            </div>
+
+            <hr class="lineaHoy">
+
+            <div class="row" style="font-weight: bold">
+              <div class="col-9"> <label>TOTAL</label> </div>
+              <div class="col-3"> {{totalVisions}} </div>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-9"> <label>Otros</label> </div>
-            <div class="col-3"> {{totalOtross}} </div>
-          </div>
+        <!-- COBROS -->
 
-          <hr class="lineaHoy">
+        <div class="col-6 columnColPago" style="font-size: 14px;">
+          <label class="textServicios">Cobros</label>
+          <hr class="lineaHoyFormaPago">
 
           <div class="row" style="font-weight: bold">
-            <div class="col-9"> <label>TOTAL</label> </div>
-            <div class="col-3"> {{totalVisions}} </div>
+            <div class="col-9"> <label>Piso</label> </div>
+            <div class="col-3" style="display: grid;"> {{totalPiso}} </div>
           </div>
-        </div>
-      </div>
 
-      <!-- COBROS -->
+          <div class="row" style="margin-left: 5%">
+            <div class="col-9"> <label>Efectivo</label> </div>
+            <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalEfectiv}} </div>
+          </div>
 
-      <div class="col-6 columnColPago" style="font-size: 14px;">
-        <label class="textServicios">Cobros</label>
-        <hr class="lineaHoyFormaPago">
+          <div class="row" style="margin-left: 5%">
+            <div class="col-9"> <label>Bizum</label> </div>
+            <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalBizu}} </div>
+          </div>
 
-        <div class="row" style="font-weight: bold">
-          <div class="col-9"> <label>Piso</label> </div>
-          <div class="col-3" style="display: grid;"> {{totalPiso}} </div>
-        </div>
+          <div class="row" style="margin-left: 5%">
+            <div class="col-9"> <label>Tarjeta</label> </div>
+            <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTarjet}} </div>
+          </div>
 
-        <div class="row" style="margin-left: 5%">
-          <div class="col-9"> <label>Efectivo</label> </div>
-          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalEfectiv}} </div>
-        </div>
+          <div class="row" style="margin-left: 5%">
+            <div class="col-9"> <label>Transferencia</label> </div>
+            <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTrasn}} </div>
+          </div>
 
-        <div class="row" style="margin-left: 5%">
-          <div class="col-9"> <label>Bizum</label> </div>
-          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalBizu}} </div>
-        </div>
+          <div class="row" style="font-weight: bold">
+            <div class="col-9"> <label>Terapeuta</label> </div>
+            <div class="col-3" style="display: grid;"> {{totalTerape}} </div>
+          </div>
 
-        <div class="row" style="margin-left: 5%">
-          <div class="col-9"> <label>Tarjeta</label> </div>
-          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTarjet}} </div>
-        </div>
+          <div class="row" style="font-weight: bold">
+            <div class="col-9"> <label>Encargada</label> </div>
+            <div class="col-3" style="display: grid;"> {{totalEncargada}} </div>
+          </div>
 
-        <div class="row" style="margin-left: 5%">
-          <div class="col-9"> <label>Transferencia</label> </div>
-          <div class="col-3" style="display: grid; margin-left: -2%;"> {{totalTrasn}} </div>
-        </div>
-
-        <div class="row" style="font-weight: bold">
-          <div class="col-9"> <label>Terapeuta</label> </div>
-          <div class="col-3" style="display: grid;"> {{totalTerape}} </div>
-        </div>
-
-        <div class="row" style="font-weight: bold">
-          <div class="col-9"> <label>Encargada</label> </div>
-          <div class="col-3" style="display: grid;"> {{totalEncargada}} </div>
-        </div>
-
-        <div class="row" style="font-weight: bold">
-          <div class="col-9"> <label>Otros</label> </div>
-          <div class="col-3" style="display: grid;"> {{totalOtr}} </div>
+          <div class="row" style="font-weight: bold">
+            <div class="col-9"> <label>Otros</label> </div>
+            <div class="col-3" style="display: grid;"> {{totalOtr}} </div>
+          </div>
         </div>
       </div>
     </div>

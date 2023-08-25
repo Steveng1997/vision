@@ -12,10 +12,6 @@
   text-align: center;
 }
 
-table {
-  width: max-content;
-}
-
 .table-secondary {
   --bs-table-bg: transparent;
   background-color: transparent;
@@ -86,6 +82,94 @@ td {
   .tableEdtit {
     margin-top: -12%;
   }
+
+  .columnTerapeuta {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 0px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnEncargada {
+    padding: 24px 12px 0px 0px;
+    text-align: center;
+    max-width: 48px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnImporte {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    max-width: 0px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnFechas {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnTratamiento {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+  }
+
+  table {
+    width: inherit;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+    padding: 8px 0px 0px 0px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
@@ -119,5 +203,85 @@ td {
 
   .formAgregar {
     overflow-x: hidden;
+  }
+
+  .columnTerapeuta {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnEncargada {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnImporte {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechas {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnTratamiento {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .column€Terap {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  table {
+    width: auto;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+    margin-left: -11px;
+  }
+
+  .horaFinal {
+    align-self: end;
+    width: 122px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
   }
 }
