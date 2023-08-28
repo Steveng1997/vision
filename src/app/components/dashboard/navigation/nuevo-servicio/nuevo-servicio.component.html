@@ -1,6 +1,6 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<div *ngIf="!editamos">
+<div *ngIf="!editamos && addService">
     <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Nuevo Servicio</h4>
     <div class="container">
 
@@ -351,8 +351,19 @@
                 style="display: grid; margin: auto;" color="primary" (click)="addServicio()">Guardar</button>
         </div>
 
+        <!-- <div *ngIf="cargamos" class="loader-page"> </div> -->
     </div>
 </div>
+
+<div class="container" *ngIf="cargamos">
+    <div class="contenedorCargando">
+        <div class="hijoCargando">
+            <div class="rueda"></div>
+            <div class="cargando">Cargando...</div>
+        </div>
+    </div>
+</div>
+
 
 <!------------------------------------------ Editar ------------------------------------------>
 

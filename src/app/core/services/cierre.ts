@@ -8,8 +8,8 @@ import { Cierre } from '../models/cierre';
 @Injectable()
 export class CierreService {
 
-  API_URL = 'http://18.191.235.23:3000/api/cierre';
-  API_SERVICIO = 'http://18.191.235.23:3000/api/servicio';
+  API_URL = 'http://3.129.249.184:3000/api/cierre';
+  API_SERVICIO = 'http://3.129.249.184:3000/api/servicio';
 
   // API_URL = 'http://localhost:3000/api/cierre';  
   // API_SERVICIO = 'http://localhost:3000/api/servicio';

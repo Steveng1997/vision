@@ -2,6 +2,51 @@
   border-width: thin;
 }
 
+@import url('//fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+
+.contenedorCargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hijoCargando {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+.cargando {
+  position: relative;
+  /* color: #FFF; */
+  color: black;
+  margin-top: 2em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase
+}
+
+.rueda {
+  border: 10px solid rgba(255, 255, 255, .3);
+  border-radius: 50%;
+  /* border-left-color: transparent; */
+  border-left-color: cornflowerblue;
+  width: 80px;
+  height: 80px;
+  animation: giro 1s linear infinite;
+}
+
+@keyframes giro {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .titulos {
     margin-top: 2%;
@@ -54,7 +99,7 @@
     scale: 1.2;
   }
 
-  .inputs{
+  .inputs {
     max-height: 38px;
   }
 }
@@ -111,7 +156,7 @@
     scale: 1.2;
   }
 
-  .inputs{
+  .inputs {
     max-height: 38px;
     /* max-width: max-content; */
   }

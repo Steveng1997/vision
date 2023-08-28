@@ -84,6 +84,9 @@ export class NuevoServicioComponent implements OnInit {
   terapEdit: any
   terapeutaSelect: any
 
+  cargamos = false
+  addService = false
+
   servicio: Servicio = {
     bebidas: "",
     bizuEncarg: false,
@@ -187,6 +190,8 @@ export class NuevoServicioComponent implements OnInit {
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
+
+    this.addService = true
 
     this.getTerapeuta()
     this.getEncargada()
@@ -1282,6 +1287,9 @@ export class NuevoServicioComponent implements OnInit {
           this.crearIdUnico()
           if (!this.validarFechaVencida()) return
           if (this.restamosCobro == 0) {
+            this.addService = false
+            this.cargamos = true
+
             if (!this.validacionFormasPago()) return
             if (!this.validacionesFormaPagoAdd()) return
             this.totalServicio()
@@ -1415,7 +1423,6 @@ export class NuevoServicioComponent implements OnInit {
             setTimeout(() => {
               this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
               this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
-
               Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
             }, 5000)
 

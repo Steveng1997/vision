@@ -13,8 +13,8 @@ export class TrabajadoresService {
   // API_Encargada = 'http://localhost:3000/api/encargada';
   // API_Terapeuta = 'http://localhost:3000/api/terapeuta';
 
-  API_Encargada = 'http://18.191.235.23:3000/api/encargada';
-  API_Terapeuta = 'http://18.191.235.23:3000/api/terapeuta';
+  API_Encargada = 'http://3.129.249.184:3000/api/encargada';
+  API_Terapeuta = 'http://3.129.249.184:3000/api/terapeuta';
 
   constructor(
     public router: Router,

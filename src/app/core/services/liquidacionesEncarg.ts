@@ -8,7 +8,7 @@ import { LiquidacionEncargada } from '../models/liquidacionEncarg';
 @Injectable()
 export class LiquidacioneEncargService {
 
-  API_URL = 'http://18.191.235.23:3000/api/liqEncargada';
+  API_URL = 'http://3.129.249.184/api/liqEncargada';
   // API_URL = 'http://localhost:3000/api/liqEncargada';
 
   constructor(

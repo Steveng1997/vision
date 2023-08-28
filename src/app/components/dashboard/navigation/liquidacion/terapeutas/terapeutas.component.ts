@@ -298,7 +298,7 @@ export class TerapeutasComponent implements OnInit {
 
         año = fecha.getFullYear()
         mes = rp[0]['hastaFechaLiquidado'].substring(3, 5)
-        dia = rp[0]['hastaFechaLiquidado'].substring(0,2)
+        dia = rp[0]['hastaFechaLiquidado'].substring(0, 2)
         this.liqTerapeuta.desdeFechaLiquidado = `${año}-${mes}-${dia}`
         this.liqTerapeuta.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
@@ -328,9 +328,6 @@ export class TerapeutasComponent implements OnInit {
   }
 
   calcularSumaDeServicios(): any {
-
-    debugger
-
     if (this.liqTerapeuta.encargada != "" && this.liqTerapeuta.terapeuta != "") {
       let respuesta: any
 
@@ -652,9 +649,7 @@ export class TerapeutasComponent implements OnInit {
 
             this.liquidacionTerapService.registerLiquidacionesTerapeutas(this.liqTerapeuta).subscribe((datos) => { })
 
-            setTimeout(() => {
-              this.getLiquidaciones()
-            }, 1000);
+            setTimeout(() => { this.getLiquidaciones() }, 1000);
 
             this.liqTep = true
             this.addTerap = false
@@ -664,11 +659,7 @@ export class TerapeutasComponent implements OnInit {
             this.liqTerapeuta.encargada = ""
             this.liqTerapeuta.terapeuta = ""
             Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
+              position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
             })
           })
         }
@@ -711,31 +702,19 @@ export class TerapeutasComponent implements OnInit {
               this.liqTerapeuta.terapeuta = ""
               this.calcularSumaDeServicios()
               Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Liquidado Correctamente!',
-                showConfirmButton: false,
-                timer: 2500,
+                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
               })
             })
           })
         }
       } else {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'No hay ninguna encargada seleccionada',
-          showConfirmButton: false,
-          timer: 2500,
+          icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
         })
       }
     } else {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No hay ninguna terapeuta seleccionada',
-        showConfirmButton: false,
-        timer: 2500,
+        icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500
       })
     }
   }
