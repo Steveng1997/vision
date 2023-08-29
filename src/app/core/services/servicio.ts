@@ -209,6 +209,10 @@ export class ServicioService {
     return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicioFechaFin/${terapeuta}/${encargada}/${fecha}/${fechaFin}/${horaStart}`);
   }
 
+  getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(terapeuta: string, encargada: string, fecha: string, fechaFin: string, horaStart: string, horaEnd: string) {
+    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicioFechaHoraFin/${terapeuta}/${encargada}/${fecha}/${fechaFin}/${horaStart}/${horaEnd}`);
+  }
+
   // Update
 
   updateServicio(id: number, servicio: Servicio) {
