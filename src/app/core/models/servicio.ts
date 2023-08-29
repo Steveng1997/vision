@@ -16,6 +16,7 @@ export class Servicio {
   efectTerap?: boolean;
   encargada?: string;
   fecha?: string;
+  fechaFin?: string;
   fechaHoyInicio?: string;
   formaPago?: string;
   horaEnd?: string;

@@ -197,6 +197,18 @@ export class ServicioService {
     return this.http.get(`${this.API_URL}/getByIdDesc/${idUnico}`);
   }
 
+  getByTerapeutaEncargadaFechaInicio(terapeuta: string, encargada: string, fecha: string) {
+    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaInicio/${terapeuta}/${encargada}/${fecha}`);
+  }
+
+  getbYTerapeutaEncargadaFechaHoraInicio(terapeuta: string, encargada: string, fecha: string, horaStart: string) {
+    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicio/${terapeuta}/${encargada}/${fecha}/${horaStart}`);
+  }
+
+  getByTerapeutaEncargadaFechaHoraInicioFechaFin(terapeuta: string, encargada: string, fecha: string, fechaFin: string, horaStart: string) {
+    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicioFechaFin/${terapeuta}/${encargada}/${fecha}/${fechaFin}/${horaStart}`);
+  }
+
   // Update
 
   updateServicio(id: number, servicio: Servicio) {

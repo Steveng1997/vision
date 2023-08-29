@@ -105,6 +105,7 @@ export class NuevoServicioComponent implements OnInit {
     efectTerap: false,
     encargada: "",
     fecha: "",
+    fechaFin: "",
     fechaHoyInicio: "",
     formaPago: "",
     horaEnd: "",
@@ -234,6 +235,7 @@ export class NuevoServicioComponent implements OnInit {
 
     this.fechaActual = `${dia}-${mes}-${año}`
     this.servicio.fecha = this.fechaActual
+    this.servicio.fechaFin = this.fechaActual
 
     this.servicio.fechaHoyInicio = `${currentDate.getFullYear()}-${mes}-${dia}`
   }
