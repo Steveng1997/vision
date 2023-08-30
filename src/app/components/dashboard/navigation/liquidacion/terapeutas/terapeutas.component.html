@@ -169,24 +169,26 @@
             <div *ngIf="selected" class="row fechas" style="margin-top: 2%">
                 <div class="col-2 fechaInicio">
                     <label style="display: contents;">Inicial</label>
-                    <input type="date" class="form-control" (change)="fechasHoras($event)"
-                        [value]="liqTerapeuta.desdeFechaLiquidado">
+                    <input type="date" class="form-control" (change)="fechasHoras()" name="desdeFechaLiquidado"
+                        [(ngModel)]="liqTerapeuta.desdeFechaLiquidado" [value]="liqTerapeuta.desdeFechaLiquidado">
                 </div>
 
                 <div class="col-2 horaInicio" style="align-self: end;">
                     <input type="time" min="18:00" max="21:00" step="3600" class="form-control"
-                        [value]="liqTerapeuta.desdeHoraLiquidado" (change)="fechasHoras($event)" />
+                        name="desdeHoraLiquidado" [(ngModel)]="liqTerapeuta.desdeHoraLiquidado"
+                        [value]="liqTerapeuta.desdeHoraLiquidado" (change)="fechasHoras()" />
                 </div>
 
                 <div class="col-2 fechaFinal">
                     <label style="display: contents;">Final</label>
-                    <input type="date" class="form-control" (change)="fechasHoras($event)"
+                    <input type="date" class="form-control" (change)="fechasHoras()"
                         [value]="liqTerapeuta.hastaFechaLiquidado">
                 </div>
 
                 <div class="col-2 horaFinal" style="align-self: end;">
                     <input type="time" name="horaStart" min="18:00" max="21:00" step="3600" class="form-control"
-                        [value]="liqTerapeuta.hastaHoraLiquidado" (change)="fechasHoras($event)">
+                        name="hastaHoraLiquidado" [(ngModel)]="liqTerapeuta.hastaHoraLiquidado"
+                        [value]="liqTerapeuta.hastaHoraLiquidado" (change)="fechasHoras()">
                 </div>
             </div>
 

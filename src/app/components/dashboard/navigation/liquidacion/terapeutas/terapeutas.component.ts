@@ -269,117 +269,42 @@ export class TerapeutasComponent implements OnInit {
     })
   }
 
-  fechasHoras(event: any) {
-    let año = "", mes = "", dia = ""
+  fechaInicialBD(fecha: string){
+    this.liqTerapeuta.desdeFechaLiquidado = fecha
+  }
 
-    this.horaAsc = event.target.value
+  fechaFinalBD(fecha: string){
+    this.liqTerapeuta.hastaFechaLiquidado = fecha
+  }
 
-    dia = this.fechaDesc.substring(0, 2)
-    mes = this.fechaDesc.substring(3, 5)
-    año = this.fechaDesc.substring(8, 10)
-
-    this.fechaDesc = `${dia}-${mes}-${año}`
+  fechasHoras() {
+    let añoInicial = "", mesInicial = "", diaInicial = "", añoFinal = "", mesFinal = "", diaFinal = "", fechaInicial = "", fechaFinal = ""
 
     debugger
 
-    this.servicioService.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liqTerapeuta.terapeuta,
-      this.liqTerapeuta.encargada, this.liqTerapeuta.desdeHoraLiquidado, this.liqTerapeuta.hastaHoraLiquidado,
-      this.fechaDesc, this.fechaAsc).subscribe((rp: any) => {
-        if (rp.length > 0) {
-          this.servicioNoLiquidadaTerapeuta = rp
+    fechaInicial = this.liqTerapeuta.desdeFechaLiquidado
+    fechaFinal = this.liqTerapeuta.hastaFechaLiquidado
 
-          // Filter by servicio
-          const servicios = this.servicioNoLiquidadaTerapeuta.filter(serv => rp)
-          this.totalServicio = servicios.reduce((accumulator, serv) => {
-            return accumulator + serv.servicio
-          }, 0)
+    diaInicial = this.liqTerapeuta.desdeFechaLiquidado.substring(8, 10)
+    mesInicial = this.liqTerapeuta.desdeFechaLiquidado.substring(5, 7)
+    añoInicial = this.liqTerapeuta.desdeFechaLiquidado.substring(2, 4)
 
-          // Filter by Propina
-          const propinas = this.servicioNoLiquidadaTerapeuta.filter(serv => rp)
-          this.totalValorPropina = propinas.reduce((accumulator, serv) => {
-            return accumulator + serv.propina
-          }, 0)
+    this.liqTerapeuta.desdeFechaLiquidado = `${diaInicial}-${mesInicial}-${añoInicial}`
 
-          // Filter by Pago
-          const terapeuta = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
-            return accumulator + serv.numberTerap
-          }, 0)
+    diaFinal = this.liqTerapeuta.hastaFechaLiquidado.substring(8, 10)
+    mesFinal = this.liqTerapeuta.hastaFechaLiquidado.substring(5, 7)
+    añoFinal = this.liqTerapeuta.hastaFechaLiquidado.substring(2, 4)
 
-          const encargada = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
-            return accumulator + serv.numberEncarg
-          }, 0)
+    this.liqTerapeuta.hastaFechaLiquidado = `${diaFinal}-${mesFinal}-${añoFinal}`
 
-          // Filter by Bebida
-          const bebida = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.TotalValorBebida = bebida.reduce((accumulator, serv) => {
-            return accumulator + serv.bebidas
-          }, 0)
+    if(this.liqTerapeuta.desdeFechaLiquidado < this.liqTerapeuta.hastaFechaLiquidado)
+    {
+      
+    }
 
-          // Filter by Tabaco
-          const tabac = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.TotalValorTabaco = tabac.reduce((accumulator, serv) => {
-            return accumulator + serv.tabaco
-          }, 0)
+      this.fechaFinalBD(fechaFinal)
+      this.fechaInicialBD(fechaInicial)
 
-          // Filter by Vitamina
-          const vitamina = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.totalValorVitaminas = vitamina.reduce((accumulator, serv) => {
-            return accumulator + serv.vitaminas
-          }, 0)
-
-          // Filter by Vitamina
-          const otroServicio = this.servicioNoLiquidadaTerapeuta.filter(serv => serv.rp)
-          this.totalValorOtroServ = otroServicio.reduce((accumulator, serv) => {
-            return accumulator + serv.otros
-          }, 0)
-
-          let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-          this.totalComision = 0
-
-          this.trabajadorService.getTerapeuta(this.liqTerapeuta.terapeuta).subscribe((datosNameTerapeuta) => {
-            this.terapeutaName = datosNameTerapeuta[0]
-            this.tableComision()
-
-            // Comision
-            comisiServicio = this.totalServicio / 100 * datosNameTerapeuta[0]['servicio']
-            comiPropina = this.totalValorPropina / 100 * datosNameTerapeuta[0]['propina']
-            comiBebida = this.TotalValorBebida / 100 * datosNameTerapeuta[0]['bebida']
-            comiTabaco = this.TotalValorTabaco / 100 * datosNameTerapeuta[0]['tabaco']
-            comiVitamina = this.totalValorVitaminas / 100 * datosNameTerapeuta[0]['vitamina']
-            comiOtros = this.totalValorOtroServ / 100 * datosNameTerapeuta[0]['otros']
-
-            // Conversion decimal
-            this.comisionServicio = Number(comisiServicio.toFixed(1))
-            this.comisionPropina = Number(comiPropina.toFixed(1))
-            this.comisionBebida = Number(comiBebida.toFixed(1))
-            this.comisionTabaco = Number(comiTabaco.toFixed(1))
-            this.comisionVitamina = Number(comiVitamina.toFixed(1))
-            this.comisionOtros = Number(comiOtros.toFixed(1))
-
-            sumComision = Number(this.comisionServicio) + Number(this.comisionPropina) +
-              Number(this.comisionBebida) + Number(this.comisionTabaco) +
-              Number(this.comisionVitamina) + Number(this.comisionOtros)
-
-            // return this.sumaComision = sumComision.toFixed(0)
-            if (this.sumaComision != 0 || this.sumaComision != undefined) {
-              this.sumaComision = Number(sumComision.toFixed(1))
-            }
-
-            // Recibido
-            this.recibidoTerap = this.totalValorEncargada + this.totalValorTerapeuta
-            this.totalComision = this.sumaComision - Number(this.recibidoTerap)
-            this.liqTerapeuta.importe = this.totalComision
-          })
-        } else {
-          this.servicioNoLiquidadaTerapeuta = rp
-          this.todoEnCero()
-          Swal.fire({
-            icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
-          })
-        }
-      })
   }
 
   fechaSelectNoExiste() {
@@ -414,7 +339,6 @@ export class TerapeutasComponent implements OnInit {
         this.liqTerapeuta.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
         this.fechaSelectNoExiste()
-        // this.fechaHasta()
       }
 
     })
