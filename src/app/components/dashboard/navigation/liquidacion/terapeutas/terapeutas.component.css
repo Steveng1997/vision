@@ -227,6 +227,13 @@ td {
     text-align: center;
   }
 
+  .columnHora{
+    width: 100px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
   .columnFechas {
     width: 80px;
     border-bottom: 1px solid blue;

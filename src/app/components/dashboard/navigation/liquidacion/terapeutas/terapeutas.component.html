@@ -219,7 +219,7 @@
                                 <!-- 3 -->
                                 <td class="columnImporte">Salida</td>
                                 <!-- 4 -->
-                                <td class="columnImporte">Hora</td>
+                                <td class="columnHora">Hora</td>
                                 <!-- 5 -->
                                 <td class="columnTratamiento">Tratamiento</td>
                                 <!-- 6 -->
@@ -256,7 +256,7 @@
                                 <!-- 4 -->
                                 <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: left; border-bottom: hidden;">
-                                    {{serv.horaStart}}</td>
+                                    {{serv.horaStart + ' :' + serv.horaEnd}}</td>
                                 <!-- 5 -->
                                 <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
