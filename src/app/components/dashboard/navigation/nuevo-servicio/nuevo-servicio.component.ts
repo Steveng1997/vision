@@ -1286,20 +1286,21 @@ export class NuevoServicioComponent implements OnInit {
     if (this.servicio.terapeuta != '') {
       if (this.servicio.encargada != '') {
         if (Number(this.servicio.servicio) > 0) {
+
+          // Methods 
           this.crearIdUnico()
           if (!this.validarFechaVencida()) return
+          if (!this.validacionFormasPago()) return
+          if (!this.validacionesFormaPagoAdd()) return
+          this.totalServicio()
+          this.efectCheckToggle(this.validateEfect)
+          this.bizumCheckToggle(this.validateBizum)
+          this.tarjCheckToggle(this.validateTarjeta)
+          this.transCheckToggle(this.validateTrans)
+          this.encargadaAndTerapeuta()
+
           if (this.restamosCobro == 0) {
             this.addService = false
-            this.cargamos = true
-
-            if (!this.validacionFormasPago()) return
-            if (!this.validacionesFormaPagoAdd()) return
-            this.totalServicio()
-            this.efectCheckToggle(this.validateEfect)
-            this.bizumCheckToggle(this.validateBizum)
-            this.tarjCheckToggle(this.validateTarjeta)
-            this.transCheckToggle(this.validateTrans)
-            this.encargadaAndTerapeuta()
 
             let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0, fecha = '', idsUnico = ''
 
@@ -1315,6 +1316,7 @@ export class NuevoServicioComponent implements OnInit {
             this.conteoNumber()
             this.fechaOrdenada()
 
+            this.cargamos = true
             this.servicio.editar = true
 
             if (!this.TodosCobroSelect()) return
@@ -1899,7 +1901,6 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   validacionFormasPago() {
-
     if (Number(this.servicio.numberPiso1) > 0 && this.servicio.efectPiso1 == false && this.servicio.bizuPiso1 == false &&
       this.servicio.tarjPiso1 == false && this.servicio.transPiso1 == false) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
@@ -2056,6 +2057,7 @@ export class NuevoServicioComponent implements OnInit {
     año = this.editarService[0]['fecha'].substring(2, 4)
 
     this.editarService[0]['fecha'] = `${dia}-${mes}-${año}`
+    this.servicio[0]['fechaFin'] = this.editarService[0]['fecha']
   }
 
   getTerapeutaEdit(nombre: string) {
@@ -2068,6 +2070,8 @@ export class NuevoServicioComponent implements OnInit {
     let fecha = new Date(), dia = '', mes = '', año = 0
 
     año = fecha.getFullYear()
+
+    debugger
 
     const paramEditar = this.activatedRoute.snapshot.params['editar']
     this.idUserAdministrador = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])

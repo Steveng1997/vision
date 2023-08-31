@@ -60,7 +60,7 @@ td {
   }
 
   .classTable {
-    margin-top: 15%;
+    margin-top: -2%;
   }
 
   .noHayCierre {
@@ -174,7 +174,8 @@ td {
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
   .classTable {
-    margin-top: 8%;
+    text-align-last: center;
+    text-align: -webkit-center;
   }
 
   .noHayCierre {

@@ -16,7 +16,7 @@ export class LiquidacioneTerapService {
 
   // Register
 
-  registerLiquidacionesTerapeutas(liqTerap: LiquidacionTerapeuta) {
+  settlementRecord(liqTerap: LiquidacionTerapeuta) {
     return this.http.post(`${this.API_URL}/registerLiqTerap`, liqTerap);
   }
 
@@ -43,7 +43,6 @@ export class LiquidacioneTerapService {
   updateById(idTerapeuta, liqTerap: LiquidacionTerapeuta) {
     return this.http.put(`${this.API_URL}/updateIdAndImporte/${idTerapeuta}`, liqTerap);
   }
-
 
   updateTerapImporteId(id: number, liqTerap: LiquidacionTerapeuta){
     return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liqTerap);    

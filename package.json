@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve  --max_old_space_size=4096 start",
+    "start": "ng serve -- --max_old_space_size=4096 start",
     "build": "ng build  --prod --build-optimizer",
     "test": "ng test"
   },
