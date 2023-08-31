@@ -2057,7 +2057,7 @@ export class NuevoServicioComponent implements OnInit {
     año = this.editarService[0]['fecha'].substring(2, 4)
 
     this.editarService[0]['fecha'] = `${dia}-${mes}-${año}`
-    this.servicio[0]['fechaFin'] = this.editarService[0]['fecha']
+    this.editarService[0]['fechaFin'] = this.editarService[0]['fecha']
   }
 
   getTerapeutaEdit(nombre: string) {

@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="col-3">
-                    <label style="float: right; font-weight: bold;">{{totalComision + ' €'}}</label>
+                    <label style="float: right; font-weight: bold;">{{totalCommission + ' €'}}</label>
                 </div>
             </div>
 
@@ -246,47 +246,47 @@
                                     [ngClass]="{'color2':serv.nota !== ''}" (click)="comments(serv.id, modalTabl)">
                                 </td>
                                 <!-- 2 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: left; border-bottom: hidden;">
                                     {{serv.fecha}}</td>
                                 <!-- 3 -->
-                                <td class=" quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class=" quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: left; border-bottom: hidden;">
                                     {{serv.salida}}</td>
                                 <!-- 4 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: left; border-bottom: hidden;">
                                     {{serv.horaStart}}</td>
                                 <!-- 5 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.servicio}}</td>
                                 <!-- 6 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.propina}}</td>
                                 <!-- 7 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: left; border-bottom: hidden;">
                                     {{serv.formaPago}}</td>
                                 <!-- 8 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                                     {{serv.numberTerap}}</td>
                                 <!-- 9 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.bebidas}}</td>
                                 <!-- 10 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.tabaco}}</td>
                                 <!-- 11 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.vitaminas}}</td>
                                 <!-- 12 -->
-                                <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                     style="text-align: right; border-bottom: hidden;">
                                     {{serv.otros}}</td>
                             </tr>
@@ -323,21 +323,21 @@
                             <!-- 4 -->
                             <td></td>
                             <!-- 5 -->
-                            <td style="font-weight: bold; text-align: right"> {{totalServicio + '€'}}</td>
+                            <td style="font-weight: bold; text-align: right"> {{totalService + '€'}}</td>
                             <!-- 6 -->
-                            <td style="font-weight: bold; text-align: right">{{totalValorPropina + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right">{{totalTipValue + ' €'}}</td>
                             <!-- 7 -->
                             <td></td>
                             <!-- 8 -->
-                            <td style="font-weight: bold; text-align: right"> {{totalValorTerapeuta + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right"> {{totalTherapistValue + ' €'}}</td>
                             <!-- 9 -->
-                            <td style="font-weight: bold; text-align: right">{{TotalValorBebida + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right">{{totalValueDrink + ' €'}}</td>
                             <!-- 10 -->
-                            <td style="font-weight: bold; text-align: right">{{TotalValorTabaco + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right">{{totalTobaccoValue + ' €'}}</td>
                             <!-- 11 -->
-                            <td style="font-weight: bold; text-align: right"> {{totalValorVitaminas + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right"> {{totalValueVitamins + ' €'}}</td>
                             <!-- 12 -->
-                            <td style="font-weight: bold; text-align: right">{{totalValorOtroServ + ' €'}}</td>
+                            <td style="font-weight: bold; text-align: right">{{totalValueOther + ' €'}}</td>
                         </tr>
                     </table>
 
@@ -365,7 +365,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                                 Tratamiento</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalService + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['servicio'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
@@ -374,7 +374,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                                 Propina</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['propina'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
@@ -383,7 +383,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Bebida</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['bebida'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
@@ -392,7 +392,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Tabaco</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['tabaco'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
@@ -401,7 +401,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Vitamina</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['vitamina'] + ' %'}}
                             </td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
@@ -410,7 +410,7 @@
                             <th scope="row"
                                 style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                                 Otros</th>
-                            <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + ' €'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['otros'] + ' %'}}</td>
                             <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                         </tr>
@@ -430,7 +430,7 @@
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
                             <td style="border-bottom: hidden; text-align: start;">Total</td>
-                            <td style="border-bottom: hidden; text-align: right;">{{totalComision}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{totalCommission}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -466,7 +466,7 @@
             </div>
 
             <div class="col-3">
-                <label style="float: right; font-weight: bold;">{{totalComision + ' €'}}</label>
+                <label style="float: right; font-weight: bold;">{{totalCommission + ' €'}}</label>
             </div>
         </div>
 
@@ -517,49 +517,49 @@
                                 [ngClass]="{'color2':serv.nota !== ''}" (click)="comments(serv.id, modalTabl)">
                             </td>
                             <!-- 2 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: left; border-bottom: hidden;">
                                 {{serv.fecha}}</td>
                             <!-- 3 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: left; border-bottom: hidden;">
                                 {{serv.salida}}
                             </td>
                             <!-- 4 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: left; border-bottom: hidden;">{{serv.hora}}
                             </td>
                             <!-- 5 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
                                 {{serv.servicio}}
                             </td>
                             <!-- 6 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.propina}}</td>
                             <!-- 7 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: left; border-bottom: hidden;">
                                 {{serv.formaPago}}</td>
                             <!-- 8 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.numberTerap}}</td>
                             <!-- 9 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.bebidas}}</td>
                             <!-- 10 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.tabaco}}</td>
                             <!-- 11 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.vitaminas}}</td>
                             <!-- 12 -->
-                            <td class="quitarBordes" (click)="goToEdit(serv.idTerapeuta)"
+                            <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden;">
                                 {{serv.otros}}</td>
                         </tr>
@@ -596,21 +596,21 @@
                         <!-- 4 -->
                         <td></td>
                         <!-- 5 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalServicio + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalService + ' €'}}</td>
                         <!-- 6 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValorPropina + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalTipValue + ' €'}}</td>
                         <!-- 7 -->
                         <td></td>
                         <!-- 8 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValorTerapeuta + '€'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalTherapistValue + '€'}}</td>
                         <!-- 9 -->
-                        <td style="font-weight: bold; text-align: right;">{{TotalValorBebida + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalValueDrink + ' €'}}</td>
                         <!-- 10 -->
-                        <td style="font-weight: bold; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalTobaccoValue + ' €'}}</td>
                         <!-- 11 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalValueVitamins + ' €'}}</td>
                         <!-- 12 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
+                        <td style="font-weight: bold; text-align: right;">{{totalValueOther + ' €'}}</td>
                     </tr>
                 </table>
 
@@ -639,7 +639,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Tratamiento</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalServicio + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalService + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['servicio'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionServicio + ' €'}}</td>
                     </tr>
@@ -647,7 +647,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Propina</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValorPropina + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['propina'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionPropina + ' €'}}</td>
                     </tr>
@@ -655,7 +655,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Bebida</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{TotalValorBebida + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['bebida'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionBebida + ' €'}}</td>
                     </tr>
@@ -663,7 +663,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Tabaco</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{TotalValorTabaco + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['tabaco'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionTabaco + ' €'}}</td>
                     </tr>
@@ -671,7 +671,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Vitamina</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValorVitaminas + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['vitamina'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionVitamina + ' €'}}</td>
                     </tr>
@@ -679,7 +679,7 @@
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Otros</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValorOtroServ + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + ' €'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{terapeutaName['otros'] + ' %'}}</td>
                         <td style="border-bottom: hidden; text-align: right;">{{comisionOtros + ' €'}}</td>
                     </tr>
@@ -700,7 +700,7 @@
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden;"></td>
                         <td style="border-bottom: hidden; text-align: start;">Total</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalComision}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalCommission}}</td>
                     </tr>
                 </tbody>
             </table>
