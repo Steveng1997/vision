@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "vision",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,18 +23,16 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.1",
     "@ngneat/until-destroy": "^10.0.0-beta.0",
     "bootstrap": "^5.3.0-alpha3",
-    "firebase": "^9.22.0",
     "ngx-bootstrap": "^10.2.0",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
-    "sweetalert2": "^11.7.5",
-    "tslib": "^2.3.0",
+    "sweetalert2": "^11.6.13",
     "xlsx": "^0.18.5",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.2",
-    "@angular/cli": "~15.0.2",
+    "@angular/cli": "^15.2.9",
     "@angular/compiler-cli": "^15.0.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
@@ -43,6 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "tslib": "^2.6.2",
     "typescript": "~4.8.2"
   }
 }

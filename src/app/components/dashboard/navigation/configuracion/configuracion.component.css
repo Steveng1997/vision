@@ -19,10 +19,6 @@
     margin-left: 20%;
 }
 
-.table-secondary {
-    --bs-table-bg: cornflowerblue;
-}
-
 .ingresoPeriodo {
     margin-top: 0%;
     margin-bottom: 3%;
@@ -32,7 +28,40 @@
     color: blue;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 1020px) {
+.table-secondary {
+    --bs-table-bg: transparent;
+    background-color: transparent;
+}
+
+tr {
+    line-height: 0%;
+    font-size: 14px;
+}
+
+th {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+th,
+td {
+    font-size: 14px;
+}
+
+.quitarBordes {
+    line-height: 100%;
+}
+
+.quitarBordesVacio {
+    border-style: hidden;
+}
+
+@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+
+    table {
+        width: inherit;
+    }
+
     .ingresoPeriodo {
         margin-top: 0%;
         margin-bottom: 3%;
@@ -42,12 +71,102 @@
         color: blue;
     }
 
-    .tableAdjust {
-        display: inline-table;
+    .columnNombre {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnfijoDia {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnUser {
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnPass {
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnServicio {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnBebida {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnTabaco {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnVitamina {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnPropina {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 0px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
+    }
+
+    .columnOtro {
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnVisible {
+        padding: 24px 0px 0px 6px;
+        text-align: center;
+        max-width: 29px;
+        word-wrap: break-word;
+        line-height: normal;
+        border-bottom: 1px solid blue;
     }
 }
 
-@media only screen and (min-device-width: 1279px) and (max-device-width: 2500px) {
+@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+    .tabla {
+        margin-top: 3%;
+    }
+
     .ingresoPeriodo {
         margin-top: 0%;
         margin-bottom: 3%;
@@ -57,7 +176,73 @@
         color: blue;
     }
 
-    .tableAdjust {
-        display: inline-table;
+    .columnNombre {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnUser {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnPass {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnfijoDia {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnServicio {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnBebida {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnTabaco {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnVitamina {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnPropina {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
+    }
+
+    .columnOtro {
+        width: 80px;
+        border-bottom: 1px solid blue;
+        padding: 35px 0px 10px 6px;
+        text-align: center;
     }
 }

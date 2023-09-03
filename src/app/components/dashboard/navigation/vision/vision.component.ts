@@ -105,7 +105,6 @@ export class VisionComponent implements OnInit {
 
     this.getServicio()
     this.getTerapeuta()
-
   }
 
   totalesZero() {
@@ -143,8 +142,10 @@ export class VisionComponent implements OnInit {
     this.terapService.getAllTerapeutaByOrden().subscribe((rp: any) => {
       this.terapeutas = rp
       if (rp.length > 0) {
-        for (let i = 0; rp.length; i++) {
-          this.calculardiferencia(rp[i]['horaEnd'], rp[i]['nombre'], rp[i]['fechaEnd'])
+        if (rp?.horaEnd > "") {
+          for (let i = 0; rp.length; i++) {
+            this.calculardiferencia(rp?.[i]['horaEnd'], rp?.[i]['nombre'], rp?.[i]['fechaEnd'])
+          }
         }
       }
     })
