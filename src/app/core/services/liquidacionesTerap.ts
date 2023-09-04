@@ -31,20 +31,25 @@ export class LiquidacioneTerapService {
   }
 
   getTerapAndEncarg(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   // Update
 
-  update(terapeuta, liqTerap: LiquidacionTerapeuta) {
-    return this.http.put(`${this.API_URL}/updateByTerapeuta/${terapeuta}`, liqTerap);
+  update(id: number, liqTerap: LiquidacionTerapeuta) {
+    return this.http.put(`${this.API_URL}/updateTherapistById/${id}`, liqTerap);
   }
 
   updateById(idTerapeuta, liqTerap: LiquidacionTerapeuta) {
     return this.http.put(`${this.API_URL}/updateIdAndImporte/${idTerapeuta}`, liqTerap);
   }
 
-  updateTerapImporteId(id: number, liqTerap: LiquidacionTerapeuta){
-    return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liqTerap);    
+  updateTerapImporteId(id: number, liqTerap: LiquidacionTerapeuta) {
+    return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liqTerap);
   }
 }

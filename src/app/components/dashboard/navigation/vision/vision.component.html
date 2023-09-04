@@ -13,7 +13,7 @@
           Nuevo servicio
         </div>
       </div>
-      <div class="col-6 linearRefrescar">
+      <div class="col-6 linearRefrescar" *ngFor="let vis of terapeutas">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           class="bi bi-arrow-repeat text-primary circleDerecha" viewBox="0 0 16 16" onclick="location.reload()"
           style="cursor: pointer;">
@@ -42,16 +42,12 @@
             <tbody *ngFor="let vis of terapeutas">
               <tr style="cursor: pointer;">
                 <td
-                  [ngClass]="{'ocupado':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) !== '' , 'disponible':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '', 'disponible2':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === '00:00'}">
+                  [ngClass]="{'ocupado': vis?.horaEnd !== '' , 'disponible': vis?.horaEnd === '', 'disponible2': vis?.horaEnd === '00:00'}">
                 </td>
                 <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
-                <td style="line-height: normal"
-                  [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
-                  {{vis.salida}}</td>
-                <td style="line-height: normal"
-                  [ngClass]="{'disponibleEncargada':calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd) === ''}">
-                  {{vis.horaEnd}}</td>
-                <td style="line-height: normal">{{calculardiferencia(vis?.horaEnd, vis?.nombre, vis?.fechaEnd)}}</td>
+                <td style="line-height: normal; text-align: left;"> {{vis.salida}}</td>
+                <td style="line-height: normal; text-align: left;"> {{vis.horaEnd}}</td>
+                <td style="line-height: normal; text-align: left;"> {{diferenceMinuto}} </td>
               </tr>
             </tbody>
           </table>

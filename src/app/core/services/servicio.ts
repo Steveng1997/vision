@@ -30,7 +30,12 @@ export class ServicioService {
   }
 
   getByTerapeutaAndEncargada(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getByEncargada(encargada: string) {
@@ -102,7 +107,12 @@ export class ServicioService {
   }
 
   getTerapeutaEncargada(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeuAndEncar/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getTerapeuAndEncar`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getEncargadaAndLiquidacion(encargada: string) {
@@ -138,11 +148,21 @@ export class ServicioService {
   }
 
   getTerapeutaFechaAsc(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getByTerapFechaAsc/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getByTerapFechaAsc`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getTerapeutaFechaAscByLiqTrue(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getByTerapFechaAscByLiquidadoTrue/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getByTerapFechaAscByLiquidadoTrue`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getEncargadaFechaAscByLiqTrue(encargada: string) {
@@ -154,11 +174,21 @@ export class ServicioService {
   }
 
   getTerapeutaFechaDesc(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargadaFechaDesc/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargadaFechaDesc`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getTerapeutaFechaDescByLiqTrue(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargadaFechaDescLiqTrue/${terapeuta}/${encargada}`);
+    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargadaFechaDescLiqTrue`, {
+      params: {
+        terapeuta,
+        encargada
+      }
+    });
   }
 
   getEncargadaFechaDescByLiqTrue(encargada: string) {

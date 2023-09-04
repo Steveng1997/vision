@@ -16,7 +16,7 @@ import { Servicio } from 'src/app/core/models/servicio'
   selector: 'app-nuevo-servicio',
   templateUrl: './nuevo-servicio.component.html',
   styleUrls: ['./nuevo-servicio.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class NuevoServicioComponent implements OnInit {
 
@@ -2214,12 +2214,16 @@ export class NuevoServicioComponent implements OnInit {
 
       this.servicioService.updateServicio(idServicio, serv).subscribe((rp: any) => { })
 
-      this.trabajadorService.getTerapeuta(this.editarService[0]['terapeuta']).subscribe((rp: any) => {
-        this.trabajadorService.update(this.editarService[0]['terapeuta'], this.terapeutas)
-      })
+      this.terapeutas.horaEnd = serv.horaEnd
+      this.terapeutas.fechaEnd = serv.fechaFin
+      this.terapeutas.salida = serv.salida
 
-      Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
-      this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
+      this.trabajadorService.update(this.editarService[0]['terapeuta'], this.terapeutas).subscribe((rp: any) => { })
+
+      setTimeout(() => {
+        Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
+        this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
+      }, 3000);
 
     } else {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })

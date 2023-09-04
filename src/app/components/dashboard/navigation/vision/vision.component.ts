@@ -26,6 +26,7 @@ export class VisionComponent implements OnInit {
   terapeutas: any = []
   horaEnd: string
   horaHoy: string
+  diferenceMinuto: string
 
   // TOTALES
   totalVision: number
@@ -142,9 +143,9 @@ export class VisionComponent implements OnInit {
     this.terapService.getAllTerapeutaByOrden().subscribe((rp: any) => {
       this.terapeutas = rp
       if (rp.length > 0) {
-        if (rp?.horaEnd > "") {
+        if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
-            this.calculardiferencia(rp?.[i]['horaEnd'], rp?.[i]['nombre'], rp?.[i]['fechaEnd'])
+            this.calculardiferencia(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'])
           }
         }
       }
@@ -207,21 +208,20 @@ export class VisionComponent implements OnInit {
 
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
-      fechaEnd = `${año}-${convertMes}-${dia}`
+      fechaEnd = `${dia}-${convertMes}-${año}`
     } else {
-      fechaEnd = `${año}-${mes}-${dia}`
+      fechaEnd = `${dia}-${mes}-${año}`
     }
 
     if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
-      fechaEnd = `${año}-${convertMes}-${convertDia}`
+      fechaEnd = `${convertDia}-${convertMes}-${año}`
     } else {
-      fechaEnd = `${año}-${convertMes}-${dia}`
+      fechaEnd = `${dia}-${convertMes}-${año}`
     }
 
     // Convertimos fecha
-    if (fecha != "") convertFecha = fecha.replace("/", "-").replace("/", "-")
-    // if (fecha != "") convertFecha = fecha
+    if (fecha != "") convertFecha = fecha?.replace("/", "-").replace("/", "-")
 
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
@@ -252,8 +252,7 @@ export class VisionComponent implements OnInit {
     }
 
     // Si algún valor no tiene formato correcto sale
-    if (!(hora_inicio.match(formatohora)
-      && hora_final.match(formatohora))) {
+    if (!(hora_inicio.match(formatohora) && hora_final.match(formatohora))) {
       return ''
     }
 
@@ -276,6 +275,7 @@ export class VisionComponent implements OnInit {
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
+    this.diferenceMinuto = minutos.toString()
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 

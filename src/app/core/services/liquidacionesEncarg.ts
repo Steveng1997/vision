@@ -38,11 +38,7 @@ export class LiquidacioneEncargService {
 
   // Update
 
-  update(encargada, liqEncarg: LiquidacionEncargada) {
-    return this.http.put(`${this.API_URL}/updateByTerapeuta/${encargada}`, liqEncarg);
-  }
-
-  updateById(idEncargada, liqEncarg: LiquidacionEncargada) {
+  updateById(idEncargada: number, liqEncarg: LiquidacionEncargada) {
     return this.http.put(`${this.API_URL}/updateIdAndImporte/${idEncargada}`, liqEncarg);
   }
 

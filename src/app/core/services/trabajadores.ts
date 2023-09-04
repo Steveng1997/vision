@@ -55,8 +55,8 @@ export class TrabajadoresService {
 
   // Update
 
-  updateTerapeutas(idTerapeuta: number, terapeuta: Terapeutas) {
-    return this.http.put(`${this.API_Terapeuta}/updateByTerapeuta/${idTerapeuta}`, terapeuta);
+  updateTerapeutas(id: number, terapeuta: Terapeutas) {
+    return this.http.put(`${this.API_Terapeuta}/updateTherapistById/${id}`, terapeuta);
   }
 
   update(nombreTerap, terapeuta: Terapeutas) {

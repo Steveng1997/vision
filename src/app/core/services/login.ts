@@ -46,7 +46,12 @@ export class LoginService {
   }
 
   getByUserAndPass(usuario: string, pass: string) {
-    return this.http.get(`${this.API_URL}/usuarioAndpass/${usuario}/${pass}`);
+    return this.http.get(`${this.API_URL}/usuarioAndpass`, {
+      params: {
+        usuario,
+        pass
+      }
+    });
   }
 
   getUsuarios() {
