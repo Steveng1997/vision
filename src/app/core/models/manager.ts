@@ -1,4 +1,4 @@
-export class  Encargada {
+export class  ModelManager {
   activo?: boolean;
   bebida?: string;
   fijoDia?: string;

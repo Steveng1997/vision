@@ -5,12 +5,12 @@ import { Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
-import { LoginService } from 'src/app/core/services/login'
-import { ServicioService } from 'src/app/core/services/servicio'
-import { CierreService } from 'src/app/core/services/cierre'
+import { ServiceManager } from 'src/app/core/services/manager'
+import { Service } from 'src/app/core/services/service'
+import { ServiceClosing } from 'src/app/core/services/closing'
 
 // Model
-import { Cierre } from 'src/app/core/models/cierre'
+import { Closing } from 'src/app/core/models/closing'
 
 @Component({
   selector: 'app-cierre',
@@ -89,7 +89,7 @@ export class CierreComponent implements OnInit {
   existe: boolean
   selected: boolean
 
-  cierres: Cierre = {
+  closing: Closing = {
     bizum: 0,
     currentDate: "",
     efectivo: 0,
@@ -110,9 +110,9 @@ export class CierreComponent implements OnInit {
     public router: Router,
     private modalService: NgbModal,
     public fb: FormBuilder,
-    private servicioService: ServicioService,
-    private loginService: LoginService,
-    private cierreService: CierreService,
+    private service: Service,
+    private serviceManager: ServiceManager,
+    private serviceClosing: ServiceClosing,
   ) { }
 
   formTemplate = new FormGroup({
@@ -127,7 +127,7 @@ export class CierreComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
-    this.cierres.encargada = ""
+    this.closing.encargada = ""
     this.editCierre = false
     this.liqCierre = true
     this.addCierre = false
@@ -150,16 +150,16 @@ export class CierreComponent implements OnInit {
 
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
-      this.cierres.fechaHasta = `${dia}-${convertMes}-${convertAno}`
+      this.closing.fechaHasta = `${dia}-${convertMes}-${convertAno}`
     } else {
-      this.cierres.fechaHasta = `${dia}-${mes}-${convertAno}`
+      this.closing.fechaHasta = `${dia}-${mes}-${convertAno}`
     }
 
     if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
-      this.cierres.fechaHasta = `${convertDia}-${convertMes}-${convertAno}`
+      this.closing.fechaHasta = `${convertDia}-${convertMes}-${convertAno}`
     } else {
-      this.cierres.fechaHasta = `${dia}-${convertMes}-${convertAno}`
+      this.closing.fechaHasta = `${dia}-${convertMes}-${convertAno}`
     }
   }
 
@@ -168,19 +168,19 @@ export class CierreComponent implements OnInit {
     this.addCierre = false
     this.liqCierre = false
 
-    this.cierreService.getIdCierre(id).subscribe((datosCierre) => {
+    this.serviceClosing.getIdCierre(id).subscribe((datosCierre) => {
       this.horaAsc = datosCierre[0]['horaHasta']
       this.horaDesc = datosCierre[0]['horaDesde']
     })
 
-    this.servicioService.getByIdCierre(id).subscribe((datosCierre) => {
+    this.service.getByIdCierre(id).subscribe((datosCierre) => {
       this.datosCierre = datosCierre;
 
-      this.cierreService.getEncargadaFechaAscByCierreTrue(datosCierre[0]['encargada']).subscribe((fechaAsce) => {
+      this.serviceClosing.getEncargadaFechaAscByCierreTrue(datosCierre[0]['encargada']).subscribe((fechaAsce) => {
         this.fechaAsc = datosCierre[0]['fechaHoyInicio']
       })
 
-      this.cierreService.getEncargadaFechaDescByCierreFalse(datosCierre[0]['encargada']).subscribe((fechaDesce) => {
+      this.serviceClosing.getEncargadaFechaDescByCierreFalse(datosCierre[0]['encargada']).subscribe((fechaDesce) => {
         this.fechaDesc = datosCierre[0]['fechaHoyInicio']
       })
 
@@ -193,13 +193,13 @@ export class CierreComponent implements OnInit {
 
       // Caja Efectivo
       const cajaEfectivo = this.datosCierre.filter(serv => serv)
-      this.cierres.total = cajaEfectivo.reduce((accumulator, serv) => {
+      this.closing.total = cajaEfectivo.reduce((accumulator, serv) => {
         return accumulator + serv.totalServicio
       }, 0)
 
       // Ingresos Efectivo
       const ingresosEfectivo = this.datosCierre.filter(serv => serv)
-      this.cierres.efectivo = ingresosEfectivo.reduce((accumulator, serv) => {
+      this.closing.efectivo = ingresosEfectivo.reduce((accumulator, serv) => {
         return accumulator + serv.valueEfectivo
       }, 0)
 
@@ -266,7 +266,7 @@ export class CierreComponent implements OnInit {
 
       // Ingresos Bizum
       const ingresosBizum = this.datosCierre.filter(serv => serv)
-      this.cierres.bizum = ingresosBizum.reduce((accumulator, serv) => {
+      this.closing.bizum = ingresosBizum.reduce((accumulator, serv) => {
         return accumulator + serv.valueBizum
       }, 0)
 
@@ -281,7 +281,7 @@ export class CierreComponent implements OnInit {
 
       // Ingresos Tarjeta
       const ingresosTarjeta = this.datosCierre.filter(serv => serv)
-      this.cierres.tarjeta = ingresosTarjeta.reduce((accumulator, serv) => {
+      this.closing.tarjeta = ingresosTarjeta.reduce((accumulator, serv) => {
         return accumulator + serv.valueTarjeta
       }, 0)
 
@@ -296,7 +296,7 @@ export class CierreComponent implements OnInit {
 
       // Ingresos Transferencia
       const ingresosTransf = this.datosCierre.filter(serv => serv)
-      this.cierres.transaccion = ingresosTransf.reduce((accumulator, serv) => {
+      this.closing.transaccion = ingresosTransf.reduce((accumulator, serv) => {
         return accumulator + serv.valueTrans
       }, 0)
 
@@ -342,25 +342,25 @@ export class CierreComponent implements OnInit {
   }
 
   getCierre() {
-    this.cierreService.getAllCierre().subscribe((datoCierre: any) => {
+    this.serviceClosing.getAllCierre().subscribe((datoCierre: any) => {
       this.cierre = datoCierre
 
       if (datoCierre.length > 0) {
-        this.cierres.fechaDesde = datoCierre[0]['fechaHasta']
-        this.cierres.horaDesde = datoCierre[0]['horaHasta']
+        this.closing.fechaDesde = datoCierre[0]['fechaHasta']
+        this.closing.horaDesde = datoCierre[0]['horaHasta']
         this.existe = true
       } else this.existe = false
     })
   }
 
   getServicio() {
-    this.servicioService.geyByCierreFalse().subscribe((datoServicio) => {
+    this.service.geyByCierreFalse().subscribe((datoServicio) => {
       this.servicio = datoServicio
     })
   }
 
   getEncargada() {
-    this.loginService.getUsuarios().subscribe((datosEncargada: any) => {
+    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
       this.encargada = datosEncargada
     })
   }
@@ -374,7 +374,7 @@ export class CierreComponent implements OnInit {
   }
 
   addLiquidacion() {
-    this.cierres.encargada = ""
+    this.closing.encargada = ""
     this.calcularSumaDeServicios()
     this.liqCierre = false
     this.editCierre = false
@@ -384,7 +384,7 @@ export class CierreComponent implements OnInit {
 
   notas(targetModal, modal) {
     var notaMensaje = []
-    this.servicioService.getById(targetModal).subscribe((datoServicio) => {
+    this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
@@ -415,19 +415,19 @@ export class CierreComponent implements OnInit {
   calcularSumaDeServicios() {
 
     let total = 0, respuesta: any
-    this.servicioService.getByCierre(this.cierres.encargada).subscribe((resp) => {
+    this.service.getByCierre(this.closing.encargada).subscribe((resp) => {
       respuesta = resp
 
-      if (respuesta.length > 0 && this.cierres.encargada != "") {
+      if (respuesta.length > 0 && this.closing.encargada != "") {
 
         this.selected = true
 
         const condicionEncargada = serv => {
-          return (this.cierres.encargada) ? serv.encargada === this.cierres.encargada : true
+          return (this.closing.encargada) ? serv.encargada === this.closing.encargada : true
         }
 
         // Este debe ser el Primero
-        this.servicioService.getEncargadaFechaDesc(this.cierres.encargada).subscribe((fechaDesc) => {
+        this.service.getEncargadaFechaDesc(this.closing.encargada).subscribe((fechaDesc) => {
           let año = "", mes = "", dia = ""
           año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)          
           mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
@@ -438,7 +438,7 @@ export class CierreComponent implements OnInit {
         })
 
         // este debe ser el ultimo
-        this.servicioService.getEncargadaFechaAsc(this.cierres.encargada).subscribe((fechaAscedent) => {
+        this.service.getEncargadaFechaAsc(this.closing.encargada).subscribe((fechaAscedent) => {
           let año = "", mes = "", dia = ""
           año = fechaAscedent[0]['fechaHoyInicio'].substring(2, 4)          
           mes = fechaAscedent[0]['fechaHoyInicio'].substring(5, 7)
@@ -524,25 +524,25 @@ export class CierreComponent implements OnInit {
 
         // Filter by Total Efectivo
         const totalEfect = this.servicio.filter(serv => condicionEncargada(serv))
-        this.cierres.efectivo = totalEfect.reduce((accumulator, serv) => {
+        this.closing.efectivo = totalEfect.reduce((accumulator, serv) => {
           return accumulator + serv.valueEfectivo
         }, 0)
 
         // Filter by Total Bizum
         const totalBizum = this.servicio.filter(serv => condicionEncargada(serv))
-        this.cierres.bizum = totalBizum.reduce((accumulator, serv) => {
+        this.closing.bizum = totalBizum.reduce((accumulator, serv) => {
           return accumulator + serv.valueBizum
         }, 0)
 
         // Filter by Total Tarjeta
         const totalTarjeta = this.servicio.filter(serv => condicionEncargada(serv))
-        this.cierres.tarjeta = totalTarjeta.reduce((accumulator, serv) => {
+        this.closing.tarjeta = totalTarjeta.reduce((accumulator, serv) => {
           return accumulator + serv.valueTarjeta
         }, 0)
 
         // Filter by Total Transferencia
         const totalTransfer = this.servicio.filter(serv => condicionEncargada(serv))
-        this.cierres.transaccion = totalTransfer.reduce((accumulator, serv) => {
+        this.closing.transaccion = totalTransfer.reduce((accumulator, serv) => {
           return accumulator + serv.valueTrans
         }, 0)
 
@@ -599,7 +599,7 @@ export class CierreComponent implements OnInit {
         }, 0)
 
         this.sumaEfectivo = Number(this.cajaEncargEfect) + Number(this.cajaTerapEfect)
-        this.cierres.total = Number(this.totalValueServicio) - this.sumaEfectivo
+        this.closing.total = Number(this.totalValueServicio) - this.sumaEfectivo
 
         this.sumaBizum = Number(this.cajaEncargBizum) + Number(this.cajaTerapBizum)
         this.totalCajaBizu = Number(this.totalValueServicio) - this.sumaBizum
@@ -615,22 +615,22 @@ export class CierreComponent implements OnInit {
 
   guardar() {
 
-    this.cierres.currentDate = this.currentDate.toString()
+    this.closing.currentDate = this.currentDate.toString()
 
-    if (this.cierres.encargada != "") {
+    if (this.closing.encargada != "") {
       if (this.existe === true) {
 
-        this.cierreService.getEncargadaByCierre(this.cierres.encargada).subscribe((datos: any) => {
-          this.cierres.idCierre = datos[0]['id']
+        this.serviceClosing.getEncargadaByCierre(this.closing.encargada).subscribe((datos: any) => {
+          this.closing.idCierre = datos[0]['id']
           for (let index = 0; index < datos.length; index++) {
-            this.cierres.tratamiento = datos.length
-            this.servicioService.updateCierre(this.cierres.idCierre, datos[index]['id'], this.cierres).subscribe((datos) => {
+            this.closing.tratamiento = datos.length
+            this.service.updateCierre(this.closing.idCierre, datos[index]['id'], this.closing).subscribe((datos) => {
             })
           }
 
           this.fechaOrdenada()
 
-          this.cierreService.registerCierre(this.cierres).subscribe((datos) => { })
+          this.serviceClosing.registerCierre(this.closing).subscribe((datos) => { })
 
           setTimeout(() => {
             this.getCierre()
@@ -641,7 +641,7 @@ export class CierreComponent implements OnInit {
           this.editCierre = false
           this.selected = false
           this.mostrarFecha = false
-          this.cierres.encargada = ""
+          this.closing.encargada = ""
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500
           })
@@ -650,28 +650,28 @@ export class CierreComponent implements OnInit {
 
       if (this.existe === false) {
 
-        this.cierreService.getEncargadaByCierre(this.cierres.encargada).subscribe((datosForFecha) => {
-          this.cierres.fechaDesde = datosForFecha[0]['fechaHoyInicio']
-          this.cierres.horaDesde = datosForFecha[0]['horaStart']
+        this.serviceClosing.getEncargadaByCierre(this.closing.encargada).subscribe((datosForFecha) => {
+          this.closing.fechaDesde = datosForFecha[0]['fechaHoyInicio']
+          this.closing.horaDesde = datosForFecha[0]['horaStart']
 
           let convertMes = '', convertDia = '', convertAno = ''
 
-          convertDia = this.cierres.fechaDesde.toString().substring(8, 11)
-          convertMes = this.cierres.fechaDesde.toString().substring(5, 7)
-          convertAno = this.cierres.fechaDesde.toString().substring(2, 4)
+          convertDia = this.closing.fechaDesde.toString().substring(8, 11)
+          convertMes = this.closing.fechaDesde.toString().substring(5, 7)
+          convertAno = this.closing.fechaDesde.toString().substring(2, 4)
 
-          this.cierres.fechaDesde = `${convertDia}-${convertMes}-${convertAno}`
+          this.closing.fechaDesde = `${convertDia}-${convertMes}-${convertAno}`
 
-          this.cierreService.getServicioByEncargadaAndIdUnico(this.cierres.encargada).subscribe((datos: any) => {
-            this.cierres.idCierre = datos[0]['id']
+          this.serviceClosing.getServicioByEncargadaAndIdUnico(this.closing.encargada).subscribe((datos: any) => {
+            this.closing.idCierre = datos[0]['id']
             for (let index = 0; index < datos.length; index++) {
-              this.cierres.tratamiento = datos.length
-              this.servicioService.updateCierre(this.cierres.idCierre, datos[index]['id'], this.cierres).subscribe((datos) => {
+              this.closing.tratamiento = datos.length
+              this.service.updateCierre(this.closing.idCierre, datos[index]['id'], this.closing).subscribe((datos) => {
               })
             }
 
             this.fechaOrdenada()
-            this.cierreService.registerCierre(this.cierres).subscribe((datos) => { })
+            this.serviceClosing.registerCierre(this.closing).subscribe((datos) => { })
 
             setTimeout(() => {
               this.getCierre()
@@ -682,7 +682,7 @@ export class CierreComponent implements OnInit {
             this.editCierre = false
             this.selected = false
             this.mostrarFecha = false
-            this.cierres.encargada = ""
+            this.closing.encargada = ""
             Swal.fire({
               position: 'top-end', icon: 'success', title: 'Cierre Correctamente!', showConfirmButton: false, timer: 2500,
             })
@@ -701,7 +701,7 @@ export class CierreComponent implements OnInit {
   }
 
   cancelar() {
-    this.cierres.encargada = ""
+    this.closing.encargada = ""
     this.editCierre = false
     this.addCierre = false
     this.mostrarFecha = false
@@ -731,7 +731,7 @@ export class CierreComponent implements OnInit {
     }
 
     const condicionEncargada = serv => {
-      return (this.cierres.encargada) ? serv.encargada === this.cierres.encargada : true
+      return (this.closing.encargada) ? serv.encargada === this.closing.encargada : true
     }
 
     const condicionEntreFechas = serv => {

@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
-import { LoginService } from 'src/app/core/services/login'
+import { ServiceManager } from 'src/app/core/services/manager'
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { MatSidenav } from '@angular/material/sidenav'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
@@ -24,7 +24,7 @@ export class SidenavWrapperComponent implements OnInit {
   constructor(
     public router: Router,
     private activeRoute: ActivatedRoute,
-    private serviceLogin: LoginService,
+    private serviceManager: ServiceManager,
     private observer: BreakpointObserver
   ) { }
 
@@ -33,7 +33,7 @@ export class SidenavWrapperComponent implements OnInit {
 
     this.idUser = this.activeRoute.snapshot.params;
     if (this.idUser.id) {
-      this.serviceLogin.getById(this.idUser.id).subscribe((res) => {
+      this.serviceManager.getById(this.idUser.id).subscribe((res) => {
         this.idUser = res[0]
       })
     }

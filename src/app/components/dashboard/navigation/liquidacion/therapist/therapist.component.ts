@@ -5,20 +5,20 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
-import { LoginService } from 'src/app/core/services/login'
-import { ServicioService } from 'src/app/core/services/servicio'
-import { TrabajadoresService } from 'src/app/core/services/trabajadores'
-import { LiquidacioneTerapService } from 'src/app/core/services/liquidacionesTerap'
+import { ServiceManager } from 'src/app/core/services/manager'
+import { Service } from 'src/app/core/services/service'
+import { ServiceTherapist } from 'src/app/core/services/therapist'
+import { ServiceLiquidationTherapist } from 'src/app/core/services/therapistCloseouts'
 
 // Model
-import { LiquidacionTerapeuta } from 'src/app/core/models/liquidacionTerap'
+import { LiquidationTherapist } from 'src/app/core/models/liquidationTherapist'
 
 @Component({
-  selector: 'app-terapeutas',
-  templateUrl: './terapeutas.component.html',
-  styleUrls: ['./terapeutas.component.css']
+  selector: 'app-therapist',
+  templateUrl: './therapist.component.html',
+  styleUrls: ['./therapist.component.css']
 })
-export class TerapeutasComponent implements OnInit {
+export class TherapistComponent implements OnInit {
 
   idSettled: number
   liquidationForm: boolean
@@ -70,7 +70,7 @@ export class TerapeutasComponent implements OnInit {
   currentDate = new Date().getTime()
   exist: boolean
 
-  liqTerapeuta: LiquidacionTerapeuta = {
+  liquidationTherapist: LiquidationTherapist = {
     currentDate: "",
     desdeFechaLiquidado: "",
     desdeHoraLiquidado: "",
@@ -96,10 +96,10 @@ export class TerapeutasComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder,
     private modalService: NgbModal,
-    public trabajadorService: TrabajadoresService,
-    public servicioService: ServicioService,
-    public loginService: LoginService,
-    public liquidacionTerapService: LiquidacioneTerapService,
+    public serviceTherapist: ServiceTherapist,
+    public service: Service,
+    public serviceManager: ServiceManager,
+    public serviceLiquidationTherapist: ServiceLiquidationTherapist,
     private activatedRoute: ActivatedRoute,
   ) { }
 
@@ -173,21 +173,21 @@ export class TerapeutasComponent implements OnInit {
 
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
-      this.liqTerapeuta.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
     } else {
-      this.liqTerapeuta.hastaFechaLiquidado = `${dia}-${mes}-${convertAno}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${mes}-${convertAno}`
     }
 
     if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
-      this.liqTerapeuta.hastaFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
     } else {
-      this.liqTerapeuta.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
     }
   }
 
   getSettlements() {
-    this.liquidacionTerapService.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones: any) => {
+    this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones: any) => {
       this.liquidated = datoLiquidaciones
 
       if (datoLiquidaciones.length > 0) this.exist = true
@@ -219,26 +219,26 @@ export class TerapeutasComponent implements OnInit {
   }
 
   getThoseThatNotLiquidated() {
-    this.servicioService.getByLiquidTerapFalse().subscribe((datoServicio) => {
+    this.service.getByLiquidTerapFalse().subscribe((datoServicio) => {
       this.unliquidatedService = datoServicio
     })
   }
 
   getTerapeuta() {
-    this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
+    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
       this.terapeuta = datosTerapeuta
     })
   }
 
   getEncargada() {
-    this.loginService.getUsuarios().subscribe((datosEncargada: any) => {
+    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
       this.encargada = datosEncargada
     })
   }
 
   insertForm() {
-    this.liqTerapeuta.encargada = ""
-    this.liqTerapeuta.terapeuta = ""
+    this.liquidationTherapist.encargada = ""
+    this.liquidationTherapist.terapeuta = ""
     this.liquidationForm = false
     this.editTerap = false
     this.selected = false
@@ -247,7 +247,7 @@ export class TerapeutasComponent implements OnInit {
 
   comments(targetModal, modal) {
     var notaMensaje = []
-    this.servicioService.getById(targetModal).subscribe((datoServicio) => {
+    this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
@@ -259,9 +259,9 @@ export class TerapeutasComponent implements OnInit {
   }
 
   inputDateAndTime() {
-    this.servicioService.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liqTerapeuta.terapeuta,
-      this.liqTerapeuta.encargada, this.liqTerapeuta.desdeHoraLiquidado, this.liqTerapeuta.hastaHoraLiquidado,
-      this.liqTerapeuta.desdeFechaLiquidado, this.liqTerapeuta.hastaFechaLiquidado).subscribe((rp: any) => {
+    this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
+      this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
+      this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe((rp: any) => {
         if (rp.length > 0) {
           this.unliquidatedService = rp
 
@@ -315,7 +315,7 @@ export class TerapeutasComponent implements OnInit {
           let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
           this.totalCommission = 0
 
-          this.trabajadorService.getTerapeuta(this.liqTerapeuta.terapeuta).subscribe((datosNameTerapeuta) => {
+          this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
             this.terapeutaName = datosNameTerapeuta[0]
             this.validateNullData()
 
@@ -347,7 +347,7 @@ export class TerapeutasComponent implements OnInit {
             // Recibido
             this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
             this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
-            this.liqTerapeuta.importe = this.totalCommission
+            this.liquidationTherapist.importe = this.totalCommission
           })
 
           return true
@@ -366,27 +366,27 @@ export class TerapeutasComponent implements OnInit {
   dateDoesNotExist() {
     let año = "", mes = "", dia = ""
 
-    this.servicioService.getTerapeutaFechaAsc(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((rp) => {
+    this.service.getTerapeutaFechaAsc(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
       año = rp[0]['fechaHoyInicio'].substring(0, 4)
       mes = rp[0]['fechaHoyInicio'].substring(5, 7)
       dia = rp[0]['fechaHoyInicio'].substring(8, 10)
 
-      this.liqTerapeuta.desdeFechaLiquidado = `${año}-${mes}-${dia}`
-      this.liqTerapeuta.desdeHoraLiquidado = rp[0]['horaStart']
+      this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
+      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
     })
   }
 
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    this.liquidacionTerapService.getTerapAndEncarg(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((rp: any) => {
+    this.serviceLiquidationTherapist.getTerapAndEncarg(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp: any) => {
 
       if (rp.length > 0) {
         año = fecha.getFullYear()
         mes = rp[0]['hastaFechaLiquidado'].substring(3, 5)
         dia = rp[0]['hastaFechaLiquidado'].substring(0, 2)
-        this.liqTerapeuta.desdeFechaLiquidado = `${año}-${mes}-${dia}`
-        this.liqTerapeuta.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+        this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
+        this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
         this.dateDoesNotExist()
       }
@@ -398,24 +398,24 @@ export class TerapeutasComponent implements OnInit {
 
     if (mesHasta > 0 && mesHasta < 10) {
       convertMes = '0' + mesHasta
-      this.liqTerapeuta.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     } else {
-      this.liqTerapeuta.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
     }
 
     if (diaHasta > 0 && diaHasta < 10) {
       convertDia = '0' + diaHasta
-      this.liqTerapeuta.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
     } else {
-      this.liqTerapeuta.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     }
   }
 
   calculateServices(): any {
-    if (this.liqTerapeuta.encargada != "" && this.liqTerapeuta.terapeuta != "") {
+    if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.getThoseThatNotLiquidated()
 
-      this.servicioService.getByTerapeutaAndEncargada(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((resp: any) => {
+      this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
           this.dateExists()
           if (this.inputDateAndTime()) return
@@ -436,7 +436,7 @@ export class TerapeutasComponent implements OnInit {
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
-    this.servicioService.getById(id).subscribe((rp: any) => {
+    this.service.getById(id).subscribe((rp: any) => {
       if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
     })
   }
@@ -444,16 +444,16 @@ export class TerapeutasComponent implements OnInit {
   edit() {
     this.idSettled
     debugger
-    this.liqTerapeuta.importe = this.totalCommission
-    this.liquidacionTerapService.updateTerapImporteId(this.idSettled, this.liqTerapeuta).subscribe((rp) => { })
+    this.liquidationTherapist.importe = this.totalCommission
+    this.serviceLiquidationTherapist.updateTerapImporteId(this.idSettled, this.liquidationTherapist).subscribe((rp) => { })
 
     setTimeout(() => {
       this.getSettlements()
       this.liquidationForm = true
       this.editTerap = false
       this.selected = false
-      this.liqTerapeuta.encargada = ""
-      this.liqTerapeuta.terapeuta = ""
+      this.liquidationTherapist.encargada = ""
+      this.liquidationTherapist.terapeuta = ""
     }, 1000);
   }
 
@@ -462,14 +462,14 @@ export class TerapeutasComponent implements OnInit {
     this.liquidationForm = false
     this.editTerap = true
 
-    this.liquidacionTerapService.getIdTerap(id).subscribe((datosTerapeuta) => {
-      this.liqTerapeuta.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-      this.liqTerapeuta.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-      this.liqTerapeuta.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-      this.liqTerapeuta.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
+    this.serviceLiquidationTherapist.getIdTerap(id).subscribe((datosTerapeuta) => {
+      this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
+      this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
+      this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
+      this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
     })
 
-    this.servicioService.getByIdTerap(id).subscribe((datosTerapeuta) => {
+    this.service.getByIdTerap(id).subscribe((datosTerapeuta) => {
       this.settledData = datosTerapeuta;
 
       // Filter by servicio
@@ -517,7 +517,7 @@ export class TerapeutasComponent implements OnInit {
       let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
       this.totalCommission = 0
 
-      this.trabajadorService.getTerapeuta(this.settledData[0]['terapeuta']).subscribe((datosNameTerapeuta) => {
+      this.serviceTherapist.getTerapeuta(this.settledData[0]['terapeuta']).subscribe((datosNameTerapeuta) => {
         this.terapeutaName = datosNameTerapeuta[0]
         this.validateNullData()
 
@@ -565,36 +565,36 @@ export class TerapeutasComponent implements OnInit {
     this.addForm = false
     this.editTerap = false
     this.selected = false
-    this.liqTerapeuta.encargada = ""
-    this.liqTerapeuta.terapeuta = ""
+    this.liquidationTherapist.encargada = ""
+    this.liquidationTherapist.terapeuta = ""
   }
 
   getDateFrom() {
-    this.liquidacionTerapService.getTerapAndEncarg(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((rp) => {
-      this.liqTerapeuta.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
-      this.liqTerapeuta.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+    this.serviceLiquidationTherapist.getTerapAndEncarg(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
+      this.liquidationTherapist.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
+      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
     })
   }
 
   save() {
-    if (this.liqTerapeuta.terapeuta != "") {
-      if (this.liqTerapeuta.encargada != "") {
+    if (this.liquidationTherapist.terapeuta != "") {
+      if (this.liquidationTherapist.encargada != "") {
         if (this.exist === true) {
 
-          this.liqTerapeuta.currentDate = this.currentDate.toString()
+          this.liquidationTherapist.currentDate = this.currentDate.toString()
 
-          this.servicioService.getTerapeutaEncargada(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((datos: any) => {
-            this.liqTerapeuta.idTerapeuta = datos[0]['id']
+          this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datos: any) => {
+            this.liquidationTherapist.idTerapeuta = datos[0]['id']
             for (let index = 0; index < datos.length; index++) {
-              this.liqTerapeuta.tratamiento = datos.length
-              this.servicioService.updateLiquidacionTerap(datos[index]['id'], this.liqTerapeuta).subscribe((datos) => {
+              this.liquidationTherapist.tratamiento = datos.length
+              this.service.updateLiquidacionTerap(datos[index]['id'], this.liquidationTherapist).subscribe((datos) => {
               })
             }
 
             this.getDateFrom()
             this.sortDate()
 
-            this.liquidacionTerapService.settlementRecord(this.liqTerapeuta).subscribe((datos) => { })
+            this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
 
             setTimeout(() => { this.getSettlements() }, 1000);
 
@@ -602,8 +602,8 @@ export class TerapeutasComponent implements OnInit {
             this.addForm = false
             this.editTerap = false
             this.selected = false
-            this.liqTerapeuta.encargada = ""
-            this.liqTerapeuta.terapeuta = ""
+            this.liquidationTherapist.encargada = ""
+            this.liquidationTherapist.terapeuta = ""
             Swal.fire({
               position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
             })
@@ -612,28 +612,28 @@ export class TerapeutasComponent implements OnInit {
 
         if (this.exist === false) {
 
-          this.servicioService.getTerapeutaEncargada(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((datosForFecha) => {
-            this.liqTerapeuta.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-            this.liqTerapeuta.desdeHoraLiquidado = datosForFecha[0]['horaStart']
+          this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datosForFecha) => {
+            this.liquidationTherapist.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
+            this.liquidationTherapist.desdeHoraLiquidado = datosForFecha[0]['horaStart']
 
             let convertMes = '', convertDia = '', convertAno = ''
 
-            convertDia = this.liqTerapeuta.desdeFechaLiquidado.toString().substring(8, 11)
-            convertMes = this.liqTerapeuta.desdeFechaLiquidado.toString().substring(5, 7)
-            convertAno = this.liqTerapeuta.desdeFechaLiquidado.toString().substring(2, 4)
+            convertDia = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(8, 11)
+            convertMes = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(5, 7)
+            convertAno = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(2, 4)
 
-            this.liqTerapeuta.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+            this.liquidationTherapist.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
 
-            this.servicioService.getTerapeutaEncargada(this.liqTerapeuta.terapeuta, this.liqTerapeuta.encargada).subscribe((datos: any) => {
-              this.liqTerapeuta.idTerapeuta = datos[0]['id']
+            this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datos: any) => {
+              this.liquidationTherapist.idTerapeuta = datos[0]['id']
               for (let index = 0; index < datos.length; index++) {
-                this.liqTerapeuta.tratamiento = datos.length
-                this.servicioService.updateLiquidacionTerap(datos[index]['id'], this.liqTerapeuta).subscribe((datos) => {
+                this.liquidationTherapist.tratamiento = datos.length
+                this.service.updateLiquidacionTerap(datos[index]['id'], this.liquidationTherapist).subscribe((datos) => {
                 })
               }
 
               this.sortDate()
-              this.liquidacionTerapService.settlementRecord(this.liqTerapeuta).subscribe((datos) => { })
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
 
               setTimeout(() => {
                 this.getSettlements()
@@ -643,8 +643,8 @@ export class TerapeutasComponent implements OnInit {
               this.addForm = false
               this.editTerap = false
               this.selected = false
-              this.liqTerapeuta.encargada = ""
-              this.liqTerapeuta.terapeuta = ""
+              this.liquidationTherapist.encargada = ""
+              this.liquidationTherapist.terapeuta = ""
               this.convertToZero()
               Swal.fire({
                 position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500

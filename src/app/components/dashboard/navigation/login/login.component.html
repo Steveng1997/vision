@@ -13,14 +13,14 @@
 
           <div class="row justify-content-center">
             <div class="form-floating mb-3 col-6">
-              <input type="text" name="usuario" [(ngModel)]="usuarios.usuario" class="form-control"
+              <input type="text" name="usuario" [(ngModel)]="manager.usuario" class="form-control"
                 placeholder="Usuario" />
               <label for="usuario">Usuario</label>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="form-floating mb-3 col-6">
-              <input type="password" name="pass" [(ngModel)]="usuarios.pass" class="form-control" autocomplete="on"
+              <input type="password" name="pass" [(ngModel)]="manager.pass" class="form-control" autocomplete="on"
                 placeholder="Contraseña" />
               <label for="contrasena">Contraseña</label>
             </div>
@@ -66,17 +66,17 @@
 
                   <mat-form-field>
                     <mat-label>Nombre:</mat-label>
-                    <input type="text" matInput name="nombre" [(ngModel)]="usuarios.nombre">
+                    <input type="text" matInput name="nombre" [(ngModel)]="manager.nombre">
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Usuario:</mat-label>
-                    <input type="text" matInput name="usuario" [(ngModel)]="usuarios.usuario">
+                    <input type="text" matInput name="usuario" [(ngModel)]="manager.usuario">
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Contraseña:</mat-label>
-                    <input type="password" matInput name="pass" [(ngModel)]="usuarios.pass">
+                    <input type="password" matInput name="pass" [(ngModel)]="manager.pass">
                   </mat-form-field>
 
                   <button mat-raised-button type="submit" color="primary" (click)="registro()">Aceptar</button>

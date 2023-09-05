@@ -1,4 +1,4 @@
-export class Servicio {
+export class ModelService {
   bebidas?: string;
   bizuEncarg?: boolean;
   bizuOtro?: boolean;

@@ -1,4 +1,4 @@
-export class LiquidacionTerapeuta {
+export class LiquidationTherapist {
     currentDate?: string;
     desdeFechaLiquidado?: string;
     desdeHoraLiquidado?: string;

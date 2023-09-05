@@ -1,4 +1,4 @@
-export class  Terapeutas {
+export class  ModelTherapist {
   activo?: boolean;
   bebida?: string;
   fechaEnd?: string;

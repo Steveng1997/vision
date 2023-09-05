@@ -1,13 +1,13 @@
 import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { ServicioService } from 'src/app/core/services/servicio'
+import { Service } from 'src/app/core/services/service'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import * as XLSX from 'xlsx'
 
 // Service
-import { TrabajadoresService } from 'src/app/core/services/trabajadores'
+import { ServiceTherapist } from 'src/app/core/services/therapist'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { LoginService } from 'src/app/core/services/login'
+import { ServiceManager } from 'src/app/core/services/manager'
 
 
 @Component({
@@ -63,11 +63,11 @@ export class TablaComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public trabajadorService: TrabajadoresService,
-    public servicioService: ServicioService,
+    public serviceTherapist: ServiceTherapist,
+    public service: Service,
     public fb: FormBuilder,
     private modalService: NgbModal,
-    public loginService: LoginService,
+    public serviceManager: ServiceManager,
     private activeRoute: ActivatedRoute,
   ) {
   }
@@ -83,7 +83,7 @@ export class TablaComponent implements OnInit {
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
     if (this.idUser) {
-      this.loginService.getById(this.idUser).subscribe((rp) => {
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
         this.idUser = rp[0]
       })
     }
@@ -110,7 +110,7 @@ export class TablaComponent implements OnInit {
   }
 
   getServicio() {
-    this.servicioService.getServicio().subscribe((datoServicio: any) => {
+    this.service.getServicio().subscribe((datoServicio: any) => {
       this.servicio = datoServicio
       if (datoServicio.length != 0) {
         this.sumaTotalServicios()
@@ -314,20 +314,20 @@ export class TablaComponent implements OnInit {
   }
 
   getTerapeuta() {
-    this.trabajadorService.getAllTerapeuta().subscribe((datosTerapeuta) => {
+    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta) => {
       this.terapeuta = datosTerapeuta
     })
   }
 
   getEncargada() {
-    this.loginService.getUsuarios().subscribe((datosEncargada) => {
+    this.serviceManager.getUsuarios().subscribe((datosEncargada) => {
       this.encargada = datosEncargada
     })
   }
 
   notas(targetModal, modal) {
     var notaMensaje = []
-    this.servicioService.getById(targetModal).subscribe((datoServicio) => {
+    this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')

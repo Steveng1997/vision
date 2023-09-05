@@ -19,7 +19,7 @@
 
             <div class="col-6">
                 <label style="display: contents;">Encargada</label>
-                <select class="form-select" name="encargada" [(ngModel)]="liqEncargada.encargada"
+                <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
                     (ngModelChange)="filtro()">
                     <option selected value="">Selecciona</option>
                     <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
@@ -60,7 +60,7 @@
                 <td class="columnTratamiento">Tratamiento</td>
             </tr>
         </thead>
-        <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: liqEncargada.encargada
+        <tbody *ngFor="let liqEncarg of (liquidacionesEncargada | encargada: liquidationManager.encargada
         | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaEncargada: filtredBusqueda:filtredBusquedaNumber) |
         paginate: { itemsPerPage: 10, currentPage: page }"
             (click)="editamosServicio(liqEncarg.idEncargada, liqEncarg.id)">
@@ -124,7 +124,7 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Encargada</label>
-                    <select class="form-select" name="encargada" [(ngModel)]="liqEncargada.encargada"
+                    <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
                         (ngModelChange)="calcularSumaDeServicios()">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
@@ -136,11 +136,11 @@
             <div *ngIf="selected" class="row" style="margin-top: 4%;">
                 <div class="col-9">
                     <label style="font-weight: bold; font-size: larger;">Liquidación de Encargada
-                        {{liqEncargada.encargada}}</label>
+                        {{liquidationManager.encargada}}</label>
                 </div>
 
                 <div class="col-3">
-                    <label style="float: right; font-weight: bold;">{{liqEncargada.importe + ' €'}}</label>
+                    <label style="float: right; font-weight: bold;">{{liquidationManager.importe + ' €'}}</label>
                 </div>
             </div>
 
@@ -186,7 +186,7 @@
                                 <td style="border-bottom: 1px solid blue; text-align: center;">Otros</td>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: liqEncargada.encargada) |
+                        <tbody *ngFor="let serv of (servicioNoLiquidadaEncargada | encargada: liquidationManager.encargada) |
                         paginate: { itemsPerPage: 10, currentPage: page }">
                             <tr style="cursor: pointer">
                                 <!-- 1 -->
@@ -394,7 +394,7 @@
                             <th scope="row" style="border-bottom: hidden;"></th>
                             <td style="border-bottom: hidden;"></td>
                             <td style="border-bottom: hidden; text-align: start;">Total</td>
-                            <td style="border-bottom: hidden; text-align: right;">{{liqEncargada.importe}}</td>
+                            <td style="border-bottom: hidden; text-align: right;">{{liquidationManager.importe}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -430,7 +430,7 @@
             </div>
 
             <div class="col-6">
-                <label style="float: right; font-weight: bold;">{{liqEncargada.importe + ' €'}}</label>
+                <label style="float: right; font-weight: bold;">{{liquidationManager.importe + ' €'}}</label>
             </div>
         </div>
 
@@ -487,7 +487,7 @@
                                 Otros</td>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let serv of (datosLiquidadoEncargada | encargada: liqEncargada.encargada) | 
+                    <tbody *ngFor="let serv of (datosLiquidadoEncargada | encargada: liquidationManager.encargada) | 
                     paginate: { itemsPerPage: 10, currentPage: page }">
                         <tr style="cursor: pointer;">
                             <!-- 1 -->
@@ -679,7 +679,7 @@
                         <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden;"></td>
                         <td style="border-bottom: hidden; text-align: start;">Total</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{liqEncargada.importe}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{liquidationManager.importe}}</td>
                     </tr>
                 </tbody>
             </table>

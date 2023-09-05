@@ -1,4 +1,4 @@
-export class LiquidacionEncargada {
+export class LiquidationManager {
   currentDate?: string;
   desdeFechaLiquidado?: string;
   desdeHoraLiquidado?: string;

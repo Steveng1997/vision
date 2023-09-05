@@ -1,4 +1,4 @@
-export class Cierre {
+export class Closing {
   bizum?: number;
   currentDate?: string;
   efectivo?: number;

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LiquidacionTerapeuta } from '../models/liquidacionTerap';
+import { LiquidationTherapist } from '../models/liquidationTherapist';
 
 @Injectable()
-export class LiquidacioneTerapService {
+export class ServiceLiquidationTherapist {
 
   API_URL = 'http://3.129.249.184:3000/api/liqTerapeuta';
   // API_URL = 'http://localhost:3000/api/liqTerapeuta';
@@ -16,8 +16,8 @@ export class LiquidacioneTerapService {
 
   // Register
 
-  settlementRecord(liqTerap: LiquidacionTerapeuta) {
-    return this.http.post(`${this.API_URL}/registerLiqTerap`, liqTerap);
+  settlementRecord(liquidationTherapist: LiquidationTherapist) {
+    return this.http.post(`${this.API_URL}/registerLiqTerap`, liquidationTherapist);
   }
 
   // Get
@@ -41,15 +41,15 @@ export class LiquidacioneTerapService {
 
   // Update
 
-  update(id: number, liqTerap: LiquidacionTerapeuta) {
-    return this.http.put(`${this.API_URL}/updateTherapistById/${id}`, liqTerap);
+  update(id: number, liquidationTherapist: LiquidationTherapist) {
+    return this.http.put(`${this.API_URL}/updateTherapistById/${id}`, liquidationTherapist);
   }
 
-  updateById(idTerapeuta, liqTerap: LiquidacionTerapeuta) {
-    return this.http.put(`${this.API_URL}/updateIdAndImporte/${idTerapeuta}`, liqTerap);
+  updateById(idTerapeuta, liquidationTherapist: LiquidationTherapist) {
+    return this.http.put(`${this.API_URL}/updateIdAndImporte/${idTerapeuta}`, liquidationTherapist);
   }
 
-  updateTerapImporteId(id: number, liqTerap: LiquidacionTerapeuta) {
-    return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liqTerap);
+  updateTerapImporteId(id: number, liquidationTherapist: LiquidationTherapist) {
+    return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liquidationTherapist);
   }
 }

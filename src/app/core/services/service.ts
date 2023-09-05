@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 // Models
-import { Servicio } from '../models/servicio';
+import { ModelService } from '../models/service';
 
 @Injectable()
-export class ServicioService {
+export class Service {
 
   API_URL = 'http://3.129.249.184:3000/api/servicio';
   // API_URL = 'http://localhost:3000/api/servicio';
@@ -19,8 +19,8 @@ export class ServicioService {
 
   // Register
 
-  registerServicio(servicio: Servicio) {
-    return this.http.post(`${this.API_URL}/registerServicio`, servicio);
+  registerServicio(service: ModelService) {
+    return this.http.post(`${this.API_URL}/registerServicio`, service);
   }
 
   // Get
@@ -254,68 +254,68 @@ export class ServicioService {
 
   // Update
 
-  updateServicio(id: number, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByServicio/${id}`, servicio);
+  updateServicio(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByServicio/${id}`, service);
   }
 
-  updateAllServicio(id: number, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateAllTheServicio/${id}`, servicio);
+  updateAllServicio(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateAllTheServicio/${id}`, service);
   }
 
-  updateNumberPiso1(idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByNumberPiso1/${idUnico}`, servicio);
+  updateNumberPiso1(idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByNumberPiso1/${idUnico}`, service);
   }
 
-  updateWithValueNumberPiso1(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberPiso1/${id}/${idUnico}`, servicio);
+  updateWithValueNumberPiso1(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByWithValueNumberPiso1/${id}/${idUnico}`, service);
   }
 
-  updateNumberPiso2(idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByNumberPiso2/${idUnico}`, servicio);
+  updateNumberPiso2(idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByNumberPiso2/${idUnico}`, service);
   }
 
-  updateWithValueNumberPiso2(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberPiso2/${id}/${idUnico}`, servicio);
+  updateWithValueNumberPiso2(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByWithValueNumberPiso2/${id}/${idUnico}`, service);
   }
 
-  updateNumberEncargada(idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByNumberEncargada/${idUnico}`, servicio);
+  updateNumberEncargada(idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByNumberEncargada/${idUnico}`, service);
   }
 
-  updateWithValueNumberEncargada(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberEncargada/${id}/${idUnico}`, servicio);
+  updateWithValueNumberEncargada(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByWithValueNumberEncargada/${id}/${idUnico}`, service);
   }
 
-  updateNumberTerap(idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByNumberTerap/${idUnico}`, servicio);
+  updateNumberTerap(idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByNumberTerap/${idUnico}`, service);
   }
 
-  updateWithValueNumberTerap(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberTerap/${id}/${idUnico}`, servicio);
+  updateWithValueNumberTerap(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByWithValueNumberTerap/${id}/${idUnico}`, service);
   }
 
-  updateNumberOtros(idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByNumberOtros/${idUnico}`, servicio);
+  updateNumberOtros(idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByNumberOtros/${idUnico}`, service);
   }
 
-  updateWithValueNumberOtros(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberOtros/${id}/${idUnico}`, servicio);
+  updateWithValueNumberOtros(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByWithValueNumberOtros/${id}/${idUnico}`, service);
   }
 
-  updateLiquidacionTerap(id: number, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByLiquidacionTerap/${id}`, servicio);
+  updateLiquidacionTerap(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByLiquidacionTerap/${id}`, service);
   }
 
-  updateLiquidacionEncarg(id: number, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByLiquidacionEncarg/${id}`, servicio);;
+  updateLiquidacionEncarg(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByLiquidacionEncarg/${id}`, service);;
   }
 
-  updateCierre(idCierre: number, id: number, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByCierre/${idCierre}/${id}`, servicio);;
+  updateCierre(idCierre: number, id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByCierre/${idCierre}/${id}`, service);;
   }
 
-  updatePisos(id: number, idUnico: string, servicio: Servicio) {
-    return this.http.put(`${this.API_URL}/updateByValuePisos/${id}/${idUnico}`, servicio);
+  updatePisos(id: number, idUnico: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByValuePisos/${id}/${idUnico}`, service);
   }
 
   // Delete

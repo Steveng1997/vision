@@ -5,7 +5,7 @@ import { TablaComponent } from './navigation/tabla/tabla.component';
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { VisionComponent } from './navigation/vision/vision.component';
-import { TerapeutasComponent } from './navigation/liquidacion/terapeutas/terapeutas.component';
+import { TherapistComponent } from './navigation/liquidacion/therapist/therapist.component';
 import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
 import { LoginComponent } from './navigation/login/login.component';
 import { CierreComponent } from './navigation/cierre/cierre.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
       },
       {
         path: 'terapeutas',
-        component: TerapeutasComponent
+        component: TherapistComponent
       },
       {
         path: 'encargadas',

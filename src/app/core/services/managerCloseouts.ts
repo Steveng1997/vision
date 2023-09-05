@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Model
-import { LiquidacionEncargada } from '../models/liquidacionEncarg';
+import { LiquidationManager } from '../models/liquidationManager';
 
 @Injectable()
-export class LiquidacioneEncargService {
+export class ServiceLiquidationManager {
 
   API_URL = 'http://3.129.249.184/api/liqEncargada';
   // API_URL = 'http://localhost:3000/api/liqEncargada';
@@ -18,8 +18,8 @@ export class LiquidacioneEncargService {
 
   // Register
 
-  registerLiquidacionesEncargada(liqEncarg: LiquidacionEncargada) {
-    return this.http.post(`${this.API_URL}/registerLiqEncarg`, liqEncarg);
+  registerLiquidacionesEncargada(liquidationManger: LiquidationManager) {
+    return this.http.post(`${this.API_URL}/registerLiqEncarg`, liquidationManger);
   }
 
   // Get
@@ -38,11 +38,11 @@ export class LiquidacioneEncargService {
 
   // Update
 
-  updateById(idEncargada: number, liqEncarg: LiquidacionEncargada) {
-    return this.http.put(`${this.API_URL}/updateIdAndImporte/${idEncargada}`, liqEncarg);
+  updateById(idEncargada: number, liquidationManger: LiquidationManager) {
+    return this.http.put(`${this.API_URL}/updateIdAndImporte/${idEncargada}`, liquidationManger);
   }
 
-  updateEncargImporteId(id: number, liqEncarg: LiquidacionEncargada) {
-    return this.http.put(`${this.API_URL}/updateByEncargByImporteById/${id}`, liqEncarg);
+  updateEncargImporteId(id: number, liquidationManger: LiquidationManager) {
+    return this.http.put(`${this.API_URL}/updateByEncargByImporteById/${id}`, liquidationManger);
   }
 }

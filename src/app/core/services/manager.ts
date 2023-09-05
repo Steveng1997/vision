@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 // Models
-import { Encargada } from '../models/encargada';
+import { ModelManager } from '../models/manager';
 
 
 @Injectable()
-export class LoginService {
+export class ServiceManager {
 
   API_URL = 'http://3.129.249.184:3000/api/encargada';
   // API_URL = 'http://localhost:3000/api/encargada';
@@ -19,8 +19,8 @@ export class LoginService {
 
   // Register
 
-  registerEncargada(encargada: Encargada) {
-    return this.http.post(`${this.API_URL}/registerEncargada`, encargada);
+  registerEncargada(manager: ModelManager) {
+    return this.http.post(`${this.API_URL}/registerEncargada`, manager);
   }
 
   // Get
@@ -60,13 +60,13 @@ export class LoginService {
 
   // Update
 
-  updateUser(id: number, encargada: Encargada) {
-    return this.http.put(`${this.API_URL}/updateEncargada/${id}`, encargada);
+  updateUser(id: number, manager: ModelManager) {
+    return this.http.put(`${this.API_URL}/updateEncargada/${id}`, manager);
   }
 
   // Delete
 
-  deleteEncargadas(id: number) {
+  deleteManager(id: number) {
     return this.http.delete(`${this.API_URL}/deleteEncargada/${id}`);
   }
 }

@@ -10,7 +10,7 @@
             <div class="col-6">
                 <label style="display: contents;">Terapeuta</label>
 
-                <select class="form-select inputs" name="terapeuta" [(ngModel)]="servicio.terapeuta"
+                <select class="form-select inputs" name="terapeuta" [(ngModel)]="services.terapeuta"
                     (ngModelChange)="terapeu($event)">
                     <option selected value="">Selecciona</option>
                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap?.nombre}}
@@ -21,7 +21,7 @@
             <div class="col-6">
                 <label style="display: contents;">Encargada</label>
 
-                <select class="form-select inputs" name="encargada" [(ngModel)]="servicio.encargada">
+                <select class="form-select inputs" name="encargada" [(ngModel)]="services.encargada">
                     <option selected value>Selecciona</option>
                     <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg?.nombre}}
                     </option>
@@ -30,7 +30,7 @@
 
             <div class="inputCliente">
                 <label style="display: contents;">Cliente</label>
-                <input class="form-control input-sm inputs" type="text" name="cliente" [(ngModel)]="servicio.cliente">
+                <input class="form-control input-sm inputs" type="text" name="cliente" [(ngModel)]="services.cliente">
             </div>
         </div>
 
@@ -41,7 +41,7 @@
 
         <div class="row">
             <div class="col-6">
-                <label class="font-weight-bold">Último servicio:</label>
+                <label class="font-weight-bold">Último services:</label>
             </div>
 
             <div class="col-6" *ngIf="horaStartTerapeuta != ''">
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-9">
                         <label style="display: contents;">Hora inicio</label>
-                        <input type="time" name="horaStart" [(ngModel)]="servicio.horaStart"
+                        <input type="time" name="horaStart" [(ngModel)]="services.horaStart"
                             (change)="horaInicio($event)" [value]="horaStarted" min="18:00" max="21:00" step="3600"
                             class="form-control inputs" />
                     </div>
@@ -93,7 +93,7 @@
 
             <div class="col-6 duracionHora">
                 <label style="display: contents;">Duración(min.)</label>
-                <input class=" form-control inputs" type="number" name="ejempo" [(ngModel)]="servicio.minuto"
+                <input class=" form-control inputs" type="number" name="ejempo" [(ngModel)]="services.minuto"
                     (ngModelChange)="minutos($event)">
             </div>
 
@@ -101,7 +101,7 @@
                 <div style="text-align: center; align-self: center;">
                     <label>Hora fin:</label>
                 </div>
-                <div style="text-align: center; font-size: larger;"> {{servicio.horaEnd}} </div>
+                <div style="text-align: center; font-size: larger;"> {{services.horaEnd}} </div>
             </div>
 
             <div class="row lugarSalida">
@@ -109,7 +109,7 @@
                     <label style="align-self: center">Lugar Salida</label>
                 </div>
                 <div class="col-7">
-                    <input type="text" class="form-control inputs" name="salida" [(ngModel)]="servicio.salida" />
+                    <input type="text" class="form-control inputs" name="salida" [(ngModel)]="services.salida" />
                 </div>
             </div>
         </div>
@@ -126,38 +126,38 @@
             </div>
         </div>
         <hr>
-        <label>Detalla el importe de los servicios</label>
+        <label>Detalla el importe de los servicess</label>
 
 
         <div class="row titulos">
             <div class="col-4">
                 <label>Tratamiento</label>
-                <input type="number" name="servicio" [(ngModel)]="servicio.servicio" (ngModelChange)="valueService()"
+                <input type="number" name="services" [(ngModel)]="services.servicio" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
             <div class="col-4">
                 <label>Bebidas</label>
-                <input type="number" name="bebidas" [(ngModel)]="servicio.bebidas" (ngModelChange)="valueService()"
+                <input type="number" name="bebidas" [(ngModel)]="services.bebidas" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
             <div class="col-4">
                 <label>Tabaco</label>
-                <input type="number" name="tabaco" [(ngModel)]="servicio.tabaco" (ngModelChange)="valueService()"
+                <input type="number" name="tabaco" [(ngModel)]="services.tabaco" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Vitaminas</label>
-                <input type="number" name="vitaminas" [(ngModel)]="servicio.vitaminas" (ngModelChange)="valueService()"
+                <input type="number" name="vitaminas" [(ngModel)]="services.vitaminas" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Propina</label>
-                <input type="number" name="propina" [(ngModel)]="servicio.propina" (ngModelChange)="valueService()"
+                <input type="number" name="propina" [(ngModel)]="services.propina" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
             <div class="col-4" style="margin-top: 2%">
                 <label>Otros</label>
-                <input type="number" name="otros" [(ngModel)]="servicio.otros" (ngModelChange)="valueService()"
+                <input type="number" name="otros" [(ngModel)]="services.otros" (ngModelChange)="valueService()"
                     class="form-control inputs" />
             </div>
         </div>
@@ -174,7 +174,7 @@
             </div>
         </div>
         <hr>
-        <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
+        <label>Detalla quién ha cobrado los servicess y por que medio de pago </label>
 
         <div class="row" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
 
@@ -198,27 +198,27 @@
         <div class="row titulos">
             <div class="col-4">
                 <mat-label>Piso 1</mat-label>
-                <input type="number" name="numberPiso1" [(ngModel)]="servicio.numberPiso1"
+                <input type="number" name="numberPiso1" [(ngModel)]="services.numberPiso1"
                     (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectPiso1" [(ngModel)]="servicio.efectPiso1"
+                <mat-checkbox name="efectPiso1" [(ngModel)]="services.efectPiso1"
                     (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuPiso1" [(ngModel)]="servicio.bizuPiso1"
+                <mat-checkbox name="bizuPiso1" [(ngModel)]="services.bizuPiso1"
                     (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjPiso1" [(ngModel)]="servicio.tarjPiso1"
+                <mat-checkbox name="tarjPiso1" [(ngModel)]="services.tarjPiso1"
                     (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transPiso1" [(ngModel)]="servicio.transPiso1"
+                <mat-checkbox name="transPiso1" [(ngModel)]="services.transPiso1"
                     (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
@@ -226,27 +226,27 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Piso 2</mat-label>
-                <input matInput type="number" name="numberPiso2" [(ngModel)]="servicio.numberPiso2"
+                <input matInput type="number" name="numberPiso2" [(ngModel)]="services.numberPiso2"
                     (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectPiso2" [(ngModel)]="servicio.efectPiso2"
+                <mat-checkbox name="efectPiso2" [(ngModel)]="services.efectPiso2"
                     (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuPiso2" [(ngModel)]="servicio.bizuPiso2"
+                <mat-checkbox name="bizuPiso2" [(ngModel)]="services.bizuPiso2"
                     (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjPiso2" [(ngModel)]="servicio.tarjPiso2"
+                <mat-checkbox name="tarjPiso2" [(ngModel)]="services.tarjPiso2"
                     (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transPiso2" [(ngModel)]="servicio.transPiso2"
+                <mat-checkbox name="transPiso2" [(ngModel)]="services.transPiso2"
                     (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
@@ -254,27 +254,27 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Terapeuta</mat-label>
-                <input matInput type="number" name="numberTerap" [(ngModel)]="servicio.numberTerap"
+                <input matInput type="number" name="numberTerap" [(ngModel)]="services.numberTerap"
                     (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectTerap" [(ngModel)]="servicio.efectTerap"
+                <mat-checkbox name="efectTerap" [(ngModel)]="services.efectTerap"
                     (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuTerap" [(ngModel)]="servicio.bizuTerap"
+                <mat-checkbox name="bizuTerap" [(ngModel)]="services.bizuTerap"
                     (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjTerap" [(ngModel)]="servicio.tarjTerap"
+                <mat-checkbox name="tarjTerap" [(ngModel)]="services.tarjTerap"
                     (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transTerap" [(ngModel)]="servicio.transTerap"
+                <mat-checkbox name="transTerap" [(ngModel)]="services.transTerap"
                     (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
@@ -282,27 +282,27 @@
         <div class="row">
             <div class="col-4">
                 <mat-label>Encargada</mat-label>
-                <input matInput type="number" name="numberEncarg" [(ngModel)]="servicio.numberEncarg"
+                <input matInput type="number" name="numberEncarg" [(ngModel)]="services.numberEncarg"
                     (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectEncarg" [(ngModel)]="servicio.efectEncarg"
+                <mat-checkbox name="efectEncarg" [(ngModel)]="services.efectEncarg"
                     (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuEncarg" [(ngModel)]="servicio.bizuEncarg"
+                <mat-checkbox name="bizuEncarg" [(ngModel)]="services.bizuEncarg"
                     (ngModelChange)="bizumCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjEncarg" [(ngModel)]="servicio.tarjEncarg"
+                <mat-checkbox name="tarjEncarg" [(ngModel)]="services.tarjEncarg"
                     (ngModelChange)="tarjCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transEncarg" [(ngModel)]="servicio.transEncarg"
+                <mat-checkbox name="transEncarg" [(ngModel)]="services.transEncarg"
                     (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
@@ -310,39 +310,39 @@
         <div class="row" style="margin-bottom: 5%;">
             <div class="col-4">
                 <mat-label>Otro</mat-label>
-                <input matInput type="number" name="numberOtro" [(ngModel)]="servicio.numberOtro"
+                <input matInput type="number" name="numberOtro" [(ngModel)]="services.numberOtro"
                     (ngModelChange)="valueCobros()" class="form-control inputs">
             </div>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="efectOtro" [(ngModel)]="servicio.efectOtro"
+                <mat-checkbox name="efectOtro" [(ngModel)]="services.efectOtro"
                     (ngModelChange)="efectCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="bizuOtro" [(ngModel)]="servicio.bizuOtro" (ngModelChange)="bizumCheckToggle($event)"
+                <mat-checkbox name="bizuOtro" [(ngModel)]="services.bizuOtro" (ngModelChange)="bizumCheckToggle($event)"
                     class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="tarjOtro" [(ngModel)]="servicio.tarjOtro" (ngModelChange)="tarjCheckToggle($event)"
+                <mat-checkbox name="tarjOtro" [(ngModel)]="services.tarjOtro" (ngModelChange)="tarjCheckToggle($event)"
                     class="checkBox"></mat-checkbox>
             </mar-form-field>
 
             <mar-form-field class="col-2">
-                <mat-checkbox name="transOtro" [(ngModel)]="servicio.transOtro"
+                <mat-checkbox name="transOtro" [(ngModel)]="services.transOtro"
                     (ngModelChange)="transCheckToggle($event)" class="checkBox"></mat-checkbox>
             </mar-form-field>
         </div>
 
-        <!-- Fin servicio -->
+        <!-- Fin services -->
 
         <hr class="titulos">
 
         <div class="row titulos">
             <div class="col-12">
                 <label>Notas</label>
-                <textarea type="text" class="form-control inputs" name="nota" [(ngModel)]="servicio.nota"></textarea>
+                <textarea type="text" class="form-control inputs" name="nota" [(ngModel)]="services.nota"></textarea>
             </div>
         </div>
 
@@ -404,7 +404,7 @@
 
             <div class="row">
                 <div class="col-6">
-                    <label class="font-weight-bold">Último servicio:</label>
+                    <label class="font-weight-bold">Último services:</label>
                 </div>
 
                 <div class="col-6">
@@ -465,13 +465,13 @@
                 </div>
             </div>
             <hr>
-            <label>Detalla el importe de los servicios</label>
+            <label>Detalla el importe de los servicess</label>
 
 
             <div class="row titulos">
                 <div class="col-4">
                     <label>Tratamiento</label>
-                    <input type="number" name="servicio" [(ngModel)]="edServ.servicio"
+                    <input type="number" name="services" [(ngModel)]="edServ.servicio"
                         (ngModelChange)="valueServiceEdit()" class="form-control inputs" />
                 </div>
 
@@ -520,7 +520,7 @@
                 </div>
             </div>
             <hr>
-            <label>Detalla quién ha cobrado los servicios y por que medio de pago </label>
+            <label>Detalla quién ha cobrado los servicess y por que medio de pago </label>
 
             <div class="row titulos" style="justify-content: right; margin-top: 3%; margin-bottom: 2%;">
 
@@ -688,7 +688,7 @@
                 </mar-form-field>
             </div>
 
-            <!-- Fin servicio -->
+            <!-- Fin services -->
 
             <hr class="titulos">
 

@@ -22,12 +22,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 // Services
-import { TrabajadoresService } from './core/services/trabajadores';
-import { ServicioService } from './core/services/servicio';
-import { LoginService } from './core/services/login';
-import { LiquidacioneTerapService } from './core/services/liquidacionesTerap';
-import { LiquidacioneEncargService } from './core/services/liquidacionesEncarg';
-import { CierreService } from './core/services/cierre';
+import { ServiceTherapist } from './core/services/therapist';
+import { Service } from './core/services/service';
+import { ServiceManager } from './core/services/manager';
+import { ServiceLiquidationTherapist } from './core/services/therapistCloseouts';
+import { ServiceLiquidationManager } from './core/services/managerCloseouts';
+import { ServiceClosing } from './core/services/closing';
 
 @NgModule({
   declarations: [
@@ -56,12 +56,12 @@ import { CierreService } from './core/services/cierre';
     MatNativeDateModule,
   ],
   providers: [
-    TrabajadoresService,
-    ServicioService,
-    LoginService,
-    LiquidacioneTerapService,
-    LiquidacioneEncargService,
-    CierreService,
+    ServiceTherapist,
+    Service,
+    ServiceManager,
+    ServiceLiquidationTherapist,
+    ServiceLiquidationManager,
+    ServiceClosing,
   ],
   bootstrap: [AppComponent],
 })

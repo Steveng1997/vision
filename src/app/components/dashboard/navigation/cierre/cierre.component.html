@@ -22,7 +22,7 @@
 
             <div class="col-6">
                 <label style="display: contents;">Encargada</label>
-                <select class="form-select" name="encargada" [(ngModel)]="cierres.encargada" (ngModelChange)="filtro()">
+                <select class="form-select" name="encargada" [(ngModel)]="closing.encargada" (ngModelChange)="filtro()">
                     <option selected value="">Selecciona</option>
                     <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
                     </option>
@@ -92,7 +92,7 @@
                     </td>
                 </tr>
             </thead>
-            <tbody *ngFor="let serv of (cierre | encargada: cierres.encargada | fechaCierre: fechaInicio:fechaFinal 
+            <tbody *ngFor="let serv of (cierre | encargada: closing.encargada | fechaCierre: fechaInicio:fechaFinal 
             | busquedaCierre: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }"
                 (click)="editamos(serv.idCierre)">
                 <tr style="cursor: pointer;">
@@ -152,7 +152,7 @@
         </table>
 
         <p class="noHayCierre" *ngIf="cierre?.length === 0"> Actualmente no hay
-            cierres </p>
+            closing </p>
 
         <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
             nextLabel="Siguiente">
@@ -172,7 +172,7 @@
 
                 <div class="col-6">
                     <label style="display: flex;">Encargada</label>
-                    <select class="form-select" name="encargada" [(ngModel)]="cierres.encargada"
+                    <select class="form-select" name="encargada" [(ngModel)]="closing.encargada"
                         (ngModelChange)="calcularSumaDeServicios()">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
@@ -184,7 +184,7 @@
             <div *ngIf="selected" class="row" style="margin-top: 4%;">
                 <div class="col-9">
                     <label style="font-weight: bold; font-size: larger;">
-                        Cierre Encargada {{cierres?.encargada}}</label>
+                        Cierre Encargada {{closing?.encargada}}</label>
                 </div>
 
                 <div class="col-3">
@@ -216,26 +216,26 @@
                             <tr style="line-height: 40%">
                                 <th scope="row" style="border-bottom: hidden;">Efectivo</th>
                                 <!-- AQUI DUDA -->
-                                <td style="border-bottom: hidden;">{{cierres.total + ' €'}}</td>
-                                <td style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{closing.total + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{closing.efectivo + ' €'}}</td>
                                 <td style="border-bottom: hidden;">{{sumaEfectivo + ' €'}}</td>
                             </tr>
                             <tr style="line-height: 40%">
                                 <th scope="row" style="border-bottom: hidden;">Bizum</th>
                                 <td style="border-bottom: hidden;">{{totalCajaBizu + ' €'}}</td>
-                                <td style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{closing.bizum + ' €'}}</td>
                                 <td style="border-bottom: hidden;">{{sumaBizum + ' €'}}</td>
                             </tr>
                             <tr style="line-height: 40%">
                                 <th scope="row" style="border-bottom: hidden;">Tarjeta</th>
                                 <td style="border-bottom: hidden;">{{totalCajaTarjeta + ' €'}}</td>
-                                <td style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{closing.tarjeta + ' €'}}</td>
                                 <td style="border-bottom: hidden;">{{sumaTarjeta + ' €'}}</td>
                             </tr>
                             <tr style="line-height: 40%">
                                 <th scope="row" style="border-bottom: hidden;">Transf</th>
                                 <td style="border-bottom: hidden;">{{totalCajaTransfer + ' €'}}</td>
-                                <td style="border-bottom: hidden;">{{cierres.transaccion + ' €'}}</td>
+                                <td style="border-bottom: hidden;">{{closing.transaccion + ' €'}}</td>
                                 <td style="border-bottom: hidden;">{{sumaTransfe + ' €'}}</td>
                             </tr>
                         </tbody>
@@ -291,7 +291,7 @@
                                 </td>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let serv of (servicio | encargada: cierres.encargada) 
+                        <tbody *ngFor="let serv of (servicio | encargada: closing.encargada) 
                             | paginate: { itemsPerPage: 5, currentPage: page }">
                             <tr style="line-height: 40%">
                                 <!-- 1 -->
@@ -360,7 +360,7 @@
                                 <th style="border-bottom: 1px solid blue; text-align: center;">Transf</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let encarg of servicio | encargada: cierres.encargada">
+                        <tbody *ngFor="let encarg of servicio | encargada: closing.encargada">
                             <tr style="line-height: 40%">
                                 <td style="border-bottom: hidden;">{{encarg.terapeuta}}</td>
                                 <td data-label="Efectivo" style="border-bottom: hidden;">
@@ -376,11 +376,11 @@
                         <tbody class="table3">
                             <tr style="line-height: 40%">
                                 <td style="border-bottom: hidden; font-weight: bold;">Total</td>
-                                <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}
+                                <td data-label="Efectivo" style="border-bottom: hidden;">{{closing.efectivo + ' €'}}
                                 </td>
-                                <td data-label="Bizum" style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
-                                <td data-label="Tarjeta" style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
-                                <td data-label="Transferencia" style="border-bottom: hidden;">{{cierres.transaccion + '
+                                <td data-label="Bizum" style="border-bottom: hidden;">{{closing.bizum + ' €'}}</td>
+                                <td data-label="Tarjeta" style="border-bottom: hidden;">{{closing.tarjeta + ' €'}}</td>
+                                <td data-label="Transferencia" style="border-bottom: hidden;">{{closing.transaccion + '
                                     €'}}
                                 </td>
                             </tr>
@@ -447,26 +447,26 @@
                         <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;">Efectivo</th>
                             <!-- AQUI DUDA -->
-                            <td style="border-bottom: hidden;">{{cierres.total + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{closing.total + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{closing.efectivo + ' €'}}</td>
                             <td style="border-bottom: hidden;">{{sumaEfectivo + ' €'}}</td>
                         </tr>
                         <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;">Bizum</th>
                             <td style="border-bottom: hidden;">{{totalCajaBizu + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{closing.bizum + ' €'}}</td>
                             <td style="border-bottom: hidden;">{{sumaBizum + ' €'}}</td>
                         </tr>
                         <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;">Tarjeta</th>
                             <td style="border-bottom: hidden;">{{totalCajaTarjeta + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{closing.tarjeta + ' €'}}</td>
                             <td style="border-bottom: hidden;">{{sumaTarjeta + ' €'}}</td>
                         </tr>
                         <tr style="line-height: 40%">
                             <th scope="row" style="border-bottom: hidden;">Transf</th>
                             <td style="border-bottom: hidden;">{{totalCajaTransfer + ' €'}}</td>
-                            <td style="border-bottom: hidden;">{{cierres.transaccion + ' €'}}</td>
+                            <td style="border-bottom: hidden;">{{closing.transaccion + ' €'}}</td>
                             <td style="border-bottom: hidden;">{{sumaTransfe + ' €'}}</td>
                         </tr>
                     </tbody>
@@ -518,7 +518,7 @@
                             </td>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let cierre of (datosCierre | encargada: cierres.encargada) 
+                    <tbody *ngFor="let cierre of (datosCierre | encargada: closing.encargada) 
                             | paginate: { itemsPerPage: 5, currentPage: page }">
                         <tr style="line-height: 40%">
                             <!-- 1 -->
@@ -604,10 +604,10 @@
                     <tbody class="table3">
                         <tr style="line-height: 40%">
                             <td style="border-bottom: hidden; font-weight: bold;">Total</td>
-                            <td data-label="Efectivo" style="border-bottom: hidden;">{{cierres.efectivo + ' €'}}</td>
-                            <td data-label="Bizum" style="border-bottom: hidden;">{{cierres.bizum + ' €'}}</td>
-                            <td data-label="Tarjeta" style="border-bottom: hidden;">{{cierres.tarjeta + ' €'}}</td>
-                            <td data-label="Transferencia" style="border-bottom: hidden;">{{cierres.transaccion + '
+                            <td data-label="Efectivo" style="border-bottom: hidden;">{{closing.efectivo + ' €'}}</td>
+                            <td data-label="Bizum" style="border-bottom: hidden;">{{closing.bizum + ' €'}}</td>
+                            <td data-label="Tarjeta" style="border-bottom: hidden;">{{closing.tarjeta + ' €'}}</td>
+                            <td data-label="Transferencia" style="border-bottom: hidden;">{{closing.transaccion + '
                                 €'}}
                             </td>
                         </tr>

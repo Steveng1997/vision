@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Model
-import { Cierre } from '../models/cierre';
+import { Closing } from '../models/closing';
 
 @Injectable()
-export class CierreService {
+export class ServiceClosing {
 
   API_URL = 'http://3.129.249.184:3000/api/cierre';
   API_SERVICIO = 'http://3.129.249.184:3000/api/servicio';
@@ -21,8 +21,8 @@ export class CierreService {
 
   // Register
 
-  registerCierre(cierre: Cierre) {
-    return this.http.post(`${this.API_URL}/registerCierre`, cierre);
+  registerCierre(closing: Closing) {
+    return this.http.post(`${this.API_URL}/registerCierre`, closing);
   }
 
   // Get  

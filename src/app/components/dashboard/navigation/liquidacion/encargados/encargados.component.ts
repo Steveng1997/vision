@@ -5,12 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
-import { LoginService } from 'src/app/core/services/login'
-import { ServicioService } from 'src/app/core/services/servicio'
-import { LiquidacioneEncargService } from 'src/app/core/services/liquidacionesEncarg'
+import { ServiceManager } from 'src/app/core/services/manager'
+import { Service } from 'src/app/core/services/service'
+import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseouts'
 
 // Model
-import { LiquidacionEncargada } from 'src/app/core/models/liquidacionEncarg'
+import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 
 @Component({
   selector: 'app-encargados',
@@ -78,7 +78,7 @@ export class EncargadosComponent implements OnInit {
   currentDate = new Date().getTime()
   existe: boolean
 
-  liqEncargada: LiquidacionEncargada = {
+  liquidationManager: LiquidationManager = {
     currentDate: "",
     desdeFechaLiquidado: "",
     desdeHoraLiquidado: "",
@@ -95,9 +95,9 @@ export class EncargadosComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder,
     private modalService: NgbModal,
-    public servicioService: ServicioService,
-    public loginService: LoginService,
-    public liqudacionEncargServ: LiquidacioneEncargService,
+    public service: Service,
+    public serviceManager: ServiceManager,
+    public serviceLiquidationManager: ServiceLiquidationManager,
     private activatedRoute: ActivatedRoute,
   ) { }
 
@@ -115,7 +115,7 @@ export class EncargadosComponent implements OnInit {
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
-    this.liqEncargada.encargada = ""
+    this.liquidationManager.encargada = ""
 
     this.liqEncarg = true
     this.addEncarg = false
@@ -142,35 +142,35 @@ export class EncargadosComponent implements OnInit {
     if (this.comisionVitamina == undefined) this.comisionVitamina = 0
     if (this.comisionOtros == undefined) this.comisionOtros = 0
     if (this.sumaComision == undefined) this.sumaComision = 0
-    if (this.liqEncargada.importe == undefined) this.liqEncargada.importe = 0
+    if (this.liquidationManager.importe == undefined) this.liquidationManager.importe = 0
   }
 
   getLiquidaciones() {
-    this.liqudacionEncargServ.getLiquidacionesEncargada().subscribe((datoEncargLiq: any) => {
+    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((datoEncargLiq: any) => {
       this.liquidacionesEncargada = datoEncargLiq
 
       if (datoEncargLiq.length > 0) {
-        this.liqEncargada.desdeFechaLiquidado = datoEncargLiq[0]['hastaFechaLiquidado']
-        this.liqEncargada.desdeHoraLiquidado = datoEncargLiq[0]['hastaHoraLiquidado']
+        this.liquidationManager.desdeFechaLiquidado = datoEncargLiq[0]['hastaFechaLiquidado']
+        this.liquidationManager.desdeHoraLiquidado = datoEncargLiq[0]['hastaHoraLiquidado']
         this.existe = true
       } else this.existe = false
     })
   }
 
   getServicio() {
-    this.servicioService.getByLiquidTerapTrue().subscribe((datoServicio) => {
+    this.service.getByLiquidTerapTrue().subscribe((datoServicio) => {
       this.Liquidada = datoServicio
     })
   }
 
   getServicioFalceLiquid() {
-    this.servicioService.getByLiquidEncargadaFalse().subscribe((datoServicio) => {
+    this.service.getByLiquidEncargadaFalse().subscribe((datoServicio) => {
       this.servicioNoLiquidadaEncargada = datoServicio
     })
   }
 
   getEncargada() {
-    this.loginService.getUsuarios().subscribe((datosEncargada: any) => {
+    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
       this.encargada = datosEncargada
     })
   }
@@ -189,7 +189,7 @@ export class EncargadosComponent implements OnInit {
   }
 
   addLiquidacion() {
-    this.liqEncargada.encargada = ""
+    this.liquidationManager.encargada = ""
     this.calcularSumaDeServicios()
     this.selected = false
     this.liqEncarg = false
@@ -208,22 +208,22 @@ export class EncargadosComponent implements OnInit {
 
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
-      this.liqEncargada.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
+      this.liquidationManager.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
     } else {
-      this.liqEncargada.hastaFechaLiquidado = `${dia}-${mes}-${convertAno}`
+      this.liquidationManager.hastaFechaLiquidado = `${dia}-${mes}-${convertAno}`
     }
 
     if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
-      this.liqEncargada.hastaFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+      this.liquidationManager.hastaFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
     } else {
-      this.liqEncargada.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
+      this.liquidationManager.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
     }
   }
 
   notas(targetModal, modal) {
     var notaMensaje = []
-    this.servicioService.getById(targetModal).subscribe((datoServicio) => {
+    this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
 
       if (notaMensaje['nota'] != '')
@@ -238,19 +238,19 @@ export class EncargadosComponent implements OnInit {
 
     let respuesta: any
 
-    if (this.liqEncargada.encargada != "") {
+    if (this.liquidationManager.encargada != "") {
 
-      this.servicioService.getByEncargada(this.liqEncargada.encargada).subscribe((resp) => {
+      this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp) => {
         respuesta = resp
         if (respuesta.length > 0) {
 
           this.selected = true
 
           const condicionEncargada = serv => {
-            return (this.liqEncargada.encargada) ? serv.encargada === this.liqEncargada.encargada : true
+            return (this.liquidationManager.encargada) ? serv.encargada === this.liquidationManager.encargada : true
           }
 
-          this.servicioService.getEncargFechaDesc(this.liqEncargada.encargada).subscribe((fechaDesc: any) => {
+          this.service.getEncargFechaDesc(this.liquidationManager.encargada).subscribe((fechaDesc: any) => {
             let año = "", mes = "", dia = ""
             año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
             mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
@@ -260,7 +260,7 @@ export class EncargadosComponent implements OnInit {
             this.horaAsc = fechaDesc[0]['horaStart']
           })
 
-          this.servicioService.getEncargFechaAsc(this.liqEncargada.encargada).subscribe((fechaAsc) => {
+          this.service.getEncargFechaAsc(this.liquidationManager.encargada).subscribe((fechaAsc) => {
             let año = "", mes = "", dia = ""
             año = fechaAsc[0]['fechaHoyInicio'].substring(2, 4)
             mes = fechaAsc[0]['fechaHoyInicio'].substring(5, 7)
@@ -325,9 +325,9 @@ export class EncargadosComponent implements OnInit {
           }, 0)
 
           let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-          this.liqEncargada.importe = 0
+          this.liquidationManager.importe = 0
 
-          this.loginService.getEncargada(this.liqEncargada.encargada).subscribe((datosNameTerapeuta) => {
+          this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
             this.encargadaName = datosNameTerapeuta[0]
             this.tableComision()
 
@@ -358,7 +358,7 @@ export class EncargadosComponent implements OnInit {
 
             this.recibidoTerap = this.totalValorEncargada + this.totalValorTerapeuta
 
-            return this.liqEncargada.importe = this.sumaComision - Number(this.recibidoTerap)
+            return this.liquidationManager.importe = this.sumaComision - Number(this.recibidoTerap)
           })
         }
       })
@@ -369,8 +369,8 @@ export class EncargadosComponent implements OnInit {
   }
 
   editar() {
-    this.liqEncargada.importe = this.liqEncargada.importe
-    this.liqudacionEncargServ.updateEncargImporteId(this.idLiquid, this.liqEncargada).subscribe((rp) => { })
+    this.liquidationManager.importe = this.liquidationManager.importe
+    this.serviceLiquidationManager.updateEncargImporteId(this.idLiquid, this.liquidationManager).subscribe((rp) => { })
 
     setTimeout(() => {
       this.getLiquidaciones()
@@ -379,12 +379,12 @@ export class EncargadosComponent implements OnInit {
       this.editEncarg = false
       this.selected = false
       this.mostrarFecha = false
-      this.liqEncargada.encargada = ""
+      this.liquidationManager.encargada = ""
     }, 1000);
   }
 
   editamos(id: number) {
-    this.servicioService.getByIdEncarg(id).subscribe((rp: any) => {
+    this.service.getByIdEncarg(id).subscribe((rp: any) => {
       if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
     })
   }
@@ -395,14 +395,14 @@ export class EncargadosComponent implements OnInit {
     this.addEncarg = false
     this.editEncarg = true
 
-    this.liqudacionEncargServ.getIdEncarg(id).subscribe((datos) => {
+    this.serviceLiquidationManager.getIdEncarg(id).subscribe((datos) => {
       this.fechaAsc = datos[0]['desdeFechaLiquidado']
       this.horaAsc = datos[0]['desdeHoraLiquidado']
       this.fechaDesc = datos[0]['hastaFechaLiquidado']
       this.horaDesc = datos[0]['hastaHoraLiquidado']
     })
 
-    this.servicioService.getByIdEncarg(id).subscribe((datosEncargada) => {
+    this.service.getByIdEncarg(id).subscribe((datosEncargada) => {
       this.datosLiquidadoEncargada = datosEncargada;
 
       // Filter by servicio
@@ -448,9 +448,9 @@ export class EncargadosComponent implements OnInit {
       }, 0)
 
       let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-      this.liqEncargada.importe = 0
+      this.liquidationManager.importe = 0
 
-      this.loginService.getEncargada(this.datosLiquidadoEncargada[0]['encargada']).subscribe((datosNameTerapeuta) => {
+      this.serviceManager.getEncargada(this.datosLiquidadoEncargada[0]['encargada']).subscribe((datosNameTerapeuta) => {
         this.encargadaName = datosNameTerapeuta[0]
         this.tableComision()
 
@@ -487,15 +487,15 @@ export class EncargadosComponent implements OnInit {
             return accumulator + serv.numberTerap
           }, 0)
         }
-        return this.liqEncargada.importe = this.sumaComision - Number(this.recibidoTerap)
+        return this.liquidationManager.importe = this.sumaComision - Number(this.recibidoTerap)
       })
     })
   }
 
   editarEncargada() {
-    this.liqudacionEncargServ.getIdEncarg(this.datosLiquidadoEncargada[0]['idEncargada']).subscribe((datos: any) => {
+    this.serviceLiquidationManager.getIdEncarg(this.datosLiquidadoEncargada[0]['idEncargada']).subscribe((datos: any) => {
       for (let index = 0; index < datos.length; index++) {
-        this.liqudacionEncargServ.updateById(datos[index]['idEncargada'], this.liqEncargada).subscribe((datos) => {
+        this.serviceLiquidationManager.updateById(datos[index]['idEncargada'], this.liquidationManager).subscribe((datos) => {
           this.liqEncarg = true
           this.addEncarg = false
           this.editEncarg = false
@@ -541,32 +541,32 @@ export class EncargadosComponent implements OnInit {
     this.editEncarg = false
     this.selected = false
     this.mostrarFecha = false
-    this.liqEncargada.encargada = ""
+    this.liquidationManager.encargada = ""
   }
 
   guardar() {
-    this.liqEncargada.currentDate = this.currentDate.toString()
+    this.liquidationManager.currentDate = this.currentDate.toString()
 
-    if (this.liqEncargada.encargada) {
+    if (this.liquidationManager.encargada) {
       if (this.existe === true) {
 
-        this.servicioService.getEncargadaAndLiquidacion(this.liqEncargada.encargada).subscribe((datos: any) => {
-          this.liqEncargada.idEncargada = datos[0]['id']
+        this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datos: any) => {
+          this.liquidationManager.idEncargada = datos[0]['id']
           for (let index = 0; index < datos.length; index++) {
-            this.liqEncargada.tratamiento = datos.length
-            this.servicioService.updateLiquidacionEncarg(datos[index]['id'], this.liqEncargada).subscribe((datos) => {
+            this.liquidationManager.tratamiento = datos.length
+            this.service.updateLiquidacionEncarg(datos[index]['id'], this.liquidationManager).subscribe((datos) => {
             })
           }
 
           this.fechaOrdenada()
 
-          this.liqudacionEncargServ.getByEncargada(this.liqEncargada.encargada).subscribe((rp) => {
-            this.liqEncargada.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
-              this.liqEncargada.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+          this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp) => {
+            this.liquidationManager.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
+              this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
            })
           
 
-          this.liqudacionEncargServ.registerLiquidacionesEncargada(this.liqEncargada).subscribe((datos) => { })
+          this.serviceLiquidationManager.registerLiquidacionesEncargada(this.liquidationManager).subscribe((datos) => { })
 
           setTimeout(() => {
             this.getLiquidaciones()
@@ -577,7 +577,7 @@ export class EncargadosComponent implements OnInit {
           this.editEncarg = false
           this.selected = false
           this.mostrarFecha = false
-          this.liqEncargada.encargada = ""
+          this.liquidationManager.encargada = ""
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -590,29 +590,29 @@ export class EncargadosComponent implements OnInit {
 
       if (this.existe === false) {
 
-        this.servicioService.getEncargadaAndLiquidacion(this.liqEncargada.encargada).subscribe((datosForFecha) => {
-          this.liqEncargada.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-          this.liqEncargada.desdeHoraLiquidado = datosForFecha[0]['horaStart']
+        this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datosForFecha) => {
+          this.liquidationManager.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
+          this.liquidationManager.desdeHoraLiquidado = datosForFecha[0]['horaStart']
 
           let convertMes = '', convertDia = '', convertAno = ''
 
-          convertDia = this.liqEncargada.desdeFechaLiquidado.toString().substring(8, 11)
-          convertMes = this.liqEncargada.desdeFechaLiquidado.toString().substring(5, 7)
-          convertAno = this.liqEncargada.desdeFechaLiquidado.toString().substring(2, 4)
+          convertDia = this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 11)
+          convertMes = this.liquidationManager.desdeFechaLiquidado.toString().substring(5, 7)
+          convertAno = this.liquidationManager.desdeFechaLiquidado.toString().substring(2, 4)
 
-          this.liqEncargada.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+          this.liquidationManager.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
 
-          this.servicioService.getEncargadaAndLiquidacion(this.liqEncargada.encargada).subscribe((datos: any) => {
-            this.liqEncargada.idEncargada = datos[0]['id']
+          this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datos: any) => {
+            this.liquidationManager.idEncargada = datos[0]['id']
             for (let index = 0; index < datos.length; index++) {
-              this.liqEncargada.tratamiento = datos.length
-              this.servicioService.updateLiquidacionEncarg(datos[index]['id'], this.liqEncargada).subscribe((datos) => {
+              this.liquidationManager.tratamiento = datos.length
+              this.service.updateLiquidacionEncarg(datos[index]['id'], this.liquidationManager).subscribe((datos) => {
               })
             }
 
             this.fechaOrdenada()
 
-            this.liqudacionEncargServ.registerLiquidacionesEncargada(this.liqEncargada).subscribe((datos) => { })
+            this.serviceLiquidationManager.registerLiquidacionesEncargada(this.liquidationManager).subscribe((datos) => { })
 
             setTimeout(() => {
               this.getLiquidaciones()
@@ -623,7 +623,7 @@ export class EncargadosComponent implements OnInit {
             this.editEncarg = false
             this.selected = false
             this.mostrarFecha = false
-            this.liqEncargada.encargada = ""
+            this.liquidationManager.encargada = ""
             Swal.fire({
               position: 'top-end',
               icon: 'success',

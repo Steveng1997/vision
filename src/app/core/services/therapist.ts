@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 // Model
-import { Terapeutas } from '../models/terapeutas';
+import { ModelTherapist } from '../models/therapist';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TrabajadoresService {
+export class ServiceTherapist {
 
   // API_Encargada = 'http://localhost:3000/api/encargada';
   // API_Terapeuta = 'http://localhost:3000/api/terapeuta';
@@ -23,8 +23,8 @@ export class TrabajadoresService {
 
   // Register
 
-  registerTerapeuta(terapeuta: Terapeutas) {
-    return this.http.post(`${this.API_Terapeuta}/registerTerapeuta`, terapeuta);
+  registerTerapeuta(therapist: ModelTherapist) {
+    return this.http.post(`${this.API_Terapeuta}/registerTerapeuta`, therapist);
   }
 
   // Get
@@ -55,16 +55,16 @@ export class TrabajadoresService {
 
   // Update
 
-  updateTerapeutas(id: number, terapeuta: Terapeutas) {
-    return this.http.put(`${this.API_Terapeuta}/updateTherapistById/${id}`, terapeuta);
+  updateTerapeutas(id: number, therapist: ModelTherapist) {
+    return this.http.put(`${this.API_Terapeuta}/updateTherapistById/${id}`, therapist);
   }
 
-  update(nombreTerap, terapeuta: Terapeutas) {
-    return this.http.put(`${this.API_Terapeuta}/update3Item/${nombreTerap}`, terapeuta);
+  update(nombreTerap, therapist: ModelTherapist) {
+    return this.http.put(`${this.API_Terapeuta}/update3Item/${nombreTerap}`, therapist);
   }
 
-  updateHoraAndSalida(nombreTerap: string, terapeuta: Terapeutas) {
-    return this.http.put(`${this.API_Terapeuta}/updateByHoraAndSalida/${nombreTerap}`, terapeuta);
+  updateHoraAndSalida(nombreTerap: string, therapist: ModelTherapist) {
+    return this.http.put(`${this.API_Terapeuta}/updateByHoraAndSalida/${nombreTerap}`, therapist);
   }
 
   // Delete
