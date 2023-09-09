@@ -6,7 +6,7 @@ import { ConfiguracionComponent } from './navigation/configuracion/configuracion
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TherapistComponent } from './navigation/liquidacion/therapist/therapist.component';
-import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
+import { ManagerComponent } from './navigation/liquidacion/manager/manager.component';
 import { LoginComponent } from './navigation/login/login.component';
 import { CierreComponent } from './navigation/cierre/cierre.component';
 
@@ -41,7 +41,7 @@ const routes: Routes = [
       },
       {
         path: 'encargadas',
-        component: EncargadosComponent
+        component: ManagerComponent
       }
     ]
   },

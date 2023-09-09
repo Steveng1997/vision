@@ -84,7 +84,7 @@ export class NuevoServicioComponent implements OnInit {
   terapEdit: any
   terapeutaSelect: any
 
-  cargamos = false
+  cargamos: boolean
   addService = false
 
   services: ModelService = {
@@ -193,18 +193,18 @@ export class NuevoServicioComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
 
     this.addService = true
+    this.cargamos = false
 
-    this.getTerapeuta()
-    this.getEncargada()
-    this.fecha()
+    this.getTherapist()
+    this.getManager()
+    this.date()
     this.cargar()
-    this.getLastDate()
     this.horaInicialServicio = this.horaStarted
     this.services.horaEnd = this.horaStarted
     this.services.horaStart = this.horaStarted
   }
 
-  fecha() {
+  date() {
     let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
 
     dia = fecha.getDate()
@@ -241,22 +241,19 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   getLastDate() {
-    this.service.getServicio().subscribe((datoLastDate) => {
-      if (datoLastDate[0] != undefined) {
-        this.fechaLast[0] = datoLastDate[0]
-      } else {
-        this.fechaLast = datoLastDate['00:00']
-      }
+    this.service.getServicio().subscribe((datoLastDate: any) => {
+      if (datoLastDate.length > 0) this.fechaLast[0] = datoLastDate[0]
+      else this.fechaLast = datoLastDate['00:00']
     })
   }
 
-  getTerapeuta() {
+  getTherapist() {
     this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
       this.terapeuta = datosTerapeuta
     })
   }
 
-  getEncargada() {
+  getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
       this.encargada = datosEncargada
     })
@@ -270,7 +267,7 @@ export class NuevoServicioComponent implements OnInit {
     this.chageDate = event.target.value.substring(5, 10)
   }
 
-  validarFechaVencida() {
+  expiredDateValidations() {
     const splitDate = this.fechaActual.split('-')
     const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
     const currentDate = new Date()
@@ -289,7 +286,7 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  crearIdUnico() {
+  createUniqueId() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = (d + Math.random() * 16) % 16 | 0
@@ -302,9 +299,9 @@ export class NuevoServicioComponent implements OnInit {
     return this.idUnico
   }
 
-  TodosCobroSelect() {
+  selectFive() {
 
-    this.valirdarCero()
+    this.validateTheEmptyField()
 
     if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
       || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
@@ -369,9 +366,9 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  mas4Select() {
+  selectFour() {
 
-    this.valirdarCero()
+    this.validateTheEmptyField()
 
     if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
       || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
@@ -455,9 +452,9 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  mas3Select() {
+  selectThree() {
 
-    this.valirdarCero()
+    this.validateTheEmptyField()
 
     if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
       || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
@@ -554,7 +551,7 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  todoenCero() {
+  convertZero() {
     this.services.numberPiso1 = "0"
     this.services.numberPiso2 = "0"
     this.services.numberEncarg = "0"
@@ -569,7 +566,7 @@ export class NuevoServicioComponent implements OnInit {
     this.services.totalServicio = 0
   }
 
-  valirdarCero() {
+  validateTheEmptyField() {
     if (this.services.bebidas == "") this.services.bebidas = "0"
     if (this.services.numberEncarg == "") this.services.numberEncarg = "0"
     if (this.services.numberOtro == "") this.services.numberOtro = "0"
@@ -608,9 +605,9 @@ export class NuevoServicioComponent implements OnInit {
     if (this.services.transOtro == true) this.counttrans += 1
   }
 
-  mas2Select(piso1, piso2, terapeuta, encargada, otros) {
+  selectTwo(piso1, piso2, terapeuta, encargada, otros) {
 
-    this.valirdarCero()
+    this.validateTheEmptyField()
 
     if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
 
@@ -694,7 +691,7 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  mas2SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
+  selectMoreThanTwo(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
 
     this.services.numberPiso1 = piso1
     this.services.numberPiso2 = piso2
@@ -720,7 +717,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.efectTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.efectOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.services.formaPago = 'Efectivo'
           this.completoEfectivo = 1
 
@@ -765,7 +762,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.bizuTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.bizuOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.services.formaPago = 'Bizum'
           this.completoBizum = 1
 
@@ -810,7 +807,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.tarjTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.tarjOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.services.formaPago = 'Tarjeta'
           this.completoTarjeta = 1
 
@@ -855,7 +852,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.transTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.transOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.services.formaPago = 'Transaccion'
           this.completoTrans = 1
 
@@ -888,9 +885,9 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  mas1Select() {
+  selectMoreThanOne() {
 
-    this.valirdarCero()
+    this.validateTheEmptyField()
 
     if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
       || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
@@ -970,7 +967,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.efectTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.efectOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.completoEfectivo = 1
           this.services.formaPago = "Efectivo"
 
@@ -1010,7 +1007,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.bizuTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.bizuOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.completoBizum = 1
           this.services.formaPago = 'Bizum'
 
@@ -1050,7 +1047,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.tarjTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.tarjOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.completoTarjeta = 1
           this.services.formaPago = 'Tarjeta'
 
@@ -1090,7 +1087,7 @@ export class NuevoServicioComponent implements OnInit {
           if (this.services.transTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
           if (this.services.transOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
 
-          this.todoenCero()
+          this.convertZero()
           this.completoTrans = 1
 
           this.service.registerServicio(this.services).subscribe((register) => { })
@@ -1132,7 +1129,7 @@ export class NuevoServicioComponent implements OnInit {
       if (this.services.efectTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
       if (this.services.efectOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
 
-      this.todoenCero()
+      this.convertZero()
       this.completoEfectivo = 1
       this.services.formaPago = "Efectivo"
 
@@ -1172,7 +1169,7 @@ export class NuevoServicioComponent implements OnInit {
       if (this.services.bizuTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
       if (this.services.bizuOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
 
-      this.todoenCero()
+      this.convertZero()
       this.completoBizum = 1
       this.services.formaPago = "Bizum"
 
@@ -1212,7 +1209,7 @@ export class NuevoServicioComponent implements OnInit {
       if (this.services.tarjTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
       if (this.services.tarjOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
 
-      this.todoenCero()
+      this.convertZero()
       this.completoTarjeta = 1
       this.services.formaPago = "Tarjeta"
 
@@ -1252,7 +1249,7 @@ export class NuevoServicioComponent implements OnInit {
       if (this.services.transTerap == true) this.service.updateNumberTerap(idUnico, terapeuta).subscribe((rp) => { })
       if (this.services.transOtro == true) this.service.updateNumberOtros(idUnico, otros).subscribe((rp) => { })
 
-      this.todoenCero()
+      this.convertZero()
       this.completoTrans = 1
       this.services.formaPago = "Transaccion"
 
@@ -1288,11 +1285,11 @@ export class NuevoServicioComponent implements OnInit {
         if (Number(this.services.servicio) > 0) {
 
           // Methods 
-          this.crearIdUnico()
-          if (!this.validarFechaVencida()) return
+          this.createUniqueId()
+          if (!this.expiredDateValidations()) return
           if (!this.validacionFormasPago()) return
-          if (!this.validacionesFormaPagoAdd()) return
-          this.totalServicio()
+          if (!this.validatePaymentMethod()) return
+          this.sumService()
           this.efectCheckToggle(this.validateEfect)
           this.bizumCheckToggle(this.validateBizum)
           this.tarjCheckToggle(this.validateTarjeta)
@@ -1319,23 +1316,23 @@ export class NuevoServicioComponent implements OnInit {
             this.cargamos = true
             this.services.editar = true
 
-            if (!this.TodosCobroSelect()) return
+            if (!this.selectFive()) return
 
             if (this.services.formaPago == "") {
               if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4) {
-                if (!this.mas4Select()) return
+                if (!this.selectFour()) return
               }
             }
 
             if (this.services.formaPago == "") {
               if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3) {
-                if (!this.mas3Select()) return
+                if (!this.selectThree()) return
               }
             }
 
             if (this.services.formaPago == "") {
               if (this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                if (!this.mas2Select(piso1, piso2, terapeuta, encargada, otros)) return
+                if (!this.selectTwo(piso1, piso2, terapeuta, encargada, otros)) return
               }
             }
 
@@ -1346,7 +1343,7 @@ export class NuevoServicioComponent implements OnInit {
                   if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
                     this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                       if (idUnicoExit.length > 0) {
-                        if (!this.mas2SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                        if (!this.selectMoreThanTwo(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
                       }
                     })
                   }
@@ -1375,7 +1372,7 @@ export class NuevoServicioComponent implements OnInit {
 
             if (this.services.formaPago == "") {
               if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-                if (!this.mas1Select()) return
+                if (!this.selectMoreThanOne()) return
 
                 setTimeout(() => {
                   if (this.services.formaPago != "") {
@@ -1444,14 +1441,14 @@ export class NuevoServicioComponent implements OnInit {
     }
   }
 
-  totalServicio() {
+  sumService() {
     this.services.totalServicio = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) +
       Number(this.services.numberTerap) + Number(this.services.numberEncarg) + Number(this.services.numberOtro)
   }
 
   efectCheckToggle(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
-    if (!this.validacionesFormaPagoAdd()) return
+    if (!this.validatePaymentMethod()) return
 
     if (event) {
 
@@ -1493,7 +1490,7 @@ export class NuevoServicioComponent implements OnInit {
 
   bizumCheckToggle(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
-    if (!this.validacionesFormaPagoAdd()) return
+    if (!this.validatePaymentMethod()) return
 
     if (event) {
 
@@ -1535,7 +1532,7 @@ export class NuevoServicioComponent implements OnInit {
 
   tarjCheckToggle(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
-    if (!this.validacionesFormaPagoAdd()) return
+    if (!this.validatePaymentMethod()) return
 
     if (event) {
 
@@ -1578,7 +1575,7 @@ export class NuevoServicioComponent implements OnInit {
   transCheckToggle(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
-    if (!this.validacionesFormaPagoAdd()) return
+    if (!this.validatePaymentMethod()) return
 
     if (event) {
       if (Number(this.services.numberPiso1) > 0 && this.services.transPiso1 == true) {
@@ -1806,19 +1803,16 @@ export class NuevoServicioComponent implements OnInit {
   }
 
   terapeu(event: any) {
+    this.getLastDate()
     this.service.getTerapeutaByAsc(event).subscribe((rp: any) => {
-      if (rp[0] != undefined) {
-        this.horaStartTerapeuta = rp[0]['horaStart']
-      }
+      if (rp.length > 0) this.horaStartTerapeuta = rp[0]['horaStart']
+      else this.horaStartTerapeuta = ''
     })
 
     this.service.getTerapeutaByDesc(event).subscribe((rp: any) => {
-      if (rp[0] != undefined) {
-        this.horaEndTerapeuta = rp[0]['horaStart']
-      }
+      if (rp.length > 0) this.horaEndTerapeuta = rp[0]['horaStart']
+      else this.horaEndTerapeuta = ''
     })
-    this.horaStartTerapeuta = ''
-    this.horaEndTerapeuta = ''
   }
 
   encargadaAndTerapeuta() {
@@ -1836,7 +1830,7 @@ export class NuevoServicioComponent implements OnInit {
     if (this.services.transEncarg == true && Number(this.services.numberEncarg) > 0) this.services.valueTransEncargada = Number(this.services.numberEncarg)
   }
 
-  validacionesFormaPagoAdd() {
+  validatePaymentMethod() {
 
     // Efectivo
     if (this.services.efectPiso1 == true && this.services.bizuPiso1 == true || this.services.efectPiso2 == true &&
@@ -1931,7 +1925,7 @@ export class NuevoServicioComponent implements OnInit {
 
   // -------------------------------------------- Editamos  // ---------------------------------------------
 
-  validacionesFormaPagoEdit() {
+  validationsFormOfPaymentToEdit() {
     // Efectivo Editar
     if (this.editarService[0]['efectPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
       this.editarService[0]['efectPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
@@ -2014,7 +2008,7 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  validacionFormasPagoEdit() {
+  validationsToSelectAPaymentMethod() {
 
     if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] == false &&
       this.editarService[0]['bizuPiso1'] == false && this.editarService[0]['tarjPiso1'] == false &&
@@ -2049,7 +2043,7 @@ export class NuevoServicioComponent implements OnInit {
     return true
   }
 
-  fechaOrdenadaEdit() {
+  sortDateToEdit() {
     let dia = '', mes = '', año = ''
 
     dia = this.editarService[0]['fecha'].substring(8, 10)
@@ -2070,8 +2064,6 @@ export class NuevoServicioComponent implements OnInit {
     let fecha = new Date(), dia = '', mes = '', año = 0
 
     año = fecha.getFullYear()
-
-    debugger
 
     const paramEditar = this.activatedRoute.snapshot.params['editar']
     this.idUserAdministrador = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
@@ -2195,21 +2187,21 @@ export class NuevoServicioComponent implements OnInit {
     }
   }
 
-  editarServicio(idServicio, serv: ModelService) {
+  editService(idServicio, serv: ModelService) {
     if (this.restamosCobroEdit == 0) {
       let idUsuario = ''
       idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
 
-      if (!this.validarFechaVencida()) return
-      if (!this.validacionFormasPagoEdit()) return
-      if (!this.validacionesFormaPagoEdit()) return
+      if (!this.expiredDateValidations()) return
+      if (!this.validationsToSelectAPaymentMethod()) return
+      if (!this.validationsFormOfPaymentToEdit()) return
       this.totalServicioEdit()
       this.efectCheckToggleEdit(this.validateEfect)
       this.bizumCheckToggleEdit(this.validateBizum)
       this.tarjCheckToggleEdit(this.validateTarjeta)
       this.transCheckToggleEdit(this.validateTrans)
       this.encargadaAndTerapeutaEdit()
-      this.fechaOrdenadaEdit()
+      this.sortDateToEdit()
       this.editValue()
 
       this.service.updateServicio(idServicio, serv).subscribe((rp: any) => { })
@@ -2345,7 +2337,7 @@ export class NuevoServicioComponent implements OnInit {
   efectCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0
 
-    if (!this.validacionesFormaPagoEdit()) return
+    if (!this.validationsFormOfPaymentToEdit()) return
     if (event) {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {
@@ -2388,7 +2380,7 @@ export class NuevoServicioComponent implements OnInit {
   bizumCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
-    if (!this.validacionesFormaPagoEdit()) return
+    if (!this.validationsFormOfPaymentToEdit()) return
     if (event) {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['bizuPiso1'] === true) {
@@ -2431,7 +2423,7 @@ export class NuevoServicioComponent implements OnInit {
   tarjCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
-    if (!this.validacionesFormaPagoEdit()) return
+    if (!this.validationsFormOfPaymentToEdit()) return
     if (event) {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['tarjPiso1'] === true) {
@@ -2474,7 +2466,7 @@ export class NuevoServicioComponent implements OnInit {
   transCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
-    if (!this.validacionesFormaPagoEdit()) return
+    if (!this.validationsFormOfPaymentToEdit()) return
     if (event) {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['transPiso1'] === true) {
@@ -2580,7 +2572,7 @@ export class NuevoServicioComponent implements OnInit {
     }
   }
 
-  eliminarServicio(id) {
+  deleteService(id) {
     let idUsuario = ''
     idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.service.getById(id).subscribe((datoEliminado) => {
@@ -2609,7 +2601,7 @@ export class NuevoServicioComponent implements OnInit {
     })
   }
 
-  cancelar() {
+  cancel() {
     this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
   }

@@ -346,12 +346,10 @@
             </div>
         </div>
 
-        <div class="titulos">
-            <button type="submit" mat-raised-button class="btn btn-primary titulos btnGuardar"
+        <div class="titulos btnGuardar">
+            <button type="submit" mat-raised-button class="btn btn-primary"
                 style="display: grid; margin: auto;" color="primary" (click)="addServicio()">Guardar</button>
         </div>
-
-        <!-- <div *ngIf="cargamos" class="loader-page"> </div> -->
     </div>
 </div>
 
@@ -367,7 +365,7 @@
 
 <!------------------------------------------ Editar ------------------------------------------>
 
-<div class="container" *ngIf="editamos">
+<div class="container" *ngIf="editamos && addService">
     <div>
 
         <h4 style="text-align: center; margin-bottom: 5%; font-size: xx-large;">Editar</h4>
@@ -704,17 +702,17 @@
 
                     <div class="col-4">
                         <button class="btn btn-primary titulos" style="display: grid; margin: auto;"
-                            (click)="editarServicio(edServ.id, edServ)">Guardar</button>
+                            (click)="editService(edServ.id, edServ)">Guardar</button>
                     </div>
 
                     <div class="col-4">
                         <button class="btn btn-success titulos" style="display: grid; margin: auto;"
-                            (click)="cancelar()">Cancelar</button>
+                            (click)="cancel()">Cancelar</button>
                     </div>
 
                     <div class="col-4" *ngIf="buttonDelete">
                         <button class="btn btn-danger titulos" style="display: grid; margin: auto;"
-                            (click)="eliminarServicio(edServ.id)">Eliminar</button>
+                            (click)="deleteService(edServ.id)">Eliminar</button>
                     </div>
                 </div>
             </div>

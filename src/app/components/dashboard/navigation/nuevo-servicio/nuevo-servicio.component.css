@@ -2,8 +2,6 @@
   border-width: thin;
 }
 
-@import url('//fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
-
 .contenedorCargando {
   display: flex;
   justify-content: center;
@@ -83,7 +81,7 @@
   }
 
   .btnGuardar {
-    margin-bottom: 4%
+    margin-bottom: 7%
   }
 
   .botones {
@@ -140,7 +138,7 @@
   }
 
   .btnGuardar {
-    margin-bottom: 4%
+    margin-bottom: 2%
   }
 
   .botones {

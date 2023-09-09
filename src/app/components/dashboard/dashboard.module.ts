@@ -29,7 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
 import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
-import { EncargadosComponent } from './navigation/liquidacion/encargados/encargados.component';
+import { ManagerComponent } from './navigation/liquidacion/manager/manager.component';
 import { TherapistComponent } from './navigation/liquidacion/therapist/therapist.component';
 import { CierreComponent } from './navigation/cierre/cierre.component';
 import { VisionComponent } from './navigation/vision/vision.component';
@@ -51,7 +51,7 @@ import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe'
 
 @NgModule({
   declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent,
-    EncargadosComponent, TherapistComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe,
+    ManagerComponent, TherapistComponent, VisionComponent, TablaComponent, TerapeutaPipe, EncargadaPipe,
     FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
     FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],
 

@@ -13,11 +13,11 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 
 @Component({
-  selector: 'app-encargados',
-  templateUrl: './encargados.component.html',
-  styleUrls: ['./encargados.component.css']
+  selector: 'app-manager',
+  templateUrl: './manager.component.html',
+  styleUrls: ['./manager.component.css']
 })
-export class EncargadosComponent implements OnInit {
+export class ManagerComponent implements OnInit {
 
   idLiquid: number
   liqEncarg: boolean
