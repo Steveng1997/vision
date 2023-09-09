@@ -12,6 +12,7 @@ import { ServiceLiquidationTherapist } from 'src/app/core/services/therapistClos
 
 // Model
 import { LiquidationTherapist } from 'src/app/core/models/liquidationTherapist'
+import { ModelService } from 'src/app/core/models/service'
 
 @Component({
   selector: 'app-therapist',
@@ -78,10 +79,15 @@ export class TherapistComponent implements OnInit {
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
     id: 0,
-    idTerapeuta: 0,
+    idUnico: "",
+    idTerapeuta: "",
     importe: 0,
     terapeuta: "",
     tratamiento: 0
+  }
+
+  services: ModelService = {
+    idTerapeuta: "",
   }
 
   formTemplate = new FormGroup({
@@ -432,7 +438,6 @@ export class TherapistComponent implements OnInit {
   }
 
   goToEdit(id: number) {
-    debugger
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
@@ -443,7 +448,6 @@ export class TherapistComponent implements OnInit {
 
   edit() {
     this.idSettled
-    debugger
     this.liquidationTherapist.importe = this.totalCommission
     this.serviceLiquidationTherapist.updateTerapImporteId(this.idSettled, this.liquidationTherapist).subscribe((rp) => { })
 
@@ -458,6 +462,7 @@ export class TherapistComponent implements OnInit {
   }
 
   dataFormEdit(id: number, idLiq: number) {
+    debugger
     this.idSettled = idLiq
     this.liquidationForm = false
     this.editTerap = true
@@ -576,20 +581,32 @@ export class TherapistComponent implements OnInit {
     })
   }
 
+  createUniqueId() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+
+    this.services.idTerapeuta = uuid
+    this.liquidationTherapist.idUnico = uuid
+    this.liquidationTherapist.idTerapeuta = uuid
+    return this.liquidationTherapist.idUnico
+  }
+
   save() {
+    this.createUniqueId()
+    this.liquidationTherapist.currentDate = this.currentDate.toString()
+
     if (this.liquidationTherapist.terapeuta != "") {
       if (this.liquidationTherapist.encargada != "") {
         if (this.exist === true) {
 
-          debugger
-          console.log('aqui', this.unliquidatedService)
-
-          this.liquidationTherapist.currentDate = this.currentDate.toString()
 
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.liquidationTherapist).subscribe((datos) => {
-            })
+            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
           }
 
           this.getDateFrom()
@@ -624,10 +641,9 @@ export class TherapistComponent implements OnInit {
 
             this.liquidationTherapist.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
 
-
             for (let index = 0; index < this.unliquidatedService.length; index++) {
               this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-              this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.liquidationTherapist).subscribe((datos) => {
+              this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
               })
             }
 

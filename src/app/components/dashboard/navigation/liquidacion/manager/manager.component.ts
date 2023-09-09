@@ -11,6 +11,7 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 
 // Model
 import { LiquidationManager } from 'src/app/core/models/liquidationManager'
+import { ModelService } from 'src/app/core/models/service'
 
 @Component({
   selector: 'app-manager',
@@ -86,9 +87,14 @@ export class ManagerComponent implements OnInit {
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
     id: 0,
+    idUnico: "",
     idEncargada: 0,
     importe: 0,
     tratamiento: 0
+  }
+
+  services: ModelService = {
+    idEncargada: "",
   }
 
   constructor(
@@ -550,21 +556,64 @@ export class ManagerComponent implements OnInit {
     if (this.liquidationManager.encargada) {
       if (this.existe === true) {
 
-        this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datos: any) => {
-          this.liquidationManager.idEncargada = datos[0]['id']
-          for (let index = 0; index < datos.length; index++) {
-            this.liquidationManager.tratamiento = datos.length
-            this.service.updateLiquidacionEncarg(datos[index]['id'], this.liquidationManager).subscribe((datos) => {
+        for (let index = 0; index < this.servicioNoLiquidadaEncargada.length; index++) {
+          this.liquidationManager.tratamiento = this.servicioNoLiquidadaEncargada.length
+          this.services.idEncargada = this.liquidationManager.idUnico
+          this.service.updateLiquidacionEncarg(this.servicioNoLiquidadaEncargada[index]['id'], this.services).subscribe((datos) => {
+          })
+        }
+
+        this.fechaOrdenada()
+
+        this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp) => {
+          this.liquidationManager.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
+          this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+        })
+
+
+        this.serviceLiquidationManager.registerLiquidacionesEncargada(this.liquidationManager).subscribe((datos) => { })
+
+        setTimeout(() => {
+          this.getLiquidaciones()
+        }, 1000);
+
+        this.liqEncarg = true
+        this.addEncarg = false
+        this.editEncarg = false
+        this.selected = false
+        this.mostrarFecha = false
+        this.liquidationManager.encargada = ""
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Liquidado Correctamente!',
+          showConfirmButton: false,
+          timer: 2500,
+        })
+      }
+
+      if (this.existe === false) {
+
+        this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datosForFecha) => {
+          this.liquidationManager.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
+          this.liquidationManager.desdeHoraLiquidado = datosForFecha[0]['horaStart']
+
+          let convertMes = '', convertDia = '', convertAno = ''
+
+          convertDia = this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 11)
+          convertMes = this.liquidationManager.desdeFechaLiquidado.toString().substring(5, 7)
+          convertAno = this.liquidationManager.desdeFechaLiquidado.toString().substring(2, 4)
+
+          this.liquidationManager.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+
+          for (let index = 0; index < this.servicioNoLiquidadaEncargada.length; index++) {
+            this.liquidationManager.tratamiento = this.servicioNoLiquidadaEncargada.length
+            this.services.idEncargada = this.liquidationManager.idUnico
+            this.service.updateLiquidacionEncarg(this.servicioNoLiquidadaEncargada[index]['id'], this.services).subscribe((datos) => {
             })
           }
 
           this.fechaOrdenada()
-
-          this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp) => {
-            this.liquidationManager.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
-              this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
-           })
-          
 
           this.serviceLiquidationManager.registerLiquidacionesEncargada(this.liquidationManager).subscribe((datos) => { })
 
@@ -584,53 +633,6 @@ export class ManagerComponent implements OnInit {
             title: 'Liquidado Correctamente!',
             showConfirmButton: false,
             timer: 2500,
-          })
-        })
-      }
-
-      if (this.existe === false) {
-
-        this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datosForFecha) => {
-          this.liquidationManager.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-          this.liquidationManager.desdeHoraLiquidado = datosForFecha[0]['horaStart']
-
-          let convertMes = '', convertDia = '', convertAno = ''
-
-          convertDia = this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 11)
-          convertMes = this.liquidationManager.desdeFechaLiquidado.toString().substring(5, 7)
-          convertAno = this.liquidationManager.desdeFechaLiquidado.toString().substring(2, 4)
-
-          this.liquidationManager.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
-
-          this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datos: any) => {
-            this.liquidationManager.idEncargada = datos[0]['id']
-            for (let index = 0; index < datos.length; index++) {
-              this.liquidationManager.tratamiento = datos.length
-              this.service.updateLiquidacionEncarg(datos[index]['id'], this.liquidationManager).subscribe((datos) => {
-              })
-            }
-
-            this.fechaOrdenada()
-
-            this.serviceLiquidationManager.registerLiquidacionesEncargada(this.liquidationManager).subscribe((datos) => { })
-
-            setTimeout(() => {
-              this.getLiquidaciones()
-            }, 1000);
-
-            this.liqEncarg = true
-            this.addEncarg = false
-            this.editEncarg = false
-            this.selected = false
-            this.mostrarFecha = false
-            this.liquidationManager.encargada = ""
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Liquidado Correctamente!',
-              showConfirmButton: false,
-              timer: 2500,
-            })
           })
         })
       }

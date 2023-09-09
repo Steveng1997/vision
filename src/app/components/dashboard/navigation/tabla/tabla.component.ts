@@ -83,9 +83,7 @@ export class TablaComponent implements OnInit {
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
     if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((rp) => {
-        this.idUser = rp[0]
-      })
+      this.serviceManager.getById(this.idUser).subscribe((rp) => { this.idUser = rp[0] })
     }
 
     this.getEncargada()
