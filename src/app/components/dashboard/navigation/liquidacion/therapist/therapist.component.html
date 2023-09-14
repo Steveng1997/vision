@@ -146,7 +146,8 @@
 
                 <div class="col-6 selectTerap">
                     <label style="display: contents;">Terapeuta</label>
-                    <select class="form-select addTerapeuta" name="terapeuta" [(ngModel)]="liquidationTherapist.terapeuta">
+                    <select class="form-select addTerapeuta" name="terapeuta"
+                        [(ngModel)]="liquidationTherapist.terapeuta">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let terap of terapeuta" [value]="terap.nombre">{{terap.nombre}}
                         </option>
@@ -155,8 +156,8 @@
 
                 <div class="col-6">
                     <label style="display: contents;">Encargada</label>
-                    <select class="form-select addEncargada" name="encargada" [(ngModel)]="liquidationTherapist.encargada"
-                        (ngModelChange)="calculateServices()">
+                    <select class="form-select addEncargada" name="encargada"
+                        [(ngModel)]="liquidationTherapist.encargada" (ngModelChange)="calculateServices()">
                         <option selected value="">Selecciona</option>
                         <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
                         </option>
@@ -170,8 +171,8 @@
                     <div class="col-2 fechaInicio">
                         <label style="display: contents;">Inicial</label>
                         <input type="date" class="form-control" name="desdeFechaLiquidado"
-                            [(ngModel)]="liquidationTherapist.desdeFechaLiquidado" [value]="liquidationTherapist.desdeFechaLiquidado"
-                            (change)="inputDateAndTime()">
+                            [(ngModel)]="liquidationTherapist.desdeFechaLiquidado"
+                            [value]="liquidationTherapist.desdeFechaLiquidado" (change)="inputDateAndTime()">
                     </div>
 
                     <div class="col-2 horaInicio" style="align-self: end;">
@@ -183,14 +184,14 @@
                     <div class="col-2 fechaFinal">
                         <label style="display: contents;">Final</label>
                         <input type="date" class="form-control" name="hastaFechaLiquidado"
-                            [(ngModel)]="liquidationTherapist.hastaFechaLiquidado" [value]="liquidationTherapist.hastaFechaLiquidado"
-                            (change)="inputDateAndTime()">
+                            [(ngModel)]="liquidationTherapist.hastaFechaLiquidado"
+                            [value]="liquidationTherapist.hastaFechaLiquidado" (change)="inputDateAndTime()">
                     </div>
 
                     <div class="col-2 horaFinal" style="align-self: end;">
                         <input type="time" name="horaStart" min="18:00" max="21:00" step="3600" class="form-control"
-                            [(ngModel)]="liquidationTherapist.hastaHoraLiquidado" [value]="liquidationTherapist.hastaHoraLiquidado"
-                            (change)="inputDateAndTime()">
+                            [(ngModel)]="liquidationTherapist.hastaHoraLiquidado"
+                            [value]="liquidationTherapist.hastaHoraLiquidado" (change)="inputDateAndTime()">
                     </div>
                 </div>
 
@@ -241,7 +242,8 @@
                                     <td class="columnImporte">Otros</td>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let serv of (unliquidatedService | terapeuta: liquidationTherapist.terapeuta | 
+                            <tbody
+                                *ngFor="let serv of (unliquidatedService | terapeuta: liquidationTherapist.terapeuta | 
                         encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, currentPage: page }">
                                 <tr style="cursor: pointer">
                                     <!-- 1 -->
@@ -511,7 +513,7 @@
                             <!-- 3 -->
                             <td class="columnImporte"> Salida</td>
                             <!-- 4 -->
-                            <td class="columnImporte"> Hora</td>
+                            <td class="columnHora"> Hora</td>
                             <!-- 5 -->
                             <td class="columnTratamiento">Tratamiento</td>
                             <!-- 6 -->
@@ -548,8 +550,8 @@
                             </td>
                             <!-- 4 -->
                             <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                style="text-align: left; border-bottom: hidden;">{{serv.hora}}
-                            </td>
+                                style="text-align: left; border-bottom: hidden;">
+                                {{serv.horaStart + ' -' + serv.horaEnd}} </td>
                             <!-- 5 -->
                             <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                 style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
@@ -617,21 +619,24 @@
                         <!-- 4 -->
                         <td></td>
                         <!-- 5 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalService + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">{{totalService + ' €'}}</td>
                         <!-- 6 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalTipValue + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">{{totalTipValue + ' €'}}</td>
                         <!-- 7 -->
                         <td></td>
                         <!-- 8 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalTherapistValue + '€'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">
+                            {{totalTherapistValue + '€'}} </td>
                         <!-- 9 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValueDrink + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">{{totalValueDrink + ' €'}}</td>
                         <!-- 10 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalTobaccoValue + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">
+                            {{totalTobaccoValue + ' €'}} </td>
                         <!-- 11 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValueVitamins + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">
+                            {{totalValueVitamins + ' €'}} </td>
                         <!-- 12 -->
-                        <td style="font-weight: bold; text-align: right;">{{totalValueOther + ' €'}}</td>
+                        <td class="worth" style="font-weight: bold; text-align: right;">{{totalValueOther + ' €'}}</td>
                     </tr>
                 </table>
 

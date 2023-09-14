@@ -311,4 +311,8 @@ td {
   .addEncargada{
     width: 35%;
   }
+
+  .worth{
+    padding-left: 15px;
+  }
 }

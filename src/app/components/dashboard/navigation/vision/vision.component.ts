@@ -271,13 +271,13 @@ export class VisionComponent implements OnInit {
     if (minutos_final < minutos_inicio) return ''
 
     // Diferencia de minutos
-    var diferencia = parseInt(minutos_final) - minutos_inicio
+    var diferencia = parseInt(minutos_final) - minutos_inicio   
 
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
     debugger
-    this.terapeutas[id].minuto = minutos.toString()
+    
 
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos
@@ -287,6 +287,8 @@ export class VisionComponent implements OnInit {
     } else {
       this.horaEnd = this.horaHoy
     }
+
+    this.terapeutas[id].minuto = this.horaEnd.toString()
 
     return this.horaEnd
   }

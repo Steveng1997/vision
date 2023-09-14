@@ -320,37 +320,38 @@ export class TherapistComponent implements OnInit {
               return accumulator + serv.propina
             }, 0)
 
+            debugger
             // Filter by Pago
-            const terapeuta = this.unliquidatedService.filter(serv => serv.rp)
+            const terapeuta = this.unliquidatedService.filter(serv => rp)
             this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
               return accumulator + serv.numberTerap
             }, 0)
 
-            const encargada = this.unliquidatedService.filter(serv => serv.rp)
+            const encargada = this.unliquidatedService.filter(serv => rp)
             this.totalValueOrdered = encargada.reduce((accumulator, serv) => {
               return accumulator + serv.numberEncarg
             }, 0)
 
             // Filter by Bebida
-            const bebida = this.unliquidatedService.filter(serv => serv.rp)
+            const bebida = this.unliquidatedService.filter(serv => rp)
             this.totalValueDrink = bebida.reduce((accumulator, serv) => {
               return accumulator + serv.bebidas
             }, 0)
 
             // Filter by Tabaco
-            const tabac = this.unliquidatedService.filter(serv => serv.rp)
+            const tabac = this.unliquidatedService.filter(serv => rp)
             this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
               return accumulator + serv.tabaco
             }, 0)
 
             // Filter by Vitamina
-            const vitamina = this.unliquidatedService.filter(serv => serv.rp)
+            const vitamina = this.unliquidatedService.filter(serv => rp)
             this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
               return accumulator + serv.vitaminas
             }, 0)
 
             // Filter by Vitamina
-            const otroServicio = this.unliquidatedService.filter(serv => serv.rp)
+            const otroServicio = this.unliquidatedService.filter(serv => rp)
             this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
               return accumulator + serv.otros
             }, 0)

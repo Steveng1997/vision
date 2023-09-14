@@ -1419,7 +1419,6 @@ export class NuevoServicioComponent implements OnInit {
             this.therapist.horaEnd = this.services.horaEnd
             this.therapist.salida = this.services.salida
             this.therapist.fechaEnd = this.services.fechaHoyInicio
-            debugger
             this.therapist.minuto = this.services.minuto
 
             this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
@@ -2049,6 +2048,8 @@ export class NuevoServicioComponent implements OnInit {
   sortDateToEdit() {
     let dia = '', mes = '', año = ''
 
+    debugger
+
     dia = this.editarService[0]['fecha'].substring(8, 10)
     mes = this.editarService[0]['fecha'].substring(5, 7)
     año = this.editarService[0]['fecha'].substring(2, 4)
@@ -2203,17 +2204,20 @@ export class NuevoServicioComponent implements OnInit {
       this.bizumCheckToggleEdit(this.validateBizum)
       this.tarjCheckToggleEdit(this.validateTarjeta)
       this.transCheckToggleEdit(this.validateTrans)
-      this.encargadaAndTerapeutaEdit()
-      this.sortDateToEdit()
+      this.encargadaAndTerapeutaEdit()      
       this.editValue()
 
-      this.service.updateServicio(idServicio, serv).subscribe((rp: any) => { })
+      debugger
 
       this.therapist.horaEnd = serv.horaEnd
-      this.therapist.fechaEnd = serv.fechaFin
+      this.therapist.fechaEnd = serv.fecha
       this.therapist.salida = serv.salida
-
+      this.therapist.minuto = serv.minuto
+      
       this.serviceTherapist.update(this.editarService[0]['terapeuta'], this.therapist).subscribe((rp: any) => { })
+
+      this.sortDateToEdit()
+      this.service.updateServicio(idServicio, serv).subscribe((rp: any) => { })
 
       setTimeout(() => {
         Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
