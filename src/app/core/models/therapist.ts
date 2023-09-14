@@ -4,6 +4,7 @@ export class  ModelTherapist {
   fechaEnd?: string;
   horaEnd?: string;
   id?: number;
+  minuto?: string;
   nombre?: string;
   otros?: string;
   propina?: string;

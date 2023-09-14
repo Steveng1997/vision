@@ -168,30 +168,6 @@ export class TherapistComponent implements OnInit {
     if (this.totalCommission == undefined) this.totalCommission = 0
   }
 
-  sortDate() {
-    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = '',
-      convertAno = ''
-
-    dia = fecha.getDate()
-    mes = fecha.getMonth() + 1
-    año = fecha.getFullYear()
-    convertAno = año.toString().substring(2, 4)
-
-    if (mes > 0 && mes < 10) {
-      convertMes = '0' + mes
-      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
-    } else {
-      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${mes}-${convertAno}`
-    }
-
-    if (dia > 0 && dia < 10) {
-      convertDia = '0' + dia
-      this.liquidationTherapist.hastaFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
-    } else {
-      this.liquidationTherapist.hastaFechaLiquidado = `${dia}-${convertMes}-${convertAno}`
-    }
-  }
-
   getSettlements() {
     this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones: any) => {
       this.liquidated = datoLiquidaciones
@@ -277,36 +253,54 @@ export class TherapistComponent implements OnInit {
       } else {
         this.dateDoesNotExist()
       }
-
-
-      diaHasta = fecha.getDate()
-      mesHasta = fecha.getMonth() + 1
-      añoHasta = fecha.getFullYear()
-
-      if (mesHasta > 0 && mesHasta < 10) {
-        convertMes = '0' + mesHasta
-        this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
-      } else {
-        this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
-      }
-
-      if (diaHasta > 0 && diaHasta < 10) {
-        convertDia = '0' + diaHasta
-        this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
-      } else {
-        this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
-      }
-      return true
     })
-    return true
+
+
+    diaHasta = fecha.getDate()
+    mesHasta = fecha.getMonth() + 1
+    añoHasta = fecha.getFullYear()
+
+    if (mesHasta > 0 && mesHasta < 10) {
+      convertMes = '0' + mesHasta
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    } else {
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
+    }
+
+    if (diaHasta > 0 && diaHasta < 10) {
+      convertDia = '0' + diaHasta
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+    } else {
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    }
+  }
+
+  calculateServices(): any {
+    if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
+      this.getThoseThatNotLiquidated()
+
+      this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
+        if (resp.length > 0) {
+          this.selected = true
+          this.dateExists()
+
+          setTimeout(() => {
+            if (this.inputDateAndTime()) return
+          }, 200);
+
+        } else {
+          this.selected = false
+          Swal.fire({
+            icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
+          })
+        }
+      })
+    }
   }
 
   inputDateAndTime() {
-    if (!this.dateExists()) return
-    
+    this.getDateFrom()
     setTimeout(() => {
-      this.selected = true
-
       this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
         this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
         this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe((rp: any) => {
@@ -398,16 +392,18 @@ export class TherapistComponent implements OnInit {
               this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
               this.liquidationTherapist.importe = this.totalCommission
             })
+            return true
           } else {
-            this.selected = false
             this.unliquidatedService = rp
             this.convertToZero()
             Swal.fire({
               icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
             })
+            return false
           }
         })
     }, 900);
+    return false
   }
 
   dateDoesNotExist() {
@@ -447,7 +443,6 @@ export class TherapistComponent implements OnInit {
   }
 
   dataFormEdit(id: number, idLiq: number) {
-    debugger
     this.idSettled = idLiq
     this.liquidationForm = false
     this.editTerap = true
@@ -588,15 +583,12 @@ export class TherapistComponent implements OnInit {
       if (this.liquidationTherapist.encargada != "") {
         if (this.exist === true) {
 
-
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationTherapist.tratamiento = this.unliquidatedService.length
             this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
           }
 
           this.getDateFrom()
-          this.sortDate()
-
           this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
 
           setTimeout(() => { this.getSettlements() }, 1000);
@@ -632,7 +624,6 @@ export class TherapistComponent implements OnInit {
               })
             }
 
-            this.sortDate()
             this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
 
             setTimeout(() => {

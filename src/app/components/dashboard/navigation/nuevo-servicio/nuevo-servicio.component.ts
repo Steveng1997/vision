@@ -170,6 +170,7 @@ export class NuevoServicioComponent implements OnInit {
     fechaEnd: "",
     horaEnd: "",
     id: 0,
+    minuto: "",
     nombre: "",
     otros: "",
     propina: "",
@@ -1418,6 +1419,8 @@ export class NuevoServicioComponent implements OnInit {
             this.therapist.horaEnd = this.services.horaEnd
             this.therapist.salida = this.services.salida
             this.therapist.fechaEnd = this.services.fechaHoyInicio
+            debugger
+            this.therapist.minuto = this.services.minuto
 
             this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
 

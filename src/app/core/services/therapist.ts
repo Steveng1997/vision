@@ -60,7 +60,7 @@ export class ServiceTherapist {
   }
 
   update(nombreTerap, therapist: ModelTherapist) {
-    return this.http.put(`${this.API_Terapeuta}/update3Item/${nombreTerap}`, therapist);
+    return this.http.put(`${this.API_Terapeuta}/update4Item/${nombreTerap}`, therapist);
   }
 
   updateHoraAndSalida(nombreTerap: string, therapist: ModelTherapist) {

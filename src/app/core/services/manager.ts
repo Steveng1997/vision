@@ -33,10 +33,6 @@ export class ServiceManager {
     return this.http.get(`${this.API_URL}/idAdmin/${id}`);
   }
 
-  getByIdAll(id: number) {
-    return this.http.get(`${this.API_URL}/idEncargada/${id}`);
-  }
-
   getByUsuario(usuario: string) {
     return this.http.get(`${this.API_URL}/usuarioEncargada/${usuario}`);
   }

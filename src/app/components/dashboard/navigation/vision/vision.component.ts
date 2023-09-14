@@ -76,6 +76,7 @@ export class VisionComponent implements OnInit {
     fechaEnd: "",
     horaEnd: "",
     id: 0,
+    minuto: "",
     nombre: "",
     otros: "",
     propina: "",
@@ -145,7 +146,7 @@ export class VisionComponent implements OnInit {
       if (rp.length > 0) {
         if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
-            this.calculardiferencia(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'])
+            this.calculardiferencia(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'], length)
           }
         }
       }
@@ -191,7 +192,7 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  calculardiferencia(horaFin: string, nombre: string, fecha: string): string {
+  calculardiferencia(horaFin: string, nombre: string, fecha: string, id: number): string {
 
     let hora_actual: any = new Date(), convertHora = '', fechaEnd = '', convertFecha = '',
       fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
@@ -215,9 +216,9 @@ export class VisionComponent implements OnInit {
 
     if (dia > 0 && dia < 10) {
       convertDia = '0' + dia
-      fechaEnd = `${convertDia}-${convertMes}-${año}`
+      fechaEnd = `${año}-${convertMes}-${convertDia}`
     } else {
-      fechaEnd = `${dia}-${convertMes}-${año}`
+      fechaEnd = `${año}-${convertMes}-${dia}`
     }
 
     // Convertimos fecha
@@ -275,7 +276,9 @@ export class VisionComponent implements OnInit {
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
     var minutos = diferencia % 60
-    this.diferenceMinuto = minutos.toString()
+    debugger
+    this.terapeutas[id].minuto = minutos.toString()
+
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos
 

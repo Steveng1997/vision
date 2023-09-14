@@ -13,7 +13,7 @@
           Nuevo servicio
         </div>
       </div>
-      <div class="col-6 linearRefrescar" *ngFor="let vis of terapeutas">
+      <div class="col-6 linearRefrescar">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           class="bi bi-arrow-repeat text-primary circleDerecha" viewBox="0 0 16 16" onclick="location.reload()"
           style="cursor: pointer;">
@@ -47,7 +47,7 @@
                 <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
                 <td style="line-height: normal; text-align: left;"> {{vis.salida}}</td>
                 <td style="line-height: normal; text-align: left;"> {{vis.horaEnd}}</td>
-                <td style="line-height: normal; text-align: left;"> {{diferenceMinuto}} </td>
+                <td style="line-height: normal; text-align: left;"> {{vis.minuto}} </td>
               </tr>
             </tbody>
           </table>
