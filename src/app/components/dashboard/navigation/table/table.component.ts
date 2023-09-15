@@ -11,12 +11,12 @@ import { ServiceManager } from 'src/app/core/services/manager'
 
 
 @Component({
-  selector: 'app-tabla',
-  templateUrl: './tabla.component.html',
-  styleUrls: ['./tabla.component.css']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
 
-export class TablaComponent implements OnInit {
+export class TableComponent implements OnInit {
 
   fechaInicio: string
   fechaFinal: string

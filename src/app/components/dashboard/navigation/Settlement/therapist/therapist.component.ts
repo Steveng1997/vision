@@ -244,6 +244,7 @@ export class TherapistComponent implements OnInit {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
     this.serviceLiquidationTherapist.getTerapAndEncarg(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp: any) => {
+      debugger
       if (rp.length > 0) {
         año = fecha.getFullYear()
         mes = rp[0]['hastaFechaLiquidado'].substring(3, 5)
@@ -320,7 +321,6 @@ export class TherapistComponent implements OnInit {
               return accumulator + serv.propina
             }, 0)
 
-            debugger
             // Filter by Pago
             const terapeuta = this.unliquidatedService.filter(serv => rp)
             this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {

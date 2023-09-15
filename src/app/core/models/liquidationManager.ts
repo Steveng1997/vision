@@ -7,7 +7,7 @@ export class LiquidationManager {
   hastaHoraLiquidado?: string;
   id?: number;
   idUnico?: string;
-  idEncargada?: number;
+  idEncargada?: string;
   importe?: number;
   tratamiento?: number;
 }

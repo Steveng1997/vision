@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
-import { TablaComponent } from './navigation/tabla/tabla.component';
+import { TableComponent } from './navigation/table/table.component';
 import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { VisionComponent } from './navigation/vision/vision.component';
-import { TherapistComponent } from './navigation/liquidacion/therapist/therapist.component';
-import { ManagerComponent } from './navigation/liquidacion/manager/manager.component';
+import { TherapistComponent } from './navigation/Settlement/therapist/therapist.component';
+import { ManagerComponent } from './navigation/Settlement/manager/manager.component';
 import { LoginComponent } from './navigation/login/login.component';
 import { CierreComponent } from './navigation/cierre/cierre.component';
 
@@ -25,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'tabla/:id',
-        component: TablaComponent
+        component: TableComponent
       },
       {
         path: 'cierre',

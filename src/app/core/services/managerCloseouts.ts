@@ -8,7 +8,7 @@ import { LiquidationManager } from '../models/liquidationManager';
 @Injectable()
 export class ServiceLiquidationManager {
 
-  API_URL = 'http://3.129.249.184/api/liqEncargada';
+  API_URL = 'http://3.129.249.184:3000/api/liqEncargada';
   // API_URL = 'http://localhost:3000/api/liqEncargada';
 
   constructor(
@@ -18,7 +18,7 @@ export class ServiceLiquidationManager {
 
   // Register
 
-  registerLiquidacionesEncargada(liquidationManger: LiquidationManager) {
+  settlementRecord(liquidationManger: LiquidationManager) {
     return this.http.post(`${this.API_URL}/registerLiqEncarg`, liquidationManger);
   }
 

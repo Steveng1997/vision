@@ -252,6 +252,18 @@ export class Service {
     });
   }
 
+  getByEncargadaFechaHoraInicioFechaHoraFin(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getEncargadaFechaHoraInicioFechaHoraFin`, {
+      params: {
+        encargada,
+        horaStart,
+        horaEnd,
+        fecha,
+        fechaFin
+      }
+    });
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {

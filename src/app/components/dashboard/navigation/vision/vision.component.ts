@@ -275,9 +275,7 @@ export class VisionComponent implements OnInit {
 
     // Cálculo de horas y minutos de la diferencia
     var horas = Math.floor(diferencia / 60)
-    var minutos = diferencia % 60
-    debugger
-    
+    var minutos = diferencia % 60    
 
     // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
     this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos

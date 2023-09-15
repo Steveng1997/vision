@@ -1,0 +1,318 @@
+.color2 {
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10%;
+  margin-left: 20%;
+}
+
+.inputEncargada {
+  text-align: center;
+}
+
+.table-secondary {
+  --bs-table-bg: transparent;
+  background-color: transparent;
+}
+
+tr {
+  line-height: 0%;
+  font-size: 14px;
+}
+
+th {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+th,
+td {
+  font-size: 14px;
+}
+
+.quitarBordes {
+  line-height: 100%;
+}
+
+.quitarBordesVacio {
+  border-style: hidden;
+}
+
+.lbelTotal {
+  border: hidden;
+  font-weight: bold;
+  color: red;
+  border-color: black;
+  padding: 14px 0px;
+}
+
+.bordeTotal {
+  border: hidden;
+  padding: 14px;
+  text-align: right;
+}
+
+@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+  .trFechas {
+    white-space: nowrap;
+  }
+
+  .classTable {
+    margin-top: -2%;
+  }
+
+  .noHayCierre {
+    font-size: x-large;
+    color: red;
+    container-type: inline-size;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
+
+  .columnTerapeuta {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 65px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnEncargada {
+    padding: 24px 12px 0px 0px;
+    text-align: center;
+    max-width: 48px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnHora{
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnImporte {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    max-width: 0px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnFechas {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnTratamiento {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+  }
+
+  table {
+    width: inherit;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+    padding: 8px 0px 0px 0px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+  .classTable {
+    text-align-last: center;
+    text-align: -webkit-center;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -0.5%;
+    width: 100%;
+  }
+
+  .tabla {
+    margin-top: 3%;
+  }
+
+  .tableEdtit {
+    margin-top: 0%;
+  }
+
+  .formAgregar {
+    overflow-x: hidden;
+  }
+
+  .columnTerapeuta {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnEncargada {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnImporte {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnHora{
+    width: 100px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnFechas {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnTratamiento {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .column€Terap {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  table {
+    width: auto;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+    margin-left: -11px;
+  }
+
+  .horaFinal {
+    align-self: end;
+    width: 122px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .selectTerap{
+    display: grid;
+    justify-items: right;
+  }
+
+  .addTerapeuta{
+    width: 35%;
+  }
+
+  .addEncargada{
+    width: 35%;
+  }
+
+  .worth{
+    padding-left: 15px;
+  }
+}

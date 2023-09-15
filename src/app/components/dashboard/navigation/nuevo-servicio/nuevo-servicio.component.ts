@@ -2048,8 +2048,6 @@ export class NuevoServicioComponent implements OnInit {
   sortDateToEdit() {
     let dia = '', mes = '', año = ''
 
-    debugger
-
     dia = this.editarService[0]['fecha'].substring(8, 10)
     mes = this.editarService[0]['fecha'].substring(5, 7)
     año = this.editarService[0]['fecha'].substring(2, 4)
@@ -2206,8 +2204,6 @@ export class NuevoServicioComponent implements OnInit {
       this.transCheckToggleEdit(this.validateTrans)
       this.encargadaAndTerapeutaEdit()      
       this.editValue()
-
-      debugger
 
       this.therapist.horaEnd = serv.horaEnd
       this.therapist.fechaEnd = serv.fecha
