@@ -7,8 +7,11 @@
 
 </mat-toolbar>
 
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav">
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <div style="overflow-x: hidden; overflow-y: hidden;">
+
+
 
       <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}"
         (click)="toolbar()">
@@ -56,10 +59,11 @@
         <mat-icon>settings</mat-icon>
         <span style="font-weight: bold">Configuración</span>
       </button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <div style="margin-top: 1rem;">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="margin-top: 1rem;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

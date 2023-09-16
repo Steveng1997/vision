@@ -31,6 +31,8 @@ export class ManagerComponent implements OnInit {
   liquidated: any
   settledData: any
   page!: number
+  fijoDia: number
+  fixedTotalDay: number
 
   // Encargada
   encargada: any[] = []
@@ -125,6 +127,7 @@ export class ManagerComponent implements OnInit {
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
     this.totalValueOther = 0
+    this.totalValueOrdered = 0
     this.encargadaName['servicio'] = 0
     this.encargadaName['propina'] = 0
     this.encargadaName['bebida'] = 0
@@ -153,19 +156,40 @@ export class ManagerComponent implements OnInit {
     if (this.totalTipValue == undefined) this.totalTipValue = 0
     if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
-    if (this.serviceCommission == undefined) this.serviceCommission = 0
-    if (this.commissionTip == undefined) this.commissionTip = 0
-    if (this.beverageCommission == undefined) this.beverageCommission = 0
-    if (this.tobaccoCommission == undefined) this.tobaccoCommission = 0
-    if (this.vitaminCommission == undefined) this.vitaminCommission = 0
-    if (this.commissionOthers == undefined) this.commissionOthers = 0
-    if (this.sumCommission == undefined) this.sumCommission = 0
-    if (this.totalCommission == undefined) this.totalCommission = 0
+    if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
+    if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
+    if (this.totalValueOther == undefined) this.totalValueOther = 0
+    if (this.serviceCommission == undefined || Number.isNaN(this.serviceCommission)) this.serviceCommission = 0
+    if (this.commissionTip == undefined || Number.isNaN(this.commissionTip)) this.commissionTip = 0
+    if (this.beverageCommission == undefined || Number.isNaN(this.beverageCommission)) this.beverageCommission = 0
+    if (this.tobaccoCommission == undefined || Number.isNaN(this.tobaccoCommission)) this.tobaccoCommission = 0
+    if (this.vitaminCommission == undefined || Number.isNaN(this.vitaminCommission)) this.vitaminCommission = 0
+    if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
+    if (this.sumCommission == undefined || Number.isNaN(this.sumCommission)) this.sumCommission = 0
+    if (this.totalCommission == undefined || Number.isNaN(this.totalCommission)) this.totalCommission = 0
+    if (this.receivedTherapist == undefined || Number.isNaN(this.receivedTherapist)) this.receivedTherapist = 0
+    if (this.totalValueOrdered == undefined) this.totalValueOrdered = 0
   }
 
   getSettlements() {
+    let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
+
     this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((datoLiquidaciones: any) => {
       this.liquidated = datoLiquidaciones
+
+      for (let index = 0; index < this.liquidated.length; index++) {
+        añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+        mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+        diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+        this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+        if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+          añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+          mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+          diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+          this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+        }
+      }
 
       if (datoLiquidaciones.length > 0) this.exist = true
       else this.exist = false
@@ -231,12 +255,11 @@ export class ManagerComponent implements OnInit {
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    debugger
-    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
+    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((rp: any) => {
       if (rp.length > 0) {
         año = fecha.getFullYear()
-        mes = rp[0]['hastaFechaLiquidado'].substring(3, 5)
-        dia = rp[0]['hastaFechaLiquidado'].substring(0, 2)
+        mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
+        dia = rp[0]['hastaFechaLiquidado'].substring(8, 10)
         this.liquidationManager.desdeFechaLiquidado = `${año}-${mes}-${dia}`
         this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
@@ -263,14 +286,30 @@ export class ManagerComponent implements OnInit {
     }
   }
 
+  fixedNumberDay(event: any) {
+    let numberValue = 0
+    numberValue = Number(event.target.value)
+    if (numberValue > 0) {
+      this.fixedTotalDay = numberValue * this.fijoDia
+      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+    }
+  }
+
+  consultWithManager() {
+    this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
+      this.fijoDia = resp[0]['fijoDia']
+      this.fixedTotalDay = resp[0]['fijoDia']
+    })
+    return true
+  }
+
   calculateServices(): any {
     if (this.liquidationManager.encargada != "") {
       this.getThoseThatNotLiquidated()
-      debugger
+      if (!this.consultWithManager()) return
       this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
           this.selected = true
-          debugger
           this.dateExists()
 
           setTimeout(() => {
@@ -288,12 +327,14 @@ export class ManagerComponent implements OnInit {
   }
 
   inputDateAndTime() {
-    this.getDateFrom()
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    this.totalCommission = 0
+
     setTimeout(() => {
       this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
         this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
         this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
-          debugger
+
           if (rp.length > 0) {
 
             this.unliquidatedService = rp
@@ -345,12 +386,8 @@ export class ManagerComponent implements OnInit {
               return accumulator + serv.otros
             }, 0)
 
-            let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-            this.totalCommission = 0
-
             this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
               this.encargadaName = datosNameTerapeuta[0]
-              this.validateNullData()
 
               // Comision
               comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
@@ -379,13 +416,51 @@ export class ManagerComponent implements OnInit {
 
               // Recibido
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
               this.liquidationManager.importe = this.totalCommission
+
+              this.validateNullData()
             })
             return true
           } else {
             this.unliquidatedService = rp
-            this.convertToZero()
+
+            this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
+              this.encargadaName = datosNameTerapeuta[0]
+
+              // Comision
+              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+
+              // Conversion decimal
+              this.serviceCommission = Number(comisiServicio.toFixed(1))
+              this.commissionTip = Number(comiPropina.toFixed(1))
+              this.beverageCommission = Number(comiBebida.toFixed(1))
+              this.tobaccoCommission = Number(comiTabaco.toFixed(1))
+              this.vitaminCommission = Number(comiVitamina.toFixed(1))
+              this.commissionOthers = Number(comiOtros.toFixed(1))
+
+              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+                Number(this.vitaminCommission) + Number(this.commissionOthers)
+
+              // return this.sumCommission = sumComision.toFixed(0)
+              if (this.sumCommission != 0 || this.sumCommission != undefined) {
+                this.sumCommission = Number(sumComision.toFixed(1))
+              }
+
+              // Recibido
+              this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
+              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+              this.liquidationManager.importe = this.totalCommission
+
+              this.validateNullData()
+            })
+
             Swal.fire({
               icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
             })
@@ -443,7 +518,7 @@ export class ManagerComponent implements OnInit {
       this.liquidationManager.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
     })
 
-    this.service.getByIdTerap(id).subscribe((datosTerapeuta) => {
+    this.service.getByIdEncarg(id).subscribe((datosTerapeuta) => {
       this.settledData = datosTerapeuta;
 
       // Filter by servicio
@@ -566,13 +641,12 @@ export class ManagerComponent implements OnInit {
   save() {
     this.createUniqueId()
     this.liquidationManager.currentDate = this.currentDate.toString()
-
     if (this.liquidationManager.encargada != "") {
       if (this.exist === true) {
 
         for (let index = 0; index < this.unliquidatedService.length; index++) {
           this.liquidationManager.tratamiento = this.unliquidatedService.length
-          this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
+          this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
         }
 
         this.getDateFrom()
@@ -606,7 +680,7 @@ export class ManagerComponent implements OnInit {
 
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
             })
           }
 

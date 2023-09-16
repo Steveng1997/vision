@@ -83,6 +83,10 @@ td {
     margin-top: -12%;
   }
 
+  .tablePaidTherapist{
+    margin-top: 0%;
+  }
+
   .columnTerapeuta {
     padding: 25px 23px 0px 6px;
     text-align: center;
@@ -205,6 +209,10 @@ td {
   }
 
   .tableEdtit {
+    margin-top: 0%;
+  }
+
+  .tablePaidTherapist{
     margin-top: 0%;
   }
 

@@ -21,6 +21,7 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
+  CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
   addForm: boolean
@@ -67,6 +68,12 @@ export class TherapistComponent implements OnInit {
   idUnico: string
   receivedTherapist: any
   totalCommission: number
+
+  // Total Payment Method
+  totalCash: number
+  totalCard: number
+  totalBizum: number
+  totalTransaction: number
 
   currentDate = new Date().getTime()
   exist: boolean
@@ -117,9 +124,32 @@ export class TherapistComponent implements OnInit {
     this.addForm = false
     this.selected = false
     this.editTerap = false
+    this.date()
     this.getSettlements()
     this.getEncargada()
     this.getTerapeuta()
+  }
+
+  date() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = ''
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      this.CurrenDate = `${year}-${convertMonth}-${day}`
+    } else {
+      this.CurrenDate = `${year}-${month}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      this.CurrenDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      this.CurrenDate = `${year}-${convertMonth}-${day}`
+    }
   }
 
   convertToZero() {
@@ -130,12 +160,6 @@ export class TherapistComponent implements OnInit {
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
     this.totalValueOther = 0
-    this.terapeutaName['servicio'] = 0
-    this.terapeutaName['propina'] = 0
-    this.terapeutaName['bebida'] = 0
-    this.terapeutaName['tabaco'] = 0
-    this.terapeutaName['vitamina'] = 0
-    this.terapeutaName['otros'] = 0
     this.serviceCommission = 0
     this.commissionTip = 0
     this.beverageCommission = 0
@@ -145,6 +169,13 @@ export class TherapistComponent implements OnInit {
     this.sumCommission = 0
     this.receivedTherapist = 0
     this.totalCommission = 0
+
+    this.terapeutaName['servicio'] = 0
+    this.terapeutaName['propina'] = 0
+    this.terapeutaName['bebida'] = 0
+    this.terapeutaName['tabaco'] = 0
+    this.terapeutaName['vitamina'] = 0
+    this.terapeutaName['otros'] = 0
   }
 
   validateNullData() {
@@ -158,19 +189,43 @@ export class TherapistComponent implements OnInit {
     if (this.totalTipValue == undefined) this.totalTipValue = 0
     if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
-    if (this.serviceCommission == undefined) this.serviceCommission = 0
-    if (this.commissionTip == undefined) this.commissionTip = 0
-    if (this.beverageCommission == undefined) this.beverageCommission = 0
-    if (this.tobaccoCommission == undefined) this.tobaccoCommission = 0
-    if (this.vitaminCommission == undefined) this.vitaminCommission = 0
-    if (this.commissionOthers == undefined) this.commissionOthers = 0
-    if (this.sumCommission == undefined) this.sumCommission = 0
-    if (this.totalCommission == undefined) this.totalCommission = 0
+    if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
+    if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
+    if (this.totalValueOther == undefined) this.totalValueOther = 0
+    if (this.serviceCommission == undefined || Number.isNaN(this.serviceCommission)) this.serviceCommission = 0
+    if (this.commissionTip == undefined || Number.isNaN(this.commissionTip)) this.commissionTip = 0
+    if (this.beverageCommission == undefined || Number.isNaN(this.beverageCommission)) this.beverageCommission = 0
+    if (this.tobaccoCommission == undefined || Number.isNaN(this.tobaccoCommission)) this.tobaccoCommission = 0
+    if (this.vitaminCommission == undefined || Number.isNaN(this.vitaminCommission)) this.vitaminCommission = 0
+    if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
+    if (this.sumCommission == undefined || Number.isNaN(this.sumCommission)) this.sumCommission = 0
+    if (this.totalCommission == undefined || Number.isNaN(this.totalCommission)) this.totalCommission = 0
+    if (this.receivedTherapist == undefined || Number.isNaN(this.receivedTherapist)) this.receivedTherapist = 0
+    if (this.totalCash == undefined) this.totalCash = 0
+    if (this.totalBizum == undefined) this.totalBizum = 0
+    if (this.totalCard == undefined) this.totalCard = 0
+    if (this.totalTransaction == undefined) this.totalTransaction = 0
   }
 
   getSettlements() {
+    let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
+
     this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones: any) => {
       this.liquidated = datoLiquidaciones
+
+      for (let index = 0; index < this.liquidated.length; index++) {
+        añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+        mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+        diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+        this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+        if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+          añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+          mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+          diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+          this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+        }
+      }
 
       if (datoLiquidaciones.length > 0) this.exist = true
       else this.exist = false
@@ -243,19 +298,17 @@ export class TherapistComponent implements OnInit {
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    this.serviceLiquidationTherapist.getTerapAndEncarg(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp: any) => {
-      debugger
+    this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((rp: any) => {
       if (rp.length > 0) {
         año = fecha.getFullYear()
-        mes = rp[0]['hastaFechaLiquidado'].substring(3, 5)
-        dia = rp[0]['hastaFechaLiquidado'].substring(0, 2)
+        mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
+        dia = rp[0]['hastaFechaLiquidado'].substring(8, 10)
         this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
         this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
         this.dateDoesNotExist()
       }
     })
-
 
     diaHasta = fecha.getDate()
     mesHasta = fecha.getMonth() + 1
@@ -300,7 +353,8 @@ export class TherapistComponent implements OnInit {
   }
 
   inputDateAndTime() {
-    this.getDateFrom()
+
+
     setTimeout(() => {
       this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
         this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
@@ -356,12 +410,35 @@ export class TherapistComponent implements OnInit {
               return accumulator + serv.otros
             }, 0)
 
+            // Filter by totalCash
+            const totalCashs = this.unliquidatedService.filter(serv => rp)
+            this.totalCash = totalCashs.reduce((accumulator, serv) => {
+              return accumulator + serv.valueEfectTerapeuta
+            }, 0)
+
+            // Filter by totalBizum
+            const totalBizums = this.unliquidatedService.filter(serv => rp)
+            this.totalBizum = totalBizums.reduce((accumulator, serv) => {
+              return accumulator + serv.valueBizuTerapeuta
+            }, 0)
+
+            // Filter by totalCard
+            const totalCards = this.unliquidatedService.filter(serv => rp)
+            this.totalCard = totalCards.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTarjeTerapeuta
+            }, 0)
+
+            // Filter by totalTransaction
+            const totalTransactions = this.unliquidatedService.filter(serv => rp)
+            this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTransTerapeuta
+            }, 0)
+
             let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
             this.totalCommission = 0
 
             this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
               this.terapeutaName = datosNameTerapeuta[0]
-              this.validateNullData()
 
               // Comision
               comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
@@ -392,13 +469,55 @@ export class TherapistComponent implements OnInit {
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
               this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
               this.liquidationTherapist.importe = this.totalCommission
+
+              this.validateNullData()
             })
             return true
           } else {
             this.unliquidatedService = rp
-            this.convertToZero()
+
             Swal.fire({
               icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+            })
+
+            let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+            this.totalCommission = 0
+
+            this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
+              this.terapeutaName = datosNameTerapeuta[0]
+
+              // Comision
+              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+
+              // Conversion decimal
+              this.serviceCommission = Number(comisiServicio.toFixed(1))
+              this.commissionTip = Number(comiPropina.toFixed(1))
+              this.beverageCommission = Number(comiBebida.toFixed(1))
+              this.tobaccoCommission = Number(comiTabaco.toFixed(1))
+              this.vitaminCommission = Number(comiVitamina.toFixed(1))
+              this.commissionOthers = Number(comiOtros.toFixed(1))
+
+              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+                Number(this.vitaminCommission) + Number(this.commissionOthers)
+
+              // return this.sumCommission = sumComision.toFixed(0)
+              if (this.sumCommission != 0 || this.sumCommission != undefined) {
+                this.sumCommission = Number(sumComision.toFixed(1))
+              }
+
+              // Recibido
+              this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
+              this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+              this.liquidationTherapist.importe = this.totalCommission
+
+              this.validateNullData()
+              return true
             })
             return false
           }

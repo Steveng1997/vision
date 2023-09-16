@@ -7,6 +7,7 @@ mat-toolbar {
 mat-sidenav {
   margin: 16px;
   width: 200px;
+  height: 65%;
   border-right: none;
   background-color: deepskyblue;
   color: white;
@@ -33,5 +34,17 @@ mat-sidenav-container {
   color: lightgrey;
 }
 
-
-/* https://www.youtube.com/watch?v=4CYuOiRHHA8 */
+@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+  mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    height: 45%;
+    border-right: none;
+    background-color: deepskyblue;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    margin-top: 15%;
+  }
+}

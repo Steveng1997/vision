@@ -226,13 +226,13 @@
                                         style="text-align: left; border-bottom: hidden;">
                                         {{serv.fecha}}</td>
                                     <!-- 3 -->
-                                    <td (click)="goToEdit(serv.idEncargada)" class="quitarBordes"
-                                        style="text-align: left; border-bottom: hidden;">
-                                        {{serv.terapeuta}}</td>
-                                    <!-- 4 -->
                                     <td class=" quitarBordes" (click)="goToEdit(serv.id)"
                                         style="text-align: left; border-bottom: hidden;">
                                         {{serv.salida}}</td>
+                                    <!-- 4 -->
+                                    <td (click)="goToEdit(serv.idEncargada)" class="quitarBordes"
+                                        style="text-align: left; border-bottom: hidden;">
+                                        {{serv.terapeuta}}</td>
                                     <!-- 5 -->
                                     <td class="quitarBordes" (click)="goToEdit(serv.id)"
                                         style="text-align: left; border-bottom: hidden;">
@@ -304,20 +304,22 @@
                                 <!-- 4 -->
                                 <td></td>
                                 <!-- 5 -->
-                                <td style="font-weight: bold; text-align: right"> {{totalService + '€'}}</td>
-                                <!-- 6 -->
-                                <td style="font-weight: bold; text-align: right">{{totalTipValue + '€'}}</td>
-                                <!-- 7 -->
                                 <td></td>
+                                <!-- 6 -->
+                                <td style="font-weight: bold; text-align: right"> {{totalService + '€'}}</td>
+                                <!-- 7 -->
+                                <td style="font-weight: bold; text-align: right">{{totalTipValue + '€'}}</td>
                                 <!-- 8 -->
-                                <td style="font-weight: bold; text-align: right"> {{totalValueOrdered + '€'}}</td>
+                                <td></td>
                                 <!-- 9 -->
-                                <td style="font-weight: bold; text-align: right">{{totalValueDrink + '€'}}</td>
+                                <td style="font-weight: bold; text-align: right"> {{totalValueOrdered + '€'}}</td>
                                 <!-- 10 -->
-                                <td style="font-weight: bold; text-align: right">{{totalTobaccoValue + '€'}}</td>
+                                <td style="font-weight: bold; text-align: right">{{totalValueDrink + '€'}}</td>
                                 <!-- 11 -->
-                                <td style="font-weight: bold; text-align: right"> {{totalValueVitamins + '€'}}</td>
+                                <td style="font-weight: bold; text-align: right">{{totalTobaccoValue + '€'}}</td>
                                 <!-- 12 -->
+                                <td style="font-weight: bold; text-align: right"> {{totalValueVitamins + '€'}}</td>
+                                <!-- 13 -->
                                 <td style="font-weight: bold; text-align: right">{{totalValueOther + '€'}}</td>
                             </tr>
                         </table>
@@ -331,7 +333,7 @@
 
                 <!-- Table Sumatoria -->
                 <div style="display: grid; place-items: center;" class="tableEdtit">
-                    <div style="text-align: center; width: max-content;">
+                    <div style="text-align: center; width: min-content;">
                         <table class="table">
                             <thead>
                                 <tr class="table-secondary">
@@ -409,33 +411,36 @@
                                     </td>
                                 </tr>
                                 <tr style="line-height: 40%">
-                                    <th scope="row" style="border-bottom: hidden;"></th>
-                                    <td style="border-bottom: hidden;"></td>
+                                    <th style="border-bottom: hidden;"></th>
                                     <td style="border-bottom: hidden; text-align: start;">Suma</td>
+                                    <td style="border-bottom: hidden; text-align: start;"></td>
                                     <td style="border-bottom: hidden; text-align: right;">{{sumCommission + ' €'}}</td>
                                 </tr>
                                 <tr style="line-height: 40%">
-                                    <th scope="row" style="border-bottom: hidden;"></th>
                                     <td style="border-bottom: hidden; text-align: right;"></td>
-                                    <td style="border-bottom: 1px solid blue; text-align: start; width: 0%;">
-                                        Fijo/día
-                                        <input type="number" style="width:15%;">
+                                    <td style="border-bottom: hidden; text-align: start; width: 0%;"> Fijo/día
                                     </td>
-                                    <td style="border-bottom: 1px solid blue; text-align: right; width: 0%;">                                        
-                                        {{receivedTherapist}}
+                                    <td style="display: inline-table;border-bottom: hidden;border-top: hidden;">
+                                        <input type="number" style="width:50%; float: left;"
+                                            (change)="fixedNumberDay($event)" value="0">
+                                        <label style="margin-top: 9%;">{{'X' + fijoDia + '€'}}</label>
+                                    </td>
+                                    <td style="border-bottom: hidden; text-align: right; width: 0%;">
+                                        {{fixedTotalDay + '€'}}
                                     </td>
                                 </tr>
                                 <tr style="line-height: 40%">
                                     <th scope="row" style="border-bottom: hidden;"></th>
-                                    <td style="border-bottom: hidden;"></td>
                                     <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
+                                    <td style="border-bottom: 1px solid blue; text-align: start; border-top: hidden;">
+                                    </td>
                                     <td style="border-bottom: 1px solid blue; text-align: right;">{{receivedTherapist}}
                                     </td>
                                 </tr>
                                 <tr style="line-height: 40%">
                                     <th scope="row" style="border-bottom: hidden;"></th>
-                                    <td style="border-bottom: hidden;"></td>
                                     <td style="border-bottom: hidden; text-align: start;">Total</td>
+                                    <td style="border-bottom: hidden; text-align: start;"></td>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalCommission}}</td>
                                 </tr>
                             </tbody>

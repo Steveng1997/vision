@@ -26,12 +26,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox'
 
 // Components
-import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
-import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
+import { SettingComponent } from './navigation/setting/setting.component';
+import { NewServiceComponent } from './navigation/newService/newService.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { ManagerComponent } from './navigation/Settlement/manager/manager.component';
 import { TherapistComponent } from './navigation/Settlement/therapist/therapist.component';
-import { CierreComponent } from './navigation/cierre/cierre.component';
+import { ClosingComponent } from './navigation/closing/closing.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TableComponent } from './navigation/table/table.component';
 import { LoginComponent } from './navigation/login/login.component';
@@ -50,7 +50,7 @@ import { FechaCierrePipe } from 'src/app/core/pipe/fechaCierre.pipe';
 import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe';
 
 @NgModule({
-  declarations: [SidenavWrapperComponent, ConfiguracionComponent, CierreComponent, NuevoServicioComponent,
+  declarations: [SidenavWrapperComponent, SettingComponent, ClosingComponent, NewServiceComponent,
     ManagerComponent, TherapistComponent, VisionComponent, TableComponent, TerapeutaPipe, EncargadaPipe,
     FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe, FechaInicialEncargadaPipe,
     FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe, FechaCierrePipe, BusquedaTerapeutaPipe],

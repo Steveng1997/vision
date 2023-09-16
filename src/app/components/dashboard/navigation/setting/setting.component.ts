@@ -13,11 +13,11 @@ import { ModelManager } from 'src/app/core/models/manager'
 import { ModelTherapist } from 'src/app/core/models/therapist'
 
 @Component({
-  selector: 'app-configuracion',
-  templateUrl: './configuracion.component.html',
-  styleUrls: ['./configuracion.component.css']
+  selector: 'app-setting',
+  templateUrl: './setting.component.html',
+  styleUrls: ['./setting.component.css']
 })
-export class ConfiguracionComponent implements OnInit {
+export class SettingComponent implements OnInit {
 
   // Encargada
 

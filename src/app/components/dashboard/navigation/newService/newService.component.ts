@@ -13,12 +13,12 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 import { ModelService } from 'src/app/core/models/service'
 
 @Component({
-  selector: 'app-nuevo-servicio',
-  templateUrl: './nuevo-servicio.component.html',
-  styleUrls: ['./nuevo-servicio.component.css'],
+  selector: 'app-newService',
+  templateUrl: './newService.component.html',
+  styleUrls: ['./newService.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NuevoServicioComponent implements OnInit {
+export class NewServiceComponent implements OnInit {
 
   horaStartTerapeuta = ''
   horaEndTerapeuta = ''
@@ -1525,7 +1525,7 @@ export class NuevoServicioComponent implements OnInit {
       } else {
         otroservic = 0
       }
-
+      
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueBizum = suma
       return

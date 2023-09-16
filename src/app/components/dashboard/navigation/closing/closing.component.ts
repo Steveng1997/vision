@@ -13,11 +13,11 @@ import { ServiceClosing } from 'src/app/core/services/closing'
 import { Closing } from 'src/app/core/models/closing'
 
 @Component({
-  selector: 'app-cierre',
-  templateUrl: './cierre.component.html',
-  styleUrls: ['./cierre.component.css']
+  selector: 'app-closing',
+  templateUrl: './closing.component.html',
+  styleUrls: ['./closing.component.css']
 })
-export class CierreComponent implements OnInit {
+export class ClosingComponent implements OnInit {
 
   liqCierre: boolean
   addCierre: boolean

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NuevoServicioComponent } from './navigation/nuevo-servicio/nuevo-servicio.component';
+import { NewServiceComponent } from './navigation/newService/newService.component';
 import { TableComponent } from './navigation/table/table.component';
-import { ConfiguracionComponent } from './navigation/configuracion/configuracion.component';
+import { SettingComponent } from './navigation/setting/setting.component';
 import { SidenavWrapperComponent } from './navigation/sidenav-wrapper/sidenav-wrapper.component';
 import { VisionComponent } from './navigation/vision/vision.component';
 import { TherapistComponent } from './navigation/Settlement/therapist/therapist.component';
 import { ManagerComponent } from './navigation/Settlement/manager/manager.component';
 import { LoginComponent } from './navigation/login/login.component';
-import { CierreComponent } from './navigation/cierre/cierre.component';
+import { ClosingComponent } from './navigation/closing/closing.component';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'nuevo-servicio/:id/:editar',
-        component: NuevoServicioComponent
+        component: NewServiceComponent
       },
       {
         path: 'tabla/:id',
@@ -29,11 +29,11 @@ const routes: Routes = [
       },
       {
         path: 'cierre',
-        component: CierreComponent
+        component: ClosingComponent
       },
       {
         path: 'configuracion',
-        component: ConfiguracionComponent
+        component: SettingComponent
       },
       {
         path: 'terapeutas',
