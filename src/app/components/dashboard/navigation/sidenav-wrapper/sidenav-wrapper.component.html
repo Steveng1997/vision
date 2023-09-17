@@ -31,18 +31,18 @@
         <span style="font-weight: bold">Tabla</span>
       </button>
 
-      <button (click)="liquidacion()" mat-button class="menu-button">
+      <button (click)="liquidation()" mat-button class="menu-button">
         <mat-icon>payments</mat-icon>
         <span style="font-weight: bold">Liquidación</span>
       </button>
 
-      <button *ngIf="isLiquidacion" mat-button class="menu-button" [routerLink]="'terapeutas'" (click)="toolbar()"
+      <button *ngIf="isLiquidation" mat-button class="menu-button" [routerLink]="'terapeutas'" (click)="toolbar()"
         style="margin-left: 23px">
         <mat-icon>table</mat-icon>
         <span style="font-weight: bold">Terapeutas</span>
       </button>
 
-      <button *ngIf="isLiquidacion" mat-button class="menu-button" [routerLink]="'encargadas'" (click)="toolbar()"
+      <button *ngIf="isLiquidation" mat-button class="menu-button" [routerLink]="'encargadas'" (click)="toolbar()"
         style="margin-left: 23px">
         <mat-icon>table</mat-icon>
         <span style="font-weight: bold">Encargadas</span>

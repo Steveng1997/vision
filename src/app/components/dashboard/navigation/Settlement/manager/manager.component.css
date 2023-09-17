@@ -176,6 +176,10 @@ td {
     margin-left: -11px;
     margin-top: 10px;
   }
+
+  .btnCancelar{
+    padding-bottom: 6%;
+  }
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
@@ -209,7 +213,8 @@ td {
   }
 
   .formAgregar {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow: hidden;
   }
 
   .columnTerapeuta {
@@ -314,5 +319,9 @@ td {
 
   .worth{
     padding-left: 15px;
+  }
+
+  .btnCancelar{
+    padding-bottom: 3%;
   }
 }

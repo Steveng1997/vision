@@ -22,15 +22,15 @@ export class ServiceLiquidationTherapist {
 
   // Get
 
-  getLiquidacionesTerapeuta() {
+  consultTherapistSettlements() {
     return this.http.get(`${this.API_URL}/getByLiquidacionesTerapeuta`);
   }
 
-  getIdTerap(idTerapeuta: number) {
+  consultTherapistId(idTerapeuta: number) {
     return this.http.get(`${this.API_URL}/getByIdTerap/${idTerapeuta}`);
   }
 
-  getTerapAndEncarg(terapeuta: string, encargada: string) {
+  consultTherapistAndManager(terapeuta: string, encargada: string) {
     return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada`, {
       params: {
         terapeuta,

@@ -38,7 +38,7 @@
 
           <div class="col-6">
             <button class="btn btn-success btn-lg btn-login text-uppercase fw-bold col-12"
-              (click)="openRegistro(registroLogin)">
+              (click)="openRegistry(registroLogin)">
               Registro
             </button>
           </div>
@@ -79,7 +79,7 @@
                     <input type="password" matInput name="pass" [(ngModel)]="manager.pass">
                   </mat-form-field>
 
-                  <button mat-raised-button type="submit" color="primary" (click)="registro()">Aceptar</button>
+                  <button mat-raised-button type="submit" color="primary" (click)="save()">Aceptar</button>
                 </div>
               </div>
             </form>

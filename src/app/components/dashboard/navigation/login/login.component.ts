@@ -77,14 +77,14 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  openRegistro(targetModal) {
+  openRegistry(targetModal) {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
     })
   }
 
-  registro() {
+  save() {
     if (this.manager.nombre != '') {
       if (this.manager.usuario != '') {
         if (this.manager.pass != '') {

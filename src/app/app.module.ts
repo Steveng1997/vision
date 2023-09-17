@@ -40,7 +40,7 @@ import { ServiceClosing } from './core/services/closing';
     FormsModule,
     BrowserAnimationsModule,
 
-    // NG Material Modules
+    // Material Mat
     MatSidenavModule,
     MatIconModule,
     MatListModule,

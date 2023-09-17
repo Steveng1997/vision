@@ -19,7 +19,7 @@ export class SidenavWrapperComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
-  isLiquidacion = false
+  isLiquidation = false
 
   constructor(
     public router: Router,
@@ -39,8 +39,8 @@ export class SidenavWrapperComponent implements OnInit {
     }
   }
 
-  liquidacion() {
-    this.isLiquidacion = !this.isLiquidacion
+  liquidation() {
+    this.isLiquidation = !this.isLiquidation
   }
 
   ngAfterViewInit() {

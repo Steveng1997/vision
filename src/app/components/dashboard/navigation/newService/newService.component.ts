@@ -20,7 +20,7 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class NewServiceComponent implements OnInit {
 
-  horaStartTerapeuta = ''
+  hourStartTerapeuta = ''
   horaEndTerapeuta = ''
 
   fechaActual = ''
@@ -46,10 +46,6 @@ export class NewServiceComponent implements OnInit {
   sumatoriaCobros = 0
 
   // Cobros
-  valueEfectivo = 0
-  valueBizum = 0
-  valueTarjeta = 0
-  valueTrans = 0
   validateEfect = true
   validateBizum = true
   validateTarjeta = true
@@ -67,7 +63,6 @@ export class NewServiceComponent implements OnInit {
   buttonDelete = false
 
   idUnico: string
-  formaPagos = ""
 
   // conteo Numbers
   countEfect = 0
@@ -199,7 +194,7 @@ export class NewServiceComponent implements OnInit {
     this.getTherapist()
     this.getManager()
     this.date()
-    this.cargar()
+    this.editForm()
     this.horaInicialServicio = this.horaStarted
     this.services.horaEnd = this.horaStarted
     this.services.horaStart = this.horaStarted
@@ -227,7 +222,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  fechaOrdenada() {
+  sortedDate() {
     let dia = '', mes = '', año = '', currentDate = new Date()
 
     dia = this.fechaActual.substring(8, 10)
@@ -580,7 +575,7 @@ export class NewServiceComponent implements OnInit {
     if (this.services.vitaminas == "") this.services.vitaminas = "0"
   }
 
-  conteoNumber() {
+  countingNumber() {
     if (this.services.efectPiso1 == true) this.countEfect += 1
     if (this.services.efectPiso2 == true) this.countEfect += 1
     if (this.services.efectTerap == true) this.countEfect += 1
@@ -1280,7 +1275,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  addServicio() {
+  saveService() {
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
@@ -1288,14 +1283,14 @@ export class NewServiceComponent implements OnInit {
           // Methods 
           this.createUniqueId()
           if (!this.expiredDateValidations()) return
-          if (!this.validacionFormasPago()) return
+          if (!this.paymentMethodValidation()) return
           if (!this.validatePaymentMethod()) return
           this.sumService()
           this.efectCheckToggle(this.validateEfect)
           this.bizumCheckToggle(this.validateBizum)
           this.tarjCheckToggle(this.validateTarjeta)
           this.transCheckToggle(this.validateTrans)
-          this.encargadaAndTerapeuta()
+          this.managerAndTherapist()
 
           if (this.restamosCobro == 0) {
             this.addService = false
@@ -1311,8 +1306,8 @@ export class NewServiceComponent implements OnInit {
             idsUnico = this.services.idUnico
             this.services.currentDate = this.currentDate.toString()
 
-            this.conteoNumber()
-            this.fechaOrdenada()
+            this.countingNumber()
+            this.sortedDate()
 
             this.cargamos = true
             this.services.editar = true
@@ -1525,7 +1520,7 @@ export class NewServiceComponent implements OnInit {
       } else {
         otroservic = 0
       }
-      
+
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueBizum = suma
       return
@@ -1616,7 +1611,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  horaInicioEdit(event: any) {
+  editStartTime(event: any) {
     this.horaInicialServicio = event.target.value.toString()
 
     if (Number(this.editarService[0]['minuto']) > 0) {
@@ -1670,7 +1665,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  horaInicio(event: any) {
+  startTime(event: any) {
     this.services.horaEnd = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
 
@@ -1700,15 +1695,15 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  fechaEscogida(event: any) {
+  chosenDate(event: any) {
     this.fechaActual = event.target.value
   }
 
-  fechaEscogidaEdit(event: any) {
+  editChosenDate(event: any) {
     this.editarService[0]['fecha'] = event.target.value
   }
 
-  minutos(event: any) {
+  minutes(event: any) {
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
     if (event === null) sumarsesion = 0
 
@@ -1734,7 +1729,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  minutosEdit(event: any) {
+  editMinutes(event: any) {
 
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
 
@@ -1763,7 +1758,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  valueService() {
+  serviceValue() {
 
     let restamos = 0
 
@@ -1794,7 +1789,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  valueCobros() {
+  collectionsValue() {
     let resultado = 0
 
     this.sumatoriaCobros = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) +
@@ -1804,11 +1799,11 @@ export class NewServiceComponent implements OnInit {
     this.restamosCobro = resultado
   }
 
-  terapeu(event: any) {
+  therapists(event: any) {
     this.getLastDate()
     this.service.getTerapeutaByAsc(event).subscribe((rp: any) => {
-      if (rp.length > 0) this.horaStartTerapeuta = rp[0]['horaStart']
-      else this.horaStartTerapeuta = ''
+      if (rp.length > 0) this.hourStartTerapeuta = rp[0]['horaStart']
+      else this.hourStartTerapeuta = ''
     })
 
     this.service.getTerapeutaByDesc(event).subscribe((rp: any) => {
@@ -1817,7 +1812,7 @@ export class NewServiceComponent implements OnInit {
     })
   }
 
-  encargadaAndTerapeuta() {
+  managerAndTherapist() {
 
     // Terapeuta
     if (this.services.efectTerap == true && Number(this.services.numberTerap) > 0) this.services.valueEfectTerapeuta = Number(this.services.numberTerap)
@@ -1896,7 +1891,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  validacionFormasPago() {
+  paymentMethodValidation() {
     if (Number(this.services.numberPiso1) > 0 && this.services.efectPiso1 == false && this.services.bizuPiso1 == false &&
       this.services.tarjPiso1 == false && this.services.transPiso1 == false) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
@@ -2056,13 +2051,13 @@ export class NewServiceComponent implements OnInit {
     this.editarService[0]['fechaFin'] = this.editarService[0]['fecha']
   }
 
-  getTerapeutaEdit(nombre: string) {
+  consultToEditTheTherapist(nombre: string) {
     this.serviceTherapist.getByNombre(nombre).subscribe((resp) => {
       this.terapeutaSelect = resp
     })
   }
 
-  cargar() {
+  editForm() {
     let fecha = new Date(), dia = '', mes = '', año = 0
 
     año = fecha.getFullYear()
@@ -2078,14 +2073,14 @@ export class NewServiceComponent implements OnInit {
           document.getElementById('idTitulo').innerHTML = 'Editar servicio'
 
           this.editarService = datosServicio
-          this.getTerapeutaEdit(datosServicio[0].terapeuta)
+          this.consultToEditTheTherapist(datosServicio[0].terapeuta)
 
           // Fechas
           dia = this.editarService[0].fecha.substring(0, 2)
           mes = this.editarService[0].fecha.substring(3, 5)
           this.editarService[0].fecha = `${año}-${mes}-${dia}`
 
-          this.valueCobrosEdit()
+          this.editCollectionsValue()
 
           this.serviceManager.getByIdAndAdministrador(this.idUserAdministrador).subscribe((datoAdministrador: any[]) => {
             if (datoAdministrador.length > 0) {
@@ -2106,7 +2101,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  totalServicioEdit() {
+  fullServiceToEdit() {
     let piso1 = 0, piso2 = 0, terap = 0, encargada = 0, otros = 0
 
     if (Number(this.editarService[0]['numberPiso1']) === 0) {
@@ -2197,19 +2192,19 @@ export class NewServiceComponent implements OnInit {
       if (!this.expiredDateValidations()) return
       if (!this.validationsToSelectAPaymentMethod()) return
       if (!this.validationsFormOfPaymentToEdit()) return
-      this.totalServicioEdit()
+      this.fullServiceToEdit()
       this.efectCheckToggleEdit(this.validateEfect)
       this.bizumCheckToggleEdit(this.validateBizum)
       this.tarjCheckToggleEdit(this.validateTarjeta)
       this.transCheckToggleEdit(this.validateTrans)
-      this.encargadaAndTerapeutaEdit()      
+      this.editManagerAndTherapist()
       this.editValue()
 
       this.therapist.horaEnd = serv.horaEnd
       this.therapist.fechaEnd = serv.fecha
       this.therapist.salida = serv.salida
       this.therapist.minuto = serv.minuto
-      
+
       this.serviceTherapist.update(this.editarService[0]['terapeuta'], this.therapist).subscribe((rp: any) => { })
 
       this.sortDateToEdit()
@@ -2225,7 +2220,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  valueServiceEdit() {
+  editServiceValue() {
     let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0, propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0
 
     if (Number(this.editarService[0]['servicio']) > 0) {
@@ -2292,7 +2287,7 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  valueCobrosEdit() {
+  editCollectionsValue() {
     let valuepiso1Edit = 0, valuepiso2Edit = 0, valueterapeutaEdit = 0, valueEncargEdit = 0, valueotrosEdit = 0, restamosEdit = 0, resultadoEdit = 0
 
     if (Number(this.editarService[0]['numberPiso1']) > 0) {
@@ -2522,7 +2517,7 @@ export class NewServiceComponent implements OnInit {
     if (this.editarService[0]['transPiso2'] == true) this.editarService[0]['valuePiso2Transaccion'] = Number(this.editarService[0]['numberPiso2'])
   }
 
-  encargadaAndTerapeutaEdit() {
+  editManagerAndTherapist() {
 
     if (this.editarService[0]['efectTerap'] == true && Number(this.editarService[0]['numberTerap']) > 0) {
       this.editarService[0]['valueEfectTerapeuta'] = Number(this.editarService[0]['numberTerap'])

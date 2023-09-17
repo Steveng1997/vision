@@ -21,6 +21,7 @@ import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 })
 export class ManagerComponent implements OnInit {
 
+  CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
   addForm: boolean
@@ -115,8 +116,31 @@ export class ManagerComponent implements OnInit {
     this.addForm = false
     this.selected = false
     this.editEncarg = false
+    this.date()
     this.getSettlements()
     this.getEncargada()
+  }
+
+  date() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = ''
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      this.CurrenDate = `${year}-${convertMonth}-${day}`
+    } else {
+      this.CurrenDate = `${year}-${month}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      this.CurrenDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      this.CurrenDate = `${year}-${convertMonth}-${day}`
+    }
   }
 
   convertToZero() {
@@ -196,7 +220,20 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  filters() {
+  filtersDateEnd(event: any) {
+    this.formTemplate.value.FechaFin = event.target.value
+    if (this.formTemplate.value.FechaFin != "") {
+      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      diaFin = fechaFin.substring(8, 11)
+      mesFin = fechaFin.substring(5, 7)
+      añoFin = fechaFin.substring(2, 4)
+      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+  }
+
+  filters(event: any) {
+    this.formTemplate.value.fechaInicio = event.target.value
     this.filterByName = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.filterByNumber = Number(this.formTemplate.value.busqueda)
 
@@ -207,15 +244,6 @@ export class ManagerComponent implements OnInit {
       mes = fecha.substring(5, 7)
       año = fecha.substring(2, 4)
       this.fechaInicio = `${dia}-${mes}-${año}`
-    }
-
-    if (this.formTemplate.value.FechaFin != "") {
-      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
-      fechaFin = this.formTemplate.value.FechaFin
-      diaFin = fechaFin.substring(8, 11)
-      mesFin = fechaFin.substring(5, 7)
-      añoFin = fechaFin.substring(2, 4)
-      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
   }
 
@@ -414,9 +442,16 @@ export class ManagerComponent implements OnInit {
                 this.sumCommission = Number(sumComision.toFixed(1))
               }
 
+              let dayStart = 0, dayEnd = 0, fixedDay = 0
+              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+
+              this.fixedTotalDay = dayEnd - dayStart
+              fixedDay = this.fixedTotalDay * this.fijoDia
+
               // Recibido
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+              this.totalCommission = this.sumCommission + fixedDay - Number(this.receivedTherapist)
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()
@@ -453,9 +488,16 @@ export class ManagerComponent implements OnInit {
                 this.sumCommission = Number(sumComision.toFixed(1))
               }
 
+              let dayStart = 0, dayEnd = 0, fixedDay = 0
+              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+
+              this.fixedTotalDay = dayEnd - dayStart
+              fixedDay = this.fixedTotalDay * this.fijoDia
+
               // Recibido
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+              this.totalCommission = this.sumCommission + fixedDay - Number(this.receivedTherapist)
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()

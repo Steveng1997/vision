@@ -210,7 +210,7 @@ export class TherapistComponent implements OnInit {
   getSettlements() {
     let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
 
-    this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((datoLiquidaciones: any) => {
+    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((datoLiquidaciones: any) => {
       this.liquidated = datoLiquidaciones
 
       for (let index = 0; index < this.liquidated.length; index++) {
@@ -232,7 +232,20 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  filters() {
+  filtersDateEnd(event: any) {
+    this.formTemplate.value.FechaFin = event.target.value
+    if (this.formTemplate.value.FechaFin != "") {
+      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      diaFin = fechaFin.substring(8, 11)
+      mesFin = fechaFin.substring(5, 7)
+      añoFin = fechaFin.substring(2, 4)
+      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+  }
+
+  filters(event: any) {
+    this.formTemplate.value.fechaInicio = event.target.value
     this.filterByName = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.filterByNumber = Number(this.formTemplate.value.busqueda)
 
@@ -243,16 +256,7 @@ export class TherapistComponent implements OnInit {
       mes = fecha.substring(5, 7)
       año = fecha.substring(2, 4)
       this.fechaInicio = `${dia}-${mes}-${año}`
-    }
-
-    if (this.formTemplate.value.FechaFin != "") {
-      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
-      fechaFin = this.formTemplate.value.FechaFin
-      diaFin = fechaFin.substring(8, 11)
-      mesFin = fechaFin.substring(5, 7)
-      añoFin = fechaFin.substring(2, 4)
-      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
-    }
+    }    
   }
 
   getThoseThatNotLiquidated() {
@@ -298,7 +302,7 @@ export class TherapistComponent implements OnInit {
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    this.serviceLiquidationTherapist.getLiquidacionesTerapeuta().subscribe((rp: any) => {
+    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((rp: any) => {
       if (rp.length > 0) {
         año = fecha.getFullYear()
         mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
@@ -567,7 +571,7 @@ export class TherapistComponent implements OnInit {
     this.liquidationForm = false
     this.editTerap = true
 
-    this.serviceLiquidationTherapist.getIdTerap(id).subscribe((datosTerapeuta) => {
+    this.serviceLiquidationTherapist.consultTherapistId(id).subscribe((datosTerapeuta) => {
       this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
       this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
       this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
@@ -675,7 +679,7 @@ export class TherapistComponent implements OnInit {
   }
 
   getDateFrom() {
-    this.serviceLiquidationTherapist.getTerapAndEncarg(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
+    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
       this.liquidationTherapist.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
       this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
     })
