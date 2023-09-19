@@ -415,6 +415,7 @@ export class TherapistComponent implements OnInit {
             }, 0)
 
             // Filter by totalCash
+            debugger
             const totalCashs = this.unliquidatedService.filter(serv => rp)
             this.totalCash = totalCashs.reduce((accumulator, serv) => {
               return accumulator + serv.valueEfectTerapeuta
