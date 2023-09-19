@@ -20,12 +20,9 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 export class SettingComponent implements OnInit {
 
   // Encargada
-
-  nombreEncargada: string = ''
-  encargada: any[] = []
+  managers: any[] = []
   pageEncargada!: number
-  idEncargada: string
-  encargadaModal: any[] = []
+  modalManager: any[] = []
 
   manager: ModelManager = {
     activo: true,
@@ -73,23 +70,23 @@ export class SettingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTerapeuta()
-    this.getEncargada()
+    this.consultTherapists()
+    this.consultManager()
 
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'CONFIGURACIÓN'
   }
 
-  openEncargada(targetEncargada) {
+  openManager(targetEncargada) {
     this.modalService.open(targetEncargada, {
       centered: true,
       backdrop: 'static',
     })
   }
 
-  modalTablaEncargada(targetEncargada, manager) {
+  modalTablaManager(targetEncargada, manager) {
     this.serviceManager.getById(targetEncargada).subscribe((datosNameEncargada: any) => {
-      return (this.encargadaModal = datosNameEncargada)
+      return (this.modalManager = datosNameEncargada)
     })
 
     this.modalService.open(manager, {
@@ -98,13 +95,13 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  getEncargada() {
-    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.encargada = datosEncargada
+  consultManager() {
+    this.serviceManager.getUsuarios().subscribe((dataInCharge: any) => {
+      this.managers = dataInCharge
     })
   }
 
-  resetEncargada() {
+  resetManager() {
     if (this.manager.nombre != '') this.manager.nombre = ''
     if (this.manager.usuario != '') this.manager.usuario = ''
     if (this.manager.pass != '') this.manager.pass = ''
@@ -117,7 +114,7 @@ export class SettingComponent implements OnInit {
     if (Number(this.manager.otros) > 0) this.manager.otros = ''
   }
 
-  validacionValueTerapeutas(){
+  validateValuesOfEmptyTherapists(){
     if(this.therapist.bebida == "") this.therapist.bebida = "0"
     if(this.therapist.otros == "") this.therapist.otros = "0"
     if(this.therapist.propina == "") this.therapist.propina = "0"
@@ -126,7 +123,7 @@ export class SettingComponent implements OnInit {
     if(this.therapist.vitamina == "") this.therapist.vitamina = "0"
   }
 
-  validacionValueEncargadas(){
+  validateValuesOfEmptyManagers(){
     if(this.manager.bebida == "") this.manager.bebida = "0"
     if(this.manager.fijoDia == "") this.manager.fijoDia = "0"
     if(this.manager.otros == "") this.manager.otros = "0"
@@ -136,25 +133,25 @@ export class SettingComponent implements OnInit {
     if(this.manager.vitamina == "") this.manager.vitamina = "0"
   }
 
-  cerrarEncargada() {
-    this.resetEncargada()
+  closeManager() {
+    this.resetManager()
   }
 
-  registroEncargada() {
+  registerManager() {
     if (this.manager.nombre) {
       if (this.manager.usuario) {
         if (this.manager.pass) {
           this.manager.nombre = this.manager.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
           this.serviceManager.getByUsuario(this.manager.usuario).subscribe((nameRegistro: any) => {
             if (nameRegistro.length == 0) {
-              this.validacionValueEncargadas()
+              this.validateValuesOfEmptyManagers()
               this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
-                this.getEncargada()
+                this.consultManager()
                 Swal.fire({
                   position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
                 })
                 this.modalService.dismissAll()
-                this.resetEncargada()
+                this.resetManager()
               })
             } else {
               Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya existe este usuario' })
@@ -171,10 +168,10 @@ export class SettingComponent implements OnInit {
     }
   }
 
-  editarEncargada(id: number, encargada) {
+  editManager(id: number, encargada) {
     encargada.nombre = encargada.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.serviceManager.updateUser(id, encargada).subscribe((res: any) => {
-      this.getEncargada()
+      this.consultManager()
       this.modalService.dismissAll()
       Swal.fire({
         position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500
@@ -182,7 +179,7 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  deleteEncargada(id) {
+  removeManager(id) {
     this.serviceManager.getById(id).subscribe((resp: any) => {
       if (resp) {
         Swal.fire({
@@ -199,7 +196,7 @@ export class SettingComponent implements OnInit {
             })
 
             this.serviceManager.deleteManager(id).subscribe((resp: any) => {
-              this.getEncargada()
+              this.consultManager()
               this.modalService.dismissAll()
             })
           }
@@ -210,14 +207,14 @@ export class SettingComponent implements OnInit {
 
   // Terapeuta
 
-  openTerapeuta(targetModal) {
+  openTherapist(targetModal) {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
     })
   }
 
-  modalTablaTerapeuta(targetModal, terap) {
+  modalTableTherapist(targetModal, terap) {
     this.serviceTherapist.getByIdTerapeuta(targetModal).subscribe((datosNameTerapeuta: any) => {
       return (this.terapeutaModal = datosNameTerapeuta)
     })
@@ -228,13 +225,13 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  getTerapeuta() {
+  consultTherapists() {
     this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
       this.terapeuta = datosTerapeuta
     })
   }
 
-  resetTerapeuta() {
+  resetTherapist() {
     if (this.therapist.nombre != '') this.therapist.nombre = ''
     if (Number(this.therapist.servicio) > 0) this.therapist.servicio = ""
     if (Number(this.therapist.bebida) > 0) this.therapist.bebida = ""
@@ -244,42 +241,42 @@ export class SettingComponent implements OnInit {
     if (Number(this.therapist.otros) > 0) this.therapist.otros = ""
   }
 
-  cerrarTerapeuta() {
-    this.resetTerapeuta()
+  closeTherapist() {
+    this.resetTherapist()
   }
 
-  registroTerapeuta() {
+  therapistRegistration() {
     if (this.therapist.nombre != '') {
       this.therapist.nombre = this.therapist.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-      this.validacionValueTerapeutas()
+      this.validateValuesOfEmptyTherapists()
       this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
         if (res.length > 0) {
           Swal.fire({
             title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No`
           }).then((result) => {
             if (result.isConfirmed) {
-              this.serviceTherapist.registerTerapeuta(this.therapist).subscribe((resp: any) => {
-                this.getTerapeuta()
+              this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
+                this.consultTherapists()
                 Swal.fire({
                   position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
                 })
                 this.modalService.dismissAll()
-                this.resetTerapeuta()
+                this.resetTherapist()
               })
             } else if (result.isDenied) {
               this.modalService.dismissAll()
-              this.resetTerapeuta()
+              this.resetTherapist()
             }
           })
 
         } else {
-          this.serviceTherapist.registerTerapeuta(this.therapist).subscribe((res: any) => {
-            this.getTerapeuta()
+          this.serviceTherapist.save(this.therapist).subscribe((res: any) => {
+            this.consultTherapists()
             Swal.fire({
               position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
             })
             this.modalService.dismissAll()
-            this.resetTerapeuta()
+            this.resetTherapist()
           })
         }
       })
@@ -292,10 +289,10 @@ export class SettingComponent implements OnInit {
     }
   }
 
-  editarTerapeuta(id, terapeuta) {
+  editTherapist (id, terapeuta) {
     terapeuta.nombre = terapeuta.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.serviceTherapist.updateTerapeutas(id, terapeuta).subscribe((res: any) => {
-      this.getTerapeuta()
+      this.consultTherapists()
       this.modalService.dismissAll()
       Swal.fire({
         position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500
@@ -303,7 +300,7 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  deleteTerapeuta(id: number) {
+  removeTherapist(id: number) {
     this.serviceTherapist.getByIdTerapeuta(id).subscribe((datoTerapeuta: any) => {
       if (datoTerapeuta) {
         Swal.fire({
@@ -317,7 +314,7 @@ export class SettingComponent implements OnInit {
           if (result.isConfirmed) {
             Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
             this.serviceTherapist.deleteTerapeuta(id).subscribe((resp: any) => {
-              this.getTerapeuta()
+              this.consultTherapists()
               this.modalService.dismissAll()
             })
           }

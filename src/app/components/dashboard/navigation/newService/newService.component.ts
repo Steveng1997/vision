@@ -1115,7 +1115,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  efectivoUpdate(piso1, piso2, encargada, terapeuta, otros, idUnico) {
+  updateCash(piso1, piso2, encargada, terapeuta, otros, idUnico) {
     if (this.services.efectPiso1 == true || this.services.efectPiso2 == true || this.services.efectTerap == true ||
       this.services.efectEncarg == true || this.services.efectOtro == true) {
 
@@ -1155,7 +1155,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  bizumUpdate(piso1, piso2, encargada, terapeuta, otros, idUnico) {
+  updateBizum(piso1, piso2, encargada, terapeuta, otros, idUnico) {
     if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true || this.services.bizuTerap == true ||
       this.services.bizuEncarg == true || this.services.bizuOtro == true) {
 
@@ -1195,7 +1195,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  tarjetaUpdate(piso1, piso2, terapeuta, encargada, otros, idUnico) {
+  updateCard(piso1, piso2, terapeuta, encargada, otros, idUnico) {
     if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true || this.services.tarjTerap == true ||
       this.services.tarjEncarg == true || this.services.tarjOtro == true) {
 
@@ -1235,7 +1235,7 @@ export class NewServiceComponent implements OnInit {
     return true
   }
 
-  transaccionUpdate(piso1, piso2, terapeuta, encargada, otros, idUnico) {
+  updateTransaction(piso1, piso2, terapeuta, encargada, otros, idUnico) {
     if (this.services.transPiso1 == true || this.services.transPiso2 == true || this.services.transTerap == true ||
       this.services.transEncarg == true || this.services.transOtro == true) {
 
@@ -1377,7 +1377,7 @@ export class NewServiceComponent implements OnInit {
                       if (this.completoEfectivo == 0) {
                         this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                           if (idUnicoExit.length > 0) {
-                            if (!this.efectivoUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
+                            if (!this.updateCash(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
                           }
                         })
                       }
@@ -1385,7 +1385,7 @@ export class NewServiceComponent implements OnInit {
                       if (this.completoBizum == 0) {
                         this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                           if (idUnicoExit.length > 0) {
-                            if (!this.bizumUpdate(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
+                            if (!this.updateBizum(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
                           }
                         })
                       }
@@ -1393,7 +1393,7 @@ export class NewServiceComponent implements OnInit {
                       if (this.completoTarjeta == 0) {
                         this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                           if (idUnicoExit.length > 0) {
-                            if (!this.tarjetaUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                            if (!this.updateCard(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
                           }
                         })
                       }
@@ -1401,7 +1401,7 @@ export class NewServiceComponent implements OnInit {
                       if (this.completoTrans == 0) {
                         this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
                           if (idUnicoExit.length > 0) {
-                            if (!this.transaccionUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
+                            if (!this.updateTransaction(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
                           }
                         })
                       }

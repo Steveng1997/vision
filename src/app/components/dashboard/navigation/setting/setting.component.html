@@ -4,21 +4,21 @@
 
     <div style="display: grid; place-items: center;">
         <div style="text-align: center; width: max-content;">
-            <h4 class="ingresoPeriodo"> Encargadas </h4>
+            <h4 class="incomePeriod"> Encargadas </h4>
 
-            <button mat-raised-button color="primary" style="float: right"
-                (click)="openEncargada(addEncargada)">Agregar</button>
+            <button mat-raised-button color="primary" style="float: left"
+                (click)="openManager(addManager)">Agregar</button>
 
 
             <div style="text-align: center; width: max-content;">
 
                 <!-- Modal -->
-                <ng-template class="custom-modal" #addEncargada let-modal>
+                <ng-template class="custom-modal" #addManager let-modal>
                     <div class="modal-header">
                         <h5 class="modal-title"> Agregar Encargada </h5>
 
                         <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                            <span (click)="cerrarEncargada()" aria-hidden="true">&times;</span>
+                            <span (click)="closeManager()" aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
@@ -82,7 +82,7 @@
                                 <div style="display: grid; place-items: center;">
                                     <div style="text-align: center; width: max-content;">
                                         <button mat-raised-button type="submit" color="primary"
-                                            (click)="registroEncargada()">Aceptar</button>
+                                            (click)="registerManager()">Aceptar</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,41 +98,38 @@
                 <div class="container" style="margin-top: 3%; text-align: -webkit-center;">
                     <table class="table">
                         <thead>
-                            <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
-                                <td class="columnNombre">Nombre</td>
-                                <td class="columnUser">User</td>
-                                <td class="columnPass">Pass</td>
-                                <td class="columnfijoDia">Fijo/día</td>
-                                <td class="columnServicio">Servicio</td>
-                                <td class="columnBebida">Bebida</td>
-                                <td class="columnTabaco">Tabaco</td>
-                                <td class="columnVitamina">Vitamina</td>
-                                <td class="columnPropina">Propina</td>
-                                <td class="columnOtro">Otros</td>
+                            <tr class="table-secondary removeBorders" style="line-height: 0%; letter-spacing: normal">
+                                <td class="columnUserInCharge">User</td>
+                                <td class="passwordAssignedColumn">Pass</td>
+                                <td class="fixedDayColumnInCharge">Fijo/día</td>
+                                <td class="serviceColumnInCharge">Servicio</td>
+                                <td class="commissionedDrinkColumn">Bebida</td>
+                                <td class="tobaccoColumnInCharge">Tabaco</td>
+                                <td class="vitaminColumnInCharge">Vitamina</td>
+                                <td class="commissionedTipColumn">Propina</td>
+                                <td class="otherColumnInCharge">Otros</td>
                             </tr>
                         </thead>
-                        <tbody (click)="modalTablaEncargada(encg.id, modalTabl)"
-                            *ngFor="let encg of (encargada | paginate: { itemsPerPage: 20, currentPage: pageEncargada, id: 'pageEncargada' })">
+                        <tbody (click)="modalTablaManager(encg.id, modalTabl)"
+                            *ngFor="let encg of (managers | paginate: { itemsPerPage: 20, currentPage: pageEncargada, id: 'pageEncargada' })">
                             <tr style="cursor: pointer;">
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
-                                    {{encg?.nombre}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.usuario}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.pass}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.fijoDia}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.servicio + "%"}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.bebida + " %"}} </td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.tabaco + " %"}} </td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.vitamina + " %"}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.propina + " %"}}</td>
-                                <td class="quitarBordes" style="text-align: center; border-bottom: hidden">
+                                <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                     {{encg?.otros + " %"}} </td>
                             </tr>
 
@@ -212,16 +209,16 @@
                                                     #otros="ngModel">
                                             </mat-form-field>
 
-                                            <div class="container" *ngFor="let encargda of encargadaModal">
+                                            <div class="container" *ngFor="let encargda of modalManager">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <button mat-raised-button
-                                                            (click)="editarEncargada(encg.id, encg)"
+                                                            (click)="editManager(encg.id, encg)"
                                                             color="primary">Editar</button>
                                                     </div>
                                                     <div class="col-6">
                                                         <button mat-raised-button type="submit" color="warn"
-                                                            (click)="deleteEncargada(encargda.id)">Eliminar</button>
+                                                            (click)="removeManager(encargda.id)">Eliminar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -251,19 +248,19 @@
 
     <div style="display: grid; place-items: center;">
         <div style="text-align: center; width: max-content;">
-            <h4 class="ingresoPeriodo">Terapeutas</h4>
+            <h4 class="incomePeriod">Terapeutas</h4>
 
-            <button mat-raised-button color="primary" style="float: right"
-                (click)="openTerapeuta(addTerapeutas)">Agregar</button>
+            <button mat-raised-button color="primary" style="float: left"
+                (click)="openTherapist(addTherapist)">Agregar</button>
 
             <!-- Modal -->
-            <ng-template class="custom-modal" #addTerapeutas let-modal>
+            <ng-template class="custom-modal" #addTherapist let-modal>
                 <div class="modal-header">
                     <h5 class="modal-title"> Terapeuta </h5>
 
 
                     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                        <span (click)="cerrarTerapeuta()" aria-hidden="true">&times;</span>
+                        <span (click)="closeTherapist()" aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
@@ -313,7 +310,7 @@
                             <div style="display: grid; place-items: center;">
                                 <div style="text-align: center; width: max-content;">
                                     <button mat-raised-button type="submit" color="primary"
-                                        (click)="registroTerapeuta()">Aceptar</button>
+                                        (click)="therapistRegistration()">Aceptar</button>
                                 </div>
                             </div>
                         </div>
@@ -329,31 +326,31 @@
                 <table class="table">
                     <thead>
                         <tr class="table-secondary">
-                            <td class="columnNombre">Nombre</td>
-                            <td class="columnServicio">Servicio</td>
-                            <td class="columnBebida">Bebida</td>
-                            <td class="columnTabaco">Tabaco</td>
-                            <td class="columnVitamina">Vitamina</td>
-                            <td class="columnPropina">Propina</td>
-                            <td class="columnOtro">Otros</td>
+                            <td class="columnName">Nombre</td>
+                            <td class="serviceColumn">Servicio</td>
+                            <td class="drinkColumn">Bebida</td>
+                            <td class="tobaccoColumn">Tabaco</td>
+                            <td class="vitaminColumn">Vitamina</td>
+                            <td class="tipColumn">Propina</td>
+                            <td class="columnOthers">Otros</td>
                         </tr>
                     </thead>
-                    <tbody (click)="modalTablaTerapeuta(terap.id, modalTabl)"
+                    <tbody (click)="modalTableTherapist(terap.id, modalTabl)"
                         *ngFor="let terap of (terapeuta | paginate: { itemsPerPage: 20, currentPage: pageTerapeuta, id: 'pageTerapeuta'})">
                         <tr style="cursor: pointer;">
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.nombre}}</td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.servicio + " %"}} </td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.bebida + " %"}} </td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.tabaco + " %"}} </td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.vitamina + " %"}} </td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.otros + " %"}} </td>
-                            <td class="quitarBordes" style="text-align: left; border-bottom: hidden">
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.propina + " %"}} </td>
                         </tr>
 
@@ -416,15 +413,15 @@
                                                 #propina="ngModel">
                                         </mat-form-field>
 
-                                        <div class="container" *ngFor="let terapM of terapeutaModal">
+                                        <div class="container" *ngFor="let terap of terapeutaModal">
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <button mat-raised-button (click)="editarTerapeuta(terap.id, terap)"
+                                                    <button mat-raised-button (click)="editTherapist(terap.id, terap)"
                                                         color="primary">Editar</button>
                                                 </div>
                                                 <div class="col-6">
                                                     <button mat-raised-button type="submit" color="warn"
-                                                        (click)="deleteTerapeuta(terapM.id)">Eliminar</button>
+                                                        (click)="removeTherapist(terap.id)">Eliminar</button>
                                                 </div>
                                             </div>
                                         </div>

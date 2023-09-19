@@ -32,8 +32,8 @@
                         <label style="display: contents;">Buscar</label>
                     </div>
                     <div class="col-10">
-                        <input type="text" class="form-control" formControlName="busqueda" (ngModelChange)="filters($event)"
-                            style="font-size: 14px; max-width: inherit;">
+                        <input type="text" class="form-control" formControlName="busqueda"
+                            (ngModelChange)="filters($event)" style="font-size: 14px; max-width: inherit;">
                     </div>
                 </div>
             </div>
@@ -375,8 +375,8 @@
                                         style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                                         Tratamiento</th>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalService + ' €'}}</td>
-                                    <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.servicio +
-                                        ' %'}}
+                                    <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.servicio + '
+                                        %'}}
                                     </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{serviceCommission + ' €'}}
                                     </td>
@@ -387,8 +387,7 @@
                                         Propina</th>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + ' €'}}</td>
                                     <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.propina + '
-                                        %'}}
-                                    </td>
+                                        %'}} </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{commissionTip + ' €'}}</td>
                                 </tr>
                                 <tr style="line-height: 40%">
@@ -398,8 +397,7 @@
                                     <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + ' €'}}
                                     </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.bebida + '
-                                        %'}}
-                                    </td>
+                                        %'}} </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{beverageCommission + ' €'}}
                                     </td>
                                 </tr>
@@ -409,8 +407,8 @@
                                         Tabaco</th>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue + ' €'}}
                                     </td>
-                                    <td style="border-bottom: hidden; text-align: right;">
-                                        {{encargadaName?.tabaco + ' %'}} </td>
+                                    <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.tabaco + '
+                                        %'}} </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission + ' €'}}
                                     </td>
                                 </tr>
@@ -420,8 +418,8 @@
                                         Vitamina</th>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins + ' €'}}
                                     </td>
-                                    <td style="border-bottom: hidden; text-align: right;">
-                                        {{encargadaName?.vitamina + ' %'}} </td>
+                                    <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.vitamina + '
+                                        %'}} </td>
                                     <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission + ' €'}}
                                     </td>
                                 </tr>
@@ -431,8 +429,8 @@
                                         Otros</th>
                                     <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + ' €'}}
                                     </td>
-                                    <td style="border-bottom: hidden; text-align: right;">
-                                        {{encargadaName?.otros + ' %'}}</td>
+                                    <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.otros + '
+                                        %'}}</td>
                                     <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + ' €'}}
                                     </td>
                                 </tr>
@@ -448,11 +446,11 @@
                                     </td>
                                     <td style="display: inline-table;border-bottom: hidden;border-top: hidden;">
                                         <input type="number" style="width:50%; float: left;"
-                                            (change)="fixedNumberDay($event)" [value]="fixedTotalDay">
+                                            (change)="fixedNumberDay($event)" [value]="fixedDay">
                                         <label style="margin-top: 9%;">{{'X' + fijoDia + '€'}}</label>
                                     </td>
                                     <td style="border-bottom: hidden; text-align: right; width: 0%;">
-                                        {{totalCommission + '€'}}
+                                        {{fixedTotalDay + '€'}}
                                     </td>
                                 </tr>
                                 <tr style="line-height: 40%">
@@ -669,12 +667,11 @@
     </div>
 
     <!-- Table Sumatoria -->
-
-    |<div style="display: grid; place-items: center;" class="tableEdtit">
-        <div style="text-align: center; width: max-content;">
+    <div style="display: grid; place-items: center;" class="tableEdtit">
+        <div style="text-align: center; width: min-content;">
             <table class="table">
                 <thead>
-                    <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal">
+                    <tr class="table-secondary">
                         <th style="border-bottom: hidden;"></th>
                         <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
                         <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
@@ -687,66 +684,89 @@
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Tratamiento</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalService + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['servicio'] + ' %'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{serviceCommission + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.servicio + ' %'}} </td>
+                        <td style="border-bottom: hidden; text-align: right;">{{serviceCommission + ' €'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row"
                             style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
                             Propina</th>
                         <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['propina'] + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.propina + ' %'}} </td>
                         <td style="border-bottom: hidden; text-align: right;">{{commissionTip + ' €'}}</td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row"
-                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                             Bebida</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['bebida'] + ' %'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{beverageCommission + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + ' €'}}
+                        </td>
+                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName?.bebida + ' %'}} </td>
+                        <td style="border-bottom: hidden; text-align: right;">{{beverageCommission + ' €'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row"
-                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                             Tabaco</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['tabaco'] + ' %'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue + ' €'}}
+                        </td>
+                        <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.tabaco + ' %'}} </td>
+                        <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission + ' €'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row"
-                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                             Vitamina</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['vitamina'] + ' %'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins + ' €'}}
+                        </td>
+                        <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.vitamina + ' %'}} </td>
+                        <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission + ' €'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row"
-                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
                             Otros</th>
-                        <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + ' €'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{encargadaName['otros'] + ' %'}}</td>
-                        <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + ' €'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + ' €'}}
+                        </td>
+                        <td style="border-bottom: hidden; text-align: right;"> {{encargadaName?.otros + ' %'}}</td>
+                        <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + ' €'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
-                        <th scope="row" style="border-bottom: hidden;"></th>
-                        <td style="border-bottom: hidden; text-align: right;"></td>
+                        <th style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden; text-align: start;">Suma</td>
+                        <td style="border-bottom: hidden; text-align: start;"></td>
                         <td style="border-bottom: hidden; text-align: right;">{{sumCommission + ' €'}}</td>
                     </tr>
                     <tr style="line-height: 40%">
-                        <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden; text-align: right;"></td>
-                        <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
-                        <td style="border-bottom: 1px solid blue; text-align: right;">
-                            {{receivedTherapist}}</td>
+                        <td style="border-bottom: hidden; text-align: start; width: 0%;"> Fijo/día
+                        </td>
+                        <td style="display: inline-table;border-bottom: hidden;border-top: hidden;">
+                            <input type="number" style="width:50%; float: left;" (change)="fixedNumberDay($event)"
+                                [value]="fixedDay" disabled>
+                            <label style="margin-top: 9%;">{{'X' + fijoDia + '€'}}</label>
+                        </td>
+                        <td style="border-bottom: hidden; text-align: right; width: 0%;">
+                            {{fixedTotalDay + '€'}}
+                        </td>
                     </tr>
                     <tr style="line-height: 40%">
                         <th scope="row" style="border-bottom: hidden;"></th>
-                        <td style="border-bottom: hidden;"></td>
+                        <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
+                        <td style="border-bottom: 1px solid blue; text-align: start; border-top: hidden;">
+                        </td>
+                        <td style="border-bottom: 1px solid blue; text-align: right;">{{receivedTherapist}}
+                        </td>
+                    </tr>
+                    <tr style="line-height: 40%">
+                        <th scope="row" style="border-bottom: hidden;"></th>
                         <td style="border-bottom: hidden; text-align: start;">Total</td>
+                        <td style="border-bottom: hidden; text-align: start;"></td>
                         <td style="border-bottom: hidden; text-align: right;">{{totalCommission}}</td>
                     </tr>
                 </tbody>

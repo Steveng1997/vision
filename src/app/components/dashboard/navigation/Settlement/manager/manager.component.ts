@@ -34,6 +34,7 @@ export class ManagerComponent implements OnInit {
   page!: number
   fijoDia: number
   fixedTotalDay: number
+  fixedDay: number
 
   // Encargada
   encargada: any[] = []
@@ -323,6 +324,14 @@ export class ManagerComponent implements OnInit {
     }
   }
 
+  editConsultWithManager(encargada) {
+    this.serviceManager.getEncargada(encargada).subscribe((resp: any) => {
+      this.fijoDia = resp[0]['fijoDia']
+      this.fixedTotalDay = resp[0]['fijoDia']
+    })
+    return true
+  }
+
   consultWithManager() {
     this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
       this.fijoDia = resp[0]['fijoDia']
@@ -442,16 +451,16 @@ export class ManagerComponent implements OnInit {
                 this.sumCommission = Number(sumComision.toFixed(1))
               }
 
-              let dayStart = 0, dayEnd = 0, fixedDay = 0
+              let dayStart = 0, dayEnd = 0
               dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
               dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
-              this.fixedTotalDay = dayEnd - dayStart
-              fixedDay = this.fixedTotalDay * this.fijoDia
+              this.fixedDay = dayEnd - dayStart
+              this.fixedTotalDay = this.fixedDay * this.fijoDia
 
               // Recibido
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + fixedDay - Number(this.receivedTherapist)
+              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()
@@ -488,16 +497,16 @@ export class ManagerComponent implements OnInit {
                 this.sumCommission = Number(sumComision.toFixed(1))
               }
 
-              let dayStart = 0, dayEnd = 0, fixedDay = 0
+              let dayStart = 0, dayEnd = 0
               dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
               dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
-              this.fixedTotalDay = dayEnd - dayStart
-              fixedDay = this.fixedTotalDay * this.fijoDia
+              this.fixedDay = dayEnd - dayStart
+              this.fixedTotalDay = this.fixedDay * this.fijoDia
 
               // Recibido
               this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + fixedDay - Number(this.receivedTherapist)
+              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()
@@ -562,6 +571,8 @@ export class ManagerComponent implements OnInit {
 
     this.service.getByIdEncarg(id).subscribe((datosTerapeuta) => {
       this.settledData = datosTerapeuta;
+
+      if (!this.editConsultWithManager(this.settledData[0]['encargada'])) return
 
       // Filter by servicio
       const servicios = this.settledData.filter(serv => serv)
@@ -637,6 +648,21 @@ export class ManagerComponent implements OnInit {
           this.sumCommission = Number(sumComision.toFixed(1))
         }
 
+        let dayStart = 0, dayEnd = 0
+
+        debugger
+
+        if (this.liquidationManager.desdeFechaLiquidado.length == 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+
+        if (this.liquidationManager.desdeFechaLiquidado.length < 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
+
+        if (this.liquidationManager.hastaFechaLiquidado.length == 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+
+        if (this.liquidationManager.hastaFechaLiquidado.length < 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
+
+        this.fixedDay = dayEnd - dayStart
+        this.fixedTotalDay = this.fixedDay * this.fijoDia
+
         // Recibido
 
         for (let index = 0; index < this.settledData.length; index++) {
@@ -645,7 +671,7 @@ export class ManagerComponent implements OnInit {
             return accumulator + serv.numberTerap
           }, 0)
         }
-        return this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+        return this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
       })
     })
   }

@@ -23,7 +23,7 @@ export class ServiceTherapist {
 
   // Register
 
-  registerTerapeuta(therapist: ModelTherapist) {
+  save(therapist: ModelTherapist) {
     return this.http.post(`${this.API_Terapeuta}/registerTerapeuta`, therapist);
   }
 
