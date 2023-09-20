@@ -64,18 +64,6 @@ export class NewServiceComponent implements OnInit {
 
   idUnico: string
 
-  // conteo Numbers
-  countEfect = 0
-  countbizu = 0
-  counttarj = 0
-  counttrans = 0
-
-  // Completo
-  completoEfectivo = 0
-  completoBizum = 0
-  completoTarjeta = 0
-  completoTrans = 0
-
   terapEdit: any
   terapeutaSelect: any
 
@@ -422,12 +410,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.services.numberPiso1) > 0 && this.services.efectPiso1 == true) {
         piso1 = Number(this.services.numberPiso1)
+        this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
       } else {
         piso1 = 0
       }
 
       if (Number(this.services.numberPiso2) > 0 && this.services.efectPiso2 == true) {
         piso2 = Number(this.services.numberPiso2)
+        this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
       } else {
         piso2 = 0
       }
@@ -471,12 +461,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.services.numberPiso1) > 0 && this.services.bizuPiso1 == true) {
         piso1 = Number(this.services.numberPiso1)
+        this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
       } else {
         piso1 = 0
       }
 
       if (Number(this.services.numberPiso2) > 0 && this.services.bizuPiso2 == true) {
         piso2 = Number(this.services.numberPiso2)
+        this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
       } else {
         piso2 = 0
       }
@@ -520,12 +512,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.services.numberPiso1) > 0 && this.services.tarjPiso1 == true) {
         piso1 = Number(this.services.numberPiso1)
+        this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
       } else {
         piso1 = 0
       }
 
       if (Number(this.services.numberPiso2) > 0 && this.services.tarjPiso2 == true) {
         piso2 = Number(this.services.numberPiso2)
+        this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
       } else {
         piso2 = 0
       }
@@ -569,12 +563,14 @@ export class NewServiceComponent implements OnInit {
     if (event) {
       if (Number(this.services.numberPiso1) > 0 && this.services.transPiso1 == true) {
         piso1 = Number(this.services.numberPiso1)
+        this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
       } else {
         piso1 = 0
       }
 
       if (Number(this.services.numberPiso2) > 0 && this.services.transPiso2 == true) {
         piso2 = Number(this.services.numberPiso2)
+        this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
       } else {
         piso2 = 0
       }
