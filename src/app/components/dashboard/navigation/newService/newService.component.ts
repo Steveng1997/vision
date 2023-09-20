@@ -46,10 +46,10 @@ export class NewServiceComponent implements OnInit {
   sumatoriaCobros = 0
 
   // Cobros
-  validateEfect = true
-  validateBizum = true
-  validateTarjeta = true
-  validateTrans = true
+  validateEfect = false
+  validateBizum = false
+  validateTarjeta = false
+  validateTrans = false
 
   // Editar
   restamosCobroEdit = 0
@@ -295,258 +295,6 @@ export class NewServiceComponent implements OnInit {
     return this.idUnico
   }
 
-  selectFive() {
-
-    this.validateTheEmptyField()
-
-    if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
-      || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
-
-      // Efectivo
-      if (this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectTerap == true &&
-        this.services.efectEncarg == true && this.services.efectOtro == true) {
-
-        if (this.services.efectPiso1 == true) this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
-        if (this.services.efectPiso2 == true) this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
-
-        this.completoEfectivo = 1
-        this.services.formaPago = "Efectivo"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Bizum
-      if (this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuTerap == true &&
-        this.services.bizuEncarg == true && this.services.bizuOtro == true) {
-
-        if (this.services.bizuPiso1 == true) this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
-        if (this.services.bizuPiso2 == true) this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
-
-        this.completoBizum = 1
-        this.services.formaPago = "Bizum"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Tarjeta
-      if (this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjTerap == true &&
-        this.services.tarjEncarg == true && this.services.tarjOtro == true) {
-
-        if (this.services.tarjPiso1 == true) this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
-        if (this.services.tarjPiso2 == true) this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
-
-        this.completoTarjeta = 1
-        this.services.formaPago = "Tarjeta"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Transaccion
-      if (this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transTerap == true &&
-        this.services.transEncarg == true && this.services.transOtro == true) {
-
-        if (this.services.transPiso1 == true) this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
-        if (this.services.transPiso2 == true) this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
-
-        this.completoTrans = 1
-        this.services.formaPago = "Transaccion"
-
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-    }
-    return true
-  }
-
-  selectFour() {
-
-    this.validateTheEmptyField()
-
-    if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
-      || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
-
-      // Efectivo
-      if (this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectTerap == true
-        && this.services.efectEncarg == true || this.services.efectPiso2 == true && this.services.efectTerap == true &&
-        this.services.efectEncarg == true && this.services.efectOtro == true || this.services.efectPiso1 == true &&
-        this.services.efectTerap == true && this.services.efectEncarg == true && this.services.efectOtro == true ||
-        this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectEncarg == true &&
-        this.services.efectOtro == true || this.services.efectPiso1 == true && this.services.efectPiso2 == true &&
-        this.services.efectTerap == true && this.services.efectOtro == true) {
-
-        if (this.services.efectPiso1 == true) this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
-        if (this.services.efectPiso2 == true) this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
-
-        this.completoEfectivo = 1
-        this.services.formaPago = "Efectivo"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Bizum
-      if (this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuTerap == true
-        && this.services.bizuEncarg == true || this.services.bizuPiso2 == true && this.services.bizuTerap == true &&
-        this.services.bizuEncarg == true && this.services.bizuOtro == true || this.services.bizuPiso1 == true &&
-        this.services.bizuTerap == true && this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuEncarg == true &&
-        this.services.bizuOtro == true || this.services.bizuPiso1 == true && this.services.bizuPiso2 == true &&
-        this.services.bizuTerap == true && this.services.bizuOtro == true) {
-
-        if (this.services.bizuPiso1 == true) this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
-        if (this.services.bizuPiso2 == true) this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
-
-        this.completoBizum = 1
-        this.services.formaPago = "Bizum"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Tarjeta
-      if (this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjTerap == true
-        && this.services.tarjEncarg == true || this.services.tarjPiso2 == true && this.services.tarjTerap == true &&
-        this.services.tarjEncarg == true && this.services.tarjOtro == true || this.services.tarjPiso1 == true &&
-        this.services.tarjTerap == true && this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjEncarg == true &&
-        this.services.tarjOtro == true || this.services.tarjPiso1 == true && this.services.tarjPiso2 == true &&
-        this.services.tarjTerap == true && this.services.tarjOtro == true) {
-
-        if (this.services.tarjPiso1 == true) this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
-        if (this.services.tarjPiso2 == true) this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
-
-        this.completoTarjeta = 1
-        this.services.formaPago = "Tarjeta"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Transaccion
-      if (this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transTerap == true
-        && this.services.transEncarg == true || this.services.transPiso2 == true && this.services.transTerap == true &&
-        this.services.transEncarg == true && this.services.transOtro == true || this.services.transPiso1 == true &&
-        this.services.transTerap == true && this.services.transEncarg == true && this.services.transOtro == true ||
-        this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transEncarg == true &&
-        this.services.transOtro == true || this.services.transPiso1 == true && this.services.transPiso2 == true &&
-        this.services.transTerap == true && this.services.transOtro == true) {
-
-        if (this.services.transPiso1 == true) this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
-        if (this.services.transPiso2 == true) this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
-
-        this.completoTrans = 1
-        this.services.formaPago = "Transaccion"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-    }
-    return true
-  }
-
-  selectThree() {
-
-    this.validateTheEmptyField()
-
-    if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
-      || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
-
-      // Efectivo
-      if (this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectTerap == true ||
-        this.services.efectPiso2 == true && this.services.efectTerap == true && this.services.efectEncarg == true ||
-        this.services.efectTerap == true && this.services.efectEncarg == true && this.services.efectOtro == true ||
-        this.services.efectPiso1 == true && this.services.efectTerap == true && this.services.efectOtro == true ||
-        this.services.efectPiso1 == true && this.services.efectTerap == true && this.services.efectEncarg == true ||
-        this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectEncarg == true ||
-        this.services.efectPiso1 == true && this.services.efectEncarg == true && this.services.efectOtro == true ||
-        this.services.efectPiso1 == true && this.services.efectPiso2 == true && this.services.efectOtro == true ||
-        this.services.efectPiso2 == true && this.services.efectEncarg == true && this.services.efectOtro == true ||
-        this.services.efectPiso2 == true && this.services.efectTerap == true && this.services.efectOtro == true) {
-
-        if (this.services.efectPiso1 == true) this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
-        if (this.services.efectPiso2 == true) this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
-
-        this.completoEfectivo = 1
-        this.services.formaPago = "Efectivo"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Bizum
-      if (this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuTerap == true ||
-        this.services.bizuPiso2 == true && this.services.bizuTerap == true && this.services.bizuEncarg == true ||
-        this.services.bizuTerap == true && this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso1 == true && this.services.bizuTerap == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso1 == true && this.services.bizuTerap == true && this.services.bizuEncarg == true ||
-        this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuEncarg == true ||
-        this.services.bizuPiso1 == true && this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso1 == true && this.services.bizuPiso2 == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso2 == true && this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-        this.services.bizuPiso2 == true && this.services.bizuTerap == true && this.services.bizuOtro == true) {
-
-        if (this.services.bizuPiso1 == true) this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
-        if (this.services.bizuPiso2 == true) this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
-
-        this.completoBizum = 1
-        this.services.formaPago = "Bizum"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Tarjeta
-      if (this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjTerap == true ||
-        this.services.tarjPiso2 == true && this.services.tarjTerap == true && this.services.tarjEncarg == true ||
-        this.services.tarjTerap == true && this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso1 == true && this.services.tarjTerap == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso1 == true && this.services.tarjTerap == true && this.services.tarjEncarg == true ||
-        this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjEncarg == true ||
-        this.services.tarjPiso1 == true && this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso1 == true && this.services.tarjPiso2 == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso2 == true && this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-        this.services.tarjPiso2 == true && this.services.tarjTerap == true && this.services.tarjOtro == true) {
-
-        if (this.services.tarjPiso1 == true) this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
-        if (this.services.tarjPiso2 == true) this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
-
-        this.completoTarjeta = 1
-        this.services.formaPago = "Tarjeta"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Transaccion
-      if (this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transTerap == true ||
-        this.services.transPiso2 == true && this.services.transTerap == true && this.services.transEncarg == true ||
-        this.services.transTerap == true && this.services.transEncarg == true && this.services.transOtro == true ||
-        this.services.transPiso1 == true && this.services.transTerap == true && this.services.transOtro == true ||
-        this.services.transPiso1 == true && this.services.transTerap == true && this.services.transEncarg == true ||
-        this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transEncarg == true ||
-        this.services.transPiso1 == true && this.services.transEncarg == true && this.services.transOtro == true ||
-        this.services.transPiso1 == true && this.services.transPiso2 == true && this.services.transOtro == true ||
-        this.services.transPiso2 == true && this.services.transEncarg == true && this.services.transOtro == true ||
-        this.services.transPiso2 == true && this.services.transTerap == true && this.services.transOtro == true) {
-
-        if (this.services.transPiso1 == true) this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
-        if (this.services.transPiso2 == true) this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
-
-        this.completoTrans = 1
-        this.services.formaPago = "Transaccion"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-    }
-
-    return true
-  }
-
   convertZero() {
     this.services.numberPiso1 = "0"
     this.services.numberPiso2 = "0"
@@ -575,706 +323,6 @@ export class NewServiceComponent implements OnInit {
     if (this.services.vitaminas == "") this.services.vitaminas = "0"
   }
 
-  countingNumber() {
-    if (this.services.efectPiso1 == true) this.countEfect += 1
-    if (this.services.efectPiso2 == true) this.countEfect += 1
-    if (this.services.efectTerap == true) this.countEfect += 1
-    if (this.services.efectEncarg == true) this.countEfect += 1
-    if (this.services.efectOtro == true) this.countEfect += 1
-
-    if (this.services.bizuPiso1 == true) this.countbizu += 1
-    if (this.services.bizuPiso2 == true) this.countbizu += 1
-    if (this.services.bizuTerap == true) this.countbizu += 1
-    if (this.services.bizuEncarg == true) this.countbizu += 1
-    if (this.services.bizuOtro == true) this.countbizu += 1
-
-    if (this.services.tarjPiso1 == true) this.counttarj += 1
-    if (this.services.tarjPiso2 == true) this.counttarj += 1
-    if (this.services.tarjTerap == true) this.counttarj += 1
-    if (this.services.tarjEncarg == true) this.counttarj += 1
-    if (this.services.tarjOtro == true) this.counttarj += 1
-
-    if (this.services.transPiso1 == true) this.counttrans += 1
-    if (this.services.transPiso2 == true) this.counttrans += 1
-    if (this.services.transTerap == true) this.counttrans += 1
-    if (this.services.transEncarg == true) this.counttrans += 1
-    if (this.services.transOtro == true) this.counttrans += 1
-  }
-
-  selectTwo(piso1, piso2, terapeuta, encargada, otros) {
-
-    this.validateTheEmptyField()
-
-    if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
-
-      // Efectivo
-      if (this.services.efectPiso1 == true && this.services.efectPiso2 == true || this.services.efectPiso1 == true &&
-        this.services.efectTerap == true || this.services.efectPiso1 == true && this.services.efectEncarg == true ||
-        this.services.efectPiso1 == true && this.services.efectOtro == true || this.services.efectPiso2 == true &&
-        this.services.efectTerap == true || this.services.efectPiso2 == true && this.services.efectEncarg == true ||
-        this.services.efectPiso2 == true && this.services.efectOtro == true || this.services.efectTerap == true &&
-        this.services.efectOtro == true || this.services.efectEncarg == true && this.services.efectOtro == true ||
-        this.services.efectTerap == true && this.services.efectEncarg == true) {
-
-        if (this.services.efectPiso1 == true) this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
-        if (this.services.efectPiso2 == true) this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
-
-        this.completoEfectivo = 1
-        this.services.formaPago = "Efectivo"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Bizum
-      if (this.services.bizuPiso1 == true && this.services.bizuPiso2 == true || this.services.bizuPiso1 == true &&
-        this.services.bizuTerap == true || this.services.bizuPiso1 == true && this.services.bizuEncarg == true ||
-        this.services.bizuPiso1 == true && this.services.bizuOtro == true || this.services.bizuPiso2 == true &&
-        this.services.bizuTerap == true || this.services.bizuPiso2 == true && this.services.bizuEncarg == true ||
-        this.services.bizuPiso2 == true && this.services.bizuOtro == true || this.services.bizuTerap == true &&
-        this.services.bizuOtro == true || this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-        this.services.bizuTerap == true && this.services.bizuEncarg == true) {
-
-        if (this.services.bizuPiso1 == true) this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
-        if (this.services.bizuPiso2 == true) this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
-
-        this.completoBizum = 1
-        this.services.formaPago = "Bizum"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Tarjeta
-      if (this.services.tarjPiso1 == true && this.services.tarjPiso2 == true || this.services.tarjPiso1 == true &&
-        this.services.tarjTerap == true || this.services.tarjPiso1 == true && this.services.tarjEncarg == true ||
-        this.services.tarjPiso1 == true && this.services.tarjOtro == true || this.services.tarjPiso2 == true &&
-        this.services.tarjTerap == true || this.services.tarjPiso2 == true && this.services.tarjEncarg == true ||
-        this.services.tarjPiso2 == true && this.services.tarjOtro == true || this.services.tarjTerap == true &&
-        this.services.tarjOtro == true || this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-        this.services.tarjTerap == true && this.services.tarjEncarg == true) {
-
-        if (this.services.tarjPiso1 == true) this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
-        if (this.services.tarjPiso2 == true) this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
-
-        this.completoTarjeta = 1
-        this.services.formaPago = "Tarjeta"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Transaccion
-      if (this.services.transPiso1 == true && this.services.transPiso2 == true || this.services.transPiso1 == true &&
-        this.services.transTerap == true || this.services.transPiso1 == true && this.services.transEncarg == true ||
-        this.services.transPiso1 == true && this.services.transOtro == true || this.services.transPiso2 == true &&
-        this.services.transTerap == true || this.services.transPiso2 == true && this.services.transEncarg == true ||
-        this.services.transPiso2 == true && this.services.transOtro == true || this.services.transTerap == true &&
-        this.services.transOtro == true || this.services.transEncarg == true && this.services.transOtro == true ||
-        this.services.transTerap == true && this.services.transEncarg == true) {
-
-        if (this.services.transPiso1 == true) this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
-        if (this.services.transPiso2 == true) this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
-
-        this.completoTrans = 1
-        this.services.formaPago = "Transaccion"
-
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-    }
-
-    return true
-  }
-
-  selectMoreThanTwo(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
-
-    this.services.numberPiso1 = piso1
-    this.services.numberPiso2 = piso2
-    this.services.numberTerap = terapeuta
-    this.services.numberEncarg = encargada
-    this.services.numberOtro = otros
-
-    if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
-
-      // Efectivo
-      if (this.services.formaPago == 'Bizum' || this.services.formaPago == 'Tarjeta' || this.services.formaPago == 'Transaccion') {
-        if (this.services.efectPiso1 == true && this.services.efectPiso2 == true || this.services.efectPiso1 == true &&
-          this.services.efectTerap == true || this.services.efectPiso1 == true && this.services.efectEncarg == true ||
-          this.services.efectPiso1 == true && this.services.efectOtro == true || this.services.efectPiso2 == true &&
-          this.services.efectTerap == true || this.services.efectPiso2 == true && this.services.efectEncarg == true ||
-          this.services.efectPiso2 == true && this.services.efectOtro == true || this.services.efectTerap == true &&
-          this.services.efectOtro == true || this.services.efectEncarg == true && this.services.efectOtro == true ||
-          this.services.efectTerap == true && this.services.efectEncarg == true) {
-
-          if (this.services.efectPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.services.formaPago = 'Efectivo'
-          this.completoEfectivo = 1
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.efectPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Bizum
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Tarjeta' || this.services.formaPago == 'Transaccion') {
-        if (this.services.bizuPiso1 == true && this.services.bizuPiso2 == true || this.services.bizuPiso1 == true &&
-          this.services.bizuTerap == true || this.services.bizuPiso1 == true && this.services.bizuEncarg == true ||
-          this.services.bizuPiso1 == true && this.services.bizuOtro == true || this.services.bizuPiso2 == true &&
-          this.services.bizuTerap == true || this.services.bizuPiso2 == true && this.services.bizuEncarg == true ||
-          this.services.bizuPiso2 == true && this.services.bizuOtro == true || this.services.bizuTerap == true &&
-          this.services.bizuOtro == true || this.services.bizuEncarg == true && this.services.bizuOtro == true ||
-          this.services.bizuTerap == true && this.services.bizuEncarg == true) {
-
-          if (this.services.bizuPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.services.formaPago = 'Bizum'
-          this.completoBizum = 1
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.bizuPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Tarjeta
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Bizum' || this.services.formaPago == 'Transaccion') {
-        if (this.services.tarjPiso1 == true && this.services.tarjPiso2 == true || this.services.tarjPiso1 == true &&
-          this.services.tarjTerap == true || this.services.tarjPiso1 == true && this.services.tarjEncarg == true ||
-          this.services.tarjPiso1 == true && this.services.tarjOtro == true || this.services.tarjPiso2 == true &&
-          this.services.tarjTerap == true || this.services.tarjPiso2 == true && this.services.tarjEncarg == true ||
-          this.services.tarjPiso2 == true && this.services.tarjOtro == true || this.services.tarjTerap == true &&
-          this.services.tarjOtro == true || this.services.tarjEncarg == true && this.services.tarjOtro == true ||
-          this.services.tarjTerap == true && this.services.tarjEncarg == true) {
-
-          if (this.services.tarjPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.services.formaPago = 'Tarjeta'
-          this.completoTarjeta = 1
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.tarjPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Transaccion
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Bizum' || this.services.formaPago == 'Tarjeta') {
-        if (this.services.transPiso1 == true && this.services.transPiso2 == true || this.services.transPiso1 == true &&
-          this.services.transTerap == true || this.services.transPiso1 == true && this.services.transEncarg == true ||
-          this.services.transPiso1 == true && this.services.transOtro == true || this.services.transPiso2 == true &&
-          this.services.transTerap == true || this.services.transPiso2 == true && this.services.transEncarg == true ||
-          this.services.transPiso2 == true && this.services.transOtro == true || this.services.transTerap == true &&
-          this.services.transOtro == true || this.services.transEncarg == true && this.services.transOtro == true ||
-          this.services.transTerap == true && this.services.transEncarg == true) {
-
-          if (this.services.transPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.services.formaPago = 'Transaccion'
-          this.completoTrans = 1
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.transPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-    }
-
-    return true
-  }
-
-  selectMoreThanOne() {
-
-    this.validateTheEmptyField()
-
-    if (Number(this.services.numberPiso1) > 0 || Number(this.services.numberPiso2) > 0 || Number(this.services.numberTerap) > 0
-      || Number(this.services.numberEncarg) > 0 || Number(this.services.numberOtro) > 0) {
-
-      if (this.services.efectPiso1 == true) this.services.valuePiso1Efectivo = Number(this.services.numberPiso1)
-      if (this.services.efectPiso2 == true) this.services.valuePiso2Efectivo = Number(this.services.numberPiso2)
-      if (this.services.bizuPiso1 == true) this.services.valuePiso1Bizum = Number(this.services.numberPiso1)
-      if (this.services.bizuPiso2 == true) this.services.valuePiso2Bizum = Number(this.services.numberPiso2)
-      if (this.services.tarjPiso1 == true) this.services.valuePiso1Tarjeta = Number(this.services.numberPiso1)
-      if (this.services.tarjPiso2 == true) this.services.valuePiso2Tarjeta = Number(this.services.numberPiso2)
-      if (this.services.transPiso1 == true) this.services.valuePiso1Transaccion = Number(this.services.numberPiso1)
-      if (this.services.transPiso2 == true) this.services.valuePiso2Transaccion = Number(this.services.numberPiso2)
-
-      // Efectivo
-
-      if (this.services.efectPiso1 == true || this.services.efectPiso2 == true || this.services.efectTerap == true ||
-        this.services.efectEncarg == true || this.services.efectOtro == true) {
-
-        this.services.formaPago = 'Efectivo'
-        this.completoEfectivo = 1
-        this.service.registerServicio(this.services).subscribe((register) => { })
-        return true
-      }
-
-      // Bizum
-      if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true || this.services.bizuTerap == true ||
-        this.services.bizuEncarg == true || this.services.bizuOtro == true) {
-
-        this.services.formaPago = 'Bizum'
-        this.completoBizum = 1
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Tarjeta
-      if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true || this.services.tarjTerap == true ||
-        this.services.tarjEncarg == true || this.services.tarjOtro == true) {
-
-        this.services.formaPago = 'Tarjeta'
-        this.completoTarjeta = 1
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-
-      // Transaccion
-      if (this.services.transPiso1 == true || this.services.transPiso2 == true || this.services.transTerap == true ||
-        this.services.transEncarg == true || this.services.transOtro == true) {
-
-        this.services.formaPago = 'Transaccion'
-        this.completoTrans = 1
-        this.service.registerServicio(this.services).subscribe((res: any) => { })
-        return true
-      }
-    }
-
-    return true
-  }
-
-  mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico) {
-
-    this.services.numberPiso1 = piso1
-    this.services.numberPiso2 = piso2
-    this.services.numberTerap = terapeuta
-    this.services.numberEncarg = encargada
-    this.services.numberOtro = otros
-
-    if (piso1 > 0 || piso2 > 0 || terapeuta > 0 || encargada > 0 || otros > 0) {
-
-      // Efectivo
-      if (this.services.formaPago == 'Bizum' || this.services.formaPago == 'Tarjeta' || this.services.formaPago == 'Transaccion') {
-        if (this.services.efectPiso1 == true || this.services.efectPiso2 == true || this.services.efectTerap == true ||
-          this.services.efectEncarg == true || this.services.efectOtro == true) {
-
-          if (this.services.efectPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.efectOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.completoEfectivo = 1
-          this.services.formaPago = "Efectivo"
-
-          this.service.registerServicio(this.services).subscribe((register: any) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.efectPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.efectOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Bizum
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Tarjeta' || this.services.formaPago == 'Transaccion') {
-        if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true || this.services.bizuTerap == true ||
-          this.services.bizuEncarg == true || this.services.bizuOtro == true) {
-
-          if (this.services.bizuPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.bizuOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.completoBizum = 1
-          this.services.formaPago = 'Bizum'
-
-          this.service.registerServicio(this.services).subscribe((register: any) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.bizuPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.bizuOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Tarjeta
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Bizum' || this.services.formaPago == 'Transaccion') {
-        if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true || this.services.tarjTerap == true ||
-          this.services.tarjEncarg == true || this.services.tarjOtro == true) {
-
-          if (this.services.tarjPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.tarjOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.completoTarjeta = 1
-          this.services.formaPago = 'Tarjeta'
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.tarjPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.tarjOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-
-      // Transaccion
-      if (this.services.formaPago == 'Efectivo' || this.services.formaPago == 'Bizum' || this.services.formaPago == 'Tarjeta') {
-        if (this.services.transPiso1 == true || this.services.transPiso2 == true || this.services.transTerap == true ||
-          this.services.transEncarg == true || this.services.transOtro == true) {
-
-          if (this.services.transPiso1 == true) this.service.updateNumberPiso1(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transPiso2 == true) this.service.updateNumberPiso2(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transEncarg == true) this.service.updateNumberEncargada(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transTerap == true) this.service.updateNumberTerap(idsUnico, this.services).subscribe((rp) => { })
-          if (this.services.transOtro == true) this.service.updateNumberOtros(idsUnico, this.services).subscribe((rp) => { })
-
-          this.convertZero()
-          this.completoTrans = 1
-
-          this.service.registerServicio(this.services).subscribe((register) => { })
-
-          setTimeout(() => {
-            this.service.getIdDescendente(idsUnico).subscribe((resp: any) => {
-              if (resp.length > 0) {
-
-                this.services.numberPiso1 = piso1
-                this.services.numberPiso2 = piso2
-                this.services.numberEncarg = encargada
-                this.services.numberTerap = terapeuta
-                this.services.numberOtro = otros
-
-                if (this.services.transPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                if (this.services.transOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-                this.service.updatePisos(resp[0]['id'], idsUnico, this.services).subscribe((rp) => { })
-              }
-            })
-          }, 1000)
-          return true
-        }
-      }
-    }
-
-    return true
-  }
-
-  updateCash(piso1, piso2, encargada, terapeuta, otros, idUnico) {
-    if (this.services.efectPiso1 == true || this.services.efectPiso2 == true || this.services.efectTerap == true ||
-      this.services.efectEncarg == true || this.services.efectOtro == true) {
-
-      if (this.services.efectPiso1 == true) this.service.updateNumberPiso1(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.efectPiso2 == true) this.service.updateNumberPiso2(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.efectEncarg == true) this.service.updateNumberEncargada(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.efectTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.efectOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
-
-      this.convertZero()
-      this.completoEfectivo = 1
-      this.services.formaPago = "Efectivo"
-
-      this.service.registerServicio(this.services).subscribe((register) => { })
-
-      setTimeout(() => {
-        this.service.getIdDescendente(idUnico).subscribe((resp: any) => {
-          if (resp.length > 0) {
-
-            this.services.numberPiso1 = piso1
-            this.services.numberPiso2 = piso2
-            this.services.numberEncarg = encargada
-            this.services.numberTerap = terapeuta
-            this.services.numberOtro = otros
-
-            if (this.services.efectPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.efectPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.efectEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.efectTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.efectOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            this.service.updatePisos(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-          }
-        })
-      }, 1000)
-      return true
-    }
-    return true
-  }
-
-  updateBizum(piso1, piso2, encargada, terapeuta, otros, idUnico) {
-    if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true || this.services.bizuTerap == true ||
-      this.services.bizuEncarg == true || this.services.bizuOtro == true) {
-
-      if (this.services.bizuPiso1 == true) this.service.updateNumberPiso1(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.bizuPiso2 == true) this.service.updateNumberPiso2(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.bizuEncarg == true) this.service.updateNumberEncargada(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.bizuTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.bizuOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
-
-      this.convertZero()
-      this.completoBizum = 1
-      this.services.formaPago = "Bizum"
-
-      this.service.registerServicio(this.services).subscribe((register) => { })
-
-      setTimeout(() => {
-        this.service.getIdDescendente(idUnico).subscribe((resp: any) => {
-          if (resp.length > 0) {
-
-            this.services.numberPiso1 = piso1
-            this.services.numberPiso2 = piso2
-            this.services.numberEncarg = encargada
-            this.services.numberTerap = terapeuta
-            this.services.numberOtro = otros
-
-            if (this.services.bizuPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.bizuPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.bizuEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.bizuTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.bizuOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            this.service.updatePisos(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-          }
-        })
-      }, 1000)
-      return true
-    }
-    return true
-  }
-
-  updateCard(piso1, piso2, terapeuta, encargada, otros, idUnico) {
-    if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true || this.services.tarjTerap == true ||
-      this.services.tarjEncarg == true || this.services.tarjOtro == true) {
-
-      if (this.services.tarjPiso1 == true) this.service.updateNumberPiso1(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.tarjPiso2 == true) this.service.updateNumberPiso2(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.tarjEncarg == true) this.service.updateNumberEncargada(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.tarjTerap == true) this.service.updateNumberTerap(idUnico, this.services).subscribe((rp) => { })
-      if (this.services.tarjOtro == true) this.service.updateNumberOtros(idUnico, this.services).subscribe((rp) => { })
-
-      this.convertZero()
-      this.completoTarjeta = 1
-      this.services.formaPago = "Tarjeta"
-
-      this.service.registerServicio(this.services).subscribe((register) => { })
-
-      setTimeout(() => {
-        this.service.getIdDescendente(idUnico).subscribe((resp: any) => {
-          if (resp.length > 0) {
-
-            this.services.numberPiso1 = piso1
-            this.services.numberPiso2 = piso2
-            this.services.numberEncarg = encargada
-            this.services.numberTerap = terapeuta
-            this.services.numberOtro = otros
-
-            if (this.services.tarjPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.tarjPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.tarjEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.tarjTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.tarjOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            this.service.updatePisos(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-          }
-        })
-      }, 1000)
-      return true
-    }
-    return true
-  }
-
-  updateTransaction(piso1, piso2, terapeuta, encargada, otros, idUnico) {
-    if (this.services.transPiso1 == true || this.services.transPiso2 == true || this.services.transTerap == true ||
-      this.services.transEncarg == true || this.services.transOtro == true) {
-
-      if (this.services.transPiso1 == true) this.service.updateNumberPiso1(idUnico, piso1).subscribe((rp) => { })
-      if (this.services.transPiso2 == true) this.service.updateNumberPiso2(idUnico, piso2).subscribe((rp) => { })
-      if (this.services.transEncarg == true) this.service.updateNumberEncargada(idUnico, encargada).subscribe((rp) => { })
-      if (this.services.transTerap == true) this.service.updateNumberTerap(idUnico, terapeuta).subscribe((rp) => { })
-      if (this.services.transOtro == true) this.service.updateNumberOtros(idUnico, otros).subscribe((rp) => { })
-
-      this.convertZero()
-      this.completoTrans = 1
-      this.services.formaPago = "Transaccion"
-
-      this.service.registerServicio(this.services).subscribe((register) => { })
-
-      setTimeout(() => {
-        this.service.getIdDescendente(idUnico).subscribe((resp: any) => {
-          if (resp.length > 0) {
-
-            this.services.numberPiso1 = piso1
-            this.services.numberPiso2 = piso2
-            this.services.numberEncarg = encargada
-            this.services.numberTerap = terapeuta
-            this.services.numberOtro = otros
-
-            if (this.services.transPiso1 == true) this.service.updateWithValueNumberPiso1(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.transPiso2 == true) this.service.updateWithValueNumberPiso2(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.transEncarg == true) this.service.updateWithValueNumberEncargada(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.transTerap == true) this.service.updateWithValueNumberTerap(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            if (this.services.transOtro == true) this.service.updateWithValueNumberOtros(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-            this.service.updatePisos(resp[0]['id'], idUnico, this.services).subscribe((rp) => { })
-          }
-        })
-      }, 1000)
-      return true
-    }
-    return true
-  }
-
   saveService() {
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
@@ -1282,134 +330,50 @@ export class NewServiceComponent implements OnInit {
 
           // Methods 
           this.createUniqueId()
+          this.validateTheEmptyField()
+          this.wayToPay()
           if (!this.expiredDateValidations()) return
           if (!this.paymentMethodValidation()) return
           if (!this.validatePaymentMethod()) return
           this.sumService()
-          this.efectCheckToggle(this.validateEfect)
-          this.bizumCheckToggle(this.validateBizum)
-          this.tarjCheckToggle(this.validateTarjeta)
-          this.transCheckToggle(this.validateTrans)
+
+          if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
+            this.services.efectTerap == true || this.services.efectEncarg == true ||
+            this.services.efectOtro == true) {
+            this.validateEfect = true
+            this.efectCheckToggle(this.validateEfect)
+          }
+
+          if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
+            this.services.bizuTerap == true || this.services.bizuEncarg == true ||
+            this.services.bizuOtro == true) {
+            this.validateBizum = true
+            this.bizumCheckToggle(this.validateBizum)
+          }
+
+          if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
+            this.services.tarjTerap == true || this.services.tarjEncarg == true ||
+            this.services.tarjOtro == true) {
+            this.validateTarjeta = true
+            this.tarjCheckToggle(this.validateTarjeta)
+          }
+
+          if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
+            this.services.transTerap == true || this.services.transEncarg == true ||
+            this.services.transOtro == true) {
+            this.validateTrans = true
+            this.transCheckToggle(this.validateTrans)
+          }
+
           this.managerAndTherapist()
 
           if (this.restamosCobro == 0) {
-            this.addService = false
-
-            let piso1 = 0, piso2 = 0, terapeuta = 0, encargada = 0, otros = 0, fecha = '', idsUnico = ''
-
-            piso1 = Number(this.services.numberPiso1)
-            piso2 = Number(this.services.numberPiso2)
-            terapeuta = Number(this.services.numberTerap)
-            encargada = Number(this.services.numberEncarg)
-            otros = Number(this.services.numberOtro)
-            fecha = this.fechaActual.replace("-", "/").replace("-", "/")
-            idsUnico = this.services.idUnico
             this.services.currentDate = this.currentDate.toString()
 
-            this.countingNumber()
             this.sortedDate()
 
             this.cargamos = true
             this.services.editar = true
-
-            if (!this.selectFive()) return
-
-            if (this.services.formaPago == "") {
-              if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4) {
-                if (!this.selectFour()) return
-              }
-            }
-
-            if (this.services.formaPago == "") {
-              if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3) {
-                if (!this.selectThree()) return
-              }
-            }
-
-            if (this.services.formaPago == "") {
-              if (this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                if (!this.selectTwo(piso1, piso2, terapeuta, encargada, otros)) return
-              }
-            }
-
-            setTimeout(() => {
-              if (this.services.formaPago != "") {
-                if (this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
-                  this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                  if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
-                    this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                      if (idUnicoExit.length > 0) {
-                        if (!this.selectMoreThanTwo(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                      }
-                    })
-                  }
-                }
-              }
-            }, 3000)
-
-
-            setTimeout(() => {
-              if (this.services.formaPago != "") {
-                if (this.countEfect == 4 || this.countbizu == 4 || this.counttarj == 4 || this.counttrans == 4 ||
-                  this.countEfect == 3 || this.countbizu == 3 || this.counttarj == 3 || this.counttrans == 3 ||
-                  this.countEfect == 2 || this.countbizu == 2 || this.counttarj == 2 || this.counttrans == 2) {
-                  if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-                    if (this.completoEfectivo == 1 || this.completoBizum == 1 || this.completoTarjeta == 1 || this.completoTrans == 1) {
-                      this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                        if (idUnicoExit.length > 0) {
-                          if (!this.mas1SelectUpdate(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                        }
-                      })
-                    }
-                  }
-                }
-              }
-            }, 3000)
-
-            if (this.services.formaPago == "") {
-              if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-                if (!this.selectMoreThanOne()) return
-
-                setTimeout(() => {
-                  if (this.services.formaPago != "") {
-                    if (this.countEfect == 1 || this.countbizu == 1 || this.counttarj == 1 || this.counttrans == 1) {
-
-                      if (this.completoEfectivo == 0) {
-                        this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                          if (idUnicoExit.length > 0) {
-                            if (!this.updateCash(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
-                          }
-                        })
-                      }
-
-                      if (this.completoBizum == 0) {
-                        this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                          if (idUnicoExit.length > 0) {
-                            if (!this.updateBizum(piso1, piso2, encargada, terapeuta, otros, idsUnico)) return
-                          }
-                        })
-                      }
-
-                      if (this.completoTarjeta == 0) {
-                        this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                          if (idUnicoExit.length > 0) {
-                            if (!this.updateCard(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                          }
-                        })
-                      }
-
-                      if (this.completoTrans == 0) {
-                        this.service.getIdUnico(idsUnico).subscribe((idUnicoExit: any) => {
-                          if (idUnicoExit.length > 0) {
-                            if (!this.updateTransaction(piso1, piso2, terapeuta, encargada, otros, idsUnico)) return
-                          }
-                        })
-                      }
-                    }
-                  }
-                }, 3000)
-              }
-            }
 
             this.therapist.horaEnd = this.services.horaEnd
             this.therapist.salida = this.services.salida
@@ -1418,11 +382,18 @@ export class NewServiceComponent implements OnInit {
 
             this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
 
-            setTimeout(() => {
-              this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
-              this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
-              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
-            }, 5000)
+            debugger
+
+            this.service.registerServicio(this.services).subscribe((rp: any) => {
+              if (rp) {
+                localStorage.clear();
+                setTimeout(() => {
+                  this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
+                  this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
+                  Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
+                }, 1000)
+              }
+            })
 
           } else {
             Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
@@ -1481,7 +452,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueEfectivo = suma
+      localStorage.setItem('Efectivo', 'Efectivo')
       return
+    }
+
+    if (!this.services.efectPiso1 && !this.services.efectPiso2 &&
+      !this.services.efectTerap && !this.services.efectEncarg &&
+      !this.services.efectOtro) {
+      localStorage.removeItem('Efectivo')
     }
   }
 
@@ -1523,7 +501,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueBizum = suma
+      localStorage.setItem('Bizum', 'Bizum')
       return
+    }
+
+    if (!this.services.bizuPiso1 && !this.services.bizuPiso2 &&
+      !this.services.bizuTerap && !this.services.bizuEncarg &&
+      !this.services.bizuOtro) {
+      localStorage.removeItem('Bizum')
     }
   }
 
@@ -1565,7 +550,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueTarjeta = suma
+      localStorage.setItem('Tarjeta', 'Tarjeta')
       return
+    }
+
+    if (!this.services.tarjPiso1 && !this.services.tarjPiso2 &&
+      !this.services.tarjTerap && !this.services.tarjEncarg &&
+      !this.services.tarjOtro) {
+      localStorage.removeItem('Tarjeta')
     }
   }
 
@@ -1607,8 +599,52 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.services.valueTrans = suma
+      localStorage.setItem('Trans', 'Trans')
       return
     }
+
+    if (!this.services.transPiso1 && !this.services.transPiso2 &&
+      !this.services.transTerap && !this.services.transEncarg &&
+      !this.services.transOtro) {
+      localStorage.removeItem('Trans')
+    }
+  }
+
+  wayToPay(): void {
+    const formPago = []
+    if (localStorage.getItem('Efectivo')) {
+      formPago.push('Efectivo')
+    }
+    if (localStorage.getItem('Bizum')) {
+      formPago.push('Bizum')
+    }
+    if (localStorage.getItem('Tarjeta')) {
+      formPago.push('Tarjeta')
+    }
+    if (localStorage.getItem('Trans')) {
+      formPago.push('Trans')
+    }
+
+    this.services.formaPago = formPago.join(',')
+  }
+
+  editPaymentMethod(): void {
+    const formPago = []
+    if (localStorage.getItem('Efectivo')) {
+      formPago.push('Efectivo')
+    }
+    if (localStorage.getItem('Bizum')) {
+      formPago.push('Bizum')
+    }
+    if (localStorage.getItem('Tarjeta')) {
+      formPago.push('Tarjeta')
+    }
+    if (localStorage.getItem('Trans')) {
+      formPago.push('Trans')
+    }
+
+    this.editarService[0]['formaPago'] = formPago.join(',')
+    this.services.formaPago = formPago.join(',')
   }
 
   editStartTime(event: any) {
@@ -2186,6 +1222,7 @@ export class NewServiceComponent implements OnInit {
 
   editService(idServicio, serv: ModelService) {
     if (this.restamosCobroEdit == 0) {
+      this.editPaymentMethod();
       let idUsuario = ''
       idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
 
@@ -2193,10 +1230,35 @@ export class NewServiceComponent implements OnInit {
       if (!this.validationsToSelectAPaymentMethod()) return
       if (!this.validationsFormOfPaymentToEdit()) return
       this.fullServiceToEdit()
-      this.efectCheckToggleEdit(this.validateEfect)
-      this.bizumCheckToggleEdit(this.validateBizum)
-      this.tarjCheckToggleEdit(this.validateTarjeta)
-      this.transCheckToggleEdit(this.validateTrans)
+
+      if (this.editarService[0]['efectPiso1'] == true || this.editarService[0]['efectPiso2'] == true ||
+        this.editarService[0]['efectTerap'] == true || this.editarService[0]['efectEncarg'] == true ||
+        this.editarService[0]['efectOtro'] == true) {
+        this.validateEfect = true
+        this.efectCheckToggleEdit(this.validateEfect)
+      }
+
+      if (this.editarService[0]['bizuPiso1'] == true || this.editarService[0]['bizuPiso2'] == true ||
+        this.editarService[0]['bizuTerap'] == true || this.editarService[0]['bizuEncarg'] == true ||
+        this.editarService[0]['bizuOtro'] == true) {
+        this.validateBizum = true
+        this.bizumCheckToggleEdit(this.validateBizum)
+      }
+
+      if (this.editarService[0]['tarjPiso1'] == true || this.editarService[0]['tarjPiso2'] == true ||
+        this.editarService[0]['tarjTerap'] == true || this.editarService[0]['tarjEncarg'] == true ||
+        this.editarService[0]['tarjOtro'] == true) {
+        this.validateTarjeta = true
+        this.tarjCheckToggleEdit(this.validateTarjeta)
+      }
+
+      if (this.editarService[0]['transPiso1'] == true || this.editarService[0]['transPiso2'] == true ||
+        this.editarService[0]['transTerap'] == true || this.editarService[0]['transEncarg'] == true ||
+        this.editarService[0]['transOtro'] == true) {
+        this.validateTrans = true
+        this.transCheckToggleEdit(this.validateTrans)
+      }
+
       this.editManagerAndTherapist()
       this.editValue()
 
