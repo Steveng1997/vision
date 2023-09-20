@@ -8,7 +8,7 @@ import { ModelService } from '../models/service';
 @Injectable()
 export class Service {
 
-  API_URL = 'http://3.129.249.184:3000/api/servicio';
+  API_URL = 'http://52.71.127.159:3000/api/servicio';
   // API_URL = 'http://localhost:3000/api/servicio';
 
   constructor(

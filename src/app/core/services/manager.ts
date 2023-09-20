@@ -9,7 +9,7 @@ import { ModelManager } from '../models/manager';
 @Injectable()
 export class ServiceManager {
 
-  API_URL = 'http://3.129.249.184:3000/api/encargada';
+  API_URL = 'http://52.71.127.159:3000/api/encargada';
   // API_URL = 'http://localhost:3000/api/encargada';
 
   constructor(
