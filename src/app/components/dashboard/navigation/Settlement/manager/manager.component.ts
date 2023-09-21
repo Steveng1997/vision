@@ -51,7 +51,6 @@ export class ManagerComponent implements OnInit {
   totalService: number
   totalTipValue: number
   totalValueOrdered: number
-  totalTherapistValue: number
   totalValueDrink: number
   totalTobaccoValue: number
   totalValueVitamins: number
@@ -66,7 +65,7 @@ export class ManagerComponent implements OnInit {
   commissionOthers: number
   sumCommission: number
   idUnico: string
-  receivedTherapist: any
+  receivedManager: any
   totalCommission: number
 
   currentDate = new Date().getTime()
@@ -147,7 +146,6 @@ export class ManagerComponent implements OnInit {
   convertToZero() {
     this.totalService = 0
     this.totalTipValue = 0
-    this.totalTherapistValue = 0
     this.totalValueDrink = 0
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
@@ -166,7 +164,7 @@ export class ManagerComponent implements OnInit {
     this.vitaminCommission = 0
     this.commissionOthers = 0
     this.sumCommission = 0
-    this.receivedTherapist = 0
+    this.receivedManager = 0
     this.totalCommission = 0
   }
 
@@ -179,7 +177,6 @@ export class ManagerComponent implements OnInit {
     if (this.encargadaName?.['otros'] == "") this.encargadaName['otros'] = 0
     if (this.totalService == undefined) this.totalService = 0
     if (this.totalTipValue == undefined) this.totalTipValue = 0
-    if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
     if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
     if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
@@ -192,7 +189,7 @@ export class ManagerComponent implements OnInit {
     if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
     if (this.sumCommission == undefined || Number.isNaN(this.sumCommission)) this.sumCommission = 0
     if (this.totalCommission == undefined || Number.isNaN(this.totalCommission)) this.totalCommission = 0
-    if (this.receivedTherapist == undefined || Number.isNaN(this.receivedTherapist)) this.receivedTherapist = 0
+    if (this.receivedManager == undefined || Number.isNaN(this.receivedManager)) this.receivedManager = 0
     if (this.totalValueOrdered == undefined) this.totalValueOrdered = 0
   }
 
@@ -320,7 +317,7 @@ export class ManagerComponent implements OnInit {
     numberValue = Number(event.target.value)
     if (numberValue > 0) {
       this.fixedTotalDay = numberValue * this.fijoDia
-      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
     }
   }
 
@@ -388,12 +385,6 @@ export class ManagerComponent implements OnInit {
               return accumulator + serv.propina
             }, 0)
 
-            // Filter by Pago
-            const terapeuta = this.unliquidatedService.filter(serv => rp)
-            this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-              return accumulator + serv.numberTerap
-            }, 0)
-
             const encargada = this.unliquidatedService.filter(serv => rp)
             this.totalValueOrdered = encargada.reduce((accumulator, serv) => {
               return accumulator + serv.numberEncarg
@@ -435,20 +426,19 @@ export class ManagerComponent implements OnInit {
               comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
               // Conversion decimal
-              this.serviceCommission = Number(comisiServicio.toFixed(1))
-              this.commissionTip = Number(comiPropina.toFixed(1))
-              this.beverageCommission = Number(comiBebida.toFixed(1))
-              this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-              this.vitaminCommission = Number(comiVitamina.toFixed(1))
-              this.commissionOthers = Number(comiOtros.toFixed(1))
+              this.serviceCommission = Math.trunc(comisiServicio)
+              this.commissionTip = Math.trunc(comiPropina)
+              this.beverageCommission = Math.trunc(comiBebida)
+              this.tobaccoCommission = Math.trunc(comiTabaco)
+              this.vitaminCommission = Math.trunc(comiVitamina)
+              this.commissionOthers = Math.trunc(comiOtros)
 
               sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
                 Number(this.beverageCommission) + Number(this.tobaccoCommission) +
                 Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-              // return this.sumCommission = sumComision.toFixed(0)
               if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Number(sumComision.toFixed(1))
+                this.sumCommission = Math.trunc(sumComision)
               }
 
               let dayStart = 0, dayEnd = 0
@@ -459,8 +449,8 @@ export class ManagerComponent implements OnInit {
               this.fixedTotalDay = this.fixedDay * this.fijoDia
 
               // Recibido
-              this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+              this.receivedManager = this.totalValueOrdered 
+              this.totalCommission = Math.trunc(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()
@@ -481,20 +471,19 @@ export class ManagerComponent implements OnInit {
               comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
               // Conversion decimal
-              this.serviceCommission = Number(comisiServicio.toFixed(1))
-              this.commissionTip = Number(comiPropina.toFixed(1))
-              this.beverageCommission = Number(comiBebida.toFixed(1))
-              this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-              this.vitaminCommission = Number(comiVitamina.toFixed(1))
-              this.commissionOthers = Number(comiOtros.toFixed(1))
+              this.serviceCommission = Math.trunc(comisiServicio)
+              this.commissionTip = Math.trunc(comiPropina)
+              this.beverageCommission = Math.trunc(comiBebida)
+              this.tobaccoCommission = Math.trunc(comiTabaco)
+              this.vitaminCommission = Math.trunc(comiVitamina)
+              this.commissionOthers = Math.trunc(comiOtros)
 
               sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
                 Number(this.beverageCommission) + Number(this.tobaccoCommission) +
                 Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-              // return this.sumCommission = sumComision.toFixed(0)
               if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Number(sumComision.toFixed(1))
+                this.sumCommission = Math.trunc(sumComision)
               }
 
               let dayStart = 0, dayEnd = 0
@@ -505,8 +494,8 @@ export class ManagerComponent implements OnInit {
               this.fixedTotalDay = this.fixedDay * this.fijoDia
 
               // Recibido
-              this.receivedTherapist = this.totalValueOrdered + this.totalTherapistValue
-              this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+              this.receivedManager = this.totalValueOrdered
+              this.totalCommission = Math.trunc(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)              
               this.liquidationManager.importe = this.totalCommission
 
               this.validateNullData()
@@ -586,12 +575,6 @@ export class ManagerComponent implements OnInit {
         return accumulator + serv.propina
       }, 0)
 
-      // Filter by Pago
-      const terapeuta = this.settledData.filter(serv => serv)
-      this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-        return accumulator + serv.numberTerap
-      }, 0)
-
       // Filter by Bebida
       const bebida = this.settledData.filter(serv => serv)
       this.totalValueDrink = bebida.reduce((accumulator, serv) => {
@@ -650,14 +633,9 @@ export class ManagerComponent implements OnInit {
 
         let dayStart = 0, dayEnd = 0
 
-        debugger
-
         if (this.liquidationManager.desdeFechaLiquidado.length == 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-
         if (this.liquidationManager.desdeFechaLiquidado.length < 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
-
         if (this.liquidationManager.hastaFechaLiquidado.length == 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
-
         if (this.liquidationManager.hastaFechaLiquidado.length < 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
 
         this.fixedDay = dayEnd - dayStart
@@ -667,11 +645,11 @@ export class ManagerComponent implements OnInit {
 
         for (let index = 0; index < this.settledData.length; index++) {
           const numbTerap = this.settledData.filter(serv => serv)
-          this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
-            return accumulator + serv.numberTerap
+          this.receivedManager = numbTerap.reduce((accumulator, serv) => {
+            return accumulator + serv.numberEncarg
           }, 0)
         }
-        return this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedTherapist)
+        return this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
       })
     })
   }

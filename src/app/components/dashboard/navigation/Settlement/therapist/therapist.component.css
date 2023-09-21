@@ -83,11 +83,11 @@ td {
     margin-top: -12%;
   }
 
-  .tablePaidTherapist{
+  .tablePaidTherapist {
     margin-top: 0%;
   }
 
-  .columnTerapeuta {
+  .therapistColumn {
     padding: 25px 23px 0px 6px;
     text-align: center;
     max-width: 65px;
@@ -96,7 +96,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .columnEncargada {
+  .managerColumn {
     padding: 24px 12px 0px 0px;
     text-align: center;
     max-width: 48px;
@@ -105,28 +105,60 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .columnHora{
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnImporte {
+  .AmountColumn {
     padding: 24px 0px 0px 6px;
     text-align: center;
-    max-width: 0px;
+    max-width: 30px;
     word-wrap: break-word;
     line-height: normal;
     border-bottom: 1px solid blue;
   }
 
-  .columnFechas {
+  .datesColumn {
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnTratamiento {
+  .treatmentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .paymentColumn {
     padding: 25px 23px 0px 6px;
     text-align: center;
     max-width: 73px;
@@ -142,6 +174,43 @@ td {
     width: 50px;
     word-wrap: break-word;
     line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .drinkColumn{
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .tobaccoColumn{
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .vitaminColumn{
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnOthers{
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
   }
 
   table {
@@ -181,7 +250,7 @@ td {
     margin-top: 10px;
   }
 
-  .btnCancelar{
+  .btnCancelar {
     padding-bottom: 6%;
   }
 }
@@ -216,51 +285,78 @@ td {
     margin-top: 0%;
   }
 
-  .tablePaidTherapist{
+  .tablePaidTherapist {
     margin-top: 0%;
   }
 
   .formAgregar {
-    /* overflow-x: hidden; */
     overflow: hidden;
   }
 
-  .columnTerapeuta {
+  .therapistColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnEncargada {
+  .managerColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnImporte {
+  .AmountColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnHora{
+  .datesColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .treatmentColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
     width: 100px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnFechas {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnTratamiento {
+  .paymentColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
@@ -268,6 +364,34 @@ td {
   }
 
   .column€Terap {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .drinkColumn{
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tobaccoColumn{
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+  
+  .vitaminColumn{
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnOthers{
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
@@ -312,24 +436,24 @@ td {
     justify-content: center;
   }
 
-  .selectTerap{
+  .selectTerap {
     display: grid;
     justify-items: right;
   }
 
-  .addTerapeuta{
+  .addTerapeuta {
     width: 35%;
   }
 
-  .addEncargada{
+  .addEncargada {
     width: 35%;
   }
 
-  .worth{
+  .worth {
     padding-left: 15px;
   }
 
-  .btnCancelar{
+  .btnCancelar {
     padding-bottom: 3%;
   }
 }
