@@ -369,6 +369,7 @@ export class ManagerComponent implements OnInit {
         this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
         this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
 
+          debugger
           if (rp.length > 0) {
 
             this.unliquidatedService = rp

@@ -1392,8 +1392,8 @@ export class NewServiceComponent implements OnInit {
   // Efectivo
   efectCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0
-
     if (!this.validationsFormOfPaymentToEdit()) return
+
     if (event) {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {
@@ -1428,7 +1428,15 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroserv
       this.editarService[0]['valueEfectivo'] = suma
+      localStorage.setItem('Efectivo', 'Efectivo')
       return
+
+    }
+
+    if (!this.editarService[0]['efectPiso1'] && !this.editarService[0]['efectPiso2'] &&
+      !this.editarService[0]['efectTerap'] && !this.editarService[0]['efectEncarg'] &&
+      !this.editarService[0]['efectOtro']) {
+      localStorage.removeItem('Efectivo')
     }
   }
 
@@ -1471,7 +1479,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.editarService[0]['valueBizum'] = suma
+      localStorage.setItem('Bizum', 'Bizum')
       return
+    }
+
+    if (!this.editarService[0]['bizuPiso1'] && !this.editarService[0]['bizuPiso2'] &&
+      !this.editarService[0]['bizuTerap'] && !this.editarService[0]['bizuEncarg'] &&
+      !this.editarService[0]['bizuOtro']) {
+      localStorage.removeItem('Bizum')
     }
   }
 
@@ -1514,7 +1529,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.editarService[0]['valueTarjeta'] = suma
+      localStorage.setItem('Tarjeta', 'Tarjeta')
       return
+    }
+
+    if (!this.editarService[0]['tarjPiso1'] && !this.editarService[0]['tarjPiso2'] &&
+      !this.editarService[0]['tarjTerap'] && !this.editarService[0]['tarjEncarg'] &&
+      !this.editarService[0]['tarjOtro']) {
+      localStorage.removeItem('Tarjeta')
     }
   }
 
@@ -1557,7 +1579,14 @@ export class NewServiceComponent implements OnInit {
 
       suma = piso1 + piso2 + terap + encarg + otroservic
       this.editarService[0]['valueTrans'] = suma
+      localStorage.setItem('Trans', 'Trans')
       return
+    }
+
+    if (!this.editarService[0]['transPiso1'] && !this.editarService[0]['transPiso2'] &&
+      !this.editarService[0]['transTerap'] && !this.editarService[0]['transEncarg'] &&
+      !this.editarService[0]['transOtro']) {
+      localStorage.removeItem('Trans')
     }
   }
 

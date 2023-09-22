@@ -73,6 +73,7 @@ export class TherapistComponent implements OnInit {
   totalCard: number
   totalBizum: number
   totalTransaction: number
+  totalTherapistPayment: number
 
   currentDate = new Date().getTime()
   exist: boolean
@@ -204,6 +205,7 @@ export class TherapistComponent implements OnInit {
     if (this.totalBizum == undefined) this.totalBizum = 0
     if (this.totalCard == undefined) this.totalCard = 0
     if (this.totalTransaction == undefined) this.totalTransaction = 0
+    if (this.totalTherapistPayment == undefined) this.totalTherapistPayment = 0
   }
 
   getSettlements() {
@@ -356,12 +358,14 @@ export class TherapistComponent implements OnInit {
   }
 
   inputDateAndTime() {
-
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    this.totalCommission = 0
 
     setTimeout(() => {
       this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
         this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
         this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe((rp: any) => {
+
           if (rp.length > 0) {
 
             this.unliquidatedService = rp
@@ -409,7 +413,6 @@ export class TherapistComponent implements OnInit {
             }, 0)
 
             // Filter by totalCash
-            debugger
             const totalCashs = this.unliquidatedService.filter(serv => rp)
             this.totalCash = totalCashs.reduce((accumulator, serv) => {
               return accumulator + serv.valueEfectTerapeuta
@@ -433,8 +436,8 @@ export class TherapistComponent implements OnInit {
               return accumulator + serv.valueTransTerapeuta
             }, 0)
 
-            let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-            this.totalCommission = 0
+            // Total therapist payment
+            this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
 
             this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
               this.terapeutaName = datosNameTerapeuta[0]
