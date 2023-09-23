@@ -325,6 +325,8 @@ export class NewServiceComponent implements OnInit {
           if (!this.validatePaymentMethod()) return
           this.sumService()
 
+          debugger
+
           if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
             this.services.efectTerap == true || this.services.efectEncarg == true ||
             this.services.efectOtro == true) {
@@ -1256,6 +1258,7 @@ export class NewServiceComponent implements OnInit {
       }
 
       this.editManagerAndTherapist()
+      debugger
       this.editValue()
 
       this.therapist.horaEnd = serv.horaEnd
@@ -1400,12 +1403,14 @@ export class NewServiceComponent implements OnInit {
         piso1 = Number(this.editarService[0]['numberPiso1'])
       } else {
         piso1 = 0
+        this.editarService[0]['numberPiso1'] = piso1.toString()
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['efectPiso2'] === true) {
         piso2 = Number(this.editarService[0]['numberPiso2'])
       } else {
         piso2 = 0
+        this.editarService[0]['numberPiso2'] = piso2.toString()
       }
 
       if (Number(this.editarService[0]['numberTerap']) > 0 && this.editarService[0]['efectTerap'] === true) {
@@ -1591,17 +1596,29 @@ export class NewServiceComponent implements OnInit {
   }
 
   editValue() {
-    if (this.editarService[0]['efectPiso1'] == true) (this.editarService[0]['valuePiso1Efectivo']) = Number(this.editarService[0]['numberPiso1'])
+    if (this.editarService[0]['efectPiso1'] == true) this.editarService[0]['valuePiso1Efectivo'] = Number(this.editarService[0]['numberPiso1'])
+    else this.editarService[0]['valuePiso1Efectivo'] = 0
+
     if (this.editarService[0]['efectPiso2'] == true) this.editarService[0]['valuePiso2Efectivo'] = Number(this.editarService[0]['numberPiso2'])
+    else this.editarService[0]['valuePiso2Efectivo'] = 0
 
     if (this.editarService[0]['bizuPiso1'] == true) this.editarService[0]['valuePiso1Bizum'] = Number(this.editarService[0]['numberPiso1'])
+    else this.editarService[0]['valuePiso1Bizum'] = 0
+
     if (this.editarService[0]['bizuPiso2'] == true) this.editarService[0]['valuePiso2Bizum'] = Number(this.editarService[0]['numberPiso2'])
+    else this.editarService[0]['valuePiso2Bizum'] = 0
 
     if (this.editarService[0]['tarjPiso1'] == true) this.editarService[0]['valuePiso1Tarjeta'] = Number(this.editarService[0]['numberPiso1'])
+    else this.editarService[0]['valuePiso1Tarjeta'] = 0
+
     if (this.editarService[0]['tarjPiso2'] == true) this.editarService[0]['valuePiso2Tarjeta'] = Number(this.editarService[0]['numberPiso2'])
+    else this.editarService[0]['valuePiso2Tarjeta'] = 0
 
     if (this.editarService[0]['transPiso1'] == true) this.editarService[0]['valuePiso1Transaccion'] = Number(this.editarService[0]['numberPiso1'])
+    else this.editarService[0]['valuePiso1Transaccion'] = 0
+
     if (this.editarService[0]['transPiso2'] == true) this.editarService[0]['valuePiso2Transaccion'] = Number(this.editarService[0]['numberPiso2'])
+    else this.editarService[0]['valuePiso2Transaccion'] = 0
   }
 
   editManagerAndTherapist() {

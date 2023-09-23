@@ -109,7 +109,7 @@ export class VisionComponent implements OnInit {
     this.getTerapeuta()
   }
 
-  totalesZero() {
+  totalsAtZero() {
     this.totalPisos = 0
     this.totalVision = 0
     this.totalServicio = 0
@@ -468,6 +468,8 @@ export class VisionComponent implements OnInit {
       this.totalOthers = integer[0].toString()
     }
 
+    debugger
+
     this.totalVision = this.totalServicio + this.totalBebida + this.totalTobaccoo +
       this.totalVitamina + this.totalTipa + this.totalOtros
 
@@ -810,7 +812,7 @@ export class VisionComponent implements OnInit {
           if (datoServicio.length > 0) {
             this.sumaTotalVision()
           } else {
-            this.totalesZero()
+            this.totalsAtZero()
           }
         })
 
@@ -866,7 +868,7 @@ export class VisionComponent implements OnInit {
           if (datoServicio.length > 0) {
             this.sumaTotalVision()
           } else {
-            this.totalesZero()
+            this.totalsAtZero()
           }
         })
 
@@ -965,7 +967,7 @@ export class VisionComponent implements OnInit {
           if (datoServicio.length > 0) {
             this.sumaTotalVision()
           } else {
-            this.totalesZero()
+            this.totalsAtZero()
           }
         })
 
@@ -1025,7 +1027,7 @@ export class VisionComponent implements OnInit {
           if (datoServicio.length > 0) {
             this.sumaTotalVision()
           } else {
-            this.totalesZero()
+            this.totalsAtZero()
           }
         })
 

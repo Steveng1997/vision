@@ -250,6 +250,10 @@ td {
     margin-top: 10px;
   }
 
+  .fechas {
+    justify-content: center;
+  }
+
   .btnCancelar {
     padding-bottom: 6%;
   }
