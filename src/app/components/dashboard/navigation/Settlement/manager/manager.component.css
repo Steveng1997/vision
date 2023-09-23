@@ -164,7 +164,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .drinkColumn{
+  .drinkColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 27px;
@@ -173,7 +173,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .tobaccoColumn{
+  .tobaccoColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 27px;
@@ -182,7 +182,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .vitaminColumn{
+  .vitaminColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 36px;
@@ -191,7 +191,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .columnOthers{
+  .columnOthers {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 36px;
@@ -237,7 +237,15 @@ td {
     margin-top: 10px;
   }
 
-  .btnCancelar{
+  .fechas {
+    justify-content: center;
+  }
+
+  .selectManager {
+    width: 45%;
+  }
+
+  .btnCancelar {
     padding-bottom: 6%;
   }
 }
@@ -347,28 +355,28 @@ td {
     text-align: center;
   }
 
-  .drinkColumn{
+  .drinkColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .tobaccoColumn{
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-  
-  .vitaminColumn{
+  .tobaccoColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnOthers{
+  .vitaminColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnOthers {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
@@ -413,24 +421,28 @@ td {
     justify-content: center;
   }
 
-  .selectTerap{
+  .selectTerap {
     display: grid;
     justify-items: right;
   }
 
-  .addTerapeuta{
+  .addTerapeuta {
     width: 35%;
   }
 
-  .addEncargada{
+  .addEncargada {
     width: 35%;
   }
 
-  .worth{
+  .worth {
     padding-left: 15px;
   }
 
-  .btnCancelar{
+  .selectManager {
+    width: 45%;
+  }
+
+  .btnCancelar {
     padding-bottom: 3%;
   }
 }
