@@ -76,7 +76,6 @@ export class TherapistComponent implements OnInit {
   totalTherapistPayment: number
 
   currentDate = new Date().getTime()
-  exist: boolean
 
   liquidationTherapist: LiquidationTherapist = {
     currentDate: "",
@@ -227,9 +226,6 @@ export class TherapistComponent implements OnInit {
           this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
         }
       }
-
-      if (datoLiquidaciones.length > 0) this.exist = true
-      else this.exist = false
     })
   }
 
@@ -701,67 +697,73 @@ export class TherapistComponent implements OnInit {
 
     if (this.liquidationTherapist.terapeuta != "") {
       if (this.liquidationTherapist.encargada != "") {
-        if (this.exist === true) {
 
-          for (let index = 0; index < this.unliquidatedService.length; index++) {
-            this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
-          }
+        this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
+          this.liquidationTherapist.encargada).subscribe((rp: any) => {
 
-          this.getDateFrom()
-          this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
+            if (rp.length > 0) {
 
-          setTimeout(() => { this.getSettlements() }, 1000);
+              for (let index = 0; index < this.unliquidatedService.length; index++) {
+                this.liquidationTherapist.tratamiento = this.unliquidatedService.length
+                this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
+              }
 
-          this.liquidationForm = true
-          this.addForm = false
-          this.editTerap = false
-          this.selected = false
-          this.liquidationTherapist.encargada = ""
-          this.liquidationTherapist.terapeuta = ""
-          Swal.fire({
-            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-          })
-        }
+              this.getDateFrom()
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
 
-        if (this.exist === false) {
+              setTimeout(() => { this.getSettlements() }, 1000);
 
-          this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datosForFecha) => {
-            this.liquidationTherapist.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-            this.liquidationTherapist.desdeHoraLiquidado = datosForFecha[0]['horaStart']
-
-            let convertMes = '', convertDia = '', convertAno = ''
-
-            convertDia = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(8, 11)
-            convertMes = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(5, 7)
-            convertAno = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(2, 4)
-
-            this.liquidationTherapist.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
-
-            for (let index = 0; index < this.unliquidatedService.length; index++) {
-              this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-              this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+              this.liquidationForm = true
+              this.addForm = false
+              this.editTerap = false
+              this.selected = false
+              this.liquidationTherapist.encargada = ""
+              this.liquidationTherapist.terapeuta = ""
+              Swal.fire({
+                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
               })
             }
 
-            this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
+            if (rp.length == 0) {
 
-            setTimeout(() => {
-              this.getSettlements()
-            }, 1000);
+              this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datosForFecha) => {
+                this.liquidationTherapist.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
+                this.liquidationTherapist.desdeHoraLiquidado = datosForFecha[0]['horaStart']
 
-            this.liquidationForm = true
-            this.addForm = false
-            this.editTerap = false
-            this.selected = false
-            this.liquidationTherapist.encargada = ""
-            this.liquidationTherapist.terapeuta = ""
-            this.convertToZero()
-            Swal.fire({
-              position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-            })
+                let convertMes = '', convertDia = '', convertAno = ''
+
+                convertDia = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(8, 11)
+                convertMes = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(5, 7)
+                convertAno = this.liquidationTherapist.desdeFechaLiquidado.toString().substring(2, 4)
+
+                this.liquidationTherapist.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
+
+                for (let index = 0; index < this.unliquidatedService.length; index++) {
+                  this.liquidationTherapist.tratamiento = this.unliquidatedService.length
+                  this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+                  })
+                }
+
+                this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
+
+                setTimeout(() => {
+                  this.getSettlements()
+                }, 1000);
+
+                this.liquidationForm = true
+                this.addForm = false
+                this.editTerap = false
+                this.selected = false
+                this.liquidationTherapist.encargada = ""
+                this.liquidationTherapist.terapeuta = ""
+                this.convertToZero()
+                Swal.fire({
+                  position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+                })
+              })
+            }
           })
-        }
+
       } else {
         Swal.fire({
           icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
