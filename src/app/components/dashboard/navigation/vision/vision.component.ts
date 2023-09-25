@@ -468,8 +468,6 @@ export class VisionComponent implements OnInit {
       this.totalOthers = integer[0].toString()
     }
 
-    debugger
-
     this.totalVision = this.totalServicio + this.totalBebida + this.totalTobaccoo +
       this.totalVitamina + this.totalTipa + this.totalOtros
 
@@ -746,7 +744,6 @@ export class VisionComponent implements OnInit {
   }
 
   atras() {
-
     let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
       añoHoy = 0, convertMesHoy = '', convertAno = ''
 

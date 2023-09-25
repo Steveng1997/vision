@@ -34,7 +34,8 @@ export class TherapistComponent implements OnInit {
   page!: number
 
   // Encargada
-  encargada: any[] = []
+  manager: any
+  administratorRole: boolean = false
 
   // Terapeuta
   terapeuta: any[]
@@ -107,12 +108,12 @@ export class TherapistComponent implements OnInit {
   constructor(
     public router: Router,
     public fb: FormBuilder,
+    private activeRoute: ActivatedRoute,
     private modalService: NgbModal,
     public serviceTherapist: ServiceTherapist,
     public service: Service,
     public serviceManager: ServiceManager,
-    public serviceLiquidationTherapist: ServiceLiquidationTherapist,
-    private activatedRoute: ActivatedRoute,
+    public serviceLiquidationTherapist: ServiceLiquidationTherapist
   ) { }
 
   ngOnInit(): void {
@@ -123,9 +124,22 @@ export class TherapistComponent implements OnInit {
     this.addForm = false
     this.selected = false
     this.editTerap = false
+
+    const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
+
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.getManager()
+      } else {
+        this.manager = rp
+        this.liquidationTherapist.encargada = this.manager[0].nombre
+      }
+    })
+
     this.date()
     this.getSettlements()
-    this.getEncargada()
     this.getTerapeuta()
   }
 
@@ -268,14 +282,22 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  getEncargada() {
+  getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.encargada = datosEncargada
+      this.manager = datosEncargada
     })
   }
 
   insertForm() {
-    this.liquidationTherapist.encargada = ""
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.liquidationTherapist.encargada = ""
+      } else {
+        this.liquidationTherapist.encargada = this.manager[0].nombre
+      }
+    })
+
     this.liquidationTherapist.terapeuta = ""
     this.liquidationForm = false
     this.editTerap = false
@@ -535,7 +557,7 @@ export class TherapistComponent implements OnInit {
   }
 
   goToEdit(id: number) {
-    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
     this.service.getById(id).subscribe((rp: any) => {

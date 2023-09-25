@@ -37,7 +37,8 @@ export class ManagerComponent implements OnInit {
   fixedDay: number
 
   // Encargada
-  encargada: any[] = []
+  manager: any
+  administratorRole: boolean = false
   encargadaName: any
 
   // Fecha
@@ -100,11 +101,11 @@ export class ManagerComponent implements OnInit {
     public router: Router,
     public fb: FormBuilder,
     private modalService: NgbModal,
+    private activatedRoute: ActivatedRoute,
     public serviceTherapist: ServiceTherapist,
     public service: Service,
     public serviceManager: ServiceManager,
-    public serviceLiquidationManager: ServiceLiquidationManager,
-    private activatedRoute: ActivatedRoute,
+    public serviceLiquidationManager: ServiceLiquidationManager
   ) { }
 
   ngOnInit(): void {
@@ -115,9 +116,22 @@ export class ManagerComponent implements OnInit {
     this.addForm = false
     this.selected = false
     this.editEncarg = false
+
+    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
+
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.getManager()
+      } else {
+        this.manager = rp
+        this.liquidationManager.encargada = this.manager[0].nombre
+      }
+    })
+
     this.date()
     this.getSettlements()
-    this.getEncargada()
   }
 
   date() {
@@ -247,14 +261,23 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  getEncargada() {
+  getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.encargada = datosEncargada
+      this.manager = datosEncargada
     })
   }
 
   insertForm() {
-    this.liquidationManager.encargada = ""
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.liquidationManager.encargada = ""
+      } else {
+        this.liquidationManager.encargada = this.manager[0].nombre
+      }
+    })
+
+    this.calculateServices()
     this.liquidationForm = false
     this.editEncarg = false
     this.selected = false
@@ -334,6 +357,7 @@ export class ManagerComponent implements OnInit {
   }
 
   calculateServices(): any {
+    debugger
     if (this.liquidationManager.encargada != "") {
       this.getThoseThatNotLiquidated()
       if (!this.consultWithManager()) return
@@ -365,7 +389,6 @@ export class ManagerComponent implements OnInit {
         this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
         this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
 
-          debugger
           if (rp.length > 0) {
 
             this.unliquidatedService = rp

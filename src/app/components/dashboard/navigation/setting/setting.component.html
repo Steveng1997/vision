@@ -212,9 +212,8 @@
                                             <div class="container" *ngFor="let encargda of modalManager">
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <button mat-raised-button
-                                                            (click)="editManager(encg.id, encg)"
-                                                            color="primary">Editar</button>
+                                                        <button mat-raised-button (click)="editManager(encg.id, encg)"
+                                                            color="primary">Guardar</button>
                                                     </div>
                                                     <div class="col-6">
                                                         <button mat-raised-button type="submit" color="warn"
@@ -349,9 +348,9 @@
                             <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.vitamina + " %"}} </td>
                             <td class="removeBorders" style="text-align: center; border-bottom: hidden">
-                                {{terap?.otros + " %"}} </td>
-                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
                                 {{terap?.propina + " %"}} </td>
+                            <td class="removeBorders" style="text-align: center; border-bottom: hidden">
+                                {{terap?.otros + " %"}} </td>
                         </tr>
 
                         <!-- Modal -->
@@ -417,7 +416,7 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <button mat-raised-button (click)="editTherapist(terap.id, terap)"
-                                                        color="primary">Editar</button>
+                                                        color="primary">Guardar</button>
                                                 </div>
                                                 <div class="col-6">
                                                     <button mat-raised-button type="submit" color="warn"

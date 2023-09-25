@@ -28,7 +28,7 @@ export class TableComponent implements OnInit {
   selectedTerapeuta: string
 
   // Encargada
-  encargada: any
+  manager: any
   selectedEncargada: string
   selectedFormPago: string
 
@@ -37,6 +37,8 @@ export class TableComponent implements OnInit {
 
   fileName = 'tabla.xlsx'
   idUser: number
+
+  administratorRole: boolean = false
 
   // Servicios
   totalServicio: number
@@ -82,13 +84,22 @@ export class TableComponent implements OnInit {
 
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
+
     if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((rp) => { this.idUser = rp[0] })
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getManager()
+        } else {
+          this.manager = rp
+          this.selectedEncargada = this.manager[0].nombre          
+        }
+      })
     }
 
-    this.getEncargada()
-    this.getTerapeuta()
-    this.getServicio()
+
+    this.getTherapist()
+    this.getServices()
     this.totalesUndefined()
   }
 
@@ -107,7 +118,7 @@ export class TableComponent implements OnInit {
     if (this.totalValor == undefined) this.totalValor = 0
   }
 
-  getServicio() {
+  getServices() {
     this.service.getServicio().subscribe((datoServicio: any) => {
       this.servicio = datoServicio
       if (datoServicio.length != 0) {
@@ -311,15 +322,15 @@ export class TableComponent implements OnInit {
     this.totalValor = totalvalors
   }
 
-  getTerapeuta() {
+  getTherapist() {
     this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta) => {
       this.terapeuta = datosTerapeuta
     })
   }
 
-  getEncargada() {
+  getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada) => {
-      this.encargada = datosEncargada
+      this.manager = datosEncargada
     })
   }
 

@@ -32,7 +32,8 @@ export class NewServiceComponent implements OnInit {
   terapeuta: any[] = []
 
   fechaLast = []
-  encargada: any[] = []
+  manager: any
+  administratorRole: boolean = false
 
   chageDate = ''
   formaPago: string = ''
@@ -179,6 +180,21 @@ export class NewServiceComponent implements OnInit {
     this.addService = true
     this.cargamos = false
 
+    const params = this.activeRoute.snapshot.params;
+    this.idUser = Number(params['id'])
+
+    if (this.idUser) {
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getManager()
+        } else {
+          this.manager = rp
+          this.services.encargada = this.manager[0].nombre
+        }
+      })
+    }
+
     this.getTherapist()
     this.getManager()
     this.date()
@@ -239,7 +255,7 @@ export class NewServiceComponent implements OnInit {
 
   getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.encargada = datosEncargada
+      this.manager = datosEncargada
     })
   }
 
@@ -312,6 +328,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   saveService() {
+    debugger
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
@@ -324,8 +341,6 @@ export class NewServiceComponent implements OnInit {
           if (!this.paymentMethodValidation()) return
           if (!this.validatePaymentMethod()) return
           this.sumService()
-
-          debugger
 
           if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
             this.services.efectTerap == true || this.services.efectEncarg == true ||
@@ -371,8 +386,6 @@ export class NewServiceComponent implements OnInit {
             this.therapist.minuto = this.services.minuto
 
             this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
-
-            debugger
 
             this.service.registerServicio(this.services).subscribe((rp: any) => {
               if (rp) {
@@ -1258,7 +1271,6 @@ export class NewServiceComponent implements OnInit {
       }
 
       this.editManagerAndTherapist()
-      debugger
       this.editValue()
 
       this.therapist.horaEnd = serv.horaEnd

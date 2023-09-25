@@ -18,12 +18,21 @@
                 <label style="display: contents;">Encargada</label>
                 <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
                     (ngModelChange)="filtro()">
-                    <option selected value="">Selecciona</option>
-                    <option *ngFor="let encarg of encargada" [value]="encarg.nombre" style="font-size: 14px;">
-                        {{encarg.nombre}}
+                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
+                    <option *ngFor="let managers of manager" [value]="managers.nombre" style="font-size: 14px;">
+                        {{managers.nombre}}
                     </option>
                 </select>
             </div>
+
+            <!-- <div class="col-6" *ngIf="managerRole">
+                <label style="display: contents;">Encargada</label>
+                <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
+                    (ngModelChange)="filtro()">
+                    <option *ngFor="let manager of orderedById" value="manager.nombre" style="font-size: 14px;">
+                        {{manager.nombre}} </option>
+                </select>
+            </div> -->
 
             <div class="col-6" style="margin-top: 2%;">
                 <div class="row">
@@ -181,8 +190,8 @@
                 </tr>
             </thead>
             <tbody *ngFor="let serv of (servicio | terapeuta: selectedTerapeuta | encargada: selectedEncargada | 
-            fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda | formaPago: selectedFormPago ) 
-                | paginate: { itemsPerPage: 100, currentPage: page }">
+            fechaInicial: fechaInicio:fechaFinal | busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
+            paginate: { itemsPerPage: 100, currentPage: page }">
                 <tr style="cursor: pointer;">
                     <!-- 1 -->
                     <td style="border-bottom: hidden;" class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"

@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
   border-width: thin;
 }
@@ -17,7 +21,6 @@
 
 .cargando {
   position: relative;
-  /* color: #FFF; */
   color: black;
   margin-top: 2em;
   letter-spacing: 0.08em;
@@ -27,7 +30,6 @@
 .rueda {
   border: 10px solid rgba(255, 255, 255, .3);
   border-radius: 50%;
-  /* border-left-color: transparent; */
   border-left-color: cornflowerblue;
   width: 80px;
   height: 80px;
@@ -44,43 +46,82 @@
   }
 }
 
+.text {
+  display: contents;
+  color: #737373;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+.titles {
+  margin-top: 1.5rem;
+  font-size: 20px;
+  margin-bottom: 0;
+  color: #8C52FF;
+  font-weight: bold;
+  font-family: system-ui;
+}
+
+.sumServices {
+  margin-top: 1.5rem;
+  font-size: 22px;
+  margin-bottom: 0;
+  color: #8C52FF;
+  font-weight: bold;
+  font-family: system-ui;
+  margin-left: 3rem;
+}
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
-  .titulos {
-    margin-top: 2%;
-    font-size: 1rem;
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8C52FF;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-bottom: 1.5rem;
   }
 
-  hr {
-    display: grid;
+  .timeline {
+    width: 20rem;
+    margin-top: 0.3rem;
+    color: #8C52FF;
+    margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-top: -2%;
-    margin-bottom: 0%;
   }
 
-  .lugarSalida {
-    margin-top: 7%;
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8C52FF;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-left: 3rem;
   }
 
-  .duracionHora {
-    margin-top: 7%;
+  .serviceDescription {
+    margin-left: 0.7rem;
   }
 
-  .inputSelect {
-    margin-top: 12%;
+  .serviceLine {
+    width: 20rem;
+    color: #8C52FF;
+    margin-top: 0.3rem;
+    margin: auto;
+    border-width: initial;
   }
 
-  .inputCliente {
-    margin-top: 4%;
-  }
-
-  .botonesEditar {
-    margin-top: 7%;
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -1.7rem;
   }
 
   .btnGuardar {
+    margin-top: 1rem;
     margin-bottom: 7%
   }
 
@@ -97,47 +138,180 @@
     scale: 1.2;
   }
 
-  .inputs {
-    max-height: 38px;
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-right: auto;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: auto;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: auto;
+    justify-self: center;
+  }
+
+  .clientContainer {
+    width: auto;
+    justify-self: center;
+    margin-top: 10%;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 41% 10% 41% 10%;
+    margin-top: 1rem;
+  }
+
+  .dateContainer {
+    width: auto;
+    justify-self: center;
+  }
+
+  .dateIcon {
+    text-align: center;
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerStartTime {
+    width: auto;
+    justify-self: center;
+  }
+
+  .startTimeIcon {
+    text-align: center;
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 31% 30% 31%;
+  }
+
+  .containerDuration {
+    width: auto;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    text-align: center;
+    place-self: center;
+    margin-top: 18%;
+  }
+
+  .containerPlaceExit {
+    width: auto;
+    margin-top: 13%;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 0.4rem;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 31% 30% 31%;
+    margin-top: 1rem;
+  }
+
+  .treatmentContainer {
+    width: 5rem;
+  }
+
+  .beverageContainer {
+    width: 5rem;
+  }
+
+  .tobaccoContainer {
+    width: 5rem;
+  }
+
+  .vitaminColumn {
+    width: 5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 5rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 5rem;
+    margin-top: 1.5rem;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-  .titulos {
-    margin-top: 1%;
-    font-size: 1rem;
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 45px;
+    color: #8C52FF;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-bottom: 2rem;
   }
 
-  hr {
-    display: grid;
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8C52FF;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-left: 10rem;
+  }
+
+  .serviceDescription {
+    margin-left: 0.7rem;
+  }
+
+  .timeline {
+    width: 45rem;
+    color: #8C52FF;
+    margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-top: 0%;
-    margin-bottom: 1%;
   }
 
-  .lugarSalida {
-    margin-top: 3%;
+  .serviceLine {
+    width: 45rem;
+    color: #8C52FF;
+    margin-top: 0.3rem;
+    margin: auto;
+    border-width: initial;
   }
 
-  .sumaServicios {
-    float: right;
-  }
-
-  .duracionHora {
-    margin-top: 3%;
-  }
-
-  .inputCliente {
-    margin-top: 2%;
-  }
-
-  .botonesEditar {
-    margin-top: 2%;
+  .lastServiceOrdered {
+    margin-left: 27.8rem;
+    margin-top: -2em;
   }
 
   .btnGuardar {
+    margin-top: 1rem;
     margin-bottom: 2%
   }
 
@@ -154,8 +328,123 @@
     scale: 1.2;
   }
 
-  .inputs {
-    max-height: 38px;
-    /* max-width: max-content; */
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .clientContainer {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 22% 24% 23% 3%;
+    margin-left: 26%;
+    margin-top: 1rem;
+  }
+
+  .dateContainer {
+    width: 9.7rem;
+  }
+
+  .dateIcon {
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerStartTime {
+    width: 9.7rem;
+  }
+
+  .startTimeIcon {
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 22% 24% 22%;
+    margin-left: 28%;
+  }
+
+  .containerDuration {
+    width: 9.7rem;
+    margin-top: 18%;
+  }
+
+  .EndTimeContainer {
+    width: 100%;
+    align-self: center;
+    text-align-last: center;
+    margin-top: 15.6%;
+  }
+
+  .containerPlaceExit {
+    width: 9.7rem;
+    margin-top: 18%;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    margin-left: 2.4rem;
+  }
+
+  .totalService {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-left: 8rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .treatmentContainer {
+    width: 9.7rem;
+  }
+
+  .beverageContainer {
+    width: 9.7rem;
+  }
+
+  .tobaccoContainer {
+    width: 9.7rem;
+  }
+
+  .vitaminColumn {
+    width: 9.7rem;
+    margin-top: 18%;
+  }
+
+  .tipColumn {
+    width: 9.7rem;
+    margin-top: 18%;
+  }
+
+  .columnOthers {
+    width: 9.7rem;
+    margin-top: 18%;
   }
 }
