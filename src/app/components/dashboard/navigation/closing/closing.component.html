@@ -6,7 +6,7 @@
 
         <div class="text-center mt-4 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" style="cursor: pointer;"
-                class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" (click)="addLiquidacion()">
+                class="bi bi-plus-circle text-primary" viewBox="0 0 16 16" (click)="insertForm()">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                 <path
                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -24,7 +24,7 @@
                 <label style="display: contents;">Encargada</label>
                 <select class="form-select" name="encargada" [(ngModel)]="closing.encargada" (ngModelChange)="filtro()">
                     <option selected value="">Selecciona</option>
-                    <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                    <option *ngFor="let managers of manager" [value]="managers.nombre">{{managers.nombre}}
                     </option>
                 </select>
             </div>
@@ -175,7 +175,7 @@
                     <select class="form-select" name="encargada" [(ngModel)]="closing.encargada"
                         (ngModelChange)="calcularSumaDeServicios()">
                         <option selected value="">Selecciona</option>
-                        <option *ngFor="let encarg of encargada" [value]="encarg.nombre">{{encarg.nombre}}
+                        <option *ngFor="let encarg of manager" [value]="encarg.nombre">{{encarg.nombre}}
                         </option>
                     </select>
                 </div>

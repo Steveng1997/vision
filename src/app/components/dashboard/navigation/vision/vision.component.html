@@ -9,7 +9,7 @@
           <path
             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
-        <div>
+        <div style="font-family: sans-serif">
           Nuevo servicio
         </div>
       </div>
@@ -22,7 +22,7 @@
           <path fill-rule="evenodd"
             d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
         </svg>
-        <div>
+        <div style="font-family: sans-serif">
           Refrescar Pagina
         </div>
       </div>
@@ -33,10 +33,10 @@
             <thead>
               <tr class="table-secondary">
                 <th scope="col"></th>
-                <th scope="col">Terapeuta</th>
-                <th scope="col">Salida</th>
-                <th scope="col">Fin</th>
-                <th scope="col">Restante</th>
+                <th style="font-family: sans-serif" >Terapeuta</th>
+                <th style="font-family: sans-serif">Salida</th>
+                <th style="font-family: sans-serif">Fin</th>
+                <th style="font-family: sans-serif">Restante</th>
               </tr>
             </thead>
             <tbody *ngFor="let vis of terapeutas">
@@ -44,10 +44,10 @@
                 <td
                   [ngClass]="{'ocupado': vis?.horaEnd !== '' , 'disponible': vis?.horaEnd === '', 'disponible2': vis?.horaEnd === '00:00'}">
                 </td>
-                <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left;">{{vis?.nombre}}</td>
-                <td style="line-height: normal; text-align: left;"> {{vis.salida}}</td>
-                <td style="line-height: normal; text-align: left;"> {{vis.horaEnd}}</td>
-                <td style="line-height: normal; text-align: left;"> {{vis.minuto}} </td>
+                <td (click)="editNombre(vis.nombre)" style="line-height: normal; text-align: left; font-family: sans-serif">{{vis?.nombre}}</td>
+                <td style="line-height: normal; text-align: left; font-family: sans-serif"> {{vis.salida}}</td>
+                <td style="line-height: normal; text-align: left; font-family: sans-serif"> {{vis.horaEnd}}</td>
+                <td style="line-height: normal; text-align: left; font-family: sans-serif"> {{vis.minuto}} </td>
               </tr>
             </tbody>
           </table>
@@ -66,7 +66,7 @@
             </svg>
           </div>
           <div class="col-4" style="display: contents;">
-            <label style="align-self: flex-end; font-size: 1rem;">{{fechaHoyActual}}</label>
+            <label style="align-self: flex-end; font-size: 1rem; font-family: sans-serif">{{fechaHoyActual}}</label>
           </div>
           <div class="col-4 btnLeft">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="siguiente()"
@@ -84,7 +84,7 @@
 
         <!-- SERVICIOS -->
 
-        <div class="col-6 columnCol" style="font-size: 14px;">
+        <div class="col-6 columnCol" style="font-size: 14px; font-family: sans-serif">
           <label class="textServicios">Servicios</label>
           <hr class="lineaHoy">
           <div class="colmnIzquierda">
@@ -131,7 +131,7 @@
 
         <!-- COBROS -->
 
-        <div class="col-6 columnColPago" style="font-size: 14px;">
+        <div class="col-6 columnColPago" style="font-size: 14px; font-family: sans-serif">
           <label class="textServicios">Cobros</label>
           <hr class="lineaHoyFormaPago">
 

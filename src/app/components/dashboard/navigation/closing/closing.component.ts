@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
@@ -28,9 +28,11 @@ export class ClosingComponent implements OnInit {
   cierre: any
   editCierre: boolean
   datosCierre: any
+  idUser: number
 
   // Encargada
-  encargada: any[] = []
+  manager: any
+  administratorRole: boolean = false
   encargadaSelect: string
 
   // Fecha
@@ -110,6 +112,7 @@ export class ClosingComponent implements OnInit {
     public router: Router,
     private modalService: NgbModal,
     public fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
     private service: Service,
     private serviceManager: ServiceManager,
     private serviceClosing: ServiceClosing,
@@ -127,7 +130,19 @@ export class ClosingComponent implements OnInit {
     document.getElementById('idTitulo').style.display = 'block'
     document.getElementById('idTitulo').innerHTML = 'CIERRE'
 
-    this.closing.encargada = ""
+    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
+
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.getManager()
+      } else {
+        this.manager = rp
+        this.closing.encargada = this.manager[0].nombre
+      }
+    })
+
     this.editCierre = false
     this.liqCierre = true
     this.addCierre = false
@@ -135,7 +150,6 @@ export class ClosingComponent implements OnInit {
 
     this.getCierre()
     this.getServicio()
-    this.getEncargada()
     this.totalesUndefined()
   }
 
@@ -359,9 +373,9 @@ export class ClosingComponent implements OnInit {
     })
   }
 
-  getEncargada() {
+  getManager() {
     this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.encargada = datosEncargada
+      this.manager = datosEncargada
     })
   }
 
@@ -373,8 +387,16 @@ export class ClosingComponent implements OnInit {
     if (this.totalValueTrans == undefined) this.totalValueTrans = 0
   }
 
-  addLiquidacion() {
-    this.closing.encargada = ""
+  insertForm() {
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.closing.encargada = ""
+      } else {
+        this.closing.encargada = this.manager[0].nombre
+      }
+    })
+
     this.calcularSumaDeServicios()
     this.liqCierre = false
     this.editCierre = false
@@ -429,7 +451,7 @@ export class ClosingComponent implements OnInit {
         // Este debe ser el Primero
         this.service.getEncargadaFechaDesc(this.closing.encargada).subscribe((fechaDesc) => {
           let año = "", mes = "", dia = ""
-          año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)          
+          año = fechaDesc[0]['fechaHoyInicio'].substring(2, 4)
           mes = fechaDesc[0]['fechaHoyInicio'].substring(5, 7)
           dia = fechaDesc[0]['fechaHoyInicio'].substring(8, 10)
 
@@ -440,7 +462,7 @@ export class ClosingComponent implements OnInit {
         // este debe ser el ultimo
         this.service.getEncargadaFechaAsc(this.closing.encargada).subscribe((fechaAscedent) => {
           let año = "", mes = "", dia = ""
-          año = fechaAscedent[0]['fechaHoyInicio'].substring(2, 4)          
+          año = fechaAscedent[0]['fechaHoyInicio'].substring(2, 4)
           mes = fechaAscedent[0]['fechaHoyInicio'].substring(5, 7)
           dia = fechaAscedent[0]['fechaHoyInicio'].substring(8, 10)
 

@@ -196,7 +196,6 @@ export class NewServiceComponent implements OnInit {
     }
 
     this.getTherapist()
-    this.getManager()
     this.date()
     this.editForm()
     this.horaInicialServicio = this.horaStarted
