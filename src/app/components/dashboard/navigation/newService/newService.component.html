@@ -1,6 +1,6 @@
 <script src="components/sweetalert/dist/sweetalert.min.js"></script>
 
-<div *ngIf="!editamos && addService">
+<div *ngIf="!editamos && addService" style="overflow-x: hidden;">
     <label class="title">Nuevo Servicio</label>
 
     <div class="container">
@@ -532,11 +532,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="btnGuardar">
-                        <button type="submit" mat-raised-button class="btn btn-primary"
-                            style="display: grid; margin: auto;" color="primary"
-                            (click)="saveService()">Guardar</button>
+                    
+                    <div class="inputButtonSave">
+                        <div class="row g-0 btnGuardar">
+                            <button type="submit" mat-raised-button class="btn btn-primary"
+                                style="display: grid; margin: auto;" color="primary"
+                                (click)="saveService()">Guardar</button>
+                        </div>
                     </div>
                 </div>
             </div>

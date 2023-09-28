@@ -184,8 +184,6 @@ export class NewServiceComponent implements OnInit {
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
-    debugger
-
     if (this.idUser) {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
         if (rp[0]['rol'] == 'administrador') {
@@ -330,7 +328,6 @@ export class NewServiceComponent implements OnInit {
   }
 
   saveService() {
-    debugger
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
@@ -343,13 +340,13 @@ export class NewServiceComponent implements OnInit {
           if (!this.validatePaymentMethod()) return
           this.sumService()
 
-          debugger
-
           if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
             this.services.efectTerap == true || this.services.efectEncarg == true ||
             this.services.efectOtro == true) {
             this.validateEfect = true
             this.efectCheckToggle(this.validateEfect)
+          } else {
+            localStorage.removeItem('Efectivo')
           }
 
           if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
@@ -357,6 +354,8 @@ export class NewServiceComponent implements OnInit {
             this.services.bizuOtro == true) {
             this.validateBizum = true
             this.bizumCheckToggle(this.validateBizum)
+          } else {
+            localStorage.removeItem('Bizum')
           }
 
           if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
@@ -364,6 +363,8 @@ export class NewServiceComponent implements OnInit {
             this.services.tarjOtro == true) {
             this.validateTarjeta = true
             this.tarjCheckToggle(this.validateTarjeta)
+          } else {
+            localStorage.removeItem('Tarjeta')
           }
 
           if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
@@ -371,10 +372,11 @@ export class NewServiceComponent implements OnInit {
             this.services.transOtro == true) {
             this.validateTrans = true
             this.transCheckToggle(this.validateTrans)
+          } else {
+            localStorage.removeItem('Trans')
           }
 
           this.wayToPay()
-
           this.managerAndTherapist()
 
           if (this.restamosCobro == 0) {
@@ -465,12 +467,6 @@ export class NewServiceComponent implements OnInit {
       localStorage.setItem('Efectivo', 'Efectivo')
       return
     }
-
-    if (!this.services.efectPiso1 && !this.services.efectPiso2 &&
-      !this.services.efectTerap && !this.services.efectEncarg &&
-      !this.services.efectOtro) {
-      localStorage.removeItem('Efectivo')
-    }
   }
 
   bizumCheckToggle(event: any) {
@@ -515,12 +511,6 @@ export class NewServiceComponent implements OnInit {
       this.services.valueBizum = suma
       localStorage.setItem('Bizum', 'Bizum')
       return
-    }
-
-    if (!this.services.bizuPiso1 && !this.services.bizuPiso2 &&
-      !this.services.bizuTerap && !this.services.bizuEncarg &&
-      !this.services.bizuOtro) {
-      localStorage.removeItem('Bizum')
     }
   }
 
@@ -567,12 +557,6 @@ export class NewServiceComponent implements OnInit {
       localStorage.setItem('Tarjeta', 'Tarjeta')
       return
     }
-
-    if (!this.services.tarjPiso1 && !this.services.tarjPiso2 &&
-      !this.services.tarjTerap && !this.services.tarjEncarg &&
-      !this.services.tarjOtro) {
-      localStorage.removeItem('Tarjeta')
-    }
   }
 
   transCheckToggle(event: any) {
@@ -617,12 +601,6 @@ export class NewServiceComponent implements OnInit {
       this.services.valueTrans = suma
       localStorage.setItem('Trans', 'Trans')
       return
-    }
-
-    if (!this.services.transPiso1 && !this.services.transPiso2 &&
-      !this.services.transTerap && !this.services.transEncarg &&
-      !this.services.transOtro) {
-      localStorage.removeItem('Trans')
     }
   }
 
@@ -1237,9 +1215,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   editService(idServicio, serv: ModelService) {
-    debugger
     if (this.restamosCobroEdit == 0) {
-      this.editPaymentMethod();
       let idUsuario = ''
       idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
 
@@ -1284,7 +1260,7 @@ export class NewServiceComponent implements OnInit {
         localStorage.removeItem('Trans')
       }
 
-      this.wayToPay()
+      this.editPaymentMethod()
 
       this.editManagerAndTherapist()
       this.editValue()
@@ -1420,25 +1396,24 @@ export class NewServiceComponent implements OnInit {
     this.restamosCobroEdit = resultadoEdit
   }
 
-  // Efectivo
   efectCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroserv = 0, suma = 0
     if (!this.validationsFormOfPaymentToEdit()) return
 
     if (event) {
 
-      if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {
+      if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {        
         piso1 = Number(this.editarService[0]['numberPiso1'])
+        this.editarService[0]['valuePiso1Efectivo'] = Number(this.editarService[0]['numberPiso1'])
       } else {
-        piso1 = 0
-        this.editarService[0]['numberPiso1'] = piso1.toString()
+        piso1 = 0        
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['efectPiso2'] === true) {
         piso2 = Number(this.editarService[0]['numberPiso2'])
+        this.editarService[0]['valuePiso2Efectivo'] = Number(this.editarService[0]['numberPiso2'])
       } else {
         piso2 = 0
-        this.editarService[0]['numberPiso2'] = piso2.toString()
       }
 
       if (Number(this.editarService[0]['numberTerap']) > 0 && this.editarService[0]['efectTerap'] === true) {
@@ -1465,15 +1440,8 @@ export class NewServiceComponent implements OnInit {
       return
 
     }
-
-    // if (!this.editarService[0]['efectPiso1'] && !this.editarService[0]['efectPiso2'] &&
-    //   !this.editarService[0]['efectTerap'] && !this.editarService[0]['efectEncarg'] &&
-    //   !this.editarService[0]['efectOtro']) {
-    //   localStorage.removeItem('Efectivo')
-    // }
   }
 
-  // Bizum
   bizumCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
@@ -1482,12 +1450,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['bizuPiso1'] === true) {
         piso1 = Number(this.editarService[0]['numberPiso1'])
+        this.editarService[0]['valuePiso1Bizum'] = Number(this.editarService[0]['numberPiso1'])
       } else {
         piso1 = 0
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['bizuPiso2'] === true) {
         piso2 = Number(this.editarService[0]['numberPiso2'])
+        this.editarService[0]['valuePiso2Bizum'] = Number(this.editarService[0]['numberPiso2'])
       } else {
         piso2 = 0
       }
@@ -1515,15 +1485,8 @@ export class NewServiceComponent implements OnInit {
       localStorage.setItem('Bizum', 'Bizum')
       return
     }
-
-    // if (!this.editarService[0]['bizuPiso1'] && !this.editarService[0]['bizuPiso2'] &&
-    //   !this.editarService[0]['bizuTerap'] && !this.editarService[0]['bizuEncarg'] &&
-    //   !this.editarService[0]['bizuOtro']) {
-    //   localStorage.removeItem('Bizum')
-    // }
   }
 
-  // Tarjeta
   tarjCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
@@ -1532,12 +1495,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['tarjPiso1'] === true) {
         piso1 = Number(this.editarService[0]['numberPiso1'])
+        this.editarService[0]['valuePiso1Tarjeta'] = Number(this.editarService[0]['numberPiso1'])
       } else {
         piso1 = 0
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['tarjPiso2'] === true) {
         piso2 = Number(this.editarService[0]['numberPiso2'])
+        this.editarService[0]['valuePiso2Tarjeta'] = Number(this.editarService[0]['numberPiso2'])
       } else {
         piso2 = 0
       }
@@ -1565,15 +1530,8 @@ export class NewServiceComponent implements OnInit {
       localStorage.setItem('Tarjeta', 'Tarjeta')
       return
     }
-
-    // if (!this.editarService[0]['tarjPiso1'] && !this.editarService[0]['tarjPiso2'] &&
-    //   !this.editarService[0]['tarjTerap'] && !this.editarService[0]['tarjEncarg'] &&
-    //   !this.editarService[0]['tarjOtro']) {
-    //   localStorage.removeItem('Tarjeta')
-    // }
   }
 
-  // Transaction
   transCheckToggleEdit(event: any) {
     let piso1 = 0, piso2 = 0, terap = 0, encarg = 0, otroservic = 0, suma = 0
 
@@ -1582,12 +1540,14 @@ export class NewServiceComponent implements OnInit {
 
       if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['transPiso1'] === true) {
         piso1 = Number(this.editarService[0]['numberPiso1'])
+        this.editarService[0]['valuePiso1Transaccion'] = Number(this.editarService[0]['numberPiso1'])
       } else {
         piso1 = 0
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['transPiso2'] === true) {
         piso2 = Number(this.editarService[0]['numberPiso2'])
+        this.editarService[0]['valuePiso2Transaccion'] = Number(this.editarService[0]['numberPiso2'])
       } else {
         piso2 = 0
       }
@@ -1615,12 +1575,6 @@ export class NewServiceComponent implements OnInit {
       localStorage.setItem('Trans', 'Trans')
       return
     }
-
-    // if (!this.editarService[0]['transPiso1'] && !this.editarService[0]['transPiso2'] &&
-    //   !this.editarService[0]['transTerap'] && !this.editarService[0]['transEncarg'] &&
-    //   !this.editarService[0]['transOtro']) {
-    //   localStorage.removeItem('Trans')
-    // }
   }
 
   editValue() {

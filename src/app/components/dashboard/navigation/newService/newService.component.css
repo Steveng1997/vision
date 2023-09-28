@@ -114,8 +114,7 @@
   }
 
   .btnGuardar {
-    margin-top: 1rem;
-    margin-bottom: 7%
+    margin-bottom: 1.5rem;
   }
 
   .botones {
@@ -322,6 +321,12 @@
     margin-left: 1rem;
   }
 
+  .inputButtonSave{
+    display: grid;
+    grid-template-columns: 26%;
+    justify-content: center;
+  }
+
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
@@ -378,8 +383,7 @@
   }
 
   .btnGuardar {
-    margin-top: 1rem;
-    margin-bottom: 7%
+    margin-bottom: 1.5rem;
   }
 
   .botones {
@@ -583,6 +587,12 @@
 
   .notes {
     margin-left: 1rem;
+  }
+
+  .inputButtonSave{
+    display: grid;
+    grid-template-columns: 26%;
+    justify-content: center;
   }
 
   .inputButton {
@@ -838,6 +848,12 @@
 
   .notes {
     margin-left: 1rem;
+  }
+
+  .inputButtonSave{
+    display: grid;
+    grid-template-columns: 15%;
+    justify-content: center;
   }
 
   .inputButton {
