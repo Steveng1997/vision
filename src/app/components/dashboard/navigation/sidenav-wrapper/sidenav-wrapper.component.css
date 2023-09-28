@@ -4,14 +4,14 @@ mat-toolbar {
   place-content: center;
 }
 
-mat-sidenav-content{
+mat-sidenav-content {
   background-color: white;
 }
 
 mat-sidenav {
   margin: 16px;
   width: 200px;
-  height: 65%;
+  height: 68%;
   border-right: none;
   background-color: deepskyblue;
   color: white;

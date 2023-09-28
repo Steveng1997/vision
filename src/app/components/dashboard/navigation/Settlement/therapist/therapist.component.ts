@@ -424,7 +424,7 @@ export class TherapistComponent implements OnInit {
               return accumulator + serv.vitaminas
             }, 0)
 
-            // Filter by Vitamina
+            // Filter by Others
             const otroServicio = this.unliquidatedService.filter(serv => rp)
             this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
               return accumulator + serv.otros

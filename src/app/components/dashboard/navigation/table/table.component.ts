@@ -71,8 +71,7 @@ export class TableComponent implements OnInit {
     private modalService: NgbModal,
     public serviceManager: ServiceManager,
     private activeRoute: ActivatedRoute,
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     document.getElementById('idTitulo').style.display = 'block'
@@ -92,7 +91,7 @@ export class TableComponent implements OnInit {
           this.getManager()
         } else {
           this.manager = rp
-          this.selectedEncargada = this.manager[0].nombre          
+          this.selectedEncargada = this.manager[0].nombre
         }
       })
     }

@@ -69,6 +69,13 @@ export class ManagerComponent implements OnInit {
   receivedManager: any
   totalCommission: number
 
+  // Total Payment Method
+  totalCash: number
+  totalCard: number
+  totalBizum: number
+  totalTransaction: number
+  totalManagerPayment: number
+
   currentDate = new Date().getTime()
 
   liquidationManager: LiquidationManager = {
@@ -204,6 +211,11 @@ export class ManagerComponent implements OnInit {
     if (this.totalCommission == undefined || Number.isNaN(this.totalCommission)) this.totalCommission = 0
     if (this.receivedManager == undefined || Number.isNaN(this.receivedManager)) this.receivedManager = 0
     if (this.totalValueOrdered == undefined) this.totalValueOrdered = 0
+    if (this.totalCash == undefined) this.totalCash = 0
+    if (this.totalBizum == undefined) this.totalBizum = 0
+    if (this.totalCard == undefined) this.totalCard = 0
+    if (this.totalTransaction == undefined) this.totalTransaction = 0
+    if (this.totalManagerPayment == undefined) this.totalManagerPayment = 0
   }
 
   getSettlements() {
@@ -428,11 +440,38 @@ export class ManagerComponent implements OnInit {
               return accumulator + serv.vitaminas
             }, 0)
 
-            // Filter by Vitamina
+            // Filter by Others
             const otroServicio = this.unliquidatedService.filter(serv => rp)
             this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
               return accumulator + serv.otros
             }, 0)
+
+            // Filter by totalCash
+            const totalCashs = this.unliquidatedService.filter(serv => rp)
+            this.totalCash = totalCashs.reduce((accumulator, serv) => {
+              return accumulator + serv.valueEfectEncargada
+            }, 0)
+
+            // Filter by totalBizum
+            const totalBizums = this.unliquidatedService.filter(serv => rp)
+            this.totalBizum = totalBizums.reduce((accumulator, serv) => {
+              return accumulator + serv.valueBizuEncargada
+            }, 0)
+
+            // Filter by totalCard
+            const totalCards = this.unliquidatedService.filter(serv => rp)
+            this.totalCard = totalCards.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTarjeEncargada
+            }, 0)
+
+            // Filter by totalTransaction
+            const totalTransactions = this.unliquidatedService.filter(serv => rp)
+            this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTransEncargada
+            }, 0)
+
+            // Total therapist payment
+            this.totalManagerPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
 
             this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
               this.encargadaName = datosNameTerapeuta[0]

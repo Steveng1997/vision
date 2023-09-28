@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-100 row justify-content-center align-items-center">
+
+                <div class="row inputContainer">
+                    <div class="containerInCharge">
+                        <div class="row g-0">
+                            <label class="text"> Encargada</label>
+                            <select class="form-select" name="encargada" [(ngModel)]="managerModel.nombre" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;">
+                                <option selected value>Selecciona</option>
+                                <option *ngFor="let manager of manager" [value]="manager.nombre">
+                                    {{manager?.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="containerInCharge">
+                        <div class="row g-0">
+                            <label class="text">Ejemplo</label>
+                            <select class="form-select" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;" (change)="ejemplo($event.target)">
+                                <option selected value>Selecciona</option>
+                                <option value="service">Servicio</option>
+                                <option value="liquidationTherapist">Liquidación terapeuta</option>
+                                <option value="liquidationManager">Liquidación encargada</option>
+                                <option value="closed">Cierre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div *ngIf="liqudationTherapist" class="containerInCharge">
+                        <div class="row g-0">
+                            <label class="text">Terapeuta</label>
+                            <select class="form-select" name="encargada" [(ngModel)]="therapistModel.nombre" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;" (change)="consultTherapist()">
+                                <option selected value>Selecciona</option>
+                                <option *ngFor="let therapist of therapist" [value]="therapist.nombre">
+                                    {{therapist?.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Table -->
+
+                <div *ngIf="exist">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+@media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
+    .inputContainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
+
+    .containerInCharge {
+        width: auto;
+        justify-self: center;
+    }
+}
+
+@media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
+    .inputContainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
+
+    .containerInCharge {
+        width: auto;
+        justify-self: center;
+    }
+}
+
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
+    .inputContainer {
+        display: grid;
+        grid-template-columns: 25% 25% 25%;
+        /* justify-content: center;
+        margin-top: 1rem; */
+    }
+
+    .containerInCharge {
+        width: 100%;
+        justify-self: center;
+    }
+}

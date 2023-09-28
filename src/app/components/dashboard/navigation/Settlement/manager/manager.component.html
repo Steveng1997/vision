@@ -450,6 +450,56 @@
                     </div>
                 </div>
 
+                <!-- Table Paid To Manager -->
+                <div style="display: grid; place-items: center;" class="tablePaidManager">
+                    <div style="text-align: center; width: max-content;">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-secondary">
+                                    <th style="border-bottom: 1px solid blue; text-align: center;">
+                                        Pagado a encargada</th>
+                                    <th style="border-bottom: 1px solid blue; text-align: center;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="line-height: 40%">
+                                    <th scope="row"
+                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                        Efectivo</th>
+                                    <td style="border-bottom: hidden; text-align: right;">{{totalCash + ' €'}}</td>
+                                </tr>
+                                <tr style="line-height: 40%">
+                                    <th scope="row"
+                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                        Bizum</th>
+                                    <td style="border-bottom: hidden; text-align: right;">{{totalBizum + ' €'}}</td>
+                                </tr>
+                                <tr style="line-height: 40%">
+                                    <th scope="row"
+                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                        Tarjeta</th>
+                                    <td style="border-bottom: hidden; text-align: right;">{{totalCard + ' €'}}</td>
+                                </tr>
+                                <tr style="line-height: 40%">
+                                    <th scope="row"
+                                        style="border-bottom: 1px solid blue; text-align: left; font-weight: normal; text-transform: capitalize">
+                                        Transferencia</th>
+                                    <td style="border-bottom: 1px solid blue; text-align: right;">
+                                        {{totalTransaction + ' €'}}</td>
+                                </tr>
+                                <tr style="line-height: 40%">
+                                    <th scope="row"
+                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                        Transferencia</th>
+                                    <td style="border-bottom: hidden; text-align: right;">{{totalManagerPayment + '
+                                        €'}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <div class="btnCancelar" *ngIf="selected && unliquidatedService.length <= 0">
                     <button mat-flat-button color="primary" style="display: grid; margin: auto;"
                         (click)="cancel()">Cancelar</button>

@@ -83,6 +83,10 @@ td {
     margin-top: -12%;
   }
 
+  .tablePaidManager {
+    margin-top: 0%;
+  }
+
   .managerColumn {
     padding: 24px 12px 0px 0px;
     text-align: center;
@@ -277,6 +281,10 @@ td {
   }
 
   .tableEdtit {
+    margin-top: 0%;
+  }
+
+  .tablePaidManager {
     margin-top: 0%;
   }
 

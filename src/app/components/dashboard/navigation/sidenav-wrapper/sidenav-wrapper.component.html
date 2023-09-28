@@ -57,6 +57,13 @@
         <mat-icon>settings</mat-icon>
         <span style="font-family: sans-serif; font-size: 18px;">Configuración</span>
       </button>
+
+      <button mat-button class="menu-button" *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'deleteService'"
+        (click)="toolbar()">
+        <mat-icon>delete</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px;">Eliminar</span>
+      </button>
+
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

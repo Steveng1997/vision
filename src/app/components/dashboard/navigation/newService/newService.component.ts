@@ -180,8 +180,11 @@ export class NewServiceComponent implements OnInit {
     this.addService = true
     this.cargamos = false
 
-    const params = this.activeRoute.snapshot.params;
-    this.idUser = Number(params['id'])
+    // const params = this.activeRoute.snapshot.params;
+    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    this.idUser = Number(params.path)
+
+    debugger
 
     if (this.idUser) {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
@@ -335,11 +338,12 @@ export class NewServiceComponent implements OnInit {
           // Methods 
           this.createUniqueId()
           this.validateTheEmptyField()
-          this.wayToPay()
           if (!this.expiredDateValidations()) return
           if (!this.paymentMethodValidation()) return
           if (!this.validatePaymentMethod()) return
           this.sumService()
+
+          debugger
 
           if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
             this.services.efectTerap == true || this.services.efectEncarg == true ||
@@ -368,6 +372,8 @@ export class NewServiceComponent implements OnInit {
             this.validateTrans = true
             this.transCheckToggle(this.validateTrans)
           }
+
+          this.wayToPay()
 
           this.managerAndTherapist()
 
@@ -1231,6 +1237,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   editService(idServicio, serv: ModelService) {
+    debugger
     if (this.restamosCobroEdit == 0) {
       this.editPaymentMethod();
       let idUsuario = ''
@@ -1246,6 +1253,8 @@ export class NewServiceComponent implements OnInit {
         this.editarService[0]['efectOtro'] == true) {
         this.validateEfect = true
         this.efectCheckToggleEdit(this.validateEfect)
+      } else {
+        localStorage.removeItem('Efectivo')
       }
 
       if (this.editarService[0]['bizuPiso1'] == true || this.editarService[0]['bizuPiso2'] == true ||
@@ -1253,6 +1262,8 @@ export class NewServiceComponent implements OnInit {
         this.editarService[0]['bizuOtro'] == true) {
         this.validateBizum = true
         this.bizumCheckToggleEdit(this.validateBizum)
+      } else {
+        localStorage.removeItem('Bizum')
       }
 
       if (this.editarService[0]['tarjPiso1'] == true || this.editarService[0]['tarjPiso2'] == true ||
@@ -1260,6 +1271,8 @@ export class NewServiceComponent implements OnInit {
         this.editarService[0]['tarjOtro'] == true) {
         this.validateTarjeta = true
         this.tarjCheckToggleEdit(this.validateTarjeta)
+      } else {
+        localStorage.removeItem('Tarjeta')
       }
 
       if (this.editarService[0]['transPiso1'] == true || this.editarService[0]['transPiso2'] == true ||
@@ -1267,7 +1280,11 @@ export class NewServiceComponent implements OnInit {
         this.editarService[0]['transOtro'] == true) {
         this.validateTrans = true
         this.transCheckToggleEdit(this.validateTrans)
+      } else {
+        localStorage.removeItem('Trans')
       }
+
+      this.wayToPay()
 
       this.editManagerAndTherapist()
       this.editValue()
@@ -1449,11 +1466,11 @@ export class NewServiceComponent implements OnInit {
 
     }
 
-    if (!this.editarService[0]['efectPiso1'] && !this.editarService[0]['efectPiso2'] &&
-      !this.editarService[0]['efectTerap'] && !this.editarService[0]['efectEncarg'] &&
-      !this.editarService[0]['efectOtro']) {
-      localStorage.removeItem('Efectivo')
-    }
+    // if (!this.editarService[0]['efectPiso1'] && !this.editarService[0]['efectPiso2'] &&
+    //   !this.editarService[0]['efectTerap'] && !this.editarService[0]['efectEncarg'] &&
+    //   !this.editarService[0]['efectOtro']) {
+    //   localStorage.removeItem('Efectivo')
+    // }
   }
 
   // Bizum
@@ -1499,11 +1516,11 @@ export class NewServiceComponent implements OnInit {
       return
     }
 
-    if (!this.editarService[0]['bizuPiso1'] && !this.editarService[0]['bizuPiso2'] &&
-      !this.editarService[0]['bizuTerap'] && !this.editarService[0]['bizuEncarg'] &&
-      !this.editarService[0]['bizuOtro']) {
-      localStorage.removeItem('Bizum')
-    }
+    // if (!this.editarService[0]['bizuPiso1'] && !this.editarService[0]['bizuPiso2'] &&
+    //   !this.editarService[0]['bizuTerap'] && !this.editarService[0]['bizuEncarg'] &&
+    //   !this.editarService[0]['bizuOtro']) {
+    //   localStorage.removeItem('Bizum')
+    // }
   }
 
   // Tarjeta
@@ -1549,11 +1566,11 @@ export class NewServiceComponent implements OnInit {
       return
     }
 
-    if (!this.editarService[0]['tarjPiso1'] && !this.editarService[0]['tarjPiso2'] &&
-      !this.editarService[0]['tarjTerap'] && !this.editarService[0]['tarjEncarg'] &&
-      !this.editarService[0]['tarjOtro']) {
-      localStorage.removeItem('Tarjeta')
-    }
+    // if (!this.editarService[0]['tarjPiso1'] && !this.editarService[0]['tarjPiso2'] &&
+    //   !this.editarService[0]['tarjTerap'] && !this.editarService[0]['tarjEncarg'] &&
+    //   !this.editarService[0]['tarjOtro']) {
+    //   localStorage.removeItem('Tarjeta')
+    // }
   }
 
   // Transaction
@@ -1599,11 +1616,11 @@ export class NewServiceComponent implements OnInit {
       return
     }
 
-    if (!this.editarService[0]['transPiso1'] && !this.editarService[0]['transPiso2'] &&
-      !this.editarService[0]['transTerap'] && !this.editarService[0]['transEncarg'] &&
-      !this.editarService[0]['transOtro']) {
-      localStorage.removeItem('Trans')
-    }
+    // if (!this.editarService[0]['transPiso1'] && !this.editarService[0]['transPiso2'] &&
+    //   !this.editarService[0]['transTerap'] && !this.editarService[0]['transEncarg'] &&
+    //   !this.editarService[0]['transOtro']) {
+    //   localStorage.removeItem('Trans')
+    // }
   }
 
   editValue() {

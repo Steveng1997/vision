@@ -9,6 +9,7 @@ import { TherapistComponent } from './navigation/Settlement/therapist/therapist.
 import { ManagerComponent } from './navigation/Settlement/manager/manager.component';
 import { LoginComponent } from './navigation/login/login.component';
 import { ClosingComponent } from './navigation/closing/closing.component';
+import { RemoveServiceComponent } from './navigation/removeService/removeService.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'encargadas',
         component: ManagerComponent
+      },
+      {
+        path: 'deleteService',
+        component: RemoveServiceComponent
       }
     ]
   },
