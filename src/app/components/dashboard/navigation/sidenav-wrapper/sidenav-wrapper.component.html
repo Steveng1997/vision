@@ -13,55 +13,49 @@
 
       <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}"
         (click)="toolbar()">
-        <mat-icon>Visión</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Home</span>
+        <mat-icon style="color: white;">Visión</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Home</span>
       </button>
 
       <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/nuevo-servicio/{{idUser['id']}}/false"
         (click)="toolbar()">
-        <mat-icon>manage_accounts</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Servicio</span>
+        <mat-icon style="color: white;">manage_accounts</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Servicio</span>
       </button>
 
       <button mat-button class="menu-button" routerLink="/menu/{{ idUser['id'] }}/tabla/{{idUser['id']}}"
         (click)="toolbar()">
-        <mat-icon>table</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Tabla</span>
+        <mat-icon style="color: white;">table</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Tabla</span>
       </button>
 
       <button (click)="liquidation()" mat-button class="menu-button">
-        <mat-icon>payments</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Liquidación</span>
+        <mat-icon style="color: white;">payments</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Liquidación</span>
       </button>
 
       <button *ngIf="isLiquidation" mat-button class="menu-button" [routerLink]="'terapeutas'" (click)="toolbar()"
         style="margin-left: 23px">
-        <mat-icon>table</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Terapeutas</span>
+        <mat-icon style="color: white;">table</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Terapeutas</span>
       </button>
 
       <button *ngIf="isLiquidation" mat-button class="menu-button" [routerLink]="'encargadas'" (click)="toolbar()"
         style="margin-left: 23px">
-        <mat-icon>table</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Encargadas</span>
+        <mat-icon style="color: white;">table</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Encargadas</span>
       </button>
 
       <button mat-button class="menu-button" *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'"
         (click)="toolbar()">
-        <mat-icon>query_stats</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Cierre</span>
+        <mat-icon style="color: white;">query_stats</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Cierre</span>
       </button>
 
       <button mat-button class="menu-button" *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'configuracion'"
         (click)="toolbar()">
-        <mat-icon>settings</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Configuración</span>
-      </button>
-
-      <button mat-button class="menu-button" *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'deleteService'"
-        (click)="toolbar()">
-        <mat-icon>delete</mat-icon>
-        <span style="font-family: sans-serif; font-size: 18px;">Eliminar</span>
+        <mat-icon style="color: white;">settings</mat-icon>
+        <span style="font-family: sans-serif; font-size: 18px; color: white">Configuración</span>
       </button>
 
     </div>

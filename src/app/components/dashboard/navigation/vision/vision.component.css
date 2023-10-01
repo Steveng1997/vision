@@ -10,7 +10,7 @@ table,
 tr,
 td {
   border-style: hidden;
-  line-height: 0%;
+  line-height: 1rem;
 }
 
 table {
@@ -22,317 +22,765 @@ table {
   background-color: transparent;
 }
 
-.nota {
-  background: blue;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: 20%;
-}
-
-.disponible {
-  background: green;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: -34%;
-}
-
-.disponible2 {
-  background: green;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: -34%;
-}
-
-.disponibleEncargada {
-  display: none;
-}
-
-.ocupado {
-  background: red;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 20%;
-  margin-left: -34%;
-}
-
-@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
-
-  .circleIzquierda {
-    width: 35%;
-    height: 35%;
-  }
-
-  .circleDerecha {
-    width: 35%;
-    height: 35%;
-  }
-
+@media only screen and (min-device-width: 270px) and (max-device-width: 394px) {
   body {
-    margin-top: -10%;
+    overflow-x: hidden !important;
   }
 
-  .padre {
+  .disponible {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 60%;
+    margin-left: 0;
+  }
+
+  .disponible2 {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 60%;
+    margin-left: 0;
+  }
+
+  .ocupado {
+    background: red;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 60%;
+    margin-left: 0;
+  }
+
+  .columnIcon {
     display: grid;
-    margin-top: -3%;
-    margin-bottom: -10%;
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: -4rem;
   }
 
-  .flechaFecha {
-    margin-bottom: 14%;
-    width: 145%;
+  .newServiceCircle {
+    width: 4rem;
   }
 
-  .hijo {
-    width: auto;
-    margin-bottom: 8%;
-    margin-left: inherit;
-    justify-self: center;
-  }
-
-  hr {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-top: 2%;
-    margin-bottom: -7%;
-    width: 87%;
-  }
-
-  .linea {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-top: -5%;
-    margin-bottom: 7%;
-    width: 87%;
-  }
-
-  .lineaHoy {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-left: 0%;
-    width: 110%;
-    margin-top: 3%;
-    margin-bottom: 5%;
-  }
-
-  .lineaHoyFormaPago {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-left: 0%;
-    width: 110%;
-    margin-top: 3%;
-    margin-bottom: 5%;
-  }
-
-  .btnLeft {
-    display: grid;
-    justify-content: left;
-  }
-
-  .btnRight {
-    display: grid;
-    justify-content: right;
-  }
-
-  .tableTotales {
-    margin-top: -9%;
-    margin-left: inherit;
-    justify-self: center;
-    line-height: 100%;
+  .circleRefreshPage {
+    width: 4rem;
   }
 
   .columnTable {
+    justify-content: center;
+    margin-top: -5.5rem;
+    width: 100%;
+    margin-left: -1.5rem;
+  }
+
+  .columnArrows {
     display: grid;
+    grid-template-columns: 8% 28% 8%;
+    margin-top: -11.7rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+    text-align-last: center;
   }
 
-  .columnCol {
-    text-align: initial;
-    margin-left: -5%;
+  .date {
+    margin-top: 0.3rem;
   }
 
-  .columnColPago {
-    text-align: initial;
-    margin-left: 5%;
-  }
-
-  .textServicios {
-    margin-top: 15%;
-    margin-bottom: 0%;
-    font-weight: bold;
-  }
-
-  .totalHoy {
+  .column {
     display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
     justify-items: center;
+    margin-top: -12rem;
+    margin-left: -1.6rem;
   }
 
-  .contenido {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin-top: 0%;
+  .columnService {
+    margin-right: auto;
+    width: 85%;
   }
 
-  .columnHoy {
-    margin-top: 4%;
+  .collectionsColumn {
+    width: 85%;
+  }
+
+  .serviceLine {
+    width: 10rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0.1rem;
+  }
+
+  .columnTreatment {
+    display: grid;
+    grid-template-columns: 71% 38%;
+    margin-top: 0.8rem;
+  }
+
+  .treatmentValue {
+    justify-self: end;
+  }
+
+  .columnDrink {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .drinkValue {
+    justify-self: end;
+  }
+
+  .columnTobacco {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .tobaccoValue {
+    justify-self: end;
+  }
+
+  .columnVitamin {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .vitaminValue {
+    justify-self: end;
+  }
+
+  .columnTip {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .tipValue {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .valueOthers {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .totalLine {
+    width: 10rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .columnTotal {
+    display: grid;
+    grid-template-columns: 71% 38%;
+  }
+
+  .valueTotal {
+    justify-self: end;
+  }
+
+  .collectionsLine {
+    width: 10.8rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .floorColumn {
+    display: grid;
+    grid-template-columns: 78% 40%;
+    margin-top: 0.8rem;
+  }
+
+  .valueFloor {
+    justify-self: end;
+  }
+
+  .columnEffective {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueEffective {
+    justify-self: end;
+  }
+
+  .columnBizum {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueBizum {
+    justify-self: end;
+  }
+
+  .columnCard {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueCard {
+    justify-self: end;
+  }
+
+  .columnTranfer {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueTranfer {
+    justify-self: end;
+  }
+
+  .columnTherapist {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueTherapist {
+    justify-self: end;
+  }
+
+  .columnManager {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueManager {
+    justify-self: end;
+  }
+
+  .columnOther {
+    display: grid;
+    grid-template-columns: 78% 40%;
+  }
+
+  .valueOther {
+    justify-self: end;
+  }
+}
+
+@media only screen and (min-device-width: 395px) and (max-device-width: 1030px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .disponible {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 50%;
+    margin-left: 0;
+  }
+
+  .disponible2 {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 50%;
+    margin-left: 0;
+  }
+
+  .ocupado {
+    background: red;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 50%;
+    margin-left: 0;
+  }
+
+  .columnIcon {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: -4rem;
+  }
+
+  .newServiceCircle {
+    width: 4rem;
+  }
+
+  .circleRefreshPage {
+    width: 4rem;
+  }
+
+  .columnTable {
+    justify-content: center;
+    margin-top: -9rem;
+    width: 100%;
+    margin-left: -1.5rem;
+  }
+
+  .columnArrows {
+    display: grid;
+    grid-template-columns: 10% 35% 10%;
+    margin-top: -18rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+    text-align-last: center;
+  }
+
+  .date {
+    justify-self: center;
+    margin-top: 0.1rem;
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: -18rem;
+    margin-left: -1.6rem;
+  }
+
+  .columnService {
+    margin-right: auto;
+    width: 85%;
+  }
+
+  .collectionsColumn {
+    width: 85%;
+  }
+
+  .serviceLine {
+    width: 9.8rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0.7rem;
+  }
+
+  .columnTreatment {
+    display: grid;
+    grid-template-columns: 62% 45%;
+    margin-top: 0.8rem;
+  }
+
+  .treatmentValue {
+    justify-self: end;
+  }
+
+  .columnDrink {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .drinkValue {
+    justify-self: end;
+  }
+
+  .columnTobacco {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .tobaccoValue {
+    justify-self: end;
+  }
+
+  .columnVitamin {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .vitaminValue {
+    justify-self: end;
+  }
+
+  .columnTip {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .tipValue {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .valueOthers {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .totalLine {
+    width: 10.6rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .columnTotal {
+    display: grid;
+    grid-template-columns: 62% 45%;
+  }
+
+  .valueTotal {
+    justify-self: end;
+  }
+
+  .collectionsLine {
+    width: 11rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .floorColumn {
+    display: grid;
+    grid-template-columns: 71% 42%;
+    margin-top: 0.8rem;
+  }
+
+  .valueFloor {
+    justify-self: end;
+  }
+
+  .columnEffective {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueEffective {
+    justify-self: end;
+  }
+
+  .columnBizum {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueBizum {
+    justify-self: end;
+  }
+
+  .columnCard {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueCard {
+    justify-self: end;
+  }
+
+  .columnTranfer {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueTranfer {
+    justify-self: end;
+  }
+
+  .columnTherapist {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueTherapist {
+    justify-self: end;
+  }
+
+  .columnManager {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueManager {
+    justify-self: end;
+  }
+
+  .columnOther {
+    display: grid;
+    grid-template-columns: 71% 42%;
+  }
+
+  .valueOther {
+    justify-self: end;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-  .circleIzquierda {
-    width: 25%;
-    height: 25%;
+  .disponible {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 0;
   }
 
-  .circleDerecha {
-    width: 25%;
-    height: 25%;
+  .disponible2 {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 0;
   }
 
-  .totalHoy {
+  .ocupado {
+    background: red;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 0;
+  }
+
+  .columnIcon {
     display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: center;
     justify-items: center;
   }
 
-  .flechaFecha {
-    margin-bottom: 25%;
-    width: 145%;
+  .newServiceCircle {
+    width: 4rem;
   }
 
-  .padre {
-    display: grid;
-    place-items: center;
-    margin-top: -5%;
-  }
-
-  .hijo {
-    text-align: center;
-    width: max-content;
-    margin-bottom: 3%;
-  }
-
-  hr {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-top: 2%;
-    margin-bottom: -2%;
-    width: 87%;
-  }
-
-  .linea {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-top: -2%;
-    margin-bottom: 3%;
-    width: 87%;
-  }
-
-  .lineaHoy {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-bottom: 8%;
-    margin-top: 2%;
-    width: 110%;
-    margin-left: 0%;
-  }
-
-  .lineaHoyFormaPago {
-    display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-bottom: 5%;
-    margin-top: 2%;
-    width: 110%;
-    margin-left: 0%;
-  }
-
-  .colmnIzquierda {
-    margin-top: -3%;
-  }
-
-  .textServicios {
-    margin-top: 0%;
-    margin-bottom: 0%;
-    font-weight: bold;
-  }
-
-  .btnLeft {
-    display: grid;
-    justify-content: left;
-  }
-
-  .btnRight {
-    display: grid;
-    justify-content: right;
-  }
-
-  .tableTotales {
-    margin-top: 4%;
-    margin-left: inherit;
-    justify-self: center;
-    line-height: 100%;
+  .circleRefreshPage {
+    width: 4rem;
   }
 
   .columnTable {
+    justify-content: center;
+    margin-top: 2rem;
+    width: 61%;
+  }
+
+  .columnArrows {
     display: grid;
-    margin-top: -4%;
+    grid-template-columns: 7% 15% 7%;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+    text-align-last: center;
   }
 
-  .columnCol {
-    text-align: initial;
-    margin-left: -10%;
+  .date {
+    justify-self: center;
+    margin-top: 0.4rem;
   }
 
-  .columnColPago {
-    text-align: initial;
-    margin-left: 10%;
+  .column {
+    display: grid;
+    grid-template-columns: 32.6% 30%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: -2.5rem;
   }
 
-  .fechas {
-    margin-top: -3%
+  .columnService {
+    margin-right: auto;
+    width: 85%;
   }
 
-  .contenido {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin-top: 0%;
+  .collectionsColumn {
+    width: 85%;
   }
 
-  .columnHoy {
-    margin-top: 2%;
-    margin-bottom: -2%;
+  .serviceLine {
+    width: 11.5rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
   }
 
-  /* 
-  .linearNuevoServicio{
-    text-align: end;
+  .columnTreatment {
+    display: grid;
+    grid-template-columns: 45% 48%;
+    margin-top: 0.6rem;
   }
 
-  .linearRefrescar{
-    text-align: start;
-  } */
+  .treatmentValue {
+    justify-self: end;
+  }
+
+  .columnDrink {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .drinkValue {
+    justify-self: end;
+  }
+
+  .columnTobacco {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .tobaccoValue {
+    justify-self: end;
+  }
+
+  .columnVitamin {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .vitaminValue {
+    justify-self: end;
+  }
+
+  .columnTip {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .tipValue {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .valueOthers {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .totalLine {
+    width: 11.5rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .columnTotal {
+    display: grid;
+    grid-template-columns: 45% 48%;
+  }
+
+  .valueTotal {
+    justify-self: end;
+  }
+
+  .collectionsLine {
+    width: 11.1rem;
+    color: #8C52FF;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0rem;
+  }
+
+  .floorColumn {
+    display: grid;
+    grid-template-columns: 50% 48%;
+    margin-top: 0.6rem;
+  }
+
+  .valueFloor {
+    justify-self: end;
+  }
+
+  .columnEffective {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueEffective {
+    justify-self: end;
+  }
+
+  .columnBizum {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueBizum {
+    justify-self: end;
+  }
+
+  .columnCard {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueCard {
+    justify-self: end;
+  }
+
+  .columnTranfer {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueTranfer {
+    justify-self: end;
+  }
+
+  .columnTherapist {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueTherapist {
+    justify-self: end;
+  }
+
+  .columnManager {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueManager {
+    justify-self: end;
+  }
+
+  .columnOther {
+    display: grid;
+    grid-template-columns: 50% 48%;
+  }
+
+  .valueOther {
+    justify-self: end;
+  }
 }

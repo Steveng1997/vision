@@ -1,5 +1,5 @@
 mat-toolbar {
-  background: #004a9f;
+  background: #8C52FF;
   color: white;
   place-content: center;
 }
@@ -13,7 +13,7 @@ mat-sidenav {
   width: 200px;
   height: 68%;
   border-right: none;
-  background-color: deepskyblue;
+  background-color: #8C52FF;
   color: white;
   border-radius: 10px;
   padding: 16px;
@@ -44,7 +44,7 @@ mat-sidenav-container {
     width: 200px;
     height: 45%;
     border-right: none;
-    background-color: deepskyblue;
+    background-color: #8C52FF;
     color: white;
     border-radius: 10px;
     padding: 16px;

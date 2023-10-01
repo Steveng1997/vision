@@ -46,7 +46,7 @@ export class SidenavWrapperComponent implements OnInit {
   ngAfterViewInit() {
 
     this.observer
-      .observe(['(max-width: 1300px)'])
+      .observe(['(max-width: 2200px)'])
       .pipe(delay(1), untilDestroyed(this))
       .subscribe((res) => {
         if (res.matches) {

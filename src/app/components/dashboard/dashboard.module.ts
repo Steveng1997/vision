@@ -35,7 +35,6 @@ import { ClosingComponent } from './navigation/closing/closing.component'
 import { VisionComponent } from './navigation/vision/vision.component'
 import { TableComponent } from './navigation/table/table.component'
 import { LoginComponent } from './navigation/login/login.component'
-import { RemoveServiceComponent } from './navigation/removeService/removeService.component'
 
 // Pipe
 import { TerapeutaPipe } from 'src/app/core/pipe/terapeuta.pipe'
@@ -52,8 +51,8 @@ import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe'
 
 @NgModule({
   declarations: [SidenavWrapperComponent, SettingComponent, ClosingComponent, NewServiceComponent,
-    ManagerComponent, TherapistComponent, VisionComponent, TableComponent, RemoveServiceComponent,
-    TerapeutaPipe, EncargadaPipe, FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe,
+    ManagerComponent, TherapistComponent, VisionComponent, TableComponent, TerapeutaPipe, 
+    EncargadaPipe, FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe,
     FechaInicialEncargadaPipe, FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe,
     FechaCierrePipe, BusquedaTerapeutaPipe],
 

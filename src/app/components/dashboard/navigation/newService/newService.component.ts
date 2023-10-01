@@ -67,8 +67,6 @@ export class NewServiceComponent implements OnInit {
 
   terapEdit: any
   terapeutaSelect: any
-
-  cargamos: boolean
   addService = false
 
   services: ModelService = {
@@ -178,7 +176,6 @@ export class NewServiceComponent implements OnInit {
     document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
 
     this.addService = true
-    this.cargamos = false
 
     // const params = this.activeRoute.snapshot.params;
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
@@ -383,8 +380,6 @@ export class NewServiceComponent implements OnInit {
             this.services.currentDate = this.currentDate.toString()
 
             this.sortedDate()
-
-            this.cargamos = true
             this.services.editar = true
 
             this.therapist.horaEnd = this.services.horaEnd
@@ -1402,11 +1397,11 @@ export class NewServiceComponent implements OnInit {
 
     if (event) {
 
-      if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {        
+      if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] === true) {
         piso1 = Number(this.editarService[0]['numberPiso1'])
         this.editarService[0]['valuePiso1Efectivo'] = Number(this.editarService[0]['numberPiso1'])
       } else {
-        piso1 = 0        
+        piso1 = 0
       }
 
       if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['efectPiso2'] === true) {
@@ -1657,8 +1652,8 @@ export class NewServiceComponent implements OnInit {
   }
 
   deleteService(id) {
-    let idUsuario = ''
-    idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+    let idUser = ''
+    idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.service.getById(id).subscribe((datoEliminado) => {
       if (datoEliminado) {
         Swal.fire({
@@ -1673,10 +1668,9 @@ export class NewServiceComponent implements OnInit {
             this.serviceTherapist.getTerapeuta(datoEliminado[0]['terapeuta']).subscribe((rp: any) => {
               this.serviceTherapist.updateHoraAndSalida(this.services.terapeuta, this.therapist)
             })
-
+            localStorage.clear();
             this.service.deleteServicio(id).subscribe((rp: any) => {
-              this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
-              this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
+              this.router.navigate([`menu/${idUser}/vision/${idUser}`])
               Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
             })
           }
@@ -1686,6 +1680,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   cancel() {
+    localStorage.clear();
     this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
   }

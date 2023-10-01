@@ -23,7 +23,8 @@ export class VisionComponent implements OnInit {
   fechaDiaHoy = ''
   totalServicio: number
   idUser: number
-  terapeutas: any = []
+  therapist: any
+  administratorRole: boolean = false
   horaEnd: string
   horaHoy: string
   diferenceMinuto: string
@@ -70,7 +71,7 @@ export class VisionComponent implements OnInit {
   totalEncargada: string
   totalOtr: string
 
-  therapist: ModelTherapist = {
+  therapistModel: ModelTherapist = {
     activo: true,
     bebida: "",
     fechaEnd: "",
@@ -101,12 +102,21 @@ export class VisionComponent implements OnInit {
 
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      this.therapist = rp[0]
-    })
 
-    this.getServicio()
-    this.getTerapeuta()
+    if (this.idUser) {
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getServicio()
+        } else {
+          this.getServicioByManager(rp[0])
+        }
+      })
+    }
+
+    this.getTherapist()
+
+
   }
 
   totalsAtZero() {
@@ -140,9 +150,24 @@ export class VisionComponent implements OnInit {
     this.totalOtr = '0'
   }
 
-  getTerapeuta() {
+  getServicioByManager(manager: string) {
+    this.fechadeHoy()
+    this.fechaHoyActual = 'HOY'
+    debugger
+    this.service.getEncargada(manager['nombre']).subscribe((datoServicio: any) => {
+      this.vision = datoServicio
+
+      if (datoServicio.length != 0) {
+        this.sumaTotalVision()
+      } else {
+        this.totalsAtZero()
+      }
+    })
+  }
+
+  getTherapist() {
     this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
-      this.terapeutas = rp
+      this.therapist = rp
       if (rp.length > 0) {
         if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
@@ -175,6 +200,8 @@ export class VisionComponent implements OnInit {
 
       if (datoServicio.length != 0) {
         this.sumaTotalVision()
+      } else {
+        this.totalsAtZero()
       }
     })
   }
@@ -236,7 +263,7 @@ export class VisionComponent implements OnInit {
       if (convertFecha < fechaEnd) {
         this.serviceTherapist.getByNombre(nombre).subscribe((datoMinute: any) => {
           for (let i = 0; i < datoMinute.length; i++) {
-            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist).subscribe((resp: any) => { })
+            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((resp: any) => { })
           }
         })
       }
@@ -245,7 +272,7 @@ export class VisionComponent implements OnInit {
         this.serviceTherapist.getByNombre(nombre).subscribe((datoMinute: any) => {
           for (let i = 0; i < datoMinute.length; i++) {
             if (datoMinute[i]['horaEnd'] <= hora_inicio) {
-              this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist).subscribe((resp: any) => { })
+              this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((resp: any) => { })
             }
           }
         })
@@ -286,7 +313,7 @@ export class VisionComponent implements OnInit {
       this.horaEnd = this.horaHoy
     }
 
-    this.terapeutas[id].minuto = this.horaEnd.toString()
+    this.therapist[id].minuto = this.horaEnd.toString()
 
     return this.horaEnd
   }
@@ -295,6 +322,25 @@ export class VisionComponent implements OnInit {
     this.router.navigate([
       `menu/${this.idUser['id']}/nuevo-servicio/${id}`
     ])
+  }
+
+  validateTheEmptyField() {
+    if (this.totalTreatment == undefined) this.totalTreatment = '0'
+    if (this.totalDrinks == undefined) this.totalDrinks = '0'
+    if (this.totalTobacco == undefined) this.totalTobacco = '0'
+    if (this.totalVitamin == undefined) this.totalVitamin = '0'
+    if (this.totalTip == undefined) this.totalTip = '0'
+    if (this.totalOthers == undefined) this.totalOthers = '0'
+    if (this.totalVisions == undefined) this.totalVisions = '0'
+
+    if (this.totalPiso == undefined) this.totalPiso = '0'
+    if (this.totalEfectiv == undefined) this.totalEfectiv = '0'
+    if (this.totalBizu == undefined) this.totalBizu = '0'
+    if (this.totalTarjet == undefined) this.totalTarjet = '0'
+    if (this.totalTrasn == undefined) this.totalTrasn = '0'
+    if (this.totalTerape == undefined) this.totalTerape = '0'
+    if (this.totalEncargada == undefined) this.totalEncargada = '0'
+    if (this.totalOtr == undefined) this.totalOtr = '0'
   }
 
   // Suma de TOTALES
@@ -741,6 +787,7 @@ export class VisionComponent implements OnInit {
       this.totalPiso = integer[0].toString()
     }
 
+    this.validateTheEmptyField()
   }
 
   atras() {
@@ -794,23 +841,16 @@ export class VisionComponent implements OnInit {
 
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
 
-        if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'HOY'
-        }
-        else {
-          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
-        }
+        if (fechaEnd == fechaHoy) this.fechaHoyActual = 'HOY'
+        else this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
         this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
           this.vision = datoServicio
 
-          if (datoServicio.length > 0) {
-            this.sumaTotalVision()
-          } else {
-            this.totalsAtZero()
-          }
+          if (datoServicio.length > 0) this.sumaTotalVision()
+          else this.totalsAtZero()
         })
 
         this.atrasCount = this.count
