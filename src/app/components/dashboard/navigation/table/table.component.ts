@@ -81,8 +81,7 @@ export class TableComponent implements OnInit {
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
     this.selectedFormPago = ""
-
-    debugger
+    
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
 

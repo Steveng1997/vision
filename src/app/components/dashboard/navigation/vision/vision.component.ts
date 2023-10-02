@@ -153,7 +153,6 @@ export class VisionComponent implements OnInit {
   getServicioByManager(manager: string) {
     this.fechadeHoy()
     this.fechaHoyActual = 'HOY'
-    debugger
     this.service.getEncargada(manager['nombre']).subscribe((datoServicio: any) => {
       this.vision = datoServicio
 

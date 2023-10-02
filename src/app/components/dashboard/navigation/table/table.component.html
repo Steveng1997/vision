@@ -5,35 +5,46 @@
 
                 <form [formGroup]="formTemplate">
 
-                    <div class="col-6">
-                        <label style="display: contents;">Terapeuta</label>
-                        <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
-                            (ngModelChange)="filters()">
-                            <option selected value="">Selecciona</option>
-                            <option *ngFor="let terap of terapeuta" [value]="terap.nombre" style="font-size: 14px;">
-                                {{terap.nombre}}
-                            </option>
-                        </select>
-                    </div>
+                    <div class="tableContainer">
 
-                    <div class="col-6">
-                        <label style="display: contents;">Encargada</label>
-                        <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
-                            (ngModelChange)="filters()">
-                            <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                            <option *ngFor="let managers of manager" [value]="managers.nombre" style="font-size: 14px;">
-                                {{managers.nombre}}
-                            </option>
-                        </select>
-                    </div>
+                        <div class="therapistContainer">
+                            <div class="row g-0">
+                                <label class="text">Terapeuta</label>
+                                <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    font-family: sans-serif;">
+                                    <option selected value="">Selecciona</option>
+                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                        {{terap.nombre}} </option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="col-6" style="margin-top: 2%;">
-                        <div class="row">
-                            <div class="col-9">
+                        <div class="containerInCharge">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    font-family: sans-serif;">
+                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="dateContainer">
+                            <div class="row g-0">
+                                <label class="text">Fecha Inicio</label>
                                 <input type="date" class="form-control" formControlName="fechaInicio"
-                                    (change)="filters()" style="font-size: 14px;">
+                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                        font-family: sans-serif">
                             </div>
-                            <div class="col-3" style="display: grid; align-content: center; justify-items: flex-start;">
+                        </div>
+
+                        <div class="row g-0">
+                            <div class="dateIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-calendar-date" viewBox="0 0 16 16">
                                     <path
@@ -43,15 +54,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-6" style="margin-top: 2%;">
-                        <div class="row">
-                            <div class="col-9">
+                        <div class="dateContainer">
+                            <div class="row g-0">
+                                <label class="text">Fecha Final</label>
                                 <input type="date" class="form-control" formControlName="FechaFin"
-                                    (ngModelChange)="filters()" style="font-size: 14px;">
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                        font-family: sans-serif">
                             </div>
-                            <div class="col-3" style="display: grid; align-content: center; justify-items: flex-start;">
+                        </div>
+
+                        <div class="row g-0">
+                            <div class="dateIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-calendar-date" viewBox="0 0 16 16">
                                     <path
@@ -61,27 +75,32 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-5" style="margin-top: 2%;">
-                        <label style="display: contents;">Tipo de Pago</label>
-                        <select class="form-select" formControlName="formaPago" [(ngModel)]="selectedFormPago"
-                            (ngModelChange)="filters()">
-                            <option style="font-size: 14px;" selected value="">Selecciona</option>
-                            <option style="font-size: 14px;" value="Efectivo">Efectivo</option>
-                            <option style="font-size: 14px;" value="Bizum">Bizum</option>
-                            <option style="font-size: 14px;" value="Tarjeta">Tarjeta</option>
-                            <option style="font-size: 14px;" value="Trans">Trans</option>
-                        </select>
-                    </div>
+                        <div class="containerInCharge">
+                            <div class="row g-0">
+                                <label class="text">Tipo de Pago</label>
+                                <select class="form-select" formControlName="formaPago" [(ngModel)]="selectedFormPago"
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;">
+                                    <option selected value="">Selecciona</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Bizum">Bizum</option>
+                                    <option value="Tarjeta">Tarjeta</option>
+                                    <option value="Trans">Trans</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="col-5 acomodarInput">
-                        <input type="text" class="form-control input-sm" formControlName="busqueda"
-                            (ngModelChange)="filters()" style="font-size: 14px;" />
-                    </div>
+                        <div class="col-5 acomodarInput">
+                            <input type="text" class="form-control input-sm" formControlName="busqueda"
+                                (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
+                                color: #242424; font-size: 18px; font-family: sans-serif;" />
+                        </div>
 
-                    <div class="col-2" style="align-self: center; text-align: center; cursor: pointer; margin-top: 2%;">
-                        <img src="./assets/excel.png" (click)="exportExcel()" width="30">
+                        <div class="col-2"
+                            style="align-self: center; text-align: center; cursor: pointer; margin-top: 2%;">
+                            <img src="./assets/excel.png" (click)="exportExcel()" width="30">
+                        </div>
                     </div>
                 </form>
 

@@ -369,7 +369,6 @@ export class ManagerComponent implements OnInit {
   }
 
   calculateServices(): any {
-    debugger
     if (this.liquidationManager.encargada != "") {
       this.getThoseThatNotLiquidated()
       if (!this.consultWithManager()) return

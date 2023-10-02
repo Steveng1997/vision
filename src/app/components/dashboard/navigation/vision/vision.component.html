@@ -62,19 +62,19 @@
                   </tr>
                 </thead>
                 <tbody *ngFor="let vis of therapist">
-                  <tr style="cursor: pointer;">
+                  <tr style="cursor: pointer; line-height: 0.5rem">
                     <td [ngClass]="{'ocupado': vis?.horaEnd !== '' , 'disponible': vis?.horaEnd === '', 
                       'disponible2': vis?.horaEnd === '00:00'}">
                     </td>
                     <td (click)="editNombre(vis.nombre)"
-                      style="line-height: normal; text-align: left; font-family: sans-serif; font-size: 15px">
+                      style="line-height: 1rem; text-align: left; font-family: sans-serif; font-size: 15px">
                       {{vis?.nombre}}
                     </td>
-                    <td style="line-height: normal; text-align: left; font-family: sans-serif; font-size: 15px">
+                    <td style="line-height: 0.5rem; text-align: left; font-family: sans-serif; font-size: 15px">
                       {{vis.salida}}</td>
-                    <td style="line-height: normal; text-align: left; font-family: sans-serif; font-size: 15px">
+                    <td style="line-height: 0.5rem; text-align: left; font-family: sans-serif; font-size: 15px">
                       {{vis.horaEnd}}</td>
-                    <td style="line-height: normal; text-align: left; font-family: sans-serif; font-size: 15px">
+                    <td style="line-height: 0.5rem; text-align: left; font-family: sans-serif; font-size: 15px">
                       {{vis.minuto}} </td>
                   </tr>
                 </tbody>

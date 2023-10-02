@@ -1,3 +1,11 @@
+.text {
+  display: contents;
+  color: #242424;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
 .color2 {
   background: blue;
   width: 25px;
@@ -58,18 +66,55 @@ td {
   text-align: right;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
-  .acomodarInput {
-    margin-top: 4.5%;
+@media only screen and (min-device-width: 270px) and (max-device-width: 394px) {
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 8% 28% 8%;
+  }
+}
+
+@media only screen and (min-device-width: 395px) and (max-device-width: 1030px) {
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 8% 28% 8%;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-  .acomodarInput {
-    margin-top: 3%;
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 3% 25% 3%;
+    justify-content: center;
+    margin-top: 1rem;
   }
 
-  .tabla {
-    margin-top: 3%;
+  .therapistContainer {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .dateIcon {
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerStartTime {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .startTimeIcon {
+    place-self: center;
+    margin-top: 1rem;
   }
 }
