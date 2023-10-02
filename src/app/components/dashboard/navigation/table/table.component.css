@@ -80,7 +80,7 @@ td {
   }
 }
 
-@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
+@media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .tableContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 3% 25% 3%;
@@ -115,6 +115,59 @@ td {
 
   .startTimeIcon {
     place-self: center;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2{
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px){
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 3% 25% 3%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .dateIcon {
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerStartTime {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .startTimeIcon {
+    place-self: center;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2{
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    justify-content: center;
     margin-top: 1rem;
   }
 }
