@@ -75,8 +75,11 @@
                                 </svg>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="containerInCharge">
+                    <div class="tableContainer2">
+
+                        <div class="containerPaymentMethod">
                             <div class="row g-0">
                                 <label class="text">Tipo de Pago</label>
                                 <select class="form-select" formControlName="formaPago" [(ngModel)]="selectedFormPago"
@@ -91,15 +94,26 @@
                             </div>
                         </div>
 
-                        <div class="col-5 acomodarInput">
-                            <input type="text" class="form-control input-sm" formControlName="busqueda"
-                                (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
+                        <div class="searchContainer">
+                            <div class="row g-0">
+                                <label class="text">Busqueda</label>
+                                <input type="text" class="form-control input-sm" formControlName="busqueda"
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
                                 color: #242424; font-size: 18px; font-family: sans-serif;" />
+                            </div>
                         </div>
 
-                        <div class="col-2"
-                            style="align-self: center; text-align: center; cursor: pointer; margin-top: 2%;">
-                            <img src="./assets/excel.png" (click)="exportExcel()" width="30">
+                        <div class="buttonDeleteContainer">
+                            <div class="row g-0">
+                                <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
+                                    (click)="deleteService()">Eliminar</button>
+                            </div>
+                        </div>
+
+                        <div class="exportExcel">
+                            <div class="row g-0">
+                                <img src="./assets/excel.png" (click)="exportExcel()" width="30">
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -129,23 +129,23 @@ td {
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px){
   .tableContainer {
     display: grid;
-    grid-template-columns: 25% 25% 25% 3% 25% 3%;
+    grid-template-columns: 22% 22% 22% 3% 22% 3%;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 88%;
+    width: 77.1%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 88%;
+    width: 77.1%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 88%;
+    width: 82%;
     justify-self: center;
   }
 
@@ -155,7 +155,7 @@ td {
   }
 
   .containerStartTime {
-    width: 88%;
+    width: 82%;
     justify-self: center;
   }
 
@@ -166,8 +166,31 @@ td {
 
   .tableContainer2{
     display: grid;
-    grid-template-columns: 25% 25% 25%;
-    justify-content: center;
-    margin-top: 1rem;
+    grid-template-columns: 22% 26% 17% 10%;
+    margin-top: 2.5rem;
+    margin-left: 1.7rem;
+  }
+
+  .containerPaymentMethod{
+    width: 82%;
+    justify-self: center;
+  }
+
+  .searchContainer{
+    width: 68%;
+    justify-self: center;
+    margin-left: -1.2rem;
+  }
+
+  .buttonDeleteContainer{
+    margin-top: 1.2rem;
+    width: 6rem;
+    margin-left: 1rem;
+  }
+
+  .exportExcel{
+    margin-top: 1.4rem;
+    width: 2rem;
+    margin-left: 2rem;
   }
 }

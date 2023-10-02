@@ -10,7 +10,7 @@
   margin-top: 1.5rem;
   font-size: 20px;
   margin-bottom: 0;
-  color: #8C52FF;
+  color: #8c52ff;
   font-weight: bold;
   font-family: sans-serif;
 }
@@ -19,23 +19,22 @@
   margin-top: 1.5rem;
   font-size: 22px;
   margin-bottom: 0;
-  color: #8C52FF;
+  color: #8c52ff;
   font-weight: bold;
   font-family: sans-serif;
   margin-left: 3rem;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
-
   body {
-      overflow-x: hidden !important;
+    overflow-x: hidden !important;
   }
 
   .title {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-bottom: 1.5rem;
@@ -44,7 +43,7 @@
   .timeline {
     width: 20rem;
     margin-top: 0.3rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
@@ -54,7 +53,7 @@
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-left: 3rem;
@@ -66,7 +65,7 @@
 
   .serviceLine {
     width: 20rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
@@ -82,7 +81,7 @@
   }
 
   .botones {
-    margin-bottom: 4%
+    margin-bottom: 4%;
   }
 
   .btnIconos {
@@ -299,7 +298,6 @@
 }
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
-
   body {
     overflow-x: hidden;
   }
@@ -308,7 +306,7 @@
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-bottom: 1.5rem;
@@ -317,7 +315,7 @@
   .timeline {
     width: 20rem;
     margin-top: 0.3rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
@@ -327,7 +325,7 @@
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-left: 3rem;
@@ -339,7 +337,7 @@
 
   .serviceLine {
     width: 20rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
@@ -355,7 +353,7 @@
   }
 
   .botones {
-    margin-bottom: 4%
+    margin-bottom: 4%;
   }
 
   .btnIconos {
@@ -570,13 +568,12 @@
   }
 }
 
-@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-
+@media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .title {
     display: grid;
     justify-content: center;
     font-size: 45px;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-bottom: 2rem;
@@ -587,7 +584,7 @@
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #8C52FF;
+    color: #8c52ff;
     font-weight: bold;
     font-family: system-ui;
     margin-left: 10rem;
@@ -599,7 +596,7 @@
 
   .timeline {
     width: 45rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
@@ -607,7 +604,7 @@
 
   .serviceLine {
     width: 45rem;
-    color: #8C52FF;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
   }
@@ -618,7 +615,7 @@
   }
 
   .botones {
-    margin-bottom: 4%
+    margin-bottom: 4%;
   }
 
   .btnIconos {
@@ -817,6 +814,278 @@
 
   .notes {
     margin-left: 1rem;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    grid-template-columns: 15%;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    margin-left: 9rem;
+  }
+}
+
+@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 45px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-left: 10rem;
+  }
+
+  .serviceDescription {
+    margin-left: 0.8rem;
+  }
+
+  .timeline {
+    width: 45rem;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0.7rem;
+  }
+
+  .serviceLine {
+    width: 45rem;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    margin-left: 0.7rem;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 27.8rem;
+    margin-top: -2em;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 2%;
+  }
+
+  .checkBox {
+    margin-top: 11%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    margin-top: 1rem;
+    margin-left: 8.5rem;
+  }
+
+  .therapistContainer {
+    width: 80%;
+  }
+
+  .containerInCharge {
+    width: 80%;
+    margin-left: -1rem;
+  }
+
+  .clientContainer {
+    width: 80%;
+    margin-left: -1.3rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 19% 23% 19% 3%;
+    margin-left: 18.8%;
+    margin-top: 1rem;
+  }
+
+  .dateContainer {
+    width: 90%;
+  }
+
+  .dateIcon {
+    place-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .containerStartTime {
+    width: 93%;
+  }
+
+  .startTimeIcon {
+    place-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 22% 50%;
+    margin-left: 20.3%;
+  }
+
+  .containerDuration {
+    width: 77.1%;
+    margin-top: 18%;
+  }
+
+  .EndTimeContainer {
+    width: 100%;
+    margin-left: 13rem;
+    margin-top: 1.8rem;
+  }
+
+  .containerPlaceExit {
+    width: 80%;
+    margin-top: 18%;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    margin-left: 2.8rem;
+    margin-bottom: -1%;
+  }
+
+  .totalService {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-left: 8rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 25% 26% 24%;
+    margin-top: 1rem;
+    margin-left: 8.7rem;
+  }
+
+  .treatmentContainer {
+    width: 68.3%;
+    margin-left: 7.9%;
+  }
+
+  .beverageContainer {
+    width: 65%;
+  }
+
+  .tobaccoContainer {
+    width: 65%;
+  }
+
+  .vitaminColumn {
+    width: 68.3%;
+    margin-top: 18%;
+    margin-left: 7.9%;
+  }
+
+  .tipColumn {
+    width: 65%;
+    margin-top: 18%;
+  }
+
+  .columnOthers {
+    width: 65%;
+    margin-top: 18%;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 12% 11% 11% 11%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 8rem;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 14% 14% 14% 14%;
+    margin-top: 0rem;
+    margin-left: 10.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collectionPiso1 {
+    margin-top: 1rem;
+    width: 8.8rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+    width: 8.8rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+    width: 8.8rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+    width: 8.8rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+    width: 8.8rem;
+  }
+
+  .checkBoxCash {
+    text-align: center;
+    margin-top: 1.4rem;
+    margin-left: -0.4rem;
+  }
+
+  .checkBoxBizum {
+    text-align: center;
+    margin-top: 1.4rem;
+    margin-left: -1.6rem;
+  }
+
+  .CheckBoxCard {
+    text-align: center;
+    margin-top: 1.4rem;
+    margin-left: -2.4rem;
+  }
+
+  .checkBoxTransaction {
+    text-align: center;
+    margin-top: 1.4rem;
+    margin-left: -4.5rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 73.7%;
+    margin-top: 1rem;
+    margin-left: 8.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 1rem;
+    width: 33.6rem;
   }
 
   .inputButtonSave {

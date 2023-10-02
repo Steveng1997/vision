@@ -81,7 +81,7 @@ export class TableComponent implements OnInit {
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
     this.selectedFormPago = ""
-    
+
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
@@ -145,6 +145,13 @@ export class TableComponent implements OnInit {
       mesFin = fechaFin.substring(5, 7)
       añoFin = fechaFin.substring(2, 4)
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+    }
+
+    debugger
+    if(this.selectedEncargada != ""){
+      (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
+    } else {
+      (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
     }
 
     this.calculateSumOfServices()

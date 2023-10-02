@@ -208,8 +208,6 @@ export class NewServiceComponent implements OnInit {
     mes = fecha.getMonth() + 1
     año = fecha.getFullYear()
 
-    debugger
-
     if (mes > 0 && mes < 10) {
       convertMes = '0' + mes
       this.fechaActual = `${año}-${convertMes}-${dia}`
