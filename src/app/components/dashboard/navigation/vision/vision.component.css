@@ -19,6 +19,10 @@ table {
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
+  .container {
+    margin-bottom: -6rem;
+  }
+
   body {
     overflow-x: hidden !important;
   }
@@ -81,40 +85,58 @@ table {
     margin-top: -5%;
   }
 
-  .columnTable {
-    justify-content: center;
-    margin-top: 3rem;
+  .adjustTable {
+    margin-top: 2rem;
     width: 100%;
-    margin-left: -1.5rem;
   }
 
-  .tdTherapist {
-    width: 0%;
-    max-width: 0%;
+  .columnTable {
+    display: grid;
+    grid-template-columns: 2% 24.1% 21.1% 18% 10%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -3.7rem;
   }
 
-  .tdExit {
-    width: 25%;
-    max-width: 25%;
+  .availableColumn {
+    margin-right: auto;
+    width: 85%;
+  }
+
+  .columnTables {
+    margin-top: 0.6rem;
+  }
+
+  .therapist {
+    line-height: 1.5rem;
+    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 
-  .tdEnd {
-    width: 25%;
-    max-width: 25%;
+  .exit {
+    line-height: 1rem;
+    text-align: left;
     font-family: sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 
-  .tdRemaining {
-    width: 25%;
-    max-width: 25%;
+  .endTime {
+    line-height: 1rem;
+    text-align: left;
     font-family: sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 
   .columnArrows {
@@ -151,7 +173,7 @@ table {
   }
 
   .serviceLine {
-    width: 15rem;
+    width: 15.8rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -161,7 +183,7 @@ table {
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
     margin-top: 0.8rem;
   }
 
@@ -171,7 +193,7 @@ table {
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .drinkValue {
@@ -180,7 +202,7 @@ table {
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .tobaccoValue {
@@ -189,7 +211,7 @@ table {
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .vitaminValue {
@@ -198,7 +220,7 @@ table {
 
   .columnTip {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .tipValue {
@@ -207,7 +229,7 @@ table {
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .valueOthers {
@@ -216,11 +238,11 @@ table {
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .totalLine {
-    width: 15rem;
+    width: 15.8rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -229,7 +251,7 @@ table {
 
   .columnTotal {
     display: grid;
-    grid-template-columns: 62% 45%;
+    grid-template-columns: 71% 42%;
   }
 
   .valueTotal {
@@ -354,6 +376,10 @@ table {
 
 /* Pedro */
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+  .container {
+    margin-bottom: -6rem;
+  }
+
   body {
     overflow-x: hidden !important;
   }
@@ -416,51 +442,58 @@ table {
     margin-top: -5%;
   }
 
-  .columnTable {
-    justify-content: center;
-    margin-top: 3rem;
+  .adjustTable {
+    margin-top: 2rem;
     width: 100%;
-    margin-left: -1.5rem;
   }
 
-  .tdTherapist {
-    width: 0%;
-    max-width: 0%;
+  .columnTable {
+    display: grid;
+    grid-template-columns: 2% 24.1% 21.1% 18% 10%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -3.7rem;
   }
 
-  .tdExit {
-    width: 25%;
-    max-width: 25%;
+  .availableColumn {
+    margin-right: auto;
+    width: 85%;
+  }
+
+  .columnTables {
+    margin-top: 0.6rem;
+  }
+
+  .therapist {
+    line-height: 1.5rem;
+    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 
-  .tdEnd {
-    width: 25%;
-    max-width: 25%;
-    font-family: sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .tdRemaining {
-    width: 25%;
-    max-width: 25%;
-    font-family: sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .tdbodyExit {
+  .exit {
+    line-height: 1rem;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
-    display: inline-block;
-    max-width: 71%;
     word-wrap: break-word;
-    line-height: 1.5rem;
-    margin-top: -1rem;
+    text-align-last: left;
+    margin-left: 1rem;
+  }
+
+  .endTime {
+    line-height: 1rem;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 
   .columnArrows {
@@ -756,7 +789,7 @@ table {
     width: 4rem;
   }
 
-  .adjustTable{
+  .adjustTable {
     margin-top: 2rem;
   }
 
@@ -1101,7 +1134,7 @@ table {
     width: 4rem;
   }
 
-  .adjustTable{
+  .adjustTable {
     margin-top: 2rem;
   }
 

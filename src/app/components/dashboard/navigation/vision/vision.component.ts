@@ -36,6 +36,7 @@ export class VisionComponent implements OnInit {
   totalVitamina: number
   totalTipa: number
   totalOtros: number
+  totalCollection: number
 
   // TOTALES formas de Pago
   totalEfectivo: number
@@ -70,6 +71,7 @@ export class VisionComponent implements OnInit {
   totalTerape: string
   totalEncargada: string
   totalOtr: string
+  totalCollections: string
 
   therapistModel: ModelTherapist = {
     activo: true,
@@ -134,6 +136,7 @@ export class VisionComponent implements OnInit {
     this.totalTrasnf = 0
     this.totalTerap = 0
     this.totalOtro = 0
+    this.totalCollection = 0
     this.totalTreatment = '0'
     this.totalTobacco = '0'
     this.totalVitamin = '0'
@@ -148,6 +151,7 @@ export class VisionComponent implements OnInit {
     this.totalTerape = '0'
     this.totalEncargada = '0'
     this.totalOtr = '0'
+    this.totalCollections = '0'
   }
 
   getServicioByManager(manager: string) {
@@ -340,6 +344,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTerape == undefined) this.totalTerape = '0'
     if (this.totalEncargada == undefined) this.totalEncargada = '0'
     if (this.totalOtr == undefined) this.totalOtr = '0'
+    if(this.totalCollections == undefined) this.totalCollections = '0'
   }
 
   // Suma de TOTALES
@@ -784,6 +789,34 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalPiso = integer[0].toString()
+    }
+
+    this.totalCollection = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf 
+    + this.totalTerap + this.totalEncarg + this.totalOtro
+
+    if (this.totalCollection > 0) {
+
+      const coma = this.totalCollection.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ?
+        this.totalCollection.toString().split(".") :
+        this.totalCollection.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.totalCollections = integer[0].toString()
     }
 
     this.validateTheEmptyField()
