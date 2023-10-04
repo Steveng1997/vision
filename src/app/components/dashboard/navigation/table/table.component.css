@@ -83,50 +83,75 @@ td {
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .tableContainer {
     display: grid;
-    grid-template-columns: 25% 25% 25% 3% 25% 3%;
+    grid-template-columns: 27% 27% 27% 3% 27% 3%;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 88%;
+    width: 9.7rem;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 88%;
+    width: 9.7rem;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 88%;
+    width: 9.6rem;
     justify-self: center;
   }
 
   .dateIcon {
     place-self: center;
     margin-top: 1rem;
+    margin-left: -1rem;
   }
 
   .containerStartTime {
-    width: 88%;
+    width: 9.6rem;
     justify-self: center;
   }
 
   .startTimeIcon {
     place-self: center;
     margin-top: 1rem;
+    margin-left: -1rem;
   }
 
-  .tableContainer2{
+  .tableContainer2 {
     display: grid;
-    grid-template-columns: 25% 25% 25%;
-    justify-content: center;
-    margin-top: 1rem;
+    grid-template-columns: 24% 26% 17% 10%;
+    margin-top: 2.5rem;
+    margin-left: -2.8rem;
+  }
+
+  .containerPaymentMethod {
+    width: 85%;
+    justify-self: center;
+  }
+
+  .searchContainer {
+    width: 79%;
+    justify-self: center;
+    margin-left: 4%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 1.2rem;
+    width: 6rem;
+    margin-left: 1.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 1.4rem;
+    width: 2rem;
+    margin-left: 2rem;
   }
 }
 
-@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px){
+@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
   .tableContainer {
     display: grid;
     grid-template-columns: 22% 22% 22% 3% 22% 3%;
@@ -164,31 +189,31 @@ td {
     margin-top: 1rem;
   }
 
-  .tableContainer2{
+  .tableContainer2 {
     display: grid;
     grid-template-columns: 22% 26% 17% 10%;
     margin-top: 2.5rem;
     margin-left: 1.7rem;
   }
 
-  .containerPaymentMethod{
+  .containerPaymentMethod {
     width: 82%;
     justify-self: center;
   }
 
-  .searchContainer{
+  .searchContainer {
     width: 68%;
     justify-self: center;
     margin-left: -1.2rem;
   }
 
-  .buttonDeleteContainer{
+  .buttonDeleteContainer {
     margin-top: 1.2rem;
     width: 6rem;
     margin-left: 1rem;
   }
 
-  .exportExcel{
+  .exportExcel {
     margin-top: 1.4rem;
     width: 2rem;
     margin-left: 2rem;

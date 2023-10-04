@@ -120,237 +120,259 @@
 
                 <!-- table -->
 
-                <table class="table" id="excel-table">
-                    <thead>
-                        <tr>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio"></td>
-                            <td class="quitarBordesVacio lbelTotal" style="border-bottom: 1px solid blue;">
-                                TOTALES
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalServicio + '€'}} </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalPiso + '€'}}</td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalPiso2 + '€'}}</td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorTerapeuta + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorEncargada + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorAOtros + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{TotalValorBebida + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{TotalValorTabaco + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorVitaminas + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorPropina + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorOtroServ + '€'}}
-                            </td>
-                            <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValor + '€'}}</td>
-                        </tr>
-                        <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal;">
-                            <!-- 1 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Nota</td>
-                            <!-- 2 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Fecha
-                            </td>
-                            <!-- 3 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Terapeuta
-                            </td>
-                            <!-- 4 -->
-                            <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 45px;; 
+                <div class="row g-0">
+
+                    <table class="table" id="excel-table">
+                        <thead>
+                            <tr>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio lbelTotal" style="border-bottom: 1px solid blue;">
+                                    TOTALES
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalServicio + '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalPiso + '€'}}</td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalPiso2 + '€'}}</td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorTerapeuta +
+                                    '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorEncargada +
+                                    '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorAOtros + '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{TotalValorBebida + '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{TotalValorTabaco + '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorVitaminas +
+                                    '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorPropina +
+                                    '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;">{{totalValorOtroServ +
+                                    '€'}}
+                                </td>
+                                <td class="bordeTotal" style="border-bottom: 1px solid blue;"> {{totalValor + '€'}}</td>
+                            </tr>
+                            <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: normal;">
+                                <!-- 1 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Nota</td>
+                                <!-- 2 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Fecha
+                                </td>
+                                <!-- 3 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Terapeuta
+                                </td>
+                                <!-- 4 -->
+                                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 45px;; 
                     word-wrap: break-word; line-height: normal;">Encargada
-                            </td>
-                            <!-- 5 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Salida
-                            </td>
-                            <!-- 6 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Hora</td>
-                            <!-- 7 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Pago</td>
-                            <!-- 8 -->
-                            <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
+                                </td>
+                                <!-- 5 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Salida
+                                </td>
+                                <!-- 6 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Hora</td>
+                                <!-- 7 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Pago</td>
+                                <!-- 8 -->
+                                <td style="text-align: center; padding: 24px 0px 0px 6px; display: inline-block; width: 50px; 
                     word-wrap: break-word; line-height: normal"> Tratamiento
-                                <!-- 9 -->
-                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                                    <!-- 9 -->
+                                <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a piso
-                                1</td>
-                            <!-- 10 -->
-                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                                    1</td>
+                                <!-- 10 -->
+                                <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a piso
-                                2</td>
-                            <!-- 11 -->
-                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                                    2</td>
+                                <!-- 11 -->
+                                <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a
-                                terap.</td>
-                            <!-- 12 -->
-                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                                    terap.</td>
+                                <!-- 12 -->
+                                <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a enc.
-                            </td>
-                            <!-- 13 -->
-                            <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
+                                </td>
+                                <!-- 13 -->
+                                <td style="padding: 24px 0px 0px 6px; text-align: center; display: table-cell; width: 50px; 
                     word-wrap: break-word; line-height: normal; border-bottom: 1px solid blue;">€ a otros
-                            </td>
-                            <!-- 14 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Bebida
-                            </td>
-                            <!-- 15 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Tabaco
-                            </td>
-                            <!-- 16 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Vitamina
-                            </td>
-                            <!-- 17 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Propina
-                            </td>
-                            <!-- 18 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Otros
-                            </td>
-                            <!-- 19 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Total
-                            </td>
-                            <!-- 20 -->
-                            <td style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
-                                Cliente
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
+                                </td>
+                                <!-- 14 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Bebida
+                                </td>
+                                <!-- 15 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Tabaco
+                                </td>
+                                <!-- 16 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Vitamina
+                                </td>
+                                <!-- 17 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Propina
+                                </td>
+                                <!-- 18 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Otros
+                                </td>
+                                <!-- 19 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Total
+                                </td>
+                                <!-- 20 -->
+                                <td
+                                    style="border-bottom: 1px solid blue; padding: 35px 0px 10px 6px; text-align: center;">
+                                    Cliente
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
                             encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
                             busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
                             paginate: { itemsPerPage: 100, currentPage: page }">
-                        <tr style="cursor: pointer;">
-                            <!-- 1 -->
-                            <td style="border-bottom: hidden;" class="quitarBordes"
-                                [ngClass]="{'color2':services.nota !== ''}" (click)="notes(services.id, modalTabl)">
-                            </td>
-                            <!-- 2 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.fecha}}
-                            </td>
-                            <!-- 3 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.terapeuta}}</td>
-                            <!-- 4 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden; border-top: 1px solid blue">
-                                {{services.encargada}}</td>
-                            <!-- 5 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.salida }}
-                            </td>
-                            <!-- 6 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.horaStart
-                                + '-' + services.horaEnd }}
-                            </td>
-                            <!-- 7 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.formaPago}}</td>
-                            <!-- 8 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
-                                {{services.servicio + ' €'}}</td>
-                            <!-- 9 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
-                                {{services.numberPiso1 + ' €'}}</td>
-                            <!-- 10 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.numberPiso2 + ' €'}}</td>
-                            <!-- 11 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.numberTerap + ' €'}}</td>
-                            <!-- 12 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.numberEncarg + ' €'}}</td>
-                            <!-- 13 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.numberOtro + ' €'}}</td>
-                            <!-- 14 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.bebidas +
-                                ' €'}}</td>
-                            <!-- 15 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.tabaco +
-                                ' €'}}</td>
-                            <!-- 16 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.vitaminas
-                                + ' €'}}</td>
-                            <!-- 17 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.propina +
-                                ' €'}}</td>
-                            <!-- 18 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.otros+ '
-                                €'}}</td>
-                            <!-- 19 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: right; border-bottom: hidden;">
-                                {{services.totalServicio+ ' €'}}</td>
-                            <!-- 20 -->
-                            <td class="quitarBordes" (click)="editForm(services.id)"
-                                style="text-align: left; border-bottom: hidden;">
-                                {{services.cliente}}
-                            </td>
-                        </tr>
+                            <tr style="cursor: pointer;">
+                                <!-- 1 -->
+                                <td style="border-bottom: hidden;" class="quitarBordes"
+                                    [ngClass]="{'color2':services.nota !== ''}" (click)="notes(services.id, modalTabl)">
+                                </td>
+                                <!-- 2 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.fecha}}
+                                </td>
+                                <!-- 3 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.terapeuta}}</td>
+                                <!-- 4 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden; border-top: 1px solid blue">
+                                    {{services.encargada}}</td>
+                                <!-- 5 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.salida }}
+                                </td>
+                                <!-- 6 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.horaStart
+                                    + '-' + services.horaEnd }}
+                                </td>
+                                <!-- 7 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.formaPago}}</td>
+                                <!-- 8 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
+                                    {{services.servicio + ' €'}}</td>
+                                <!-- 9 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden; border-top: 1px solid blue">
+                                    {{services.numberPiso1 + ' €'}}</td>
+                                <!-- 10 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.numberPiso2 + ' €'}}</td>
+                                <!-- 11 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.numberTerap + ' €'}}</td>
+                                <!-- 12 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.numberEncarg + ' €'}}</td>
+                                <!-- 13 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.numberOtro + ' €'}}</td>
+                                <!-- 14 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.bebidas +
+                                    ' €'}}</td>
+                                <!-- 15 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.tabaco +
+                                    ' €'}}</td>
+                                <!-- 16 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.vitaminas
+                                    + ' €'}}</td>
+                                <!-- 17 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.propina +
+                                    ' €'}}</td>
+                                <!-- 18 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.otros+ '
+                                    €'}}</td>
+                                <!-- 19 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: right; border-bottom: hidden;">
+                                    {{services.totalServicio+ ' €'}}</td>
+                                <!-- 20 -->
+                                <td class="quitarBordes" (click)="editForm(services.id)"
+                                    style="text-align: left; border-bottom: hidden;">
+                                    {{services.cliente}}
+                                </td>
+                            </tr>
 
-                        <!-- Modal -->
-                        <ng-template class="custom-modal" #modalTabl let-modal>
-                            <div class="modal-header">
-                                <h5 class="modal-title"> Nota </h5>
-                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                            <!-- Modal -->
+                            <ng-template class="custom-modal" #modalTabl let-modal>
+                                <div class="modal-header">
+                                    <h5 class="modal-title"> Nota </h5>
+                                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
 
-                            <div class="modal-body" style="text-align: center;">
-                                <!-- Aqui se coloca lo adentro -->
+                                <div class="modal-body" style="text-align: center;">
+                                    <!-- Aqui se coloca lo adentro -->
 
-                                <h4>{{services.nota}}</h4>
+                                    <h4>{{services.nota}}</h4>
 
-                                <!-- Afuera -->
-                            </div>
-                        </ng-template>
+                                    <!-- Afuera -->
+                                </div>
+                            </ng-template>
 
-                        <!-- Fin Modal -->
+                            <!-- Fin Modal -->
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
 
                 <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
                     nextLabel="Siguiente">

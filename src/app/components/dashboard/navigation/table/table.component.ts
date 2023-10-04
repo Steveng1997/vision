@@ -146,9 +146,9 @@ export class TableComponent implements OnInit {
       añoFin = fechaFin.substring(2, 4)
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
-
-    debugger
-    if(this.selectedEncargada != ""){
+    
+    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
       (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
     } else {
       (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
