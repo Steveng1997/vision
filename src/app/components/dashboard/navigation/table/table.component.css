@@ -59,71 +59,120 @@
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .tableContainer {
     display: grid;
-    grid-template-columns: 27% 27% 27% 3% 27% 3%;
+    grid-template-columns: 26% 26% 26% 3% 26% 3%;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 9.7rem;
+    width: 83%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 9.7rem;
+    width: 83%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 9.6rem;
+    width: 83%;
     justify-self: center;
   }
 
   .dateIcon {
     place-self: center;
     margin-top: 1rem;
-    margin-left: -1rem;
   }
 
   .containerStartTime {
-    width: 9.6rem;
+    width: 82%;
     justify-self: center;
   }
 
   .startTimeIcon {
     place-self: center;
     margin-top: 1rem;
-    margin-left: -1rem;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 24% 26% 17% 10%;
+    grid-template-columns: 24% 28% 17% 10%;
     margin-top: 2.5rem;
-    margin-left: -2.8rem;
+    margin-left: -2rem;
   }
 
   .containerPaymentMethod {
-    width: 85%;
+    width: 86%;
     justify-self: center;
   }
 
   .searchContainer {
-    width: 79%;
+    width: 74%;
     justify-self: center;
-    margin-left: 4%;
+    margin-left: -1.2rem;
   }
 
   .buttonDeleteContainer {
     margin-top: 1.2rem;
     width: 6rem;
-    margin-left: 1.3rem;
+    margin-left: 1rem;
   }
 
   .exportExcel {
     margin-top: 1.4rem;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .adjustTable {
+    margin-top: 2rem;
+    width: auto;
+    margin-left: -36rem;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 7% 16% 15% 15% 15% 17% 20% 18% 16% 16% 16% 13% 14% 12% 12% 14% 14% 11% 13% 10%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align-last: center;
+    margin-left: 1.8rem;
+    cursor: pointer;    
+  }
+
+  .availableColumn {
+    margin-right: auto;
+    width: 85%;
+  }
+
+  .therapist {
+    line-height: 1.5rem;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
+  }
+
+  .exit {
+    line-height: 1rem;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
+  }
+
+  .endTime {
+    line-height: 1rem;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    margin-left: 1rem;
   }
 }
 
