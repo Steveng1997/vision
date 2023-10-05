@@ -771,16 +771,17 @@
 
   .adjustTable {
     margin-top: 2rem;
+    margin-left: 0.5rem;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 27% 20% 24% 12%;
+    grid-template-columns: 1% 31% 24% 21% 21%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 2.3rem;
+    margin-left: 2.5rem;
   }
 
   .availableColumn {
@@ -835,10 +836,10 @@
 
   .column {
     display: grid;
-    grid-template-columns: 39.5% 39.5%;
+    grid-template-columns: 47% 46%;
     justify-items: center;
     margin-top: -1rem;
-    margin-left: 14.5rem;
+    margin-left: 5.5rem;
   }
 
   .columnService {
@@ -851,7 +852,7 @@
   }
 
   .serviceLine {
-    width: 15.3rem;
+    width: 16.8rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -862,7 +863,7 @@
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
     margin-top: 0.6rem;
   }
 
@@ -872,7 +873,7 @@
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .drinkValue {
@@ -881,7 +882,7 @@
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .tobaccoValue {
@@ -890,7 +891,7 @@
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .vitaminValue {
@@ -899,7 +900,7 @@
 
   .columnTip {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .tipValue {
@@ -908,7 +909,7 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .valueOthers {
@@ -916,7 +917,7 @@
   }
 
   .totalLine {
-    width: 15.3rem;
+    width: 16.8rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -926,7 +927,7 @@
 
   .columnTotal {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 50%;
   }
 
   .valueTotal {
@@ -934,7 +935,7 @@
   }
 
   .collectionsLine {
-    width: 14.6rem;
+    width: 17.1rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1041,7 +1042,7 @@
   }
 
   .totalLineCollections {
-    width: 14.6rem;
+    width: 17.1rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1221,7 +1222,7 @@
 
   .columnTobacco {
     display: grid;
-     grid-template-columns: 45% 45%;
+    grid-template-columns: 45% 45%;
   }
 
   .tobaccoValue {
@@ -1230,7 +1231,7 @@
 
   .columnVitamin {
     display: grid;
-     grid-template-columns: 45% 45%;
+    grid-template-columns: 45% 45%;
   }
 
   .vitaminValue {
@@ -1239,7 +1240,7 @@
 
   .columnTip {
     display: grid;
-     grid-template-columns: 45% 45%;
+    grid-template-columns: 45% 45%;
   }
 
   .tipValue {
@@ -1248,7 +1249,7 @@
 
   .columnOthers {
     display: grid;
-     grid-template-columns: 45% 45%;
+    grid-template-columns: 45% 45%;
   }
 
   .valueOthers {
