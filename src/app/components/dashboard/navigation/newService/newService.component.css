@@ -2,7 +2,7 @@
 
 /* Cash floor 1 */
 
-input[id="efectPiso1"]+label {
+input[id="efectPiso1"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -10,11 +10,11 @@ input[id="efectPiso1"]+label {
   cursor: pointer;
 }
 
-input[id="efectPiso1"]:checked+label:after {
+input[id="efectPiso1"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -25,7 +25,7 @@ input[id="efectPiso1"] {
 
 /* Bizum floor 1 */
 
-input[id="bizuPiso1"]+label {
+input[id="bizuPiso1"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -33,11 +33,11 @@ input[id="bizuPiso1"]+label {
   cursor: pointer;
 }
 
-input[id="bizuPiso1"]:checked+label:after {
+input[id="bizuPiso1"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -48,7 +48,7 @@ input[id="bizuPiso1"] {
 
 /* Card floor 1 */
 
-input[id="tarjPiso1"]+label {
+input[id="tarjPiso1"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -56,11 +56,11 @@ input[id="tarjPiso1"]+label {
   cursor: pointer;
 }
 
-input[id="tarjPiso1"]:checked+label:after {
+input[id="tarjPiso1"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -71,7 +71,7 @@ input[id="tarjPiso1"] {
 
 /* Transaction floor 1 */
 
-input[id="transPiso1"]+label {
+input[id="transPiso1"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -79,11 +79,11 @@ input[id="transPiso1"]+label {
   cursor: pointer;
 }
 
-input[id="transPiso1"]:checked+label:after {
+input[id="transPiso1"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -94,7 +94,7 @@ input[id="transPiso1"] {
 
 /* Cash floor 2 */
 
-input[id="efectPiso2"]+label {
+input[id="efectPiso2"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -102,11 +102,11 @@ input[id="efectPiso2"]+label {
   cursor: pointer;
 }
 
-input[id="efectPiso2"]:checked+label:after {
+input[id="efectPiso2"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -117,7 +117,7 @@ input[id="efectPiso2"] {
 
 /* Bizum floor 2 */
 
-input[id="bizuPiso2"]+label {
+input[id="bizuPiso2"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -125,11 +125,11 @@ input[id="bizuPiso2"]+label {
   cursor: pointer;
 }
 
-input[id="bizuPiso2"]:checked+label:after {
+input[id="bizuPiso2"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -140,7 +140,7 @@ input[id="bizuPiso2"] {
 
 /* Card floor 2 */
 
-input[id="tarjPiso2"]+label {
+input[id="tarjPiso2"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -148,11 +148,11 @@ input[id="tarjPiso2"]+label {
   cursor: pointer;
 }
 
-input[id="tarjPiso2"]:checked+label:after {
+input[id="tarjPiso2"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -163,7 +163,7 @@ input[id="tarjPiso2"] {
 
 /* Transaction floor 2 */
 
-input[id="transPiso2"]+label {
+input[id="transPiso2"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -171,11 +171,11 @@ input[id="transPiso2"]+label {
   cursor: pointer;
 }
 
-input[id="transPiso2"]:checked+label:after {
+input[id="transPiso2"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -186,7 +186,7 @@ input[id="transPiso2"] {
 
 /* Cash therapist */
 
-input[id="efectTerap"]+label {
+input[id="efectTerap"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -194,11 +194,11 @@ input[id="efectTerap"]+label {
   cursor: pointer;
 }
 
-input[id="efectTerap"]:checked+label:after {
+input[id="efectTerap"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -209,7 +209,7 @@ input[id="efectTerap"] {
 
 /* Bizum therapist */
 
-input[id="bizuTerap"]+label {
+input[id="bizuTerap"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -217,11 +217,11 @@ input[id="bizuTerap"]+label {
   cursor: pointer;
 }
 
-input[id="bizuTerap"]:checked+label:after {
+input[id="bizuTerap"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -232,7 +232,7 @@ input[id="bizuTerap"] {
 
 /* Card therapist */
 
-input[id="tarjTerap"]+label {
+input[id="tarjTerap"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -240,11 +240,11 @@ input[id="tarjTerap"]+label {
   cursor: pointer;
 }
 
-input[id="tarjTerap"]:checked+label:after {
+input[id="tarjTerap"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -255,7 +255,7 @@ input[id="tarjTerap"] {
 
 /* Transaction therapist */
 
-input[id="transTerap"]+label {
+input[id="transTerap"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -263,11 +263,11 @@ input[id="transTerap"]+label {
   cursor: pointer;
 }
 
-input[id="transTerap"]:checked+label:after {
+input[id="transTerap"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -278,7 +278,7 @@ input[id="transTerap"] {
 
 /* Cash Manager */
 
-input[id="efectEncarg"]+label {
+input[id="efectEncarg"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -286,11 +286,11 @@ input[id="efectEncarg"]+label {
   cursor: pointer;
 }
 
-input[id="efectEncarg"]:checked+label:after {
+input[id="efectEncarg"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -301,7 +301,7 @@ input[id="efectEncarg"] {
 
 /* Bizum Manager */
 
-input[id="bizuEncarg"]+label {
+input[id="bizuEncarg"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -309,11 +309,11 @@ input[id="bizuEncarg"]+label {
   cursor: pointer;
 }
 
-input[id="bizuEncarg"]:checked+label:after {
+input[id="bizuEncarg"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -324,7 +324,7 @@ input[id="bizuEncarg"] {
 
 /* Card Manager */
 
-input[id="tarjEncarg"]+label {
+input[id="tarjEncarg"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -332,11 +332,11 @@ input[id="tarjEncarg"]+label {
   cursor: pointer;
 }
 
-input[id="tarjEncarg"]:checked+label:after {
+input[id="tarjEncarg"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -347,7 +347,7 @@ input[id="tarjEncarg"] {
 
 /* Transaction Manager */
 
-input[id="transEncarg"]+label {
+input[id="transEncarg"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -355,11 +355,11 @@ input[id="transEncarg"]+label {
   cursor: pointer;
 }
 
-input[id="transEncarg"]:checked+label:after {
+input[id="transEncarg"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -370,7 +370,7 @@ input[id="transEncarg"] {
 
 /* Cash Other */
 
-input[id="efectOtro"]+label {
+input[id="efectOtro"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -378,11 +378,11 @@ input[id="efectOtro"]+label {
   cursor: pointer;
 }
 
-input[id="efectOtro"]:checked+label:after {
+input[id="efectOtro"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -393,7 +393,7 @@ input[id="efectOtro"] {
 
 /* Bizum Other */
 
-input[id="bizuOtro"]+label {
+input[id="bizuOtro"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -401,11 +401,11 @@ input[id="bizuOtro"]+label {
   cursor: pointer;
 }
 
-input[id="bizuOtro"]:checked+label:after {
+input[id="bizuOtro"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -416,7 +416,7 @@ input[id="bizuOtro"] {
 
 /* Card Other */
 
-input[id="tarjOtro"]+label {
+input[id="tarjOtro"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -424,11 +424,11 @@ input[id="tarjOtro"]+label {
   cursor: pointer;
 }
 
-input[id="tarjOtro"]:checked+label:after {
+input[id="tarjOtro"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -439,7 +439,7 @@ input[id="tarjOtro"] {
 
 /* Transaction Other */
 
-input[id="transOtro"]+label {
+input[id="transOtro"] + label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -447,11 +447,11 @@ input[id="transOtro"]+label {
   cursor: pointer;
 }
 
-input[id="transOtro"]:checked+label:after {
+input[id="transOtro"]:checked + label:after {
   position: relative;
   top: -4px;
   left: 2px;
-  content: '\2714';
+  content: "\2714";
   font-size: 19px;
   color: #8c52ff;
 }
@@ -500,7 +500,7 @@ input[id="transOtro"] {
     font-size: 30px;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-bottom: 1.5rem;
   }
 
@@ -519,7 +519,7 @@ input[id="transOtro"] {
     margin-bottom: 0;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-left: 3rem;
   }
 
@@ -730,7 +730,7 @@ input[id="transOtro"] {
   }
 
   .CheckBoxCard {
-    margin-left: 2.3rem;  
+    margin-left: 2.3rem;
     margin-top: 1.9rem;
   }
 
@@ -775,7 +775,7 @@ input[id="transOtro"] {
     font-size: 30px;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-bottom: 1.5rem;
   }
 
@@ -794,7 +794,7 @@ input[id="transOtro"] {
     margin-bottom: 0;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-left: 3rem;
   }
 
@@ -1005,7 +1005,7 @@ input[id="transOtro"] {
   }
 
   .CheckBoxCard {
-    margin-left: 2.3rem;  
+    margin-left: 2.3rem;
     margin-top: 1.9rem;
   }
 
@@ -1046,7 +1046,7 @@ input[id="transOtro"] {
     font-size: 45px;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-bottom: 2rem;
     margin-top: 1rem;
   }
@@ -1057,7 +1057,7 @@ input[id="transOtro"] {
     margin-bottom: 0;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-left: 10rem;
   }
 
@@ -1219,7 +1219,7 @@ input[id="transOtro"] {
     margin-top: 18%;
   }
 
-  .titleCollection{
+  .titleCollection {
     margin-left: 2.4rem;
   }
 
@@ -1312,9 +1312,23 @@ input[id="transOtro"] {
     font-size: 45px;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
+    font-family: sans-serif;
     margin-bottom: 2rem;
     margin-top: 1rem;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 4.9rem;
+  }
+
+  .lastService {
+    margin-left: 2.5rem;
   }
 
   .sumServices {
@@ -1323,16 +1337,17 @@ input[id="transOtro"] {
     margin-bottom: 0;
     color: #8c52ff;
     font-weight: bold;
-    font-family: system-ui;
-    margin-left: 10rem;
+    font-family: sans-serif;
+    margin-left: 9.3rem;
   }
 
   .serviceDescription {
-    margin-left: 0.7rem;
+    margin-left: 3.3rem;
   }
 
   .timeline {
-    width: 43rem;
+    width: 39.1rem;
+    padding: 0rem 3.8rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1340,7 +1355,8 @@ input[id="transOtro"] {
   }
 
   .serviceLine {
-    width: 43rem;
+    width: 45rem;
+    padding: 0px 14px;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1367,30 +1383,28 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 25% 25% 25%;
+    grid-template-columns: 36% 35% 36%;
+    margin-left: 6.4rem;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 100%;
-    justify-self: center;
+    width: 60%;
   }
 
   .containerInCharge {
-    width: 100%;
-    justify-self: center;
+    width: 60%;
   }
 
   .clientContainer {
-    width: 100%;
-    justify-self: center;
+    width: 60%;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 22% 24% 23% 3%;
-    margin-left: 26%;
+    grid-template-columns: 34% 33.4% 23% 3%;
+    margin-left: 8%;
     margin-top: 1rem;
   }
 
@@ -1400,7 +1414,8 @@ input[id="transOtro"] {
 
   .dateIcon {
     place-self: center;
-    margin-top: 1rem;
+    margin-top: 1.4rem;
+    margin-left: -7.5rem;
   }
 
   .containerStartTime {
@@ -1409,13 +1424,14 @@ input[id="transOtro"] {
 
   .startTimeIcon {
     place-self: center;
-    margin-top: 1rem;
+    margin-top: 1.4rem;
+    margin-left: -1.7rem;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 22% 50%;
-    margin-left: 28%;
+    grid-template-columns: 43% 20%;
+    margin-left: 5.1rem;
   }
 
   .containerDuration {
@@ -1426,7 +1442,7 @@ input[id="transOtro"] {
   .EndTimeContainer {
     width: 100%;
     margin-left: 13rem;
-    margin-top: 1.8rem;
+    margin-top: 4.2rem;
   }
 
   .containerPlaceExit {
@@ -1441,7 +1457,7 @@ input[id="transOtro"] {
   }
 
   .titleService {
-    margin-left: 2.4rem;
+    margin-left: 0.4rem;
     margin-bottom: -1%;
   }
 
@@ -1453,7 +1469,8 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 26% 26% 24%;
+    grid-template-columns: 36% 35% 36%;
+    margin-left: 8.7rem;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -1485,44 +1502,49 @@ input[id="transOtro"] {
     margin-top: 18%;
   }
 
-  .titleCollection{
-    margin-left: 2.4rem;
+  .titleCollection {
+    margin-left: 0.4rem;
   }
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 14% 13.8% 13% 14%;
+    grid-template-columns: 19% 18% 19% 18%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 13.8rem;
+    margin-left: 20.4rem;
   }
 
   .collectionContainer2 {
     display: grid;
-    grid-template-columns: 21.6% 14% 14% 14% 14%;
+    grid-template-columns: 22% 18% 18% 18% 18%;
     margin-top: 1rem;
-    margin-left: 10.8rem;
+    margin-left: 5.1rem;
     margin-bottom: 1.5rem;
   }
 
   .collectionPiso1 {
     margin-top: 1rem;
+    width: 9.7rem;
   }
 
   .collectionPiso2 {
     margin-top: 1rem;
+    width: 9.7rem;
   }
 
   .collectionTherapist {
     margin-top: 1rem;
+    width: 9.7rem;
   }
 
   .collectionManager {
     margin-top: 1rem;
+    width: 9.7rem;
   }
 
   .collectionOther {
     margin-top: 1rem;
+    width: 9.7rem;
   }
 
   .checkBoxCash {
@@ -1548,9 +1570,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 73.7%;
+    grid-template-columns: 89.7%;
     margin-top: 1rem;
-    margin-left: 8.8rem;
+    margin-left: 3rem;
     margin-bottom: 1.5rem;
   }
 

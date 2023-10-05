@@ -1115,7 +1115,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 23.1% 23.2% 12% 12%;
+    grid-template-columns: 2% 25% 22% 16% 28%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -1161,11 +1161,11 @@
   .columnArrows {
     display: grid;
     grid-template-columns: 7% 15% 7%;
-    margin-top: 2.4rem;
+    margin-top: 2.9rem;
     margin-bottom: 3rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 5rem;
+    margin-left: 0rem;
   }
 
   .date {
@@ -1175,10 +1175,10 @@
 
   .column {
     display: grid;
-    grid-template-columns: 39.5% 39.5%;
+    grid-template-columns: 44.1% 42.4%;
     justify-items: center;
-    margin-top: -1rem;
-    margin-left: 14.5rem;
+    margin-top: -3rem;
+    margin-left: 7.5rem;
   }
 
   .columnService {
@@ -1191,7 +1191,7 @@
   }
 
   .serviceLine {
-    width: 15.3rem;
+    width: 17.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1202,7 +1202,7 @@
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 45%;
     margin-top: 0.6rem;
   }
 
@@ -1212,7 +1212,7 @@
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 45%;
   }
 
   .drinkValue {
@@ -1221,7 +1221,7 @@
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 45% 57%;
+     grid-template-columns: 45% 45%;
   }
 
   .tobaccoValue {
@@ -1230,7 +1230,7 @@
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 45% 57%;
+     grid-template-columns: 45% 45%;
   }
 
   .vitaminValue {
@@ -1239,7 +1239,7 @@
 
   .columnTip {
     display: grid;
-    grid-template-columns: 45% 57%;
+     grid-template-columns: 45% 45%;
   }
 
   .tipValue {
@@ -1248,7 +1248,7 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 45% 57%;
+     grid-template-columns: 45% 45%;
   }
 
   .valueOthers {
@@ -1256,7 +1256,7 @@
   }
 
   .totalLine {
-    width: 15.3rem;
+    width: 17.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1266,7 +1266,7 @@
 
   .columnTotal {
     display: grid;
-    grid-template-columns: 45% 57%;
+    grid-template-columns: 45% 45%;
   }
 
   .valueTotal {
@@ -1274,7 +1274,7 @@
   }
 
   .collectionsLine {
-    width: 14.6rem;
+    width: 18.2rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1381,7 +1381,7 @@
   }
 
   .totalLineCollections {
-    width: 14.6rem;
+    width: 18.2rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
