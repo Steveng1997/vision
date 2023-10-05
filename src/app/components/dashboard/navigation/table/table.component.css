@@ -16,30 +16,6 @@
   margin-left: 20%;
 }
 
-table {
-  width: max-content;
-}
-
-tr {
-  line-height: 0%;
-  font-size: 14px;
-}
-
-th {
-  white-space: nowrap;
-  font-size: 14px;
-}
-
-th,
-td {
-  font-size: 14px;
-}
-
-.table-secondary {
-  --bs-table-bg: transparent;
-  background-color: transparent;
-}
-
 .espacioTotales {
   left: 63%;
 }

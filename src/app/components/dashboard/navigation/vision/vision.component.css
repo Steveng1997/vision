@@ -1,23 +1,3 @@
-th {
-  white-space: nowrap;
-}
-
-table,
-tr,
-td {
-  border-style: hidden;
-  line-height: 1rem;
-}
-
-table {
-  width: 100%;
-}
-
-.table-secondary {
-  --bs-table-bg: transparent;
-  background-color: transparent;
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
   .container {
     margin-bottom: -6rem;
@@ -105,10 +85,6 @@ table {
     width: 85%;
   }
 
-  .columnTables {
-    margin-top: 0.6rem;
-  }
-
   .therapist {
     line-height: 1.5rem;
     text-align: center;
@@ -177,6 +153,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0.7rem;
     margin-top: 0.5rem;
   }
@@ -246,6 +223,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
   }
 
@@ -263,6 +241,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -369,6 +348,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -462,10 +442,6 @@ table {
     width: 85%;
   }
 
-  .columnTables {
-    margin-top: 0.6rem;
-  }
-
   .therapist {
     line-height: 1.5rem;
     text-align: center;
@@ -534,6 +510,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0.7rem;
     margin-top: 0.5rem;
   }
@@ -603,6 +580,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
   }
 
@@ -620,6 +598,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -726,6 +705,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -795,7 +775,7 @@ table {
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 23.1% 23.2% 12% 12%;
+    grid-template-columns: 2% 27% 20% 24% 12%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -806,10 +786,6 @@ table {
   .availableColumn {
     margin-right: auto;
     width: 85%;
-  }
-
-  .columnTables {
-    margin-top: 0.6rem;
   }
 
   .therapist {
@@ -845,7 +821,7 @@ table {
   .columnArrows {
     display: grid;
     grid-template-columns: 7% 15% 7%;
-    margin-top: 2.8rem;
+    margin-top: 2.4rem;
     margin-bottom: 3rem;
     justify-content: center;
     text-align-last: center;
@@ -879,6 +855,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -938,16 +915,12 @@ table {
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 45% 57%;
-  }
-
   .totalLine {
     width: 15.3rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
   }
 
@@ -965,6 +938,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -1071,6 +1045,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -1153,10 +1128,6 @@ table {
     width: 85%;
   }
 
-  .columnTables {
-    margin-top: 0.6rem;
-  }
-
   .therapist {
     line-height: 1.5rem;
     text-align: center;
@@ -1190,7 +1161,7 @@ table {
   .columnArrows {
     display: grid;
     grid-template-columns: 7% 15% 7%;
-    margin-top: 2.8rem;
+    margin-top: 2.4rem;
     margin-bottom: 3rem;
     justify-content: center;
     text-align-last: center;
@@ -1224,6 +1195,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -1283,16 +1255,12 @@ table {
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 45% 57%;
-  }
-
   .totalLine {
     width: 15.3rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
   }
 
@@ -1310,6 +1278,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }
@@ -1416,6 +1385,7 @@ table {
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
     margin-left: 0rem;
     margin-top: 0.5rem;
   }

@@ -146,7 +146,7 @@ export class TableComponent implements OnInit {
       añoFin = fechaFin.substring(2, 4)
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
-    
+
     if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
       this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
       (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
@@ -383,12 +383,60 @@ export class TableComponent implements OnInit {
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!'
         }).then((result) => {
-          this.service.getEncargada(this.selectedEncargada).subscribe((rp: any) => {
-            for (let i = 0; rp.length; i++) {
-              this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-            }
-          })
+          debugger
+          if (this.selectedTerapeuta != "" && this.selectedEncargada == "" && this.fechaInicio == "" && this.fechaFinal == ""
+            && this.selectedFormPago == "") {
+            this.service.getTerapeuta(this.selectedTerapeuta).subscribe((rp: any) => {
+              for (let i = 0; rp.length; i++) {
+                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
+              }
+              return true
+            })
+          }
+
+          if (this.selectedEncargada != "" && this.selectedTerapeuta == "" && this.fechaInicio == "" && this.fechaFinal == ""
+            && this.selectedFormPago == "") {
+            this.service.getEncargada(this.selectedEncargada).subscribe((rp: any) => {
+              for (let i = 0; rp.length; i++) {
+                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
+              }
+              return true
+            })
+          }
+
+          if(this.selectedEncargada != "" && this.selectedTerapeuta != "" && this.fechaInicio == "" && this.fechaFinal == ""
+          && this.selectedFormPago == ""){
+            this.service.getByTerapeutaAndEncargada(this.selectedTerapeuta, this.selectedEncargada).subscribe((rp: any) => {
+              for (let i = 0; rp.length; i++) {
+                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
+              }
+              return true
+            })
+          }
+
+          if(this.selectedEncargada != "" && this.selectedTerapeuta == "" && this.fechaInicio != "" && this.fechaFinal == ""
+          && this.selectedFormPago == ""){
+            this.service.getManagerWithDate(this.selectedEncargada, this.fechaInicio).subscribe((rp: any) => {
+              for (let i = 0; rp.length; i++) {
+                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
+              }
+              return true
+            })
+          }
+
+          if(this.selectedTerapeuta != "" && this.selectedEncargada == "" && this.fechaInicio != "" && this.fechaFinal == ""
+          && this.selectedFormPago == ""){
+            this.service.getTherapistWithDate(this.selectedTerapeuta, this.fechaInicio).subscribe((rp: any) => {
+              for (let i = 0; rp.length; i++) {
+                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
+              }
+              return true
+            })
+          }
+
           Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
+
+
         })
       }
     })

@@ -1,3 +1,467 @@
+/* CHECKBOX */
+
+/* Cash floor 1 */
+
+input[id="efectPiso1"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="efectPiso1"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="efectPiso1"] {
+  display: none;
+}
+
+/* Bizum floor 1 */
+
+input[id="bizuPiso1"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="bizuPiso1"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="bizuPiso1"] {
+  display: none;
+}
+
+/* Card floor 1 */
+
+input[id="tarjPiso1"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="tarjPiso1"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="tarjPiso1"] {
+  display: none;
+}
+
+/* Transaction floor 1 */
+
+input[id="transPiso1"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="transPiso1"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="transPiso1"] {
+  display: none;
+}
+
+/* Cash floor 2 */
+
+input[id="efectPiso2"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="efectPiso2"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="efectPiso2"] {
+  display: none;
+}
+
+/* Bizum floor 2 */
+
+input[id="bizuPiso2"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="bizuPiso2"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="bizuPiso2"] {
+  display: none;
+}
+
+/* Card floor 2 */
+
+input[id="tarjPiso2"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="tarjPiso2"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="tarjPiso2"] {
+  display: none;
+}
+
+/* Transaction floor 2 */
+
+input[id="transPiso2"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="transPiso2"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="transPiso2"] {
+  display: none;
+}
+
+/* Cash therapist */
+
+input[id="efectTerap"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="efectTerap"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="efectTerap"] {
+  display: none;
+}
+
+/* Bizum therapist */
+
+input[id="bizuTerap"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="bizuTerap"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="bizuTerap"] {
+  display: none;
+}
+
+/* Card therapist */
+
+input[id="tarjTerap"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="tarjTerap"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="tarjTerap"] {
+  display: none;
+}
+
+/* Transaction therapist */
+
+input[id="transTerap"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="transTerap"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="transTerap"] {
+  display: none;
+}
+
+/* Cash Manager */
+
+input[id="efectEncarg"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="efectEncarg"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="efectEncarg"] {
+  display: none;
+}
+
+/* Bizum Manager */
+
+input[id="bizuEncarg"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="bizuEncarg"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="bizuEncarg"] {
+  display: none;
+}
+
+/* Card Manager */
+
+input[id="tarjEncarg"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="tarjEncarg"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="tarjEncarg"] {
+  display: none;
+}
+
+/* Transaction Manager */
+
+input[id="transEncarg"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="transEncarg"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="transEncarg"] {
+  display: none;
+}
+
+/* Cash Other */
+
+input[id="efectOtro"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="efectOtro"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="efectOtro"] {
+  display: none;
+}
+
+/* Bizum Other */
+
+input[id="bizuOtro"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="bizuOtro"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="bizuOtro"] {
+  display: none;
+}
+
+/* Card Other */
+
+input[id="tarjOtro"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="tarjOtro"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="tarjOtro"] {
+  display: none;
+}
+
+/* Transaction Other */
+
+input[id="transOtro"]+label {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border: 2px solid #8c52ff;
+  cursor: pointer;
+}
+
+input[id="transOtro"]:checked+label:after {
+  position: relative;
+  top: -4px;
+  left: 2px;
+  content: '\2714';
+  font-size: 19px;
+  color: #8c52ff;
+}
+
+input[id="transOtro"] {
+  display: none;
+}
+
+/* Fin Checkbox */
+
 .text {
   display: contents;
   color: #242424;
@@ -27,278 +491,6 @@
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
   body {
-    overflow-x: hidden !important;
-  }
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 30px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: system-ui;
-    margin-bottom: 1.5rem;
-  }
-
-  .timeline {
-    width: 20rem;
-    margin-top: 0.3rem;
-    color: #8c52ff;
-    margin-top: 0.3rem;
-    margin: auto;
-    border-width: initial;
-  }
-
-  .sumServices {
-    margin-top: 1.5rem;
-    font-size: 22px;
-    margin-bottom: 0;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: system-ui;
-    margin-left: 3rem;
-  }
-
-  .serviceDescription {
-    margin-left: 0.7rem;
-  }
-
-  .serviceLine {
-    width: 20rem;
-    color: #8c52ff;
-    margin-top: 0.3rem;
-    margin: auto;
-    border-width: initial;
-  }
-
-  .lastServiceOrdered {
-    margin-left: 11rem;
-    margin-top: -1.7rem;
-  }
-
-  .btnGuardar {
-    margin-bottom: 1.5rem;
-  }
-
-  .botones {
-    margin-bottom: 4%;
-  }
-
-  .btnIconos {
-    margin-top: 10%;
-  }
-
-  .checkBox {
-    margin-top: 40%;
-    scale: 1.2;
-  }
-
-  .inputContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-right: auto;
-    margin-top: 1rem;
-  }
-
-  .therapistContainer {
-    width: auto;
-    justify-self: center;
-  }
-
-  .containerInCharge {
-    width: auto;
-    justify-self: center;
-  }
-
-  .clientContainer {
-    width: auto;
-    justify-self: center;
-    margin-top: 10%;
-  }
-
-  .datesContainer {
-    display: grid;
-    grid-template-columns: 42% 10% 31% 10%;
-    margin-top: 1rem;
-  }
-
-  .dateContainer {
-    width: auto;
-    justify-self: center;
-  }
-
-  .dateIcon {
-    text-align: center;
-    place-self: center;
-    margin-top: 1rem;
-  }
-
-  .containerStartTime {
-    width: 6.5rem;
-  }
-
-  .startTimeIcon {
-    text-align: center;
-    place-self: center;
-    margin-top: 1rem;
-  }
-
-  .datesContainer2 {
-    display: grid;
-    grid-template-columns: 40% 59%;
-  }
-
-  .containerDuration {
-    width: auto;
-    margin-top: 17%;
-  }
-
-  .EndTimeContainer {
-    text-align: center;
-    place-self: center;
-    margin-top: 1.5rem;
-  }
-
-  .containerPlaceExit {
-    width: auto;
-    margin-top: 1rem;
-  }
-
-  .containerTitleService {
-    display: grid;
-    grid-template-columns: 40% 40%;
-    margin-right: 9%;
-  }
-
-  .titleService {
-    text-align: center;
-    place-self: center;
-    margin-left: 0.4rem;
-  }
-
-  .totalService {
-    text-align: center;
-    place-self: center;
-    margin-top: 1.5rem;
-    margin-left: 15rem;
-  }
-
-  .servicesContainer {
-    display: grid;
-    grid-template-columns: 35% 35% 23%;
-    margin-top: 1rem;
-  }
-
-  .treatmentContainer {
-    width: 5rem;
-  }
-
-  .beverageContainer {
-    width: 5rem;
-  }
-
-  .tobaccoContainer {
-    width: 5rem;
-  }
-
-  .vitaminColumn {
-    width: 5rem;
-    margin-top: 1.5rem;
-  }
-
-  .tipColumn {
-    width: 5rem;
-    margin-top: 1.5rem;
-  }
-
-  .columnOthers {
-    width: 5rem;
-    margin-top: 1.5rem;
-  }
-
-  .collectionContainer {
-    display: grid;
-    grid-template-columns: 16% 16% 19% 13%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 4.7rem;
-  }
-
-  .collectionContainer2 {
-    display: grid;
-    grid-template-columns: 23.2% 19% 16% 20% 15%;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .collectionPiso1 {
-    margin-top: 1rem;
-  }
-
-  .collectionPiso2 {
-    margin-top: 1rem;
-  }
-
-  .collectionTherapist {
-    margin-top: 1rem;
-  }
-
-  .collectionManager {
-    margin-top: 1rem;
-  }
-
-  .collectionOther {
-    margin-top: 1rem;
-  }
-
-  .checkBoxCash {
-    margin-top: 0.5rem;
-    margin-left: 1.4rem;
-  }
-
-  .checkBoxBizum {
-    margin-top: 0.7rem;
-    margin-left: 0.6rem;
-  }
-
-  .CheckBoxCard {
-    text-align: center;
-    margin-top: 0.4rem;
-    margin-left: 0.3rem;
-  }
-
-  .checkBoxTransaction {
-    margin-left: 0.6rem;
-    margin-top: 0.8rem;
-  }
-
-  .notesContainer {
-    display: grid;
-    grid-template-columns: 93%;
-    margin-top: 1rem;
-    margin-left: -2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .notes {
-    margin-left: 1rem;
-  }
-
-  .inputButtonSave {
-    display: grid;
-    grid-template-columns: 26%;
-    justify-content: center;
-  }
-
-  .inputButton {
-    display: grid;
-    grid-template-columns: 31% 33% 25%;
-    margin-left: -1.7rem;
-  }
-}
-
-@media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
-  body {
     overflow-x: hidden;
   }
 
@@ -313,12 +505,12 @@
   }
 
   .timeline {
-    width: 20rem;
-    margin-top: 0.3rem;
+    width: 21rem;
     color: #8c52ff;
-    margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
+    opacity: initial;
+    margin-left: 0.4rem;
   }
 
   .sumServices {
@@ -333,14 +525,16 @@
 
   .serviceDescription {
     margin-left: 0.7rem;
+    width: 21rem;
   }
 
   .serviceLine {
-    width: 20rem;
+    width: 21rem;
     color: #8c52ff;
-    margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
+    opacity: initial;
+    margin-left: 0.4rem;
   }
 
   .lastServiceOrdered {
@@ -367,52 +561,56 @@
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 56% 56%;
     margin-right: auto;
     margin-top: 1rem;
+    margin-left: -5.6%;
   }
 
   .therapistContainer {
-    width: auto;
+    width: 88%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: auto;
+    width: 88%;
     justify-self: center;
   }
 
   .clientContainer {
-    width: auto;
+    width: 88%;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 88%;
     justify-self: center;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 42% 10% 29% 12%;
+    grid-template-columns: 43% 14% 38% 6%;
     margin-top: 1rem;
   }
 
   .dateContainer {
-    width: auto;
-    justify-self: center;
+    width: 90%;
   }
 
   .dateIcon {
-    text-align: center;
-    place-self: center;
-    margin-top: 1rem;
+    margin-left: -25%;
+    margin-top: 1.9rem;
   }
 
   .containerStartTime {
-    width: 6.5rem;
+    width: 7.5rem;
   }
 
   .startTimeIcon {
-    text-align: center;
-    place-self: center;
-    margin-top: 1rem;
+    margin-left: -70%;
+    margin-top: 1.9rem;
   }
 
   .datesContainer2 {
@@ -421,19 +619,13 @@
   }
 
   .containerDuration {
-    width: auto;
+    width: 8.8rem;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    text-align: center;
-    place-self: center;
+    margin-left: 3.9rem;
     margin-top: 1.5rem;
-  }
-
-  .containerPlaceExit {
-    width: auto;
-    margin-top: 1rem;
   }
 
   .containerTitleService {
@@ -457,40 +649,44 @@
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 36% 35.8% 22%;
+    grid-template-columns: 38% 36% 25%;
     margin-top: 1rem;
   }
 
   .treatmentContainer {
-    width: 5rem;
+    width: 6rem;
   }
 
   .beverageContainer {
-    width: 5rem;
+    width: 6rem;
   }
 
   .tobaccoContainer {
-    width: 5rem;
+    width: 6rem;
   }
 
   .vitaminColumn {
-    width: 5rem;
+    width: 6rem;
     margin-top: 1.5rem;
   }
 
   .tipColumn {
-    width: 5rem;
+    width: 6rem;
     margin-top: 1.5rem;
   }
 
   .columnOthers {
-    width: 5rem;
+    width: 6rem;
     margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 1.1rem;
   }
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 15% 15% 18% 18%;
+    grid-template-columns: 19.8% 19% 18% 18%;
     justify-content: center;
     margin-top: 1rem;
     margin-left: 7.5rem;
@@ -504,7 +700,7 @@
   }
 
   .collectionPiso1 {
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .collectionPiso2 {
@@ -525,27 +721,302 @@
 
   .checkBoxCash {
     margin-left: 2.5rem;
+    margin-top: 1.9rem;
   }
 
   .checkBoxBizum {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
   }
 
   .CheckBoxCard {
-    text-align: center;
-    margin-top: 0.1rem;
-    margin-left: 0rem;
+    margin-left: 2.3rem;  
+    margin-top: 1.9rem;
   }
 
   .checkBoxTransaction {
-    margin-left: 0rem;
-    margin-top: 0.6rem;
+    margin-left: 2rem;
+    margin-top: 1.9rem;
   }
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 91.7%;
+    grid-template-columns: 99%;
+    margin-top: 1rem;
+    margin-left: -2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 1rem;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    grid-template-columns: 26%;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 31% 33% 25%;
+    margin-left: -1.9rem;
+  }
+}
+
+@media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    width: 21rem;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0.4rem;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: system-ui;
+    margin-left: 3rem;
+  }
+
+  .serviceDescription {
+    margin-left: 0.7rem;
+    width: 21rem;
+  }
+
+  .serviceLine {
+    width: 21rem;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0.4rem;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -1.7rem;
+  }
+
+  .btnGuardar {
+    margin-bottom: 1.5rem;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 56% 56%;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-left: -5.6%;
+  }
+
+  .therapistContainer {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .clientContainer {
+    width: 88%;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 88%;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 43% 14% 38% 6%;
+    margin-top: 1rem;
+  }
+
+  .dateContainer {
+    width: 90%;
+  }
+
+  .dateIcon {
+    margin-left: -25%;
+    margin-top: 1.9rem;
+  }
+
+  .containerStartTime {
+    width: 7.5rem;
+  }
+
+  .startTimeIcon {
+    margin-left: -70%;
+    margin-top: 1.9rem;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 40% 59%;
+  }
+
+  .containerDuration {
+    width: 8.8rem;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    margin-left: 3.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 0.4rem;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 38% 36% 25%;
+    margin-top: 1rem;
+  }
+
+  .treatmentContainer {
+    width: 6rem;
+  }
+
+  .beverageContainer {
+    width: 6rem;
+  }
+
+  .tobaccoContainer {
+    width: 6rem;
+  }
+
+  .vitaminColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 1.1rem;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 19.8% 19% 18% 18%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 7.5rem;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collectionPiso1 {
+    margin-top: 0rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+  }
+
+  .checkBoxCash {
+    margin-left: 2.5rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxBizum {
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
+  }
+
+  .CheckBoxCard {
+    margin-left: 2.3rem;  
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxTransaction {
+    margin-left: 2rem;
+    margin-top: 1.9rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 99%;
     margin-top: 1rem;
     margin-left: -2rem;
     margin-bottom: 1.5rem;
@@ -595,18 +1066,19 @@
   }
 
   .timeline {
-    width: 45rem;
+    width: 43rem;
     color: #8c52ff;
-    margin-top: 0.3rem;
     margin: auto;
     border-width: initial;
+    opacity: initial;
   }
 
   .serviceLine {
-    width: 45rem;
+    width: 43rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
+    opacity: initial;
   }
 
   .lastServiceOrdered {
@@ -692,7 +1164,7 @@
   }
 
   .containerPlaceExit {
-    width: 9.7rem;
+    width: 11.2rem;
     margin-top: 18%;
   }
 
@@ -747,9 +1219,13 @@
     margin-top: 18%;
   }
 
+  .titleCollection{
+    margin-left: 2.4rem;
+  }
+
   .collectionContainer {
     display: grid;
-    grid-template-columns: 14% 14% 14% 14%;
+    grid-template-columns: 14% 13.8% 13% 14%;
     justify-content: center;
     margin-top: 1rem;
     margin-left: 13.8rem;
@@ -785,23 +1261,23 @@
 
   .checkBoxCash {
     text-align: center;
-    margin-top: 1.4rem;
+    margin-top: 2.9rem;
   }
 
   .checkBoxBizum {
     text-align: center;
-    margin-top: 1.4rem;
+    margin-top: 2.9rem;
   }
 
   .CheckBoxCard {
     text-align: center;
-    margin-top: 1.4rem;
-    margin-left: 0.5rem;
+    margin-top: 2.9rem;
+    margin-left: 0rem;
   }
 
   .checkBoxTransaction {
     text-align: center;
-    margin-top: 1.4rem;
+    margin-top: 2.9rem;
   }
 
   .notesContainer {
@@ -852,23 +1328,23 @@
   }
 
   .serviceDescription {
-    margin-left: 0.8rem;
+    margin-left: 0.7rem;
   }
 
   .timeline {
-    width: 45rem;
+    width: 43rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
-    margin-left: 0.7rem;
+    opacity: initial;
   }
 
   .serviceLine {
-    width: 45rem;
+    width: 43rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
-    margin-left: 0.7rem;
+    opacity: initial;
   }
 
   .lastServiceOrdered {
@@ -892,57 +1368,58 @@
   .inputContainer {
     display: grid;
     grid-template-columns: 25% 25% 25%;
+    justify-content: center;
     margin-top: 1rem;
-    margin-left: 8.5rem;
   }
 
   .therapistContainer {
-    width: 80%;
+    width: 100%;
+    justify-self: center;
   }
 
   .containerInCharge {
-    width: 80%;
-    margin-left: -1rem;
+    width: 100%;
+    justify-self: center;
   }
 
   .clientContainer {
-    width: 80%;
-    margin-left: -1.3rem;
+    width: 100%;
+    justify-self: center;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 19% 23% 19% 3%;
-    margin-left: 18.8%;
+    grid-template-columns: 22% 24% 23% 3%;
+    margin-left: 26%;
     margin-top: 1rem;
   }
 
   .dateContainer {
-    width: 90%;
+    width: 9.7rem;
   }
 
   .dateIcon {
     place-self: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .containerStartTime {
-    width: 93%;
+    width: 9.7rem;
   }
 
   .startTimeIcon {
     place-self: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .datesContainer2 {
     display: grid;
     grid-template-columns: 22% 50%;
-    margin-left: 20.3%;
+    margin-left: 28%;
   }
 
   .containerDuration {
-    width: 77.1%;
+    width: 9.7rem;
     margin-top: 18%;
   }
 
@@ -953,7 +1430,7 @@
   }
 
   .containerPlaceExit {
-    width: 80%;
+    width: 11.2rem;
     margin-top: 18%;
   }
 
@@ -964,7 +1441,7 @@
   }
 
   .titleService {
-    margin-left: 2.8rem;
+    margin-left: 2.4rem;
     margin-bottom: -1%;
   }
 
@@ -976,103 +1453,97 @@
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 25% 26% 24%;
+    grid-template-columns: 26% 26% 24%;
+    justify-content: center;
     margin-top: 1rem;
-    margin-left: 8.7rem;
   }
 
   .treatmentContainer {
-    width: 68.3%;
-    margin-left: 7.9%;
+    width: 9.7rem;
   }
 
   .beverageContainer {
-    width: 65%;
+    width: 9.7rem;
   }
 
   .tobaccoContainer {
-    width: 65%;
+    width: 9.7rem;
   }
 
   .vitaminColumn {
-    width: 68.3%;
+    width: 9.7rem;
     margin-top: 18%;
-    margin-left: 7.9%;
   }
 
   .tipColumn {
-    width: 65%;
+    width: 9.7rem;
     margin-top: 18%;
   }
 
   .columnOthers {
-    width: 65%;
+    width: 9.7rem;
     margin-top: 18%;
+  }
+
+  .titleCollection{
+    margin-left: 2.4rem;
   }
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 12% 11% 11% 11%;
+    grid-template-columns: 14% 13.8% 13% 14%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 8rem;
+    margin-left: 13.8rem;
   }
 
   .collectionContainer2 {
     display: grid;
     grid-template-columns: 21.6% 14% 14% 14% 14%;
-    margin-top: 0rem;
+    margin-top: 1rem;
     margin-left: 10.8rem;
     margin-bottom: 1.5rem;
   }
 
   .collectionPiso1 {
     margin-top: 1rem;
-    width: 8.8rem;
   }
 
   .collectionPiso2 {
     margin-top: 1rem;
-    width: 8.8rem;
   }
 
   .collectionTherapist {
     margin-top: 1rem;
-    width: 8.8rem;
   }
 
   .collectionManager {
     margin-top: 1rem;
-    width: 8.8rem;
   }
 
   .collectionOther {
     margin-top: 1rem;
-    width: 8.8rem;
   }
 
   .checkBoxCash {
     text-align: center;
-    margin-top: 1.4rem;
-    margin-left: -0.4rem;
+    margin-top: 2.9rem;
   }
 
   .checkBoxBizum {
     text-align: center;
-    margin-top: 1.4rem;
-    margin-left: -1.6rem;
+    margin-top: 2.9rem;
   }
 
   .CheckBoxCard {
     text-align: center;
-    margin-top: 1.4rem;
-    margin-left: -2.4rem;
+    margin-top: 2.9rem;
+    margin-left: 0rem;
   }
 
   .checkBoxTransaction {
     text-align: center;
-    margin-top: 1.4rem;
-    margin-left: -4.5rem;
+    margin-top: 2.9rem;
   }
 
   .notesContainer {
@@ -1085,7 +1556,6 @@
 
   .notes {
     margin-left: 1rem;
-    width: 33.6rem;
   }
 
   .inputButtonSave {

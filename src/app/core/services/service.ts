@@ -264,6 +264,24 @@ export class Service {
     });
   }
 
+  getManagerWithDate(encargada: string, fecha: string) {
+    return this.http.get(`${this.API_URL}/getManagerWithDate`, {
+      params: {
+        encargada,
+        fecha
+      }
+    });
+  }
+
+  getTherapistWithDate(terapeuta: string, fecha: string) {
+    return this.http.get(`${this.API_URL}/getTherapistWithDate`, {
+      params: {
+        terapeuta,
+        fecha
+      }
+    });
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {
