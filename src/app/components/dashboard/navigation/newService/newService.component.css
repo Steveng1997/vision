@@ -689,7 +689,7 @@ input[id="transOtro"] {
     grid-template-columns: 19.8% 19% 18% 18%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 7.5rem;
+    margin-left: 6.1rem;
   }
 
   .collectionContainer2 {
@@ -737,6 +737,86 @@ input[id="transOtro"] {
   .checkBoxTransaction {
     margin-left: 2rem;
     margin-top: 1.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
   }
 
   .notesContainer {
@@ -1014,6 +1094,86 @@ input[id="transOtro"] {
     margin-top: 1.9rem;
   }
 
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
   .notesContainer {
     display: grid;
     grid-template-columns: 99%;
@@ -1276,6 +1436,86 @@ input[id="transOtro"] {
   }
 
   .checkBoxTransaction {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
     text-align: center;
     margin-top: 2.9rem;
   }
@@ -1564,6 +1804,86 @@ input[id="transOtro"] {
   }
 
   .checkBoxTransaction {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    text-align: center;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
     text-align: center;
     margin-top: 2.9rem;
   }
