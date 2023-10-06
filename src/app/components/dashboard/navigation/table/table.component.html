@@ -35,23 +35,12 @@
                         </div>
 
                         <div class="dateContainer">
+
                             <div class="row g-0">
                                 <label class="text">Fecha Inicio</label>
                                 <input type="date" class="form-control" formControlName="fechaInicio"
                                     (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                         font-family: sans-serif">
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="dateIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                    <path
-                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                </svg>
                             </div>
                         </div>
 
@@ -61,18 +50,6 @@
                                 <input type="date" class="form-control" formControlName="FechaFin"
                                     (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                         font-family: sans-serif">
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="dateIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                    <path
-                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                </svg>
                             </div>
                         </div>
                     </div>
@@ -119,325 +96,176 @@
                 </form>
 
 
-                <!-- Table -->
+                <div class="row g-0 adjustTable">
 
-                <div class="adjustTable">
-                    <div class="row columnTable">
+                    <table class="table" id="excel-table">
+                        <thead>
+                            <tr style="line-height: 0rem; letter-spacing: 0rem">
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio" style="border-right: 1px solid blue;"></td>
+                                <td class="quitarBordesVacio lbelTotal"> TOTALES </td>
+                                <td class="bordeTotal lblValueTotal"> {{totalServicio + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalPiso + '€'}}</td>
+                                <td class="bordeTotal lblValueTotal">{{totalPiso2 + '€'}}</td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorTerapeuta + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorEncargada + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorAOtros + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{TotalValorBebida + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{TotalValorTabaco + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorVitaminas + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorPropina + '€'}} </td>
+                                <td class="bordeTotal lblValueTotal">{{totalValorOtroServ + '€'}} </td>
+                                <td class="bordeTotal lblValueTotals"> {{totalValor + '€'}}</td>
+                                <td class="quitarBordesVacio" style="border-left: 1px solid blue;"></td>
+                            </tr>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 20px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Nota</label>
-                            </div>
-                        </div>
+                            <tr style="line-height: 0%; letter-spacing: 0px;">
+                                <!-- 1 -->
+                                <th class="textColumn"> Nota</th>
+                                <!-- 2 -->
+                                <th class="textColumn"> Fecha </th>
+                                <!-- 3 -->
+                                <th class="textColumn"> Terapeuta </th>
+                                <!-- 4 -->
+                                <th class="textColumn">Encargada </th>
+                                <!-- 5 -->
+                                <th class="textColumn"> Salida </th>
+                                <!-- 6 -->
+                                <th class="textColumn"> Hora </th>
+                                <!-- 7 -->
+                                <th class="textColumn"> Pago </th>
+                                <!-- 8 -->
+                                <th class="textColumn"> Tratamiento </th>
+                                <!-- 9 -->
+                                <th class="textColumn">€ a piso 1 </th>
+                                <!-- 10 -->
+                                <th class="textColumn">€ a piso 2 </th>
+                                <!-- 11 -->
+                                <th class="textColumn">€ a terap. </th>
+                                <!-- 12 -->
+                                <th class="textColumn">€ a enc. </th>
+                                <!-- 13 -->
+                                <th class="textColumn">€ a otros </th>
+                                <!-- 14 -->
+                                <th class="textColumn"> Bebida </th>
+                                <!-- 15 -->
+                                <th class="textColumn"> Tabaco </th>
+                                <!-- 16 -->
+                                <th class="textColumn"> Vitamina </th>
+                                <!-- 17 -->
+                                <th class="textColumn"> Propina </th>
+                                <!-- 18 -->
+                                <th class="textColumn"> Otros </th>
+                                <!-- 19 -->
+                                <th class="textColumn"> Total </th>
+                                <!-- 20 -->
+                                <th class="textColumn"> Cliente </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
+                            encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
+                            busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
+                            paginate: { itemsPerPage: 100, currentPage: page }">
+                            <tr style="cursor: pointer;">
+                                <!-- 1 -->
+                                <td class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
+                                    (click)="notes(services.id, modalTabl)">
+                                </td>
+                                <!-- 2 -->
+                                <td (click)="editForm(services.id)" class="columnDate">
+                                    {{services.fecha}} </td>
+                                <!-- 3 -->
+                                <td (click)="editForm(services.id)" class="columnTherapist">
+                                    {{services.terapeuta}}</td>
+                                <!-- 4 -->
+                                <td (click)="editForm(services.id)" class="columnManager"> {{services.encargada}}</td>
+                                <!-- 5 -->
+                                <td (click)="editForm(services.id)" class="columnExit"> {{services.salida }} </td>
+                                <!-- 6 -->
+                                <td (click)="editForm(services.id)" class="columnHour">
+                                    {{services.horaStart + '-' + services.horaEnd }}
+                                </td>
+                                <!-- 7 -->
+                                <td (click)="editForm(services.id)" class="columnPaymentMethod">
+                                    {{services.formaPago}} </td>
+                                <!-- 8 -->
+                                <td (click)="editForm(services.id)" class="columnTreatment">
+                                    {{services.servicio + ' €'}}</td>
+                                <!-- 9 -->
+                                <td (click)="editForm(services.id)" class="columnFloor1">
+                                    {{services.numberPiso1 + ' €'}}</td>
+                                <!-- 10 -->
+                                <td (click)="editForm(services.id)" class="columnFloor2">
+                                    {{services.numberPiso2 + ' €'}}</td>
+                                <!-- 11 -->
+                                <td (click)="editForm(services.id)" class="columnValueTherapist">
+                                    {{services.numberTerap + ' €'}}</td>
+                                <!-- 12 -->
+                                <td (click)="editForm(services.id)" class="columnValueManager">
+                                    {{services.numberEncarg + ' €'}}</td>
+                                <!-- 13 -->
+                                <td (click)="editForm(services.id)" class="columnValueOther">
+                                    {{services.numberOtro + ' €'}}</td>
+                                <!-- 14 -->
+                                <td (click)="editForm(services.id)" class="columnValueDrink">
+                                    {{services.bebidas +
+                                    ' €'}}</td>
+                                <!-- 15 -->
+                                <td (click)="editForm(services.id)" class="columnValueTobacco">
+                                    {{services.tabaco +
+                                    ' €'}}</td>
+                                <!-- 16 -->
+                                <td (click)="editForm(services.id)" class="columnValueVitamin">
+                                    {{services.vitaminas
+                                    + ' €'}}</td>
+                                <!-- 17 -->
+                                <td (click)="editForm(services.id)" class="columnValueTip">
+                                    {{services.propina +
+                                    ' €'}}</td>
+                                <!-- 18 -->
+                                <td (click)="editForm(services.id)" class="columnValueOthers">
+                                    {{services.otros+ '
+                                    €'}}</td>
+                                <!-- 19 -->
+                                <td (click)="editForm(services.id)" class="columnValueTotal">
+                                    {{services.totalServicio+ ' €'}}</td>
+                                <!-- 20 -->
+                                <td (click)="editForm(services.id)" class="columnValueClient">
+                                    {{services.cliente}}
+                                </td>
+                            </tr>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Fecha</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Terapeuta</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Encargada</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Salida</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Hora</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Forma Pago</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Tratamiento</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">€ a piso 1</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">€ a piso 2</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">€ a terap.</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">€ a enc.</label>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">€ a otros</label>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Bebida</label>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Tabaco</label>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Vitamina</label>
-                            </div>
-                        </div>
-
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Propina</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Otros</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Total</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                                       display: contents">Cliente</label>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div *ngFor="let services of servicio | paginate: { itemsPerPage: 2, currentPage: page }"
-                        class="row columnTable">
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div style="border-bottom: hidden;" class="quitarBordes"
-                                    [ngClass]="{'color2':services.nota !== ''}" (click)="notes(services.id, modalTabl)">
+                            <!-- Modal -->
+                            <ng-template class="custom-modal" #modalTabl let-modal>
+                                <div class="modal-header">
+                                    <h5 class="modal-title"> Nota </h5>
+                                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="therapist" (click)="editForm(services.id)">{{services.fecha}}</div>
-                            </div>
-                        </div>
+                                <div class="modal-body" style="text-align: center;">
+                                    <!-- Aqui se coloca lo adentro -->
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="exit" (click)="editForm(services.id)">{{services.terapeuta}}</div>
-                            </div>
-                        </div>
+                                    <h4>{{services.nota}}</h4>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="endTime" (click)="editForm(services.id)">{{services.encargada}}</div>
-                            </div>
-                        </div>
+                                    <!-- Afuera -->
+                                </div>
+                            </ng-template>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.salida}}</div>
-                            </div>
-                        </div>
+                            <!-- Fin Modal -->
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.horaStart + '-' + services.horaEnd }}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.formaPago}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.servicio + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.numberPiso1 + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.numberPiso2 + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.numberTerap + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.numberEncarg + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.numberOtro + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.bebidas + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.tabaco + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.vitaminas + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.propina + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.otros + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.totalServicio + ' €'}}</div>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div (click)="editForm(services.id)" style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                                     font-size: 18px">{{services.cliente}}</div>
-                            </div>
-                        </div>
-
-                        <!-- Modal -->
-                        <ng-template class="custom-modal" #modalTabl let-modal>
-                            <div class="modal-header">
-                                <h5 class="modal-title"> Nota </h5>
-                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <div class="modal-body" style="text-align: center;">
-                                <!-- Aqui se coloca lo adentro -->
-
-                                <h4>{{services.nota}}</h4>
-
-                                <!-- Afuera -->
-                            </div>
-                        </ng-template>
-
-                        <!-- Fin Modal -->
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
 
-                <!-- fin Table -->
-
-                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
+                    nextLabel="Siguiente">
+                </pagination-controls>
             </div>
         </div>
     </div>

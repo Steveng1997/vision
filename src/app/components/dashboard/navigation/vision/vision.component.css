@@ -25,7 +25,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -35,7 +35,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -45,7 +45,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -72,12 +72,12 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 39% 32% 17% 28%;
+    grid-template-columns: 1% 26% 26% 21% 16%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 6%;
+    margin-left: 1%;
   }
 
   .availableColumn {
@@ -87,7 +87,6 @@
 
   .therapist {
     line-height: 1.5rem;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -131,11 +130,11 @@
 
   .column {
     display: grid;
-    grid-template-columns: 103%;
+    grid-template-columns: 75%;
     justify-content: center;
     justify-items: center;
     margin-top: 2rem;
-    margin-left: -6%;
+    margin-left: -3%;
   }
 
   .columnService {
@@ -149,7 +148,7 @@
   }
 
   .serviceLine {
-    width: 24rem;
+    width: 20.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -219,7 +218,7 @@
   }
 
   .totalLine {
-    width: 24rem;
+    width: 20.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -237,7 +236,7 @@
   }
 
   .collectionsLine {
-    width: 24rem;
+    width: 20.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -344,7 +343,7 @@
   }
 
   .totalLineCollections {
-    width: 24rem;
+    width: 20.5rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -382,7 +381,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -392,7 +391,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -402,7 +401,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 45%;
+    margin-top: 3px;
     margin-left: 0;
   }
 
@@ -429,7 +428,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 28% 28% 16% 25%;
+    grid-template-columns: 1% 26% 26% 21% 16%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -444,7 +443,6 @@
 
   .therapist {
     line-height: 1.5rem;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -488,11 +486,11 @@
 
   .column {
     display: grid;
-    grid-template-columns: 83%;
+    grid-template-columns: 75%;
     justify-content: center;
     justify-items: center;
     margin-top: 2rem;
-    margin-left: -4%;
+    margin-left: -3%;
   }
 
   .columnService {
@@ -1098,8 +1096,7 @@
   .columnIcon {
     display: grid;
     grid-template-columns: 45% 45%;
-    justify-content: center;
-    justify-items: center;
+    margin-left: 22rem;
   }
 
   .newServiceCircle {
@@ -1111,17 +1108,18 @@
   }
 
   .adjustTable {
-    margin-top: 2rem;
+    margin-top: -7%;
+    margin-left: 5rem;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 25% 22% 16% 28%;
+    grid-template-columns: 2% 23% 23% 15% 19%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 2.3rem;
+    margin-left: 0rem;
   }
 
   .availableColumn {
@@ -1161,8 +1159,8 @@
 
   .columnArrows {
     display: grid;
-    grid-template-columns: 7% 15% 7%;
-    margin-top: 2.9rem;
+    grid-template-columns: 5% 13% 5%;
+    margin-top: -6%;
     margin-bottom: 3rem;
     justify-content: center;
     text-align-last: center;
@@ -1176,10 +1174,10 @@
 
   .column {
     display: grid;
-    grid-template-columns: 44.1% 42.4%;
+    grid-template-columns: 39% 37%;
     justify-items: center;
-    margin-top: -3rem;
-    margin-left: 7.5rem;
+    margin-top: -8rem;
+    margin-left: 18rem;
   }
 
   .columnService {
@@ -1192,7 +1190,7 @@
   }
 
   .serviceLine {
-    width: 17.5rem;
+    width: 15.9rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1257,7 +1255,7 @@
   }
 
   .totalLine {
-    width: 17.5rem;
+    width: 15.9rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1275,7 +1273,7 @@
   }
 
   .collectionsLine {
-    width: 18.2rem;
+    width: 16rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1382,7 +1380,7 @@
   }
 
   .totalLineCollections {
-    width: 18.2rem;
+    width: 16rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;

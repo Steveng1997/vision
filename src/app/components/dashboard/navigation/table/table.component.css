@@ -16,100 +16,628 @@
   margin-left: 20%;
 }
 
-.espacioTotales {
-  left: 63%;
-}
-
-.quitarBordes {
-  line-height: 100%;
+.table-secondary {
+  --bs-table-bg: transparent;
+  background-color: transparent;
 }
 
 .quitarBordesVacio {
   border-style: hidden;
 }
 
-.lbelTotal {
-  border: hidden;
-  font-weight: bold;
-  color: red;
-  border-color: black;
-  padding: 14px 0px;
+th,
+td {
+  padding: 30px;
 }
 
-.bordeTotal {
-  border: hidden;
-  padding: 14px;
-  text-align: right;
-}
-
-@media only screen and (min-device-width: 270px) and (max-device-width: 394px) {
+@media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
   .tableContainer {
     display: grid;
     grid-template-columns: 8% 28% 8%;
   }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 86%;
+    justify-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .containerStartTime {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerPaymentMethod {
+    width: 85%;
+    justify-self: center;
+    margin-left: 7%;
+  }
+
+  .searchContainer {
+    width: 84%;
+    justify-self: center;
+    margin-left: 0.2rem;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 2rem;
+    width: 6rem;
+    margin-left: 1.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 2rem;
+    width: 2rem;
+    margin-left: 0rem;
+  }
+
+  /* Table */
+
+  .adjustTable {
+    margin-left: -11rem;
+  }
+
+  .columnNote {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnDate {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnTherapist {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnManager {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 45px;
+    word-wrap: break-word;
+    line-height: normal;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnExit {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnHour {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnTreatment {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnFloor1 {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnFloor2 {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueTherapist {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueManager {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueOther {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    display: table-cell;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueDrink {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueTip {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueOthers {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueTotal {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .columnValueClient {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
 }
 
-@media only screen and (min-device-width: 395px) and (max-device-width: 1030px) {
+@media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
   .tableContainer {
     display: grid;
     grid-template-columns: 8% 28% 8%;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 86%;
+    justify-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .containerStartTime {
+    width: 86%;
+    justify-self: center;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerPaymentMethod {
+    width: 85%;
+    justify-self: center;
+    margin-left: 7%;
+  }
+
+  .searchContainer {
+    width: 84%;
+    justify-self: center;
+    margin-left: 0.2rem;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 2rem;
+    width: 6rem;
+    margin-left: 1.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 2rem;
+    width: 2rem;
+    margin-left: 0rem;
+  }
+
+  /* Table */
+
+  .adjustTable {
+    margin-left: 0%;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+  }
+
+  .columnNote {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    padding: 23px 0px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnPaymentMethod {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTreatment {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor1 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor2 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTherapist {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueManager {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOther {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueDrink {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTobacco {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueVitamin {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTip {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOthers {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTotal {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueClient {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid blue;
+    border-left: 1px solid blue;
+    border-top: 1px solid blue;
+  }
+
+  .lblValueTotal{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .lblValueTotals{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .tableContainer {
     display: grid;
-    grid-template-columns: 26% 26% 26% 3% 26% 3%;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: center;
+    margin-left: 1.2rem;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 83%;
+    width: 77.1%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 83%;
+    width: 77.1%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 83%;
+    width: 77%;
     justify-self: center;
-  }
-
-  .dateIcon {
-    place-self: center;
-    margin-top: 1rem;
   }
 
   .containerStartTime {
-    width: 82%;
+    width: 77%;
     justify-self: center;
-  }
-
-  .startTimeIcon {
-    place-self: center;
-    margin-top: 1rem;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 24% 28% 17% 10%;
+    grid-template-columns: 24% 26% 17% 10%;
     margin-top: 2.5rem;
-    margin-left: -2rem;
+    margin-left: 1.7rem;
   }
 
   .containerPaymentMethod {
-    width: 86%;
+    width: 81%;
     justify-self: center;
+    margin-left: -3%;
   }
 
   .searchContainer {
-    width: 74%;
+    width: 75%;
     justify-self: center;
-    margin-left: -1.2rem;
+    margin-left: -1%;
   }
 
   .buttonDeleteContainer {
@@ -124,63 +652,251 @@
     margin-left: 2rem;
   }
 
+  /* Table */
+
   .adjustTable {
-    margin-top: 2rem;
-    width: auto;
-    margin-left: -36rem;
+    margin-left: -99%;
   }
 
-  .columnTable {
-    display: grid;
-    grid-template-columns: 7% 16% 15% 15% 15% 17% 20% 18% 16% 16% 16% 13% 14% 12% 12% 14% 14% 11% 13% 10%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align-last: center;
-    margin-left: 1.8rem;
-    cursor: pointer;    
-  }
-
-  .availableColumn {
-    margin-right: auto;
-    width: 85%;
-  }
-
-  .therapist {
-    line-height: 1.5rem;
-    text-align: center;
+  .textColumn {
+    border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    white-space: pre;
   }
 
-  .exit {
-    line-height: 1rem;
-    text-align: left;
-    font-family: sans-serif;
-    font-size: 18px;
+  .columnNote {
     word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
   }
 
-  .endTime {
-    line-height: 1rem;
-    text-align: left;
+  .columnDate {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    padding: 23px 0px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnPaymentMethod {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTreatment {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor1 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor2 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTherapist {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueManager {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOther {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueDrink {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTobacco {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueVitamin {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTip {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOthers {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTotal {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueClient {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid blue;
+    border-left: 1px solid blue;
+    border-top: 1px solid blue;
+  }
+
+  .lblValueTotal{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .lblValueTotals{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
   .tableContainer {
     display: grid;
-    grid-template-columns: 22% 22% 22% 3% 22% 3%;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: center;
+    margin-left: 1.2rem;
     margin-top: 1rem;
   }
 
@@ -195,41 +911,32 @@
   }
 
   .dateContainer {
-    width: 82%;
+    width: 77%;
     justify-self: center;
-  }
-
-  .dateIcon {
-    place-self: center;
-    margin-top: 1rem;
   }
 
   .containerStartTime {
-    width: 82%;
+    width: 77%;
     justify-self: center;
-  }
-
-  .startTimeIcon {
-    place-self: center;
-    margin-top: 1rem;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 22% 26% 17% 10%;
+    grid-template-columns: 24% 26% 17% 10%;
     margin-top: 2.5rem;
     margin-left: 1.7rem;
   }
 
   .containerPaymentMethod {
-    width: 82%;
+    width: 81%;
     justify-self: center;
+    margin-left: -3%;
   }
 
   .searchContainer {
-    width: 68%;
+    width: 75%;
     justify-self: center;
-    margin-left: -1.2rem;
+    margin-left: -1%;
   }
 
   .buttonDeleteContainer {
@@ -244,55 +951,241 @@
     margin-left: 2rem;
   }
 
+  /* Table */
+
   .adjustTable {
-    margin-top: 2rem;
-    width: auto;
-    margin-left: 2rem;
-    overflow: scroll;
+    margin-left: -99%;
   }
 
-  .columnTable {
-    display: grid;
-    grid-template-columns: 6% 14% 15% 15% 15% 15% 16% 15% 13% 13% 13% 11% 12% 10% 10% 12% 12% 10% 10% 10%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align-last: center;
-    margin-left: 1.8rem;
-    cursor: pointer;    
-  }
-
-  .availableColumn {
-    margin-right: auto;
-    width: 85%;
-  }
-
-  .therapist {
-    line-height: 1.5rem;
-    text-align: center;
+  .textColumn {
+    border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    white-space: pre;
   }
 
-  .exit {
-    line-height: 1rem;
-    text-align: left;
-    font-family: sans-serif;
-    font-size: 18px;
+  .columnNote {
     word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
   }
 
-  .endTime {
-    line-height: 1rem;
-    text-align: left;
+  .columnDate {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    padding: 23px 0px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnPaymentMethod {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .columnTreatment {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor1 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnFloor2 {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTherapist {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueManager {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOther {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueDrink {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTobacco {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueVitamin {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTip {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueOthers {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueTotal {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .columnValueClient {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid blue;
+    border-left: 1px solid blue;
+    border-top: 1px solid blue;
+  }
+
+  .lblValueTotal{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .lblValueTotals{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 }

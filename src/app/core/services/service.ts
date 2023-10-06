@@ -282,6 +282,56 @@ export class Service {
     });
   }
 
+  getManagerpaymentForm(encargada: string, fecha: string) {
+    return this.http.get(`${this.API_URL}/getManagerpaymentForm`, {
+      params: {
+        encargada,
+        fecha
+      }
+    });
+  }
+
+  getTherapistpaymentForm(terapeuta: string, fecha: string) {
+    return this.http.get(`${this.API_URL}/getTherapistpaymentForm`, {
+      params: {
+        terapeuta,
+        fecha
+      }
+    });
+  }
+
+
+  getManagerAndDate(encargada: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getManagerAndDate`, {
+      params: {
+        encargada,
+        fecha,
+        fechaFin
+      }
+    });
+  }
+
+  getTherapistAndDate(terapeuta: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndDate`, {
+      params: {
+        terapeuta,
+        fecha,
+        fechaFin
+      }
+    });
+  }
+
+  getpaymentFormAndDate(formaPago: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getpaymentFormAndDate`, {
+      params: {
+        formaPago,
+        fecha,
+        fechaFin
+      }
+    });
+  }
+
+
   // Update
 
   updateServicio(id: number, service: ModelService) {

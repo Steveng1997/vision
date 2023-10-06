@@ -55,6 +55,8 @@ export class TableComponent implements OnInit {
   totalValorOtroServ: number
   totalValor: number
 
+  idService: any
+
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
     FechaFin: new FormControl(''),
@@ -195,6 +197,7 @@ export class TableComponent implements OnInit {
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && conditionMethodOfPayment(serv)
         && searchCondition(serv) && conditionBetweenDates(serv))
+      this.idService = servicios
       this.totalServicio = servicios.reduce((accumulator, serv) => {
         return accumulator + serv.servicio
       }, 0)
@@ -383,60 +386,12 @@ export class TableComponent implements OnInit {
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!'
         }).then((result) => {
-          debugger
-          if (this.selectedTerapeuta != "" && this.selectedEncargada == "" && this.fechaInicio == "" && this.fechaFinal == ""
-            && this.selectedFormPago == "") {
-            this.service.getTerapeuta(this.selectedTerapeuta).subscribe((rp: any) => {
-              for (let i = 0; rp.length; i++) {
-                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-              }
-              return true
+          for (let i = 0; this.idService.length; i++) {
+            this.service.deleteServicio(this.idService[i].id).subscribe((rp: any) => {
+              this.getServices()
             })
           }
-
-          if (this.selectedEncargada != "" && this.selectedTerapeuta == "" && this.fechaInicio == "" && this.fechaFinal == ""
-            && this.selectedFormPago == "") {
-            this.service.getEncargada(this.selectedEncargada).subscribe((rp: any) => {
-              for (let i = 0; rp.length; i++) {
-                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-              }
-              return true
-            })
-          }
-
-          if(this.selectedEncargada != "" && this.selectedTerapeuta != "" && this.fechaInicio == "" && this.fechaFinal == ""
-          && this.selectedFormPago == ""){
-            this.service.getByTerapeutaAndEncargada(this.selectedTerapeuta, this.selectedEncargada).subscribe((rp: any) => {
-              for (let i = 0; rp.length; i++) {
-                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-              }
-              return true
-            })
-          }
-
-          if(this.selectedEncargada != "" && this.selectedTerapeuta == "" && this.fechaInicio != "" && this.fechaFinal == ""
-          && this.selectedFormPago == ""){
-            this.service.getManagerWithDate(this.selectedEncargada, this.fechaInicio).subscribe((rp: any) => {
-              for (let i = 0; rp.length; i++) {
-                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-              }
-              return true
-            })
-          }
-
-          if(this.selectedTerapeuta != "" && this.selectedEncargada == "" && this.fechaInicio != "" && this.fechaFinal == ""
-          && this.selectedFormPago == ""){
-            this.service.getTherapistWithDate(this.selectedTerapeuta, this.fechaInicio).subscribe((rp: any) => {
-              for (let i = 0; rp.length; i++) {
-                this.service.deleteServicio(rp[i].id).subscribe((rp: any) => { })
-              }
-              return true
-            })
-          }
-
           Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
-
-
         })
       }
     })
