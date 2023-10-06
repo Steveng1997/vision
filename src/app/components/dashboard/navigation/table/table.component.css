@@ -27,7 +27,7 @@
 
 th,
 td {
-  padding: 30px;
+  padding: 10px;
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
@@ -357,6 +357,7 @@ td {
 
   .adjustTable {
     margin-left: 0%;
+    margin-top: 13%;
   }
 
   .textColumn {
@@ -364,6 +365,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
+    height: 3rem;
   }
 
   .columnNote {
@@ -574,7 +576,7 @@ td {
     border-top: 1px solid blue;
   }
 
-  .lblValueTotal{
+  .lblValueTotal {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     text-align: end;
@@ -582,7 +584,7 @@ td {
     font-size: 18px;
   }
 
-  .lblValueTotals{
+  .lblValueTotals {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     border-right: 1px solid blue;
@@ -593,31 +595,32 @@ td {
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
+
   .tableContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     justify-content: center;
-    margin-left: 1.2rem;
+    margin-left: 26px;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 77.1%;
+    width: 84%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 77.1%;
+    width: 84%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 77%;
+    width: 90%;
     justify-self: center;
   }
 
   .containerStartTime {
-    width: 77%;
+    width: 84%;
     justify-self: center;
   }
 
@@ -625,17 +628,17 @@ td {
     display: grid;
     grid-template-columns: 24% 26% 17% 10%;
     margin-top: 2.5rem;
-    margin-left: 1.7rem;
+    margin-left: 33px;
   }
 
   .containerPaymentMethod {
-    width: 81%;
+    width: 88%;
     justify-self: center;
     margin-left: -3%;
   }
 
   .searchContainer {
-    width: 75%;
+    width: 80%;
     justify-self: center;
     margin-left: -1%;
   }
@@ -655,7 +658,8 @@ td {
   /* Table */
 
   .adjustTable {
-    margin-left: -99%;
+    margin-left: -72%;
+    margin-top: 4rem;
   }
 
   .textColumn {
@@ -663,6 +667,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
+    height: 4rem;
+    padding: 0px 25px 10px 0px;
   }
 
   .columnNote {
@@ -873,7 +879,7 @@ td {
     border-top: 1px solid blue;
   }
 
-  .lblValueTotal{
+  .lblValueTotal {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     text-align: end;
@@ -881,7 +887,7 @@ td {
     font-size: 18px;
   }
 
-  .lblValueTotals{
+  .lblValueTotals {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     border-right: 1px solid blue;
@@ -1172,7 +1178,7 @@ td {
     border-top: 1px solid blue;
   }
 
-  .lblValueTotal{
+  .lblValueTotal {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     text-align: end;
@@ -1180,7 +1186,7 @@ td {
     font-size: 18px;
   }
 
-  .lblValueTotals{
+  .lblValueTotals {
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     border-right: 1px solid blue;

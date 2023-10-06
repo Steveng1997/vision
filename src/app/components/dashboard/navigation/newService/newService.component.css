@@ -2,7 +2,7 @@
 
 /* Cash floor 1 */
 
-input[id="efectPiso1"] + label {
+input[id="efectPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -10,7 +10,7 @@ input[id="efectPiso1"] + label {
   cursor: pointer;
 }
 
-input[id="efectPiso1"]:checked + label:after {
+input[id="efectPiso1"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -25,7 +25,7 @@ input[id="efectPiso1"] {
 
 /* Bizum floor 1 */
 
-input[id="bizuPiso1"] + label {
+input[id="bizuPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -33,7 +33,7 @@ input[id="bizuPiso1"] + label {
   cursor: pointer;
 }
 
-input[id="bizuPiso1"]:checked + label:after {
+input[id="bizuPiso1"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -48,7 +48,7 @@ input[id="bizuPiso1"] {
 
 /* Card floor 1 */
 
-input[id="tarjPiso1"] + label {
+input[id="tarjPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -56,7 +56,7 @@ input[id="tarjPiso1"] + label {
   cursor: pointer;
 }
 
-input[id="tarjPiso1"]:checked + label:after {
+input[id="tarjPiso1"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -71,7 +71,7 @@ input[id="tarjPiso1"] {
 
 /* Transaction floor 1 */
 
-input[id="transPiso1"] + label {
+input[id="transPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -79,7 +79,7 @@ input[id="transPiso1"] + label {
   cursor: pointer;
 }
 
-input[id="transPiso1"]:checked + label:after {
+input[id="transPiso1"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -94,7 +94,7 @@ input[id="transPiso1"] {
 
 /* Cash floor 2 */
 
-input[id="efectPiso2"] + label {
+input[id="efectPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -102,7 +102,7 @@ input[id="efectPiso2"] + label {
   cursor: pointer;
 }
 
-input[id="efectPiso2"]:checked + label:after {
+input[id="efectPiso2"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -117,7 +117,7 @@ input[id="efectPiso2"] {
 
 /* Bizum floor 2 */
 
-input[id="bizuPiso2"] + label {
+input[id="bizuPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -125,7 +125,7 @@ input[id="bizuPiso2"] + label {
   cursor: pointer;
 }
 
-input[id="bizuPiso2"]:checked + label:after {
+input[id="bizuPiso2"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -140,7 +140,7 @@ input[id="bizuPiso2"] {
 
 /* Card floor 2 */
 
-input[id="tarjPiso2"] + label {
+input[id="tarjPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -148,7 +148,7 @@ input[id="tarjPiso2"] + label {
   cursor: pointer;
 }
 
-input[id="tarjPiso2"]:checked + label:after {
+input[id="tarjPiso2"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -163,7 +163,7 @@ input[id="tarjPiso2"] {
 
 /* Transaction floor 2 */
 
-input[id="transPiso2"] + label {
+input[id="transPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -171,7 +171,7 @@ input[id="transPiso2"] + label {
   cursor: pointer;
 }
 
-input[id="transPiso2"]:checked + label:after {
+input[id="transPiso2"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -186,7 +186,7 @@ input[id="transPiso2"] {
 
 /* Cash therapist */
 
-input[id="efectTerap"] + label {
+input[id="efectTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -194,7 +194,7 @@ input[id="efectTerap"] + label {
   cursor: pointer;
 }
 
-input[id="efectTerap"]:checked + label:after {
+input[id="efectTerap"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -209,7 +209,7 @@ input[id="efectTerap"] {
 
 /* Bizum therapist */
 
-input[id="bizuTerap"] + label {
+input[id="bizuTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -217,7 +217,7 @@ input[id="bizuTerap"] + label {
   cursor: pointer;
 }
 
-input[id="bizuTerap"]:checked + label:after {
+input[id="bizuTerap"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -232,7 +232,7 @@ input[id="bizuTerap"] {
 
 /* Card therapist */
 
-input[id="tarjTerap"] + label {
+input[id="tarjTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -240,7 +240,7 @@ input[id="tarjTerap"] + label {
   cursor: pointer;
 }
 
-input[id="tarjTerap"]:checked + label:after {
+input[id="tarjTerap"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -255,7 +255,7 @@ input[id="tarjTerap"] {
 
 /* Transaction therapist */
 
-input[id="transTerap"] + label {
+input[id="transTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -263,7 +263,7 @@ input[id="transTerap"] + label {
   cursor: pointer;
 }
 
-input[id="transTerap"]:checked + label:after {
+input[id="transTerap"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -278,7 +278,7 @@ input[id="transTerap"] {
 
 /* Cash Manager */
 
-input[id="efectEncarg"] + label {
+input[id="efectEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -286,7 +286,7 @@ input[id="efectEncarg"] + label {
   cursor: pointer;
 }
 
-input[id="efectEncarg"]:checked + label:after {
+input[id="efectEncarg"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -301,7 +301,7 @@ input[id="efectEncarg"] {
 
 /* Bizum Manager */
 
-input[id="bizuEncarg"] + label {
+input[id="bizuEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -309,7 +309,7 @@ input[id="bizuEncarg"] + label {
   cursor: pointer;
 }
 
-input[id="bizuEncarg"]:checked + label:after {
+input[id="bizuEncarg"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -324,7 +324,7 @@ input[id="bizuEncarg"] {
 
 /* Card Manager */
 
-input[id="tarjEncarg"] + label {
+input[id="tarjEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -332,7 +332,7 @@ input[id="tarjEncarg"] + label {
   cursor: pointer;
 }
 
-input[id="tarjEncarg"]:checked + label:after {
+input[id="tarjEncarg"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -347,7 +347,7 @@ input[id="tarjEncarg"] {
 
 /* Transaction Manager */
 
-input[id="transEncarg"] + label {
+input[id="transEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -355,7 +355,7 @@ input[id="transEncarg"] + label {
   cursor: pointer;
 }
 
-input[id="transEncarg"]:checked + label:after {
+input[id="transEncarg"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -370,7 +370,7 @@ input[id="transEncarg"] {
 
 /* Cash Other */
 
-input[id="efectOtro"] + label {
+input[id="efectOtro"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -378,7 +378,7 @@ input[id="efectOtro"] + label {
   cursor: pointer;
 }
 
-input[id="efectOtro"]:checked + label:after {
+input[id="efectOtro"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -393,7 +393,7 @@ input[id="efectOtro"] {
 
 /* Bizum Other */
 
-input[id="bizuOtro"] + label {
+input[id="bizuOtro"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -401,7 +401,7 @@ input[id="bizuOtro"] + label {
   cursor: pointer;
 }
 
-input[id="bizuOtro"]:checked + label:after {
+input[id="bizuOtro"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -416,7 +416,7 @@ input[id="bizuOtro"] {
 
 /* Card Other */
 
-input[id="tarjOtro"] + label {
+input[id="tarjOtro"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -424,7 +424,7 @@ input[id="tarjOtro"] + label {
   cursor: pointer;
 }
 
-input[id="tarjOtro"]:checked + label:after {
+input[id="tarjOtro"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -439,7 +439,7 @@ input[id="tarjOtro"] {
 
 /* Transaction Other */
 
-input[id="transOtro"] + label {
+input[id="transOtro"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -447,7 +447,7 @@ input[id="transOtro"] + label {
   cursor: pointer;
 }
 
-input[id="transOtro"]:checked + label:after {
+input[id="transOtro"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -1217,12 +1217,12 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 10.5rem;
+    margin-left: 22%;
     margin-top: 2rem;
   }
 
   .lastService {
-    margin-left: 5.5rem;
+    margin-left: 11.5%;
   }
 
   .sumServices {
@@ -1236,12 +1236,12 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 6.2rem;
+    margin-left: 12.7%;
   }
 
   .timeline {
-    width: 41.4rem;
-    margin-left: 2rem;
+    width: 79%;
+    margin-left: 8%;
     margin-bottom: auto;
     color: #8c52ff;
     border-width: initial;
@@ -1249,8 +1249,8 @@ input[id="transOtro"] {
   }
 
   .serviceLine {
-    width: 41.4rem;
-    margin-left: 2rem;
+    width: 79%;
+    margin-left: 8%;
     margin-bottom: auto;
     color: #8c52ff;
     border-width: initial;
@@ -1284,21 +1284,21 @@ input[id="transOtro"] {
   }
 
   .therapistContainer {
-    width: 67%;
+    width: 75%;
   }
 
   .containerInCharge {
-    width: 67%;
+    width: 75%;
   }
 
   .clientContainer {
-    width: 67%;
+    width: 75%;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 34% 26.4% 23% 3%;
-    margin-left: 19%;
+    grid-template-columns: 34% 25.4% 26% 0%;
+    margin-left: 21%;
     margin-top: 1rem;
   }
 
@@ -1309,11 +1309,12 @@ input[id="transOtro"] {
   .dateIcon {
     place-self: center;
     margin-top: 1.4rem;
-    margin-left: -7.5rem;
+    margin-left: -5rem;
   }
 
   .containerStartTime {
     width: 9.7rem;
+    margin-left: -2%;
   }
 
   .startTimeIcon {
@@ -1325,7 +1326,7 @@ input[id="transOtro"] {
   .datesContainer2 {
     display: grid;
     grid-template-columns: 37% 12%;
-    margin-left: 11.1rem;
+    margin-left: 22.7%;
   }
 
   .containerDuration {
@@ -1335,12 +1336,12 @@ input[id="transOtro"] {
 
   .EndTimeContainer {
     width: 100%;
-    margin-left: 14rem;
+    margin-left: 12rem;
     margin-top: 4.2rem;
   }
 
   .containerPlaceExit {
-    width: 11.2rem;
+    width: 75%;
     margin-top: 18%;
   }
 
@@ -1351,7 +1352,7 @@ input[id="transOtro"] {
   }
 
   .titleService {
-    margin-left: -2.4rem;
+    margin-left: 20%;
     margin-bottom: -1%;
   }
 
@@ -1363,8 +1364,8 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 32% 32% 32%;
-    margin-left: 9rem;
+    grid-template-columns: 31% 32% 31%;
+    margin-left: 16.9%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -1397,7 +1398,7 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: -2.4rem;
+    margin-left: 20%;
   }
 
   .collectionContainer {
@@ -1405,14 +1406,14 @@ input[id="transOtro"] {
     grid-template-columns: 17% 17% 17% 17%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 21.4rem;
+    margin-left: 44%;
   }
 
   .collectionContainer2 {
     display: grid;
     grid-template-columns: 22% 18% 18% 18% 18%;
     margin-top: 1rem;
-    margin-left: 11.1rem;
+    margin-left: 22.8%;
     margin-bottom: 1.5rem;
   }
 
@@ -1444,133 +1445,133 @@ input[id="transOtro"] {
   .checkBoxCash {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1rem;
+    margin-left: -4%;
   }
 
   .checkBoxBizum {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1.5rem;
+    margin-left: -9%;
   }
 
   .CheckBoxCard {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2rem;
+    margin-left: -15%;
   }
 
   .checkBoxTransaction {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2.5rem;
+    margin-left: -21%;
   }
 
   .checkBoxCashFloor2 {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1rem;
+    margin-left: -4%;
   }
 
   .checkBoxBizumFloor2 {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1.5rem;
+    margin-left: -9%;
   }
 
   .CheckBoxCardFloor2 {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2rem;
+    margin-left: -15%;
   }
 
   .checkBoxTransactionFloor2 {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2.5rem;
+    margin-left: -21%;
   }
 
   .checkBoxCashTherapist {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1rem;
+    margin-left: -4%;
   }
 
   .checkBoxBizumTherapist {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1.5rem;
+    margin-left: -9%;
   }
 
   .CheckBoxCardTherapist {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2rem;
+    margin-left: -15%;
   }
 
   .checkBoxTransactionTherapist {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2.5rem;
+    margin-left: -21%;
   }
 
   .checkBoxCashManager {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1rem;
+    margin-left: -4%;
   }
 
   .checkBoxBizumManager {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1.5rem;
+    margin-left: -9%;
   }
 
   .CheckBoxCardManager {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2rem;
+    margin-left: -15%;
   }
 
   .checkBoxTransactionManager {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2.5rem;
+    margin-left: -21%;
   }
 
   .checkBoxCashOther {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1rem;
+    margin-left: -4%;
   }
 
   .checkBoxBizumOther {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -1.5rem;
+    margin-left: -9%;
   }
 
   .CheckBoxCardOther {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2rem;
+    margin-left: -15%;
   }
 
   .checkBoxTransactionOther {
     text-align: center;
     margin-top: 2.9rem;
-    margin-left: -2.5rem;
+    margin-left: -21%;
   }
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 82.7%;
+    grid-template-columns: 84.6%;
     margin-top: 1rem;
     margin-left: 17%;
     margin-bottom: 1.5rem;
   }
 
   .notes {
-    margin-left: 1rem;
+    margin-left: 3.6%;
   }
 
   .inputButtonSave {
