@@ -12,7 +12,7 @@
   }
 
   .refreshPage {
-    margin-left: 1rem;
+    margin-left: 18%;
   }
 
   .textRefreshPage {
@@ -25,7 +25,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 0;
   }
 
@@ -35,7 +35,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 0;
   }
 
@@ -45,7 +45,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 3px;
+    margin-top: 2px;
     margin-left: 0;
   }
 
@@ -67,447 +67,70 @@
 
   .adjustTable {
     margin-top: 2rem;
-    width: 100%;
+    width: 90%;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 1% 29% 25% 24% 17%;
+    grid-template-columns: 7% 35% 30% 19% 14%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: -1%;
+    margin-left: -11px;
   }
 
   .availableColumn {
-    margin-right: auto;
-    width: 85%;
+    text-align-last: start;
+  }
+
+  .columnMinutes {
+    text-align-last: start;
   }
 
   .therapistColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .exitColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .endColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .remainingColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .therapist {
-    line-height: 1.5rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
+    cursor: pointer;
   }
 
   .exit {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
   }
 
   .endTime {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
-  }
-
-  .columnArrows {
-    display: grid;
-    grid-template-columns: 10% 28% 10%;
-    margin-top: 2.4rem;
-    margin-bottom: 0rem;
-    justify-content: center;
-    text-align-last: center;
-  }
-
-  .date {
-    justify-self: center;
-    margin-top: 0.1rem;
-  }
-
-  .column {
-    display: grid;
-    grid-template-columns: 94%;
-    justify-content: center;
-    justify-items: center;
-    margin-top: 2rem;
-    margin-left: 3%;
-  }
-
-  .columnService {
-    margin-right: auto;
-    width: 226px;
-  }
-
-  .collectionsColumn {
-    width: 226px;
-    margin-top: 2rem;
-  }
-
-  .serviceLine {
-    width: 120%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-    margin-top: 0.5rem;
-  }
-
-  .columnTreatment {
-    display: grid;
-    grid-template-columns: 82% 48%;
-    margin-top: 0.6rem;
-  }
-
-  .treatmentValue {
-    justify-self: end;
-  }
-
-  .columnDrink {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .drinkValue {
-    justify-self: end;
-  }
-
-  .columnTobacco {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .tobaccoValue {
-    justify-self: end;
-  }
-
-  .columnVitamin {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .vitaminValue {
-    justify-self: end;
-  }
-
-  .columnTip {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .tipValue {
-    justify-self: end;
-  }
-
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .valueOthers {
-    justify-self: end;
-  }
-
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .totalLine {
-    width: 120%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-  }
-
-  .columnTotal {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .valueTotal {
-    justify-self: end;
-  }
-
-  .collectionsLine {
-    width: 120%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-    margin-top: 0.5rem;
-  }
-
-  .floorColumn {
-    display: grid;
-    grid-template-columns: 83% 48%;
-    margin-top: 0.6rem;
-  }
-
-  .valueFloor {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnEffective {
-    display: grid;
-    grid-template-columns: 84% 48%;
-  }
-
-  .valueEffective {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnBizum {
-    display: grid;
-    grid-template-columns: 84% 48%;
-  }
-
-  .valueBizum {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnCard {
-    display: grid;
-    grid-template-columns: 84% 48%;
-  }
-
-  .valueCard {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnTranfer {
-    display: grid;
-    grid-template-columns: 84% 48%;
-  }
-
-  .valueTranfer {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnTherapist {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .valueTherapist {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnManager {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .valueManager {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .columnOther {
-    display: grid;
-    grid-template-columns: 82% 48%;
-  }
-
-  .valueOther {
-    justify-self: end;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .totalLineCollections {
-    width: 120%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-    margin-top: 0rem;
-  }
-}
-
-/* Pedro */
-@media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
-  .container {
-    margin-bottom: -6rem;
-  }
-
-  body {
-    overflow-x: hidden !important;
-  }
-
-  .newService {
-    margin-left: 0.5rem;
-  }
-
-  .refreshPage {
-    margin-left: 1rem;
-  }
-
-  .textRefreshPage {
-    margin-top: -12%;
-  }
-
-  .disponible {
-    background: green;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 3px;
-    margin-left: 0;
-  }
-
-  .disponible2 {
-    background: green;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 3px;
-    margin-left: 0;
-  }
-
-  .ocupado {
-    background: red;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 3px;
-    margin-left: 0;
-  }
-
-  .columnIcon {
-    display: grid;
-    grid-template-columns: 36% 40%;
-    margin-top: 1rem;
-    margin-left: 6rem;
-  }
-
-  .newServiceCircle {
-    width: 4rem;
-  }
-
-  .circleRefreshPage {
-    width: 4.8rem;
-    margin-top: -5%;
-  }
-
-  .adjustTable {
-    margin-top: 2rem;
-    width: 89%;
-  }
-
-  .columnTable {
-    display: grid;
-    grid-template-columns: 1% 32% 35% 23% 16%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    justify-content: center;
-    text-align-last: center;
-    margin-left: -6px;
-  }
-
-  .availableColumn {
-    margin-right: auto;
-    width: 90%;
-  }
-
-  .therapistColumn {
-    margin-right: auto;
-    width: 100%;
-  }
-
-  .exitColumn {
-    margin-right: auto;
-    width: 100%;
-  }
-
-  .endColumn {
-    margin-right: auto;
-    width: 90%;
-  }
-
-  .remainingColumn {
-    margin-right: auto;
-    width: 90%;
-  }
-
-  .therapist {
-    line-height: 1.5rem;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
-  }
-
-  .exit {
-    line-height: 1rem;
-    text-align: left;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
-  }
-
-  .endTime {
-    line-height: 1rem;
-    text-align: left;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    margin-left: 1rem;
   }
 
   .columnArrows {
@@ -534,7 +157,6 @@
   }
 
   .columnService {
-    margin-right: auto;
     width: 85%;
   }
 
@@ -550,13 +172,14 @@
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .columnTreatment {
     display: grid;
     grid-template-columns: 72% 48%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .treatmentValue {
@@ -566,6 +189,7 @@
   .columnDrink {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
   }
 
   .drinkValue {
@@ -575,6 +199,7 @@
   .columnTobacco {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
   }
 
   .tobaccoValue {
@@ -584,6 +209,7 @@
   .columnVitamin {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
   }
 
   .vitaminValue {
@@ -593,6 +219,7 @@
   .columnTip {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
   }
 
   .tipValue {
@@ -602,29 +229,17 @@
   .columnOthers {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
   }
 
   .valueOthers {
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 72% 48%;
-  }
-
-  .totalLine {
-    width: 119%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-  }
-
   .columnTotal {
     display: grid;
     grid-template-columns: 72% 48%;
+    line-height: 0.6rem;
   }
 
   .valueTotal {
@@ -638,13 +253,14 @@
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .floorColumn {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 56% 64%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .valueFloor {
@@ -656,7 +272,8 @@
 
   .columnEffective {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 50% 64%;
+    line-height: 1.4rem;
   }
 
   .valueEffective {
@@ -668,7 +285,8 @@
 
   .columnBizum {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 50% 64%;
+    line-height: 1.4rem;
   }
 
   .valueBizum {
@@ -680,7 +298,8 @@
 
   .columnCard {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 50% 64%;
+    line-height: 1.4rem;
   }
 
   .valueCard {
@@ -692,7 +311,8 @@
 
   .columnTranfer {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 50% 64%;
+    line-height: 1.4rem;
   }
 
   .valueTranfer {
@@ -704,7 +324,8 @@
 
   .columnTherapist {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 56% 64%;
+    line-height: 1.4rem;
   }
 
   .valueTherapist {
@@ -716,7 +337,8 @@
 
   .columnManager {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 56% 64%;
+    line-height: 1.4rem;
   }
 
   .valueManager {
@@ -728,7 +350,383 @@
 
   .columnOther {
     display: grid;
-    grid-template-columns: 72% 48%;
+    grid-template-columns: 56% 64%;
+    line-height: 1.4rem;
+  }
+
+  .valueOther {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .totalLineCollections {
+    width: 119%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: 0rem;
+  }
+}
+
+/* Pedro */
+@media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+  .container {
+    margin-bottom: -6rem;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .newService {
+    margin-left: 0.5rem;
+  }
+
+  .refreshPage {
+    margin-left: 18%;
+  }
+
+  .textRefreshPage {
+    margin-top: -12%;
+  }
+
+  .disponible {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 2px;
+    margin-left: 0;
+  }
+
+  .disponible2 {
+    background: green;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 2px;
+    margin-left: 0;
+  }
+
+  .ocupado {
+    background: red;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 2px;
+    margin-left: 0;
+  }
+
+  .columnIcon {
+    display: grid;
+    grid-template-columns: 36% 40%;
+    margin-top: 1rem;
+    margin-left: 6rem;
+  }
+
+  .newServiceCircle {
+    width: 4rem;
+  }
+
+  .circleRefreshPage {
+    width: 4.8rem;
+    margin-top: -5%;
+  }
+
+  .adjustTable {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 7% 35% 30% 19% 14%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -11px;
+  }
+
+  .availableColumn {
+    text-align-last: start;
+  }
+
+  .columnMinutes {
+    text-align-last: start;
+  }
+
+  .therapistColumn {
+    text-align-last: start;
+  }
+
+  .exitColumn {
+    text-align-last: start;
+  }
+
+  .endColumn {
+    text-align-last: start;
+  }
+
+  .remainingColumn {
+    text-align-last: start;
+  }
+
+  .therapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .exit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+  }
+
+  .endTime {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+  }
+
+  .columnArrows {
+    display: grid;
+    grid-template-columns: 10% 28% 10%;
+    margin-top: 2.4rem;
+    margin-bottom: 0rem;
+    justify-content: center;
+    text-align-last: center;
+  }
+
+  .date {
+    justify-self: center;
+    margin-top: 0.1rem;
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: 89%;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .columnService {
+    width: 85%;
+  }
+
+  .collectionsColumn {
+    width: 85%;
+    margin-top: 2rem;
+  }
+
+  .serviceLine {
+    width: 119%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: 0.1rem;
+  }
+
+  .columnTreatment {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    margin-top: 0.6rem;
+    line-height: 1.4rem;
+  }
+
+  .treatmentValue {
+    justify-self: end;
+  }
+
+  .columnDrink {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .drinkValue {
+    justify-self: end;
+  }
+
+  .columnTobacco {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .tobaccoValue {
+    justify-self: end;
+  }
+
+  .columnVitamin {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .vitaminValue {
+    justify-self: end;
+  }
+
+  .columnTip {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .tipValue {
+    justify-self: end;
+  }
+
+  .columnOthers {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueOthers {
+    justify-self: end;
+  }
+
+  .columnTotal {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 0.6rem;
+  }
+
+  .valueTotal {
+    justify-self: end;
+  }
+
+  .collectionsLine {
+    width: 119%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: 0.1rem;
+  }
+
+  .floorColumn {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    margin-top: 0.6rem;
+    line-height: 1.4rem;
+  }
+
+  .valueFloor {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnEffective {
+    display: grid;
+    grid-template-columns: 72% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueEffective {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnBizum {
+    display: grid;
+    grid-template-columns: 72% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueBizum {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnCard {
+    display: grid;
+    grid-template-columns: 72% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueCard {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnTranfer {
+    display: grid;
+    grid-template-columns: 72% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueTranfer {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnTherapist {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueTherapist {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnManager {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .valueManager {
+    justify-self: end;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .columnOther {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
   }
 
   .valueOther {
@@ -768,7 +766,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
@@ -778,7 +776,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
@@ -788,7 +786,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
@@ -814,7 +812,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 1% 31% 24% 21% 21%;
+    grid-template-columns: 3% 31% 24% 21% 21%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -823,58 +821,58 @@
   }
 
   .availableColumn {
-    margin-right: auto;
-    width: 85%;
+    text-align-last: start;
+  }
+
+  .columnMinutes {
+    text-align-last: start;
   }
 
   .therapistColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .exitColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .endColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .remainingColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .therapist {
-    line-height: 1.5rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
+    cursor: pointer;
   }
 
   .exit {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
   }
 
   .endTime {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
   }
 
   .columnArrows {
@@ -894,35 +892,36 @@
 
   .column {
     display: grid;
-    grid-template-columns: 47% 46%;
+    grid-template-columns: 42.3% 42.3%;
     justify-items: center;
     margin-top: -1rem;
-    margin-left: 5.5rem;
+    margin-left: 16%;
   }
 
   .columnService {
-    margin-right: auto;
     width: 85%;
   }
 
   .collectionsColumn {
     width: 85%;
+    line-height: 1rem;
   }
 
   .serviceLine {
-    width: 16.8rem;
+    width: 15.2rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .treatmentValue {
@@ -931,7 +930,8 @@
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .drinkValue {
@@ -940,7 +940,8 @@
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .tobaccoValue {
@@ -949,7 +950,8 @@
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .vitaminValue {
@@ -958,7 +960,8 @@
 
   .columnTip {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .tipValue {
@@ -967,25 +970,18 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueOthers {
     justify-self: end;
   }
 
-  .totalLine {
-    width: 16.8rem;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-  }
-
   .columnTotal {
     display: grid;
-    grid-template-columns: 45% 50%;
+    grid-template-columns: 61% 34%;
+    line-height: 1rem;
   }
 
   .valueTotal {
@@ -993,19 +989,20 @@
   }
 
   .collectionsLine {
-    width: 17.1rem;
+    width: 15.6rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .floorColumn {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .valueFloor {
@@ -1017,7 +1014,8 @@
 
   .columnEffective {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueEffective {
@@ -1029,7 +1027,8 @@
 
   .columnBizum {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueBizum {
@@ -1041,7 +1040,8 @@
 
   .columnCard {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueCard {
@@ -1053,7 +1053,8 @@
 
   .columnTranfer {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueTranfer {
@@ -1065,7 +1066,8 @@
 
   .columnTherapist {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueTherapist {
@@ -1077,7 +1079,8 @@
 
   .columnManager {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueManager {
@@ -1089,7 +1092,8 @@
 
   .columnOther {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueOther {
@@ -1100,7 +1104,7 @@
   }
 
   .totalLineCollections {
-    width: 17.1rem;
+    width: 15.6rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1129,7 +1133,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
@@ -1139,7 +1143,7 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
@@ -1149,14 +1153,15 @@
     height: 16px;
     border-radius: 50%;
     display: block;
-    margin-top: 32%;
+    margin-top: 11%;
     margin-left: 0;
   }
 
   .columnIcon {
     display: grid;
     grid-template-columns: 45% 45%;
-    margin-left: 22rem;
+    justify-content: center;
+    justify-items: center;
   }
 
   .newServiceCircle {
@@ -1168,83 +1173,83 @@
   }
 
   .adjustTable {
-    margin-top: -7%;
-    margin-left: 5rem;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 2% 23% 23% 15% 19%;
+    grid-template-columns: 3% 31% 24% 21% 21%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 0rem;
+    margin-left: 2.5rem;
   }
 
   .availableColumn {
-    margin-right: auto;
-    width: 85%;
+    text-align-last: start;
+  }
+
+  .columnMinutes {
+    text-align-last: start;
   }
 
   .therapistColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .exitColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .endColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .remainingColumn {
-    margin-right: auto;
-    width: 90%;
+    text-align-last: start;
   }
 
   .therapist {
-    line-height: 1.5rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
+    cursor: pointer;
   }
 
   .exit {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
   }
 
   .endTime {
-    line-height: 1rem;
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    margin-left: 1rem;
   }
 
   .columnArrows {
     display: grid;
-    grid-template-columns: 5% 13% 5%;
-    margin-top: -6%;
+    grid-template-columns: 7% 15% 7%;
+    margin-top: 2.4rem;
     margin-bottom: 3rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 0rem;
+    margin-left: -2rem;
   }
 
   .date {
@@ -1254,35 +1259,36 @@
 
   .column {
     display: grid;
-    grid-template-columns: 39% 37%;
+    grid-template-columns: 42.3% 42.3%;
     justify-items: center;
-    margin-top: -8rem;
-    margin-left: 18rem;
+    margin-top: -1rem;
+    margin-left: 16%;
   }
 
   .columnService {
-    margin-right: auto;
     width: 85%;
   }
 
   .collectionsColumn {
     width: 85%;
+    line-height: 1rem;
   }
 
   .serviceLine {
-    width: 15.9rem;
+    width: 15.2rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .treatmentValue {
@@ -1291,7 +1297,8 @@
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .drinkValue {
@@ -1300,7 +1307,8 @@
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .tobaccoValue {
@@ -1309,7 +1317,8 @@
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .vitaminValue {
@@ -1318,7 +1327,8 @@
 
   .columnTip {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .tipValue {
@@ -1327,25 +1337,18 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueOthers {
     justify-self: end;
   }
 
-  .totalLine {
-    width: 15.9rem;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-  }
-
   .columnTotal {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 61% 34%;
+    line-height: 1rem;
   }
 
   .valueTotal {
@@ -1353,19 +1356,20 @@
   }
 
   .collectionsLine {
-    width: 16rem;
+    width: 15.6rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
 
   .floorColumn {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
     margin-top: 0.6rem;
+    line-height: 1.4rem;
   }
 
   .valueFloor {
@@ -1377,7 +1381,8 @@
 
   .columnEffective {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueEffective {
@@ -1389,7 +1394,8 @@
 
   .columnBizum {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueBizum {
@@ -1401,7 +1407,8 @@
 
   .columnCard {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueCard {
@@ -1413,7 +1420,8 @@
 
   .columnTranfer {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 54% 34%;
+    line-height: 1.4rem;
   }
 
   .valueTranfer {
@@ -1425,7 +1433,8 @@
 
   .columnTherapist {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueTherapist {
@@ -1437,7 +1446,8 @@
 
   .columnManager {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueManager {
@@ -1449,7 +1459,8 @@
 
   .columnOther {
     display: grid;
-    grid-template-columns: 50% 48%;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
   }
 
   .valueOther {
@@ -1460,7 +1471,7 @@
   }
 
   .totalLineCollections {
-    width: 16rem;
+    width: 15.6rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;

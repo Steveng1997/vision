@@ -59,11 +59,6 @@ td {
     margin-top: 1.5rem;
   }
 
-  .containerStartTime {
-    width: 86%;
-    justify-self: center;
-  }
-
   .tableContainer2 {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -362,11 +357,6 @@ td {
     margin-top: 1.5rem;
   }
 
-  .containerStartTime {
-    width: 86%;
-    justify-self: center;
-  }
-
   .tableContainer2 {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -662,11 +652,6 @@ td {
     justify-self: center;
   }
 
-  .containerStartTime {
-    width: 84%;
-    justify-self: center;
-  }
-
   .tableContainer2 {
     display: grid;
     grid-template-columns: 24% 26% 17% 10%;
@@ -958,11 +943,6 @@ td {
   }
 
   .dateContainer {
-    width: 77%;
-    justify-self: center;
-  }
-
-  .containerStartTime {
     width: 77%;
     justify-self: center;
   }

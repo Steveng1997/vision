@@ -25,7 +25,8 @@
                   <path
                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                 </svg>
-                <div style="font-family: sans-serif; text-align: center; font-size: 18px; color: #8C52FF">
+                <div
+                  style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
                   Nuevo servicio
                 </div>
               </div>
@@ -41,7 +42,7 @@
                     d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
                 </svg>
                 <div class="textRefreshPage"
-                  style="font-family: sans-serif; text-align: center; font-size: 18px; color: #8C52FF">
+                  style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
                   Refrescar Pagina
                 </div>
               </div>
@@ -101,7 +102,7 @@
 
               <div class="row g-0">
                 <div class="availableColumn">
-                  <div class="therapist">{{vis.nombre}}</div>
+                  <div class="therapist" (click)="editNombre(vis.nombre)">{{vis.nombre}}</div>
                 </div>
               </div>
 
@@ -118,9 +119,8 @@
               </div>
 
               <div class="row g-0">
-                <div class="availableColumn">
-                  <div style="line-height: 1rem; text-align: left; font-family: sans-serif; 
-                  font-size: 18px">{{vis.minuto}}</div>
+                <div class="columnMinutes">
+                  <div class="endTime">{{vis.minuto}}</div>
                 </div>
               </div>
             </div>
@@ -161,13 +161,19 @@
             <div class="row g-0">
               <div class="columnService">
 
-                <label style="color: #000000; font-size: 20px; font-weight: bold; font-family: sans-serif; 
-                  display: contents">Servicios</label>
+                <div class="columnTotal">
+                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                    <label>Servicios</label>
+                  </div>
+                  <div class="valueTotal"
+                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                    {{totalVisions + ' €'}} </div>
+                </div>
 
                 <hr class="serviceLine">
 
                 <div class="columnTreatment">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tratamiento</label>
+                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tratamientos</label>
                   </div>
                   <div class="treatmentValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
                     {{totalTreatment + ' €'}} </div>
@@ -203,18 +209,6 @@
                   <div class="valueOthers" style="color: #000000; font-size: 18px;; font-family: sans-serif">
                     {{totalOthers + ' €'}} </div>
                 </div>
-
-                <hr class="totalLine">
-
-                <div class="columnTotal">
-                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    <label>TOTAL</label>
-                  </div>
-                  <div class="valueTotal"
-                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    {{totalVisions + ' €'}} </div>
-                </div>
-
               </div>
             </div>
 
@@ -223,15 +217,21 @@
             <div class="row g-0">
               <div class="collectionsColumn">
 
-                <label class="valueTotal"
-                  style="color: #000000; font-size: 20px; font-weight: bold; font-family: sans-serif; display: contents">Cobros</label>
+                <div class="columnTotal">
+                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                    <label class="valueTotal">Cobros</label>
+                  </div>
+                  <div class="valueTotal"
+                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                    {{totalCollections + ' €'}} </div>
+                </div>
 
                 <hr class="collectionsLine">
 
                 <div class="floorColumn">
                   <div><label style="color: #000000; font-size: 18px; font-weight: bold; 
                     font-family: sans-serif">Piso</label> </div>
-                  <div class="valueFloor" style="display: grid;"> {{totalPiso + ' €'}} </div>
+                  <div class="valueFloor" style="display: grid; font-weight: bold;"> {{totalPiso + ' €'}} </div>
                 </div>
 
                 <div class="columnEffective" style="margin-left: 5%">
@@ -241,12 +241,12 @@
 
                 <div class="columnBizum" style="margin-left: 5%">
                   <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Bizum</label> </div>
-                  <div class="valueBizum" style="display: grid; margin-left: -2%;"> {{totalBizu + ' €'}} </div>
+                  <div class="valueBizum" style="display: grid; margin-left: -2%"> {{totalBizu + ' €'}} </div>
                 </div>
 
                 <div class="columnCard" style="margin-left: 5%">
                   <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Tarjeta</label> </div>
-                  <div class="valueCard" style="display: grid; margin-left: -2%;"> {{totalTarjet + ' €'}} </div>
+                  <div class="valueCard" style="display: grid; margin-left: -2%"> {{totalTarjet + ' €'}} </div>
                 </div>
 
                 <div class="columnTranfer" style="margin-left: 5%">
@@ -258,30 +258,19 @@
                 <div class="columnTherapist">
                   <div><label style="color: #000000; font-size: 18px; font-family: sans-serif;
                   font-weight: bold">Terapeuta</label> </div>
-                  <div class="valueTherapist" style="display: grid;"> {{totalTerape + ' €'}} </div>
+                  <div class="valueTherapist" style="display: grid; font-weight: bold"> {{totalTerape + ' €'}} </div>
                 </div>
 
                 <div class="columnManager">
                   <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
                   font-weight: bold">Encargada</label> </div>
-                  <div class="valueManager" style="display: grid;"> {{totalEncargada + ' €'}} </div>
+                  <div class="valueManager" style="display: grid; font-weight: bold"> {{totalEncargada + ' €'}} </div>
                 </div>
 
                 <div class="columnOther">
                   <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
                   font-weight: bold">Otros</label> </div>
-                  <div class="valueOther" style="display: grid;"> {{totalOtr + ' €'}} </div>
-                </div>
-
-                <hr class="totalLineCollections">
-
-                <div class="columnTotal">
-                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    <label>TOTAL</label>
-                  </div>
-                  <div class="valueTotal"
-                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    {{totalCollections + ' €'}} </div>
+                  <div class="valueOther" style="display: grid; font-weight: bold"> {{totalOtr + ' €'}} </div>
                 </div>
 
               </div>
