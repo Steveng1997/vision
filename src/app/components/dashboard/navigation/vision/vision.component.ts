@@ -834,7 +834,8 @@ export class VisionComponent implements OnInit {
       convertMesHoy = '0' + mesHoy
       fechaEnd = `${añoHoy}-${convertMesHoy}-${diaHoy}`
     } else {
-      fechaEnd = `${añoHoy}-${mesHoy}-${diaHoy}`
+      convertMesHoy = mesHoy.toString()
+      fechaEnd = `${añoHoy}-${convertMesHoy}-${diaHoy}`
     }
 
     if (diaHoy > 0 && diaHoy < 10) {
@@ -872,7 +873,7 @@ export class VisionComponent implements OnInit {
         if (convertmes == 'Jan') mes = "01"
 
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
-
+        
         if (fechaEnd == fechaHoy) this.fechaHoyActual = 'HOY'
         else this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
 
@@ -963,6 +964,7 @@ export class VisionComponent implements OnInit {
       convertMesHoy = '0' + mesHoy
       fechaEnd = `${añoHoy}-${convertMesHoy}-${diaHoy}`
     } else {
+      convertMesHoy = mesHoy.toString()
       fechaEnd = `${añoHoy}-${mesHoy}-${diaHoy}`
     }
 

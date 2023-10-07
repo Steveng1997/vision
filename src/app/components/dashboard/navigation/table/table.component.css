@@ -101,188 +101,233 @@ td {
     margin-left: -11rem;
   }
 
-  .columnNote {
+  .textColumn {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+  }
+
+  .columnNote {
+    word-wrap: break-word;
+    line-height: normal;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
   }
 
   .columnDate {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnTherapist {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnManager {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 45px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnExit {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnHour {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnPaymentMethod {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnTreatment {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnFloor1 {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    display: table-cell;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnFloor2 {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    display: table-cell;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueTherapist {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    display: table-cell;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueManager {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    display: table-cell;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueOther {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    display: table-cell;
-    width: 50px;
+    border-bottom: hidden;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueDrink {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueTobacco {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueVitamin {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueTip {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueOthers {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-left: 1px solid blue;
+    border-top: 1px solid blue;
+  }
+
+  .lblValueTotal {
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
     font-family: sans-serif;
     font-size: 18px;
   }
 
-  .columnValueClient {
+  .lblValueTotals {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    border-top: 1px solid blue;
+    border-right: 1px solid blue;
+    text-align: end;
     font-family: sans-serif;
     font-size: 18px;
   }
@@ -379,192 +424,190 @@ td {
 
   .columnDate {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnTherapist {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnManager {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnExit {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnHour {
     border-bottom: hidden;
-    padding: 23px 0px 43px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-  }
-
-  .columnPaymentMethod {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: justify;
+    line-height: 20px;
   }
 
   .columnTreatment {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnFloor1 {
     word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnFloor2 {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTherapist {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueManager {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueOther {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueDrink {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTobacco {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueVitamin {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTip {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueOthers {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTotal {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueClient {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnFloor1 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnFloor2 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueOther {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .lbelTotal {
@@ -682,192 +725,190 @@ td {
 
   .columnDate {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnTherapist {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnManager {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnExit {
     border-bottom: hidden;
-    padding: 23px 20px 43px 0px;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
   }
 
   .columnHour {
     border-bottom: hidden;
-    padding: 23px 0px 43px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-  }
-
-  .columnPaymentMethod {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: justify;
+    line-height: 20px;
   }
 
   .columnTreatment {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnFloor1 {
     word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnFloor2 {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTherapist {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueManager {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueOther {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueDrink {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTobacco {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueVitamin {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTip {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueOthers {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueTotal {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: right;
-  }
-
-  .columnValueClient {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
-    border-bottom: hidden;
+    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnFloor1 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnFloor2 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueOther {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 20px;
   }
 
   .lbelTotal {

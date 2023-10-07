@@ -72,12 +72,12 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 1% 26% 26% 21% 16%;
+    grid-template-columns: 1% 29% 25% 24% 17%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 1%;
+    margin-left: -1%;
   }
 
   .availableColumn {
@@ -130,25 +130,25 @@
 
   .column {
     display: grid;
-    grid-template-columns: 75%;
+    grid-template-columns: 94%;
     justify-content: center;
     justify-items: center;
     margin-top: 2rem;
-    margin-left: -3%;
+    margin-left: 3%;
   }
 
   .columnService {
     margin-right: auto;
-    width: 85%;
+    width: 226px;
   }
 
   .collectionsColumn {
-    width: 85%;
+    width: 226px;
     margin-top: 2rem;
   }
 
   .serviceLine {
-    width: 20.5rem;
+    width: 120%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -159,7 +159,7 @@
 
   .columnTreatment {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
     margin-top: 0.6rem;
   }
 
@@ -169,7 +169,7 @@
 
   .columnDrink {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .drinkValue {
@@ -178,7 +178,7 @@
 
   .columnTobacco {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .tobaccoValue {
@@ -187,7 +187,7 @@
 
   .columnVitamin {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .vitaminValue {
@@ -196,7 +196,7 @@
 
   .columnTip {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .tipValue {
@@ -205,7 +205,7 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .valueOthers {
@@ -214,11 +214,11 @@
 
   .columnOthers {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .totalLine {
-    width: 20.5rem;
+    width: 120%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -228,7 +228,7 @@
 
   .columnTotal {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .valueTotal {
@@ -236,7 +236,7 @@
   }
 
   .collectionsLine {
-    width: 20.5rem;
+    width: 120%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -247,7 +247,7 @@
 
   .floorColumn {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 83% 48%;
     margin-top: 0.6rem;
   }
 
@@ -260,7 +260,7 @@
 
   .columnEffective {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 84% 48%;
   }
 
   .valueEffective {
@@ -272,7 +272,7 @@
 
   .columnBizum {
     display: grid;
-    grid-template-columns: 71% 48%;
+     grid-template-columns: 84% 48%;
   }
 
   .valueBizum {
@@ -284,7 +284,7 @@
 
   .columnCard {
     display: grid;
-    grid-template-columns: 71% 48%;
+     grid-template-columns: 84% 48%;
   }
 
   .valueCard {
@@ -296,7 +296,7 @@
 
   .columnTranfer {
     display: grid;
-    grid-template-columns: 71% 48%;
+     grid-template-columns: 84% 48%;
   }
 
   .valueTranfer {
@@ -308,7 +308,7 @@
 
   .columnTherapist {
     display: grid;
-    grid-template-columns: 71% 48%;
+     grid-template-columns: 82% 48%;
   }
 
   .valueTherapist {
@@ -320,7 +320,7 @@
 
   .columnManager {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .valueManager {
@@ -332,7 +332,7 @@
 
   .columnOther {
     display: grid;
-    grid-template-columns: 71% 48%;
+    grid-template-columns: 82% 48%;
   }
 
   .valueOther {
@@ -343,7 +343,7 @@
   }
 
   .totalLineCollections {
-    width: 20.5rem;
+    width: 120%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -428,17 +428,17 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 1% 26% 26% 21% 16%;
+    grid-template-columns: 1% 29% 25% 24% 17%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
     text-align-last: center;
-    margin-left: 1%;
+    margin-left: -1%;
   }
 
   .availableColumn {
     margin-right: auto;
-    width: 85%;
+    width: 90%;
   }
 
   .therapist {
@@ -486,11 +486,11 @@
 
   .column {
     display: grid;
-    grid-template-columns: 75%;
+    grid-template-columns: 89%;
     justify-content: center;
     justify-items: center;
     margin-top: 2rem;
-    margin-left: -3%;
+    margin-left: -2%;
   }
 
   .columnService {
@@ -504,7 +504,7 @@
   }
 
   .serviceLine {
-    width: 20.5rem;
+    width: 119%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -574,7 +574,7 @@
   }
 
   .totalLine {
-    width: 20.5rem;
+    width: 119%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -592,7 +592,7 @@
   }
 
   .collectionsLine {
-    width: 20.5rem;
+    width: 119%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -699,7 +699,7 @@
   }
 
   .totalLineCollections {
-    width: 20.5rem;
+    width: 119%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
