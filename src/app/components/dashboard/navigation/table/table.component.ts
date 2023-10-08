@@ -149,12 +149,17 @@ export class TableComponent implements OnInit {
       this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
 
-    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
-      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-      (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
-    } else {
-      (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
-    }
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+
+        if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
+        } else {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
+        }
+      }
+    })
 
     this.calculateSumOfServices()
   }

@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar style="position: fixed; top: 0">
   <button style="margin-right: auto;" mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>

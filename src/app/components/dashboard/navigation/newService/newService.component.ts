@@ -269,8 +269,8 @@ export class NewServiceComponent implements OnInit {
   expiredDateValidations() {
     let currentHours, diferenceHour
     const splitDate = this.fechaActual.split('-')
-    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0,2)}/${splitDate[0]}`)
-    // const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0,2)}/${splitDate[0]}/${splitDate[2].slice(3,8)}`)
+    // const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}`)
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${splitDate[2].slice(3, 8)}`)
     const currentDate = new Date()
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
 
@@ -280,7 +280,7 @@ export class NewServiceComponent implements OnInit {
     currentHours = Math.abs(Math.round(diferenceHour))
 
     // const currentHours = currentDate.getHours()
-    if (selectDate < currentDateWithoutHours && currentHours >= 24) {
+    if (selectDate < currentDateWithoutHours && currentHours > 24) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -1094,6 +1094,20 @@ export class NewServiceComponent implements OnInit {
     })
   }
 
+  SetTheValuesToEmpty() {
+    if (this.editarService[0]['servicio'] == '0') this.editarService[0]['servicio'] = ''
+    if (this.editarService[0]['bebidas'] == '0') this.editarService[0]['bebidas'] = ''
+    if (this.editarService[0]['tabaco'] == '0') this.editarService[0]['tabaco'] = ''
+    if (this.editarService[0]['vitaminas'] == '0') this.editarService[0]['vitaminas'] = ''
+    if (this.editarService[0]['propina'] == '0') this.editarService[0]['propina'] = ''
+    if (this.editarService[0]['otros'] == '0') this.editarService[0]['otros'] = ''
+    if (this.editarService[0]['numberPiso1'] == '0') this.editarService[0]['numberPiso1'] = ''
+    if (this.editarService[0]['numberPiso2'] == '0') this.editarService[0]['numberPiso2'] = ''
+    if (this.editarService[0]['numberTerap'] == '0') this.editarService[0]['numberTerap'] = ''
+    if (this.editarService[0]['numberEncarg'] == '0') this.editarService[0]['numberEncarg'] = ''
+    if (this.editarService[0]['numberOtro'] == '0') this.editarService[0]['numberOtro'] = ''
+  }
+
   editForm() {
     let fecha = new Date(), dia = '', mes = '', año = 0
 
@@ -1110,6 +1124,7 @@ export class NewServiceComponent implements OnInit {
           document.getElementById('idTitulo').innerHTML = 'Editar servicio'
 
           this.editarService = datosServicio
+          this.SetTheValuesToEmpty()
           this.consultToEditTheTherapist(datosServicio[0].terapeuta)
 
           // Fechas
