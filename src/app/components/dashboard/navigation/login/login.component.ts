@@ -69,45 +69,4 @@ export class LoginComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo del usuario se encuentra vacío' })
     }
   }
-
-  openModal(targetModal) {
-    this.modalService.open(targetModal, {
-      centered: true,
-      backdrop: 'static',
-    })
-  }
-
-  openRegistry(targetModal) {
-    this.modalService.open(targetModal, {
-      centered: true,
-      backdrop: 'static',
-    })
-  }
-
-  save() {
-    if (this.manager.nombre != '') {
-      if (this.manager.usuario != '') {
-        if (this.manager.pass != '') {
-          this.manager.nombre = this.manager.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-          this.serviceManager.getByUsuario(this.manager.usuario).subscribe((nameRegistro: any) => {
-            if (nameRegistro.length === 0) {
-              this.serviceManager.registerEncargada(this.manager).subscribe(resp => { })
-              Swal.fire({
-                position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500,
-              })
-              this.modalService.dismissAll()
-            } else {
-              Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya existe este usuario' })
-            }
-          })
-        } else {
-          Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo de la contraseña se encuentra vacío' })
-        }
-      } else {
-        Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo del usuario se encuentra vacío' })
-      }
-    } else {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo del nombre se encuentra vacío' })
-    }
-  }
 }

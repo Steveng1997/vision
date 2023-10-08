@@ -117,8 +117,6 @@ export class VisionComponent implements OnInit {
     }
 
     this.getTherapist()
-
-
   }
 
   totalsAtZero() {

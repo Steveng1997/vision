@@ -332,7 +332,8 @@ export class ManagerComponent implements OnInit {
       convertMes = '0' + mesHasta
       this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     } else {
-      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
+      convertMes = mesHasta.toString()
+      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     }
 
     if (diaHasta > 0 && diaHasta < 10) {

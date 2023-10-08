@@ -341,7 +341,8 @@ export class TherapistComponent implements OnInit {
       convertMes = '0' + mesHasta
       this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     } else {
-      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${mesHasta}-${diaHasta}`
+      convertMes = mesHasta.toString()
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     }
 
     if (diaHasta > 0 && diaHasta < 10) {
@@ -355,6 +356,8 @@ export class TherapistComponent implements OnInit {
   calculateServices(): any {
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.getThoseThatNotLiquidated()
+
+      debugger
 
       this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {

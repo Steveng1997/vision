@@ -38,7 +38,7 @@ td {
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 52% 52%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -56,36 +56,38 @@ td {
   .dateContainer {
     width: 86%;
     justify-self: center;
-    margin-top: 1.5rem;
+    margin-top: 10%;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 52% 52%;
     margin-top: 2rem;
-    margin-left: -2%;
+    margin-left: -14px;
   }
 
   .containerPaymentMethod {
-    width: 85%;
+    width: 83%;
     justify-self: center;
-    margin-left: 7%;
+    margin-left: 5%;
+    margin-top: -10%;
   }
 
   .searchContainer {
-    width: 84%;
+    width: 82%;
     justify-self: center;
-    margin-left: 0.2rem;
+    margin-left: -7px;
+    margin-top: -10%;
   }
 
   .buttonDeleteContainer {
-    margin-top: 2rem;
+    margin-top: 18px;
     width: 6rem;
     margin-left: 1.3rem;
   }
 
   .exportExcel {
-    margin-top: 2rem;
+    margin-top: 18px;
     width: 2rem;
     margin-left: 0rem;
   }
@@ -93,7 +95,7 @@ td {
   /* Table */
 
   .adjustTable {
-    margin-left: -11rem;
+    margin-left: -2rem;
   }
 
   .textColumn {
@@ -177,7 +179,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -187,7 +189,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -197,7 +199,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -207,7 +209,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -217,7 +219,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -227,7 +229,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -237,7 +239,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -247,7 +249,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -257,7 +259,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -267,7 +269,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -277,7 +279,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -287,7 +289,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -354,7 +356,7 @@ td {
   .dateContainer {
     width: 86%;
     justify-self: center;
-    margin-top: 1.5rem;
+    margin-top: 8%;
   }
 
   .tableContainer2 {
@@ -368,22 +370,24 @@ td {
     width: 85%;
     justify-self: center;
     margin-left: 7%;
+    margin-top: -10%;
   }
 
   .searchContainer {
     width: 84%;
     justify-self: center;
     margin-left: 0.2rem;
+    margin-top: -10%;
   }
 
   .buttonDeleteContainer {
-    margin-top: 2rem;
+    margin-top: 18px;
     width: 6rem;
     margin-left: 1.3rem;
   }
 
   .exportExcel {
-    margin-top: 2rem;
+    margin-top: 18px;
     width: 2rem;
     margin-left: 0rem;
   }
@@ -419,7 +423,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnTherapist {
@@ -429,7 +433,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnManager {
@@ -439,7 +443,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnExit {
@@ -449,7 +453,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnHour {
@@ -457,7 +461,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnPaymentMethod {
@@ -467,7 +471,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .columnTreatment {
@@ -476,8 +480,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnFloor1 {
@@ -486,8 +490,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnFloor2 {
@@ -496,8 +500,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueTherapist {
@@ -506,8 +510,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueManager {
@@ -516,8 +520,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueOther {
@@ -526,8 +530,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueDrink {
@@ -536,8 +540,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueTobacco {
@@ -546,8 +550,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueVitamin {
@@ -556,8 +560,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueTip {
@@ -566,8 +570,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueOthers {
@@ -576,8 +580,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueTotal {
@@ -586,8 +590,8 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 20px;
+    text-align: end;
+    line-height: 1.2rem;
   }
 
   .columnValueClient {
@@ -597,7 +601,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: 1.2rem;
   }
 
   .lbelTotal {
@@ -772,7 +776,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -782,7 +786,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -792,7 +796,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -802,7 +806,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -812,7 +816,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -822,7 +826,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -832,7 +836,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -842,7 +846,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -852,7 +856,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -862,7 +866,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -872,7 +876,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -882,7 +886,7 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
+    text-align: end;
     line-height: 20px;
   }
 
@@ -1067,7 +1071,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnFloor1 {
@@ -1077,7 +1081,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnFloor2 {
@@ -1087,7 +1091,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueTherapist {
@@ -1097,7 +1101,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueManager {
@@ -1107,7 +1111,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueOther {
@@ -1117,7 +1121,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueDrink {
@@ -1127,7 +1131,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueTobacco {
@@ -1137,7 +1141,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueVitamin {
@@ -1147,7 +1151,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueTip {
@@ -1157,7 +1161,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueOthers {
@@ -1167,7 +1171,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueTotal {
@@ -1177,7 +1181,7 @@ td {
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: right;
+    text-align: end;
   }
 
   .columnValueClient {

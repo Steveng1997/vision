@@ -267,21 +267,30 @@ export class NewServiceComponent implements OnInit {
   }
 
   expiredDateValidations() {
+    let currentHours, diferenceHour
     const splitDate = this.fechaActual.split('-')
-    const selectDate = new Date(`${splitDate[1]}/${splitDate[2]}/${splitDate[0]}`)
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0,2)}/${splitDate[0]}`)
+    // const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0,2)}/${splitDate[0]}/${splitDate[2].slice(3,8)}`)
     const currentDate = new Date()
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
-    const currentHours = currentDate.getHours()
-    if (selectDate < currentDateWithoutHours && currentHours <= 12) {
+
+    diferenceHour = (currentDate.getTime() - selectDate.getTime()) / 1000
+    diferenceHour /= (60 * 60)
+
+    currentHours = Math.abs(Math.round(diferenceHour))
+
+    // const currentHours = currentDate.getHours()
+    if (selectDate < currentDateWithoutHours && currentHours >= 24) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'No se puede crear el servicio por la fecha.',
         showConfirmButton: false,
-        timer: 2500
-      })
+        timer: 2500,
+      });
       return false
     }
+
     return true
   }
 
@@ -724,6 +733,7 @@ export class NewServiceComponent implements OnInit {
 
   chosenDate(event: any) {
     this.fechaActual = event.target.value
+    // this.fechaActual = event.target.value.slice(0,10)
   }
 
   editChosenDate(event: any) {
