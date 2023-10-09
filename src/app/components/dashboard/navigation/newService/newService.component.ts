@@ -269,8 +269,9 @@ export class NewServiceComponent implements OnInit {
   expiredDateValidations() {
     let currentHours, diferenceHour
     const splitDate = this.fechaActual.split('-')
+    debugger
     // const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}`)
-    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${splitDate[2].slice(3, 8)}`)
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${this.horaInicialServicio}`)
     const currentDate = new Date()
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
 
