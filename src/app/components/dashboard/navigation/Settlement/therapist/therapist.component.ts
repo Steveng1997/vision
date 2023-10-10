@@ -224,21 +224,44 @@ export class TherapistComponent implements OnInit {
   getSettlements() {
     let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
 
-    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((datoLiquidaciones: any) => {
-      this.liquidated = datoLiquidaciones
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
 
-      for (let index = 0; index < this.liquidated.length; index++) {
-        añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
-        mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
-        diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
-        this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+        this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((datoLiquidaciones: any) => {
+          this.liquidated = datoLiquidaciones
 
-        if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
-          añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
-          mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
-          diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
-          this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
-        }
+          for (let index = 0; index < this.liquidated.length; index++) {
+            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+            }
+          }
+        })
+      } else {
+        this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada).subscribe((datoLiquidaciones: any) => {
+          this.liquidated = datoLiquidaciones
+
+          for (let index = 0; index < this.liquidated.length; index++) {
+            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+            }
+          }
+        })
       }
     })
   }
@@ -321,17 +344,18 @@ export class TherapistComponent implements OnInit {
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((rp: any) => {
-      if (rp.length > 0) {
-        año = fecha.getFullYear()
-        mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
-        dia = rp[0]['hastaFechaLiquidado'].substring(8, 10)
-        this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
-        this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
-      } else {
-        this.dateDoesNotExist()
-      }
-    })
+    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
+      this.liquidationTherapist.encargada).subscribe((rp: any) => {
+        if (rp.length > 0) {
+          año = fecha.getFullYear()
+          mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
+          dia = rp[0]['hastaFechaLiquidado'].substring(8, 10)
+          this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
+          this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+        } else {
+          this.dateDoesNotExist()
+        }
+      })
 
     diaHasta = fecha.getDate()
     mesHasta = fecha.getMonth() + 1
@@ -356,8 +380,6 @@ export class TherapistComponent implements OnInit {
   calculateServices(): any {
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.getThoseThatNotLiquidated()
-
-      debugger
 
       this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
@@ -695,13 +717,6 @@ export class TherapistComponent implements OnInit {
     this.liquidationTherapist.terapeuta = ""
   }
 
-  getDateFrom() {
-    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
-      this.liquidationTherapist.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
-      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
-    })
-  }
-
   createUniqueId() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -733,17 +748,18 @@ export class TherapistComponent implements OnInit {
                 this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
               }
 
-              this.getDateFrom()
-              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((dates: any) => {
 
-              setTimeout(() => { this.getSettlements() }, 1000);
+                setTimeout(() => {
+                  this.getSettlements()
+                }, 1000);
 
-              this.liquidationForm = true
-              this.addForm = false
-              this.editTerap = false
-              this.selected = false
-              this.liquidationTherapist.encargada = ""
-              this.liquidationTherapist.terapeuta = ""
+                this.liquidationForm = true
+                this.addForm = false
+                this.editTerap = false
+                this.selected = false
+              })
+
               Swal.fire({
                 position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
               })
@@ -779,8 +795,6 @@ export class TherapistComponent implements OnInit {
                 this.addForm = false
                 this.editTerap = false
                 this.selected = false
-                this.liquidationTherapist.encargada = ""
-                this.liquidationTherapist.terapeuta = ""
                 this.convertToZero()
                 Swal.fire({
                   position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500

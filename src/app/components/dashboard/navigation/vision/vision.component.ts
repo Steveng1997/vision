@@ -239,6 +239,7 @@ export class VisionComponent implements OnInit {
       convertMes = '0' + mes
       fechaEnd = `${dia}-${convertMes}-${año}`
     } else {
+      convertMes = mes.toString()
       fechaEnd = `${dia}-${mes}-${año}`
     }
 

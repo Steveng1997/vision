@@ -39,6 +39,10 @@ export class ServiceLiquidationTherapist {
     });
   }
 
+  consultManager(encargada: string){
+    return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
+  }
+
   // Update
 
   update(id: number, liquidationTherapist: LiquidationTherapist) {

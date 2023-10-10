@@ -1,8 +1,8 @@
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
   .container {
     overflow-x: hidden;
-    scroll-snap-align: start;
-    scroll-margin-top: 40px;
+    position: sticky;
+    top:80px;
   }
 
   .newService {
@@ -374,8 +374,8 @@
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
   .container {
     overflow-x: hidden;
-    scroll-snap-align: start;
-    scroll-margin-top: 40px;
+    position: sticky;
+    top:80px;
   }
 
   .newService {

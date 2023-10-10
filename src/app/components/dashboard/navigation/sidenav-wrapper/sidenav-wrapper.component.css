@@ -2,6 +2,10 @@ mat-toolbar {
   background: #8C52FF;
   color: white;
   place-content: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 mat-sidenav-content {
