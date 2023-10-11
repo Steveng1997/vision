@@ -42,6 +42,10 @@ export class Service {
     return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
   }
 
+  getByManagerOrder(encargada: string) {
+    return this.http.get(`${this.API_URL}/getManagerOrderCurrentDate/${encargada}`);
+  }  
+
   getByCierre(encargada: string) {
     return this.http.get(`${this.API_URL}/getEncargadaAndCierre/${encargada}`);
   }
@@ -105,6 +109,16 @@ export class Service {
   getEncargada(encargada: string) {
     return this.http.get(`${this.API_URL}/getByEncargada/${encargada}`);
   }
+
+  getEncargadaAndDate(fechaHoyInicio: string, encargada: string) {
+    return this.http.get(`${this.API_URL}/getFechaHoyByManager`, {
+      params: {
+        fechaHoyInicio,
+        encargada
+      }
+    });
+  }
+
 
   getTerapeutaEncargada(terapeuta: string, encargada: string) {
     return this.http.get(`${this.API_URL}/getTerapeuAndEncar`, {

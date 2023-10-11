@@ -339,80 +339,83 @@ export class NewServiceComponent implements OnInit {
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
+          if (this.services.minuto != '') {
+            // Methods 
+            this.createUniqueId()
+            this.validateTheEmptyField()
+            if (!this.expiredDateValidations()) return
+            if (!this.paymentMethodValidation()) return
+            if (!this.validatePaymentMethod()) return
+            this.sumService()
 
-          // Methods 
-          this.createUniqueId()
-          this.validateTheEmptyField()
-          if (!this.expiredDateValidations()) return
-          if (!this.paymentMethodValidation()) return
-          if (!this.validatePaymentMethod()) return
-          this.sumService()
+            if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
+              this.services.efectTerap == true || this.services.efectEncarg == true ||
+              this.services.efectOtro == true) {
+              this.validateEfect = true
+              this.efectCheckToggle(this.validateEfect)
+            } else {
+              localStorage.removeItem('Efectivo')
+            }
 
-          if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
-            this.services.efectTerap == true || this.services.efectEncarg == true ||
-            this.services.efectOtro == true) {
-            this.validateEfect = true
-            this.efectCheckToggle(this.validateEfect)
+            if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
+              this.services.bizuTerap == true || this.services.bizuEncarg == true ||
+              this.services.bizuOtro == true) {
+              this.validateBizum = true
+              this.bizumCheckToggle(this.validateBizum)
+            } else {
+              localStorage.removeItem('Bizum')
+            }
+
+            if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
+              this.services.tarjTerap == true || this.services.tarjEncarg == true ||
+              this.services.tarjOtro == true) {
+              this.validateTarjeta = true
+              this.tarjCheckToggle(this.validateTarjeta)
+            } else {
+              localStorage.removeItem('Tarjeta')
+            }
+
+            if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
+              this.services.transTerap == true || this.services.transEncarg == true ||
+              this.services.transOtro == true) {
+              this.validateTrans = true
+              this.transCheckToggle(this.validateTrans)
+            } else {
+              localStorage.removeItem('Trans')
+            }
+
+            this.wayToPay()
+            this.managerAndTherapist()
+
+            if (this.restamosCobro == 0) {
+              this.services.currentDate = this.currentDate.toString()
+
+              this.sortedDate()
+              this.services.editar = true
+
+              this.therapist.horaEnd = this.services.horaEnd
+              this.therapist.salida = this.services.salida
+              this.therapist.fechaEnd = this.services.fechaHoyInicio
+              this.therapist.minuto = this.services.minuto
+
+              this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
+
+              this.service.registerServicio(this.services).subscribe((rp: any) => {
+                if (rp) {
+                  localStorage.clear();
+                  setTimeout(() => {
+                    this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
+                    this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
+                    Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
+                  }, 1000)
+                }
+              })
+
+            } else {
+              Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
+            }
           } else {
-            localStorage.removeItem('Efectivo')
-          }
-
-          if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
-            this.services.bizuTerap == true || this.services.bizuEncarg == true ||
-            this.services.bizuOtro == true) {
-            this.validateBizum = true
-            this.bizumCheckToggle(this.validateBizum)
-          } else {
-            localStorage.removeItem('Bizum')
-          }
-
-          if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
-            this.services.tarjTerap == true || this.services.tarjEncarg == true ||
-            this.services.tarjOtro == true) {
-            this.validateTarjeta = true
-            this.tarjCheckToggle(this.validateTarjeta)
-          } else {
-            localStorage.removeItem('Tarjeta')
-          }
-
-          if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
-            this.services.transTerap == true || this.services.transEncarg == true ||
-            this.services.transOtro == true) {
-            this.validateTrans = true
-            this.transCheckToggle(this.validateTrans)
-          } else {
-            localStorage.removeItem('Trans')
-          }
-
-          this.wayToPay()
-          this.managerAndTherapist()
-
-          if (this.restamosCobro == 0) {
-            this.services.currentDate = this.currentDate.toString()
-
-            this.sortedDate()
-            this.services.editar = true
-
-            this.therapist.horaEnd = this.services.horaEnd
-            this.therapist.salida = this.services.salida
-            this.therapist.fechaEnd = this.services.fechaHoyInicio
-            this.therapist.minuto = this.services.minuto
-
-            this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
-
-            this.service.registerServicio(this.services).subscribe((rp: any) => {
-              if (rp) {
-                localStorage.clear();
-                setTimeout(() => {
-                  this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
-                  this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
-                  Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
-                }, 1000)
-              }
-            })
-
-          } else {
-            Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
+            Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo minutos se encuentra vacio', showConfirmButton: false, timer: 2500 })
           }
         } else {
           Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo tratamiento se encuentra vacio', showConfirmButton: false, timer: 2500 })
@@ -1238,70 +1241,74 @@ export class NewServiceComponent implements OnInit {
 
   editService(idServicio, serv: ModelService) {
     if (this.restamosCobroEdit == 0) {
-      let idUsuario = ''
-      idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+      if (serv.minuto != null) {
+        let idUsuario = ''
+        idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
 
-      if (!this.expiredDateValidations()) return
-      if (!this.validationsToSelectAPaymentMethod()) return
-      if (!this.validationsFormOfPaymentToEdit()) return
-      this.fullServiceToEdit()
+        if (!this.expiredDateValidations()) return
+        if (!this.validationsToSelectAPaymentMethod()) return
+        if (!this.validationsFormOfPaymentToEdit()) return
+        this.fullServiceToEdit()
 
-      if (this.editarService[0]['efectPiso1'] == true || this.editarService[0]['efectPiso2'] == true ||
-        this.editarService[0]['efectTerap'] == true || this.editarService[0]['efectEncarg'] == true ||
-        this.editarService[0]['efectOtro'] == true) {
-        this.validateEfect = true
-        this.efectCheckToggleEdit(this.validateEfect)
+        if (this.editarService[0]['efectPiso1'] == true || this.editarService[0]['efectPiso2'] == true ||
+          this.editarService[0]['efectTerap'] == true || this.editarService[0]['efectEncarg'] == true ||
+          this.editarService[0]['efectOtro'] == true) {
+          this.validateEfect = true
+          this.efectCheckToggleEdit(this.validateEfect)
+        } else {
+          localStorage.removeItem('Efectivo')
+        }
+
+        if (this.editarService[0]['bizuPiso1'] == true || this.editarService[0]['bizuPiso2'] == true ||
+          this.editarService[0]['bizuTerap'] == true || this.editarService[0]['bizuEncarg'] == true ||
+          this.editarService[0]['bizuOtro'] == true) {
+          this.validateBizum = true
+          this.bizumCheckToggleEdit(this.validateBizum)
+        } else {
+          localStorage.removeItem('Bizum')
+        }
+
+        if (this.editarService[0]['tarjPiso1'] == true || this.editarService[0]['tarjPiso2'] == true ||
+          this.editarService[0]['tarjTerap'] == true || this.editarService[0]['tarjEncarg'] == true ||
+          this.editarService[0]['tarjOtro'] == true) {
+          this.validateTarjeta = true
+          this.tarjCheckToggleEdit(this.validateTarjeta)
+        } else {
+          localStorage.removeItem('Tarjeta')
+        }
+
+        if (this.editarService[0]['transPiso1'] == true || this.editarService[0]['transPiso2'] == true ||
+          this.editarService[0]['transTerap'] == true || this.editarService[0]['transEncarg'] == true ||
+          this.editarService[0]['transOtro'] == true) {
+          this.validateTrans = true
+          this.transCheckToggleEdit(this.validateTrans)
+        } else {
+          localStorage.removeItem('Trans')
+        }
+
+        this.editPaymentMethod()
+
+        this.editManagerAndTherapist()
+        this.editValue()
+
+        this.therapist.horaEnd = serv.horaEnd
+        this.therapist.fechaEnd = serv.fecha
+        this.therapist.salida = serv.salida
+        this.therapist.minuto = serv.minuto
+
+        this.serviceTherapist.update(this.editarService[0]['terapeuta'], this.therapist).subscribe((rp: any) => { })
+
+        this.sortDateToEdit()
+        this.service.updateServicio(idServicio, serv).subscribe((rp: any) => { })
+
+        setTimeout(() => {
+          Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
+          this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
+        }, 3000);
+
       } else {
-        localStorage.removeItem('Efectivo')
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo minutos se encuentra vacio', showConfirmButton: false, timer: 2500 })
       }
-
-      if (this.editarService[0]['bizuPiso1'] == true || this.editarService[0]['bizuPiso2'] == true ||
-        this.editarService[0]['bizuTerap'] == true || this.editarService[0]['bizuEncarg'] == true ||
-        this.editarService[0]['bizuOtro'] == true) {
-        this.validateBizum = true
-        this.bizumCheckToggleEdit(this.validateBizum)
-      } else {
-        localStorage.removeItem('Bizum')
-      }
-
-      if (this.editarService[0]['tarjPiso1'] == true || this.editarService[0]['tarjPiso2'] == true ||
-        this.editarService[0]['tarjTerap'] == true || this.editarService[0]['tarjEncarg'] == true ||
-        this.editarService[0]['tarjOtro'] == true) {
-        this.validateTarjeta = true
-        this.tarjCheckToggleEdit(this.validateTarjeta)
-      } else {
-        localStorage.removeItem('Tarjeta')
-      }
-
-      if (this.editarService[0]['transPiso1'] == true || this.editarService[0]['transPiso2'] == true ||
-        this.editarService[0]['transTerap'] == true || this.editarService[0]['transEncarg'] == true ||
-        this.editarService[0]['transOtro'] == true) {
-        this.validateTrans = true
-        this.transCheckToggleEdit(this.validateTrans)
-      } else {
-        localStorage.removeItem('Trans')
-      }
-
-      this.editPaymentMethod()
-
-      this.editManagerAndTherapist()
-      this.editValue()
-
-      this.therapist.horaEnd = serv.horaEnd
-      this.therapist.fechaEnd = serv.fecha
-      this.therapist.salida = serv.salida
-      this.therapist.minuto = serv.minuto
-
-      this.serviceTherapist.update(this.editarService[0]['terapeuta'], this.therapist).subscribe((rp: any) => { })
-
-      this.sortDateToEdit()
-      this.service.updateServicio(idServicio, serv).subscribe((rp: any) => { })
-
-      setTimeout(() => {
-        Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
-        this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
-      }, 3000);
-
     } else {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
     }

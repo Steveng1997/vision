@@ -120,10 +120,21 @@ export class TableComponent implements OnInit {
   }
 
   getServices() {
-    this.service.getServicio().subscribe((datoServicio: any) => {
-      this.servicio = datoServicio
-      if (datoServicio.length != 0) {
-        this.totalSumOfServices()
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.service.getServicio().subscribe((datoServicio: any) => {
+          this.servicio = datoServicio
+          if (datoServicio.length != 0) {
+            this.totalSumOfServices()
+          }
+        })
+      } else {
+        this.service.getByManagerOrder(rp[0]['nombre']).subscribe((datoServicio: any) => {
+          this.servicio = datoServicio
+          if (datoServicio.length != 0) {
+            this.totalSumOfServices()
+          }
+        })
       }
     })
   }

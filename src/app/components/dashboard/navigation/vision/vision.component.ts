@@ -155,7 +155,7 @@ export class VisionComponent implements OnInit {
   getServicioByManager(manager: string) {
     this.fechadeHoy()
     this.fechaHoyActual = 'HOY'
-    this.service.getEncargada(manager['nombre']).subscribe((datoServicio: any) => {
+    this.service.getEncargadaAndDate(this.fechaDiaHoy, manager['nombre']).subscribe((datoServicio: any) => {
       this.vision = datoServicio
 
       if (datoServicio.length != 0) {
@@ -343,7 +343,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTerape == undefined) this.totalTerape = '0'
     if (this.totalEncargada == undefined) this.totalEncargada = '0'
     if (this.totalOtr == undefined) this.totalOtr = '0'
-    if(this.totalCollections == undefined) this.totalCollections = '0'
+    if (this.totalCollections == undefined) this.totalCollections = '0'
   }
 
   // Suma de TOTALES
@@ -790,8 +790,8 @@ export class VisionComponent implements OnInit {
       this.totalPiso = integer[0].toString()
     }
 
-    this.totalCollection = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf 
-    + this.totalTerap + this.totalEncarg + this.totalOtro
+    this.totalCollection = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
+      + this.totalTerap + this.totalEncarg + this.totalOtro
 
     if (this.totalCollection > 0) {
 
@@ -872,7 +872,7 @@ export class VisionComponent implements OnInit {
         if (convertmes == 'Jan') mes = "01"
 
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
-        
+
         if (fechaEnd == fechaHoy) this.fechaHoyActual = 'HOY'
         else this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
 
