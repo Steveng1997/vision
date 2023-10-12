@@ -224,16 +224,6 @@
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 72% 48%;
-    line-height: 1.4rem;
-  }
-
-  .valueOthers {
-    justify-self: end;
-  }
-
   .columnTotal {
     display: grid;
     grid-template-columns: 72% 48%;
@@ -598,16 +588,6 @@
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 78% 42%;
-    line-height: 1.4rem;
-  }
-
-  .valueOthers {
-    justify-self: end;
-  }
-
   .columnTotal {
     display: grid;
     grid-template-columns: 78% 42%;
@@ -965,16 +945,6 @@
     justify-self: end;
   }
 
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 70% 34%;
-    line-height: 1.4rem;
-  }
-
-  .valueOthers {
-    justify-self: end;
-  }
-
   .columnTotal {
     display: grid;
     grid-template-columns: 70% 34%;
@@ -1329,16 +1299,6 @@
   }
 
   .tipValue {
-    justify-self: end;
-  }
-
-  .columnOthers {
-    display: grid;
-    grid-template-columns: 61% 34%;
-    line-height: 1.4rem;
-  }
-
-  .valueOthers {
     justify-self: end;
   }
 

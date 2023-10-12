@@ -6,16 +6,6 @@
   font-weight: bold;
 }
 
-.color2 {
-  background: blue;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 10%;
-  margin-left: 20%;
-}
-
 .table-secondary {
   --bs-table-bg: transparent;
   background-color: transparent;
@@ -31,6 +21,17 @@ td {
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
+
+  .color2 {
+    background: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 31%;
+    margin-left: 20%;
+  }
+
   .tableContainer {
     display: grid;
     grid-template-columns: 8% 28% 8%;
@@ -106,6 +107,102 @@ td {
     height: 3rem;
   }
 
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    width: 110px;
+    padding: 0px 28px 10px 0px;
+  }
+
+  .textTherapist {
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    width: 91px;
+    padding: 29px 31px 0px 0px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 98px;
+    padding: 10px 18px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 15px 9px 0px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 15px 9px 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 9px 7px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 93px;
+    padding: 10px 12px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textValue{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textVitamin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
+  }
+
   .columnNote {
     word-wrap: break-word;
     line-height: normal;
@@ -118,15 +215,14 @@ td {
   .columnDate {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
     line-height: 20px;
   }
 
   .columnTherapist {
     border-bottom: hidden;
+    border-top: 1px solid blue;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
@@ -331,6 +427,17 @@ td {
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+
+  .color2 {
+    background: blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 31%;
+    margin-left: 20%;
+  }
+
   .tableContainer {
     display: grid;
     grid-template-columns: 8% 28% 8%;
@@ -407,6 +514,97 @@ td {
     height: 3rem;
   }
 
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 31px 10px 0px;
+  }
+
+  .textTherapist {
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    width: 91px;
+    padding: 10px 31px 0px 0px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 93px;
+    padding: 10px 12px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 9px 7px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 69px 9px 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 0px 9px 0px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textValue{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 0px 36px 10px 0px;
+    white-space: nowrap;
+  }
+
+  .textVitamin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 68px;
+    padding: 0px 20px 0px 0px;
+    word-wrap: break-word;
+  }
+
   .columnNote {
     word-wrap: break-word;
     line-height: normal;
@@ -419,15 +617,14 @@ td {
   .columnDate {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
-    line-height: 1.2rem;
+    line-height: 20px;
   }
 
   .columnTherapist {
     border-bottom: hidden;
+    border-top: 1px solid blue;
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
@@ -633,6 +830,16 @@ td {
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
+  .color2 {
+    background: blue;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 40%;
+    margin-left: 20%;
+  }
+
   .tableContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -659,7 +866,7 @@ td {
   .tableContainer2 {
     display: grid;
     grid-template-columns: 24% 26% 17% 10%;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     margin-left: 33px;
   }
 
@@ -701,6 +908,97 @@ td {
     white-space: pre;
     height: 4rem;
     padding: 0px 25px 10px 0px;
+  }
+
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    max-width: 95px;
+    padding: 0px 56px 10px 11px;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    width: 0px;
+    padding: 0px 74px 10px 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 9px 7px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textValue{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
+  }
+  
+  .textVitamin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
   }
 
   .columnNote {
@@ -928,6 +1226,17 @@ td {
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
+  .color2 {
+    background: blue;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 40%;
+    margin-left: 20%;
+  }
+
   .tableContainer {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -993,6 +1302,98 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
+  }
+
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    max-width: 95px;
+    padding: 0px 56px 10px 11px;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 9px 7px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 93px;
+    padding: 10px 12px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textValue{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    height: 3rem;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textVitamin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 120px;
+    padding: 10px 44px 0px 4px;
+    word-wrap: break-word;
   }
 
   .columnNote {
