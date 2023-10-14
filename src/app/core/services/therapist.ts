@@ -10,9 +10,6 @@ import { ModelTherapist } from '../models/therapist';
 })
 export class ServiceTherapist {
 
-  // API_Encargada = 'http://localhost:3000/api/encargada';
-  // API_Terapeuta = 'http://localhost:3000/api/terapeuta';
-
   API_Encargada = 'http://52.71.127.159:3000/api/encargada';
   API_Terapeuta = 'http://52.71.127.159:3000/api/terapeuta';
 
@@ -66,6 +63,10 @@ export class ServiceTherapist {
   updateHoraAndSalida(nombreTerap: string, therapist: ModelTherapist) {
     return this.http.put(`${this.API_Terapeuta}/updateByHoraAndSalida/${nombreTerap}`, therapist);
   }
+
+  updateMinute(id: number, therapist: ModelTherapist) {
+    return this.http.put(`${this.API_Terapeuta}/updateMinutesWithId/${id}`, therapist);
+  }  
 
   // Delete
 

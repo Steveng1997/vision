@@ -99,14 +99,6 @@ td {
     margin-left: -2rem;
   }
 
-  .textColumn {
-    border-bottom: 1px solid blue;
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 3rem;
-  }
-
   .textNote {
     max-width: 0px;
     padding: 0px 0px 10px 0px;
@@ -118,8 +110,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    width: 110px;
-    padding: 0px 28px 10px 0px;
+    padding: 0px 23px 10px 0px;
   }
 
   .textTherapist {
@@ -127,8 +118,8 @@ td {
     line-height: 1.2rem;
     font-size: 18px;
     height: 3rem;
-    width: 91px;
-    padding: 29px 31px 0px 0px;
+    width: 80px;
+    padding: 10px 20px 0px 0px;
     display: inline-block;
     word-wrap: break-word;
   }
@@ -139,8 +130,8 @@ td {
     line-height: 1.2rem;
     font-size: 18px;
     height: 3rem;
-    max-width: 98px;
-    padding: 10px 18px 0px 4px;
+    max-width: 80px;
+    padding: 10px 5px 0px 4px;
     word-wrap: break-word;
   }
 
@@ -150,7 +141,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 15px 9px 0px;
+    padding: 0px 15px 9px 7px;
   }
 
   .textHour {
@@ -159,7 +150,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 15px 9px 0px;
+    padding: 0px 59px 9px 0px;
   }
 
   .textPay {
@@ -168,7 +159,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 27px 9px 7px;
+    padding: 0px 0px 9px 0px;
   }
 
   .textTreatment {
@@ -176,30 +167,34 @@ td {
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    height: 3rem;
-    max-width: 93px;
-    padding: 10px 12px 0px 4px;
+    max-width: 100px;
+    padding: 10px 24px 0px 4px;
     word-wrap: break-word;
   }
 
-  .textValue{
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 0px 25px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 0px 25px 10px 0px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    height: 3rem;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
-    word-wrap: break-word;
-  }
-
-  .textVitamin{
-    border-bottom: 1px solid blue;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    font-size: 18px;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
+    max-width: 73px;
+    padding: 0px 20px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -217,7 +212,8 @@ td {
     word-wrap: break-word;
     font-family: sans-serif;
     font-size: 18px;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTherapist {
@@ -228,7 +224,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnManager {
@@ -238,7 +235,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnExit {
@@ -248,7 +246,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnHour {
@@ -256,7 +255,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnPaymentMethod {
@@ -266,7 +266,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTreatment {
@@ -276,7 +277,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor1 {
@@ -286,7 +288,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor2 {
@@ -296,7 +299,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTherapist {
@@ -306,7 +310,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueManager {
@@ -316,7 +321,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOther {
@@ -326,7 +332,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueDrink {
@@ -336,7 +343,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTobacco {
@@ -346,7 +354,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueVitamin {
@@ -356,7 +365,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTip {
@@ -366,7 +376,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOthers {
@@ -376,7 +387,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTotal {
@@ -386,7 +398,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueClient {
@@ -396,7 +409,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .lbelTotal {
@@ -414,6 +428,16 @@ td {
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    padding: 10px 33px 0px 0px;
+  }
+
+  .lblVaueTotalFloor2{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 10px 33px 0px 20px;
   }
 
   .lblValueTotals {
@@ -506,14 +530,6 @@ td {
     margin-top: 13%;
   }
 
-  .textColumn {
-    border-bottom: 1px solid blue;
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 3rem;
-  }
-
   .textNote {
     max-width: 0px;
     padding: 0px 0px 10px 0px;
@@ -525,7 +541,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 31px 10px 0px;
+    padding: 0px 23px 10px 0px;
   }
 
   .textTherapist {
@@ -533,8 +549,8 @@ td {
     line-height: 1.2rem;
     font-size: 18px;
     height: 3rem;
-    width: 91px;
-    padding: 10px 31px 0px 0px;
+    width: 80px;
+    padding: 10px 20px 0px 0px;
     display: inline-block;
     word-wrap: break-word;
   }
@@ -545,8 +561,8 @@ td {
     line-height: 1.2rem;
     font-size: 18px;
     height: 3rem;
-    max-width: 93px;
-    padding: 10px 12px 0px 4px;
+    max-width: 80px;
+    padding: 10px 5px 0px 4px;
     word-wrap: break-word;
   }
 
@@ -556,7 +572,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 27px 9px 7px;
+    padding: 0px 15px 9px 7px;
   }
 
   .textHour {
@@ -565,7 +581,7 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 69px 9px 0px;
+    padding: 0px 59px 9px 0px;
   }
 
   .textPay {
@@ -582,25 +598,33 @@ td {
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
+    max-width: 100px;
+    padding: 10px 24px 0px 4px;
     word-wrap: break-word;
   }
 
-  .textValue{
+  .textValue {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 36px 10px 0px;
+    padding: 0px 25px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 0px 25px 10px 0px;
     white-space: nowrap;
   }
 
-  .textVitamin{
+  .textVitamin {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    max-width: 68px;
+    max-width: 73px;
     padding: 0px 20px 0px 0px;
     word-wrap: break-word;
   }
@@ -619,7 +643,8 @@ td {
     word-wrap: break-word;
     font-family: sans-serif;
     font-size: 18px;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTherapist {
@@ -630,7 +655,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnManager {
@@ -640,7 +666,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnExit {
@@ -650,7 +677,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnHour {
@@ -658,7 +686,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnPaymentMethod {
@@ -668,7 +697,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTreatment {
@@ -677,8 +707,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor1 {
@@ -687,8 +718,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor2 {
@@ -697,8 +729,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTherapist {
@@ -707,8 +740,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueManager {
@@ -717,8 +751,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOther {
@@ -727,8 +762,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueDrink {
@@ -737,8 +773,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTobacco {
@@ -747,8 +784,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueVitamin {
@@ -757,8 +795,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTip {
@@ -767,8 +806,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOthers {
@@ -777,8 +817,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTotal {
@@ -787,8 +828,9 @@ td {
     max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: 1.2rem;
+    text-align: initial;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueClient {
@@ -798,7 +840,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 1.2rem;
+    line-height: normal;
+    height: min-content;
   }
 
   .lbelTotal {
@@ -816,6 +859,16 @@ td {
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    padding: 10px 33px 0px 0px;
+  }
+
+  .lblVaueTotalFloor2{
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 10px 33px 0px 20px;
   }
 
   .lblValueTotals {
@@ -901,15 +954,6 @@ td {
     margin-top: 4rem;
   }
 
-  .textColumn {
-    border-bottom: 1px solid blue;
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    padding: 0px 25px 10px 0px;
-  }
-
   .textNote {
     max-width: 0px;
     padding: 0px 0px 10px 0px;
@@ -930,7 +974,6 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
     padding: 0px 10px 10px 0px;
   }
 
@@ -939,7 +982,6 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
     padding: 0px 10px 10px 0px;
   }
 
@@ -980,25 +1022,28 @@ td {
     padding: 0px 10px 10px 0px;
   }
 
-  .textValue{
+  .textValue {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    line-height: 1.2rem;
     font-size: 18px;
-    height: 3rem;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
-    word-wrap: break-word;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
   }
-  
-  .textVitamin{
+
+  .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    line-height: 1.2rem;
     font-size: 18px;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
-    word-wrap: break-word;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
   }
 
   .columnNote {
@@ -1017,7 +1062,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTherapist {
@@ -1027,7 +1073,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnManager {
@@ -1037,7 +1084,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnExit {
@@ -1047,7 +1095,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnHour {
@@ -1055,7 +1104,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnPaymentMethod {
@@ -1065,7 +1115,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTreatment {
@@ -1075,7 +1126,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor1 {
@@ -1085,7 +1137,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor2 {
@@ -1095,7 +1148,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTherapist {
@@ -1105,7 +1159,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueManager {
@@ -1115,7 +1170,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOther {
@@ -1125,7 +1181,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueDrink {
@@ -1135,7 +1192,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTobacco {
@@ -1145,7 +1203,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueVitamin {
@@ -1155,7 +1214,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTip {
@@ -1165,7 +1225,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOthers {
@@ -1175,7 +1236,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTotal {
@@ -1185,7 +1247,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueClient {
@@ -1195,7 +1258,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
-    line-height: 20px;
+    line-height: normal;
+    height: min-content;
   }
 
   .lbelTotal {
@@ -1208,6 +1272,14 @@ td {
   }
 
   .lblValueTotal {
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .lblVaueTotalFloor2{
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     text-align: end;
@@ -1297,11 +1369,9 @@ td {
     margin-left: -99%;
   }
 
-  .textColumn {
-    border-bottom: 1px solid blue;
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 10px 0px;
   }
 
   .textNote {
@@ -1324,7 +1394,6 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
     padding: 0px 10px 10px 0px;
   }
 
@@ -1333,7 +1402,6 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
     padding: 0px 10px 10px 0px;
   }
 
@@ -1352,7 +1420,8 @@ td {
     font-size: 18px;
     white-space: pre;
     height: 4rem;
-    padding: 0px 10px 10px 0px;
+    width: 0px;
+    padding: 0px 74px 10px 0px;
   }
 
   .textPay {
@@ -1367,33 +1436,34 @@ td {
   .textTreatment {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    line-height: 1.2rem;
     font-size: 18px;
-    height: 3rem;
-    max-width: 93px;
-    padding: 10px 12px 0px 4px;
-    word-wrap: break-word;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
   }
 
-  .textValue{
+  .textValue {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    line-height: 1.2rem;
     font-size: 18px;
-    height: 3rem;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
-    word-wrap: break-word;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
   }
 
-  .textVitamin{
+  .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    line-height: 1.2rem;
     font-size: 18px;
-    max-width: 120px;
-    padding: 10px 44px 0px 4px;
-    word-wrap: break-word;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 10px 10px 0px;
   }
 
   .columnNote {
@@ -1413,6 +1483,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTherapist {
@@ -1423,6 +1495,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnManager {
@@ -1433,6 +1507,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnExit {
@@ -1443,6 +1519,8 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnHour {
@@ -1453,146 +1531,162 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnPaymentMethod {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnTreatment {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor1 {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnFloor2 {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTherapist {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueManager {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOther {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueDrink {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTobacco {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueVitamin {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTip {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueOthers {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueTotal {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
+    line-height: normal;
+    height: min-content;
   }
 
   .columnValueClient {
     word-wrap: break-word;
-    line-height: normal;
     max-width: 65px;
     border-bottom: hidden;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
   }
 
   .lbelTotal {
@@ -1605,6 +1699,14 @@ td {
   }
 
   .lblValueTotal {
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+
+  .lblVaueTotalFloor2{
     border-bottom: 1px solid blue;
     border-top: 1px solid blue;
     text-align: end;

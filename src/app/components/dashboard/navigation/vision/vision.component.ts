@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Services
 import { ServiceManager } from 'src/app/core/services/manager'
@@ -50,7 +49,7 @@ export class VisionComponent implements OnInit {
 
   // Conteo fecha
   count: number = 0
-  fechaHoyActual: string
+  dateTodayCurrent: string
   atrasCount: number = 0
   siguienteCount: number = 0
   fechaFormat = new Date()
@@ -91,7 +90,6 @@ export class VisionComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private modalService: NgbModal,
     private activatedRoute: ActivatedRoute,
     public service: Service,
     private serviceManager: ServiceManager,
@@ -109,9 +107,9 @@ export class VisionComponent implements OnInit {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
         if (rp[0]['rol'] == 'administrador') {
           this.administratorRole = true
-          this.getServicio()
+          this.getService()
         } else {
-          this.getServicioByManager(rp[0])
+          this.getServiceByManager(rp[0])
         }
       })
     }
@@ -152,14 +150,14 @@ export class VisionComponent implements OnInit {
     this.totalCollections = '0'
   }
 
-  getServicioByManager(manager: string) {
-    this.fechadeHoy()
-    this.fechaHoyActual = 'HOY'
+  getServiceByManager(manager: string) {
+    this.todaysDate()
+    this.dateTodayCurrent = 'HOY'
     this.service.getEncargadaAndDate(this.fechaDiaHoy, manager['nombre']).subscribe((datoServicio: any) => {
       this.vision = datoServicio
 
       if (datoServicio.length != 0) {
-        this.sumaTotalVision()
+        this.totalVisionSum()
       } else {
         this.totalsAtZero()
       }
@@ -172,14 +170,21 @@ export class VisionComponent implements OnInit {
       if (rp.length > 0) {
         if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
-            this.calculardiferencia(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'], length)
+            this.minuteDifference(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'])
+            if (rp[i]?.['horaEnd'] != "") {
+              this.therapist[i]['minuto'] = this.horaEnd
+              this.serviceTherapist.updateMinute(this.therapist[i]['id'], this.therapist[i]).subscribe((rp: any) => { })
+            } else {
+              debugger
+              this.serviceTherapist.updateHoraAndSalida(this.therapist[i]['nombre'], this.therapist[i]).subscribe((resp: any) => { })
+            }
           }
         }
       }
     })
   }
 
-  fechadeHoy() {
+  todaysDate() {
     let convertDia
     let currentDate = new Date()
     let dia = currentDate.getDate()
@@ -192,35 +197,22 @@ export class VisionComponent implements OnInit {
     }
   }
 
-  getServicio() {
-    this.fechadeHoy()
-    this.fechaHoyActual = 'HOY'
+  getService() {
+    this.todaysDate()
+    this.dateTodayCurrent = 'HOY'
 
     this.service.getFechaHoy(this.fechaDiaHoy).subscribe((datoServicio: any) => {
       this.vision = datoServicio
 
       if (datoServicio.length != 0) {
-        this.sumaTotalVision()
+        this.totalVisionSum()
       } else {
         this.totalsAtZero()
       }
     })
   }
 
-  notas(targetModal, modal) {
-    var notaMensaje = []
-    this.service.getById(targetModal).subscribe((datoServicio: any) => {
-      notaMensaje = datoServicio[0]
-
-      if (notaMensaje['nota'] != '')
-        this.modalService.open(modal, {
-          centered: true,
-          backdrop: 'static',
-        })
-    })
-  }
-
-  calculardiferencia(horaFin: string, nombre: string, fecha: string, id: number): string {
+  minuteDifference(horaFin: string, nombre: string, fecha: string) {
 
     let hora_actual: any = new Date(), convertHora = '', fechaEnd = '', convertFecha = '',
       fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
@@ -263,19 +255,9 @@ export class VisionComponent implements OnInit {
       }
 
       if (convertFecha < fechaEnd) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((datoMinute: any) => {
-          for (let i = 0; i < datoMinute.length; i++) {
-            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((resp: any) => { })
-          }
-        })
-      }
-
-      if (convertFecha != "" && hora_final <= hora_inicio) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((datoMinute: any) => {
-          for (let i = 0; i < datoMinute.length; i++) {
-            if (datoMinute[i]['horaEnd'] <= hora_inicio) {
-              this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((resp: any) => { })
-            }
+        this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
+          for (let i = 0; i < rp.length; i++) {
+            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((rp: any) => { })
           }
         })
       }
@@ -315,15 +297,7 @@ export class VisionComponent implements OnInit {
       this.horaEnd = this.horaHoy
     }
 
-    this.therapist[id].minuto = this.horaEnd.toString()
-
     return this.horaEnd
-  }
-
-  editamos(id: string) {
-    this.router.navigate([
-      `menu/${this.idUser['id']}/nuevo-servicio/${id}`
-    ])
   }
 
   validateTheEmptyField() {
@@ -347,7 +321,7 @@ export class VisionComponent implements OnInit {
   }
 
   // Suma de TOTALES
-  sumaTotalVision() {
+  totalVisionSum() {
     let efectPiso1 = 0, efectPiso2 = 0, bizumPiso1 = 0, bizumPiso2 = 0, tarjetaPiso1 = 0, tarjetaPiso2 = 0,
       transfPiso1 = 0, transfPiso2 = 0
 
@@ -821,7 +795,7 @@ export class VisionComponent implements OnInit {
     this.validateTheEmptyField()
   }
 
-  atras() {
+  backArrow() {
     let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
       añoHoy = 0, convertMesHoy = '', convertAno = ''
 
@@ -873,15 +847,15 @@ export class VisionComponent implements OnInit {
 
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
 
-        if (fechaEnd == fechaHoy) this.fechaHoyActual = 'HOY'
-        else this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
+        if (fechaEnd == fechaHoy) this.dateTodayCurrent = 'HOY'
+        else this.dateTodayCurrent = `${convertDia}/${mes}/${convertionAño}`
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
         this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
           this.vision = datoServicio
 
-          if (datoServicio.length > 0) this.sumaTotalVision()
+          if (datoServicio.length > 0) this.totalVisionSum()
           else this.totalsAtZero()
         })
 
@@ -923,10 +897,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'HOY'
+          this.dateTodayCurrent = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
+          this.dateTodayCurrent = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
@@ -935,7 +909,7 @@ export class VisionComponent implements OnInit {
           this.vision = datoServicio
 
           if (datoServicio.length > 0) {
-            this.sumaTotalVision()
+            this.totalVisionSum()
           } else {
             this.totalsAtZero()
           }
@@ -949,7 +923,7 @@ export class VisionComponent implements OnInit {
     return false
   }
 
-  siguiente() {
+  nextArrow() {
     let fechaDia = new Date(), mesDelDia = 0, convertMess = '', messs = '', convertimosMes = 0
     mesDelDia = fechaDia.getMonth() + 1
 
@@ -1023,10 +997,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'HOY'
+          this.dateTodayCurrent = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
+          this.dateTodayCurrent = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
@@ -1035,7 +1009,7 @@ export class VisionComponent implements OnInit {
           this.vision = datoServicio
 
           if (datoServicio.length > 0) {
-            this.sumaTotalVision()
+            this.totalVisionSum()
           } else {
             this.totalsAtZero()
           }
@@ -1083,10 +1057,10 @@ export class VisionComponent implements OnInit {
         fechaHoy = `${convertAño}-${mes}-${convertDia}`
 
         if (fechaEnd == fechaHoy) {
-          this.fechaHoyActual = 'HOY'
+          this.dateTodayCurrent = 'HOY'
         }
         else {
-          this.fechaHoyActual = `${convertDia}/${mes}/${convertionAño}`
+          this.dateTodayCurrent = `${convertDia}/${mes}/${convertionAño}`
         }
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
@@ -1095,7 +1069,7 @@ export class VisionComponent implements OnInit {
           this.vision = datoServicio
 
           if (datoServicio.length > 0) {
-            this.sumaTotalVision()
+            this.totalVisionSum()
           } else {
             this.totalsAtZero()
           }
@@ -1109,7 +1083,7 @@ export class VisionComponent implements OnInit {
     return false
   }
 
-  editNombre(nombre: string) {
+  editByName(nombre: string) {
     this.service.getTerapeutaWithCurrentDate(nombre).subscribe((rp: any) => {
       if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
     })

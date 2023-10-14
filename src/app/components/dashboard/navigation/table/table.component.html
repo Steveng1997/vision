@@ -109,7 +109,7 @@
                                 <td class="quitarBordesVacio lbelTotal"> TOTALES </td>
                                 <td class="bordeTotal lblValueTotal"> {{totalServicio + '€'}} </td>
                                 <td class="bordeTotal lblValueTotal">{{totalPiso + '€'}}</td>
-                                <td class="bordeTotal lblValueTotal">{{totalPiso2 + '€'}}</td>
+                                <td class="bordeTotal lblVaueTotalFloor2">{{totalPiso2 + '€'}}</td>
                                 <td class="bordeTotal lblValueTotal">{{totalValorTerapeuta + '€'}} </td>
                                 <td class="bordeTotal lblValueTotal">{{totalValorEncargada + '€'}} </td>
                                 <td class="bordeTotal lblValueTotal">{{totalValorAOtros + '€'}} </td>
@@ -150,19 +150,19 @@
                                 <!-- 13 -->
                                 <th class="textValue">€ a otros </th>
                                 <!-- 14 -->
-                                <th class="textValue"> Bebida </th>
+                                <th class="textColumn"> Bebida </th>
                                 <!-- 15 -->
-                                <th class="textValue"> Tabaco </th>
+                                <th class="textColumn"> Tabaco </th>
                                 <!-- 16 -->
                                 <th class="textVitamin"> Vitamina </th>
                                 <!-- 17 -->
-                                <th class="textValue"> Propina </th>
+                                <th class="textColumn"> Propina </th>
                                 <!-- 18 -->
-                                <th class="textValue"> Otros </th>
+                                <th class="textColumn"> Otros </th>
                                 <!-- 19 -->
-                                <th class="textValue"> Total </th>
+                                <th class="textColumn"> Total </th>
                                 <!-- 20 -->
-                                <th class="textValue"> Cliente </th>
+                                <th class="textColumn"> Cliente </th>
                             </tr>
                         </thead>
                         <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
