@@ -170,14 +170,10 @@ export class VisionComponent implements OnInit {
       if (rp.length > 0) {
         if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
-            this.minuteDifference(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'])
+            this.minuteDifference(rp[i]?.horaEnd, rp[i]?.nombre, rp[i]?.fechaEnd)
             if (rp[i]?.minuto != null && rp[i]?.minuto != "") {
               this.therapist[i]['minuto'] = this.horaEnd
-              this.serviceTherapist.updateMinute(this.therapist[i]['id'], this.therapist[i]).subscribe((rp: any) => {
-                return true
-              })
-            } else {
-              this.serviceTherapist.updateHoraAndSalida(this.therapist[i]['nombre'], this.therapist[i]).subscribe((resp: any) => {
+              this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp: any) => {
                 return true
               })
             }
@@ -259,10 +255,15 @@ export class VisionComponent implements OnInit {
 
       if (convertFecha < fechaEnd) {
         this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
+          this.therapist[0].fechaEnd = ""
+          this.therapist[0].horaEnd = ""
+          this.therapist[0].minuto = ""
+          this.therapist[0].salida = ""
           for (let i = 0; i < rp.length; i++) {
-            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapistModel).subscribe((rp: any) => { })
+            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => { })
           }
         })
+        return ''
       }
     }
 
@@ -282,7 +283,14 @@ export class VisionComponent implements OnInit {
     }
 
     // Si la hora final es anterior a la hora inicial sale
-    if (minutos_final < minutos_inicio) return ''
+    if (minutos_final <= minutos_inicio) {
+      this.therapist[0].fechaEnd = ""
+      this.therapist[0].horaEnd = ""
+      this.therapist[0].minuto = ""
+      this.therapist[0].salida = ""
+      this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((resp: any) => { })
+      return ''
+    }
 
     // Diferencia de minutos
     var diferencia = parseInt(minutos_final) - minutos_inicio
@@ -814,8 +822,6 @@ export class VisionComponent implements OnInit {
     let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
       añoHoy = 0, convertMesHoy = ''
 
-    debugger
-
     diaHoy = fechHoy.getDate()
     mesHoy = fechHoy.getMonth() + 1
     añoHoy = fechHoy.getFullYear()
@@ -870,12 +876,20 @@ export class VisionComponent implements OnInit {
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
         this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
-          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
-            this.vision = rp
+          if (rp[0]['rol'] == 'administrador') {
+            this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
+              this.vision = rp
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          } else {
+            this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+              this.vision = rp
 
-            if (rp.length > 0) this.totalVisionSum()
-            else this.totalsAtZero()
-          })
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          }
         })
 
         this.atrasCount = this.count
@@ -925,15 +939,20 @@ export class VisionComponent implements OnInit {
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
         this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
-          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
-            this.vision = rp
+          if (rp[0]['rol'] == 'administrador') {
+            this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
+              this.vision = rp
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          } else {
+            this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+              this.vision = rp
 
-            if (rp.length > 0) {
-              this.totalVisionSum()
-            } else {
-              this.totalsAtZero()
-            }
-          })
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          }
         })
 
         this.atrasCount = this.count
@@ -1026,18 +1045,21 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        debugger
-
         this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
-          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
-            this.vision = rp
+          if (rp[0]['rol'] == 'administrador') {
+            this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
+              this.vision = rp
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          } else {
+            this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+              this.vision = rp
 
-            if (rp.length > 0) {
-              this.totalVisionSum()
-            } else {
-              this.totalsAtZero()
-            }
-          })
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          }
         })
 
         this.atrasCount = 0
@@ -1091,15 +1113,20 @@ export class VisionComponent implements OnInit {
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
         this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
-          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
-            this.vision = rp
+          if (rp[0]['rol'] == 'administrador') {
+            this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
+              this.vision = rp
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          } else {
+            this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+              this.vision = rp
 
-            if (rp.length > 0) {
-              this.totalVisionSum()
-            } else {
-              this.totalsAtZero()
-            }
-          })
+              if (rp.length > 0) this.totalVisionSum()
+              else this.totalsAtZero()
+            })
+          }
         })
 
         this.siguienteCount = this.count

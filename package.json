@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -- --max_old_space_size=4096 start",
-    "build": "ng build  --prod --build-optimizer",
+    "build": "ng build --prod --build-optimizer --no-sourcemap",
     "test": "ng test"
   },
   "private": true,
