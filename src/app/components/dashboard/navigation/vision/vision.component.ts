@@ -171,12 +171,15 @@ export class VisionComponent implements OnInit {
         if (rp?.horaEnd != "") {
           for (let i = 0; rp.length; i++) {
             this.minuteDifference(rp[i]?.['horaEnd'], rp[i]?.['nombre'], rp[i]?.['fechaEnd'])
-            if (rp[i]?.['horaEnd'] != "") {
+            if (rp[i]?.minuto != null && rp[i]?.minuto != "") {
               this.therapist[i]['minuto'] = this.horaEnd
-              this.serviceTherapist.updateMinute(this.therapist[i]['id'], this.therapist[i]).subscribe((rp: any) => { })
+              this.serviceTherapist.updateMinute(this.therapist[i]['id'], this.therapist[i]).subscribe((rp: any) => {
+                return true
+              })
             } else {
-              debugger
-              this.serviceTherapist.updateHoraAndSalida(this.therapist[i]['nombre'], this.therapist[i]).subscribe((resp: any) => { })
+              this.serviceTherapist.updateHoraAndSalida(this.therapist[i]['nombre'], this.therapist[i]).subscribe((resp: any) => {
+                return true
+              })
             }
           }
         }
@@ -351,6 +354,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTreatment = integer[0].toString()
+    } else {
+      this.totalTreatment = totalServ
     }
 
     const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
@@ -377,6 +382,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalDrinks = integer[0].toString()
+    } else {
+      this.totalDrinks = totalValorBebida
     }
 
     const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
@@ -405,6 +412,8 @@ export class VisionComponent implements OnInit {
 
       integerPart = [integerPart.toString().replace(/,/gi, "")]
       this.totalTobacco = integerPart[0].toString()
+    } else {
+      this.totalTobacco = totalValorTab
     }
 
     const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
@@ -433,6 +442,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalVitamin = integer[0].toString()
+    } else {
+      this.totalVitamin = totalValorVitamina
     }
 
     const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
@@ -461,6 +472,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTip = integer[0].toString()
+    } else {
+      this.totalTip = totalValorProp
     }
 
     const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
@@ -489,6 +502,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOthers = integer[0].toString()
+    } else {
+      this.totalOthers = totalValorOtroServicio
     }
 
     this.totalVision = this.totalServicio + this.totalBebida + this.totalTobaccoo +
@@ -797,7 +812,9 @@ export class VisionComponent implements OnInit {
 
   backArrow() {
     let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
-      añoHoy = 0, convertMesHoy = '', convertAno = ''
+      añoHoy = 0, convertMesHoy = ''
+
+    debugger
 
     diaHoy = fechHoy.getDate()
     mesHoy = fechHoy.getMonth() + 1
@@ -852,11 +869,13 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
-          this.vision = datoServicio
+        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+            this.vision = rp
 
-          if (datoServicio.length > 0) this.totalVisionSum()
-          else this.totalsAtZero()
+            if (rp.length > 0) this.totalVisionSum()
+            else this.totalsAtZero()
+          })
         })
 
         this.atrasCount = this.count
@@ -905,14 +924,16 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
-          this.vision = datoServicio
+        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+            this.vision = rp
 
-          if (datoServicio.length > 0) {
-            this.totalVisionSum()
-          } else {
-            this.totalsAtZero()
-          }
+            if (rp.length > 0) {
+              this.totalVisionSum()
+            } else {
+              this.totalsAtZero()
+            }
+          })
         })
 
         this.atrasCount = this.count
@@ -1005,14 +1026,18 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
-          this.vision = datoServicio
+        debugger
 
-          if (datoServicio.length > 0) {
-            this.totalVisionSum()
-          } else {
-            this.totalsAtZero()
-          }
+        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+            this.vision = rp
+
+            if (rp.length > 0) {
+              this.totalVisionSum()
+            } else {
+              this.totalsAtZero()
+            }
+          })
         })
 
         this.atrasCount = 0
@@ -1065,14 +1090,16 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.service.getFechaHoy(fechaActualmente).subscribe((datoServicio: any) => {
-          this.vision = datoServicio
+        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+          this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
+            this.vision = rp
 
-          if (datoServicio.length > 0) {
-            this.totalVisionSum()
-          } else {
-            this.totalsAtZero()
-          }
+            if (rp.length > 0) {
+              this.totalVisionSum()
+            } else {
+              this.totalsAtZero()
+            }
+          })
         })
 
         this.siguienteCount = this.count

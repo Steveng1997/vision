@@ -345,6 +345,15 @@ export class Service {
     });
   }
 
+  getFechaAndId(id: number, fechaHoyInicio: string) {
+    return this.http.get(`${this.API_URL}/getFechaWithId`, {
+      params: {
+        id,
+        fechaHoyInicio
+      }
+    });
+  }
+
 
   // Update
 
