@@ -402,7 +402,10 @@ export class NewServiceComponent implements OnInit {
 
               this.service.registerServicio(this.services).subscribe((rp: any) => {
                 if (rp) {
-                  localStorage.clear();
+                  localStorage.removeItem('Efectivo')
+                  localStorage.removeItem('Bizum')
+                  localStorage.removeItem('Tarjeta')
+                  localStorage.removeItem('Trans')
                   setTimeout(() => {
                     this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
                     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
@@ -1700,9 +1703,12 @@ export class NewServiceComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
             this.serviceTherapist.getTerapeuta(datoEliminado[0]['terapeuta']).subscribe((rp: any) => {
-              this.serviceTherapist.updateHoraAndSalida(this.services.terapeuta, this.therapist)
+              this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
             })
-            localStorage.clear();
+            localStorage.removeItem('Efectivo')
+            localStorage.removeItem('Bizum')
+            localStorage.removeItem('Tarjeta')
+            localStorage.removeItem('Trans')
             this.service.deleteServicio(id).subscribe((rp: any) => {
               this.router.navigate([`menu/${idUser}/vision/${idUser}`])
               Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
@@ -1714,7 +1720,10 @@ export class NewServiceComponent implements OnInit {
   }
 
   cancel() {
-    localStorage.clear();
+    localStorage.removeItem('Efectivo')
+    localStorage.removeItem('Bizum')
+    localStorage.removeItem('Tarjeta')
+    localStorage.removeItem('Trans')
     this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
   }

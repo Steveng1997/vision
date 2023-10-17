@@ -402,11 +402,16 @@ export class TableComponent implements OnInit {
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!'
         }).then((result) => {
+          this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
+            this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
+          })
+
           for (let i = 0; this.idService.length; i++) {
             this.service.deleteServicio(this.idService[i].id).subscribe((rp: any) => {
               this.getServices()
             })
           }
+          
           Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
         })
       }

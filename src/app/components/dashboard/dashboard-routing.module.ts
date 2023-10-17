@@ -17,7 +17,6 @@ const routes: Routes = [
   {
     path: 'menu/:id',
     component: SidenavWrapperComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: 'vision/:id',
