@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 // Models
 import { ModelManager } from '../models/manager';
@@ -14,7 +15,8 @@ export class ServiceManager {
 
   constructor(
     public router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService
   ) { }
 
   // Register
@@ -48,6 +50,14 @@ export class ServiceManager {
         pass
       }
     });
+  }
+
+  isAuth():boolean{
+    const token = localStorage.getItem('token');
+    if(this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')){
+      return false;
+    }
+    return true;
   }
 
   getUsuarios() {

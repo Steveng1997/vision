@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,10 @@ import { ServiceManager } from './core/services/manager';
 import { ServiceLiquidationTherapist } from './core/services/therapistCloseouts';
 import { ServiceLiquidationManager } from './core/services/managerCloseouts';
 import { ServiceClosing } from './core/services/closing';
+
+// Providers
+import { JwtHelperService, JWT_OPTIONS }  from '@auth0/angular-jwt'
+import { TokenInterceptorService } from './core/services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,12 @@ import { ServiceClosing } from './core/services/closing';
     ServiceLiquidationTherapist,
     ServiceLiquidationManager,
     ServiceClosing,
+
+    // JWT
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+    // Token interceptor
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })

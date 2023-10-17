@@ -15,17 +15,6 @@
   border-style: hidden;
 }
 
-/* .tableFixHead thead th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-} */
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -33,26 +22,22 @@ table {
 
 th,
 td {
-  padding: 8px 16px;
+  padding: 10px;
 }
-
-/* th {
-  background: white;
-} */
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
 
-  .container{
+  .container {
     overflow-x: hidden;
   }
 
   .color2 {
-    background: blue;
-    width: 25px;
-    height: 25px;
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 31%;
+    margin-top: 43%;
     margin-left: 20%;
   }
 
@@ -136,17 +121,16 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 23px 10px 0px;
+    padding: 0px 15px 10px 0px;
   }
 
   .textTherapist {
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    width: 100px;
-    padding: 10px 40px 0px 0px;
-    display: inline-block;
+    width: 80px;
+    padding: 16px 20px 0px 0px;
+    display: block;
     word-wrap: break-word;
   }
 
@@ -165,8 +149,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 10px 9px 7px;
   }
 
   .textHour {
@@ -174,8 +157,15 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 59px 9px 0px;
+    padding: 0px 0px 9px 0px;
+  }
+
+  .textMin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 15px 9px 7px;
   }
 
   .textPay {
@@ -183,8 +173,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 0px 9px 0px;
+    padding: 0px 23px 9px 0px;
   }
 
   .textTreatment {
@@ -201,15 +190,25 @@ td {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 25px 0px 0px;
+    padding: 0px 10px 0px 0px;
     line-height: 1.2rem;
+  }
+
+  .textTip{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 40px;
+    padding: 10px 13px 0px 0px;
+    word-wrap: break-word;
   }
 
   .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 25px 10px 0px;
+    padding: 0px 13px 10px 0px;
     white-space: nowrap;
   }
 
@@ -224,19 +223,15 @@ td {
   }
 
   .columnNote {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
+    border-top: hidden;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 16px;
   }
 
   .columnDate {
     border-bottom: hidden;
     word-wrap: break-word;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: normal;
     height: min-content;
   }
@@ -247,7 +242,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -258,8 +253,19 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
     line-height: normal;
     height: min-content;
   }
@@ -269,7 +275,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -278,7 +284,7 @@ td {
   .columnHour {
     border-bottom: hidden;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -289,7 +295,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -300,7 +306,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -311,7 +317,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -322,7 +328,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -333,7 +339,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -344,7 +350,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -355,7 +361,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -366,7 +372,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -377,7 +383,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -388,7 +394,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -399,7 +405,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -410,7 +416,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -421,7 +427,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -432,7 +438,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -442,52 +448,46 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid blue;
-    border-left: 1px solid blue;
-    border-top: 1px solid blue;
+    color: #8C52FF;
   }
 
   .lblValueTotal {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
     padding: 10px 33px 0px 0px;
+    color: #8C52FF;
   }
 
   .lblVaueTotalFloor2 {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
     padding: 10px 33px 0px 20px;
+    color: #8C52FF;
   }
 
   .lblValueTotals {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
-    border-right: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    color: #8C52FF;
   }
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
 
-  .container{
+  .container {
     overflow-x: hidden;
   }
 
   .color2 {
-    background: blue;
-    width: 25px;
-    height: 25px;
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 31%;
+    margin-top: 43%;
     margin-left: 20%;
   }
 
@@ -572,17 +572,16 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 23px 10px 0px;
+    padding: 0px 15px 10px 0px;
   }
 
   .textTherapist {
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 18px;
-    width: 100px;
-    padding: 10px 40px 0px 0px;
-    display: inline-block;
+    width: 80px;
+    padding: 16px 20px 0px 0px;
+    display: block;
     word-wrap: break-word;
   }
 
@@ -601,8 +600,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 10px 9px 7px;
   }
 
   .textHour {
@@ -610,8 +608,15 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 59px 9px 0px;
+    padding: 0px 0px 9px 0px;
+  }
+
+  .textMin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 15px 9px 7px;
   }
 
   .textPay {
@@ -619,8 +624,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 3rem;
-    padding: 0px 0px 9px 0px;
+    padding: 0px 23px 9px 0px;
   }
 
   .textTreatment {
@@ -637,15 +641,25 @@ td {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 25px 0px 0px;
+    padding: 0px 10px 0px 0px;
     line-height: 1.2rem;
+  }
+
+  .textTip{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 18px;
+    max-width: 40px;
+    padding: 10px 13px 0px 0px;
+    word-wrap: break-word;
   }
 
   .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 25px 10px 0px;
+    padding: 0px 13px 10px 0px;
     white-space: nowrap;
   }
 
@@ -660,19 +674,15 @@ td {
   }
 
   .columnNote {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
+    border-top: hidden;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 16px;
   }
 
   .columnDate {
     border-bottom: hidden;
     word-wrap: break-word;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: normal;
     height: min-content;
   }
@@ -683,7 +693,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -694,8 +704,19 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
     line-height: normal;
     height: min-content;
   }
@@ -705,7 +726,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -714,7 +735,7 @@ td {
   .columnHour {
     border-bottom: hidden;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -725,7 +746,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -736,7 +757,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -747,7 +768,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -758,7 +779,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -769,7 +790,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -780,7 +801,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -791,7 +812,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -802,7 +823,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -813,7 +834,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -824,7 +845,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -835,7 +856,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -846,7 +867,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -857,7 +878,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: end;
     line-height: normal;
     height: min-content;
@@ -868,7 +889,7 @@ td {
     word-wrap: break-word;
     max-width: 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     line-height: normal;
     height: min-content;
@@ -878,43 +899,37 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid blue;
-    border-left: 1px solid blue;
-    border-top: 1px solid blue;
+    color: #8C52FF;
   }
 
   .lblValueTotal {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
     padding: 10px 33px 0px 0px;
+    color: #8C52FF;
   }
 
   .lblVaueTotalFloor2 {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
     padding: 10px 33px 0px 20px;
+    color: #8C52FF;
   }
 
   .lblValueTotals {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
-    border-right: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    color: #8C52FF;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
   .color2 {
-    background: blue;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1020,8 +1035,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
-    padding: 0px 10px 10px 0px;
+    padding: 0px 27px 10px 0px;
   }
 
   .textHour {
@@ -1031,7 +1045,13 @@ td {
     white-space: pre;
     height: 4rem;
     width: 0px;
-    padding: 0px 74px 10px 0px;
+    padding: 0px 45px 10px 0px;
+  }
+
+  .textMin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 
   .textPay {
@@ -1060,6 +1080,15 @@ td {
     padding: 0px 10px 10px 0px;
   }
 
+  .textTip{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
   .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
@@ -1077,12 +1106,8 @@ td {
   }
 
   .columnNote {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
+    border-top: hidden;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 16px;
   }
 
   .columnDate {
@@ -1114,6 +1139,17 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: center;
     line-height: normal;
     height: min-content;
   }
@@ -1296,41 +1332,35 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid blue;
-    border-left: 1px solid blue;
-    border-top: 1px solid blue;
+    color: #8C52FF;
   }
 
   .lblValueTotal {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    color: #8C52FF;
   }
 
   .lblVaueTotalFloor2 {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    color: #8C52FF;
   }
 
   .lblValueTotals {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
-    border-right: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
+    color: #8C52FF;
   }
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
 
   .color2 {
-    background: blue;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1440,8 +1470,7 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    height: 4rem;
-    padding: 0px 10px 10px 0px;
+    padding: 0px 27px 10px 0px;
   }
 
   .textHour {
@@ -1451,7 +1480,13 @@ td {
     white-space: pre;
     height: 4rem;
     width: 0px;
-    padding: 0px 74px 10px 0px;
+    padding: 0px 45px 10px 0px;
+  }
+
+  .textMin{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 
   .textPay {
@@ -1480,6 +1515,15 @@ td {
     padding: 0px 10px 10px 0px;
   }
 
+  .textTip{
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 10px 10px 0px;
+  }
+
   .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
@@ -1497,12 +1541,8 @@ td {
   }
 
   .columnNote {
-    word-wrap: break-word;
-    line-height: normal;
-    max-width: 65px;
+    border-top: hidden;
     border-bottom: hidden;
-    font-family: sans-serif;
-    font-size: 16px;
   }
 
   .columnDate {
@@ -1537,6 +1577,17 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: center;
     line-height: normal;
     height: min-content;
   }
@@ -1723,31 +1774,22 @@ td {
     font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid blue;
-    border-left: 1px solid blue;
-    border-top: 1px solid blue;
+    color: #8C52FF;
   }
 
   .lblValueTotal {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
   }
 
   .lblVaueTotalFloor2 {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
   }
 
   .lblValueTotals {
-    border-bottom: 1px solid blue;
-    border-top: 1px solid blue;
-    border-right: 1px solid blue;
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;

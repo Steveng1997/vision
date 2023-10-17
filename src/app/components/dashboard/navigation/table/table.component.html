@@ -95,7 +95,7 @@
                 </form>
 
 
-                <div class="row g-0 adjustTable tableFixHead">
+                <div class="row g-0 adjustTable">
 
                     <table class="table" id="excel-table">
                         <thead>
@@ -104,135 +104,135 @@
                                 <td class="quitarBordesVacio"></td>
                                 <td class="quitarBordesVacio"></td>
                                 <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio lbelTotal"> TOTALES: </td>
                                 <td class="quitarBordesVacio"></td>
-                                <td class="quitarBordesVacio" style="border-right: 1px solid blue;"></td>
-                                <td class="quitarBordesVacio lbelTotal"> TOTALES </td>
-                                <td class="bordeTotal lblValueTotal"> {{totalServicio + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalPiso + '€'}}</td>
-                                <td class="bordeTotal lblVaueTotalFloor2">{{totalPiso2 + '€'}}</td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorTerapeuta + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorEncargada + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorAOtros + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{TotalValorBebida + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{TotalValorTabaco + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorVitaminas + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorPropina + '€'}} </td>
-                                <td class="bordeTotal lblValueTotal">{{totalValorOtroServ + '€'}} </td>
-                                <td class="bordeTotal lblValueTotals"> {{totalValor + '€'}}</td>
-                                <td class="quitarBordesVacio" style="border-left: 1px solid blue;"></td>
+                                <td class="quitarBordesVacio lblValueTotals"> {{totalValor + ' €'}}</td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio"></td>
+                                <td class="quitarBordesVacio lblValueTotal"> {{totalServicio + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalPiso + ' €'}}</td>
+                                <td class="quitarBordesVacio lblVaueTotalFloor2">{{totalPiso2 + ' €'}}</td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorTerapeuta + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorEncargada + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorAOtros + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{TotalValorBebida + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{TotalValorTabaco + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorVitaminas + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorPropina + ' €'}} </td>
+                                <td class="quitarBordesVacio lblValueTotal">{{totalValorOtroServ + ' €'}} </td>
+                                <td class="quitarBordesVacio"></td>
                             </tr>
 
                             <tr style="line-height: 0%; letter-spacing: 0px;">
-                                <!-- 1 -->
+
                                 <th class="textNote"></th>
-                                <!-- 2 -->
-                                <th class="textDate"> Fecha </th>
-                                <!-- 3 -->
-                                <th class="textTherapist"> Terapeuta </th>
-                                <!-- 4 -->
+
                                 <th class="textManager">Encargada </th>
-                                <!-- 5 -->
-                                <th class="textExit"> Salida </th>
-                                <!-- 6 -->
-                                <th class="textHour"> Hora </th>
-                                <!-- 7 -->
-                                <th class="textPay"> Pago </th>
-                                <!-- 8 -->
-                                <th class="textTreatment"> Tratamiento </th>
-                                <!-- 9 -->
-                                <th class="textValue">€ a piso 1 </th>
-                                <!-- 10 -->
-                                <th class="textValue">€ a piso 2 </th>
-                                <!-- 11 -->
-                                <th class="textValue">€ a terap. </th>
-                                <!-- 12 -->
-                                <th class="textValue">€ a enc. </th>
-                                <!-- 13 -->
-                                <th class="textValue">€ a otros </th>
-                                <!-- 14 -->
-                                <th class="textColumn"> Bebida </th>
-                                <!-- 15 -->
-                                <th class="textColumn"> Tabaco </th>
-                                <!-- 16 -->
-                                <th class="textVitamin"> Vitamina </th>
-                                <!-- 17 -->
-                                <th class="textColumn"> Propina </th>
-                                <!-- 18 -->
-                                <th class="textColumn"> Otros </th>
-                                <!-- 19 -->
+
+                                <th class="textDate"> Fecha </th>
+
+                                <th class="textTherapist"> Terapeuta </th>
+
+                                <th class="textHour"> Tiempo </th>
+
+                                <th class="textMin"> Min </th>
+
                                 <th class="textColumn"> Total </th>
-                                <!-- 20 -->
+
+                                <th class="textPay"> Pago </th>
+
+                                <th class="textExit"> Salida </th>
+
+                                <th class="textTreatment"> Tratamiento </th>
+
+                                <th class="textValue">€ a piso 1 </th>
+
+                                <th class="textValue">€ a piso 2 </th>
+
+                                <th class="textValue">€ a terap. </th>
+
+                                <th class="textValue">€ a enc. </th>
+
+                                <th class="textValue">€ a otros </th>
+
+                                <th class="textColumn"> Bebida </th>
+
+                                <th class="textColumn"> Tabaco </th>
+
+                                <th class="textVitamin"> Vitamina </th>
+
+                                <th class="textTip"> Propina </th>
+
+                                <th class="textColumn"> Otros </th>
+
                                 <th class="textColumn"> Cliente </th>
                             </tr>
                         </thead>
+                        
                         <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
                             encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
                             busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
                             paginate: { itemsPerPage: 100, currentPage: page }">
+
                             <tr style="cursor: pointer; line-height: 0%;">
-                                <!-- 1 -->
+
                                 <td class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
                                     (click)="notes(services.id, modalTabl)">
                                 </td>
-                                <!-- 2 -->
-                                <td (click)="editForm(services.id)" class="columnDate">
-                                    {{services.fecha}} </td>
-                                <!-- 3 -->
-                                <td (click)="editForm(services.id)" class="columnTherapist">
-                                    {{services.terapeuta}}</td>
-                                <!-- 4 -->
+
                                 <td (click)="editForm(services.id)" class="columnManager"> {{services.encargada}}</td>
-                                <!-- 5 -->
-                                <td (click)="editForm(services.id)" class="columnExit"> {{services.salida }} </td>
-                                <!-- 6 -->
+
+                                <td (click)="editForm(services.id)" class="columnDate"> {{services.fecha}} </td>
+
+                                <td (click)="editForm(services.id)" class="columnTherapist"> {{services.terapeuta}}</td>
+
                                 <td (click)="editForm(services.id)" class="columnHour">
                                     {{services.horaStart + '-' + services.horaEnd }}
                                 </td>
-                                <!-- 7 -->
-                                <td (click)="editForm(services.id)" class="columnPaymentMethod">
-                                    {{services.formaPago}} </td>
-                                <!-- 8 -->
-                                <td (click)="editForm(services.id)" class="columnTreatment">
-                                    {{services.servicio + ' €'}}</td>
-                                <!-- 9 -->
-                                <td (click)="editForm(services.id)" class="columnFloor1">
-                                    {{services.numberPiso1 + ' €'}}</td>
-                                <!-- 10 -->
-                                <td (click)="editForm(services.id)" class="columnFloor2">
-                                    {{services.numberPiso2 + ' €'}}</td>
-                                <!-- 11 -->
-                                <td (click)="editForm(services.id)" class="columnValueTherapist">
-                                    {{services.numberTerap + ' €'}}</td>
-                                <!-- 12 -->
-                                <td (click)="editForm(services.id)" class="columnValueManager">
-                                    {{services.numberEncarg + ' €'}}</td>
-                                <!-- 13 -->
-                                <td (click)="editForm(services.id)" class="columnValueOther">
-                                    {{services.numberOtro + ' €'}}</td>
-                                <!-- 14 -->
-                                <td (click)="editForm(services.id)" class="columnValueDrink">
-                                    {{services.bebidas +
-                                    ' €'}}</td>
-                                <!-- 15 -->
-                                <td (click)="editForm(services.id)" class="columnValueTobacco">
-                                    {{services.tabaco +
-                                    ' €'}}</td>
-                                <!-- 16 -->
-                                <td (click)="editForm(services.id)" class="columnValueVitamin">
-                                    {{services.vitaminas
-                                    + ' €'}}</td>
-                                <!-- 17 -->
-                                <td (click)="editForm(services.id)" class="columnValueTip">
-                                    {{services.propina +
-                                    ' €'}}</td>
-                                <!-- 18 -->
-                                <td (click)="editForm(services.id)" class="columnValueOthers">
-                                    {{services.otros+ '
-                                    €'}}</td>
-                                <!-- 19 -->
+
+                                <td (click)="editForm(services.id)" class="columnMin"> {{services.minuto }} </td>
+
                                 <td (click)="editForm(services.id)" class="columnValueTotal">
                                     {{services.totalServicio+ ' €'}}</td>
-                                <!-- 20 -->
+
+                                <td (click)="editForm(services.id)" class="columnPaymentMethod">
+                                    {{services.formaPago}} </td>
+
+                                <td (click)="editForm(services.id)" class="columnExit"> {{services.salida }} </td>
+
+                                <td (click)="editForm(services.id)" class="columnTreatment">
+                                    {{services.servicio + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnFloor1">
+                                    {{services.numberPiso1 + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnFloor2">
+                                    {{services.numberPiso2 + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueTherapist">
+                                    {{services.numberTerap + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueManager">
+                                    {{services.numberEncarg + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueOther">
+                                    {{services.numberOtro + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueDrink">
+                                    {{services.bebidas + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueTobacco">
+                                    {{services.tabaco + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueVitamin">
+                                    {{services.vitaminas + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueTip">
+                                    {{services.propina + ' €'}}</td>
+
+                                <td (click)="editForm(services.id)" class="columnValueOthers">
+                                    {{services.otros+ ' €'}}</td>
+
                                 <td (click)="editForm(services.id)" class="columnValueClient">
                                     {{services.cliente}}
                                 </td>
