@@ -2,7 +2,7 @@
   .container {
     overflow-x: hidden;
     position: sticky;
-    top:80px;
+    top: 80px;
   }
 
   .newService {
@@ -365,7 +365,7 @@
   .container {
     overflow-x: hidden;
     position: sticky;
-    top:80px;
+    top: 80px;
   }
 
   .newService {
@@ -772,6 +772,7 @@
     grid-template-columns: 45% 45%;
     justify-content: center;
     justify-items: center;
+    margin-top: 1rem;
   }
 
   .newServiceCircle {
@@ -1129,6 +1130,7 @@
     grid-template-columns: 45% 45%;
     justify-content: center;
     justify-items: center;
+    margin-top: 1rem;
   }
 
   .newServiceCircle {
