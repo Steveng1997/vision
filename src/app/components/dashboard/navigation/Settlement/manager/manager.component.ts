@@ -312,7 +312,7 @@ export class ManagerComponent implements OnInit {
   dateExists() {
     let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
 
-    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((rp: any) => {
+    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
       if (rp.length > 0) {
         año = fecha.getFullYear()
         mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
@@ -372,6 +372,7 @@ export class ManagerComponent implements OnInit {
   calculateServices(): any {
     if (this.liquidationManager.encargada != "") {
       this.getThoseThatNotLiquidated()
+
       if (!this.consultWithManager()) return
       this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
@@ -753,19 +754,19 @@ export class ManagerComponent implements OnInit {
 
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
           }
 
-          this.getDateFrom()
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates) => {
 
-          setTimeout(() => { this.getSettlements() }, 1000);
+            setTimeout(() => { this.getSettlements() }, 1000);
 
-          this.liquidationForm = true
-          this.addForm = false
-          this.editEncarg = false
-          this.selected = false
-          this.liquidationManager.encargada = ""
+            this.liquidationForm = true
+            this.addForm = false
+            this.editEncarg = false
+            this.selected = false
+          })
+
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
           })
@@ -773,9 +774,9 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length == 0) {
 
-          this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datosForFecha) => {
-            this.liquidationManager.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-            this.liquidationManager.desdeHoraLiquidado = datosForFecha[0]['horaStart']
+          this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datesForDate) => {
+            this.liquidationManager.desdeFechaLiquidado = datesForDate[0]['fechaHoyInicio']
+            this.liquidationManager.desdeHoraLiquidado = datesForDate[0]['horaStart']
 
             let convertMes = '', convertDia = '', convertAno = ''
 
@@ -801,7 +802,6 @@ export class ManagerComponent implements OnInit {
             this.addForm = false
             this.editEncarg = false
             this.selected = false
-            this.liquidationManager.encargada = ""
             this.convertToZero()
             Swal.fire({
               position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500

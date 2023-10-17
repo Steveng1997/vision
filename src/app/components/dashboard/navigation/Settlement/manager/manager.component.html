@@ -156,8 +156,8 @@
             <div class="row" style="justify-content: center;">
                 <div class="col-2 selectManager" style="text-align: -webkit-center;">
                     <label style="display: contents;">Encargada</label>
-                    <select class="form-select addEncargada" name="encargada"
-                        [(ngModel)]="liquidationManager.encargada" (ngModelChange)="calculateServices()">
+                    <select class="form-select addEncargada" name="encargada" [(ngModel)]="liquidationManager.encargada"
+                        (ngModelChange)="calculateServices()">
                         <option *ngIf="administratorRole" selected value="">Selecciona</option>
                         <option *ngFor="let managers of manager" [value]="managers.nombre">{{managers.nombre}}
                         </option>
@@ -523,8 +523,9 @@
 <!-- Editar Encargada -->
 <div *ngIf="editEncarg">
 
-    <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">Visualizacion de Encargada
-        {{settledData[0]['encargada']}}
+    <label
+        style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large; margin-top: 1rem">Visualizacion
+        de Encargada {{settledData[0]['encargada']}}
     </label>
 
     <div class="container">

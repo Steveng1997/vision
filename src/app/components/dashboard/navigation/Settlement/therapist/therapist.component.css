@@ -1,13 +1,3 @@
-.color2 {
-  background: blue;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: block;
-  margin-top: 10%;
-  margin-left: 20%;
-}
-
 .inputEncargada {
   text-align: center;
 }
@@ -54,7 +44,18 @@ td {
   text-align: right;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 930px) {
+@media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4%;
+    margin-left: 40%;
+  }
+
   .trFechas {
     white-space: nowrap;
   }
@@ -177,7 +178,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .drinkColumn{
+  .drinkColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 27px;
@@ -186,7 +187,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .tobaccoColumn{
+  .tobaccoColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 27px;
@@ -195,7 +196,7 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .vitaminColumn{
+  .vitaminColumn {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 36px;
@@ -204,7 +205,223 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  .columnOthers{
+  .columnOthers {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  table {
+    width: inherit;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+    width: 65%;
+    padding: 8px 0px 0px 0px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+}
+
+@media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4%;
+    margin-left: 40%;
+  }
+
+  .trFechas {
+    white-space: nowrap;
+  }
+
+  .classTable {
+    margin-top: -2%;
+  }
+
+  .noHayCierre {
+    font-size: x-large;
+    color: red;
+    container-type: inline-size;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
+
+  .tablePaidTherapist {
+    margin-top: 0%;
+  }
+
+  .therapistColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 65px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .managerColumn {
+    padding: 24px 12px 0px 0px;
+    text-align: center;
+    max-width: 48px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .AmountColumn {
+    padding: 24px 0px 0px 6px;
+    text-align: center;
+    max-width: 30px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .datesColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .treatmentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .paymentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .drinkColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .tobaccoColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .vitaminColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnOthers {
     padding: 24px 0px 0px 0px;
     text-align: center;
     max-width: 36px;
@@ -260,6 +477,17 @@ td {
 }
 
 @media only screen and (min-device-width: 1023px) and (max-device-width: 2000px) {
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 6%;
+    margin-left: 40%;
+  }
+
   .classTable {
     text-align-last: center;
     text-align: -webkit-center;
@@ -374,28 +602,242 @@ td {
     text-align: center;
   }
 
-  .drinkColumn{
+  .drinkColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .tobaccoColumn{
+  .tobaccoColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
+  }
+
+  .vitaminColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnOthers {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  table {
+    width: auto;
+  }
+
+  .trFechaDesde {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .trFechaHasta {
+    text-align: left;
+    border-bottom: hidden;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+    margin-left: -11px;
+  }
+
+  .horaFinal {
+    align-self: end;
+    width: 122px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .selectTerap {
+    display: grid;
+    justify-items: right;
+  }
+
+  .addTerapeuta {
+    width: 35%;
+  }
+
+  .addEncargada {
+    width: 35%;
+  }
+
+  .worth {
+    padding-left: 15px;
+  }
+
+  .btnCancelar {
+    padding-bottom: 3%;
+  }
+}
+
+@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 6%;
+    margin-left: 40%;
   }
   
-  .vitaminColumn{
+  .classTable {
+    text-align-last: center;
+    text-align: -webkit-center;
+  }
+
+  .noHayCierre {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -0.5%;
+    width: 100%;
+  }
+
+  .tabla {
+    margin-top: 3%;
+  }
+
+  .tableEdtit {
+    margin-top: 0%;
+  }
+
+  .tablePaidTherapist {
+    margin-top: 0%;
+  }
+
+  .formAgregar {
+    overflow: hidden;
+  }
+
+  .therapistColumn {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .columnOthers{
+  .managerColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .AmountColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .datesColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .treatmentColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    width: 100px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .paymentColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .column€Terap {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .drinkColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tobaccoColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .vitaminColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .columnOthers {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;

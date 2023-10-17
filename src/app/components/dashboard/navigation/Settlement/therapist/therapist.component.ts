@@ -745,14 +745,12 @@ export class TherapistComponent implements OnInit {
 
               for (let index = 0; index < this.unliquidatedService.length; index++) {
                 this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-                this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => { })
+                this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
               }
 
               this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((dates: any) => {
 
-                setTimeout(() => {
-                  this.getSettlements()
-                }, 1000);
+                setTimeout(() => { this.getSettlements() }, 1000);
 
                 this.liquidationForm = true
                 this.addForm = false
@@ -767,9 +765,9 @@ export class TherapistComponent implements OnInit {
 
             if (rp.length == 0) {
 
-              this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datosForFecha) => {
-                this.liquidationTherapist.desdeFechaLiquidado = datosForFecha[0]['fechaHoyInicio']
-                this.liquidationTherapist.desdeHoraLiquidado = datosForFecha[0]['horaStart']
+              this.service.getTerapeutaEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((datesForDate) => {
+                this.liquidationTherapist.desdeFechaLiquidado = datesForDate[0]['fechaHoyInicio']
+                this.liquidationTherapist.desdeHoraLiquidado = datesForDate[0]['horaStart']
 
                 let convertMes = '', convertDia = '', convertAno = ''
 
