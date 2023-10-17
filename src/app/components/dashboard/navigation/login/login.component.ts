@@ -47,10 +47,9 @@ export class LoginComponent implements OnInit {
         this.serviceManager.getByUsuario(this.manager.usuario).subscribe((resp: any) => {
           if (resp.length > 0) {
             if (resp[0]['activo'] == true) {
-              debugger
               this.serviceManager.getByUserAndPass(this.manager.usuario, this.manager.pass).subscribe((res: any) => {
                 if (res.token != "") {
-                  localStorage.setItem('token',res.token);
+                  localStorage.setItem('token', res.token);
                   this.router.navigate([`menu/${resp[0]['id']}/vision/${resp[0]['id']}`])
                 } else {
                   Swal.fire({ icon: 'error', title: 'Oops...', text: 'La contraseña es incorrecta' })
