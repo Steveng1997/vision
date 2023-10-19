@@ -54,16 +54,8 @@ export class Service {
     return this.http.get(`${this.API_URL}/getServicios`);
   }
 
-  getByLiquidEncargadaFalse() {
-    return this.http.get(`${this.API_URL}/getByLiquidacionEncargadaFalse`);
-  }
-
   getByLiquidTerapFalse() {
     return this.http.get(`${this.API_URL}/getByLiquidacionTerapeutaFalse`);
-  }
-
-  getByLiquidTerapTrue() {
-    return this.http.get(`${this.API_URL}/getByLiquidacionTerapeutaTrue`);
   }
 
   getByIdTerap(idTerap: number) {
@@ -100,10 +92,6 @@ export class Service {
 
   getTerapeuta(terapeuta: string) {
     return this.http.get(`${this.API_URL}/getByTerapeuta/${terapeuta}`);
-  }
-
-  getIdDocument(idUnico: string) {
-    return this.http.get(`${this.API_URL}/getIdUnico/${idUnico}`);
   }
 
   getEncargada(encargada: string) {
@@ -229,28 +217,12 @@ export class Service {
     return this.http.get(`${this.API_URL}/getByFechaHoy/${fechaHoy}`);
   }
 
-  getIdUnicoByCierre(idUnico: string) {
-    return this.http.get(`${this.API_URL}/getByIdUnicoByCierre/${idUnico}`);
-  }
-
-  getIdUnico(idUnico: string) {
-    return this.http.get(`${this.API_URL}/getByIdUnico/${idUnico}`);
-  }
-
   getIdDescendente(idUnico: string) {
     return this.http.get(`${this.API_URL}/getByIdDesc/${idUnico}`);
   }
 
-  getByTerapeutaEncargadaFechaInicio(terapeuta: string, encargada: string, fecha: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaInicio/${terapeuta}/${encargada}/${fecha}`);
-  }
-
   getbYTerapeutaEncargadaFechaHoraInicio(terapeuta: string, encargada: string, fecha: string, horaStart: string) {
     return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicio/${terapeuta}/${encargada}/${fecha}/${horaStart}`);
-  }
-
-  getByTerapeutaEncargadaFechaHoraInicioFechaFin(terapeuta: string, encargada: string, fecha: string, fechaFin: string, horaStart: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicioFechaFin/${terapeuta}/${encargada}/${fecha}/${fechaFin}/${horaStart}`);
   }
 
   getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
@@ -354,6 +326,14 @@ export class Service {
     });
   }
 
+  getTerapeutaLiqFalse(terapeuta: string) {
+    return this.http.get(`${this.API_URL}/getByTerapeutaLiquidatedZero/${terapeuta}`);
+  }
+
+  getManagerLiqFalse(encargada: string) {
+    return this.http.get(`${this.API_URL}/getByManagerLiquidatedZero/${encargada}`);
+  }
+  
 
   // Update
 

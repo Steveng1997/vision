@@ -122,7 +122,6 @@
                                 <td class="quitarBordesVacio lblValueTotal">{{totalValorOtroServ + ' €'}} </td>
                                 <td class="quitarBordesVacio"></td>
                             </tr>
-
                             <tr style="line-height: 0%; letter-spacing: 0px;">
 
                                 <th class="textNote"></th>
@@ -172,7 +171,7 @@
                         <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
                             encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
                             busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
-                            paginate: { itemsPerPage: 100, currentPage: page }">
+                            paginate: { itemsPerPage: 15, currentPage: page }">
 
                             <tr style="cursor: pointer; line-height: 0%;">
 

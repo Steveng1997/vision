@@ -43,6 +43,10 @@ export class ServiceLiquidationTherapist {
     return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
   }
 
+  consultTherapist(therapist: string){
+    return this.http.get(`${this.API_URL}/getTherapist/${therapist}`);
+  }
+
   // Update
 
   update(id: number, liquidationTherapist: LiquidationTherapist) {

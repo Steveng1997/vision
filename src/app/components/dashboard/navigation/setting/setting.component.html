@@ -147,7 +147,6 @@
                                     <!-- Aqui se coloca lo adentro -->
 
                                     <form style="text-align: -webkit-center;">
-
                                         <div class="row">
 
                                             <mat-form-field class="col-6">
@@ -209,16 +208,14 @@
                                                     #otros="ngModel">
                                             </mat-form-field>
 
-                                            <div class="container" *ngFor="let encargda of modalManager">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <button mat-raised-button (click)="editManager(encg.id, encg)"
-                                                            color="primary">Guardar</button>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <button mat-raised-button type="submit" color="warn"
-                                                            (click)="removeManager(encargda.id)">Eliminar</button>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <button mat-raised-button (click)="editManager(encg.id, encg)"
+                                                        color="primary">Guardar</button>
+                                                </div>
+                                                <div class="col-6">
+                                                    <button mat-raised-button type="submit" color="warn"
+                                                        (click)="removeManager(encg.id, encg.nombre)">Eliminar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -367,14 +364,11 @@
                                 <!-- Aqui se coloca lo adentro -->
 
                                 <form style="text-align: -webkit-center;">
-
-
                                     <div class="row">
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Nombre:</mat-label>
-                                            <input type="text" matInput name="nombre" [(ngModel)]="terap.nombre"
-                                                #nombre="ngModel">
+                                            <input type="text" matInput name="nombre" [(ngModel)]="terap.nombre">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -412,16 +406,14 @@
                                                 #propina="ngModel">
                                         </mat-form-field>
 
-                                        <div class="container" *ngFor="let terap of terapeutaModal">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <button mat-raised-button (click)="editTherapist(terap.id, terap)"
-                                                        color="primary">Guardar</button>
-                                                </div>
-                                                <div class="col-6">
-                                                    <button mat-raised-button type="submit" color="warn"
-                                                        (click)="removeTherapist(terap.id)">Eliminar</button>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button mat-raised-button (click)="editTherapist(terap.id, terap)"
+                                                    color="primary">Guardar</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button mat-raised-button type="submit" color="warn"
+                                                    (click)="removeTherapist(terap.id, terap.nombre)">Eliminar</button>
                                             </div>
                                         </div>
 

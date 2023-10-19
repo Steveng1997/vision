@@ -235,7 +235,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 25px 0px 7px;
+    padding: 0px 20px 11px 0px;
     word-wrap: break-word;
   }
 
@@ -688,7 +688,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 11px 0px;
+    padding: 0px 20px 11px 0px;
     white-space: nowrap;
   }
 
@@ -923,7 +923,7 @@
   .lblValueTotal {
     text-align: end;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: #8C52FF;
     white-space: pre;
     padding: 15px 24px 0px 0px;
@@ -932,7 +932,7 @@
   .lblVaueTotalFloor2 {
     text-align: end;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: #8C52FF;
     white-space: pre;
     padding: 15px 20px 0px 8px;
@@ -941,7 +941,7 @@
   .lblValueTotals {
     text-align: end;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: #8C52FF;
     white-space: pre;
     padding: 15px 0px 0px 0px;
@@ -1060,7 +1060,7 @@
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    padding: 0px 27px 22px 0px;
+    padding: 0px 30px 22px 13px;
   }
 
   .textHour {
@@ -1081,7 +1081,7 @@
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 27px 9px 7px;
+    padding: 0px 27px 21px 22px;
   }
 
   .textTreatment {
@@ -1337,7 +1337,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 22px 17px 0px 0px;
+    padding: 0px 4px 0px 17px;
   }
 
   .columnValueClient {
@@ -1357,6 +1357,7 @@
     font-weight: bold;
     white-space: pre;
     color: #8C52FF;
+    padding: 21px 21px 0px 0px;
   }
 
   .lblValueTotal {
@@ -1502,7 +1503,7 @@
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
-    padding: 0px 27px 22px 0px;
+    padding: 0px 30px 22px 13px;
   }
 
   .textHour {
@@ -1527,7 +1528,7 @@
     font-size: 18px;
     white-space: pre;
     height: 3rem;
-    padding: 0px 27px 9px 7px;
+    padding: 0px 27px 21px 22px;
   }
 
   .textTreatment {
@@ -1813,6 +1814,7 @@
     font-weight: bold;
     white-space: pre;
     color: #8C52FF;
+    padding: 21px 21px 0px 0px;
   }
 
   .lblValueTotal {

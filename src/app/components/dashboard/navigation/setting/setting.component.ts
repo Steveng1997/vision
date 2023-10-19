@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+
+// Alert
 import Swal from 'sweetalert2'
 
 // Service
 import { ServiceTherapist } from 'src/app/core/services/therapist'
 import { ServiceManager } from 'src/app/core/services/manager'
+import { Service } from 'src/app/core/services/service'
+import { ServiceLiquidationTherapist } from 'src/app/core/services/therapistCloseouts'
+import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 
-// Alert
-
+// Models
 import { ModelManager } from 'src/app/core/models/manager'
 import { ModelTherapist } from 'src/app/core/models/therapist'
+import { ModelService } from 'src/app/core/models/service'
+import { LiquidationTherapist } from 'src/app/core/models/liquidationTherapist'
+import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseouts'
 
 @Component({
   selector: 'app-setting',
@@ -20,9 +27,44 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 export class SettingComponent implements OnInit {
 
   // Encargada
-  managers: any[] = []
+  managers: any
   pageEncargada!: number
-  modalManager: any[] = []
+  modalManager: any
+  currentDate = new Date().getTime()
+
+  liquidationManager: LiquidationManager = {
+    currentDate: "",
+    desdeFechaLiquidado: "",
+    desdeHoraLiquidado: "",
+    encargada: "",
+    hastaFechaLiquidado: "",
+    hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
+    id: 0,
+    idUnico: "",
+    idEncargada: "",
+    importe: 0,
+    tratamiento: 0
+  }
+
+  liquidationTherapist: LiquidationTherapist = {
+    currentDate: "",
+    desdeFechaLiquidado: "",
+    desdeHoraLiquidado: "",
+    encargada: "",
+    hastaFechaLiquidado: "",
+    hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
+    id: 0,
+    idUnico: "",
+    idTerapeuta: "",
+    importe: 0,
+    terapeuta: "",
+    tratamiento: 0
+  }
+
+  modelService: ModelService = {
+    idTerapeuta: "",
+    idEncargada: ""
+  }
 
   manager: ModelManager = {
     activo: true,
@@ -57,15 +99,17 @@ export class SettingComponent implements OnInit {
 
   // Terapeuta
 
-  terapeuta: any[] = []
+  terapeuta: any
   pageTerapeuta!: number
   idTerapeuta: string
-  terapeutaModal: any[] = []
 
   constructor(
     public router: Router,
     public serviceTherapist: ServiceTherapist,
     public serviceManager: ServiceManager,
+    public services: Service,
+    public serviceLiquidationTherapist: ServiceLiquidationTherapist,
+    public serviceLiquidationManager: ServiceLiquidationManager,
     private modalService: NgbModal
   ) { }
 
@@ -85,9 +129,7 @@ export class SettingComponent implements OnInit {
   }
 
   modalTablaManager(targetEncargada, manager) {
-    this.serviceManager.getById(targetEncargada).subscribe((datosNameEncargada: any) => {
-      return (this.modalManager = datosNameEncargada)
-    })
+    this.serviceManager.getById(targetEncargada).subscribe((rp: any) => { })
 
     this.modalService.open(manager, {
       centered: true,
@@ -114,23 +156,23 @@ export class SettingComponent implements OnInit {
     if (Number(this.manager.otros) > 0) this.manager.otros = ''
   }
 
-  validateValuesOfEmptyTherapists(){
-    if(this.therapist.bebida == "") this.therapist.bebida = "0"
-    if(this.therapist.otros == "") this.therapist.otros = "0"
-    if(this.therapist.propina == "") this.therapist.propina = "0"
-    if(this.therapist.servicio == "") this.therapist.servicio = "0"
-    if(this.therapist.tabaco == "") this.therapist.tabaco = "0"
-    if(this.therapist.vitamina == "") this.therapist.vitamina = "0"
+  validateValuesOfEmptyTherapists() {
+    if (this.therapist.bebida == "") this.therapist.bebida = "0"
+    if (this.therapist.otros == "") this.therapist.otros = "0"
+    if (this.therapist.propina == "") this.therapist.propina = "0"
+    if (this.therapist.servicio == "") this.therapist.servicio = "0"
+    if (this.therapist.tabaco == "") this.therapist.tabaco = "0"
+    if (this.therapist.vitamina == "") this.therapist.vitamina = "0"
   }
 
-  validateValuesOfEmptyManagers(){
-    if(this.manager.bebida == "") this.manager.bebida = "0"
-    if(this.manager.fijoDia == "") this.manager.fijoDia = "0"
-    if(this.manager.otros == "") this.manager.otros = "0"
-    if(this.manager.propina == "") this.manager.propina = "0"
-    if(this.manager.servicio == "") this.manager.servicio = "0"
-    if(this.manager.tabaco == "") this.manager.tabaco = "0"
-    if(this.manager.vitamina == "") this.manager.vitamina = "0"
+  validateValuesOfEmptyManagers() {
+    if (this.manager.bebida == "") this.manager.bebida = "0"
+    if (this.manager.fijoDia == "") this.manager.fijoDia = "0"
+    if (this.manager.otros == "") this.manager.otros = "0"
+    if (this.manager.propina == "") this.manager.propina = "0"
+    if (this.manager.servicio == "") this.manager.servicio = "0"
+    if (this.manager.tabaco == "") this.manager.tabaco = "0"
+    if (this.manager.vitamina == "") this.manager.vitamina = "0"
   }
 
   closeManager() {
@@ -179,7 +221,64 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  removeManager(id) {
+  createIdUnicoManager() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+
+    this.modelService.idEncargada = uuid
+    this.liquidationManager.idUnico = uuid
+    this.liquidationManager.idEncargada = uuid
+    return this.liquidationManager.idUnico
+  }
+
+  dateManager(nombre: string) {
+    let fecha = new Date(), añoHasta = 0, mesHasta = 0, diaHasta = 0, convertMes = '', convertDia = '',
+      añoDesde = "", mesDesde = "", diaDesde = ""
+
+    diaHasta = fecha.getDate()
+    mesHasta = fecha.getMonth() + 1
+    añoHasta = fecha.getFullYear()
+
+    if (mesHasta > 0 && mesHasta < 10) {
+      convertMes = '0' + mesHasta
+      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    } else {
+      convertMes = mesHasta.toString()
+      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    }
+
+    if (diaHasta > 0 && diaHasta < 10) {
+      convertDia = '0' + diaHasta
+      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+    } else {
+      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    }
+
+    this.serviceLiquidationManager.getByEncargada(nombre).subscribe((rp: any) => {
+      if (rp.length > 0) {
+        añoDesde = rp[0]['desdeFechaLiquidado'].toString().substring(2, 4)
+        mesDesde = rp[0]['desdeFechaLiquidado'].toString().substring(5, 7)
+        diaDesde = rp[0]['desdeFechaLiquidado'].toString().substring(8, 10)
+        this.liquidationManager.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+        this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+      } else {
+        this.services.getManagerLiqFalse(nombre).subscribe((rp: any) => {
+          añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
+          mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
+          diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
+          this.liquidationManager.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+          this.liquidationManager.desdeHoraLiquidado = rp[0]['horaStart']
+        })
+      }
+    })
+  }
+
+
+  removeManager(id: number, nombre: string) {
     this.serviceManager.getById(id).subscribe((resp: any) => {
       if (resp) {
         Swal.fire({
@@ -191,10 +290,21 @@ export class SettingComponent implements OnInit {
           confirmButtonText: 'Si, Deseo eliminar!',
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire({
-              position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500
+
+            this.createIdUnicoManager()
+            this.dateManager(nombre)
+            this.liquidationManager.currentDate = this.currentDate.toString()
+            this.liquidationManager.encargada = nombre
+
+            this.services.getManagerLiqFalse(nombre).subscribe((rp: any) => {
+              this.liquidationManager.tratamiento = rp.length
             })
 
+            setTimeout(() => {
+              this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
+            }, 1000)
+
+            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
             this.serviceManager.deleteManager(id).subscribe((resp: any) => {
               this.consultManager()
               this.modalService.dismissAll()
@@ -205,7 +315,7 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  // Terapeuta
+  // Therapist
 
   openTherapist(targetModal) {
     this.modalService.open(targetModal, {
@@ -214,10 +324,8 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  modalTableTherapist(targetModal, terap) {
-    this.serviceTherapist.getByIdTerapeuta(targetModal).subscribe((datosNameTerapeuta: any) => {
-      return (this.terapeutaModal = datosNameTerapeuta)
-    })
+  modalTableTherapist(targetTherapist, terap) {
+    this.serviceTherapist.getByIdTerapeuta(targetTherapist).subscribe((rp: any) => { })
 
     this.modalService.open(terap, {
       centered: true,
@@ -289,7 +397,7 @@ export class SettingComponent implements OnInit {
     }
   }
 
-  editTherapist (id, terapeuta) {
+  editTherapist(id: number, terapeuta) {
     terapeuta.nombre = terapeuta.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
     this.serviceTherapist.updateTerapeutas(id, terapeuta).subscribe((res: any) => {
       this.consultTherapists()
@@ -300,9 +408,66 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  removeTherapist(id: number) {
-    this.serviceTherapist.getByIdTerapeuta(id).subscribe((datoTerapeuta: any) => {
-      if (datoTerapeuta) {
+  createIdUnicoTherapist() {
+    var d = new Date().getTime()
+    var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (d + Math.random() * 16) % 16 | 0
+      d = Math.floor(d / 16)
+      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+
+    this.modelService.idTerapeuta = uuid
+    this.liquidationTherapist.idUnico = uuid
+    this.liquidationTherapist.idTerapeuta = uuid
+    return this.liquidationTherapist.idUnico
+  }
+
+  dateTherapist(nombre: string) {
+    let fecha = new Date(), añoHasta = 0, mesHasta = 0, diaHasta = 0, convertMes = '', convertDia = '',
+      añoDesde = "", mesDesde = "", diaDesde = ""
+
+    diaHasta = fecha.getDate()
+    mesHasta = fecha.getMonth() + 1
+    añoHasta = fecha.getFullYear()
+
+    if (mesHasta > 0 && mesHasta < 10) {
+      convertMes = '0' + mesHasta
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    } else {
+      convertMes = mesHasta.toString()
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    }
+
+    if (diaHasta > 0 && diaHasta < 10) {
+      convertDia = '0' + diaHasta
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+    } else {
+      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    }
+
+    this.serviceLiquidationTherapist.consultTherapist(nombre).subscribe((rp: any) => {
+      if (rp.length > 0) {
+        añoDesde = rp[0]['hastaFechaLiquidado'].toString().substring(2, 4)
+        mesDesde = rp[0]['hastaFechaLiquidado'].toString().substring(5, 7)
+        diaDesde = rp[0]['hastaFechaLiquidado'].toString().substring(8, 10)
+        this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+        this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+      } else {
+        this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
+          añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
+          mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
+          diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
+          this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+          this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
+        })
+      }
+    })
+  }
+
+  removeTherapist(id: number, nombre: string) {
+    debugger
+    this.serviceTherapist.getByIdTerapeuta(id).subscribe((rp: any) => {
+      if (rp) {
         Swal.fire({
           title: '¿Deseas eliminar el registro?',
           icon: 'warning',
@@ -312,6 +477,20 @@ export class SettingComponent implements OnInit {
           confirmButtonText: 'Si, Deseo eliminar!',
         }).then((result) => {
           if (result.isConfirmed) {
+
+            this.createIdUnicoTherapist()
+            this.dateTherapist(nombre)
+            this.liquidationTherapist.currentDate = this.currentDate.toString()
+            this.liquidationTherapist.terapeuta = nombre
+
+            this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
+              this.liquidationTherapist.tratamiento = rp.length
+            })
+
+            setTimeout(() => {
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
+            }, 1000)
+
             Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
             this.serviceTherapist.deleteTerapeuta(id).subscribe((resp: any) => {
               this.consultTherapists()
