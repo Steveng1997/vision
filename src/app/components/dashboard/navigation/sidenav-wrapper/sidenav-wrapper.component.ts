@@ -1,12 +1,7 @@
-import { Component, ViewChild, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { ServiceManager } from 'src/app/core/services/manager'
-import { BreakpointObserver } from '@angular/cdk/layout'
-import { MatSidenav } from '@angular/material/sidenav'
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { delay } from 'rxjs/operators'
 
-@UntilDestroy()
 @Component({
   selector: 'app-sidenav-wrapper',
   templateUrl: './sidenav-wrapper.component.html',
@@ -14,22 +9,18 @@ import { delay } from 'rxjs/operators'
 })
 
 export class SidenavWrapperComponent implements OnInit {
-  usuarios: any[] = []
   public idUser: any
-  @ViewChild(MatSidenav)
-  sidenav!: MatSidenav
 
   isLiquidation = false
 
   constructor(
     public router: Router,
     private activeRoute: ActivatedRoute,
-    private serviceManager: ServiceManager,
-    private observer: BreakpointObserver
+    private serviceManager: ServiceManager
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').innerHTML = 'Visión'
+    // document.getElementById('idTitulo').innerHTML = 'Visión'
 
     this.idUser = this.activeRoute.snapshot.params;
     if (this.idUser.id) {
@@ -41,26 +32,5 @@ export class SidenavWrapperComponent implements OnInit {
 
   liquidation() {
     this.isLiquidation = !this.isLiquidation
-  }
-
-  ngAfterViewInit() {
-
-    this.observer
-      .observe(['(max-width: 2200px)'])
-      .pipe(delay(1), untilDestroyed(this))
-      .subscribe((res) => {
-        if (res.matches) {
-          this.sidenav.mode = 'over'
-          this.sidenav.close()
-        } else {
-          this.sidenav.mode = 'side'
-          this.sidenav.open()
-        }
-      })
-  }
-
-  toolbar() {
-    this.sidenav.mode = 'over'
-    this.sidenav.close()
   }
 }

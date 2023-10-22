@@ -465,7 +465,6 @@ export class SettingComponent implements OnInit {
   }
 
   removeTherapist(id: number, nombre: string) {
-    debugger
     this.serviceTherapist.getByIdTerapeuta(id).subscribe((rp: any) => {
       if (rp) {
         Swal.fire({

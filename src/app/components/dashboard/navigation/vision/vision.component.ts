@@ -97,8 +97,8 @@ export class VisionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'VISIÓN'
+    // document.getElementById('idTitulo').style.display = 'block'
+    // document.getElementById('idTitulo').innerHTML = 'VISIÓN'
 
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
@@ -247,24 +247,21 @@ export class VisionComponent implements OnInit {
     // Expresión regular para comprobar formato
     var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
 
-    if (horaFin != "" && convertFecha != "") {
+    if (hora_inicio.length == 4) {
+      hora_inicio = '0' + hora_inicio
+    }
 
-      if (hora_inicio.length == 4) {
-        hora_inicio = '0' + hora_inicio
-      }
-
-      if (convertFecha < fechaEnd) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
-          this.therapist[0].fechaEnd = ""
-          this.therapist[0].horaEnd = ""
-          this.therapist[0].minuto = ""
-          this.therapist[0].salida = ""
-          for (let i = 0; i < rp.length; i++) {
-            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => { })
-          }
-        })
-        return ''
-      }
+    if (convertFecha < fechaEnd || horaFin == "" || convertFecha == "") {
+      this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
+        this.therapist[0].fechaEnd = ""
+        this.therapist[0].horaEnd = ""
+        this.therapist[0].minuto = ""
+        this.therapist[0].salida = ""
+        for (let i = 0; i < rp.length; i++) {
+          this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => { })
+        }
+      })
+      return ''
     }
 
     // Si algún valor no tiene formato correcto sale
@@ -342,9 +339,7 @@ export class VisionComponent implements OnInit {
     if (this.totalServicio > 0) {
 
       const coma = this.totalServicio.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalServicio.toString().split(".") :
-        this.totalServicio.toString().split("");
+      const array = coma ? this.totalServicio.toString().split(".") : this.totalServicio.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -400,9 +395,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTobaccoo > 0) {
 
       const coma = this.totalTobaccoo.toString().indexOf(".") !== -1 ? true : false;
-      const arrayNumero = coma ?
-        this.totalTobaccoo.toString().split(".") :
-        this.totalTobaccoo.toString().split("");
+      const arrayNumero = coma ? this.totalTobaccoo.toString().split(".") : this.totalTobaccoo.toString().split("");
       let integerPart = coma ? arrayNumero[0].split("") : arrayNumero;
       let subIndex = 1;
 
@@ -430,9 +423,7 @@ export class VisionComponent implements OnInit {
     if (this.totalVitamina > 0) {
 
       const coma = this.totalVitamina.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalVitamina.toString().split(".") :
-        this.totalVitamina.toString().split("");
+      const array = coma ? this.totalVitamina.toString().split(".") : this.totalVitamina.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -460,9 +451,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTipa > 0) {
 
       const coma = this.totalTipa.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalTipa.toString().split(".") :
-        this.totalTipa.toString().split("");
+      const array = coma ? this.totalTipa.toString().split(".") : this.totalTipa.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -490,9 +479,7 @@ export class VisionComponent implements OnInit {
     if (this.totalOtros > 0) {
 
       const coma = this.totalOtros.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalOtros.toString().split(".") :
-        this.totalOtros.toString().split("");
+      const array = coma ? this.totalOtros.toString().split(".") : this.totalOtros.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -520,9 +507,7 @@ export class VisionComponent implements OnInit {
     if (this.totalVision > 0) {
 
       const coma = this.totalVision.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalVision.toString().split(".") :
-        this.totalVision.toString().split("");
+      const array = coma ? this.totalVision.toString().split(".") : this.totalVision.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -555,9 +540,7 @@ export class VisionComponent implements OnInit {
     if (this.totalEfectivo > 0) {
 
       const coma = this.totalEfectivo.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalEfectivo.toString().split(".") :
-        this.totalEfectivo.toString().split("");
+      const array = coma ? this.totalEfectivo.toString().split(".") : this.totalEfectivo.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -588,9 +571,7 @@ export class VisionComponent implements OnInit {
     if (this.totalBizum > 0) {
 
       const coma = this.totalBizum.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalBizum.toString().split(".") :
-        this.totalBizum.toString().split("");
+      const array = coma ? this.totalBizum.toString().split(".") : this.totalBizum.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -621,9 +602,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTarjeta > 0) {
 
       const coma = this.totalTarjeta.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalTarjeta.toString().split(".") :
-        this.totalTarjeta.toString().split("");
+      const array = coma ? this.totalTarjeta.toString().split(".") : this.totalTarjeta.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -654,9 +633,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTrasnf > 0) {
 
       const coma = this.totalTrasnf.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalTrasnf.toString().split(".") :
-        this.totalTrasnf.toString().split("");
+      const array = coma ? this.totalTrasnf.toString().split(".") : this.totalTrasnf.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -682,9 +659,7 @@ export class VisionComponent implements OnInit {
     if (this.totalTerap > 0) {
 
       const coma = this.totalTerap.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalTerap.toString().split(".") :
-        this.totalTerap.toString().split("");
+      const array = coma ? this.totalTerap.toString().split(".") : this.totalTerap.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -710,9 +685,7 @@ export class VisionComponent implements OnInit {
     if (this.totalEncarg > 0) {
 
       const coma = this.totalEncarg.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalEncarg.toString().split(".") :
-        this.totalEncarg.toString().split("");
+      const array = coma ? this.totalEncarg.toString().split(".") : this.totalEncarg.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -738,9 +711,7 @@ export class VisionComponent implements OnInit {
     if (this.totalOtro > 0) {
 
       const coma = this.totalOtro.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalOtro.toString().split(".") :
-        this.totalOtro.toString().split("");
+      const array = coma ? this.totalOtro.toString().split(".") : this.totalOtro.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -765,9 +736,7 @@ export class VisionComponent implements OnInit {
     if (this.totalPisos > 0) {
 
       const coma = this.totalPisos.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalPisos.toString().split(".") :
-        this.totalPisos.toString().split("");
+      const array = coma ? this.totalPisos.toString().split(".") : this.totalPisos.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -793,9 +762,7 @@ export class VisionComponent implements OnInit {
     if (this.totalCollection > 0) {
 
       const coma = this.totalCollection.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ?
-        this.totalCollection.toString().split(".") :
-        this.totalCollection.toString().split("");
+      const array = coma ? this.totalCollection.toString().split(".") : this.totalCollection.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 

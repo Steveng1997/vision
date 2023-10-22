@@ -3,6 +3,11 @@
     overflow-x: hidden;
     position: sticky;
     top: 80px;
+    margin: 0px 0px 14px;
+  }
+
+  .containerr {
+    margin: 0px auto 37px;
   }
 
   .newService {
@@ -368,6 +373,10 @@
     top: 80px;
   }
 
+  .containerr {
+    margin: 0px auto 37px;
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
@@ -725,6 +734,12 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
+
+  .container {
+    float: right;
+    width: auto;
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
@@ -886,7 +901,7 @@
   }
 
   .serviceLine {
-    width: 13.8rem;
+    width: 15.1rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -957,7 +972,7 @@
   }
 
   .collectionsLine {
-    width: 15.6rem;
+    width: 14rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1083,6 +1098,12 @@
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
+  .container {
+    float: right;
+    width: auto;
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
@@ -1244,7 +1265,7 @@
   }
 
   .serviceLine {
-    width: 15.2rem;
+    width: 15.1rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1315,7 +1336,7 @@
   }
 
   .collectionsLine {
-    width: 15.6rem;
+    width: 14rem;
     color: #8c52ff;
     margin: auto;
     border-width: initial;

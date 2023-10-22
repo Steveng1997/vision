@@ -172,8 +172,8 @@ export class NewServiceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
+    // document.getElementById('idTitulo').style.display = 'block'
+    // document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
 
     this.addService = true
 
@@ -739,7 +739,6 @@ export class NewServiceComponent implements OnInit {
 
   chosenDate(event: any) {
     this.fechaActual = event.target.value
-    // this.fechaActual = event.target.value.slice(0,10)
   }
 
   editChosenDate(event: any) {
@@ -1126,8 +1125,8 @@ export class NewServiceComponent implements OnInit {
       this.service.getByEditar(this.idEditar).subscribe((datosServicio: any) => {
         if (datosServicio.length > 0) {
           this.editamos = true
-          document.getElementById('idTitulo').style.display = 'block'
-          document.getElementById('idTitulo').innerHTML = 'Editar servicio'
+          // document.getElementById('idTitulo').style.display = 'block'
+          // document.getElementById('idTitulo').innerHTML = 'Editar servicio'
 
           this.editarService = datosServicio
           this.SetTheValuesToEmpty()

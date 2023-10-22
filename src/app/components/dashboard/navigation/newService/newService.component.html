@@ -645,7 +645,7 @@
                                     <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                         display: contents;">Hora inicio</label>
                                     <input type="time" class="form-control" name="horaStart" min="18:00" max="21:00"
-                                        step="3600" [(ngModel)]="edServ.horaStart" (change)="startTime($event)"
+                                        step="3600" [(ngModel)]="edServ.horaStart" (change)="editStartTime($event)"
                                         [value]="horaStarted" style="color: #242424; font-size: 18px; height: 2.2rem; 
                                             font-family: sans-serif; border-color: #8C52FF" />
                                 </div>
@@ -672,7 +672,7 @@
                                     <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Duración(min.)</label>
                                     <input class="form-control" type="number" [(ngModel)]="edServ.minuto"
-                                        (ngModelChange)="minutes($event)" style="color: #242424; font-size: 18px; 
+                                        (ngModelChange)="editMinutes($event)" style="color: #242424; font-size: 18px; 
                                             height: 2.2rem; font-family: sans-serif; border-color: #8C52FF">
                                 </div>
                             </div>

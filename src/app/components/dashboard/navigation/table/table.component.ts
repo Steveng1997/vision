@@ -55,6 +55,21 @@ export class TableComponent implements OnInit {
   totalValorOtroServ: number
   totalValor: number
 
+
+  // Services String
+  TotalValueLetter: string
+  TotalServiceLetter: string
+  TotalFloor1Letter: string
+  TotalFloor2Letter: string
+  TotalTherapistLetter: string
+  TotalManagerLetter: string
+  TotalToAnotherLetter: string
+  TotalDrinkLetter: string
+  TotalTobaccoLetter: string
+  TotalVitaminsLetter: string
+  TotalTipLetter: string
+  TotalOthersLetter: string
+
   idService: any
 
   formTemplate = new FormGroup({
@@ -77,8 +92,8 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'TABLA'
+    // document.getElementById('idTitulo').style.display = 'block'
+    // document.getElementById('idTitulo').innerHTML = 'TABLA'
 
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
@@ -209,103 +224,415 @@ export class TableComponent implements OnInit {
     }
 
     // Filter by Servicio
-    if (Array.isArray(this.servicio)) {
-      const servicios = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.idService = servicios
-      this.totalServicio = servicios.reduce((accumulator, serv) => {
-        return accumulator + serv.servicio
-      }, 0)
+    const servicios = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalServicio = servicios.reduce((accumulator, serv) => {
+      return accumulator + serv.servicio
+    }, 0)
 
-      // Filter by Pisos
-      const pisoss = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalPiso = pisoss.reduce((accumulator, serv) => {
-        return accumulator + serv.numberPiso1
-      }, 0)
+    // Filter by Pisos
+    const pisoss = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalPiso = pisoss.reduce((accumulator, serv) => {
+      return accumulator + serv.numberPiso1
+    }, 0)
 
-      // Filter by Pisos
-      const pisos2 = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalPiso2 = pisoss.reduce((accumulator, serv) => {
-        return accumulator + serv.numberPiso2
-      }, 0)
+    // Filter by Pisos
+    const pisos2 = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalPiso2 = pisoss.reduce((accumulator, serv) => {
+      return accumulator + serv.numberPiso2
+    }, 0)
 
-      // Filter by Terapeuta
-      const terapeuta = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
-        return accumulator + serv.numberTerap
-      }, 0)
+    // Filter by Terapeuta
+    const terapeuta = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
+      return accumulator + serv.numberTerap
+    }, 0)
 
-      // Filter by Encargada
-      const encargada = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
-        return accumulator + serv.numberEncarg
-      }, 0)
+    // Filter by Encargada
+    const encargada = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
+      return accumulator + serv.numberEncarg
+    }, 0)
 
-      // Filter by Valor Otro
-      const valorOtro = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
-        return accumulator + serv.numberOtro
-      }, 0)
+    // Filter by Valor Otro
+    const valorOtro = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
+      return accumulator + serv.numberOtro
+    }, 0)
 
-      // Filter by Valor Bebida
-      const valorBebida = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
-        return accumulator + serv.bebidas
-      }, 0)
+    // Filter by Valor Bebida
+    const valorBebida = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
+      return accumulator + serv.bebidas
+    }, 0)
 
-      // Filter by Valor Tabaco
-      const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
-        return accumulator + serv.tabaco
-      }, 0)
+    // Filter by Valor Tabaco
+    const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
+      return accumulator + serv.tabaco
+    }, 0)
 
-      // Filter by Valor Vitamina
-      const valorVitamina = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
-        return accumulator + serv.vitaminas
-      }, 0)
+    // Filter by Valor Vitamina
+    const valorVitamina = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
+      return accumulator + serv.vitaminas
+    }, 0)
 
-      // Filter by Valor Propina
-      const valorPropina = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
-        return accumulator + serv.propina
-      }, 0)
+    // Filter by Valor Propina
+    const valorPropina = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
+      return accumulator + serv.propina
+    }, 0)
 
-      // Filter by Valor Total
-      const valorTotal = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValor = valorTotal.reduce((accumulator, serv) => {
-        return accumulator + serv.totalServicio
-      }, 0)
+    // Filter by Valor Total
+    const valorTotal = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValor = valorTotal.reduce((accumulator, serv) => {
+      return accumulator + serv.totalServicio
+    }, 0)
 
 
-      // Filter by Valor Propina
-      const valorOtros = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv) && conditionMethodOfPayment(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
-        return accumulator + serv.otros
-      }, 0)
+    // Filter by Valor Propina
+    const valorOtros = this.servicio.filter(serv => therapistCondition(serv)
+      && managerCondition(serv) && conditionMethodOfPayment(serv)
+      && searchCondition(serv) && conditionBetweenDates(serv))
+    this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
+      return accumulator + serv.otros
+    }, 0)
+  }
+
+  thousandPoint() {
+    if (this.totalValor > 0) {
+
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValor.toString().split(".") : this.totalValor.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalValueLetter = integer[0].toString()
+    } else {
+      this.TotalValueLetter = this.totalValor.toString()
+    }
+
+    if (this.totalServicio > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalServicio.toString().split(".") : this.totalServicio.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalServiceLetter = integer[0].toString()
+    } else {
+      this.TotalServiceLetter = this.totalServicio.toString()
+    }
+
+    if (this.totalPiso > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalPiso.toString().split(".") : this.totalPiso.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalFloor1Letter = integer[0].toString()
+    } else {
+      this.TotalFloor1Letter = this.totalPiso.toString()
+    }
+
+    if (this.totalPiso2 > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalPiso2.toString().split(".") : this.totalPiso2.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalFloor2Letter = integer[0].toString()
+    } else {
+      this.TotalFloor2Letter = this.totalPiso2.toString()
+    }
+
+    if (this.totalValorTerapeuta > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorTerapeuta.toString().split(".") : this.totalValorTerapeuta.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalTherapistLetter = integer[0].toString()
+    } else {
+      this.TotalTherapistLetter = this.totalValorTerapeuta.toString()
+    }
+
+    if (this.totalValorEncargada > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorEncargada.toString().split(".") : this.totalValorEncargada.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalManagerLetter = integer[0].toString()
+    } else {
+      this.TotalManagerLetter = this.totalValorEncargada.toString()
+    }
+
+    if (this.totalValorAOtros > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorAOtros.toString().split(".") : this.totalValorAOtros.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalToAnotherLetter = integer[0].toString()
+    } else {
+      this.TotalToAnotherLetter = this.totalValorAOtros.toString()
+    }
+
+    if (this.totalValorAOtros > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorAOtros.toString().split(".") : this.totalValorAOtros.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalToAnotherLetter = integer[0].toString()
+    } else {
+      this.TotalToAnotherLetter = this.totalValorAOtros.toString()
+    }
+
+    if (this.TotalValorBebida > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.TotalValorBebida.toString().split(".") : this.TotalValorBebida.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalDrinkLetter = integer[0].toString()
+    } else {
+      this.TotalDrinkLetter = this.TotalValorBebida.toString()
+    }
+
+    if (this.TotalValorTabaco > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.TotalValorTabaco.toString().split(".") : this.TotalValorTabaco.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalTobaccoLetter = integer[0].toString()
+    } else {
+      this.TotalTobaccoLetter = this.TotalValorTabaco.toString()
+    }
+
+    if (this.totalValorVitaminas > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorVitaminas.toString().split(".") : this.totalValorVitaminas.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalVitaminsLetter = integer[0].toString()
+    } else {
+      this.TotalVitaminsLetter = this.totalValorVitaminas.toString()
+    }
+
+    if (this.totalValorPropina > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorPropina.toString().split(".") : this.totalValorPropina.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalTipLetter = integer[0].toString()
+    } else {
+      this.TotalTipLetter = this.totalValorPropina.toString()
+    }
+
+    if (this.totalValorOtroServ > 0) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValorOtroServ.toString().split(".") : this.totalValorOtroServ.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalOthersLetter = integer[0].toString()
+    } else {
+      this.TotalOthersLetter = this.totalValorOtroServ.toString()
     }
   }
 
@@ -345,6 +672,8 @@ export class TableComponent implements OnInit {
 
     const totalvalors = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0)
     this.totalValor = totalvalors
+
+    this.thousandPoint()
   }
 
   getTherapist() {
@@ -411,7 +740,7 @@ export class TableComponent implements OnInit {
               this.getServices()
             })
           }
-          
+
           Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
         })
       }
