@@ -72,20 +72,6 @@ a {
   display: none;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
-  .navbar {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    padding: 0px;
-    border-top: 1px solid var(--ig-border-navbar);
-    display: flex;
-    gap: 40px;
-    /* background-color: blue; */
-    background-color: #8C52FF;
-  }
-}
-
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
   .navbar {
     width: 100%;
@@ -95,10 +81,23 @@ a {
     border-top: 1px solid var(--ig-border-navbar);
     display: flex;
     gap: 40px;
-    background-color: blue;
     background-color: #8C52FF;
   }
 }
+
+@media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
+  .navbar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 0px;
+    border-top: 1px solid var(--ig-border-navbar);
+    display: flex;
+    gap: 40px;
+    background-color: #8C52FF;
+  }
+}
+
 
 .navbar__logo {
   display: none;
@@ -126,7 +125,7 @@ a {
 
 @media (min-width: 768px) {
   .navbar {
-    /* position: inherit; */
+    position: inherit;
     width: auto;
     border-top: none;
     border-right: 1px solid var(--ig-border-navbar);
@@ -161,6 +160,8 @@ a {
     background-color: #1a1a1a;
     transition: 200ms;
     cursor: pointer;
+    transition: 100ms;
+    transform: scale(1.05);
   }
 
   .link:hover .link__image {
