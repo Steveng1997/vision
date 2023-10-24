@@ -10,8 +10,8 @@ import { ModelTherapist } from '../models/therapist';
 })
 export class ServiceTherapist {
 
-  API_Encargada = 'http://52.71.127.159:3000/api/encargada';
-  API_Terapeuta = 'http://52.71.127.159:3000/api/terapeuta';
+  API_Encargada = 'http://3.12.102.108:3000/api/encargada';
+  API_Terapeuta = 'http://3.12.102.108:3000/api/terapeuta';
 
   constructor(
     public router: Router,

@@ -8,11 +8,8 @@ import { Closing } from '../models/closing';
 @Injectable()
 export class ServiceClosing {
 
-  API_URL = 'http://52.71.127.159:3000/api/cierre';
-  API_SERVICIO = 'http://52.71.127.159:3000/api/servicio';
-
-  // API_URL = 'http://localhost:3000/api/cierre';  
-  // API_SERVICIO = 'http://localhost:3000/api/servicio';
+  API_URL = 'http://3.12.102.108:3000/api/cierre';
+  API_SERVICIO = 'http://3.12.102.108:3000/api/servicio';
 
   constructor(
     public router: Router,

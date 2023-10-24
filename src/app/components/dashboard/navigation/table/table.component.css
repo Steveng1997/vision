@@ -15,17 +15,16 @@
   border-style: hidden;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
 
   .container {
     /* overflow: hidden; */
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  .marginPage {
+    margin: 0px auto 37px;
   }
 
   .color2 {
@@ -45,45 +44,47 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 52% 52%;
+    /* grid-template-columns: 52% 52%; */
+    grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 86%;
+    width: 89%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 86%;
+    width: 89%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 86%;
+    width: 89%;
     justify-self: center;
     margin-top: 10%;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 52% 52%;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
     margin-top: 2rem;
-    margin-left: -14px;
+    margin-left: -2%;
   }
 
   .containerPaymentMethod {
-    width: 83%;
+    width: 86%;
     justify-self: center;
     margin-left: 5%;
     margin-top: -10%;
   }
 
   .searchContainer {
-    width: 82%;
+    width: 85%;
     justify-self: center;
-    margin-left: -7px;
+    margin-left: 0rem;
     margin-top: -10%;
   }
 
@@ -510,6 +511,10 @@
     overflow-y: auto;
   }
 
+  .marginPage {
+    margin: 0px auto 37px;
+  }
+
   .color2 {
     background: #8C52FF;
     width: 20px;
@@ -527,45 +532,47 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
+    /* grid-template-columns: 50% 50%; */
+    grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 86%;
+    width: 89%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 86%;
+    width: 89%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 86%;
+    width: 89%;
     justify-self: center;
     margin-top: 8%;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
     margin-top: 2rem;
     margin-left: -2%;
   }
 
   .containerPaymentMethod {
-    width: 85%;
+    width: 86%;
     justify-self: center;
     margin-left: 7%;
     margin-top: -10%;
   }
 
   .searchContainer {
-    width: 84%;
+    width: 85%;
     justify-self: center;
-    margin-left: 0.2rem;
+    margin-left: 0rem;
     margin-top: -10%;
   }
 

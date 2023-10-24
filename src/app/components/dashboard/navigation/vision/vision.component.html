@@ -1,286 +1,272 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+  <div class="row marginPage">
+    <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+      <div class="m-0 vh-90 row justify-content-center align-items-center">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-e v="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style href="vision.component.css"></style>
-</head>
+        <div class="row columnIcon">
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto containerr">
-        <div class="m-0 vh-90 row justify-content-center align-items-center">
-
-          <div class="row columnIcon">
-
-            <div class="newServiceCircle">
-              <div class="row g-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle newService"
-                  viewBox="0 0 16 16" style="cursor: pointer; color: #8C52FF"
-                  routerLink="/menu/{{idUser}}/nuevo-servicio/{{idUser}}/false">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                  <path
-                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-                <div
-                  style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
-                  Nuevo servicio
-                </div>
-              </div>
-            </div>
-
-            <div class="circleRefreshPage">
-              <div class="row g-0">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-repeat refreshPage"
-                  viewBox="0 0 16 16" onclick="location.reload()" style="cursor: pointer; color: #8C52FF">
-                  <path
-                    d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-                  <path fill-rule="evenodd"
-                    d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
-                </svg>
-                <div class="textRefreshPage"
-                  style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
-                  Refrescar Pagina
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Table -->
-
-          <div class="adjustTable">
-            <div class="row columnTable">
-
-              <div class="row g-0">
-                <div class="availableColumn">
-                  <label style="color: #000000; font-size: 20px; font-weight: bold; font-family: sans-serif; 
-                    display: contents"></label>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="therapistColumn">
-                  <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                    display: contents"></label>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="exitColumn">
-                  <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                    display: contents">Salida</label>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="endColumn">
-                  <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                    display: contents">Fin</label>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="remainingColumn">
-                  <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                    display: contents">Min</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="row columnTable" *ngFor="let vis of therapist">
-
-              <div class="row g-0">
-                <div class="availableColumn">
-                  <div [ngClass]="{'ocupado': vis?.horaEnd !== '' , 'disponible': vis?.horaEnd === '', 
-                      'disponible2': vis?.horaEnd === '00:00'}"></div>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="availableColumn">
-                  <div class="therapist" (click)="editByName(vis.nombre)">{{vis.nombre}}</div>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="availableColumn">
-                  <div class="exit">{{vis.salida}}</div>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="availableColumn">
-                  <div class="endTime">{{vis.horaEnd}}</div>
-                </div>
-              </div>
-
-              <div class="row g-0">
-                <div class="columnMinutes">
-                  <div class="endTime">{{vis.minuto}}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- fin Table -->
-
-          <div class="row columnArrows">
-
+          <div class="newServiceCircle">
             <div class="row g-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="backArrow()"
-                class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
-                <path fill-rule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle newService"
+                viewBox="0 0 16 16" style="cursor: pointer; color: #8C52FF"
+                routerLink="/menu/{{idUser}}/nuevo-servicio/{{idUser}}/false">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
               </svg>
-            </div>
-
-            <div class="row g-0">
-              <div class="date">
-                <label style="font-size: 18px; font-family: sans-serif">{{dateTodayCurrent}}</label>
+              <div
+                style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
+                Nuevo servicio
               </div>
-            </div>
-
-            <div class="row g-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="nextArrow()"
-                class="bi bi-arrow-right-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
-                <path fill-rule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-              </svg>
             </div>
           </div>
 
-          <!-- table Result -->
-
-          <div class="row column">
-
-            <!-- SERVICIOS -->
+          <div class="circleRefreshPage">
             <div class="row g-0">
-              <div class="columnService">
-
-                <div class="columnTotal">
-                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    <label>Servicios</label>
-                  </div>
-                  <div class="valueTotal"
-                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    {{totalVisions + ' €'}} </div>
-                </div>
-
-                <hr class="serviceLine">
-
-                <div class="columnTreatment">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tratamientos</label>
-                  </div>
-                  <div class="treatmentValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalTreatment + ' €'}} </div>
-                </div>
-
-                <div class="columnDrink">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Bebidas</label> </div>
-                  <div class="drinkValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalDrinks + ' €'}} </div>
-                </div>
-
-                <div class="columnTobacco">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tabaco</label> </div>
-                  <div class="tobaccoValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalTobacco + ' €'}} </div>
-                </div>
-
-                <div class="columnVitamin">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Vitaminas</label>
-                  </div>
-                  <div class="vitaminValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalVitamin + ' €'}} </div>
-                </div>
-
-                <div class="columnTip">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Propina</label> </div>
-                  <div class="tipValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalTip + ' €'}} </div>
-                </div>
-
-                <div class="columnTip">
-                  <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Otros</label> </div>
-                  <div class="tipValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
-                    {{totalOthers + ' €'}} </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- COBROS -->
-
-            <div class="row g-0">
-              <div class="collectionsColumn">
-
-                <div class="columnTotal">
-                  <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    <label class="valueTotal">Cobros</label>
-                  </div>
-                  <div class="valueTotal"
-                    style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
-                    {{totalCollections + ' €'}} </div>
-                </div>
-
-                <hr class="collectionsLine">
-
-                <div class="floorColumn">
-                  <div><label style="color: #000000; font-size: 18px; font-weight: bold; 
-                    font-family: sans-serif">Piso</label> </div>
-                  <div class="valueFloor" style="display: grid; font-weight: bold;"> {{totalPiso + ' €'}} </div>
-                </div>
-
-                <div class="columnEffective" style="margin-left: 5%">
-                  <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Efectivo</label> </div>
-                  <div class="valueEffective"> {{totalEfectiv + ' €'}} </div>
-                </div>
-
-                <div class="columnBizum" style="margin-left: 5%">
-                  <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Bizum</label> </div>
-                  <div class="valueBizum" style="display: grid; margin-left: -2%"> {{totalBizu + ' €'}} </div>
-                </div>
-
-                <div class="columnCard" style="margin-left: 5%">
-                  <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Tarjeta</label> </div>
-                  <div class="valueCard" style="display: grid; margin-left: -2%"> {{totalTarjet + ' €'}} </div>
-                </div>
-
-                <div class="columnTranfer" style="margin-left: 5%">
-                  <div><label style="color: #000000; font-size: 18px; 
-                  font-family: sans-serif">Transferencia</label> </div>
-                  <div class="valueTranfer" style="display: grid; margin-left: -2%;"> {{totalTrasn + ' €'}} </div>
-                </div>
-
-                <div class="columnTherapist">
-                  <div><label style="color: #000000; font-size: 18px; font-family: sans-serif;
-                  font-weight: bold">Terapeuta</label> </div>
-                  <div class="valueTherapist" style="display: grid; font-weight: bold"> {{totalTerape + ' €'}} </div>
-                </div>
-
-                <div class="columnManager">
-                  <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
-                  font-weight: bold">Encargada</label> </div>
-                  <div class="valueManager" style="display: grid; font-weight: bold"> {{totalEncargada + ' €'}} </div>
-                </div>
-
-                <div class="columnOther">
-                  <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
-                  font-weight: bold">Otros</label> </div>
-                  <div class="valueOther" style="display: grid; font-weight: bold"> {{totalOtr + ' €'}} </div>
-                </div>
-
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-repeat refreshPage"
+                viewBox="0 0 16 16" onclick="location.reload()" style="cursor: pointer; color: #8C52FF">
+                <path
+                  d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                <path fill-rule="evenodd"
+                  d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+              </svg>
+              <div class="textRefreshPage"
+                style="font-family: sans-serif; text-align: center; font-size: 16px; color: #8C52FF; line-height: 1.2rem;">
+                Refrescar Pagina
               </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Table -->
+
+        <div class="adjustTable">
+          <div class="row columnTable">
+
+            <div class="row g-0">
+              <div class="availableColumn">
+                <label style="color: #000000; font-size: 20px; font-weight: bold; font-family: sans-serif; 
+                    display: contents"></label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="therapistColumn">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                    display: contents"></label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="exitColumn">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                    display: contents">Salida</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="endColumn">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                    display: contents">Fin</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="remainingColumn">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                    display: contents">Min</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row columnTable" *ngFor="let vis of therapist">
+
+            <div class="row g-0">
+              <div class="availableColumn">
+                <div [ngClass]="{'ocupado': vis?.horaEnd !== '' , 'disponible': vis?.horaEnd === '', 
+                      'disponible2': vis?.horaEnd === '00:00'}"></div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumn">
+                <div class="therapist" (click)="editByName(vis.nombre)">{{vis.nombre}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumn">
+                <div class="exit">{{vis.salida}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumn">
+                <div class="endTime">{{vis.horaEnd}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="columnMinutes">
+                <div class="endTime">{{vis.minuto}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- fin Table -->
+
+        <div class="row columnArrows">
+
+          <div class="row g-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="backArrow()"
+              class="bi bi-arrow-left-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+          </div>
+
+          <div class="row g-0">
+            <div class="date">
+              <label style="font-size: 18px; font-family: sans-serif">{{dateTodayCurrent}}</label>
+            </div>
+          </div>
+
+          <div class="row g-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="nextArrow()"
+              class="bi bi-arrow-right-circle text-primary" viewBox="0 0 16 16" style="cursor: pointer;">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- table Result -->
+
+        <div class="row column">
+
+          <!-- SERVICIOS -->
+          <div class="row g-0">
+            <div class="columnService">
+
+              <div class="columnTotal">
+                <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                  <label>Servicios</label>
+                </div>
+                <div class="valueTotal"
+                  style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                  {{totalVisions + ' €'}} </div>
+              </div>
+
+              <hr class="serviceLine">
+
+              <div class="columnTreatment">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tratamientos</label>
+                </div>
+                <div class="treatmentValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalTreatment + ' €'}} </div>
+              </div>
+
+              <div class="columnDrink">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Bebidas</label> </div>
+                <div class="drinkValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalDrinks + ' €'}} </div>
+              </div>
+
+              <div class="columnTobacco">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Tabaco</label> </div>
+                <div class="tobaccoValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalTobacco + ' €'}} </div>
+              </div>
+
+              <div class="columnVitamin">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Vitaminas</label>
+                </div>
+                <div class="vitaminValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalVitamin + ' €'}} </div>
+              </div>
+
+              <div class="columnTip">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Propina</label> </div>
+                <div class="tipValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalTip + ' €'}} </div>
+              </div>
+
+              <div class="columnTip">
+                <div style="color: #000000; font-size: 18px; font-family: sans-serif"> <label>Otros</label> </div>
+                <div class="tipValue" style="color: #000000; font-size: 18px; font-family: sans-serif">
+                  {{totalOthers + ' €'}} </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COBROS -->
+
+          <div class="row g-0">
+            <div class="collectionsColumn">
+
+              <div class="columnTotal">
+                <div style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                  <label class="valueTotal">Cobros</label>
+                </div>
+                <div class="valueTotal"
+                  style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif">
+                  {{totalCollections + ' €'}} </div>
+              </div>
+
+              <hr class="collectionsLine">
+
+              <div class="floorColumn">
+                <div><label style="color: #000000; font-size: 18px; font-weight: bold; 
+                    font-family: sans-serif">Piso</label> </div>
+                <div class="valueFloor" style="display: grid; font-weight: bold;"> {{totalPiso + ' €'}} </div>
+              </div>
+
+              <div class="columnEffective" style="margin-left: 5%">
+                <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Efectivo</label> </div>
+                <div class="valueEffective"> {{totalEfectiv + ' €'}} </div>
+              </div>
+
+              <div class="columnBizum" style="margin-left: 5%">
+                <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Bizum</label> </div>
+                <div class="valueBizum" style="display: grid; margin-left: -2%"> {{totalBizu + ' €'}} </div>
+              </div>
+
+              <div class="columnCard" style="margin-left: 5%">
+                <div><label style="color: #000000; font-size: 18px; font-family: sans-serif">Tarjeta</label> </div>
+                <div class="valueCard" style="display: grid; margin-left: -2%"> {{totalTarjet + ' €'}} </div>
+              </div>
+
+              <div class="columnTranfer" style="margin-left: 5%">
+                <div><label style="color: #000000; font-size: 18px; 
+                  font-family: sans-serif">Transferencia</label> </div>
+                <div class="valueTranfer" style="display: grid; margin-left: -2%;"> {{totalTrasn + ' €'}} </div>
+              </div>
+
+              <div class="columnTherapist">
+                <div><label style="color: #000000; font-size: 18px; font-family: sans-serif;
+                  font-weight: bold">Terapeuta</label> </div>
+                <div class="valueTherapist" style="display: grid; font-weight: bold"> {{totalTerape + ' €'}} </div>
+              </div>
+
+              <div class="columnManager">
+                <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
+                  font-weight: bold">Encargada</label> </div>
+                <div class="valueManager" style="display: grid; font-weight: bold"> {{totalEncargada + ' €'}} </div>
+              </div>
+
+              <div class="columnOther">
+                <div> <label style="color: #000000; font-size: 18px; font-family: sans-serif;
+                  font-weight: bold">Otros</label> </div>
+                <div class="valueOther" style="display: grid; font-weight: bold"> {{totalOtr + ' €'}} </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-</body>
-
-</html>
+</div>

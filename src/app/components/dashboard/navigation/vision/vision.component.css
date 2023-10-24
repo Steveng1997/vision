@@ -6,7 +6,7 @@
     margin: 0px 0px 14px;
   }
 
-  .containerr {
+  .marginPage {
     margin: 0px auto 37px;
   }
 
@@ -56,7 +56,7 @@
     display: grid;
     grid-template-columns: 36% 40%;
     margin-top: 1rem;
-    margin-left: 6rem;
+    margin-left: 3.6rem;
   }
 
   .newServiceCircle {
@@ -373,7 +373,7 @@
     top: 80px;
   }
 
-  .containerr {
+  .marginPage {
     margin: 0px auto 37px;
   }
 
@@ -423,7 +423,7 @@
     display: grid;
     grid-template-columns: 36% 40%;
     margin-top: 1rem;
-    margin-left: 29%;
+    margin-left: 4.7rem;
   }
 
   .newServiceCircle {
@@ -735,9 +735,15 @@
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
-  .container {
+  /* .container {
     float: right;
     width: auto;
+  } */
+
+  .container {
+    display: table;
+    float: right;
+    width: 100%;
   }
 
   .newService {

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
 
+import { finalize } from 'rxjs/operators';
+
+
 // Services
 import { ServiceManager } from 'src/app/core/services/manager'
 import { ServiceTherapist } from 'src/app/core/services/therapist'
@@ -17,13 +20,12 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 
 export class VisionComponent implements OnInit {
 
-  vision: any = []
+  vision: any
   page!: number
   fechaDiaHoy = ''
   totalServicio: number
   idUser: number
   therapist: any
-  administratorRole: boolean = false
   horaEnd: string
   horaHoy: string
   diferenceMinuto: string
@@ -97,24 +99,18 @@ export class VisionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // document.getElementById('idTitulo').style.display = 'block'
-    // document.getElementById('idTitulo').innerHTML = 'VISIÓN'
-
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
-    if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((rp) => {
-        if (rp[0]['rol'] == 'administrador') {
-          this.administratorRole = true
-          this.getService()
-        } else {
-          this.getServiceByManager(rp[0])
-        }
-      })
-    }
-
     this.getTherapist()
+
+    this.serviceManager.getById(this.idUser).subscribe(rp => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.getService()
+      } else {
+        this.getServiceByManager(rp[0])
+      }
+    })
   }
 
   totalsAtZero() {
@@ -153,10 +149,10 @@ export class VisionComponent implements OnInit {
   getServiceByManager(manager: string) {
     this.todaysDate()
     this.dateTodayCurrent = 'HOY'
-    this.service.getEncargadaAndDate(this.fechaDiaHoy, manager['nombre']).subscribe((datoServicio: any) => {
-      this.vision = datoServicio
+    this.service.getEncargadaAndDate(this.fechaDiaHoy, manager['nombre']).subscribe((rp: any) => {
+      this.vision = rp
 
-      if (datoServicio.length != 0) {
+      if (rp.length != 0) {
         this.totalVisionSum()
       } else {
         this.totalsAtZero()
@@ -172,9 +168,9 @@ export class VisionComponent implements OnInit {
           for (let i = 0; rp.length; i++) {
             this.minuteDifference(rp[i]?.horaEnd, rp[i]?.nombre, rp[i]?.fechaEnd)
             if (rp[i]?.minuto != null && rp[i]?.minuto != "") {
-              this.therapist[i]['minuto'] = this.horaEnd
+              this.therapist[i].minuto = this.horaEnd
               this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp: any) => {
-                return true
+                this.therapist = rp
               })
             }
           }
@@ -251,17 +247,21 @@ export class VisionComponent implements OnInit {
       hora_inicio = '0' + hora_inicio
     }
 
-    if (convertFecha < fechaEnd || horaFin == "" || convertFecha == "") {
-      this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
-        this.therapist[0].fechaEnd = ""
-        this.therapist[0].horaEnd = ""
-        this.therapist[0].minuto = ""
-        this.therapist[0].salida = ""
-        for (let i = 0; i < rp.length; i++) {
-          this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => { })
-        }
-      })
-      return ''
+    if (convertFecha != "") {
+      if (convertFecha < fechaEnd) {
+        this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
+          this.therapist[0].fechaEnd = ""
+          this.therapist[0].horaEnd = ""
+          this.therapist[0].minuto = ""
+          this.therapist[0].salida = ""
+          for (let i = 0; i < rp.length; i++) {
+            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => {
+              this.therapist = rp
+            })
+          }
+        })
+        return ''
+      }
     }
 
     // Si algún valor no tiene formato correcto sale
@@ -358,7 +358,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTreatment = integer[0].toString()
     } else {
-      this.totalTreatment = totalServ
+      this.totalTreatment = totalServ.toString()
     }
 
     const totalValorBebida = this.vision.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
@@ -386,7 +386,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalDrinks = integer[0].toString()
     } else {
-      this.totalDrinks = totalValorBebida
+      this.totalDrinks = totalValorBebida.toString()
     }
 
     const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
@@ -414,7 +414,7 @@ export class VisionComponent implements OnInit {
       integerPart = [integerPart.toString().replace(/,/gi, "")]
       this.totalTobacco = integerPart[0].toString()
     } else {
-      this.totalTobacco = totalValorTab
+      this.totalTobacco = totalValorTab.toString()
     }
 
     const totalValorVitamina = this.vision.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
@@ -442,7 +442,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalVitamin = integer[0].toString()
     } else {
-      this.totalVitamin = totalValorVitamina
+      this.totalVitamin = totalValorVitamina.toString()
     }
 
     const totalValorProp = this.vision.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
@@ -470,7 +470,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTip = integer[0].toString()
     } else {
-      this.totalTip = totalValorProp
+      this.totalTip = totalValorProp.toString()
     }
 
     const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
@@ -498,7 +498,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOthers = integer[0].toString()
     } else {
-      this.totalOthers = totalValorOtroServicio
+      this.totalOthers = totalValorOtroServicio.toString()
     }
 
     this.totalVision = this.totalServicio + this.totalBebida + this.totalTobaccoo +
@@ -525,6 +525,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalVisions = integer[0].toString()
+    } else {
+      this.totalVisions = this.totalVision.toString()
     }
 
     // total de las Formas de pagos
@@ -589,6 +591,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalBizu = integer[0].toString()
+    } else {
+      this.totalBizu = this.totalBizum.toString()
     }
 
     const totalPiso1Tarjeta = this.vision.map(({ valuePiso1Tarjeta }) => valuePiso1Tarjeta).reduce((acc, value) => acc + value, 0)
@@ -620,6 +624,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTarjet = integer[0].toString()
+    } else {
+      this.totalTarjet = this.totalTarjeta.toString()
     }
 
     const totalPiso1Transaccion = this.vision.map(({ valuePiso1Transaccion }) => valuePiso1Transaccion).reduce((acc, value) => acc + value, 0)
@@ -651,6 +657,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTrasn = integer[0].toString()
+    } else {
+      this.totalTrasn = this.totalTrasnf.toString()
     }
 
     const totalValorTerapeuta = this.vision.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
@@ -677,6 +685,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalTerape = integer[0].toString()
+    } else {
+      this.totalTerape = this.totalTerap.toString()
     }
 
     const totalValorEncargada = this.vision.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
@@ -703,6 +713,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalEncargada = integer[0].toString()
+    } else {
+      this.totalEncargada = this.totalEncarg.toString()
     }
 
     const totalValorOtro = this.vision.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
@@ -729,6 +741,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOtr = integer[0].toString()
+    } else {
+      this.totalOtr = this.totalOtro.toString()
     }
 
     this.totalPisos = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
@@ -754,6 +768,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalPiso = integer[0].toString()
+    } else {
+      this.totalPiso = this.totalPisos.toString()
     }
 
     this.totalCollection = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
@@ -780,6 +796,8 @@ export class VisionComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalCollections = integer[0].toString()
+    } else {
+      this.totalCollections = this.totalCollection.toString()
     }
 
     this.validateTheEmptyField()

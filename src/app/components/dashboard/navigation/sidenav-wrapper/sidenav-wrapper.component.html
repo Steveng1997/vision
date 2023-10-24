@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/Favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="sidenav-wrapper.component.css" />
+  <title>Instagram</title>
 </head>
 
 <body>
   <nav class="navbar">
-    <div class="navbar__logo logo">
+    <!-- <div class="navbar__logo logo">
       <a href="#" class="logo__image">
         <svg aria-label="Instagram" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="29" role="img"
           viewBox="32 4 113 32" width="103">
@@ -28,7 +30,7 @@
           </path>
         </svg>
       </a>
-    </div>
+    </div> -->
 
     <ul class="navbar__container">
       <li class="link">
@@ -132,8 +134,9 @@
           <span class="link__text">Crear</span>
         </a>
       </li>
-
-      <!-- <li class="link">
+      
+<!-- 
+      <li class="link">
         <a href="#">
           <img title="perfil" src="images/profile_image.jpg" width="24px" height="24px"
             class="link__image link__image--profile" />
@@ -157,7 +160,10 @@
   </nav>
 
   <main>
-    <router-outlet></router-outlet>
+    <!-- <div class="container"> -->
+      <router-outlet></router-outlet>
+    <!-- </div> -->
+
   </main>
 </body>
 
