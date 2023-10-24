@@ -72,18 +72,6 @@ a {
   display: none;
 }
 
-@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
-  .navbar {
-    position: fixed;
-    bottom: 0;
-    padding: 16px;
-    display: flex;
-    gap: 40px;
-    background-color: #8C52FF;
-    height: -webkit-fill-available;
-  }
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 1030px) {
   .navbar {
     width: 100%;
@@ -94,6 +82,18 @@ a {
     display: flex;
     gap: 40px;
     background-color: #8C52FF;
+  }
+}
+
+@media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    padding: 16px;
+    display: flex;
+    gap: 40px;
+    background-color: #8C52FF;
+    height: -webkit-fill-available;
   }
 }
 
@@ -158,7 +158,6 @@ a {
     background-color: #1a1a1a;
     transition: 200ms;
     cursor: pointer;
-    /* transition: 100ms; */
     transform: scale(1.05);
   }
 
