@@ -127,9 +127,6 @@ export class ClosingComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'CIERRE'
-
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 

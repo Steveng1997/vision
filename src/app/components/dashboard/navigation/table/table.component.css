@@ -17,14 +17,25 @@
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
 
-  .container {
-    /* overflow: hidden; */
+  body {
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 88%;
+  }
+
+  .container {
+    display: contents;
   }
 
   .marginPage {
     margin: 0px auto 37px;
+  }
+
+  .pagination_Mobile {
+    position: fixed;
+    bottom: 36px;
+    display: flex;
   }
 
   .color2 {
@@ -35,6 +46,12 @@
     display: block;
     margin-top: 43%;
     margin-left: 20%;
+  }
+
+  .table {
+    display: flow;
+    position: absolute;
+    overflow-y: auto;
   }
 
   .tableContainer {
@@ -208,7 +225,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 7px 0px 0px;
+    padding: 0px 23px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -490,7 +507,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 20px 0px 8px;
+    padding: 15px 32px 0px 0px;
   }
 
   .lblValueTotals {
@@ -505,14 +522,25 @@
 
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
 
-  .container {
-    /* overflow: hidden; */
+  body {
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 88%;
+  }
+
+  .container {
+    display: contents;
   }
 
   .marginPage {
     margin: 0px auto 37px;
+  }
+
+  .pagination_Mobile {
+    position: fixed;
+    bottom: 36px;
+    display: flex;
   }
 
   .color2 {
@@ -523,6 +551,12 @@
     display: block;
     margin-top: 43%;
     margin-left: 20%;
+  }
+
+  .table {
+    display: flow;
+    position: absolute;
+    overflow-y: auto;
   }
 
   .tableContainer {
@@ -695,7 +729,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 7px 0px 0px;
+    padding: 0px 23px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -822,7 +856,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 38px 0px 0px;
+    padding: 8px 26px 0px 0px;
   }
 
   .columnFloor2 {
@@ -978,7 +1012,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 20px 0px 8px;
+    padding: 15px 32px 0px 0px;
   }
 
   .lblValueTotals {

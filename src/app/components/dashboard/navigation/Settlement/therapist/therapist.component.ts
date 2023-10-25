@@ -117,9 +117,6 @@ export class TherapistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'LIQUIDACIÓNES TERAPEUTAS'
-
     this.liquidationForm = true
     this.addForm = false
     this.selected = false

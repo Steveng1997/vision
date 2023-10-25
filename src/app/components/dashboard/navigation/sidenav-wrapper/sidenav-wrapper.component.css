@@ -30,12 +30,6 @@ body {
   background-color: var(--ig-primary-background);
 }
 
-main {
-  padding: 1rem;
-  width: 100%;
-  height: 100%;
-}
-
 li {
   list-style: none;
 }
@@ -83,6 +77,16 @@ a {
     gap: 40px;
     background-color: #8C52FF;
   }
+
+  section {
+    height: 100%;
+  }
+
+  main {
+    /* padding: 1rem; */
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 2000px) {
@@ -94,6 +98,12 @@ a {
     gap: 40px;
     background-color: #8C52FF;
     height: -webkit-fill-available;
+  }
+
+  main {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -172,6 +182,7 @@ a {
 @media (min-width: 1264px) {
   .navbar {
     align-items: start;
+    color: white;
   }
 
   .navbar__logo {

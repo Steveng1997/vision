@@ -490,10 +490,13 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
-  body {
+  .container {
     overflow-x: hidden;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    height: 95%;
+  }
+
+  .marginPage {
+    margin: 0px auto 37px;
   }
 
   .title {
@@ -542,10 +545,6 @@ input[id="transOtro"] {
   .lastServiceOrdered {
     margin-left: 11rem;
     margin-top: -1.7rem;
-  }
-
-  .btnGuardar {
-    margin-bottom: 1.5rem;
   }
 
   .botones {
@@ -848,10 +847,14 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
-  body {
+
+  .container {
     overflow-x: hidden;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    height: 95%;
+  }
+
+  .marginPage {
+    margin: 0px auto 37px;
   }
 
   .title {
@@ -900,10 +903,6 @@ input[id="transOtro"] {
   .lastServiceOrdered {
     margin-left: 11rem;
     margin-top: -1.7rem;
-  }
-
-  .btnGuardar {
-    margin-bottom: 1.5rem;
   }
 
   .botones {

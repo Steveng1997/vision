@@ -20,7 +20,9 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // document.getElementById('idTitulo').innerHTML = 'Visión'
+    document.getElementById('my-class2').style.display = 'none'
+    document.getElementById('my-class3').style.display = 'none'
+    document.getElementById('my_back').style.display = 'none'
 
     this.idUser = this.activeRoute.snapshot.params;
     if (this.idUser.id) {
@@ -34,30 +36,30 @@ export class SidenavWrapperComponent implements OnInit {
     this.isLiquidation = !this.isLiquidation
   }
 
-  // click() {
-  //   debugger
-  //   const sidebar = document.querySelector(".sidebar");
-  //   const sidebarClose = document.querySelector("#sidebar-close");
-  //   const menu = document.querySelector(".menu-content");
-  //   const menuItems = document.querySelectorAll(".submenu-item");
-  //   const subMenuTitles = document.querySelectorAll(".navbar__container .menu-title");
+  click() {
+    var myClasses = document.querySelectorAll('.my-class'),
+      i = 0,
+      l = myClasses.length;
 
-  //   // sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
-  //   menuItems.forEach((item, index) => {
-  //     item.addEventListener("click", () => {
-  //       menu.classList.add("submenu-active");
-  //       item.classList.add("show-submenu");
-  //       menuItems.forEach((item2, index2) => {
-  //         if (index !== index2) {
-  //           item2.classList.remove("show-submenu");
-  //         }
-  //       });
-  //     });
-  //   });
-  //   subMenuTitles.forEach((title) => {
-  //     title.addEventListener("click", () => {
-  //       menu.classList.remove("submenu-active");
-  //     });
-  //   });
-  // }
+    document.getElementById('my-class2').style.display = ''
+    document.getElementById('my-class3').style.display = ''
+    document.getElementById('my_back').style.display = ''
+
+    for (i; i < l; i++) {
+      myClasses[i]["style"].display = 'none';
+    }
+  }
+
+  back() {
+    var myClasses = document.querySelectorAll('.my-class'),
+      i = 0,
+      l = myClasses.length;
+
+    for (i; i < l; i++) {
+      myClasses[i]["style"].display = '';
+      document.getElementById('my-class2').style.display = 'none'
+      document.getElementById('my-class3').style.display = 'none'
+      document.getElementById('my_back').style.display = 'none'
+    }
+  }
 }

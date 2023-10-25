@@ -92,9 +92,6 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // document.getElementById('idTitulo').style.display = 'block'
-    // document.getElementById('idTitulo').innerHTML = 'TABLA'
-
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
     this.selectedFormPago = ""
@@ -104,14 +101,18 @@ export class TableComponent implements OnInit {
 
     if (this.idUser) {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
-        if (rp[0]['rol'] == 'administrador') {
-          this.administratorRole = true
-          this.getManager()
-        } else {
-          this.manager = rp
-          this.selectedEncargada = this.manager[0].nombre
-        }
+        setTimeout(() => {
+          if (rp[0]['rol'] == 'administrador') {
+            this.administratorRole = true
+            this.getManager()
+          } else {
+            this.manager = rp
+            this.selectedEncargada = this.manager[0].nombre
+          }
+        }, 1000);
       })
+
+
     }
 
     this.getTherapist()

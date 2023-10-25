@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-e v="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style href="table.component.css"></style>
+    <style href="newService.component.css"></style>
 </head>
 
 <body>
@@ -14,7 +14,6 @@
         <div class="row marginPage">
             <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
                 <div class="m-0 vh-90 row justify-content-center align-items-center">
-
                     <form [formGroup]="formTemplate">
 
                         <div class="tableContainer">
@@ -24,7 +23,7 @@
                                     <label class="text">Terapeuta</label>
                                     <select class="form-select" formControlName="terapeuta"
                                         [(ngModel)]="selectedTerapeuta" (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                    font-family: sans-serif;">
+                                        font-family: sans-serif;">
                                         <option selected value="">Selecciona</option>
                                         <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                                             {{terap.nombre}} </option>
@@ -37,7 +36,7 @@
                                     <label class="text">Encargada</label>
                                     <select class="form-select" formControlName="encargada"
                                         [(ngModel)]="selectedEncargada" (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                    font-family: sans-serif;">
+                                        font-family: sans-serif;">
                                         <option *ngIf="administratorRole" selected value="">Selecciona</option>
                                         <option *ngFor="let managers of manager" [value]="managers.nombre">
                                             {{managers.nombre}}
@@ -51,7 +50,7 @@
                                     <label class="text">Fecha Inicio</label>
                                     <input type="date" class="form-control" formControlName="fechaInicio"
                                         (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif">
+                                            font-family: sans-serif">
                                 </div>
                             </div>
 
@@ -60,7 +59,7 @@
                                     <label class="text">Fecha Final</label>
                                     <input type="date" class="form-control" formControlName="FechaFin"
                                         (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif">
+                                            font-family: sans-serif">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +71,7 @@
                                     <label class="text">Tipo de Pago</label>
                                     <select class="form-select" formControlName="formaPago"
                                         [(ngModel)]="selectedFormPago" (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                font-family: sans-serif;">
+                                    font-family: sans-serif;">
                                         <option selected value="">Selecciona</option>
                                         <option value="Efectivo">Efectivo</option>
                                         <option value="Bizum">Bizum</option>
@@ -87,7 +86,7 @@
                                     <label class="text">Busqueda</label>
                                     <input type="text" class="form-control input-sm" formControlName="busqueda"
                                         (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
-                                color: #242424; font-size: 18px; font-family: sans-serif;" />
+                                    color: #242424; font-size: 18px; font-family: sans-serif;" />
                                 </div>
                             </div>
 
@@ -104,186 +103,187 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Table -->
+                        <div class="row g-0 adjustTable outer">
+                            <table class="table" id="excel-table">
+                                <thead>
+                                    <tr style="line-height: 0rem; letter-spacing: 0rem">
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio lbelTotal"> TOTALES: </td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio lblValueTotals"> {{TotalValueLetter + '€'}}</td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio"></td>
+                                        <td class="quitarBordesVacio lblValueTreatment"> {{TotalServiceLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueFloor1">{{TotalFloor1Letter + '€'}}</td>
+                                        <td class="quitarBordesVacio lblValueFloor1">{{TotalFloor2Letter + '€'}}</td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalTherapistLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalManagerLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalToAnotherLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalDrinkLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalTobaccoLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalVitaminsLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalTipLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio lblValueTotal">{{TotalOthersLetter + '€'}} </td>
+                                        <td class="quitarBordesVacio"></td>
+                                    </tr>
+                                    <tr style="line-height: 0%; letter-spacing: 0px;">
+        
+                                        <th class="textNote"></th>
+        
+                                        <th class="textManager">Encargada </th>
+        
+                                        <th class="textDate"> Fecha </th>
+        
+                                        <th class="textTherapist"> Terapeuta </th>
+        
+                                        <th class="textHour"> Tiempo </th>
+        
+                                        <th class="textMin"> Min </th>
+        
+                                        <th class="textColumn"> Total </th>
+        
+                                        <th class="textPay"> Pago </th>
+        
+                                        <th class="textExit"> Salida </th>
+        
+                                        <th class="textTreatment"> Tratamiento </th>
+        
+                                        <th class="textValue">€ a piso 1 </th>
+        
+                                        <th class="textValue">€ a piso 2 </th>
+        
+                                        <th class="textValue">€ a terap. </th>
+        
+                                        <th class="textValue">€ a enc. </th>
+        
+                                        <th class="textValue">€ a otros </th>
+        
+                                        <th class="textColumn"> Bebida </th>
+        
+                                        <th class="textColumn"> Tabaco </th>
+        
+                                        <th class="textVitamin"> Vitamina </th>
+        
+                                        <th class="textTip"> Propina </th>
+        
+                                        <th class="textColumn"> Otros </th>
+        
+                                        <th class="textColumn"> Cliente </th>
+                                    </tr>
+                                </thead>
+        
+                                <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
+                                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
+                                    busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
+                                    paginate: { itemsPerPage: 15, currentPage: page }">
+        
+                                    <tr style="cursor: pointer; line-height: 0%;">
+        
+                                        <td class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
+                                            (click)="notes(services.id, modalTabl)">
+                                        </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnManager"> {{services.encargada}}
+                                        </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnDate"> {{services.fecha}} </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnTherapist"> {{services.terapeuta}}
+                                        </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnHour">
+                                            {{services.horaStart + '-' + services.horaEnd }}
+                                        </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnMin"> {{services.minuto }} </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueTotal">
+                                            {{services.totalServicio+ ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnPaymentMethod">
+                                            {{services.formaPago}} </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnExit"> {{services.salida }} </td>
+        
+                                        <td (click)="editForm(services.id)" class="columnTreatment">
+                                            {{services.servicio + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnFloor1">
+                                            {{services.numberPiso1 + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnFloor1">
+                                            {{services.numberPiso2 + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueTherapist">
+                                            {{services.numberTerap + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueManager">
+                                            {{services.numberEncarg + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueOther">
+                                            {{services.numberOtro + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueDrink">
+                                            {{services.bebidas + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueTobacco">
+                                            {{services.tabaco + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueVitamin">
+                                            {{services.vitaminas + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueTip">
+                                            {{services.propina + ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueOthers">
+                                            {{services.otros+ ' €'}}</td>
+        
+                                        <td (click)="editForm(services.id)" class="columnValueClient">
+                                            {{services.cliente}}
+                                        </td>
+                                    </tr>
+        
+                                    <!-- Modal -->
+                                    <ng-template class="custom-modal" #modalTabl let-modal>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title"> Nota </h5>
+                                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+        
+                                        <div class="modal-body" style="text-align: center;">
+                                            <!-- Aqui se coloca lo adentro -->
+        
+                                            <h4>{{services.nota}}</h4>
+        
+                                            <!-- Afuera -->
+                                        </div>
+                                    </ng-template>
+        
+                                    <!-- Fin Modal -->
+        
+                                </tbody>
+                            </table>    
+                        </div>
+
+                        <pagination-controls class="pagination_Mobile" (pageChange)="page = $event" previousLabel="Anterior"
+                            nextLabel="Siguiente">
+                        </pagination-controls>
+
+                        <!-- Fin table -->
                     </form>
 
 
-                    <div class="row g-0 adjustTable outer">
-
-                        <table class="table" id="excel-table">
-                            <thead>
-                                <tr style="line-height: 0rem; letter-spacing: 0rem">
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio lbelTotal"> TOTALES: </td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio lblValueTotals"> {{TotalValueLetter + '€'}}</td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio"></td>
-                                    <td class="quitarBordesVacio lblValueTreatment"> {{TotalServiceLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueFloor1">{{TotalFloor1Letter + '€'}}</td>
-                                    <td class="quitarBordesVacio lblVaueTotalFloor2">{{TotalFloor2Letter + '€'}}</td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalTherapistLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalManagerLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalToAnotherLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalDrinkLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalTobaccoLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalVitaminsLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalTipLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio lblValueTotal">{{TotalOthersLetter + '€'}} </td>
-                                    <td class="quitarBordesVacio"></td>
-                                </tr>
-                                <tr style="line-height: 0%; letter-spacing: 0px;">
-
-                                    <th class="textNote"></th>
-
-                                    <th class="textManager">Encargada </th>
-
-                                    <th class="textDate"> Fecha </th>
-
-                                    <th class="textTherapist"> Terapeuta </th>
-
-                                    <th class="textHour"> Tiempo </th>
-
-                                    <th class="textMin"> Min </th>
-
-                                    <th class="textColumn"> Total </th>
-
-                                    <th class="textPay"> Pago </th>
-
-                                    <th class="textExit"> Salida </th>
-
-                                    <th class="textTreatment"> Tratamiento </th>
-
-                                    <th class="textValue">€ a piso 1 </th>
-
-                                    <th class="textFloor2">€ a piso 2 </th>
-
-                                    <th class="textValue">€ a terap. </th>
-
-                                    <th class="textValue">€ a enc. </th>
-
-                                    <th class="textValue">€ a otros </th>
-
-                                    <th class="textColumn"> Bebida </th>
-
-                                    <th class="textColumn"> Tabaco </th>
-
-                                    <th class="textVitamin"> Vitamina </th>
-
-                                    <th class="textTip"> Propina </th>
-
-                                    <th class="textColumn"> Otros </th>
-
-                                    <th class="textColumn"> Cliente </th>
-                                </tr>
-                            </thead>
-
-                            <tbody *ngFor="let services of (servicio | terapeuta: selectedTerapeuta | 
-                            encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
-                            busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
-                            paginate: { itemsPerPage: 15, currentPage: page }">
-
-                                <tr style="cursor: pointer; line-height: 0%;">
-
-                                    <td class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
-                                        (click)="notes(services.id, modalTabl)">
-                                    </td>
-
-                                    <td (click)="editForm(services.id)" class="columnManager"> {{services.encargada}}
-                                    </td>
-
-                                    <td (click)="editForm(services.id)" class="columnDate"> {{services.fecha}} </td>
-
-                                    <td (click)="editForm(services.id)" class="columnTherapist"> {{services.terapeuta}}
-                                    </td>
-
-                                    <td (click)="editForm(services.id)" class="columnHour">
-                                        {{services.horaStart + '-' + services.horaEnd }}
-                                    </td>
-
-                                    <td (click)="editForm(services.id)" class="columnMin"> {{services.minuto }} </td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueTotal">
-                                        {{services.totalServicio+ ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnPaymentMethod">
-                                        {{services.formaPago}} </td>
-
-                                    <td (click)="editForm(services.id)" class="columnExit"> {{services.salida }} </td>
-
-                                    <td (click)="editForm(services.id)" class="columnTreatment">
-                                        {{services.servicio + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnFloor1">
-                                        {{services.numberPiso1 + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnFloor2">
-                                        {{services.numberPiso2 + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueTherapist">
-                                        {{services.numberTerap + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueManager">
-                                        {{services.numberEncarg + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueOther">
-                                        {{services.numberOtro + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueDrink">
-                                        {{services.bebidas + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueTobacco">
-                                        {{services.tabaco + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueVitamin">
-                                        {{services.vitaminas + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueTip">
-                                        {{services.propina + ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueOthers">
-                                        {{services.otros+ ' €'}}</td>
-
-                                    <td (click)="editForm(services.id)" class="columnValueClient">
-                                        {{services.cliente}}
-                                    </td>
-                                </tr>
-
-                                <!-- Modal -->
-                                <ng-template class="custom-modal" #modalTabl let-modal>
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"> Nota </h5>
-                                        <button type="button" class="close" (click)="modal.dismiss()"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="modal-body" style="text-align: center;">
-                                        <!-- Aqui se coloca lo adentro -->
-
-                                        <h4>{{services.nota}}</h4>
-
-                                        <!-- Afuera -->
-                                    </div>
-                                </ng-template>
-
-                                <!-- Fin Modal -->
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                        nextLabel="Siguiente">
-                    </pagination-controls>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

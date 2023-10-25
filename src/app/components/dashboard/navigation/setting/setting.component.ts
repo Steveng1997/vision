@@ -116,9 +116,6 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
     this.consultTherapists()
     this.consultManager()
-
-    document.getElementById('idTitulo').style.display = 'block'
-    document.getElementById('idTitulo').innerHTML = 'CONFIGURACIÓN'
   }
 
   openManager(targetEncargada) {

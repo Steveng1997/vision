@@ -1,9 +1,8 @@
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
+  
   .container {
     overflow-x: hidden;
-    position: sticky;
-    top: 80px;
-    margin: 0px 0px 14px;
+    height: 95%;
   }
 
   .marginPage {
@@ -56,7 +55,7 @@
     display: grid;
     grid-template-columns: 36% 40%;
     margin-top: 1rem;
-    margin-left: 3.6rem;
+    margin-left: 27%;
   }
 
   .newServiceCircle {
@@ -367,10 +366,10 @@
 
 /* Pedro */
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+
   .container {
     overflow-x: hidden;
-    position: sticky;
-    top: 80px;
+    height: 95%;
   }
 
   .marginPage {
@@ -423,7 +422,7 @@
     display: grid;
     grid-template-columns: 36% 40%;
     margin-top: 1rem;
-    margin-left: 4.7rem;
+    margin-left: 27%;
   }
 
   .newServiceCircle {
