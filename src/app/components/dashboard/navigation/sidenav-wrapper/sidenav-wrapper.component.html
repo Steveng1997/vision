@@ -35,7 +35,7 @@
     <ul class="navbar__container">
       <!-- link--mobile-hide es para que no se muestre en el mobile -->
 
-      <li class="link my-class" (click)="click()">
+      <li class="link my-class">
         <a>
           <svg aria-label="Direct" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24"
             role="img" viewBox="0 0 24 24" width="24">
@@ -46,49 +46,41 @@
           </svg>
           <span class="link__text">Liquidacion</span>
         </a>
+
+
+        <!-- liquidation-->
+
+        <!-- <ul id="my_back"> -->
+          <ul >
+
+          <li class="link">
+            <!-- <a href="#"> -->
+            <a [routerLink]="'terapeutas'">
+              <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)"
+                height="24" role="img" viewBox="0 0 24 24" width="24">
+                <path
+                  d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
+                  fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span class="link__text">Terapeutas</span>
+            </a>
+          </li>
+
+          <li class="link">
+            <!-- <a href="#"> -->
+            <a [routerLink]="'encargadas'">
+              <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)"
+                height="24" role="img" viewBox="0 0 24 24" width="24">
+                <path
+                  d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
+                  fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span class="link__text">Encargadas</span>
+            </a>
+          </li>
+          
+        </ul>
       </li>
-
-      <!-- liquidation-->
-
-      <li class="link" id="my_back" (click)="back()">
-        <!-- <a href="#"> -->
-        <a>
-          <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24"
-            role="img" viewBox="0 0 16 16" width="24">
-            <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 
-              8.5H14.5A.5.5 0 0 0 15 8z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
-            </path>
-          </svg>
-          <span class="link__text">Atras</span>
-        </a>
-      </li>
-
-      <li class="link" id="my-class2">
-        <!-- <a href="#"> -->
-        <a [routerLink]="'terapeutas'">
-          <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24"
-            role="img" viewBox="0 0 24 24" width="24">
-            <path
-              d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
-              fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-          </svg>
-          <span class="link__text">Terapeutas</span>
-        </a>
-      </li>
-
-      <li class="link" id="my-class3">
-        <!-- <a href="#"> -->
-        <a [routerLink]="'encargadas'">
-          <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24"
-            role="img" viewBox="0 0 24 24" width="24">
-            <path
-              d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
-              fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-          </svg>
-          <span class="link__text">Encargadas</span>
-        </a>
-      </li>
-
 
       <li class="link my-class">
         <!-- <a href="#"> -->

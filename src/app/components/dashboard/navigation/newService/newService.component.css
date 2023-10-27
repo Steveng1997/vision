@@ -470,15 +470,6 @@ input[id="transOtro"] {
   font-weight: bold;
 }
 
-.titles {
-  margin-top: 1.5rem;
-  font-size: 20px;
-  margin-bottom: 0;
-  color: #8c52ff;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
 .sumServices {
   margin-top: 1.5rem;
   font-size: 22px;
@@ -490,6 +481,10 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
+  .marginBody {
+    height: 93%;
+  }
+
   .container {
     overflow-x: hidden;
     height: 95%;
@@ -497,6 +492,16 @@ input[id="transOtro"] {
 
   .marginPage {
     margin: 0px auto 37px;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 6px;
   }
 
   .title {
@@ -510,12 +515,17 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 21rem;
+    width: 84%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0.4rem;
+    margin-left: 16px;
+  }
+
+  .lastService {
+    margin-left: 3px;
+    width: 55%;
   }
 
   .sumServices {
@@ -529,22 +539,22 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 0.7rem;
+    margin-left: 15px;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 21rem;
+    width: 84%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0.4rem;
+    margin-left: 16px;
   }
 
   .lastServiceOrdered {
     margin-left: 11rem;
-    margin-top: -1.7rem;
+    margin-top: -35px;
   }
 
   .botones {
@@ -562,71 +572,62 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 56% 56%;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-left: -6%;
+    grid-template-columns: 56% 43%;
+    margin-left: -6px;
   }
 
   .therapistContainer {
-    width: 88%;
-    justify-self: center;
+    width: 136px;
   }
 
   .containerInCharge {
-    width: 88%;
-    justify-self: center;
+    width: 100%;
   }
 
   .clientContainer {
-    width: 88%;
-    justify-self: center;
+    width: 136px;
     margin-top: 1rem;
   }
 
   .containerPlaceExit {
-    width: 88%;
-    justify-self: center;
+    width: 100%;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 43% 14% 38% 6%;
+    grid-template-columns: 57% 42%;
     margin-top: 1rem;
+    margin-left: -6px;
   }
 
   .dateContainer {
-    width: 97%;
-  }
-
-  .dateIcon {
-    margin-left: 4%;
-    margin-top: 1.9rem;
+    width: 79%;
   }
 
   .containerStartTime {
-    width: 90%;
-  }
-
-  .startTimeIcon {
-    margin-left: -38%;
-    margin-top: 1.9rem;
+    width: 83%;
+    margin-left: auto;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 42% 59%;
+    grid-template-columns: 45% 54%;
+    margin-left: -6px;
   }
 
   .containerDuration {
-    width: 152px;
+    width: 100%;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    margin-left: 3.9rem;
+    margin-left: 35%;
     margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 14px;
   }
 
   .containerTitleService {
@@ -638,7 +639,7 @@ input[id="transOtro"] {
   .titleService {
     text-align: center;
     place-self: center;
-    margin-left: 0.4rem;
+    margin-left: 14%;
   }
 
   .totalService {
@@ -652,6 +653,7 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 38% 36% 25%;
     margin-top: 1rem;
+    margin-left: -6px;
   }
 
   .treatmentContainer {
@@ -682,22 +684,22 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 1.1rem;
+    margin-left: 10%;
   }
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 19.8% 19% 18% 18%;
-    justify-content: center;
+    grid-template-columns: 18% 19% 17% 17%;
     margin-top: 1rem;
-    margin-left: 6.1rem;
+    margin-left: 182px;
   }
 
   .collectionContainer2 {
     display: grid;
     grid-template-columns: 21.6% 22% 16% 20% 14%;
-    margin-top: 1rem;
+    margin-top: 0rem;
     margin-bottom: 1.5rem;
+    margin-left: -2%;
   }
 
   .collectionPiso1 {
@@ -822,9 +824,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 99%;
+    grid-template-columns: 299px;
     margin-top: 1rem;
-    margin-left: -2rem;
+    margin-left: -7%;
     margin-bottom: 1.5rem;
   }
 
@@ -847,6 +849,9 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
+  .marginBody {
+    height: 93%;
+  }
 
   .container {
     overflow-x: hidden;
@@ -855,6 +860,16 @@ input[id="transOtro"] {
 
   .marginPage {
     margin: 0px auto 37px;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -8px;
   }
 
   .title {
@@ -868,12 +883,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 21rem;
+    width: 105%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0.4rem;
+    margin-left: -2%;
+  }
+
+  .lastService {
+    margin-left: -2%;
   }
 
   .sumServices {
@@ -887,22 +906,22 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 0.7rem;
+    margin-left: -2%;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 21rem;
+    width: 105%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0.4rem;
+    margin-left: -2%;
   }
 
   .lastServiceOrdered {
     margin-left: 11rem;
-    margin-top: -1.7rem;
+    margin-top: -35px;
   }
 
   .botones {
@@ -920,71 +939,62 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 56% 56%;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-left: -5.6%;
+    grid-template-columns: 60% 42%;
+    margin-left: -6px;
   }
 
   .therapistContainer {
-    width: 88%;
-    justify-self: center;
+    width: 136px;
   }
 
   .containerInCharge {
-    width: 88%;
-    justify-self: center;
+    width: 94%;
   }
 
   .clientContainer {
-    width: 88%;
-    justify-self: center;
+    width: 136px;
     margin-top: 1rem;
   }
 
   .containerPlaceExit {
-    width: 88%;
-    justify-self: center;
+    width: 94%;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 43% 14% 38% 6%;
+    grid-template-columns: 57% 42%;
     margin-top: 1rem;
+    margin-left: -6px;
   }
 
   .dateContainer {
-    width: 92%;
-  }
-
-  .dateIcon {
-    margin-left: -16%;
-    margin-top: 1.9rem;
+    width: 69%;
   }
 
   .containerStartTime {
-    width: 7.5rem;
-  }
-
-  .startTimeIcon {
-    margin-left: -70%;
-    margin-top: 1.9rem;
+    width: 72%;
+    margin-left: auto;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 40% 59%;
+    grid-template-columns: 42% 196px;
+    margin-left: -6px;
   }
 
   .containerDuration {
-    width: 8.8rem;
+    width: 94%;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    margin-left: 3.9rem;
+    margin-left: 49%;
     margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 13px;
   }
 
   .containerTitleService {
@@ -996,7 +1006,7 @@ input[id="transOtro"] {
   .titleService {
     text-align: center;
     place-self: center;
-    margin-left: 0.4rem;
+    margin-left: 1%;
   }
 
   .totalService {
@@ -1010,6 +1020,7 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 38% 36% 25%;
     margin-top: 1rem;
+    margin-left: -2%;
   }
 
   .treatmentContainer {
@@ -1040,22 +1051,22 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 1.1rem;
+    margin-left: 10%;
   }
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 19.8% 19% 18% 18%;
-    justify-content: center;
+    grid-template-columns: 29% 29% 24% 23%;
     margin-top: 1rem;
-    margin-left: 7.5rem;
+    margin-left: 28%;
   }
 
   .collectionContainer2 {
     display: grid;
     grid-template-columns: 21.6% 22% 16% 20% 14%;
-    margin-top: 1rem;
+    margin-top: 0rem;
     margin-bottom: 1.5rem;
+    margin-left: -2%;
   }
 
   .collectionPiso1 {
@@ -1180,9 +1191,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 99%;
+    grid-template-columns: 356px;
     margin-top: 1rem;
-    margin-left: -2rem;
+    margin-left: -6%;
     margin-bottom: 1.5rem;
   }
 
@@ -1205,9 +1216,12 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
+  .marginPage {
+    margin-left: 213px;
+  }
+
   .title {
     display: grid;
-    justify-content: center;
     font-size: 45px;
     color: #8c52ff;
     font-weight: bold;
@@ -1282,27 +1296,30 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    margin-left: 2.7rem;
-    justify-content: center;
+    grid-template-columns: 35% 34% 30%;
     margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 92%;
+    width: 63%;
   }
 
   .containerInCharge {
-    width: 92%;
+    width: 155px;
   }
 
   .clientContainer {
-    width: 92%;
+    width: 155px;
+  }
+
+  .containerPlaceExit {
+    width: 63%;
+    margin-top: 10%;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 32% 21.8% 31% 0%;
+    grid-template-columns: 30% 30%;
     margin-left: 20%;
     margin-top: 1rem;
   }
@@ -1311,21 +1328,9 @@ input[id="transOtro"] {
     width: 74%;
   }
 
-  .dateIcon {
-    place-self: center;
-    margin-top: 20%;
-    margin-left: -34%;
-  }
-
   .containerStartTime {
     width: 9.7rem;
     margin-left: -2%;
-  }
-
-  .startTimeIcon {
-    place-self: center;
-    margin-top: 1.4rem;
-    margin-left: -1.7rem;
   }
 
   .datesContainer2 {
@@ -1345,9 +1350,8 @@ input[id="transOtro"] {
     margin-top: 2.4rem;
   }
 
-  .containerPlaceExit {
-    width: 92%;
-    margin-top: 18%;
+  .hourEnd {
+    margin-left: 0px;
   }
 
   .containerTitleService {
@@ -1690,7 +1694,7 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 34% 26.4% 23% 3%;
+    grid-template-columns: 32% 32%;
     margin-left: 19%;
     margin-top: 1rem;
   }
@@ -1699,20 +1703,8 @@ input[id="transOtro"] {
     width: 9.7rem;
   }
 
-  .dateIcon {
-    place-self: center;
-    margin-top: 1.4rem;
-    margin-left: -7.5rem;
-  }
-
   .containerStartTime {
     width: 9.7rem;
-  }
-
-  .startTimeIcon {
-    place-self: center;
-    margin-top: 1.4rem;
-    margin-left: -1.7rem;
   }
 
   .datesContainer2 {
@@ -1730,6 +1722,10 @@ input[id="transOtro"] {
     width: 100%;
     margin-left: 14rem;
     margin-top: 4.2rem;
+  }
+
+  .hourEnd {
+    margin-left: 0px;
   }
 
   .containerPlaceExit {

@@ -6,7 +6,7 @@
   }
 
   .marginPage {
-    margin: 0px auto 37px;
+    margin: 0px auto 5px;
   }
 
   .newService {
@@ -70,11 +70,12 @@
   .adjustTable {
     margin-top: 2rem;
     width: 90%;
+    margin-left: 0px;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 7% 35% 30% 19% 16%;
+    grid-template-columns: 7% 28% 20% 16% 34%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -118,11 +119,12 @@
 
   .exit {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .endTime {
@@ -373,7 +375,7 @@
   }
 
   .marginPage {
-    margin: 0px auto 37px;
+    margin: 0px auto 5px;
   }
 
   .newService {
@@ -437,12 +439,12 @@
   .adjustTable {
     margin-top: 2rem;
     width: 90%;
-    margin-left: 10px;
+    margin-left: 0px;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 7% 35% 30% 19% 19%;
+    grid-template-columns: 7% 28% 20% 16% 36%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     justify-content: center;
@@ -486,11 +488,12 @@
 
   .exit {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
     text-align: left;
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .endTime {

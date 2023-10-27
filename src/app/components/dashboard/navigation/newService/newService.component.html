@@ -1,16 +1,16 @@
-<div class="container">
-    <div class="row marginPage">
-        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
-            <div class="m-0 vh-90 row justify-content-center align-items-center">
+<div *ngIf="!editamos && addService" class="marginBody">
+    <label class="title">Nuevo Servicio</label>
 
-                <div *ngIf="!editamos && addService">
-                    <label class="title">Nuevo Servicio</label>
+    <div class="container">
+        <div class="row marginPage">
+            <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+                <div class="m-0 vh-90 row justify-content-center align-items-center">
 
                     <div class="row inputContainer">
 
-                        <div class="therapistContainer">
-                            <div class="row g-0">
-                                <label class="text"> Terapeuta</label>
+                        <div class="row g-0">
+                            <div class="therapistContainer">
+                                <label class="text">Terapeuta</label>
                                 <select class="form-select" [(ngModel)]="services.terapeuta" name="terapeuta"
                                     (ngModelChange)="therapists($event)" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
@@ -22,9 +22,9 @@
                             </div>
                         </div>
 
-                        <div class="containerInCharge">
-                            <div class="row g-0">
-                                <label class="text"> Encargada</label>
+                        <div class="row g-0">
+                            <div class="containerInCharge">
+                                <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="services.encargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
                                     <option *ngIf="administratorRole" selected value>Selecciona</option>
@@ -35,17 +35,17 @@
                             </div>
                         </div>
 
-                        <div class="clientContainer">
-                            <div class="row g-0">
-                                <label class="text"> Cliente</label>
+                        <div class="row g-0">
+                            <div class="clientContainer">
+                                <label class="text">Cliente</label>
                                 <input class="form-control" type="text" name="cliente" [(ngModel)]="services.cliente"
                                     style="height: 2.2rem; border-color: #8C52FF; color: #242424;
                                             font-family: sans-serif; font-size: 18px;">
                             </div>
                         </div>
 
-                        <div class="containerPlaceExit">
-                            <div class="row g-0">
+                        <div class="row g-0">
+                            <div class="containerPlaceExit">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Lugar Salida</label>
                                 <input type="text" class="form-control" [(ngModel)]="services.salida"
@@ -67,8 +67,7 @@
 
                         <div class="col-6 lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
                             <label style="color: #242424; font-size: 18px; font-weight: bold;"
-                                *ngFor="let hor of fechaLast">
-                                {{hourStartTerapeuta + '-' + horaEndTerapeuta}}
+                                *ngFor="let hor of fechaLast"> {{hourStartTerapeuta + '-' + horaEndTerapeuta}}
                             </label>
                         </div>
                     </div>
@@ -80,26 +79,13 @@
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                             display: contents;">Fecha</label>
                                 <input type="date" class="form-control" (change)="chosenDate($event)"
-                                    [value]="fechaActual" style="color: #242424; font-size: 18px; 
-                                            font-family: sans-serif; height: 2.2rem; border-color: #8C52FF">
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="dateIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                    <path
-                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                </svg>
+                                    [value]="fechaActual" style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                    height: 2.2rem; border-color: #8C52FF">
                             </div>
                         </div>
 
                         <div class="row g-0">
                             <div class="containerStartTime">
-
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                         display: contents;">Hora inicio</label>
                                 <input type="time" class="form-control" name="horaStart" min="18:00" max="21:00"
@@ -108,22 +94,10 @@
                                             font-family: sans-serif; border-color: #8C52FF" />
                             </div>
                         </div>
-
-                        <div class="row g-0">
-                            <div class="startTimeIcon">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                                </svg>
-                            </div>
-                        </div>
                     </div>
 
 
-                    <div class="datesContainer2">
+                    <div class="row datesContainer2">
                         <div class="row g-0">
                             <div class="containerDuration">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
@@ -137,8 +111,8 @@
                         <div class="row g-0">
                             <div class="EndTimeContainer">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        font-weight: bold;">Hora fin:</label>
-                                <div style="color: #242424; font-size: 18px; height: 2.2rem; 
+                                        font-weight: bold;">Hora fin</label>
+                                <div class="hourEnd" style="color: #242424; font-size: 18px; height: 2.2rem; 
                                         font-family: sans-serif; font-weight: bold"> {{services.horaEnd}} </div>
                             </div>
                         </div>
@@ -155,7 +129,7 @@
 
                         <div class="row g-0">
                             <div class="titleService">
-                                <label class="sumServices"> {{sumatoriaServicios + ' €'}}</label>
+                                <label class="sumServices">{{sumatoriaServicios + ' €'}}</label>
                             </div>
                         </div>
                     </div>
@@ -170,7 +144,7 @@
                     </div>
 
 
-                    <div class="servicesContainer">
+                    <div class="row servicesContainer">
                         <div class="row g-0">
                             <div class="treatmentContainer">
 
@@ -245,7 +219,7 @@
 
                         <div class="row g-0">
                             <div class="titleService">
-                                <label class="sumServices"> {{sumatoriaCobros + ' €'}}</label>
+                                <label class="sumServices">{{sumatoriaCobros + ' €'}}</label>
                             </div>
                         </div>
                     </div>
@@ -290,7 +264,7 @@
                         </div>
                     </div>
 
-                    <div class="collectionContainer2">
+                    <div class="row collectionContainer2">
 
                         <div class="collectionPiso1 row g-0" style="display: block;">
                             <label style="color: #242424; font-size: 17px; font-family: sans-serif;
@@ -517,8 +491,7 @@
 </div>
 
 <!------------------------------------------ Editar ------------------------------------------>
-
-<div *ngIf="editamos && addService">
+<div *ngIf="editamos && addService" class="marginBody">
     <label class="title">Editar</label>
 
     <div class="container" *ngFor="let edServ of editarService">
@@ -528,13 +501,12 @@
 
                     <div class="row inputContainer">
 
-                        <div class="therapistContainer">
-                            <div class="row g-0">
-                                <label class="text"> Terapeuta</label>
+                        <div class="row g-0">
+                            <div class="therapistContainer">
+                                <label class="text">Terapeuta</label>
                                 <select class="form-select" [(ngModel)]="edServ.terapeuta" name="terapeuta"
                                     (ngModelChange)="therapists($event)" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
-                                    <option selected value="">Selecciona</option>
                                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                                         {{terap?.nombre}}
                                     </option>
@@ -542,12 +514,11 @@
                             </div>
                         </div>
 
-                        <div class="containerInCharge">
-                            <div class="row g-0">
-                                <label class="text"> Encargada</label>
+                        <div class="row g-0">
+                            <div class="containerInCharge">
+                                <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="edServ.encargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value>Selecciona</option>
                                     <option *ngFor="let encarg of manager" [value]="encarg.nombre">
                                         {{encarg?.nombre}}
                                     </option>
@@ -555,17 +526,17 @@
                             </div>
                         </div>
 
-                        <div class="clientContainer">
-                            <div class="row g-0">
-                                <label class="text"> Cliente</label>
+                        <div class="row g-0">
+                            <div class="clientContainer">
+                                <label class="text">Cliente</label>
                                 <input class="form-control" type="text" name="cliente" [(ngModel)]="edServ.cliente"
                                     style="height: 2.2rem; border-color: #8C52FF; color: #242424;
                                             font-family: sans-serif; font-size: 18px;">
                             </div>
                         </div>
 
-                        <div class="containerPlaceExit">
-                            <div class="row g-0">
+                        <div class="row g-0">
+                            <div class="containerPlaceExit">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Lugar Salida</label>
                                 <input type="text" class="form-control" [(ngModel)]="edServ.salida"
@@ -587,8 +558,7 @@
 
                         <div class="col-6 lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
                             <label style="color: #242424; font-size: 18px; font-weight: bold;"
-                                *ngFor="let hor of fechaLast">
-                                {{edServ['horaStart'] + '-' + edServ['horaEnd']}}
+                                *ngFor="let hor of fechaLast"> {{edServ['horaStart'] + '-' + edServ['horaEnd']}}
                             </label>
                         </div>
                     </div>
@@ -606,18 +576,6 @@
                         </div>
 
                         <div class="row g-0">
-                            <div class="dateIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                    <path
-                                        d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                    <path
-                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
                             <div class="containerStartTime">
 
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
@@ -628,22 +586,10 @@
                                             font-family: sans-serif; border-color: #8C52FF" />
                             </div>
                         </div>
-
-                        <div class="row g-0">
-                            <div class="startTimeIcon">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-clock" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                                </svg>
-                            </div>
-                        </div>
                     </div>
 
 
-                    <div class="datesContainer2">
+                    <div class="row datesContainer2">
                         <div class="row g-0">
                             <div class="containerDuration">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
@@ -657,8 +603,8 @@
                         <div class="row g-0">
                             <div class="EndTimeContainer">
                                 <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        font-weight: bold;">Hora fin:</label>
-                                <div style="color: #242424; font-size: 18px; height: 2.2rem; 
+                                        font-weight: bold;">Hora fin</label>
+                                <div class="hourEnd" style="color: #242424; font-size: 18px; height: 2.2rem; 
                                         font-family: sans-serif; font-weight: bold"> {{edServ.horaEnd}} </div>
                             </div>
                         </div>
@@ -675,7 +621,7 @@
 
                         <div class="row g-0">
                             <div class="titleService">
-                                <label class="sumServices"> {{edServ['totalServicio'] + ' €'}}</label>
+                                <label class="sumServices">{{edServ['totalServicio'] + ' €'}}</label>
                             </div>
                         </div>
                     </div>
@@ -690,7 +636,7 @@
                     </div>
 
 
-                    <div class="servicesContainer">
+                    <div class="row servicesContainer">
                         <div class="row g-0">
                             <div class="treatmentContainer">
 
@@ -765,7 +711,7 @@
 
                         <div class="row g-0">
                             <div class="titleService">
-                                <label class="sumServices"> {{sumatoriaCobrosEdit + ' €'}}</label>
+                                <label class="sumServices">{{sumatoriaCobrosEdit + ' €'}}</label>
                             </div>
                         </div>
                     </div>
@@ -810,7 +756,7 @@
                         </div>
                     </div>
 
-                    <div class="collectionContainer2">
+                    <div class="row collectionContainer2">
 
                         <div class="collectionPiso1 row g-0" style="display: block;">
                             <label style="color: #242424; font-size: 17px; font-family: sans-serif;
