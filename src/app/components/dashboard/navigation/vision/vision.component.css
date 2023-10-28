@@ -2,11 +2,13 @@
   
   .container {
     overflow-x: hidden;
-    height: 95%;
+    /* height: 91%; */
+    height: 94%;
   }
 
   .marginPage {
-    margin: 0px auto 5px;
+    margin: 0px auto 0px;
+    /* margin: 0px auto 30px; */
   }
 
   .newService {
@@ -371,11 +373,13 @@
 
   .container {
     overflow-x: hidden;
-    height: 95%;
+    /* height: 91%; */
+    height: 94%;
   }
 
   .marginPage {
-    margin: 0px auto 5px;
+    margin: 0px auto 0px;
+    /* margin: 0px auto 30px; */
   }
 
   .newService {

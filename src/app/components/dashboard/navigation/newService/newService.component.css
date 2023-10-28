@@ -487,11 +487,13 @@ input[id="transOtro"] {
 
   .container {
     overflow-x: hidden;
-    height: 95%;
+    /* height: 95%; */
+    height: 84%;
   }
 
   .marginPage {
-    margin: 0px auto 37px;
+    /* margin: 0px auto 37px; */
+    margin: 0px auto 9px;
   }
 
   .titles {
@@ -855,11 +857,13 @@ input[id="transOtro"] {
 
   .container {
     overflow-x: hidden;
-    height: 95%;
+    /* height: 95%; */
+    height: 84%;
   }
 
   .marginPage {
-    margin: 0px auto 37px;
+    /* margin: 0px auto 37px; */
+    margin: 0px auto 9px;
   }
 
   .titles {

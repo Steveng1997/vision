@@ -51,9 +51,9 @@
         <!-- liquidation-->
 
         <!-- <ul id="my_back"> -->
-          <ul >
+          <ul id="my_back">
 
-          <li class="link">
+          <li class="link" id="therapeut">
             <!-- <a href="#"> -->
             <a [routerLink]="'terapeutas'">
               <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)"
@@ -66,7 +66,7 @@
             </a>
           </li>
 
-          <li class="link">
+          <li class="link" id="manager">
             <!-- <a href="#"> -->
             <a [routerLink]="'encargadas'">
               <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)"
@@ -111,9 +111,9 @@
         </a>
       </li> -->
 
-      <li class="link my-class">
+      <li class="link my-class menuToggle">
         <!-- <a href="#"> -->
-        <a routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}">
+        <a routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}" class="iconStart">
           <svg aria-label="Inicio" class="link__image" color="rgb(245, 245, 245)" fill="rgb(245, 245, 245)" height="24"
             role="img" viewBox="0 0 24 24" width="24">
             <path

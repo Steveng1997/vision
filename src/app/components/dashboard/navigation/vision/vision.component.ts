@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
 
-import { finalize } from 'rxjs/operators';
-
-
 // Services
 import { ServiceManager } from 'src/app/core/services/manager'
 import { ServiceTherapist } from 'src/app/core/services/therapist'
@@ -102,17 +99,16 @@ export class VisionComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
-    this.getTherapist()
-
-    this.serviceManager.getById(this.idUser).subscribe(rp => {
+    this.serviceManager.getById(this.idUser).subscribe((rp) => { 
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
       } else {
         this.getServiceByManager(rp[0])
       }
     })
-  }
 
+    this.getTherapist()
+  }
   totalsAtZero() {
     this.totalPisos = 0
     this.totalVision = 0
@@ -165,7 +161,8 @@ export class VisionComponent implements OnInit {
       this.therapist = rp
       if (rp.length > 0) {
         if (rp?.horaEnd != "") {
-          for (let i = 0; rp.length; i++) {
+          // for (let i = 0; rp.length; i++) {
+          for (let i = 0; i < rp.length; i++) {
             this.minuteDifference(rp[i]?.horaEnd, rp[i]?.nombre, rp[i]?.fechaEnd)
             if (rp[i]?.minuto != null && rp[i]?.minuto != "") {
               this.therapist[i].minuto = this.horaEnd
@@ -247,21 +244,13 @@ export class VisionComponent implements OnInit {
       hora_inicio = '0' + hora_inicio
     }
 
-    if (convertFecha != "") {
-      if (convertFecha < fechaEnd) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
-          this.therapist[0].fechaEnd = ""
-          this.therapist[0].horaEnd = ""
-          this.therapist[0].minuto = ""
-          this.therapist[0].salida = ""
-          for (let i = 0; i < rp.length; i++) {
-            this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((rp: any) => {
-              this.therapist = rp
-            })
-          }
+    if (convertFecha < fechaEnd || convertFecha == '' || convertFecha == undefined) {
+      this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
+        this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp: any) => {
+          this.therapist = rp
         })
-        return ''
-      }
+      })
+      return ''
     }
 
     // Si algún valor no tiene formato correcto sale

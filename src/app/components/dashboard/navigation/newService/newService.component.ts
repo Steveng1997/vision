@@ -172,12 +172,7 @@ export class NewServiceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // document.getElementById('idTitulo').style.display = 'block'
-    // document.getElementById('idTitulo').innerHTML = 'NUEVO SERVICIO'
-
     this.addService = true
-
-    // const params = this.activeRoute.snapshot.params;
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
