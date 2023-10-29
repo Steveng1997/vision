@@ -18,9 +18,14 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    document.getElementById('therapeut').style.display = 'none'
-    document.getElementById('manager').style.display = 'none'
-    document.getElementById('my_back').style.display = 'none'
+    // document.getElementById('containerLiquidation').style.display = 'none'
+
+    var x = window.matchMedia("(min-device-width: 1030px)")
+    if (x.matches) { // If media query matches
+      document.getElementById('containerLiquidation').style.display = ''
+    } else {
+      document.getElementById('containerLiquidation').style.display = 'none'
+    }
 
     this.idUser = this.activeRoute.snapshot.params;
     if (this.idUser.id) {
