@@ -36,23 +36,10 @@ export class SidenavWrapperComponent implements OnInit {
     });
   }
 
-  click() {
-    let menuToggle = document.querySelector('.menuToggle');
-    menuToggle.addEventListener("click", function () {
-      menuToggle.classList.toggle('active')
-    });
-  }
-
-  aqui() {
-    debugger
-    var navItems = document.querySelectorAll(".mobile-bottom-nav__item");
-    navItems.forEach(function (e, i) {
-      e.addEventListener("click", function (e) {
-        navItems.forEach(function (e2, i2) {
-          e2.classList.remove("mobile-bottom-nav__item--active");
-        })
-        this.classList.add("mobile-bottom-nav__item--active");
-      });
-    });
-  }
+  // click() {
+  //   let menuToggle = document.querySelector('.menuToggle');
+  //   menuToggle.addEventListener("click", function () {
+  //     menuToggle.classList.toggle('active')
+  //   });
+  // }
 }
