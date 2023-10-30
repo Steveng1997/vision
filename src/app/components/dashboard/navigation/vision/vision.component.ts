@@ -95,11 +95,11 @@ export class VisionComponent implements OnInit {
     private serviceTherapist: ServiceTherapist
   ) { }
 
-  ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => { 
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
       } else {
@@ -107,7 +107,12 @@ export class VisionComponent implements OnInit {
       }
     })
 
-    this.getTherapist()
+    if (!this.consultTherapist()) return
+
+    setTimeout(() => {
+      this.getMinute()
+    }, 1200);
+
   }
   totalsAtZero() {
     this.totalPisos = 0
@@ -156,24 +161,29 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  getTherapist() {
+  consultTherapist() {
     this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
       this.therapist = rp
-      if (rp.length > 0) {
-        if (rp?.horaEnd != "") {
-          // for (let i = 0; rp.length; i++) {
-          for (let i = 0; i < rp.length; i++) {
-            this.minuteDifference(rp[i]?.horaEnd, rp[i]?.nombre, rp[i]?.fechaEnd)
-            if (rp[i]?.minuto != null && rp[i]?.minuto != "") {
-              this.therapist[i].minuto = this.horaEnd
-              this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp: any) => {
-                this.therapist = rp
-              })
-            }
+      return true
+    })
+    return true
+  }
+
+  getMinute() {
+    if (this.therapist.length > 0) {
+      if (this.therapist?.horaEnd != "") {
+        for (let i in this.therapist) {
+          this.minuteDifference(this.therapist[i]?.horaEnd, this.therapist[i]?.nombre, this.therapist[i]?.fechaEnd)
+          debugger
+          if (this.therapist[i]?.minuto != null && this.therapist[i]?.minuto != "") {
+            this.therapist[i].minuto = this.horaEnd
+            this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp) => {
+              if(!this.consultTherapist()) return
+            })
           }
         }
       }
-    })
+    }
   }
 
   todaysDate() {
@@ -244,13 +254,15 @@ export class VisionComponent implements OnInit {
       hora_inicio = '0' + hora_inicio
     }
 
-    if (convertFecha < fechaEnd || convertFecha == '' || convertFecha == undefined) {
-      this.serviceTherapist.getByNombre(nombre).subscribe((rp: any) => {
-        this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp: any) => {
-          this.therapist = rp
+    if (convertFecha == undefined || convertFecha == '') {
+      if (convertFecha < fechaEnd) {
+        this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
+          this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
+            // this.therapist = rp
+          })
         })
-      })
-      return ''
+        return ''
+      }
     }
 
     // Si algún valor no tiene formato correcto sale
