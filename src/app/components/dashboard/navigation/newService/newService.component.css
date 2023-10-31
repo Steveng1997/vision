@@ -495,7 +495,7 @@ input[id="transOtro"] {
   .marginPage {
     /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
-    position: relative;
+    /* position: relative; */
     z-index: -1;
   }
 
@@ -603,7 +603,7 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 57% 42%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: -7px;
   }
 
   .dateContainer {
@@ -611,7 +611,7 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 83%;
+    width: 82%;
     margin-left: auto;
   }
 
@@ -627,7 +627,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 35%;
+    margin-left: 36%;
     margin-top: 1.5rem;
   }
 
@@ -862,13 +862,13 @@ input[id="transOtro"] {
   .container {
     overflow-x: hidden;
     /* height: 95%; */
-    height: 84%;
+    height: 81%;
   }
 
   .marginPage {
     /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
-    position: relative;
+    /* position: relative; */
     z-index: -1;
   }
 
@@ -983,7 +983,7 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 72%;
+    width: 73%;
     margin-left: auto;
   }
 

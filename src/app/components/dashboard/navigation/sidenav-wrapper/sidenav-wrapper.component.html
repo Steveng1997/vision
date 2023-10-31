@@ -22,7 +22,7 @@
         </a>
       </li>
       <li class="link">
-        <a>
+        <a routerLink="/menu/{{idUser}}/nuevo-servicio/{{idUser}}/false">
           <i class="fa fa-list"></i>
           <span class="link_text">Servicios</span>
         </a>
@@ -49,11 +49,28 @@
           <span class="link_text">Menú</span>
         </a>
         <ul class="navbar__container_menu" id="containerMenu">
-          <li><a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'"><i
-                class="fa fa-money-bill-wave"></i>Cierre</a></li>
-          <li><a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'"><i
-                class="fa fa-cog"></i>Configuración</a></li>
-          <li><a><i class="fa fa-question"></i>Ayuda</a></li>
+
+          <li class="link">
+            <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'">
+              <i class="fa fa-money-bill-wave"></i>
+              <span class="link_text">Cierre</span>
+            </a>
+          </li>
+
+          <li class="link">
+            <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'">
+              <i class="fa fa-cog"></i>
+              <span class="link_text">Configuración</span>
+            </a>
+          </li>
+
+          <li class="link">
+            <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'">
+              <i class="fa fa-question"></i>
+              <span class="link_text">Ayuda</span>
+            </a>
+          </li>
+
         </ul>
       </li>
     </ul>

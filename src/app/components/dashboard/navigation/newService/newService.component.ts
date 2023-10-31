@@ -171,7 +171,7 @@ export class NewServiceComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.addService = true
     const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)

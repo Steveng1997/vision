@@ -45,12 +45,15 @@ export class SidenavWrapperComponent implements OnInit {
   buttonMenu() {
     var detalle = document.getElementById('containerMenu');
     var x = window.matchMedia("(min-device-width: 1030px)")
+    var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
 
     if (!x.matches) {
       if (detalle.style.display == "none") {
         detalle.style.display = "block";
+        contenedor[0].style.position = 'relative';
       } else {
         detalle.style.display = "none";
+        contenedor[0].style.position = 'static';
       }
     }
   }
