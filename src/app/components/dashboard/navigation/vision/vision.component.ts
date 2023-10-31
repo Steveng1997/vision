@@ -174,7 +174,6 @@ export class VisionComponent implements OnInit {
       if (this.therapist?.horaEnd != "") {
         for (let i in this.therapist) {
           this.minuteDifference(this.therapist[i]?.horaEnd, this.therapist[i]?.nombre, this.therapist[i]?.fechaEnd)
-          debugger
           if (this.therapist[i]?.minuto != null && this.therapist[i]?.minuto != "") {
             this.therapist[i].minuto = this.horaEnd
             this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp) => {

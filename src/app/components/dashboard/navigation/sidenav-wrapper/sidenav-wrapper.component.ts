@@ -18,13 +18,14 @@ export class SidenavWrapperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // document.getElementById('containerLiquidation').style.display = 'none'
 
     var x = window.matchMedia("(min-device-width: 1030px)")
-    if (x.matches) { // If media query matches
+    if (x.matches) {
       document.getElementById('containerLiquidation').style.display = ''
     } else {
       document.getElementById('containerLiquidation').style.display = 'none'
+      document.getElementById('containerMenu').style.display = 'none'
+      document.getElementById('textNew').style.display = 'none'
     }
 
     this.idUser = this.activeRoute.snapshot.params;
@@ -41,10 +42,16 @@ export class SidenavWrapperComponent implements OnInit {
     });
   }
 
-  // click() {
-  //   let menuToggle = document.querySelector('.menuToggle');
-  //   menuToggle.addEventListener("click", function () {
-  //     menuToggle.classList.toggle('active')
-  //   });
-  // }
+  buttonMenu() {
+    var detalle = document.getElementById('containerMenu');
+    var x = window.matchMedia("(min-device-width: 1030px)")
+
+    if (!x.matches) {
+      if (detalle.style.display == "none") {
+        detalle.style.display = "block";
+      } else {
+        detalle.style.display = "none";
+      }
+    }
+  }
 }

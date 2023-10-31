@@ -1,14 +1,14 @@
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
-  
+
   .container {
     overflow-x: hidden;
-    /* height: 91%; */
-    height: 94%;
+    height: 92%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
-    /* margin: 0px auto 30px; */
+    position: relative;
+    z-index: -1
   }
 
   .newService {
@@ -373,13 +373,14 @@
 
   .container {
     overflow-x: hidden;
-    /* height: 91%; */
-    height: 94%;
+    height: 92%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
     /* margin: 0px auto 30px; */
+    position: relative;
+    z-index: -1;
   }
 
   .newService {

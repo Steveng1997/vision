@@ -482,18 +482,21 @@ input[id="transOtro"] {
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
   .marginBody {
-    height: 93%;
+    /* height: 93%; */
+    height: 100%;
   }
 
   .container {
     overflow-x: hidden;
     /* height: 95%; */
-    height: 84%;
+    height: 81%;
   }
 
   .marginPage {
     /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
+    position: relative;
+    z-index: -1;
   }
 
   .titles {
@@ -852,7 +855,8 @@ input[id="transOtro"] {
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
   .marginBody {
-    height: 93%;
+    /* height: 93%; */
+    height: 98%;
   }
 
   .container {
@@ -864,6 +868,8 @@ input[id="transOtro"] {
   .marginPage {
     /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
+    position: relative;
+    z-index: -1;
   }
 
   .titles {

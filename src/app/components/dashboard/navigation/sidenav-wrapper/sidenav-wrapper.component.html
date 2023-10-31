@@ -23,14 +23,14 @@
       </li>
       <li class="link">
         <a>
-          <i class="fa fa-server"></i>
+          <i class="fa fa-list"></i>
           <span class="link_text">Servicios</span>
         </a>
       </li>
       <li class="link menuToggle">
         <a>
           <i class="fa fa-plus"></i>
-          <span class="link_text">Nuevo</span>
+          <span class="link_text" id="textNew">Nuevo</span>
         </a>
       </li>
       <li class="link">
@@ -38,17 +38,17 @@
           <i class="fa fa-check-circle" aria-hidden="true"></i>
           <span class="link_text">Liquidacion</span>
         </a>
-        <ul class="navbar__container" id="containerLiquidation">
+        <ul class="navbar__container_liquidation" id="containerLiquidation">
           <li><a [routerLink]="'terapeutas'"><i class="fa fa-check-circle"></i>Terapeuta</a></li>
           <li><a [routerLink]="'encargadas'"><i class="fa fa-check-circle"></i>Encargada</a></li>
         </ul>
       </li>
-      <li class="link">
+      <li class="link" (click)="buttonMenu()">
         <a>
           <i class="fa fa-bars"></i>
           <span class="link_text">Menú</span>
         </a>
-        <ul class="navbar__container" id="containerLiquidation">
+        <ul class="navbar__container_menu" id="containerMenu">
           <li><a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'"><i
                 class="fa fa-money-bill-wave"></i>Cierre</a></li>
           <li><a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'"><i
