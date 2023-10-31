@@ -7,8 +7,8 @@
 
   .marginPage {
     margin: 0px auto 0px;
-    position: relative;
-    z-index: -1
+    /* position: relative; */
+    z-index: -1;
   }
 
   .newService {
@@ -378,8 +378,7 @@
 
   .marginPage {
     margin: 0px auto 0px;
-    /* margin: 0px auto 30px; */
-    position: relative;
+    /* position: relative; */
     z-index: -1;
   }
 

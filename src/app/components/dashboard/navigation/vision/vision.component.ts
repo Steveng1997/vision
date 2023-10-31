@@ -99,13 +99,6 @@ export class VisionComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
-    var x = window.matchMedia("(min-device-width: 1030px)")
-
-    if (!x.matches) {
-      var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
-      contenedor[0].style.position = 'static';
-    }
-
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
