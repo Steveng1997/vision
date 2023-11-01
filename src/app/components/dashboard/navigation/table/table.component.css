@@ -16,25 +16,21 @@
 }
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
-
-  body {
+  .container {
     overflow-x: hidden;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     height: 88%;
   }
 
-  .container {
-    display: contents;
-  }
-
   .marginPage {
-    margin: 0px auto 37px;
+    margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .pagination_Mobile {
     position: fixed;
-    bottom: 36px;
+    bottom: 57px;
     display: flex;
   }
 
@@ -52,6 +48,7 @@
     display: flow;
     position: absolute;
     overflow-y: auto;
+    margin-left: -34px;
   }
 
   .tableContainer {
@@ -521,25 +518,21 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
-
-  body {
+  .container {
     overflow-x: hidden;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     height: 88%;
   }
 
-  .container {
-    display: contents;
-  }
-
   .marginPage {
-    margin: 0px auto 37px;
+    margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .pagination_Mobile {
     position: fixed;
-    bottom: 36px;
+    bottom: 57px;
     display: flex;
   }
 
@@ -557,6 +550,7 @@
     display: flow;
     position: absolute;
     overflow-y: auto;
+    margin-left: -34px;
   }
 
   .tableContainer {

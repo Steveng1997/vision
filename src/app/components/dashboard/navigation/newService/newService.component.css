@@ -482,18 +482,15 @@ input[id="transOtro"] {
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
   .marginBody {
-    /* height: 93%; */
     height: 100%;
   }
 
   .container {
     overflow-x: hidden;
-    /* height: 95%; */
-    height: 81%;
+    height: 82%;
   }
 
   .marginPage {
-    /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
     /* position: relative; */
     z-index: -1;
@@ -841,9 +838,7 @@ input[id="transOtro"] {
 
   .inputButtonSave {
     display: grid;
-    grid-template-columns: 26%;
     justify-content: center;
-    margin-bottom: 0.5rem;
   }
 
   .inputButton {
@@ -855,18 +850,15 @@ input[id="transOtro"] {
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
   .marginBody {
-    /* height: 93%; */
     height: 98%;
   }
 
   .container {
     overflow-x: hidden;
-    /* height: 95%; */
-    height: 81%;
+    height: 86%;
   }
 
   .marginPage {
-    /* margin: 0px auto 37px; */
     margin: 0px auto 9px;
     /* position: relative; */
     z-index: -1;
@@ -879,7 +871,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: -8px;
+    margin-left: 0px;
   }
 
   .title {
@@ -893,16 +885,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 105%;
+    width: 88%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2%;
+    margin-left: 3%;
   }
 
   .lastService {
-    margin-left: -2%;
+    margin-left: 1%;
   }
 
   .sumServices {
@@ -916,17 +908,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: -2%;
+    margin-left: 4%;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 105%;
+    width: 88%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2%;
+    margin-left: 3%;
   }
 
   .lastServiceOrdered {
@@ -979,7 +971,7 @@ input[id="transOtro"] {
   }
 
   .dateContainer {
-    width: 69%;
+    width: 71%;
   }
 
   .containerStartTime {
@@ -994,12 +986,12 @@ input[id="transOtro"] {
   }
 
   .containerDuration {
-    width: 94%;
+    width: 96%;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    margin-left: 49%;
+    margin-left: 46%;
     margin-top: 1.5rem;
   }
 
@@ -1010,7 +1002,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 9%;
+    margin-right: 3%;
   }
 
   .titleService {
@@ -1066,9 +1058,9 @@ input[id="transOtro"] {
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 29% 29% 24% 23%;
+    grid-template-columns: 18% 21% 16% 20%;
     margin-top: 1rem;
-    margin-left: 28%;
+    margin-left: 55%;
   }
 
   .collectionContainer2 {
@@ -1201,21 +1193,19 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 356px;
+    grid-template-columns: 337px;
     margin-top: 1rem;
     margin-left: -6%;
     margin-bottom: 1.5rem;
   }
 
   .notes {
-    margin-left: 1rem;
+    margin-left: 14px;
   }
 
   .inputButtonSave {
     display: grid;
-    grid-template-columns: 26%;
     justify-content: center;
-    margin-bottom: 0.5rem;
   }
 
   .inputButton {

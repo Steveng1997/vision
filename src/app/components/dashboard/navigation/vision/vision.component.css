@@ -11,12 +11,24 @@
     z-index: -1;
   }
 
+  .title {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: #8C52FF;
+    line-height: 1.2rem;
+    font-weight: bold
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
 
   .refreshPage {
-    margin-left: 18%;
+    cursor: pointer;
+    color: #8C52FF;
+    width: 30px;
+    margin-top: -4px;
   }
 
   .textRefreshPage {
@@ -55,18 +67,19 @@
 
   .columnIcon {
     display: grid;
-    grid-template-columns: 36% 40%;
+    grid-template-columns: 78% 16%;
     margin-top: 1rem;
-    margin-left: 27%;
+    margin-left: -17%;
   }
 
   .newServiceCircle {
-    width: 4rem;
+    width: 0rem;
+    white-space: pre;
   }
 
   .circleRefreshPage {
-    width: 4.8rem;
     margin-top: -5%;
+    margin-left: 1rem;
   }
 
   .adjustTable {
@@ -382,12 +395,24 @@
     z-index: -1;
   }
 
+  .title {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: #8C52FF;
+    line-height: 1.2rem;
+    font-weight: bold
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
 
   .refreshPage {
-    margin-left: 18%;
+    cursor: pointer;
+    color: #8C52FF;
+    width: 30px;
+    margin-top: -4px;
   }
 
   .textRefreshPage {
@@ -426,18 +451,19 @@
 
   .columnIcon {
     display: grid;
-    grid-template-columns: 36% 40%;
+    grid-template-columns: 78% 16%;
     margin-top: 1rem;
-    margin-left: 27%;
+    margin-left: -17%;
   }
 
   .newServiceCircle {
-    width: 4rem;
+    width: 0rem;
+    white-space: pre;
   }
 
   .circleRefreshPage {
-    width: 4.8rem;
     margin-top: -5%;
+    margin-left: 1rem;
   }
 
   .adjustTable {
@@ -741,15 +767,19 @@
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
-  /* .container {
-    float: right;
-    width: auto;
-  } */
-
   .container {
     display: table;
     float: right;
     width: 100%;
+  }
+
+  .title {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: #8C52FF;
+    line-height: 1.2rem;
+    font-weight: bold
   }
 
   .newService {
@@ -758,6 +788,8 @@
 
   .refreshPage {
     margin-left: 1.2em;
+    cursor: pointer;
+    color: #8C52FF;
   }
 
   .textRefreshPage {
@@ -1116,12 +1148,23 @@
     width: auto;
   }
 
+  .title {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 25px;
+    color: #8C52FF;
+    line-height: 1.2rem;
+    font-weight: bold
+  }
+
   .newService {
     margin-left: 0.5rem;
   }
 
   .refreshPage {
     margin-left: 1.2em;
+    cursor: pointer;
+    color: #8C52FF;
   }
 
   .textRefreshPage {

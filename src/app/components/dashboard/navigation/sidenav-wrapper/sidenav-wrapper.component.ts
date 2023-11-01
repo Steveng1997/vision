@@ -43,16 +43,17 @@ export class SidenavWrapperComponent implements OnInit {
   }
 
   buttonMenu() {
-    var detalle = document.getElementById('containerMenu');
+    var contentMenu = document.getElementById('containerMenu');
     var x = window.matchMedia("(min-device-width: 1030px)")
     var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
 
     if (!x.matches) {
-      if (detalle.style.display == "none") {
-        detalle.style.display = "block";
+      if (contentMenu.style.display == "none") {
+        contentMenu.style.display = "block";
         contenedor[0].style.position = 'relative';
+        contentMenu.classList.add('animationMenu');
       } else {
-        detalle.style.display = "none";
+        contentMenu.style.display = "none";
         contenedor[0].style.position = 'static';
       }
     }

@@ -117,7 +117,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -206,11 +206,45 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
+  }
+
+  /* Animations */
+
+  .animationMenu {
+    -webkit-animation: moveFromLeft 500ms ease-in-out;
+    -moz-animation: moveFromLeft 500ms ease-in-out;
+    -ms-animation: moveFromLeft 500ms ease-in-out;
+    -o-animation: moveFromLeft 500ms ease-in-out;
+    animation: moveFromLeft 500ms ease-in-out;
+  }
+
+  @keyframes moveFromLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(200%);
+      -moz-transform: translateX(200%);
+      -ms-transform: translateX(200%);
+      -o-transform: translateX(200%);
+      transform: translateX(200%);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0%);
+      -moz-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+      -o-transform: translateX(0%);
+      transform: translateX(0%);
+    }
   }
 }
 
@@ -250,7 +284,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -338,14 +372,46 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
   }
 
-  /* FUERA DE AQUI*/
+  /* Animations */
+
+  .animationMenu {
+    -webkit-animation: moveFromLeft 500ms ease-in-out;
+    -moz-animation: moveFromLeft 500ms ease-in-out;
+    -ms-animation: moveFromLeft 500ms ease-in-out;
+    -o-animation: moveFromLeft 500ms ease-in-out;
+    animation: moveFromLeft 500ms ease-in-out;
+  }
+
+  @keyframes moveFromLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translateX(200%);
+      -moz-transform: translateX(200%);
+      -ms-transform: translateX(200%);
+      -o-transform: translateX(200%);
+      transform: translateX(200%);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0%);
+      -moz-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+      -o-transform: translateX(0%);
+      transform: translateX(0%);
+    }
+  }
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 391px) {
@@ -383,7 +449,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -471,14 +537,48 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
   }
 
-  /* FUERA DE AQUI*/
+    /* Animations */
+
+    .animationMenu {
+      -webkit-animation: moveFromLeft 500ms ease-in-out;
+      -moz-animation: moveFromLeft 500ms ease-in-out;
+      -ms-animation: moveFromLeft 500ms ease-in-out;
+      -o-animation: moveFromLeft 500ms ease-in-out;
+      animation: moveFromLeft 500ms ease-in-out;
+    }
+  
+    @keyframes moveFromLeft {
+      from {
+        opacity: 0;
+        -webkit-transform: translateX(200%);
+        -moz-transform: translateX(200%);
+        -ms-transform: translateX(200%);
+        -o-transform: translateX(200%);
+        transform: translateX(200%);
+      }
+  
+      to {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+    }
+  
+    /* Fin animations */
 }
 
 /* Pedro */
@@ -517,7 +617,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -605,14 +705,48 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
   }
 
-  /* FUERA DE AQUI*/
+    /* Animations */
+
+    .animationMenu {
+      -webkit-animation: moveFromLeft 500ms ease-in-out;
+      -moz-animation: moveFromLeft 500ms ease-in-out;
+      -ms-animation: moveFromLeft 500ms ease-in-out;
+      -o-animation: moveFromLeft 500ms ease-in-out;
+      animation: moveFromLeft 500ms ease-in-out;
+    }
+  
+    @keyframes moveFromLeft {
+      from {
+        opacity: 0;
+        -webkit-transform: translateX(200%);
+        -moz-transform: translateX(200%);
+        -ms-transform: translateX(200%);
+        -o-transform: translateX(200%);
+        transform: translateX(200%);
+      }
+  
+      to {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+    }
+  
+    /* Fin animations */
 }
 
 /* Steven */
@@ -651,7 +785,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -739,14 +873,48 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
   }
 
-  /* FUERA DE AQUI*/
+    /* Animations */
+
+    .animationMenu {
+      -webkit-animation: moveFromLeft 500ms ease-in-out;
+      -moz-animation: moveFromLeft 500ms ease-in-out;
+      -ms-animation: moveFromLeft 500ms ease-in-out;
+      -o-animation: moveFromLeft 500ms ease-in-out;
+      animation: moveFromLeft 500ms ease-in-out;
+    }
+  
+    @keyframes moveFromLeft {
+      from {
+        opacity: 0;
+        -webkit-transform: translateX(200%);
+        -moz-transform: translateX(200%);
+        -ms-transform: translateX(200%);
+        -o-transform: translateX(200%);
+        transform: translateX(200%);
+      }
+  
+      to {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+    }
+  
+    /* Fin animations */
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
@@ -784,7 +952,7 @@ a {
   .mcd-menu li a span {
     display: block;
     margin: -5px;
-    font-size: 13px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: normal;
     font-family: sans-serif;
@@ -873,14 +1041,48 @@ a {
   }
 
   img {
+    display: inline-block;
+    vertical-align: middle;
     width: 30px;
+    filter: blur(0);
   }
 
-  .mcd-menu li, .menuToggle a i img {
+  .mcd-menu li,
+  .menuToggle a i img {
     padding: 2px;
   }
 
-  /* FUERA DE AQUI*/
+    /* Animations */
+
+    .animationMenu {
+      -webkit-animation: moveFromLeft 500ms ease-in-out;
+      -moz-animation: moveFromLeft 500ms ease-in-out;
+      -ms-animation: moveFromLeft 500ms ease-in-out;
+      -o-animation: moveFromLeft 500ms ease-in-out;
+      animation: moveFromLeft 500ms ease-in-out;
+    }
+  
+    @keyframes moveFromLeft {
+      from {
+        opacity: 0;
+        -webkit-transform: translateX(200%);
+        -moz-transform: translateX(200%);
+        -ms-transform: translateX(200%);
+        -o-transform: translateX(200%);
+        transform: translateX(200%);
+      }
+  
+      to {
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+      }
+    }
+  
+    /* Fin animations */
 }
 
 /* Tablet device */
@@ -1091,8 +1293,6 @@ a {
     border-bottom: 5px solid transparent;
   }
 
-  /* == */
-
   @keyframes moveFromTop {
     from {
       opacity: 0;
@@ -1239,5 +1439,6 @@ a {
 
   img {
     width: 80%;
+    filter: blur(0);
   }
 }
