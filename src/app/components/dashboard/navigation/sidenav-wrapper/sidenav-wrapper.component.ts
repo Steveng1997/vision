@@ -20,9 +20,7 @@ export class SidenavWrapperComponent implements OnInit {
   ngOnInit(): void {
 
     var x = window.matchMedia("(min-device-width: 1030px)")
-    if (x.matches) {
-      document.getElementById('containerLiquidation').style.display = ''
-    } else {
+    if (!x.matches) {
       document.getElementById('containerLiquidation').style.display = 'none'
       document.getElementById('containerMenu').style.display = 'none'
       document.getElementById('textNew').style.display = 'none'
@@ -36,10 +34,21 @@ export class SidenavWrapperComponent implements OnInit {
     }
   }
 
-  liquidations() {
-    addEventListener("click", (event) => {
-      document.getElementById('liquidation').style.display = ''
-    });
+  buttonLiquidation() {
+    var contentLiquidation = document.getElementById('containerLiquidation');
+    var x = window.matchMedia("(min-device-width: 1030px)")
+    var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
+
+    if (!x.matches) {
+      if (contentLiquidation.style.display == "none") {
+        contentLiquidation.style.display = "block";
+        contenedor[0].style.position = 'relative';
+        contentLiquidation.classList.add('animationLiquidation');
+      } else {
+        contentLiquidation.style.display = "none";
+        contenedor[0].style.position = 'static';
+      }
+    }
   }
 
   buttonMenu() {

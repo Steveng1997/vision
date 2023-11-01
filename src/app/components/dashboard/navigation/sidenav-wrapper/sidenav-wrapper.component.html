@@ -17,66 +17,68 @@
       <li class="link">
         <!-- <a class="active"> -->
         <a routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}">
-          <i> <img src="/assets/icons8-casa-36(-hdpi).png"> </i>
+          <i> <img src="/assets/icons8-casa-96(-xxxhdpi).png"> </i>
           <span class="link_text">Visión</span>
         </a>
       </li>
       <li class="link">
         <a routerLink="/menu/{{idUser['id']}}/tabla/{{idUser['id']}}">
-          <i> <img src="/assets/icons8-tabla-de-contenidos-36(-hdpi).png"> </i>
+          <i> <img src="/assets/icons8-tabla-de-contenidos-96(-xxxhdpi).png"> </i>
           <span class="link_text">Servicios</span>
         </a>
       </li>
       <li class="link menuToggle">
         <a routerLink="/menu/{{idUser['id']}}/nuevo-servicio/{{idUser['id']}}/false">
-          <i> <img src="/assets/icons8-más-36(-hdpi).png"> </i>
+          <i> <img src="/assets/icons8-más-96(-xxxhdpi).png"> </i>
           <span class="link_text" id="textNew">Nuevo</span>
         </a>
       </li>
-      <li class="link">
+
+      <li class="link" (click)="buttonLiquidation()">
         <a>
-          <i> <img src="/assets/icons8-banco-euro-36(-hdpi).png"> </i>
+          <i> <img src="/assets/icons8-banco-euro-96(-xxxhdpi).png"> </i>
           <span class="link_text">Liquidacion</span>
         </a>
         <ul class="navbar__container_liquidation" id="containerLiquidation">
-          <li>
+          <li class="link">
             <a [routerLink]="'terapeutas'">
-              <i> <img src="/assets/icons8-banco-euro-36(-hdpi).png"> </i>
+              <i> <img src="/assets/icons8-banco-euro-96(-xxxhdpi).png"> </i>
               <span class="link_text">Terapeuta</span>
             </a>
           </li>
-          <li>
+          <li class="link">
             <a [routerLink]="'encargadas'">
-              <i> <img src="/assets/icons8-banco-euro-36(-hdpi).png"> </i>
+              <i> <img src="/assets/icons8-banco-euro-96(-xxxhdpi).png"> </i>
               <span class="link_text">Encargada</span>
             </a>
           </li>
         </ul>
       </li>
+
       <li class="link" (click)="buttonMenu()">
         <a>
-          <i> <img src="/assets/icons8-elipsis-36(-hdpi).png"> </i>
+          <i> <img src="/assets/icons8-3-puntos-96.png"> </i>
           <span class="link_text">Menú</span>
         </a>
         <ul class="navbar__container_menu" id="containerMenu">
 
           <li class="link">
             <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'">
-              <i> <img src="/assets/icons8-bolsa-de-dinero-de-euros-36(-hdpi).png"> </i>
+              <i> <img src="/assets/icons8-bolsa-de-dinero-de-euros-96(-xxxhdpi).png"> </i>
               <span class="link_text">Cierre</span>
             </a>
           </li>
 
           <li class="link">
             <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'configuracion'">
-              <i> <img src="/assets/icons8-rueda-dentada-36(-hdpi).png"> </i>
+              <i> <img src="/assets/icons8-rueda-dentada-96(-xxxhdpi).png"> </i>
               <span class="link_text">Configuración</span>
             </a>
           </li>
 
           <li class="link">
             <a *ngIf="idUser['rol'] == 'administrador'" [routerLink]="'cierre'">
-              <i> <img src="/assets/icons8-ayuda-36(-hdpi).png"> </i>
+              <i> <img src="/assets/icons8-ayuda-96.png"> </i>
               <span class="link_text">Ayuda</span>
             </a>
           </li>

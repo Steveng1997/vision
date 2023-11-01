@@ -480,7 +480,7 @@ input[id="transOtro"] {
   margin-left: 3rem;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 398px) {
+@media only screen and (min-device-width: 270px) and (max-device-width: 370px) {
   .marginBody {
     height: 100%;
   }
@@ -848,7 +848,1479 @@ input[id="transOtro"] {
   }
 }
 
-@media only screen and (min-device-width: 400px) and (max-device-width: 1030px) {
+@media only screen and (min-device-width: 271px) and (max-device-width: 380px) {
+  .marginBody {
+    height: 100%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    height: 82%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+    /* position: relative; */
+    z-index: -1;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 6px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    width: 84%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+  }
+
+  .lastService {
+    margin-left: 3px;
+    width: 55%;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 3rem;
+  }
+
+  .serviceDescription {
+    margin-left: 15px;
+    width: 21rem;
+  }
+
+  .serviceLine {
+    width: 84%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -35px;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 56% 43%;
+    margin-left: -6px;
+  }
+
+  .therapistContainer {
+    width: 136px;
+  }
+
+  .containerInCharge {
+    width: 100%;
+  }
+
+  .clientContainer {
+    width: 136px;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 57% 42%;
+    margin-top: 1rem;
+    margin-left: -7px;
+  }
+
+  .dateContainer {
+    width: 79%;
+  }
+
+  .containerStartTime {
+    width: 82%;
+    margin-left: auto;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 45% 54%;
+    margin-left: -6px;
+  }
+
+  .containerDuration {
+    width: 100%;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    margin-left: 36%;
+    margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 14px;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 14%;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 38% 36% 25%;
+    margin-top: 1rem;
+    margin-left: -6px;
+  }
+
+  .treatmentContainer {
+    width: 6rem;
+  }
+
+  .beverageContainer {
+    width: 6rem;
+  }
+
+  .tobaccoContainer {
+    width: 6rem;
+  }
+
+  .vitaminColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 10%;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 18% 19% 17% 17%;
+    margin-top: 1rem;
+    margin-left: 182px;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+    margin-left: -2%;
+  }
+
+  .collectionPiso1 {
+    margin-top: 0rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+  }
+
+  .checkBoxCash {
+    margin-left: 2.5rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxBizum {
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
+  }
+
+  .CheckBoxCard {
+    margin-left: 2.3rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxTransaction {
+    margin-left: 2rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 299px;
+    margin-top: 1rem;
+    margin-left: -7%;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 1rem;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 31% 33% 25%;
+    margin-left: -1.9rem;
+  }
+}
+
+@media only screen and (min-device-width: 381px) and (max-device-width: 391px) {
+  .marginBody {
+    height: 100%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    height: 82%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+    /* position: relative; */
+    z-index: -1;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 6px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    width: 84%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+  }
+
+  .lastService {
+    margin-left: 3px;
+    width: 55%;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 3rem;
+  }
+
+  .serviceDescription {
+    margin-left: 15px;
+    width: 21rem;
+  }
+
+  .serviceLine {
+    width: 84%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -35px;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 56% 43%;
+    margin-left: -6px;
+  }
+
+  .therapistContainer {
+    width: 136px;
+  }
+
+  .containerInCharge {
+    width: 100%;
+  }
+
+  .clientContainer {
+    width: 136px;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 57% 42%;
+    margin-top: 1rem;
+    margin-left: -7px;
+  }
+
+  .dateContainer {
+    width: 79%;
+  }
+
+  .containerStartTime {
+    width: 82%;
+    margin-left: auto;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 45% 54%;
+    margin-left: -6px;
+  }
+
+  .containerDuration {
+    width: 100%;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    margin-left: 36%;
+    margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 14px;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 9%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 14%;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 38% 36% 25%;
+    margin-top: 1rem;
+    margin-left: -6px;
+  }
+
+  .treatmentContainer {
+    width: 6rem;
+  }
+
+  .beverageContainer {
+    width: 6rem;
+  }
+
+  .tobaccoContainer {
+    width: 6rem;
+  }
+
+  .vitaminColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 10%;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 18% 19% 17% 17%;
+    margin-top: 1rem;
+    margin-left: 182px;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+    margin-left: -2%;
+  }
+
+  .collectionPiso1 {
+    margin-top: 0rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+  }
+
+  .checkBoxCash {
+    margin-left: 2.5rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxBizum {
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
+  }
+
+  .CheckBoxCard {
+    margin-left: 2.3rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxTransaction {
+    margin-left: 2rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 299px;
+    margin-top: 1rem;
+    margin-left: -7%;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 1rem;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 31% 33% 25%;
+    margin-left: -1.9rem;
+  }
+}
+
+/* Pedro */
+@media only screen and (min-device-width: 392px) and (max-device-width: 410px) {
+  .marginBody {
+    height: 98%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    height: 86%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+    /* position: relative; */
+    z-index: -1;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 0px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    width: 88%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3%;
+  }
+
+  .lastService {
+    margin-left: 1%;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 3rem;
+  }
+
+  .serviceDescription {
+    margin-left: 4%;
+    width: 21rem;
+  }
+
+  .serviceLine {
+    width: 88%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3%;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -35px;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 60% 42%;
+    margin-left: -6px;
+  }
+
+  .therapistContainer {
+    width: 136px;
+  }
+
+  .containerInCharge {
+    width: 94%;
+  }
+
+  .clientContainer {
+    width: 136px;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 94%;
+    margin-top: 1rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 57% 42%;
+    margin-top: 1rem;
+    margin-left: -6px;
+  }
+
+  .dateContainer {
+    width: 71%;
+  }
+
+  .containerStartTime {
+    width: 73%;
+    margin-left: auto;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 42% 196px;
+    margin-left: -6px;
+  }
+
+  .containerDuration {
+    width: 96%;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    margin-left: 46%;
+    margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 13px;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 3%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 1%;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 38% 36% 25%;
+    margin-top: 1rem;
+    margin-left: -2%;
+  }
+
+  .treatmentContainer {
+    width: 6rem;
+  }
+
+  .beverageContainer {
+    width: 6rem;
+  }
+
+  .tobaccoContainer {
+    width: 6rem;
+  }
+
+  .vitaminColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 10%;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 18% 21% 16% 20%;
+    margin-top: 1rem;
+    margin-left: 55%;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+    margin-left: -2%;
+  }
+
+  .collectionPiso1 {
+    margin-top: 0rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+  }
+
+  .checkBoxCash {
+    margin-left: 2.5rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxBizum {
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
+  }
+
+  .CheckBoxCard {
+    margin-left: 2.3rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxTransaction {
+    margin-left: 2rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 337px;
+    margin-top: 1rem;
+    margin-left: -6%;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 14px;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 31% 33% 25%;
+    margin-left: -1.9rem;
+  }
+}
+
+/* Steven */
+@media only screen and (min-device-width: 411px) and (max-device-width: 413px){
+  .marginBody {
+    height: 98%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    height: 86%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+    /* position: relative; */
+    z-index: -1;
+  }
+
+  .titles {
+    margin-top: 1.5rem;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 0px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    width: 88%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3%;
+  }
+
+  .lastService {
+    margin-left: 1%;
+  }
+
+  .sumServices {
+    margin-top: 1.5rem;
+    font-size: 22px;
+    margin-bottom: 0;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 3rem;
+  }
+
+  .serviceDescription {
+    margin-left: 4%;
+    width: 21rem;
+  }
+
+  .serviceLine {
+    width: 88%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3%;
+  }
+
+  .lastServiceOrdered {
+    margin-left: 11rem;
+    margin-top: -35px;
+  }
+
+  .botones {
+    margin-bottom: 4%;
+  }
+
+  .btnIconos {
+    margin-top: 10%;
+  }
+
+  .checkBox {
+    margin-top: 40%;
+    scale: 1.2;
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: 60% 42%;
+    margin-left: -6px;
+  }
+
+  .therapistContainer {
+    width: 136px;
+  }
+
+  .containerInCharge {
+    width: 94%;
+  }
+
+  .clientContainer {
+    width: 136px;
+    margin-top: 1rem;
+  }
+
+  .containerPlaceExit {
+    width: 94%;
+    margin-top: 1rem;
+  }
+
+  .datesContainer {
+    display: grid;
+    grid-template-columns: 57% 42%;
+    margin-top: 1rem;
+    margin-left: -6px;
+  }
+
+  .dateContainer {
+    width: 71%;
+  }
+
+  .containerStartTime {
+    width: 73%;
+    margin-left: auto;
+  }
+
+  .datesContainer2 {
+    display: grid;
+    grid-template-columns: 42% 196px;
+    margin-left: -6px;
+  }
+
+  .containerDuration {
+    width: 96%;
+    margin-top: 17%;
+  }
+
+  .EndTimeContainer {
+    margin-left: 46%;
+    margin-top: 1.5rem;
+  }
+
+  .hourEnd {
+    margin-left: 13px;
+  }
+
+  .containerTitleService {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    margin-right: 3%;
+  }
+
+  .titleService {
+    text-align: center;
+    place-self: center;
+    margin-left: 1%;
+  }
+
+  .totalService {
+    text-align: center;
+    place-self: center;
+    margin-top: 1.5rem;
+    margin-left: 15rem;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 38% 36% 25%;
+    margin-top: 1rem;
+    margin-left: -2%;
+  }
+
+  .treatmentContainer {
+    width: 6rem;
+  }
+
+  .beverageContainer {
+    width: 6rem;
+  }
+
+  .tobaccoContainer {
+    width: 6rem;
+  }
+
+  .vitaminColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tipColumn {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .columnOthers {
+    width: 6rem;
+    margin-top: 1.5rem;
+  }
+
+  .titleCollection {
+    margin-left: 10%;
+  }
+
+  .collectionContainer {
+    display: grid;
+    grid-template-columns: 18% 21% 16% 20%;
+    margin-top: 1rem;
+    margin-left: 55%;
+  }
+
+  .collectionContainer2 {
+    display: grid;
+    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+    margin-left: -2%;
+  }
+
+  .collectionPiso1 {
+    margin-top: 0rem;
+  }
+
+  .collectionPiso2 {
+    margin-top: 1rem;
+  }
+
+  .collectionTherapist {
+    margin-top: 1rem;
+  }
+
+  .collectionManager {
+    margin-top: 1rem;
+  }
+
+  .collectionOther {
+    margin-top: 1rem;
+  }
+
+  .checkBoxCash {
+    margin-left: 2.5rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxBizum {
+    margin-left: 1.7rem;
+    margin-top: 1.9rem;
+  }
+
+  .CheckBoxCard {
+    margin-left: 2.3rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxTransaction {
+    margin-left: 2rem;
+    margin-top: 1.9rem;
+  }
+
+  .checkBoxCashFloor2 {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumFloor2 {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardFloor2 {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionFloor2 {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashTherapist {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumTherapist {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardTherapist {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionTherapist {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashManager {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumManager {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardManager {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionManager {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxCashOther {
+    margin-left: 2.5rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxBizumOther {
+    margin-left: 1.7rem;
+    margin-top: 2.9rem;
+  }
+
+  .CheckBoxCardOther {
+    margin-left: 2.3rem;
+    margin-top: 2.9rem;
+  }
+
+  .checkBoxTransactionOther {
+    margin-left: 2rem;
+    margin-top: 2.9rem;
+  }
+
+  .notesContainer {
+    display: grid;
+    grid-template-columns: 337px;
+    margin-top: 1rem;
+    margin-left: -6%;
+    margin-bottom: 1.5rem;
+  }
+
+  .notes {
+    margin-left: 14px;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    justify-content: center;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 31% 33% 25%;
+    margin-left: -1.9rem;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
   .marginBody {
     height: 98%;
   }
