@@ -109,6 +109,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -237,6 +238,10 @@ a {
   .iconHome {
     width: 29px;
     height: 27px;
+  }
+
+  .iconNew{
+    margin-top: 5px;
   }
 
   /* Animation menu */
@@ -327,6 +332,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -457,6 +463,10 @@ a {
     height: 27px;
   }
 
+  .iconNew{
+    margin-top: 5px;
+  }
+
   /* Animation menu */
 
   .animationMenu {
@@ -545,6 +555,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -673,6 +684,10 @@ a {
   .iconHome {
     width: 29px;
     height: 27px;
+  }
+
+  .iconNew{
+    margin-top: 5px;
   }
 
   /* Animation menu */
@@ -764,6 +779,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -894,6 +910,10 @@ a {
     height: 27px;
   }
 
+  .iconNew{
+    margin-top: 5px;
+  }
+
   /* Animation menu */
 
   .animationMenu {
@@ -983,6 +1003,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -1111,6 +1132,10 @@ a {
   .iconHome {
     width: 29px;
     height: 27px;
+  }
+
+  .iconNew{
+    margin-top: 5px;
   }
 
   /* Animation menu */
@@ -1201,6 +1226,7 @@ a {
     border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
+    margin-left: 1px;
   }
 
   .iconStart {
@@ -1329,6 +1355,10 @@ a {
   .iconHome {
     width: 29px;
     height: 27px;
+  }
+
+  .iconNew{
+    margin-top: 5px;
   }
 
   /* Animation menu */
