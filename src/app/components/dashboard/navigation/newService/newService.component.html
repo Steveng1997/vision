@@ -60,12 +60,12 @@
                     <hr class="timeline">
 
                     <div class="row" style="margin-right: auto;">
-                        <div class="col-6 lastService">
+                        <div class="lastService">
                             <label style="color: #242424; font-size: 18px; font-weight: bold;">Último
                                 servicio:</label>
                         </div>
 
-                        <div class="col-6 lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
+                        <div class="lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
                             <label style="color: #242424; font-size: 18px; font-weight: bold;"
                                 *ngFor="let hor of fechaLast"> {{hourStartTerapeuta + '-' + horaEndTerapeuta}}
                             </label>

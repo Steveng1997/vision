@@ -17,7 +17,7 @@
       <li class="link">
         <!-- <a class="active"> -->
         <a routerLink="/menu/{{ idUser['id'] }}/vision/{{idUser['id']}}">
-          <i> <img src="/assets/icons8-casa-96(-xxxhdpi).png"> </i>
+          <i> <img src="/assets/icons8-casa-96(-xxxhdpi).png" class="iconHome"> </i>
           <span class="link_text">Visión</span>
         </a>
       </li>
@@ -88,7 +88,7 @@
     </ul>
   </nav>
 
-  <main>
+  <main (click)="main()">
     <router-outlet></router-outlet>
   </main>
 

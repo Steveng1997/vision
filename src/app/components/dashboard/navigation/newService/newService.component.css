@@ -1592,7 +1592,7 @@ input[id="transOtro"] {
 
   .container {
     overflow-x: hidden;
-    height: 86%;
+    height: 85%;
   }
 
   .marginPage {
@@ -1712,8 +1712,8 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 73%;
-    margin-left: auto;
+    width: 79%;
+    margin-left: 10px;
   }
 
   .datesContainer2 {
@@ -1966,7 +1966,7 @@ input[id="transOtro"] {
   .marginPage {
     margin: 0px auto 9px;
     /* position: relative; */
-    z-index: -1;
+    /* z-index: -1; */
   }
 
   .titles {

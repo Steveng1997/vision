@@ -67,4 +67,23 @@ export class SidenavWrapperComponent implements OnInit {
       }
     }
   }
+
+  main() {
+    var contentMenu = document.getElementById('containerMenu');
+    var contentLiquidation = document.getElementById('containerLiquidation');
+    var x = window.matchMedia("(min-device-width: 1030px)")
+    var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
+
+    if (!x.matches) {
+      if (contentMenu.style.display == "block") {
+        contentMenu.style.display = "none";
+        contenedor[0].style.position = 'static';
+      }
+
+      if (contentLiquidation.style.display == "block") {
+        contentLiquidation.style.display = "none";
+        contenedor[0].style.position = 'static';
+      }
+    }
+  }
 }

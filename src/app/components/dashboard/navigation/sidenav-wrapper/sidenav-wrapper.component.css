@@ -104,7 +104,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -124,9 +126,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -162,10 +162,11 @@ a {
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 162px;
-    left: 199px;
+    width: 159px;
+    height: 104px;
+    left: 202px;
     border-radius: 17px;
-    top: -134px;
+    top: -123px;
     background-color: #8C52FF;
   }
 
@@ -184,17 +185,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 162px;
-    height: 187px;
-    left: 199px;
+    width: 159px;
+    height: 149px;
+    left: 202px;
     border-radius: 17px;
-    top: -201px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -225,7 +226,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 6px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -311,7 +322,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -331,9 +344,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -369,10 +380,11 @@ a {
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 161px;
-    left: 215px;
+    width: 159px;
+    height: 149px;
+    left: 216px;
     border-radius: 17px;
-    top: -132px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
@@ -391,16 +403,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 161px;
-    left: 215px;
+    width: 159px;
+    height: 149px;
+    left: 216px;
     border-radius: 17px;
-    top: -190px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -431,7 +444,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 4px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -517,7 +540,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -537,9 +562,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -575,10 +598,11 @@ a {
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 162px;
-    left: 228px;
+    width: 159px;
+    height: 104px;
+    left: 234px;
     border-radius: 17px;
-    top: -133px;
+    top: -123px;
     background-color: #8C52FF;
   }
 
@@ -597,16 +621,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 162px;
-    left: 228px;
+    width: 159px;
+    height: 149px;
+    left: 234px;
     border-radius: 17px;
-    top: -191px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -637,7 +662,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 6px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -724,7 +759,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -744,9 +781,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -778,23 +813,15 @@ a {
     padding: 0;
   }
 
-  .navbar__container_liquidation {
-    display: flex;
-    gap: 10px;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
   /* Liquidation */
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 155px;
-    left: 238px;
+    width: 159px;
+    height: 104px;
+    left: 234px;
     border-radius: 17px;
-    top: -137px;
+    top: -121px;
     background-color: #8C52FF;
   }
 
@@ -813,16 +840,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 164px;
-    left: 229px;
+    width: 159px;
+    height: 149px;
+    left: 234px;
     border-radius: 17px;
-    top: -197px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -853,7 +881,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 5px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -940,7 +978,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -960,9 +1000,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -998,10 +1036,11 @@ a {
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 167px;
-    left: 245px;
+    width: 159px;
+    height: 104px;
+    left: 252px;
     border-radius: 17px;
-    top: -134px;
+    top: -123px;
     background-color: #8C52FF;
   }
 
@@ -1020,16 +1059,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 167px;
-    left: 245px;
+    width: 159px;
+    height: 149px;
+    left: 252px;
     border-radius: 17px;
-    top: -191px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -1060,7 +1100,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 6px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -1146,7 +1196,9 @@ a {
 
   .menuToggle {
     background-color: #8C52FF;
-    padding: 10px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
+    width: 63px;
+    border-radius: 30px;
     border: 1px solid white;
     transform: translateY(-6px);
   }
@@ -1166,9 +1218,7 @@ a {
   }
 
   .link {
-    border-radius: 50%;
     gap: 16px;
-    width: 16%;
     color: white;
     font-size: 23px;
   }
@@ -1204,10 +1254,11 @@ a {
 
   .navbar__container_liquidation {
     position: absolute;
-    width: 162px;
-    left: 249px;
+    width: 159px;
+    height: 104px;
+    left: 234px;
     border-radius: 17px;
-    top: -133px;
+    top: -123px;
     background-color: #8C52FF;
   }
 
@@ -1226,17 +1277,17 @@ a {
 
   .navbar__container_menu {
     position: absolute;
-    width: 162px;
-    height: 187px;
-    left: 249px;
+    width: 159px;
+    height: 149px;
+    left: 234px;
     border-radius: 17px;
-    top: -201px;
+    top: -166px;
     background-color: #8C52FF;
   }
 
   .mcd-menu li ul li a {
     display: flex;
-    padding: 8px 13px;
+    padding: 4px 8px;
     border: 0;
     height: auto;
     text-transform: capitalize;
@@ -1267,7 +1318,17 @@ a {
 
   .mcd-menu li,
   .menuToggle a i img {
-    padding: 6px;
+    padding: 0px;
+  }
+
+  .mcd-menu li ul,
+  .navbar_container_menu li {
+    padding: 0px;
+  }
+
+  .iconHome {
+    width: 29px;
+    height: 27px;
   }
 
   /* Animation menu */
@@ -1328,6 +1389,14 @@ a {
       -o-transform: translateX(0%);
       transform: translateX(0%);
     }
+  }
+
+  .animationLiquidationTop {
+    -webkit-animation: moveFromTop 500ms ease-in-out;
+    -moz-animation: moveFromTop 500ms ease-in-out;
+    -ms-animation: moveFromTop 500ms ease-in-out;
+    -o-animation: moveFromTop 500ms ease-in-out;
+    animation: moveFromTop 500ms ease-in-out;
   }
 }
 
