@@ -310,6 +310,7 @@ export class TableComponent implements OnInit {
         && managerCondition(serv) && conditionMethodOfPayment(serv)
         && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValor = valorTotal.reduce((accumulator, serv) => {
+        this.idService = valorTotal
         return accumulator + serv.totalServicio
       }, 0)
 
@@ -322,6 +323,8 @@ export class TableComponent implements OnInit {
         return accumulator + serv.otros
       }, 0)
     }
+
+    this.thousandPoint()
   }
 
   thousandPoint() {
