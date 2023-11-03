@@ -48,11 +48,14 @@ export class LoginComponent implements OnInit {
           if (resp.length > 0) {
             if (resp[0]['activo'] == true) {
               this.serviceManager.getByUserAndPass(this.manager.usuario, this.manager.pass).subscribe((res: any) => {
+                debugger
                 if (res.token != "") {
-                  localStorage.setItem('token', res.token);
-                  this.router.navigate([`menu/${resp[0]['id']}/vision/${resp[0]['id']}`])
-                } else {
-                  Swal.fire({ icon: 'error', title: 'Oops...', text: 'La contraseña es incorrecta' })
+                  if (res.token != undefined || res != "Usuario o clave incorrectos") {
+                    localStorage.setItem('token', res.token);
+                    this.router.navigate([`menu/${resp[0]['id']}/vision/${resp[0]['id']}`])
+                  } else {
+                    Swal.fire({ icon: 'error', title: 'Oops...', text: 'La contraseña es incorrecta' })
+                  }
                 }
               })
             } else {

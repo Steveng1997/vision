@@ -1,488 +1,477 @@
-<div *ngIf="!editamos && addService" class="marginBody">
-    <label class="title">Nuevo Servicio</label>
+<div class="container marginBody" *ngIf="!editamos && addService">
+    <div class="row marginPage">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-90 row justify-content-center align-items-center">
 
-    <div class="container">
-        <div class="row marginPage">
-            <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
-                <div class="m-0 vh-90 row justify-content-center align-items-center">
+                <label class="title">Nuevo Servicio</label>
 
-                    <div class="row inputContainer">
+                <div class="row inputContainer">
 
-                        <div class="row g-0">
-                            <div class="therapistContainer">
-                                <label class="text">Terapeuta</label>
-                                <select class="form-select" [(ngModel)]="services.terapeuta" name="terapeuta"
-                                    (ngModelChange)="therapists($event)" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                    <div class="row g-0">
+                        <div class="therapistContainer">
+                            <label class="text">Terapeuta</label>
+                            <select class="form-select" [(ngModel)]="services.terapeuta" name="terapeuta"
+                                (ngModelChange)="therapists($event)" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
-                                    <option selected value="">Selecciona</option>
-                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                                        {{terap?.nombre}}
-                                    </option>
-                                </select>
-                            </div>
+                                <option selected value="">Selecciona</option>
+                                <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                    {{terap?.nombre}}
+                                </option>
+                            </select>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="containerInCharge">
-                                <label class="text">Encargada</label>
-                                <select class="form-select" name="encargada" [(ngModel)]="services.encargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                    <div class="row g-0">
+                        <div class="containerInCharge">
+                            <label class="text">Encargada</label>
+                            <select class="form-select" name="encargada" [(ngModel)]="services.encargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value>Selecciona</option>
-                                    <option *ngFor="let encarg of manager" [value]="encarg.nombre">
-                                        {{encarg?.nombre}}
-                                    </option>
-                                </select>
-                            </div>
+                                <option *ngIf="administratorRole" selected value>Selecciona</option>
+                                <option *ngFor="let encarg of manager" [value]="encarg.nombre">
+                                    {{encarg?.nombre}}
+                                </option>
+                            </select>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="clientContainer">
-                                <label class="text">Cliente</label>
-                                <input class="form-control" type="text" name="cliente" [(ngModel)]="services.cliente"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424;
+                    <div class="row g-0">
+                        <div class="clientContainer">
+                            <label class="text">Cliente</label>
+                            <input class="form-control" type="text" name="cliente" [(ngModel)]="services.cliente" style="height: 2.2rem; border-color: #8C52FF; color: #242424;
                                             font-family: sans-serif; font-size: 18px;">
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="containerPlaceExit">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div class="containerPlaceExit">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Lugar Salida</label>
-                                <input type="text" class="form-control" [(ngModel)]="services.salida"
-                                    style="color: #242424; 
+                            <input type="text" class="form-control" [(ngModel)]="services.salida"
+                                style="color: #242424; 
                                         font-size: 18px; height: 2.2rem; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
                         </div>
                     </div>
-                    <!---------------------------------------- TIEMPO ---------------------------------------->
+                </div>
+                <!---------------------------------------- TIEMPO ---------------------------------------->
 
-                    <label class="titles">TIEMPO</label>
-                    <hr class="timeline">
+                <label class="titles">TIEMPO</label>
+                <hr class="timeline">
 
-                    <div class="row" style="margin-right: auto;">
-                        <div class="lastService">
-                            <label style="color: #242424; font-size: 18px; font-weight: bold;">Último
-                                servicio:</label>
-                        </div>
-
-                        <div class="lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
-                            <label style="color: #242424; font-size: 18px; font-weight: bold;"
-                                *ngFor="let hor of fechaLast"> {{hourStartTerapeuta + '-' + horaEndTerapeuta}}
-                            </label>
-                        </div>
+                <div class="row" style="margin-right: auto;">
+                    <div class="lastService">
+                        <label style="color: #242424; font-size: 18px; font-weight: bold;">Último
+                            servicio:</label>
                     </div>
 
-                    <div class="row datesContainer">
+                    <div class="lastServiceOrdered" *ngIf="hourStartTerapeuta != ''">
+                        <label style="color: #242424; font-size: 18px; font-weight: bold;"
+                            *ngFor="let hor of fechaLast"> {{hourStartTerapeuta + '-' + horaEndTerapeuta}}
+                        </label>
+                    </div>
+                </div>
 
-                        <div class="row g-0">
-                            <div class="dateContainer">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
+                <div class="row datesContainer">
+
+                    <div class="row g-0">
+                        <div class="dateContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                             display: contents;">Fecha</label>
-                                <input type="date" class="form-control" (change)="chosenDate($event)"
-                                    [value]="fechaActual" style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                            <input type="date" class="form-control" (change)="chosenDate($event)" [value]="fechaActual"
+                                style="color: #242424; font-size: 18px; font-family: sans-serif; 
                                     height: 2.2rem; border-color: #8C52FF">
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="containerStartTime">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
+                    <div class="row g-0">
+                        <div class="containerStartTime">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                         display: contents;">Hora inicio</label>
-                                <input type="time" class="form-control" name="horaStart" min="18:00" max="21:00"
-                                    step="3600" [(ngModel)]="services.horaStart" (change)="startTime($event)"
-                                    [value]="horaStarted" style="color: #242424; font-size: 18px; height: 2.2rem; 
+                            <input type="time" class="form-control" name="horaStart" min="18:00" max="21:00" step="3600"
+                                [(ngModel)]="services.horaStart" (change)="startTime($event)" [value]="horaStarted"
+                                style="color: #242424; font-size: 18px; height: 2.2rem; 
                                             font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
                         </div>
                     </div>
+                </div>
 
 
-                    <div class="row datesContainer2">
-                        <div class="row g-0">
-                            <div class="containerDuration">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                <div class="row datesContainer2">
+                    <div class="row g-0">
+                        <div class="containerDuration">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Duración(min.)</label>
-                                <input class="form-control" type="number" [(ngModel)]="services.minuto"
-                                    (ngModelChange)="minutes($event)" style="color: #242424; font-size: 18px; 
+                            <input class="form-control" type="number" [(ngModel)]="services.minuto"
+                                (ngModelChange)="minutes($event)" style="color: #242424; font-size: 18px; 
                                             height: 2.2rem; font-family: sans-serif; border-color: #8C52FF">
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="EndTimeContainer">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div class="EndTimeContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         font-weight: bold;">Hora fin</label>
-                                <div class="hourEnd" style="color: #242424; font-size: 18px; height: 2.2rem; 
+                            <div class="hourEnd" style="color: #242424; font-size: 18px; height: 2.2rem; 
                                         font-family: sans-serif; font-weight: bold"> {{services.horaEnd}} </div>
-                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <!---------------------------------------- Servicios ---------------------------------------->
+                <!---------------------------------------- Servicios ---------------------------------------->
 
-                    <div class="row containerTitleService">
-                        <div class="row g-0">
-                            <div class="titleService">
-                                <label class="titles">SERVICIOS</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="titleService">
-                                <label class="sumServices">{{sumatoriaServicios + ' €'}}</label>
-                            </div>
+                <div class="row containerTitleService">
+                    <div class="row g-0">
+                        <div class="titleService">
+                            <label class="titles">SERVICIOS</label>
                         </div>
                     </div>
-
-                    <hr class="serviceLine">
 
                     <div class="row g-0">
-                        <div class="serviceDescription">
-                            <label style="color: #000000; font-size: 15px">Detalla el importe de los
-                                servicios</label>
+                        <div class="titleService">
+                            <label class="sumServices">{{sumatoriaServicios + ' €'}}</label>
                         </div>
                     </div>
+                </div>
+
+                <hr class="serviceLine">
+
+                <div class="row g-0">
+                    <div class="serviceDescription">
+                        <label style="color: #000000; font-size: 15px">Detalla el importe de los
+                            servicios</label>
+                    </div>
+                </div>
 
 
-                    <div class="row servicesContainer">
-                        <div class="row g-0">
-                            <div class="treatmentContainer">
+                <div class="row servicesContainer">
+                    <div class="row g-0">
+                        <div class="treatmentContainer">
 
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
                                         display: contents; font-weight: bold">Tratamiento</label>
-                                <input type="number" class="form-control" name="services"
-                                    [(ngModel)]="services.servicio" (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                            <input type="number" class="form-control" name="services" [(ngModel)]="services.servicio"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="beverageContainer">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
-                                        display: contents; font-weight: bold">Bebidas</label>
-                                <input type="number" class="form-control" name="bebidas" [(ngModel)]="services.bebidas"
-                                    (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="tobaccoContainer">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Tabaco</label>
-                                <input type="number" class="form-control" name="tabaco" [(ngModel)]="services.tabaco"
-                                    (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="vitaminColumn">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
-                                        display: contents; font-weight: bold">Vitaminas</label>
-                                <input type="number" class="form-control" name="vitaminas"
-                                    [(ngModel)]="services.vitaminas" (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="tipColumn">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Propina</label>
-                                <input type="number" class="form-control" name="propina" [(ngModel)]="services.propina"
-                                    (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="columnOthers">
-                                <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Otros</label>
-                                <input type="number" class="form-control" name="otros" [(ngModel)]="services.otros"
-                                    (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                            </div>
                         </div>
                     </div>
-
-
-                    <!---------------------------------------- COBROS  ---------------------------------------->
-
-                    <div class="row containerTitleService">
-                        <div class="row g-0">
-                            <div class="titleCollection">
-                                <label class="titles">COBROS</label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="titleService">
-                                <label class="sumServices">{{sumatoriaCobros + ' €'}}</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="serviceLine">
 
                     <div class="row g-0">
-                        <div class="serviceDescription">
-                            <label style="color: #000000; font-size: 15px">Detalla quién ha cobrado los servicios y
-                                por que medio de pago</label>
+                        <div class="beverageContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Bebidas</label>
+                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="services.bebidas"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
                     </div>
 
-                    <div class="collectionContainer">
+                    <div class="row g-0">
+                        <div class="tobaccoContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Tabaco</label>
+                            <input type="number" class="form-control" name="tabaco" [(ngModel)]="services.tabaco"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div style="font-size: small;">
-                                <label style="color: #242424; font-size: 13px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div class="vitaminColumn">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Vitaminas</label>
+                            <input type="number" class="form-control" name="vitaminas" [(ngModel)]="services.vitaminas"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="tipColumn">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Propina</label>
+                            <input type="number" class="form-control" name="propina" [(ngModel)]="services.propina"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="columnOthers">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Otros</label>
+                            <input type="number" class="form-control" name="otros" [(ngModel)]="services.otros"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <!---------------------------------------- COBROS  ---------------------------------------->
+
+                <div class="row containerTitleService">
+                    <div class="row g-0">
+                        <div class="titleCollection">
+                            <label class="titles">COBROS</label>
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="titleService">
+                            <label class="sumServices">{{sumatoriaCobros + ' €'}}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="serviceLine">
+
+                <div class="row g-0">
+                    <div class="serviceDescription">
+                        <label style="color: #000000; font-size: 15px">Detalla quién ha cobrado los servicios y
+                            por que medio de pago</label>
+                    </div>
+                </div>
+
+                <div class="collectionContainer">
+
+                    <div class="row g-0">
+                        <div style="font-size: small;">
+                            <label style="color: #242424; font-size: 13px; font-family: sans-serif;
                                         display: contents; font-weight: bold">EFECT</label>
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div style="font-size: small;">
-                                <label style="color: #242424; font-size: 13px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div style="font-size: small;">
+                            <label style="color: #242424; font-size: 13px; font-family: sans-serif;
                                         display: contents; font-weight: bold">BIZUM</label>
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div style="font-size: small;">
-                                <label style="color: #242424; font-size: 13px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div style="font-size: small;">
+                            <label style="color: #242424; font-size: 13px; font-family: sans-serif;
                                         display: contents; font-weight: bold">TARJ.</label>
-                            </div>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div style="font-size: small;">
-                                <label style="color: #242424; font-size: 13px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div style="font-size: small;">
+                            <label style="color: #242424; font-size: 13px; font-family: sans-serif;
                                         display: contents; font-weight: bold">TRANS</label>
-                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row collectionContainer2">
+                <div class="row collectionContainer2">
 
-                        <div class="collectionPiso1 row g-0" style="display: block;">
-                            <label style="color: #242424; font-size: 17px; font-family: sans-serif;
+                    <div class="collectionPiso1 row g-0" style="display: block;">
+                        <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Piso 1</label>
-                            <input type="number" class="form-control" name="numberPiso1"
-                                [(ngModel)]="services.numberPiso1" (ngModelChange)="collectionsValue()" style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif;
+                        <input type="number" class="form-control" name="numberPiso1" [(ngModel)]="services.numberPiso1"
+                            (ngModelChange)="collectionsValue()" style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif;
                                             border-color: #8C52FF">
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="checkBoxCash">
+                            <input type="checkbox" id="efectPiso1" name="efectPiso1" [(ngModel)]="services.efectPiso1">
+                            <label for="efectPiso1"></label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxCash">
-                                <input type="checkbox" id="efectPiso1" name="efectPiso1"
-                                    [(ngModel)]="services.efectPiso1">
-                                <label for="efectPiso1"></label>
-                            </div>
+                    </div>
 
+                    <div class="row g-0">
+                        <div class="checkBoxBizum">
+                            <input type="checkbox" id="bizuPiso1" name="bizuPiso1" [(ngModel)]="services.bizuPiso1">
+                            <label for="bizuPiso1"></label>
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="CheckBoxCard">
+                            <input type="checkbox" id="tarjPiso1" name="tarjPiso1" [(ngModel)]="services.tarjPiso1">
+                            <label for="tarjPiso1"></label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxBizum">
-                                <input type="checkbox" id="bizuPiso1" name="bizuPiso1" [(ngModel)]="services.bizuPiso1">
-                                <label for="bizuPiso1"></label>
-                            </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="checkBoxTransaction">
+                            <input type="checkbox" id="transPiso1" name="transPiso1" [(ngModel)]="services.transPiso1">
+                            <label for="transPiso1"></label>
                         </div>
-
-                        <div class="row g-0">
-                            <div class="CheckBoxCard">
-                                <input type="checkbox" id="tarjPiso1" name="tarjPiso1" [(ngModel)]="services.tarjPiso1">
-                                <label for="tarjPiso1"></label>
-                            </div>
-
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="checkBoxTransaction">
-                                <input type="checkbox" id="transPiso1" name="transPiso1"
-                                    [(ngModel)]="services.transPiso1">
-                                <label for="transPiso1"></label>
-                            </div>
-                        </div>
+                    </div>
 
 
-                        <div class="collectionPiso2 row g-0" style="display: block;">
-                            <label style="color: #242424; font-size: 17px; font-family: sans-serif;
+                    <div class="collectionPiso2 row g-0" style="display: block;">
+                        <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Piso 2</label>
-                            <input matInput type="number" class="form-control" name="numberPiso2"
-                                [(ngModel)]="services.numberPiso2" (ngModelChange)="collectionsValue()"
-                                style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
-                        </div>
+                        <input matInput type="number" class="form-control" name="numberPiso2"
+                            [(ngModel)]="services.numberPiso2" (ngModelChange)="collectionsValue()"
+                            style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxCashFloor2">
-                                <input type="checkbox" id="efectPiso2" name="efectPiso2"
-                                    [(ngModel)]="services.efectPiso2">
-                                <label for="efectPiso2"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxCashFloor2">
+                            <input type="checkbox" id="efectPiso2" name="efectPiso2" [(ngModel)]="services.efectPiso2">
+                            <label for="efectPiso2"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxBizumFloor2">
-                                <input type="checkbox" id="bizuPiso2" name="bizuPiso2" [(ngModel)]="services.bizuPiso2">
-                                <label for="bizuPiso2"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxBizumFloor2">
+                            <input type="checkbox" id="bizuPiso2" name="bizuPiso2" [(ngModel)]="services.bizuPiso2">
+                            <label for="bizuPiso2"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="CheckBoxCardFloor2">
-                                <input type="checkbox" id="tarjPiso2" name="tarjPiso2" [(ngModel)]="services.tarjPiso2">
-                                <label for="tarjPiso2"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="CheckBoxCardFloor2">
+                            <input type="checkbox" id="tarjPiso2" name="tarjPiso2" [(ngModel)]="services.tarjPiso2">
+                            <label for="tarjPiso2"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxTransactionFloor2">
-                                <input type="checkbox" id="transPiso2" name="transPiso2"
-                                    [(ngModel)]="services.transPiso2">
-                                <label for="transPiso2"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxTransactionFloor2">
+                            <input type="checkbox" id="transPiso2" name="transPiso2" [(ngModel)]="services.transPiso2">
+                            <label for="transPiso2"></label>
                         </div>
+                    </div>
 
-                        <div class="collectionTherapist row g-0" style="display: block;">
-                            <label style="color: #242424; font-size: 17px; font-family: sans-serif;
+                    <div class="collectionTherapist row g-0" style="display: block;">
+                        <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Terapeuta</label>
-                            <input matInput type="number" class="form-control" name="numberTerap"
-                                [(ngModel)]="services.numberTerap" (ngModelChange)="collectionsValue()"
-                                style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
-                        </div>
+                        <input matInput type="number" class="form-control" name="numberTerap"
+                            [(ngModel)]="services.numberTerap" (ngModelChange)="collectionsValue()"
+                            style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxCashTherapist">
-                                <input type="checkbox" id="efectTerap" name="efectTerap"
-                                    [(ngModel)]="services.efectTerap">
-                                <label for="efectTerap"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxCashTherapist">
+                            <input type="checkbox" id="efectTerap" name="efectTerap" [(ngModel)]="services.efectTerap">
+                            <label for="efectTerap"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxBizumTherapist">
-                                <input type="checkbox" id="bizuTerap" name="bizuTerap" [(ngModel)]="services.bizuTerap">
-                                <label for="bizuTerap"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxBizumTherapist">
+                            <input type="checkbox" id="bizuTerap" name="bizuTerap" [(ngModel)]="services.bizuTerap">
+                            <label for="bizuTerap"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="CheckBoxCardTherapist">
-                                <input type="checkbox" id="tarjTerap" name="tarjTerap" [(ngModel)]="services.tarjTerap">
-                                <label for="tarjTerap"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="CheckBoxCardTherapist">
+                            <input type="checkbox" id="tarjTerap" name="tarjTerap" [(ngModel)]="services.tarjTerap">
+                            <label for="tarjTerap"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxTransactionTherapist">
-                                <input type="checkbox" id="transTerap" name="transTerap"
-                                    [(ngModel)]="services.transTerap">
-                                <label for="transTerap"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxTransactionTherapist">
+                            <input type="checkbox" id="transTerap" name="transTerap" [(ngModel)]="services.transTerap">
+                            <label for="transTerap"></label>
                         </div>
+                    </div>
 
-                        <div class="collectionManager row g-0" style="display: block;">
-                            <label style="color: #242424; font-size: 17px; font-family: sans-serif;
+                    <div class="collectionManager row g-0" style="display: block;">
+                        <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Encargada</label>
-                            <input matInput type="number" class="form-control" name="numberEncarg"
-                                [(ngModel)]="services.numberEncarg" (ngModelChange)="collectionsValue()"
-                                style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
-                        </div>
+                        <input matInput type="number" class="form-control" name="numberEncarg"
+                            [(ngModel)]="services.numberEncarg" (ngModelChange)="collectionsValue()"
+                            style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxCashManager">
-                                <input type="checkbox" id="efectEncarg" name="efectEncarg"
-                                    [(ngModel)]="services.efectEncarg">
-                                <label for="efectEncarg"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxCashManager">
+                            <input type="checkbox" id="efectEncarg" name="efectEncarg"
+                                [(ngModel)]="services.efectEncarg">
+                            <label for="efectEncarg"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxBizumManager">
-                                <input type="checkbox" id="bizuEncarg" name="bizuEncarg"
-                                    [(ngModel)]="services.bizuEncarg">
-                                <label for="bizuEncarg"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxBizumManager">
+                            <input type="checkbox" id="bizuEncarg" name="bizuEncarg" [(ngModel)]="services.bizuEncarg">
+                            <label for="bizuEncarg"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="CheckBoxCardManager">
-                                <input type="checkbox" id="tarjEncarg" name="tarjEncarg"
-                                    [(ngModel)]="services.tarjEncarg">
-                                <label for="tarjEncarg"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="CheckBoxCardManager">
+                            <input type="checkbox" id="tarjEncarg" name="tarjEncarg" [(ngModel)]="services.tarjEncarg">
+                            <label for="tarjEncarg"></label>
                         </div>
+                    </div>
 
-                        <div class="row g-0">
-                            <div class="checkBoxTransactionManager">
-                                <input type="checkbox" id="transEncarg" name="transEncarg"
-                                    [(ngModel)]="services.transEncarg">
-                                <label for="transEncarg"></label>
-                            </div>
+                    <div class="row g-0">
+                        <div class="checkBoxTransactionManager">
+                            <input type="checkbox" id="transEncarg" name="transEncarg"
+                                [(ngModel)]="services.transEncarg">
+                            <label for="transEncarg"></label>
                         </div>
+                    </div>
 
-                        <div class="collectionOther row g-0" style="display: block;">
-                            <label style="color: #242424; font-size: 17px; font-family: sans-serif;
+                    <div class="collectionOther row g-0" style="display: block;">
+                        <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Otro</label>
-                            <input matInput type="number" class="form-control" name="numberOtro"
-                                [(ngModel)]="services.numberOtro" (ngModelChange)="collectionsValue()"
-                                style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="checkBoxCashOther">
-                                <input type="checkbox" id="efectOtro" name="efectOtro" [(ngModel)]="services.efectOtro">
-                                <label for="efectOtro"></label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="checkBoxBizumOther">
-                                <input type="checkbox" id="bizuOtro" name="bizuOtro" [(ngModel)]="services.bizuOtro">
-                                <label for="bizuOtro"></label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="CheckBoxCardOther">
-                                <input type="checkbox" id="tarjOtro" name="tarjOtro" [(ngModel)]="services.tarjOtro">
-                                <label for="tarjOtro"></label>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="checkBoxTransactionOther">
-                                <input type="checkbox" id="transOtro" name="transOtro" [(ngModel)]="services.transOtro">
-                                <label for="transOtro"></label>
-                            </div>
-                        </div>
-                        <!-- AQUI -->
+                        <input matInput type="number" class="form-control" name="numberOtro"
+                            [(ngModel)]="services.numberOtro" (ngModelChange)="collectionsValue()"
+                            style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
                     </div>
 
+                    <div class="row g-0">
+                        <div class="checkBoxCashOther">
+                            <input type="checkbox" id="efectOtro" name="efectOtro" [(ngModel)]="services.efectOtro">
+                            <label for="efectOtro"></label>
+                        </div>
+                    </div>
 
-                    <!-- Fin services -->
+                    <div class="row g-0">
+                        <div class="checkBoxBizumOther">
+                            <input type="checkbox" id="bizuOtro" name="bizuOtro" [(ngModel)]="services.bizuOtro">
+                            <label for="bizuOtro"></label>
+                        </div>
+                    </div>
 
-                    <hr class="serviceLine">
+                    <div class="row g-0">
+                        <div class="CheckBoxCardOther">
+                            <input type="checkbox" id="tarjOtro" name="tarjOtro" [(ngModel)]="services.tarjOtro">
+                            <label for="tarjOtro"></label>
+                        </div>
+                    </div>
 
-                    <div class="notesContainer">
-                        <div class="row g-0">
-                            <div class="notes">
-                                <label style="color: #8C52FF; font-size: 20px; font-family: sans-serif;
+                    <div class="row g-0">
+                        <div class="checkBoxTransactionOther">
+                            <input type="checkbox" id="transOtro" name="transOtro" [(ngModel)]="services.transOtro">
+                            <label for="transOtro"></label>
+                        </div>
+                    </div>
+                    <!-- AQUI -->
+                </div>
+
+
+                <!-- Fin services -->
+
+                <hr class="serviceLine">
+
+                <div class="notesContainer">
+                    <div class="row g-0">
+                        <div class="notes">
+                            <label style="color: #8C52FF; font-size: 20px; font-family: sans-serif;
                                     display: contents; font-weight: bold;">Notas:</label>
-                                <textarea type="text" class="form-control" name="nota" [(ngModel)]="services.nota"
-                                    style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF"></textarea>
-                            </div>
+                            <textarea type="text" class="form-control" name="nota" [(ngModel)]="services.nota"
+                                style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF"></textarea>
                         </div>
                     </div>
+                </div>
 
-                    <div class="inputButtonSave">
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button class="btn btn-primary"
-                                style="display: grid; margin: auto;" color="primary"
-                                (click)="saveService()">Guardar</button>
-                        </div>
+                <div class="inputButtonSave">
+                    <div class="row g-0">
+                        <button type="submit" mat-raised-button class="btn btn-primary"
+                            style="display: grid; margin: auto;" color="primary"
+                            (click)="saveService()">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -491,14 +480,14 @@
 </div>
 
 <!------------------------------------------ Editar ------------------------------------------>
-<div *ngIf="editamos && addService" class="marginBody">
-    <label class="title">Editar</label>
+<div *ngIf="editamos && addService">
 
-    <div class="container" *ngFor="let edServ of editarService">
+    <div class="container marginBody" *ngFor="let edServ of editarService">
         <div class="row marginPage">
             <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
                 <div class="m-0 vh-90 row justify-content-center align-items-center">
 
+                    <label class="title">Editar</label>
                     <div class="row inputContainer">
 
                         <div class="row g-0">

@@ -112,8 +112,8 @@ export class VisionComponent implements OnInit {
     setTimeout(() => {
       this.getMinute()
     }, 1200);
-
   }
+
   totalsAtZero() {
     this.totalPisos = 0
     this.totalVision = 0
@@ -253,16 +253,21 @@ export class VisionComponent implements OnInit {
       hora_inicio = '0' + hora_inicio
     }
 
+
     if (convertFecha == undefined || convertFecha == '') {
-      if (convertFecha < fechaEnd) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
-          this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
-            // this.therapist = rp
+      setTimeout(() => {
+        if (convertFecha < fechaEnd) {
+          this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
+            this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
+              // this.therapist = rp
+            })
           })
-        })
-        return ''
-      }
+
+        }
+      }, 1000);
+      return ''
     }
+
 
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora) && hora_final.match(formatohora))) {

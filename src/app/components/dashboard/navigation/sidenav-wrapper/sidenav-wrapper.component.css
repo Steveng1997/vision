@@ -58,24 +58,6 @@ a {
   padding: 0;
 }
 
-.navbar__container_liquidation {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar__container_menu {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .navbar__more {
   display: none;
 }
@@ -85,7 +67,7 @@ a {
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -241,7 +223,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -309,7 +291,7 @@ a {
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -465,7 +447,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -533,7 +515,7 @@ a {
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -689,7 +671,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -757,7 +739,7 @@ a {
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -913,7 +895,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -981,7 +963,7 @@ a {
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -1137,7 +1119,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -1205,7 +1187,7 @@ a {
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -1361,7 +1343,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -1429,7 +1411,7 @@ a {
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -1585,7 +1567,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -1653,7 +1635,7 @@ a {
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -1809,7 +1791,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -1877,7 +1859,7 @@ a {
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
   .navbar {
     width: 97%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 93%;
     bottom: 0px;
@@ -2033,7 +2015,7 @@ a {
     height: 27px;
   }
 
-  .iconNew{
+  .iconNew {
     margin-top: 5px;
   }
 
@@ -2162,14 +2144,18 @@ a {
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
   .navbar {
-    position: absolute;
+    display: contents;
+    position: relative;
     background-color: #8C52FF;
-    height: 100%;
     /* font-weight: 400;
     font-size: 1.2em; */
+    height: 100%;
     padding-bottom: 6em;
     z-index: 9;
     -webkit-overflow-scrolling: touch;
+    font-size: .765625rem;
+    text-transform: uppercase;
+    font-weight: 600;
 
     font-size: .765625rem;
     text-transform: uppercase;
@@ -2461,7 +2447,7 @@ a {
   }
 
   img {
-    width: 80%;
+    width: 65%;
     filter: blur(0);
   }
 }
@@ -2508,8 +2494,8 @@ a {
 
   .mcd-menu {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 30px;
+    margin: 0px;
     background: #8C52FF;
     /*height: 100px;*/
     border-radius: 2px;
@@ -2753,10 +2739,7 @@ a {
     content: "";
     position: absolute;
     top: 15px;
-    /*left: -14px;*/
-    /* == */
     left: -9px;
-    /* == */
     border-right: 5px solid #e67e22;
     border-bottom: 5px solid transparent;
     border-top: 5px solid transparent;

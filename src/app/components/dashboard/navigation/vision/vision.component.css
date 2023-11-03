@@ -4,11 +4,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 128%;
+    height: 92%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -384,11 +385,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 141%;
+    height: 92%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -769,6 +771,7 @@
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -1144,11 +1147,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 113%;
+    height: 114%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -1520,15 +1524,17 @@
   }
 }
 
+/* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
   .container {
     overflow-x: hidden;
-    height: 113%;
+    height: 93%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -1692,6 +1698,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
+    margin-bottom: 60px;
   }
 
   .columnService {
@@ -1904,11 +1911,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 126%;
+    height: 93%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -2284,11 +2292,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 126%;
+    height: 93%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -2664,11 +2673,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 105%;
+    height: 93%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
@@ -3044,11 +3054,12 @@
 
   .container {
     overflow-x: hidden;
-    height: 107%;
+    height: 108%;
   }
 
   .marginPage {
     margin: 0px auto 0px;
+    z-index: -1;
   }
 
   .title {
