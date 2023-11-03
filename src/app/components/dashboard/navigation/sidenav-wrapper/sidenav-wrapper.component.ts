@@ -55,7 +55,6 @@ export class SidenavWrapperComponent implements OnInit {
     var contentMenu = document.getElementById('containerMenu');
     var x = window.matchMedia("(min-device-width: 1030px)")
     var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
-
     if (!x.matches) {
       if (contentMenu.style.display == "none") {
         contentMenu.style.display = "block";
