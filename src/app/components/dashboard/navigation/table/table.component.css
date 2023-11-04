@@ -24,19 +24,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -51,7 +58,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -237,7 +243,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -266,11 +272,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -492,6 +497,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -531,19 +545,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -558,7 +579,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -744,7 +764,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -773,11 +793,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -999,6 +1018,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -1038,19 +1066,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -1065,7 +1100,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -1251,7 +1285,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -1280,11 +1314,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -1506,6 +1539,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -1545,19 +1587,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -1572,7 +1621,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -1758,7 +1806,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -1787,11 +1835,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -2013,6 +2060,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -2052,19 +2108,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -2079,7 +2142,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -2265,7 +2327,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -2294,11 +2356,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -2520,6 +2581,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -2559,19 +2629,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -2586,7 +2663,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -2772,7 +2848,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -2801,11 +2877,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -3027,6 +3102,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -3066,19 +3150,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -3093,7 +3184,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: 0;
   }
@@ -3279,7 +3369,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -3308,11 +3398,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -3536,6 +3625,15 @@
     padding: 15px 32px 0px 0px;
   }
 
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
+  }
+
   .lblValueTotal {
     text-align: end;
     font-family: sans-serif;
@@ -3573,19 +3671,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -3600,7 +3705,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: -34px;
   }
@@ -3785,7 +3889,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -3814,11 +3918,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -4041,6 +4144,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -4080,19 +4192,26 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     height: 93%;
   }
 
   .marginPage {
-    margin: 0px auto 0px;
-    z-index: -1;
+    margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    position: fixed;
-    bottom: 57px;
-    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .color2 {
@@ -4107,7 +4226,6 @@
 
   .table {
     display: flow;
-    position: absolute;
     overflow-y: auto;
     margin-left: -34px;
   }
@@ -4292,7 +4410,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 22px 19px 0px 5px;
+    padding: 1px 10px 0px 0px;
     word-wrap: break-word;
   }
 
@@ -4321,11 +4439,10 @@
 
   .columnDate {
     border-bottom: hidden;
-    word-wrap: break-word;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
-    height: min-content;
+    white-space: nowrap;
   }
 
   .columnTherapist {
@@ -4548,6 +4665,15 @@
     color: #8C52FF;
     white-space: pre;
     padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 21px 0px 36px;
   }
 
   .lblValueTotal {
@@ -5000,6 +5126,15 @@
   }
 
   .lblValueFloor1 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    color: #8C52FF;
+    padding: 22px 22px 0px 0px;
+  }
+
+  .lblValueFloor2 {
     text-align: end;
     font-family: sans-serif;
     font-size: 18px;
@@ -5483,6 +5618,14 @@
     padding: 22px 22px 0px 0px;
   }
 
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    color: #8C52FF;
+    padding: 22px 22px 0px 0px;
+  }
 
   .lblValueTotal {
     text-align: end;
