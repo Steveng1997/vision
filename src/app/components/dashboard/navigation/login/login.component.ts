@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
           if (resp.length > 0) {
             if (resp[0]['activo'] == true) {
               this.serviceManager.getByUserAndPass(this.manager.usuario, this.manager.pass).subscribe((res: any) => {
-                debugger
                 if (res.token != "") {
                   if (res.token != undefined || res != "Usuario o clave incorrectos") {
                     localStorage.setItem('token', res.token);

@@ -329,6 +329,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -459,7 +460,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -850,6 +851,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -980,7 +982,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -1371,6 +1373,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -1501,7 +1504,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -1892,6 +1895,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -2022,7 +2026,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -2413,6 +2417,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -2543,7 +2548,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -2934,6 +2939,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -3064,7 +3070,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -3455,6 +3461,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -3585,7 +3592,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -3975,6 +3982,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -4106,7 +4114,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {
@@ -4496,6 +4504,7 @@
     font-size: 16px;
     text-align: justify;
     line-height: normal;
+    white-space: nowrap;
   }
 
   .columnPaymentMethod {
@@ -4627,7 +4636,7 @@
     font-size: 16px;
     text-align: end;
     line-height: normal;
-    padding: 8px 29px 0px 0px;
+    padding: 8px 8px 0px 0px;
   }
 
   .columnValueClient {

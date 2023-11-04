@@ -837,13 +837,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -869,7 +869,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 6px;
+    margin-left: -21px;
   }
 
   .title {
@@ -883,16 +883,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 84%;
+    width: 91%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
+    margin-left: 1px;
   }
 
   .lastService {
-    margin-left: 3px;
+    margin-left: -11px;
     width: 55%;
   }
 
@@ -907,17 +907,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 15px;
+    margin-left: 2px;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 84%;
+    width: 91%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
+    margin-left: 1px;
   }
 
   .lastServiceOrdered {
@@ -940,8 +940,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 56% 43%;
-    margin-left: -6px;
+    grid-template-columns: 61% 56%;
+    margin-left: -31px;
   }
 
   .therapistContainer {
@@ -949,7 +949,7 @@ input[id="transOtro"] {
   }
 
   .containerInCharge {
-    width: 100%;
+    width: 80%;
   }
 
   .clientContainer {
@@ -958,19 +958,19 @@ input[id="transOtro"] {
   }
 
   .containerPlaceExit {
-    width: 100%;
+    width: 80%;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 57% 42%;
+    grid-template-columns: 64% 42%;
     margin-top: 1rem;
-    margin-left: -7px;
+    margin-left: -31px;
   }
 
   .dateContainer {
-    width: 79%;
+    width: 70%;
   }
 
   .containerStartTime {
@@ -981,7 +981,7 @@ input[id="transOtro"] {
   .datesContainer2 {
     display: grid;
     grid-template-columns: 45% 54%;
-    margin-left: -6px;
+    margin-left: -30px;
   }
 
   .containerDuration {
@@ -990,7 +990,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 36%;
+    margin-left: 49%;
     margin-top: 1.5rem;
   }
 
@@ -1001,7 +1001,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 9%;
+    margin-right: 8%;
   }
 
   .titleService {
@@ -1019,9 +1019,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 38% 36% 25%;
+    grid-template-columns: 39% 36% 31%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: -31px;
   }
 
   .treatmentContainer {
@@ -1052,7 +1052,7 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 10%;
+    margin-left: 24%;
   }
 
   .collectionContainer {
@@ -1067,7 +1067,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -2%;
+    margin-left: -9%;
   }
 
   .collectionPiso1 {
@@ -1192,26 +1192,26 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 299px;
+    grid-template-columns: 310px;
     margin-top: 1rem;
     margin-left: -7%;
     margin-bottom: 1.5rem;
   }
 
   .notes {
-    margin-left: 1rem;
+    margin-left: 3px;
   }
 
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -1573,13 +1573,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -1941,13 +1941,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -2308,13 +2308,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -2675,13 +2675,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -2807,7 +2807,7 @@ input[id="transOtro"] {
   }
 
   .dateContainer {
-    width: 68%;
+    width: 63%;
   }
 
   .containerStartTime {
@@ -2822,7 +2822,7 @@ input[id="transOtro"] {
   }
 
   .containerDuration {
-    width: 96%;
+    width: 89%;
     margin-top: 17%;
   }
 
@@ -2901,10 +2901,10 @@ input[id="transOtro"] {
 
   .collectionContainer2 {
     display: grid;
-    grid-template-columns: 21.6% 22% 16% 20% 14%;
+    grid-template-columns: 24% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -2%;
+    margin-left: -8%;
   }
 
   .collectionPiso1 {
@@ -3029,26 +3029,26 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 326px;
+    grid-template-columns: 338px;
     margin-top: 1rem;
     margin-left: -6%;
     margin-bottom: 1.5rem;
   }
 
   .notes {
-    margin-left: 14px;
+    margin-left: 3px;
   }
 
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -7px;
   }
 }
@@ -3409,13 +3409,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }
@@ -3776,13 +3776,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     margin-left: -1.9rem;
   }
 }

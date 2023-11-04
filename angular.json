@@ -32,7 +32,9 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/scroll.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -57,10 +59,7 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
-              "scripts": [
-                "/src/assets/js/scroll.js"
-              ]
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +98,9 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/scroll.js"
+            ]
           }
         }
       }

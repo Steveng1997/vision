@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // your javascript code here
-    const myLink = document.getElementById("containerMenu");
-    myLink.addEventListener("click", () => {
-      console.log("You visited the link");
-    });
-  });
+var ultimoScroll = 0;
+var cero = 0;
+document.addEventListener('scroll', function () {
+    st = window.scrollTop();
+    if (st > ultimoScroll) {
+        $('nav.navbar').addClass('hide');
+    } else {
+        $('nav.navbar').removeClass('hide');
+    }
+})
