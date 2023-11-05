@@ -142,6 +142,9 @@ export class TableComponent implements OnInit {
           this.servicio = datoServicio
           if (datoServicio.length != 0) {
             this.totalSumOfServices()
+            for (let i = 0; i < this.servicio.length; i++) {
+              this.pointThousandTable(i)
+            }
           }
         })
       } else {
@@ -149,10 +152,290 @@ export class TableComponent implements OnInit {
           this.servicio = datoServicio
           if (datoServicio.length != 0) {
             this.totalSumOfServices()
+            for (let i = 0; i < this.servicio.length; i++) {
+              this.pointThousandTable(i)
+            }
           }
         })
       }
     })
+  }
+
+  pointThousandTable(i: number) {
+    if (this.servicio[i].numberPiso1 > 0) {
+
+      const coma = this.servicio[i].numberPiso1.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberPiso1.toString().split(".") : this.servicio[i].numberPiso1.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].numberPiso1 = integer[0].toString()
+    } else {
+      this.servicio[i].numberPiso1 = this.totalValor.toString()
+    }
+
+    if (this.servicio[i].numberPiso2 > 0) {
+
+      const coma = this.servicio[i].numberPiso2.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberPiso2.toString().split(".") : this.servicio[i].numberPiso2.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].numberPiso2 = integer[0].toString()
+    } else {
+      this.servicio[i].numberPiso2 = this.servicio[i].numberPiso2.toString()
+    }
+
+    if (this.servicio[i].numberTerap > 0) {
+
+      const coma = this.servicio[i].numberTerap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberTerap.toString().split(".") : this.servicio[i].numberTerap.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].numberTerap = integer[0].toString()
+    } else {
+      this.servicio[i].numberTerap = this.servicio[i].numberTerap.toString()
+    }
+
+    if (this.servicio[i].numberEncarg > 0) {
+
+      const coma = this.servicio[i].numberEncarg.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberEncarg.toString().split(".") : this.servicio[i].numberEncarg.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].numberEncarg = integer[0].toString()
+    } else {
+      this.servicio[i].numberEncarg = this.servicio[i].numberEncarg.toString()
+    }
+
+    if (this.servicio[i].numberOtro > 0) {
+
+      const coma = this.servicio[i].numberOtro.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberOtro.toString().split(".") : this.servicio[i].numberOtro.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].numberOtro = integer[0].toString()
+    } else {
+      this.servicio[i].numberOtro = this.servicio[i].numberOtro.toString()
+    }
+
+    if (this.servicio[i].bebidas > 0) {
+
+      const coma = this.servicio[i].bebidas.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].bebidas.toString().split(".") : this.servicio[i].bebidas.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].bebidas = integer[0].toString()
+    } else {
+      this.servicio[i].bebidas = this.servicio[i].bebidas.toString()
+    }
+
+    if (this.servicio[i].tabaco > 0) {
+
+      const coma = this.servicio[i].tabaco.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].tabaco.toString().split(".") : this.servicio[i].tabaco.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].tabaco = integer[0].toString()
+    } else {
+      this.servicio[i].tabaco = this.servicio[i].tabaco.toString()
+    }
+
+    if (this.servicio[i].vitaminas > 0) {
+
+      const coma = this.servicio[i].vitaminas.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].vitaminas.toString().split(".") : this.servicio[i].vitaminas.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].vitaminas = integer[0].toString()
+    } else {
+      this.servicio[i].vitaminas = this.servicio[i].vitaminas.toString()
+    }
+
+    if (this.servicio[i].propina > 0) {
+
+      const coma = this.servicio[i].propina.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].propina.toString().split(".") : this.servicio[i].propina.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].propina = integer[0].toString()
+    } else {
+      this.servicio[i].propina = this.servicio[i].propina.toString()
+    }
+
+    if (this.servicio[i].otros > 0) {
+
+      const coma = this.servicio[i].otros.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].otros.toString().split(".") : this.servicio[i].otros.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].otros = integer[0].toString()
+    } else {
+      this.servicio[i].otros = this.servicio[i].otros.toString()
+    }
+
+    if (this.servicio[i].totalServicio > 0) {
+
+      const coma = this.servicio[i].totalServicio.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].totalServicio.toString().split(".") : this.servicio[i].totalServicio.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].totalServicio = integer[0].toString()
+    } else {
+      this.servicio[i].totalServicio = this.servicio[i].totalServicio.toString()
+    }
   }
 
   filters() {
