@@ -173,6 +173,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
+    margin-bottom: 55px;
   }
 
   .columnService {
@@ -554,6 +555,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
+    margin-bottom: 58px;
   }
 
   .columnService {
@@ -935,6 +937,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
+    margin-bottom: 58px;
   }
 
   .columnService {
@@ -1147,7 +1150,7 @@
 
   .container {
     overflow-x: hidden;
-    height: 114%;
+    height: 92%;
   }
 
   .marginPage {
@@ -1316,6 +1319,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
+    margin-bottom: 47px;
   }
 
   .columnService {
@@ -1529,7 +1533,7 @@
 
   .container {
     overflow-x: hidden;
-    height: 93%;
+    height: 92%;
   }
 
   .marginPage {
@@ -2673,7 +2677,7 @@
 
   .container {
     overflow-x: hidden;
-    height: 93%;
+    height: 92%;
   }
 
   .marginPage {
@@ -2842,6 +2846,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
+    margin-bottom: 46px;
   }
 
   .columnService {
@@ -3054,7 +3059,7 @@
 
   .container {
     overflow-x: hidden;
-    height: 108%;
+    height: 92%;
   }
 
   .marginPage {
@@ -3223,6 +3228,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
+    margin-bottom: 48px;
   }
 
   .columnService {
