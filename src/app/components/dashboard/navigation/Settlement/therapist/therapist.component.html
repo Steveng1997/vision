@@ -29,82 +29,69 @@
                             </div>
                         </div>
 
-                        <div class="container">
-                            <div class="row">
+                        <div class="row tableContainer">
 
-                                <div class="col-6">
-                                    <label style="display: contents;">Terapeuta</label>
-                                    <select class="form-select" name="terapeuta"
-                                        [(ngModel)]="liquidationTherapist.terapeuta" (ngModelChange)="filters($event)">
+                            <div class="therapistContainer">
+                                <div class="row g-0">
+                                    <label class="text">Terapeuta</label>
+                                    <select class="form-select" formControlName="terapeuta"
+                                        [(ngModel)]="liquidationTherapist.terapeuta" (change)="filters($event)"
+                                        style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;">
                                         <option selected value="">Selecciona</option>
-                                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre"
-                                            style="font-size: 14px;">
-                                            {{terap.nombre}}
-                                        </option>
+                                        <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                            {{terap.nombre}} </option>
                                     </select>
                                 </div>
+                            </div>
 
-                                <div class="col-6">
-                                    <label style="display: contents;">Encargada</label>
+                            <div class="containerInCharge">
+                                <div class="row g-0">
+                                    <label class="text">Encargada</label>
                                     <select class="form-select" formControlName="encargada"
-                                        [(ngModel)]="liquidationTherapist.encargada" (ngModelChange)="filters($event)">
+                                        [(ngModel)]="liquidationTherapist.encargada" (ngModelChange)="filters($event)"
+                                        style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;">
                                         <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                        <option *ngFor="let managers of manager" [value]="managers.nombre"
-                                            style="font-size: 14px;">
+                                        <option *ngFor="let managers of manager" [value]="managers.nombre">
                                             {{managers.nombre}}
                                         </option>
                                     </select>
                                 </div>
+                            </div>
 
-                                <div class="col-6" style="margin-top: 2%;">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <input type="date" class="form-control" (change)="filters($event)"
-                                                [value]="CurrenDate" style="font-size: 14px;">
-                                        </div>
-                                        <div class="col-3"
-                                            style="display: grid; align-content: center; justify-items: flex-start;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                <path
-                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                            </svg>
-                                        </div>
-                                    </div>
+                            <div class="dateContainer">
+                                <div class="row g-0">
+                                    <label class="text">Fecha Inicio</label>
+                                    <input type="date" class="form-control" (change)="filters($event)"
+                                        [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                font-family: sans-serif">
                                 </div>
+                            </div>
 
-                                <div class="col-6" style="margin-top: 2%;">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <input type="date" class="form-control" (change)="filtersDateEnd($event)"
-                                                [value]="CurrenDate" style="font-size: 14px;">
-                                        </div>
-                                        <div class="col-3"
-                                            style="display: grid; align-content: center; justify-items: flex-start;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                <path
-                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                            </svg>
-                                        </div>
-                                    </div>
+                            <div class="dateContainer">
+                                <div class="row g-0">
+                                    <label class="text">Fecha Final</label>
+                                    <input type="date" class="form-control" (change)="filtersDateEnd($event)"
+                                        [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                font-family: sans-serif">
                                 </div>
+                            </div>
 
-                                <div class="row" style="margin-top: 2%;">
-                                    <div class="col-2" style="display: grid; align-content: center;">
-                                        <label style="display: contents;">Buscar</label>
-                                    </div>
-                                    <div class="col-10">
-                                        <input type="text" class="form-control" formControlName="busqueda"
-                                            (ngModelChange)="filters($event)"
-                                            style="font-size: 14px; max-width: inherit;">
-                                    </div>
+                            <div class="dateContainer">
+                                <div class="row g-0">
+                                    <label class="text">Buscar</label>
+                                    <input type="text" class="form-control" formControlName="busqueda"
+                                        (ngModelChange)="filters($event)" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;">
                                 </div>
+                            </div>
 
+                            <div class="buttonDeleteContainer">
+                                <div class="row g-0">
+                                    <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
+                                        (click)="deleteService()">Eliminar</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -112,10 +99,9 @@
                     <div *ngIf="liquidationForm" class="container" style="margin-top: 3%; text-align: -webkit-center;">
                         <table class="table">
                             <thead>
-                                <tr class="table-secondary quitarBordes"
-                                    style="line-height: 0%; letter-spacing: normal">
+                                <tr class="table-secondary quitarBordes" style="line-height: 0%; letter-spacing: 0px;">
                                     <!-- 1 -->
-                                    <td class="therapistColumn">Terapeuta </td>
+                                    <td class=" therapistColumn">Terapeuta </td>
                                     <!-- 2 -->
                                     <td class="managerColumn">Encargada</td>
                                     <!-- 3 -->
@@ -183,8 +169,8 @@
                             Terapeutas
                         </p>
 
-                        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                            nextLabel="Siguiente">
+                        <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
+                            previousLabel="Anterior" nextLabel="Siguiente">
                         </pagination-controls>
                     </div>
 
@@ -425,7 +411,7 @@
                                                 </tr>
                                             </table>
 
-                                            <pagination-controls style="float: right;" (pageChange)="page = $event"
+                                            <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
                                                 previousLabel="Anterior" nextLabel="Siguiente">
                                             </pagination-controls>
                                         </div>
@@ -833,7 +819,7 @@
                                         </tr>
                                     </table>
 
-                                    <pagination-controls style="float: right;" (pageChange)="page = $event"
+                                    <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
                                         previousLabel="Anterior" nextLabel="Siguiente">
                                     </pagination-controls>
                                 </div>

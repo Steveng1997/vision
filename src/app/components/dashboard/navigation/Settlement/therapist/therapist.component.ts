@@ -125,15 +125,17 @@ export class TherapistComponent implements OnInit {
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-        this.administratorRole = true
-        this.getManager()
-      } else {
-        this.manager = rp
-        this.liquidationTherapist.encargada = this.manager[0].nombre
-      }
-    })
+    if (this.idUser) {
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getManager()
+        } else {
+          this.manager = rp
+          this.liquidationTherapist.encargada = this.manager[0].nombre
+        }
+      })
+    }
 
     this.date()
     this.getSettlements()
@@ -288,6 +290,19 @@ export class TherapistComponent implements OnInit {
       año = fecha.substring(2, 4)
       this.fechaInicio = `${dia}-${mes}-${año}`
     }
+
+    debugger
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+
+        if (this.liquidationTherapist.terapeuta != "" || this.liquidationTherapist.encargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
+        } else {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
+        }
+      }
+    })
   }
 
   getThoseThatNotLiquidated() {
@@ -808,5 +823,9 @@ export class TherapistComponent implements OnInit {
         icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500
       })
     }
+  }
+
+  deleteService() {
+
   }
 }

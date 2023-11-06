@@ -64,11 +64,6 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 8% 28% 8%;
-  }
-
-  .tableContainer {
-    display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
@@ -592,11 +587,6 @@
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 8% 28% 8%;
   }
 
   .tableContainer {
@@ -1128,12 +1118,6 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 8% 28% 8%;
-  }
-
-  .tableContainer {
-    display: grid;
-    /* grid-template-columns: 52% 52%; */
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
@@ -1666,11 +1650,6 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 8% 28% 8%;
-  }
-
-  .tableContainer {
-    display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
@@ -2194,11 +2173,6 @@
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 8% 28% 8%;
   }
 
   .tableContainer {
@@ -2730,11 +2704,6 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 8% 28% 8%;
-  }
-
-  .tableContainer {
-    display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
@@ -3258,11 +3227,6 @@
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 8% 28% 8%;
   }
 
   .tableContainer {
@@ -3794,11 +3758,6 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 8% 28% 8%;
-  }
-
-  .tableContainer {
-    display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
@@ -4322,11 +4281,6 @@
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 8% 28% 8%;
   }
 
   .tableContainer {
