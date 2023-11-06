@@ -436,6 +436,31 @@ export class TableComponent implements OnInit {
     } else {
       this.servicio[i].totalServicio = this.servicio[i].totalServicio.toString()
     }
+
+    if (this.servicio[i].servicio > 0) {
+
+      const coma = this.servicio[i].servicio.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].servicio.toString().split(".") : this.servicio[i].servicio.toString().split("");
+      let integer = coma ? array[i].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.servicio[i].servicio = integer[0].toString()
+    } else {
+      this.servicio[i].servicio = this.servicio[i].servicio.toString()
+    }
   }
 
   filters() {
