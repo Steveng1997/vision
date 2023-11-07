@@ -15,29 +15,6 @@
   background-color: transparent;
 }
 
-tr {
-  line-height: 0%;
-  font-size: 14px;
-}
-
-th {
-  white-space: nowrap;
-  font-size: 14px;
-}
-
-th,
-td {
-  font-size: 14px;
-}
-
-.quitarBordes {
-  line-height: 100%;
-}
-
-.quitarBordesVacio {
-  border-style: hidden;
-}
-
 .lbelTotal {
   border: hidden;
   font-weight: bold;
@@ -119,10 +96,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -135,6 +128,8 @@ td {
     width: 100%;
   }
 
+  /* Table */
+
   .tableEdtit {
     margin-top: -12%;
   }
@@ -143,46 +138,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -269,23 +268,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -314,6 +300,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -384,10 +440,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -408,46 +480,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -534,23 +610,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -579,6 +642,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -649,10 +782,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -673,46 +822,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 22px 9px 7px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 22px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -799,23 +952,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -844,6 +984,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-left: -2rem;
+    margin-top: 2rem;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -914,10 +1124,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -938,46 +1164,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -1064,23 +1294,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -1109,6 +1326,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -1179,10 +1466,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -1203,46 +1506,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -1329,23 +1636,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -1374,6 +1668,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -1444,10 +1808,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -1468,46 +1848,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -1594,23 +1978,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -1639,6 +2010,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -1709,10 +2150,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -1733,46 +2190,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -1859,23 +2320,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -1904,6 +2352,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -1974,10 +2492,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -1998,46 +2532,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -2124,23 +2662,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -2169,6 +2694,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -2239,10 +2834,26 @@ td {
     margin-top: -2%;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -2263,46 +2874,50 @@ td {
     margin-top: 0%;
   }
 
-  .therapistColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 65px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTherapist {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textManager {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textImport {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .datesColumn {
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
   }
 
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
+  .textTreatment {
     border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
   }
 
   .noteColumn {
@@ -2389,23 +3004,10 @@ td {
     border-bottom: 1px solid blue;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
   }
 
   .fechaInicio {
@@ -2434,6 +3036,76 @@ td {
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
   }
 }
 
@@ -2483,10 +3155,26 @@ td {
     text-align: -webkit-center;
   }
 
-  .noHayCierre {
-    text-align: center;
-    font-size: x-large;
-    color: red;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -2515,39 +3203,45 @@ td {
     overflow: hidden;
   }
 
-  .therapistColumn {
-    width: 80px;
+  .textTherapist {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 0px 22px 0px;
   }
 
-  .managerColumn {
-    width: 80px;
+  .textManager {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 0px 22px 0px;
   }
 
-  .AmountColumn {
-    width: 80px;
+  .textImport {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 13px;
   }
 
-  .datesColumn {
-    width: 80px;
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 17px;
   }
 
-  .treatmentColumn {
-    width: 80px;
+  .textTreatment {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
   .noteColumn {
@@ -2620,20 +3314,10 @@ td {
     text-align: center;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
   }
 
   .fechaInicio {
@@ -2679,6 +3363,69 @@ td {
 
   .btnCancelar {
     padding-bottom: 3%;
+  }
+
+  th,
+  td {
+    padding: 22px;
+  }
+
+  .adjustTable {
+    margin-top: 4rem;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
   }
 }
 
@@ -2728,10 +3475,26 @@ td {
     text-align: -webkit-center;
   }
 
-  .noHayCierre {
-    text-align: center;
-    font-size: x-large;
-    color: red;
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .lineaHoy {
@@ -2760,39 +3523,47 @@ td {
     overflow: hidden;
   }
 
-  .therapistColumn {
-    width: 80px;
+  .textTherapist {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .managerColumn {
-    width: 80px;
+  .textManager {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .AmountColumn {
-    width: 80px;
+  .textImport {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 13px;
   }
 
-  .datesColumn {
-    width: 80px;
+  .textDate {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    max-width: 95px;
+    padding: 0px 56px 22px 11px;
   }
 
-  .treatmentColumn {
-    width: 80px;
+  .textTreatment {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
   .noteColumn {
@@ -2865,20 +3636,10 @@ td {
     text-align: center;
   }
 
-  table {
+  .table {
     display: flow;
     overflow-y: auto;
     margin-left: -5px;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
   }
 
   .fechaInicio {
@@ -2924,5 +3685,72 @@ td {
 
   .btnCancelar {
     padding-bottom: 3%;
+  }
+
+  th,
+  td {
+    padding: 22px;
+  }
+
+  .adjustTable {
+    display: table;
+    margin-top: 3rem;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
   }
 }

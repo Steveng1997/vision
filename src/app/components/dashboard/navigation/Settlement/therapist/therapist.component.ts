@@ -28,6 +28,7 @@ export class TherapistComponent implements OnInit {
   editTerap: boolean
   filterByName: string
   filterByNumber: number
+  filtredBusqueda: string
   unliquidatedService: any
   liquidated: any
   settledData: any
@@ -277,10 +278,8 @@ export class TherapistComponent implements OnInit {
     }
   }
 
-  filters(event: any) {
-    this.formTemplate.value.fechaInicio = event.target.value
-    this.filterByName = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-    this.filterByNumber = Number(this.formTemplate.value.busqueda)
+  filters() {
+    this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
@@ -291,7 +290,6 @@ export class TherapistComponent implements OnInit {
       this.fechaInicio = `${dia}-${mes}-${año}`
     }
 
-    debugger
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
 
@@ -303,6 +301,7 @@ export class TherapistComponent implements OnInit {
         }
       }
     })
+
   }
 
   getThoseThatNotLiquidated() {

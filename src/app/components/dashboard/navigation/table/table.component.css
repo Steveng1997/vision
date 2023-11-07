@@ -216,7 +216,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -224,7 +224,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -232,7 +232,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -242,7 +242,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -260,7 +260,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -520,7 +520,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -743,7 +743,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -751,7 +751,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -759,7 +759,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -769,7 +769,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -787,7 +787,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -1047,7 +1047,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -1173,11 +1173,7 @@
     margin-left: 0rem;
   }
 
-  /* Table */
   .outer {
-    /* height: 300px; */
-    /* overflow-x: scroll;
-    overflow-y: scroll; */
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -1273,7 +1269,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -1281,7 +1277,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1289,7 +1285,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1299,7 +1295,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -1317,7 +1313,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 19px 0px 6px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -1579,7 +1575,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -1802,7 +1798,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -1810,7 +1806,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1818,7 +1814,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1828,7 +1824,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -1846,7 +1842,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -2106,7 +2102,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -2329,7 +2325,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -2337,7 +2333,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -2345,7 +2341,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -2355,7 +2351,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -2373,7 +2369,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -2633,7 +2629,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -2856,7 +2852,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -2864,7 +2860,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -2872,7 +2868,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -2882,7 +2878,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -2900,7 +2896,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -3160,7 +3156,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -3383,7 +3379,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -3391,7 +3387,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3399,7 +3395,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3409,7 +3405,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -3427,7 +3423,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -3687,7 +3683,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -3910,7 +3906,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -3918,7 +3914,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3926,7 +3922,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3936,7 +3932,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -3954,7 +3950,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -4214,7 +4210,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -4437,7 +4433,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 6px 0px 19px;
     line-height: 1.2rem;
   }
 
@@ -4445,7 +4441,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 20px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -4453,7 +4449,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 3px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -4463,7 +4459,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 1px 10px 0px 0px;
+    padding: 0px 38px 0px 12px;
     word-wrap: break-word;
   }
 
@@ -4481,7 +4477,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 28px 0px 8px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -4741,7 +4737,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 40px 0px 31px;
   }
 
   .lblVaueTotalFloor2 {
@@ -4837,7 +4833,6 @@
   }
 
   .adjustTable {
-    /* margin-left: -72%; */
     margin-top: 4rem;
   }
 
@@ -5321,7 +5316,6 @@
 
   .adjustTable {
     display: table;
-    /* margin-left: 14%; */
     margin-top: 3rem;
   }
 
