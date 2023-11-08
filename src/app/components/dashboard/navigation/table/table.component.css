@@ -18,13 +18,13 @@
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -94,17 +94,17 @@
   }
 
   .containerPaymentMethod {
-    width: 82%;
+    width: 72%;
     justify-self: center;
     margin-left: 0%;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 137px;
     justify-self: center;
     margin-left: 14px;
-    margin-top: -11%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -232,7 +232,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -242,7 +242,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -250,7 +250,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -260,7 +260,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -545,13 +545,13 @@
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -621,17 +621,17 @@
   }
 
   .containerPaymentMethod {
-    width: 76%;
+    width: 72%;
     justify-self: center;
     margin-left: 0%;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 135px;
     justify-self: center;
     margin-left: 14px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -759,7 +759,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -769,7 +769,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -777,7 +777,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -787,7 +787,534 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
+    word-wrap: break-word;
+  }
+
+  .textClient {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 40px 11px 26px;
+    white-space: nowrap;
+  }
+
+  .columnNote {
+    border-top: hidden;
+    border-bottom: hidden;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 33px 0px 0px;
+  }
+
+  .columnFloor1 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnFloor2 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 21px 0px 0px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueOther {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 22px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
+  }
+
+  .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 56px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 8px 0px 0px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 0px 7px 0px;
+  }
+
+  .lblValueTreatment {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblValueFloor1 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 6px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 7px;
+  }
+
+  .lblValueTotal {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblVaueTotalFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueTotals {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    padding: 15px 22px 0px 0px;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+  .marginBody {
+    height: 92%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: sticky;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 20%;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 87%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerPaymentMethod {
+    width: 77%;
+    justify-self: center;
+    margin-left: 0%;
+    margin-top: -7%;
+  }
+
+  .searchContainer {
+    width: 140px;
+    justify-self: center;
+    margin-left: 9px;
+    margin-top: -7%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 18px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 18px;
+    width: 2rem;
+    margin-left: 2rem;
+  }
+
+  /* Table */
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 0px;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
+  }
+
+  .textMin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 15px 9px 7px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 8px 9px 20px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 8px;
+    word-wrap: break-word;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor1 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 20px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor2 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 14px;
+    padding: 0px 9px 0px 15px;
+    word-wrap: break-word;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -1072,13 +1599,13 @@
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -1148,17 +1675,17 @@
   }
 
   .containerPaymentMethod {
-    width: 86%;
+    width: 79%;
     justify-self: center;
-    margin-left: 5%;
-    margin-top: -10%;
+    margin-left: -1px;
+    margin-top: -7%;
   }
 
   .searchContainer {
-    width: 85%;
+    width: 79%;
     justify-self: center;
-    margin-left: 0rem;
-    margin-top: -10%;
+    margin-left: 14px;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -1170,7 +1697,7 @@
   .exportExcel {
     margin-top: 18px;
     width: 2rem;
-    margin-left: 0rem;
+    margin-left: 2rem;
   }
 
   .outer {
@@ -1285,7 +1812,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1295,7 +1822,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -1303,7 +1830,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 15px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -1313,7 +1840,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -1600,13 +2127,13 @@
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -1676,17 +2203,17 @@
   }
 
   .containerPaymentMethod {
-    width: 74%;
+    width: 72%;
     justify-self: center;
     margin-left: 0%;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 138px;
     justify-self: center;
     margin-left: 11px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -1814,7 +2341,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -1824,7 +2351,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -1832,7 +2359,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -1842,7 +2369,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -2127,13 +2654,13 @@
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -2203,17 +2730,17 @@
   }
 
   .containerPaymentMethod {
-    width: 74%;
+    width: 72%;
     justify-self: center;
     margin-left: 0%;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 138px;
     justify-self: center;
     margin-left: 11px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -2654,13 +3181,13 @@
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -2730,17 +3257,17 @@
   }
 
   .containerPaymentMethod {
-    width: 68%;
+    width: 72%;
     justify-self: center;
-    margin-left: 1%;
-    margin-top: -10%;
+    margin-left: 0%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 138px;
     justify-self: center;
     margin-left: 11px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -3181,13 +3708,13 @@
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -3260,14 +3787,14 @@
     width: 72%;
     justify-self: center;
     margin-left: 0%;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 135px;
     justify-self: center;
     margin-left: 14px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -3395,7 +3922,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3405,7 +3932,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -3413,7 +3940,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -3423,7 +3950,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -3708,13 +4235,13 @@
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -3784,17 +4311,17 @@
   }
 
   .containerPaymentMethod {
-    width: 68%;
+    width: 72%;
     justify-self: center;
-    margin-left: 1%;
-    margin-top: -10%;
+    margin-left: 0%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 138px;
     justify-self: center;
     margin-left: 11px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -3806,7 +4333,7 @@
   .exportExcel {
     margin-top: 18px;
     width: 2rem;
-    margin-left: 0rem;
+    margin-left: 3rem;
   }
 
   /* Table */
@@ -3922,7 +4449,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -3932,7 +4459,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -3940,7 +4467,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -3950,7 +4477,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 
@@ -4235,13 +4762,13 @@
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
 
   .marginBody {
-    height: 100%;
+    height: 92%;
   }
 
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    position: sticky;
   }
 
   .marginPage {
@@ -4313,15 +4840,15 @@
   .containerPaymentMethod {
     width: 72%;
     justify-self: center;
-    margin-left: 1%;
-    margin-top: -10%;
+    margin-left: 0%;
+    margin-top: -7%;
   }
 
   .searchContainer {
     width: 144px;
     justify-self: center;
     margin-left: 13px;
-    margin-top: -10%;
+    margin-top: -7%;
   }
 
   .buttonDeleteContainer {
@@ -4449,7 +4976,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    padding: 0px 0px 0px 0px;
     line-height: 1.2rem;
   }
 
@@ -4459,7 +4986,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 9px 0px 15px;
     word-wrap: break-word;
   }
 
@@ -4467,7 +4994,7 @@
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    padding: 0px 10px 11px 12px;
     white-space: nowrap;
   }
 
@@ -4477,7 +5004,1061 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 10px 0px 17px;
+    word-wrap: break-word;
+  }
+
+  .textClient {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 40px 11px 26px;
+    white-space: nowrap;
+  }
+
+  .columnNote {
+    border-top: hidden;
+    border-bottom: hidden;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 33px 0px 0px;
+  }
+
+  .columnFloor1 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnFloor2 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 21px 0px 0px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueOther {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 22px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
+  }
+
+  .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 56px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 8px 0px 0px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 0px 7px 0px;
+  }
+
+  .lblValueTreatment {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblValueFloor1 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 6px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 7px;
+  }
+
+  .lblValueTotal {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblVaueTotalFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueTotals {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    padding: 15px 22px 0px 0px;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+
+  .marginBody {
+    height: 92%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: sticky;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 20%;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerPaymentMethod {
+    width: 72%;
+    justify-self: center;
+    margin-left: 0%;
+    margin-top: -7%;
+  }
+
+  .searchContainer {
+    width: 144px;
+    justify-self: center;
+    margin-left: 13px;
+    margin-top: -7%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 18px;
+    width: 6rem;
+    margin-left: 3.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 18px;
+    width: 2rem;
+    margin-left: 3rem;
+  }
+
+  /* Table */
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 0px;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
+  }
+
+  .textMin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 15px 9px 7px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 8px 9px 20px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 8px;
+    word-wrap: break-word;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor1 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 20px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor2 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 14px;
+    padding: 0px 9px 0px 15px;
+    word-wrap: break-word;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 73px;
+    padding: 0px 10px 0px 17px;
+    word-wrap: break-word;
+  }
+
+  .textClient {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 40px 11px 26px;
+    white-space: nowrap;
+  }
+
+  .columnNote {
+    border-top: hidden;
+    border-bottom: hidden;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnMin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 33px 0px 0px;
+  }
+
+  .columnFloor1 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnFloor2 {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 21px 0px 0px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueOther {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 22px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
+  }
+
+  .columnValueTotal {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 56px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 8px 0px 0px;
+  }
+
+  .columnValueClient {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .lbelTotal {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 0px 7px 0px;
+  }
+
+  .lblValueTreatment {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblValueFloor1 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 6px;
+  }
+
+  .lblValueFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 31px 0px 7px;
+  }
+
+  .lblValueTotal {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 23px 0px 23px;
+  }
+
+  .lblVaueTotalFloor2 {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    white-space: pre;
+    padding: 15px 32px 0px 0px;
+  }
+
+  .lblValueTotals {
+    text-align: end;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #8C52FF;
+    padding: 15px 22px 0px 0px;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
+  .marginBody {
+    height: 92%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: sticky;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 43%;
+    margin-left: 20%;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerPaymentMethod {
+    width: 72%;
+    justify-self: center;
+    margin-left: 0%;
+    margin-top: -7%;
+  }
+
+  .searchContainer {
+    width: 144px;
+    justify-self: center;
+    margin-left: 13px;
+    margin-top: -7%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 18px;
+    width: 6rem;
+    margin-left: 3.3rem;
+  }
+
+  .exportExcel {
+    margin-top: 18px;
+    width: 2rem;
+    margin-left: 3rem;
+  }
+
+  /* Table */
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 0px;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textExit {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textHour {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
+  }
+
+  .textMin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 15px 9px 7px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 8px 9px 20px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 8px;
+    word-wrap: break-word;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor1 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 20px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textFloor2 {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 0px 0px 0px;
+    line-height: 1.2rem;
+  }
+
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 14px;
+    padding: 0px 9px 0px 15px;
+    word-wrap: break-word;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
   }
 

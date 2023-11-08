@@ -715,6 +715,348 @@
   }
 }
 
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+  .marginBody {
+    height: 100%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 93%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 87%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4%;
+    margin-left: 40%;
+  }
+
+  .trFechas {
+    white-space: nowrap;
+  }
+
+  .classTable {
+    margin-top: -2%;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
+
+  .tablePaidTherapist {
+    margin-top: 0%;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textImport {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .paymentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .drinkColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .tobaccoColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .vitaminColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnOthers {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+}
+
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
 
   .marginBody {
@@ -2768,6 +3110,690 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
+  .marginBody {
+    height: 100%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 93%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4%;
+    margin-left: 40%;
+  }
+
+  .trFechas {
+    white-space: nowrap;
+  }
+
+  .classTable {
+    margin-top: -2%;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
+
+  .tablePaidTherapist {
+    margin-top: 0%;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textImport {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .paymentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .drinkColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .tobaccoColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .vitaminColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnOthers {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+}
+
+@media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+
+  .marginBody {
+    height: 100%;
+  }
+
+  .container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 93%;
+  }
+
+  .marginPage {
+    margin: 0px auto 9px;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: 30px;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .therapistContainer {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .containerInCharge {
+    width: 82%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 4%;
+    margin-left: 40%;
+  }
+
+  .trFechas {
+    white-space: nowrap;
+  }
+
+  .classTable {
+    margin-top: -2%;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .thereIsNoTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .lineaHoy {
+    display: grid;
+    margin: auto;
+    border-width: initial;
+    color: blue;
+    margin-bottom: 0%;
+    margin-top: -1%;
+    width: 100%;
+  }
+
+  .tableEdtit {
+    margin-top: -12%;
+  }
+
+  .tablePaidTherapist {
+    margin-top: 0%;
+  }
+
+  .textTherapist {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 22px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textManager {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 80px;
+    padding: 22px 11px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .textImport {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
+  }
+
+  .textDate {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 19px 10px 37px;
+  }
+
+  .textTreatment {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    max-width: 100px;
+    padding: 0px 31px 0px 4px;
+    word-wrap: break-word;
+  }
+
+  .noteColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .outputColumn {
+    width: 80px;
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    border-bottom: 1px solid blue;
+    padding: 35px 0px 10px 6px;
+    text-align: center;
+  }
+
+  .tipColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .paymentColumn {
+    padding: 25px 23px 0px 6px;
+    text-align: center;
+    max-width: 73px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .column€Terap {
+    text-align: center;
+    padding: 24px 0px 0px 6px;
+    display: inline-block;
+    width: 50px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .drinkColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .tobaccoColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 27px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .vitaminColumn {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .columnOthers {
+    padding: 24px 0px 0px 0px;
+    text-align: center;
+    max-width: 36px;
+    word-wrap: break-word;
+    line-height: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .table {
+    display: flow;
+    overflow-y: auto;
+    margin-left: -5px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .outer {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .outer th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  }
+
+  .adjustTable {
+    margin-top: 13%;
+    margin-left: -13px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    border-top: 1px solid blue;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnImport {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+    padding: 8px 35px 0px 0px;
+    text-align: end;
+  }
+
+  .columnDate {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+}
+
+@media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
 
   .marginBody {
     height: 100%;
