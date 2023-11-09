@@ -57,7 +57,7 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 52% 52%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -67,32 +67,33 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 42px;
+    margin-left: 30px;
   }
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -1rem;
+    align-self: self-end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
 
   .therapistContainer {
-    width: 91%;
+    width: 100%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 91%;
+    width: 100%;
     justify-self: center;
   }
 
@@ -152,7 +153,7 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -161,10 +162,6 @@
   }
 
   /* Table */
-
-  .tableEdtit {
-    margin-top: -12%;
-  }
 
   .tablePaidTherapist {
     margin-top: 0%;
@@ -511,7 +508,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -520,7 +517,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -591,16 +588,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -948,16 +941,17 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -1rem;
+    align-self: self-end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -1028,16 +1022,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -1370,8 +1360,7 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
+    grid-template-columns: 53% 53%;
     margin-top: 1rem;
   }
 
@@ -1385,32 +1374,33 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -1rem;
+    align-self: self-end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
 
   .therapistContainer {
-    width: 89%;
+    width: 90%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 89%;
+    width: 90%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 89%;
+    width: 90%;
     justify-self: center;
     margin-top: 10%;
   }
@@ -1465,16 +1455,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -1637,7 +1623,7 @@
   }
 
   .adjustTable {
-    margin-left: -2rem;
+    margin-left: -1rem;
     margin-top: 2rem;
   }
 
@@ -1823,16 +1809,17 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -1rem;
+    align-self: self-end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -1903,16 +1890,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -2260,7 +2243,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -2269,7 +2252,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -2340,16 +2323,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -2697,7 +2676,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -2706,7 +2685,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -2777,16 +2756,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -3134,16 +3109,17 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -1rem;
+    align-self: self-end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -3214,16 +3190,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -3571,7 +3543,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -3580,7 +3552,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -3651,16 +3623,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -4008,7 +3976,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -4017,7 +3985,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -4088,16 +4056,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -4445,7 +4409,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -4454,7 +4418,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -4525,16 +4489,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -4882,7 +4842,7 @@
 
   .titleLiquidation {
     display: grid;
-    font-size: 14px;
+    font-size: 16px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -4891,7 +4851,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 21%;
+    grid-template-columns: 82% 21%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -4962,16 +4922,12 @@
   }
 
   .lineLiquidation {
-    width: 95%;
+    width: 101%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tableEdtit {
-    margin-top: -12%;
   }
 
   .tablePaidTherapist {
@@ -5389,10 +5345,6 @@
     color: #8c52ff;
     border-width: initial;
     opacity: initial;
-  }
-
-  .tableEdtit {
-    margin-top: 0%;
   }
 
   .tablePaidTherapist {
@@ -5822,10 +5774,6 @@
     color: #8c52ff;
     border-width: initial;
     opacity: initial;
-  }
-
-  .tableEdtit {
-    margin-top: 0%;
   }
 
   .tablePaidTherapist {

@@ -838,14 +838,16 @@ export class NewServiceComponent implements OnInit {
 
   therapists(event: any) {
     this.getLastDate()
-    this.service.getTerapeutaByAsc(event).subscribe((rp: any) => {
-      if (rp.length > 0) this.hourStartTerapeuta = rp[0]['horaStart']
-      else this.hourStartTerapeuta = ''
-    })
 
     this.service.getTerapeutaByDesc(event).subscribe((rp: any) => {
-      if (rp.length > 0) this.horaEndTerapeuta = rp[0]['horaStart']
-      else this.horaEndTerapeuta = ''
+      if (rp.length > 0) {
+        this.hourStartTerapeuta = rp[0]['horaStart']
+        this.horaEndTerapeuta = rp[0]['horaEnd']
+      }
+      else {
+        this.hourStartTerapeuta = ''
+        this.horaEndTerapeuta = ''
+      }
     })
   }
 
