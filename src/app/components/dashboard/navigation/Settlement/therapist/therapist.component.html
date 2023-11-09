@@ -236,8 +236,8 @@
 
                                 <div *ngIf="selected">
 
-                                    <div class="row fechas" style="margin-top: 2%">
-                                        <div class="col-2 fechaInicio">
+                                    <div class="row tableContainer2">
+                                        <div class="fechaInicio">
                                             <label style="display: contents;">Inicial</label>
                                             <input type="date" class="form-control" name="desdeFechaLiquidado"
                                                 (change)="inputDateAndTime()"
@@ -245,14 +245,14 @@
                                                 [value]="liquidationTherapist.desdeFechaLiquidado">
                                         </div>
 
-                                        <div class="col-2 horaInicio" style="align-self: end;">
+                                        <div class="horaInicio" style="align-self: end;">
                                             <input type="time" min="18:00" max="21:00" step="3600" class="form-control"
                                                 (change)="inputDateAndTime()" name="desdeHoraLiquidado"
                                                 [(ngModel)]="liquidationTherapist.desdeHoraLiquidado"
                                                 [value]="liquidationTherapist.desdeHoraLiquidado" />
                                         </div>
 
-                                        <div class="col-2 fechaFinal">
+                                        <div class="fechaFinal">
                                             <label style="display: contents;">Final</label>
                                             <input type="date" class="form-control" name="hastaFechaLiquidado"
                                                 (change)="inputDateAndTime()"
@@ -260,7 +260,7 @@
                                                 [value]="liquidationTherapist.hastaFechaLiquidado">
                                         </div>
 
-                                        <div class="col-2 horaFinal" style="align-self: end;">
+                                        <div class="horaFinal" style="align-self: end;">
                                             <input type="time" name="horaStart" min="18:00" max="21:00" step="3600"
                                                 class="form-control"
                                                 [(ngModel)]="liquidationTherapist.hastaHoraLiquidado"
@@ -269,156 +269,141 @@
                                         </div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 4%;">
-                                        <div class="col-9">
-                                            <label style="font-weight: bold; font-size: larger;">Liquidación de
-                                                Terapeuta
+                                    <div class="row containerTitleSelect">
+                                        <div class="row g-0">
+                                            <label class="titleLiquidation">Liquidación de Terapeuta
                                                 {{liquidationTherapist.terapeuta}}</label>
                                         </div>
 
-                                        <div class="col-3">
-                                            <label style="float: right; font-weight: bold;">{{totalCommission + '
-                                                €'}}</label>
+                                        <div class="row g-0">
+                                            <label class="titleLiquidation">{{totalCommission + ' €'}}</label>
                                         </div>
+
                                     </div>
 
-                                    <hr class="lineaHoy">
+                                    <hr class="lineLiquidation">
 
-                                    <div style="display: grid; place-items: center;" class="classTable">
-                                        <div style="text-align: center; width: max-content;">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary quitarBordes"
-                                                        style="line-height: 0%; letter-spacing: normal;">
+                                    <div class="row g-0 adjustTable outer">
+                                        <table class="table">
+                                            <thead>
+                                                <tr style="line-height: 0%; letter-spacing: 0px;">
 
-                                                        <td class="noteColumn">Nota</td>
-                                                        <td class="datesColumn">Fecha</td>
-                                                        <td class="outputColumn">Salida</td>
-                                                        <td class="timeColumn">Hora</td>
-                                                        <td class="textTreatment">Tratamiento</td>
-                                                        <td class="tipColumn">Propina</td>
-                                                        <td class="paymentColumn">Pago</td>
-                                                        <td class="column€Terap">€ a terap </td>
-                                                        <td class="drinkColumn">Bebida</td>
-                                                        <td class="tobaccoColumn">Tabaco</td>
-                                                        <td class="vitaminColumn">Vitamina</td>
-                                                        <td class="columnOthers">Otros</td>
+                                                    <th class="textNote"></th>
+                                                    <th class="textDate">Fecha</th>
+                                                    <th class="textExit">Salida</th>
+                                                    <th class="textHour">Hora</th>
+                                                    <th class="textTreatment">Tratamiento</th>
+                                                    <th class="textTip">Propina</th>
+                                                    <th class="textPay">Pago</th>
+                                                    <th class="textValue">€ a terap </th>
+                                                    <th class="textColumn">Bebida</th>
+                                                    <th class="textColumn">Tabaco</th>
+                                                    <th class="textVitamin">Vitamina</th>
+                                                    <th class="textColumn">Otros</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody
-                                                    *ngFor="let serv of (unliquidatedService | terapeuta: liquidationTherapist.terapeuta | 
-                        encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, currentPage: page }">
-                                                    <tr style="cursor: pointer">
-
-                                                        <td class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"
-                                                            (click)="comments(serv.id, modalTabl)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                        </td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.fecha}}</td>
-
-                                                        <td class=" quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.salida}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px;; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.horaStart + ' :' + serv.horaEnd}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.servicio}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.propina}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.formaPago}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.numberTerap}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.bebidas}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.tabaco}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.vitaminas}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.otros}}</td>
-                                                    </tr>
-
-                                                    <!-- Modal -->
-                                                    <ng-template class="custom-modal" #modalTabl let-modal>
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title"> Nota </h5>
-                                                            <button type="button" class="close"
-                                                                (click)="modal.dismiss()" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-
-                                                        <div class="modal-body" style="text-align: center;">
-                                                            <!-- Aqui se coloca lo adentro -->
-
-                                                            <h4>{{serv.nota}}</h4>
-
-                                                            <!-- Afuera -->
-                                                        </div>
-                                                    </ng-template>
-                                                    <!-- Fin Modal -->
-
-                                                </tbody>
-
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalService + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalTipValue + '€'}}
-                                                    </td>
-                                                    <td></td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalTherapistValue +
-                                                        '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueDrink + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalTobaccoValue + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueVitamins +
-                                                        '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueOther + '€'}}
-                                                    </td>
                                                 </tr>
-                                            </table>
+                                            </thead>
+                                            <tbody *ngFor="let serv of (unliquidatedService | terapeuta: liquidationTherapist.terapeuta 
+                                                    | encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, 
+                                                    currentPage: page }">
 
-                                            <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
-                                                previousLabel="Anterior" nextLabel="Siguiente">
-                                            </pagination-controls>
-                                        </div>
+                                                <tr style="cursor: pointer; line-height: 0%;">
+
+                                                    <td class="columnNote" [ngClass]="{'color2':serv.nota !== ''}"
+                                                        (click)="notes(serv.id, modalTabl)">
+                                                    </td>
+
+                                                    <td class="columnDate" (click)="goToEdit(serv.id)">
+                                                        {{serv.fecha}} </td>
+
+                                                    <td class="columnExit" (click)="goToEdit(serv.id)">
+                                                        {{serv.salida}} </td>
+
+                                                    <td class="columnHour" (click)="goToEdit(serv.id)">
+                                                        {{serv.horaStart + ' :' + serv.horaEnd}}</td>
+
+                                                    <td class="columnTreatment" (click)="goToEdit(serv.id)">
+                                                        {{serv.servicio}}</td>
+
+                                                    <td class="columnValueTip" (click)="goToEdit(serv.id)">
+                                                        {{serv.propina}}</td>
+
+                                                    <td class="columnPaymentMethod" (click)="goToEdit(serv.id)">
+                                                        {{serv.formaPago}}</td>
+
+                                                    <td class="columnValueTherapist" (click)="goToEdit(serv.id)">
+                                                        {{serv.numberTerap}}</td>
+
+                                                    <td class="columnValueDrink" (click)="goToEdit(serv.id)">
+                                                        {{serv.bebidas}}</td>
+
+                                                    <td class="columnValueTobacco" (click)="goToEdit(serv.id)">
+                                                        {{serv.tabaco}}</td>
+
+                                                    <td class="columnValueVitamin" (click)="goToEdit(serv.id)">
+                                                        {{serv.vitaminas}}</td>
+
+                                                    <td class="columnValueOthers" (click)="goToEdit(serv.id)">
+                                                        {{serv.otros}}</td>
+                                                </tr>
+
+                                                <!-- Modal -->
+                                                <ng-template class="custom-modal" #modalTabl let-modal>
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"> Nota </h5>
+                                                        <button type="button" class="close" (click)="modal.dismiss()"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body" style="text-align: center;">
+                                                        <!-- Aqui se coloca lo adentro -->
+
+                                                        <h4>{{serv.nota}}</h4>
+
+                                                        <!-- Afuera -->
+                                                    </div>
+                                                </ng-template>
+                                                <!-- Fin Modal -->
+
+                                            </tbody>
+
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalService + '€'}}
+                                                </td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalTipValue + '€'}}
+                                                </td>
+                                                <td></td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalTherapistValue +
+                                                    '€'}}
+                                                </td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalValueDrink + '€'}}
+                                                </td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalTobaccoValue + '€'}}
+                                                </td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalValueVitamins +
+                                                    '€'}}
+                                                </td>
+                                                <td style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                                    {{totalValueOther + '€'}}
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
+                                            previousLabel="Anterior" nextLabel="Siguiente">
+                                        </pagination-controls>
                                     </div>
 
 
@@ -642,25 +627,24 @@
                     <!-- Editar Terapeuta -->
                     <div *ngIf="editTerap">
 
-                        <label
-                            style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large; margin-top: 1rem">Visualizacion
-                            de la liquidación de {{settledData[0]['terapeuta']}} con {{settledData[0]['encargada']}}
+                        <label class="titleEdit">Visualizacion de la liquidación de {{settledData[0]['terapeuta']}} con
+                            {{settledData[0]['encargada']}}
                         </label>
 
                         <div class="container">
 
-                            <div class="row" style="margin-top: 4%;">
-                                <div class="col-9">
-                                    <label style="font-weight: bold; font-size: larger;">Liquidación de Terapeuta
+                            <div class="row containerTitleSelect">
+                                <div class="row g-0">
+                                    <label class="titleLiquidation">Liquidación de Terapeuta
                                         {{settledData[0]['terapeuta']}}</label>
                                 </div>
 
-                                <div class="col-3">
-                                    <label style="float: right; font-weight: bold;">{{totalCommission + ' €'}}</label>
+                                <div class="row g-0">
+                                    <label class="titleLiquidation">{{totalCommission + ' €'}}</label>
                                 </div>
                             </div>
 
-                            <hr class="lineaHoy">
+                            <hr class="lineLiquidation">
 
                             <div class="col-auto" style="display: contents">
                                 <label style="float: left">
@@ -671,285 +655,261 @@
                                     liquidationTherapist.hastaHoraLiquidado}}</label>
                             </div>
 
-                            <div style="display: grid; place-items: center; clear: left" class="classTable">
-                                <div style="text-align: center; width: max-content">
-                                    <table class="table">
-                                        <thead>
-                                            <tr class="table-secondary quitarBordes"
-                                                style="line-height: 0%; letter-spacing: normal">
-                                                <!-- 1 -->
-                                                <td class="noteColumn"> Nota</td>
-                                                <!-- 2 -->
-                                                <td class="datesColumn"> Fecha</td>
-                                                <!-- 3 -->
-                                                <td class="outputColumn"> Salida</td>
-                                                <!-- 4 -->
-                                                <td class="timeColumn"> Hora</td>
-                                                <!-- 5 -->
-                                                <td class="textTreatment">Tratamiento</td>
-                                                <!-- 6 -->
-                                                <td class="tipColumn"> Propina</td>
-                                                <!-- 7 -->
-                                                <td class="paymentColumn"> Pago</td>
-                                                <!-- 8 -->
-                                                <td class="column€Terap">€ a terap</td>
-                                                <!-- 9 -->
-                                                <td class="drinkColumn"> Bebida</td>
-                                                <!-- 10 -->
-                                                <td class="tobaccoColumn"> Tabaco</td>
-                                                <!-- 11 -->
-                                                <td class="vitaminColumn"> Vitamina</td>
-                                                <!-- 12 -->
-                                                <td class="columnOthers"> Otros</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody *ngFor="let serv of (settledData | terapeuta: liquidationTherapist.terapeuta | 
-                    encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, currentPage: page }">
-                                            <tr style="cursor: pointer;">
-                                                <!-- 1 -->
-                                                <td class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"
-                                                    (click)="comments(serv.id, modalTabl)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                </td>
-                                                <!-- 2 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.fecha}}</td>
-                                                <!-- 3 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.salida}}
-                                                </td>
-                                                <!-- 4 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.horaStart + ' -' + serv.horaEnd}} </td>
-                                                <!-- 5 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.servicio}}
-                                                </td>
-                                                <!-- 6 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.propina}}</td>
-                                                <!-- 7 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.formaPago}}</td>
-                                                <!-- 8 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.numberTerap}}</td>
-                                                <!-- 9 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.bebidas}}</td>
-                                                <!-- 10 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.tabaco}}</td>
-                                                <!-- 11 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.vitaminas}}</td>
-                                                <!-- 12 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em">
-                                                    {{serv.otros}}</td>
-                                            </tr>
 
-                                            <!-- Modal -->
-                                            <ng-template class="custom-modal" #modalTabl let-modal>
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title"> Nota </h5>
-                                                    <button type="button" class="close" (click)="modal.dismiss()"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body" style="text-align: center;">
-                                                    <!-- Aqui se coloca lo adentro -->
-
-                                                    <h4>{{serv.nota}}</h4>
-
-                                                    <!-- Afuera -->
-                                                </div>
-                                            </ng-template>
-
-                                            <!-- Fin Modal -->
-
-                                        </tbody>
-
-                                        <tr>
-                                            <!-- 1 -->
-                                            <td></td>
-                                            <!-- 2 -->
-                                            <td></td>
-                                            <!-- 3 -->
-                                            <td></td>
-                                            <!-- 4 -->
-                                            <td></td>
-                                            <!-- 5 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalService + '
-                                                €'}}
-                                            </td>
-                                            <!-- 6 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalTipValue + '
-                                                €'}}
-                                            </td>
-                                            <!-- 7 -->
-                                            <td></td>
-                                            <!-- 8 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalTherapistValue + '€'}} </td>
-                                            <!-- 9 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalValueDrink + '
-                                                €'}}</td>
-                                            <!-- 10 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalTobaccoValue + ' €'}} </td>
-                                            <!-- 11 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalValueVitamins + ' €'}} </td>
-                                            <!-- 12 -->
-                                            <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalValueOther + '
-                                                €'}}</td>
-                                        </tr>
-                                    </table>
-
-                                    <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
-                                        previousLabel="Anterior" nextLabel="Siguiente">
-                                    </pagination-controls>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Table Sumatoria -->
-
-                        |<div style="display: grid; place-items: center;" class="tableEdtit">
-                            <div style="text-align: center; width: max-content;">
+                            <div class="row g-0 adjustTable outer">
                                 <table class="table">
                                     <thead>
-                                        <tr class="table-secondary quitarBordes"
-                                            style="line-height: 0%; letter-spacing: normal">
-                                            <th style="border-bottom: hidden;"></th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Total</th>
+                                        <tr style="line-height: 0%; letter-spacing: 0px;">
+
+                                            <th class="textNote"></th>
+                                            <th class="textDate">Fecha</th>
+                                            <th class="textExit">Salida</th>
+                                            <th class="textHour">Hora</th>
+                                            <th class="textTreatment">Tratamiento</th>
+                                            <th class="textTip">Propina</th>
+                                            <th class="textPay">Pago</th>
+                                            <th class="textValue">€ a terap </th>
+                                            <th class="textColumn">Bebida</th>
+                                            <th class="textColumn">Tabaco</th>
+                                            <th class="textVitamin">Vitamina</th>
+                                            <th class="textColumn">Otros</th>
+
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Tratamiento</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalService + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['servicio'] + ' %'}}
+                                    <tbody *ngFor="let serv of (settledData | terapeuta: liquidationTherapist.terapeuta | 
+                                                encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, 
+                                                    currentPage: page }">
+
+                                        <tr style="cursor: pointer; line-height: 0%;">
+
+                                            <td class="columnNote" [ngClass]="{'color2':serv.nota !== ''}"
+                                                (click)="notes(serv.id, modalTabl)">
                                             </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{serviceCommission +
-                                                ' €'}}</td>
+
+                                            <td class="columnDate" (click)="goToEdit(serv.id)">
+                                                {{serv.fecha}} </td>
+
+                                            <td class="columnExit" (click)="goToEdit(serv.id)">
+                                                {{serv.salida}} </td>
+
+                                            <td class="columnHour" (click)="goToEdit(serv.id)">
+                                                {{serv.horaStart + ' :' + serv.horaEnd}}</td>
+
+                                            <td class="columnTreatment" (click)="goToEdit(serv.id)">
+                                                {{serv.servicio}}</td>
+
+                                            <td class="columnValueTip" (click)="goToEdit(serv.id)">
+                                                {{serv.propina}}</td>
+
+                                            <td class="columnPaymentMethod" (click)="goToEdit(serv.id)">
+                                                {{serv.formaPago}}</td>
+
+                                            <td class="columnValueTherapist" (click)="goToEdit(serv.id)">
+                                                {{serv.numberTerap}}</td>
+
+                                            <td class="columnValueDrink" (click)="goToEdit(serv.id)">
+                                                {{serv.bebidas}}</td>
+
+                                            <td class="columnValueTobacco" (click)="goToEdit(serv.id)">
+                                                {{serv.tabaco}}</td>
+
+                                            <td class="columnValueVitamin" (click)="goToEdit(serv.id)">
+                                                {{serv.vitaminas}}</td>
+
+                                            <td class="columnValueOthers" (click)="goToEdit(serv.id)">
+                                                {{serv.otros}}</td>
                                         </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Propina</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['propina'] + ' %'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{commissionTip + '
-                                                €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Bebida</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['bebida'] + ' %'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{beverageCommission +
-                                                ' €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Tabaco</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue +
-                                                ' €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['tabaco'] + ' %'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission +
-                                                ' €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Vitamina</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins +
-                                                ' €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['vitamina'] + ' %'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission +
-                                                ' €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Otros</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{terapeutaName['otros'] + ' %'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + '
-                                                €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row" style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: hidden; text-align: right;"></td>
-                                            <td style="border-bottom: hidden; text-align: start;">Suma</td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{sumCommission + '
-                                                €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row" style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: hidden; text-align: right;"></td>
-                                            <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
-                                            <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                {{receivedTherapist + ' €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row" style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: hidden;"></td>
-                                            <td style="border-bottom: hidden; text-align: start;">Total</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{totalCommission + ' €'}}</td>
-                                        </tr>
+
+                                        <!-- Modal -->
+                                        <ng-template class="custom-modal" #modalTabl let-modal>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"> Nota </h5>
+                                                <button type="button" class="close" (click)="modal.dismiss()"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body" style="text-align: center;">
+                                                <!-- Aqui se coloca lo adentro -->
+
+                                                <h4>{{serv.nota}}</h4>
+
+                                                <!-- Afuera -->
+                                            </div>
+                                        </ng-template>
+
+                                        <!-- Fin Modal -->
+
                                     </tbody>
+
+                                    <tr>
+                                        <!-- 1 -->
+                                        <td></td>
+                                        <!-- 2 -->
+                                        <td></td>
+                                        <!-- 3 -->
+                                        <td></td>
+                                        <!-- 4 -->
+                                        <td></td>
+                                        <!-- 5 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalService + '
+                                            €'}}
+                                        </td>
+                                        <!-- 6 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalTipValue + '
+                                            €'}}
+                                        </td>
+                                        <!-- 7 -->
+                                        <td></td>
+                                        <!-- 8 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalTherapistValue + '€'}} </td>
+                                        <!-- 9 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalValueDrink + '
+                                            €'}}</td>
+                                        <!-- 10 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalTobaccoValue + ' €'}} </td>
+                                        <!-- 11 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalValueVitamins + ' €'}} </td>
+                                        <!-- 12 -->
+                                        <td class="worth" style="font-weight: bold; padding: 24px 0px 0px 8px">
+                                            {{totalValueOther + '
+                                            €'}}</td>
+                                    </tr>
                                 </table>
+
+                                <pagination-controls class="pagination_Mobile" (pageChange)="page = $event"
+                                    previousLabel="Anterior" nextLabel="Siguiente">
+                                </pagination-controls>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row" *ngIf="editTerap">
-                            <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                                <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
-                            </div>
+                    <!-- Table Sumatoria -->
 
-                            <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                                <button mat-raised-button (click)="edit()" color="primary">Editar</button>
-                            </div>
+                    <div *ngIf="editTerap" style="display: grid; place-items: center;" class="tableEdtit">
+                        <div style="text-align: center; width: max-content;">
+                            <table class="table">
+                                <thead>
+                                    <tr class="table-secondary quitarBordes"
+                                        style="line-height: 0%; letter-spacing: normal">
+                                        <th style="border-bottom: hidden;"></th>
+                                        <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
+                                        <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
+                                        <th style="border-bottom: 1px solid blue; text-align: center;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Tratamiento</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalService + '
+                                            €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['servicio'] + ' %'}}
+                                        </td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{serviceCommission +
+                                            ' €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Propina</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + '
+                                            €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['propina'] + ' %'}}
+                                        </td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{commissionTip + '
+                                            €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Bebida</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + '
+                                            €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['bebida'] + ' %'}}
+                                        </td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{beverageCommission +
+                                            ' €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Tabaco</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue +
+                                            ' €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['tabaco'] + ' %'}}
+                                        </td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission +
+                                            ' €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Vitamina</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins +
+                                            ' €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['vitamina'] + ' %'}}
+                                        </td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission +
+                                            ' €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row"
+                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
+                                            Otros</th>
+                                        <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + '
+                                            €'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{terapeutaName['otros'] + ' %'}}</td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + '
+                                            €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row" style="border-bottom: hidden;"></th>
+                                        <td style="border-bottom: hidden; text-align: right;"></td>
+                                        <td style="border-bottom: hidden; text-align: start;">Suma</td>
+                                        <td style="border-bottom: hidden; text-align: right;">{{sumCommission + '
+                                            €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row" style="border-bottom: hidden;"></th>
+                                        <td style="border-bottom: hidden; text-align: right;"></td>
+                                        <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
+                                        <td style="border-bottom: 1px solid blue; text-align: right;">
+                                            {{receivedTherapist + ' €'}}</td>
+                                    </tr>
+                                    <tr style="line-height: 40%">
+                                        <th scope="row" style="border-bottom: hidden;"></th>
+                                        <td style="border-bottom: hidden;"></td>
+                                        <td style="border-bottom: hidden; text-align: start;">Total</td>
+                                        <td style="border-bottom: hidden; text-align: right;">
+                                            {{totalCommission + ' €'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="editTerap">
+                        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
+                            <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
+                        </div>
+
+                        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
+                            <button mat-raised-button (click)="edit()" color="primary">Editar</button>
                         </div>
                     </div>
                 </div>

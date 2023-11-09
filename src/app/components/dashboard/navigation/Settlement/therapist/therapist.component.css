@@ -29,6 +29,11 @@
   text-align: right;
 }
 
+.columnNote {
+  border-top: hidden;
+  border-bottom: hidden;
+}
+
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .marginBody {
@@ -47,6 +52,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -54,6 +60,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -88,14 +118,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -105,6 +127,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -118,14 +151,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   /* Table */
@@ -163,7 +195,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -171,7 +203,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -179,93 +211,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -362,6 +373,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -370,6 +400,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -391,6 +491,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -398,6 +499,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -432,14 +557,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -449,6 +566,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -462,14 +590,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -505,7 +632,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -513,7 +640,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -521,93 +648,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -704,6 +810,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -712,6 +837,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -733,6 +928,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -740,6 +936,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -774,14 +994,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -791,6 +1003,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -804,14 +1027,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -847,7 +1069,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -855,7 +1077,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -863,93 +1085,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -1046,6 +1247,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -1054,6 +1274,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -1075,6 +1365,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -1082,6 +1373,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -1116,14 +1431,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -1133,6 +1440,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -1146,14 +1464,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -1189,7 +1506,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 22px 9px 7px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -1197,7 +1514,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -1205,93 +1522,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 22px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 22px 9px 7px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -1388,6 +1684,26 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    height: min-content;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -1396,6 +1712,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 28px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 27px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 18px 0px 0px;
   }
 }
 
@@ -1417,6 +1803,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -1424,6 +1811,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -1458,14 +1869,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -1475,6 +1878,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -1488,14 +1902,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -1531,7 +1944,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -1539,7 +1952,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -1547,93 +1960,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -1730,6 +2122,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -1738,6 +2149,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -1759,6 +2240,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -1766,6 +2248,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -1800,14 +2306,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -1817,6 +2315,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -1830,14 +2339,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -1873,7 +2381,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -1881,7 +2389,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -1889,93 +2397,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 20px 11px 0px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -2072,6 +2559,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -2080,6 +2586,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -2101,6 +2677,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -2108,6 +2685,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -2142,14 +2743,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -2159,6 +2752,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -2172,14 +2776,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -2215,7 +2818,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -2223,7 +2826,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -2231,93 +2834,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 20px 11px 0px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 34px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -2414,6 +2996,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -2422,6 +3023,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -2443,6 +3114,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -2450,6 +3122,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -2484,14 +3180,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -2501,6 +3189,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -2514,14 +3213,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -2557,7 +3255,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -2565,7 +3263,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -2573,93 +3271,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -2756,6 +3433,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -2764,6 +3460,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -2785,6 +3551,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -2792,6 +3559,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -2826,14 +3617,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -2843,6 +3626,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -2856,14 +3650,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -2899,7 +3692,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -2907,7 +3700,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -2915,93 +3708,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -3098,6 +3870,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -3106,6 +3897,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -3127,6 +3988,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -3134,6 +3996,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -3168,14 +4054,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -3185,6 +4063,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -3198,14 +4087,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -3241,7 +4129,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -3249,7 +4137,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -3257,93 +4145,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -3440,6 +4307,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -3448,6 +4334,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -3469,6 +4425,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -3476,6 +4433,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -3510,14 +4491,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -3527,6 +4500,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -3540,14 +4524,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -3583,7 +4566,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -3591,7 +4574,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -3599,93 +4582,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -3782,6 +4744,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -3790,6 +4771,76 @@
     text-align: end;
     line-height: normal;
     padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
   }
 }
 
@@ -3811,6 +4862,7 @@
 
   .pagination_Mobile {
     margin-bottom: 30px;
+    text-align-last: end;
   }
 
   .tableContainer {
@@ -3818,6 +4870,30 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 42px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 14px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 21%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -3852,14 +4928,6 @@
     margin-left: 40%;
   }
 
-  .trFechas {
-    white-space: nowrap;
-  }
-
-  .classTable {
-    margin-top: -2%;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -3869,6 +4937,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -3882,14 +4961,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
+  .lineLiquidation {
+    width: 95%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
   }
 
   .tableEdtit {
@@ -3925,7 +5003,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -3933,7 +5011,7 @@
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 19px 10px 37px;
+    padding: 0px 16px 10px 0px;
   }
 
   .textTreatment {
@@ -3941,93 +5019,72 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    max-width: 100px;
-    padding: 0px 31px 0px 4px;
+    max-width: 85px;
+    padding: 0px 21px 0px 0px;
     word-wrap: break-word;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 36px 9px 29px;
   }
 
-  .timeColumn {
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 35px 9px 0px;
   }
 
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
+  .textTip {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  .textPay {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 0px 9px 12px;
+  }
+
+  .textValue {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 6px 0px 19px;
+    line-height: 1.2rem;
+  }
+
+  .textColumn {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 0px 10px 11px 12px;
+    white-space: nowrap;
+  }
+
+  .textVitamin {
+    border-bottom: 1px solid blue;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    font-size: 16px;
     max-width: 73px;
+    padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Terap {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
   .table {
@@ -4124,6 +5181,25 @@
     white-space: nowrap;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 15px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
   .columnTreatment {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -4133,11 +5209,108 @@
     line-height: normal;
     padding: 8px 25px 0px 0px;
   }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    padding: 8px 0px 0px 13px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 24px 0px 0px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 15px 0px 0px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 25px 0px 0px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: end;
+    line-height: normal;
+    padding: 8px 14px 0px 0px;
+  }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
   .tableContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    justify-content: center;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .containerTitleSelect {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     justify-content: center;
@@ -4176,11 +5349,6 @@
     margin-left: 40%;
   }
 
-  .classTable {
-    text-align-last: center;
-    text-align: -webkit-center;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -4190,6 +5358,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -4203,18 +5382,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
-    margin: auto;
+  .lineLiquidation {
+    width: 41.4rem;
+    margin-left: 2rem;
+    margin-bottom: auto;
+    color: #8c52ff;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -0.5%;
-    width: 100%;
-  }
-
-  .tabla {
-    margin-top: 3%;
+    opacity: initial;
   }
 
   .tableEdtit {
@@ -4248,9 +5422,9 @@
   .textImport {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     white-space: pre;
-    padding: 0px 30px 22px 13px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -4270,74 +5444,65 @@
     padding: 0px 22px 22px 0px;
   }
 
-  .noteColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textExit {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 13px;
   }
 
-  .tipColumn {
-    width: 80px;
+  .textTip {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
-  .timeColumn {
-    width: 100px;
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
   }
 
-  .paymentColumn {
-    width: 80px;
+  .textPay {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 21px 22px;
   }
 
-  .column€Terap {
-    width: 80px;
+  .textValue {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .drinkColumn {
-    width: 80px;
+  .textColumn {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .tobaccoColumn {
-    width: 80px;
+  .textVitamin {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .vitaminColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnOthers {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
   .table {
@@ -4443,7 +5608,102 @@
     line-height: normal;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+    padding: 22px 0px 0px 20px;
+  }
+
   .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueOthers {
     border-bottom: hidden;
     word-wrap: break-word;
     max-width: 0px;
@@ -4463,6 +5723,32 @@
     justify-content: center;
     margin-left: 1.2rem;
     margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   .therapistContainer {
@@ -4496,11 +5782,6 @@
     margin-left: 40%;
   }
 
-  .classTable {
-    text-align-last: center;
-    text-align: -webkit-center;
-  }
-
   .title {
     display: grid;
     justify-content: center;
@@ -4510,6 +5791,17 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
   .thereIsNoTherapist {
@@ -4523,18 +5815,13 @@
     white-space: pre;
   }
 
-  .lineaHoy {
-    display: grid;
-    margin: auto;
+  .lineLiquidation {
+    width: 41.4rem;
+    margin-left: 2rem;
+    margin-bottom: auto;
+    color: #8c52ff;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -0.5%;
-    width: 100%;
-  }
-
-  .tabla {
-    margin-top: 3%;
+    opacity: initial;
   }
 
   .tableEdtit {
@@ -4568,9 +5855,9 @@
   .textImport {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     white-space: pre;
-    padding: 0px 30px 22px 13px;
+    padding: 0px 32px 9px 13px;
   }
 
   .textDate {
@@ -4592,74 +5879,68 @@
     padding: 0px 22px 22px 0px;
   }
 
-  .noteColumn {
+  .textNote {
+    max-width: 0px;
+    padding: 0px 0px 22px 0px;
+  }
+
+  .textExit {
     width: 80px;
     border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .outputColumn {
-    width: 80px;
+  .textTip {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
-  .tipColumn {
-    width: 80px;
+  .textHour {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .timeColumn {
-    width: 100px;
+  .textPay {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 21px 22px;
   }
 
-  .paymentColumn {
-    width: 80px;
+  .textValue {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .column€Terap {
-    width: 80px;
+  .textColumn {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .drinkColumn {
-    width: 80px;
+  .textVitamin {
     border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .tobaccoColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .vitaminColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnOthers {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
   .table {
@@ -4769,7 +6050,108 @@
     line-height: normal;
   }
 
+  .columnExit {
+    border-bottom: hidden;
+    padding: 23px 20px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+    padding: 22px 0px;
+  }
+
+  .columnHour {
+    border-bottom: hidden;
+    padding: 23px 0px 43px 0px;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+    padding: 22px 0px;
+  }
+
   .columnTreatment {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnPaymentMethod {
+    word-wrap: break-word;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+    padding: 22px 0px;
+  }
+
+  .columnValueTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueOthers {
     border-bottom: hidden;
     word-wrap: break-word;
     max-width: 0px;

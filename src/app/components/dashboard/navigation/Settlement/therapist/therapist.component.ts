@@ -339,7 +339,7 @@ export class TherapistComponent implements OnInit {
     this.addForm = true
   }
 
-  comments(targetModal, modal) {
+  notes(targetModal, modal) {
     var notaMensaje = []
     this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
