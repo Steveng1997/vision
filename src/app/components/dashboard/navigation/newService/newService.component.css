@@ -3421,6 +3421,8 @@ input[id="transOtro"] {
   }
 }
 
+/* Steven */
+
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
   .marginBody {
     height: 98%;
@@ -3788,6 +3790,8 @@ input[id="transOtro"] {
   }
 }
 
+/* fin Steven */
+
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
   .marginBody {
     height: 98%;
@@ -3888,7 +3892,7 @@ input[id="transOtro"] {
   }
 
   .containerInCharge {
-    width: 94%;
+    width: 136px;
   }
 
   .clientContainer {

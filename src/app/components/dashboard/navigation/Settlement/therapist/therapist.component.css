@@ -43,7 +43,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -51,7 +51,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -82,7 +82,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -323,7 +323,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -412,7 +412,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -468,6 +468,86 @@
     line-height: normal;
     padding: 8px 14px 0px 0px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
@@ -479,7 +559,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -487,7 +567,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -517,7 +597,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -756,7 +836,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -845,7 +925,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -901,6 +981,86 @@
     line-height: normal;
     padding: 8px 14px 0px 0px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
@@ -912,7 +1072,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -920,7 +1080,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -951,7 +1111,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -1190,7 +1350,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -1279,7 +1439,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -1335,6 +1495,86 @@
     line-height: normal;
     padding: 8px 14px 0px 0px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
@@ -1346,7 +1586,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -1354,7 +1594,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -1384,7 +1624,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -1623,8 +1863,8 @@
   }
 
   .adjustTable {
+    margin-top: 5%;
     margin-left: -1rem;
-    margin-top: 2rem;
   }
 
   /* Column Table */
@@ -1713,7 +1953,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     text-align: justify;
@@ -1769,6 +2009,86 @@
     line-height: normal;
     padding: 8px 18px 0px 0px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
@@ -1780,7 +2100,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -1788,7 +2108,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -1819,7 +2139,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -2058,7 +2378,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -2147,7 +2467,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -2202,6 +2522,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -2214,7 +2614,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -2222,7 +2622,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -2252,7 +2652,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -2440,7 +2840,7 @@
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 21px 0px 6px;
     word-wrap: break-word;
   }
 
@@ -2491,7 +2891,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -2580,7 +2980,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -2635,6 +3035,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -2647,7 +3127,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -2655,7 +3135,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -2685,7 +3165,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -2924,7 +3404,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -3013,7 +3493,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -3069,6 +3549,86 @@
     line-height: normal;
     padding: 8px 14px 0px 0px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
@@ -3080,7 +3640,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -3088,7 +3648,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -3119,7 +3679,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -3358,7 +3918,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -3447,7 +4007,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -3502,6 +4062,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -3514,7 +4154,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -3522,7 +4162,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -3552,7 +4192,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -3791,7 +4431,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -3880,7 +4520,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -3935,6 +4575,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -3947,7 +4667,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -3955,7 +4675,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -3985,7 +4705,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -4224,7 +4944,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -4313,7 +5033,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -4368,6 +5088,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -4380,7 +5180,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -4388,7 +5188,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -4418,7 +5218,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -4657,7 +5457,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -4746,7 +5546,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -4801,6 +5601,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -4813,7 +5693,7 @@
   .container {
     overflow-x: hidden;
     overflow-y: auto;
-    height: 93%;
+    height: 100%;
   }
 
   .marginPage {
@@ -4821,7 +5701,7 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align-last: end;
   }
 
@@ -4851,7 +5731,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 82% 21%;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -5090,7 +5970,7 @@
   }
 
   .adjustTable {
-    margin-top: 13%;
+    margin-top: 5%;
     margin-left: -13px;
   }
 
@@ -5179,7 +6059,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 16px;
     line-height: normal;
@@ -5234,6 +6114,86 @@
     text-align: end;
     line-height: normal;
     padding: 8px 14px 0px 0px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    line-height: normal;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
@@ -5268,10 +6228,9 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-content: center;
-    margin-left: 26px;
-    margin-top: 1rem;
+    grid-template-columns: 37% 26%;
+    margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -5604,7 +6563,7 @@
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
+    max-width: 0%;
     font-family: sans-serif;
     font-size: 18px;
     text-align: justify;
@@ -5665,6 +6624,85 @@
     line-height: normal;
     padding: 22px 17px;
   }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
@@ -5698,9 +6736,9 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
+    grid-template-columns: 37% 26%;
     margin-top: 2rem;
+    margin-left: 1rem;
   }
 
   .therapistContainer {
@@ -6108,5 +7146,84 @@
     text-align: end;
     line-height: normal;
     padding: 22px 17px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-bottom: 1px solid blue;
+    padding: 0px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    border-bottom: 1px solid blue;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: 1px solid blue;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 33% 25%;
+    margin-bottom: 4em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }

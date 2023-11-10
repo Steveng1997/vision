@@ -269,8 +269,7 @@
 
                                     <div class="row containerTitleSelect">
                                         <div class="row g-0">
-                                            <label class="titleLiquidation">Liquidación de Terapeuta
-                                                {{liquidationTherapist.terapeuta}}</label>
+                                            <label class="titleLiquidation">A pagar</label>
                                         </div>
 
                                         <div class="row g-0">
@@ -417,213 +416,153 @@
                                             <thead>
                                                 <tr class="table-secondary">
                                                     <th style="border-bottom: hidden;"></th>
-                                                    <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                        Suma</th>
-                                                    <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                        Comisión</th>
-                                                    <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                        Total</th>
+                                                    <th class="sumTitleTable"> Suma</th>
+                                                    <th class="sumTitleTable"> Comisión</th>
+                                                    <th class="sumTitleTable"> Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                        Tratamiento</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalService + ' €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.servicio
-                                                        +
-                                                        ' %'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{serviceCommission + '
-                                                        €'}}
-                                                    </td>
+                                                    <th scope="row" class="sumTitle"> Tratamiento</th>
+                                                    <td class="valueColumnSum"> {{totalService + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.servicio + ' %'}} </td>
+                                                    <td class="valueColumnSum"> {{serviceCommission + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                        Propina</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalTipValue + ' €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.propina +
-                                                        '
-                                                        %'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{commissionTip + ' €'}}
+                                                    <th scope="row" class="sumTitle"> Propina</th>
+                                                    <td class="valueColumnSum"> {{totalTipValue + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.propina + ' %'}} </td>
+                                                    <td class="valueColumnSum"> {{commissionTip + ' €'}}
                                                     </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                        Bebida</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalValueDrink + ' €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.bebida +
-                                                        '
-                                                        %'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{beverageCommission + '
-                                                        €'}}
-                                                    </td>
+                                                    <th scope="row" class="sumTitle"> Bebida</th>
+                                                    <td class="valueColumnSum"> {{totalValueDrink + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.bebida + ' %'}} </td>
+                                                    <td class="valueColumnSum"> {{beverageCommission + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                        Tabaco</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalTobaccoValue + '
-                                                        €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.tabaco + ' %'}} </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{tobaccoCommission + '
-                                                        €'}}
-                                                    </td>
+                                                    <th scope="row" class="sumTitle"> Tabaco</th>
+                                                    <td class="valueColumnSum"> {{totalTobaccoValue + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.tabaco + ' %'}} </td>
+                                                    <td class="valueColumnSum"> {{tobaccoCommission + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                        Vitamina</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalValueVitamins + '
-                                                        €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.vitamina + ' %'}} </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{vitaminCommission + '
-                                                        €'}}
-                                                    </td>
+                                                    <th scope="row" class="sumTitle"> Vitamina</th>
+                                                    <td class="valueColumnSum"> {{totalValueVitamins + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.vitamina + ' %'}} </td>
+                                                    <td class="valueColumnSum"> {{vitaminCommission + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
-                                                    <th scope="row"
-                                                        style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                        Otros</th>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalValueOther + ' €'}}
-                                                    </td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{terapeutaName?.otros + ' %'}}</td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{commissionOthers + '
-                                                        €'}}
-                                                    </td>
+                                                    <th scope="row" class="sumTitle"> Otros</th>
+                                                    <td class="valueColumnSum"> {{totalValueOther + ' €'}} </td>
+                                                    <td class="valueColumnSum"> {{terapeutaName?.otros + ' %'}}</td>
+                                                    <td class="valueColumnSum"> {{commissionOthers + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
                                                     <th scope="row" style="border-bottom: hidden;"></th>
                                                     <td style="border-bottom: hidden;"></td>
-                                                    <td style="border-bottom: hidden; text-align: start;">Suma</td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{sumCommission + ' €'}}
-                                                    </td>
+                                                    <td class="sumTitle" style="text-align: center;">Suma</td>
+
+                                                    <td class="valueColumnSum"> {{sumCommission + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
                                                     <th scope="row" style="border-bottom: hidden;"></th>
                                                     <td style="border-bottom: hidden;"></td>
-                                                    <td style="border-bottom: 1px solid blue; text-align: start;">
-                                                        Recibido</td>
-                                                    <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                        {{receivedTherapist + ' €'}} </td>
+                                                    <td class="sumTitleReceived"> Recibido</td>
+                                                    <td class="valueReceived"> {{receivedTherapist + ' €'}} </td>
                                                 </tr>
+
                                                 <tr style="line-height: 40%">
                                                     <th scope="row" style="border-bottom: hidden;"></th>
                                                     <td style="border-bottom: hidden;"></td>
-                                                    <td style="border-bottom: hidden; text-align: start;">Total a
-                                                        pagar</td>
-                                                    <td style="border-bottom: hidden; text-align: right;">
-                                                        {{totalCommission + ' €'}}</td>
+                                                    <td class="totalToPay"> Total a pagar </td>
+                                                    <td class="totalAmountToPay"> {{totalCommission + ' €'}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
                                     <!-- Table Paid To Therapist -->
-                                    <div style="display: grid; place-items: center;" class="tablePaidTherapist">
-                                        <div style="text-align: center; width: max-content;">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary">
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                            Pagado a terapeuta</th>
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Efectivo</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalCash + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Bizum</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalBizum + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Tarjeta</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalCard + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: 1px solid blue; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Transferencia</th>
-                                                        <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                            {{totalTransaction + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Transferencia</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalTherapistPayment +
-                                                            '
-                                                            €'}}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    <div class="row g-0 adjustTable outer">
+                                        <table class="table" style="display: grid; justify-items: center;">
+                                            <thead>
+                                                <tr class="table-secondary">
+                                                    <th class="textTotal" style="font-weight: bold;">
+                                                        Pagado a terapeuta </th>
+                                                    <th class="textTotal"> </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                    <div class="btnCancelar" *ngIf="selected && unliquidatedService.length <= 0">
-                                        <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                            (click)="cancel()">Cancelar</button>
-                                    </div>
+                                                <tr style="line-height: 40%">
+                                                    <th scope="row" class="sumTitle"> Efectivo</th>
+                                                    <td style="border-bottom: hidden; text-align: right;">
+                                                        {{totalCash + ' €'}}</td>
+                                                </tr>
 
+                                                <tr style="line-height: 40%">
+                                                    <th scope="row" class="sumTitle"> Bizum</th>
+                                                    <td style="border-bottom: hidden; text-align: right;">
+                                                        {{totalBizum + ' €'}}</td>
+                                                </tr>
 
-                                    <div class="row" *ngIf="selected && unliquidatedService.length > 0"
-                                        style="margin-bottom: 4%">
-                                        <div class="col-6">
-                                            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                                (click)="save()">Guardar</button>
-                                        </div>
-                                        <div class="col-6">
-                                            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                                (click)="cancel()">Cancelar</button>
-                                        </div>
+                                                <tr style="line-height: 40%">
+                                                    <th scope="row" class="sumTitle"> Tarjeta</th>
+                                                    <td style="border-bottom: hidden; text-align: right;">
+                                                        {{totalCard + ' €'}}</td>
+                                                </tr>
+
+                                                <tr style="line-height: 40%">
+                                                    <th scope="row" class="textTotal"> Transferencia</th>
+                                                    <td style="border-bottom: 1px solid blue; text-align: right;">
+                                                        {{totalTransaction + ' €'}}</td>
+                                                </tr>
+
+                                                <tr style="line-height: 40%">
+                                                    <th scope="row" class="sumTitle"> Transferencia</th>
+                                                    <td style="border-bottom: hidden; text-align: right;">
+                                                        {{totalTherapistPayment + ' €'}} </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </form>
+
+                    </div>
+
+                    <div class="row inputButton">
+
+                        <div class="therapistContainer" *ngIf="selected && unliquidatedService.length <= 0">
+                            <div class="row g-0">
+                                <button mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                    (click)="cancel()">Cancelar</button>
+                            </div>
+                        </div>
+
+                        <div class="therapistContainer" *ngIf="selected && unliquidatedService.length > 0">
+                            <div class="row g-0">
+                                <button type="submit" mat-raised-button style="display: grid; margin: auto;"
+                                    color="primary" (click)="save()">Guardar</button>
+                            </div>
+                        </div>
+
+                        <div class="therapistContainer" *ngIf="selected && unliquidatedService.length > 0">
+                            <div class="row g-0">
+                                <button mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                    (click)="cancel()">Cancelar</button>
+                            </div>
+                        </div>
+
                     </div>
 
                     <!-- Editar Terapeuta -->
@@ -905,15 +844,20 @@
                         </div>
                     </div>
 
-                    <div class="row" *ngIf="editTerap">
-                        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                            <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
-                        </div>
+                    <div class="row inputButton">
 
-                        <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                            <button mat-raised-button (click)="edit()" color="primary">Editar</button>
+
+                        <div class="therapistContainer" *ngIf="editTerap">
+                            <div class="row g-0">
+                                <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
+                            </div>
+
+                            <div class="row g-0">
+                                <button mat-raised-button (click)="edit()" color="primary">Editar</button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
