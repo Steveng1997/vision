@@ -2461,7 +2461,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 29%;
+    margin-left: 29.5%;
     margin-top: 1.5rem;
   }
 
@@ -3514,25 +3514,25 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 59% 43%;
+    grid-template-columns: 58.1% 44%;
     margin-left: -6px;
   }
 
   .therapistContainer {
-    width: 136px;
+    width: 69.8%;
   }
 
   .containerInCharge {
-    width: 93%;
+    width: 69.8%;
   }
 
   .clientContainer {
-    width: 136px;
+    width: 137px;
     margin-top: 1rem;
   }
 
   .containerPlaceExit {
-    width: 94%;
+    width: 69.8%;
     margin-top: 1rem;
   }
 
@@ -4259,7 +4259,7 @@ input[id="transOtro"] {
   }
 
   .containerInCharge {
-    width: 94%;
+    width: 136px;
   }
 
   .clientContainer {
@@ -4268,13 +4268,13 @@ input[id="transOtro"] {
   }
 
   .containerPlaceExit {
-    width: 94%;
+    width: 136px;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 56% 43%;
+    grid-template-columns: 47% 46%;
     margin-top: 1rem;
     margin-left: -12px;
   }
@@ -4284,13 +4284,13 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 73%;
-    margin-left: 28%;
+    width: 65%;
+    margin-left: 46%;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 42% 196px;
+    grid-template-columns: 36% 57%;
     margin-left: -12px;
   }
 
@@ -4300,7 +4300,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 45%;
+    margin-left: 55%;
     margin-top: 1.5rem;
   }
 
@@ -4329,9 +4329,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 38% 36% 25%;
+    grid-template-columns: 35% 35% 23.4%;
     margin-top: 1rem;
-    margin-left: -3%;
+    margin-left: -2.7%;
   }
 
   .treatmentContainer {
@@ -4367,9 +4367,9 @@ input[id="transOtro"] {
 
   .collectionContainer {
     display: grid;
-    grid-template-columns: 18% 21% 16% 20%;
+    grid-template-columns: 19% 18% 15% 13%;
     margin-top: 1rem;
-    margin-left: 55%;
+    margin-left: 56%;
   }
 
   .collectionContainer2 {
@@ -4502,9 +4502,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 355px;
+    grid-template-columns: 347px;
     margin-top: 1rem;
-    margin-left: -6%;
+    margin-left: -5%;
     margin-bottom: 1.5rem;
   }
 
