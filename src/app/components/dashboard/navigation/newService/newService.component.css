@@ -4159,7 +4159,7 @@ input[id="transOtro"] {
   }
 }
 
-@media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+@media only screen and (min-device-width: 430px) and (max-device-height: 721px) and (max-device-height: 932px) {
   .marginBody {
     height: 98%;
   }
@@ -4274,7 +4274,7 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 47% 46%;
+    grid-template-columns: 47% 40%;
     margin-top: 1rem;
     margin-left: -12px;
   }
@@ -4285,7 +4285,7 @@ input[id="transOtro"] {
 
   .containerStartTime {
     width: 65%;
-    margin-left: 46%;
+    margin-left: 51%;
   }
 
   .datesContainer2 {
@@ -4295,7 +4295,7 @@ input[id="transOtro"] {
   }
 
   .containerDuration {
-    width: 94%;
+    width: 92%;
     margin-top: 17%;
   }
 
@@ -4311,7 +4311,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 3%;
+    margin-right: 9%;
   }
 
   .titleService {
@@ -4362,7 +4362,7 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 10%;
+    margin-left: 16%;
   }
 
   .collectionContainer {
@@ -4502,7 +4502,7 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 347px;
+    grid-template-columns: 381px;
     margin-top: 1rem;
     margin-left: -5%;
     margin-bottom: 1.5rem;
