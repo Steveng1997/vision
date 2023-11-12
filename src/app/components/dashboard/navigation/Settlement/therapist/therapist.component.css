@@ -83,7 +83,7 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 37% 26%;
+    grid-template-columns: 81% 26%;
     margin-top: 2rem;
     margin-left: 1rem;
   }
@@ -169,106 +169,106 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 5px 4px;
     word-wrap: break-word;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 11px 5px 4px;
     word-wrap: break-word;
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 32px 9px 13px;
+    padding: 0px 32px 14px 13px;
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 16px 10px 0px;
+    padding: 0px 16px 14px 0px;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 85px;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 21px 4px 0px;
     word-wrap: break-word;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 15px 29px;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 15px 0px;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    padding: 0px;
+    padding: 0px 0px 4px 0px;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 0px 9px 12px;
+    padding: 0px 0px 13px 12px;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    padding: 0px 6px 3px 19px;
     line-height: 1.2rem;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    padding: 0px 10px 13px 12px;
     white-space: nowrap;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 3px 17px;
     word-wrap: break-word;
   }
 
@@ -491,7 +491,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -499,7 +499,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -523,7 +523,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -546,7 +546,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -555,7 +555,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -700,7 +700,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -710,7 +710,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -720,7 +720,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -728,7 +728,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -736,7 +736,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -746,7 +746,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -754,7 +754,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -762,7 +762,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -770,7 +770,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -778,7 +778,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -786,7 +786,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -794,7 +794,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1022,7 +1022,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -1030,7 +1030,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -1054,7 +1054,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -1077,7 +1077,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -1086,7 +1086,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -1232,7 +1232,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1242,7 +1242,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1252,7 +1252,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1260,7 +1260,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1268,7 +1268,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1278,7 +1278,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1286,7 +1286,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1294,7 +1294,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1302,7 +1302,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1310,7 +1310,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -1318,7 +1318,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -1326,7 +1326,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1554,7 +1554,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -1562,7 +1562,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -1586,7 +1586,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -1609,7 +1609,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -1618,7 +1618,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -1763,7 +1763,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1773,7 +1773,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1783,7 +1783,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1791,7 +1791,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1799,7 +1799,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1809,7 +1809,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1817,7 +1817,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1825,7 +1825,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1833,7 +1833,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1841,7 +1841,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -1849,7 +1849,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -1857,7 +1857,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2086,7 +2086,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -2094,7 +2094,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -2118,7 +2118,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -2141,7 +2141,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -2150,7 +2150,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -2296,7 +2296,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2306,7 +2306,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2316,7 +2316,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2324,7 +2324,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2332,7 +2332,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2342,7 +2342,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2350,7 +2350,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2358,7 +2358,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2366,7 +2366,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2374,7 +2374,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -2382,7 +2382,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -2390,7 +2390,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2618,7 +2618,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -2626,7 +2626,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -2650,7 +2650,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -2673,7 +2673,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -2682,7 +2682,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -2827,7 +2827,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2837,7 +2837,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2847,7 +2847,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2855,7 +2855,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2863,7 +2863,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2873,7 +2873,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2881,7 +2881,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2889,7 +2889,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2897,7 +2897,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2905,7 +2905,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -2913,7 +2913,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 20px 11px 0px;
@@ -2921,7 +2921,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3149,7 +3149,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -3157,7 +3157,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -3181,7 +3181,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -3204,7 +3204,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -3213,7 +3213,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -3358,7 +3358,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3368,7 +3368,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3378,7 +3378,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3386,7 +3386,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3394,7 +3394,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3404,7 +3404,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3412,7 +3412,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3420,7 +3420,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3428,7 +3428,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3436,7 +3436,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -3444,7 +3444,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 20px 11px 0px;
@@ -3452,7 +3452,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3680,7 +3680,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -3688,7 +3688,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -3712,7 +3712,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -3735,7 +3735,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -3744,7 +3744,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -3890,106 +3890,106 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 3px 4px;
     word-wrap: break-word;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 11px 3px 4px;
     word-wrap: break-word;
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 32px 9px 13px;
+    padding: 0px 32px 13px 13px;
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 16px 10px 0px;
+    padding: 0px 16px 13px 0px;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 85px;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 21px 3px 0px;
     word-wrap: break-word;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 12px 29px;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 13px 0px;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
-    padding: 0px;
+    padding: 0px 0px 3px 0px;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
-    padding: 0px 0px 9px 12px;
+    padding: 0px 0px 13px 12px;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    padding: 0px 6px 3px 19px;
     line-height: 1.2rem;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    padding: 0px 10px 13px 12px;
     white-space: nowrap;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 3px 17px;
     word-wrap: break-word;
   }
 
@@ -4212,7 +4212,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -4220,7 +4220,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -4244,7 +4244,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -4267,7 +4267,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -4276,7 +4276,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -4421,7 +4421,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4431,7 +4431,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4441,7 +4441,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4449,7 +4449,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4457,7 +4457,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4467,7 +4467,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4475,7 +4475,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4483,7 +4483,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4491,7 +4491,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4499,7 +4499,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -4507,7 +4507,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -4515,7 +4515,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4744,7 +4744,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -4752,7 +4752,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -4776,7 +4776,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -4799,7 +4799,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -4808,7 +4808,7 @@
     font-size: 16px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -4953,7 +4953,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4963,7 +4963,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4973,7 +4973,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4981,7 +4981,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4989,7 +4989,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4999,7 +4999,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5007,7 +5007,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5015,7 +5015,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5023,7 +5023,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5031,7 +5031,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -5039,7 +5039,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -5047,7 +5047,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5276,7 +5276,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -5284,7 +5284,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -5308,7 +5308,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -5331,7 +5331,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -5340,7 +5340,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -5485,7 +5485,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5495,7 +5495,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5505,7 +5505,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5513,7 +5513,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5521,7 +5521,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5531,7 +5531,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5539,7 +5539,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5547,7 +5547,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5555,7 +5555,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5563,7 +5563,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -5571,7 +5571,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -5579,7 +5579,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5808,7 +5808,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -5816,7 +5816,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -5840,7 +5840,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -5863,7 +5863,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -5872,7 +5872,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -6017,7 +6017,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -6027,7 +6027,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -6037,7 +6037,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6045,7 +6045,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6053,7 +6053,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -6063,7 +6063,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6071,7 +6071,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6079,7 +6079,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -6087,7 +6087,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6095,7 +6095,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -6103,7 +6103,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -6111,7 +6111,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -6339,7 +6339,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -6347,7 +6347,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -6371,7 +6371,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -6394,7 +6394,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -6403,7 +6403,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -6535,7 +6535,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6543,7 +6543,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6551,7 +6551,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6559,7 +6559,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6567,7 +6567,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6576,7 +6576,7 @@
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6584,7 +6584,7 @@
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6593,13 +6593,13 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6608,7 +6608,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6616,7 +6616,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6624,7 +6624,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6862,7 +6862,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -6870,7 +6870,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -6894,7 +6894,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -6917,7 +6917,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -6926,7 +6926,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -7058,7 +7058,7 @@
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7066,7 +7066,7 @@
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7074,7 +7074,7 @@
   }
 
   .textImport {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -7082,7 +7082,7 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7092,7 +7092,7 @@
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7102,13 +7102,13 @@
 
   .textExit {
     width: 80px;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7117,7 +7117,7 @@
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7127,7 +7127,7 @@
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7136,7 +7136,7 @@
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7144,7 +7144,7 @@
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7152,7 +7152,7 @@
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -7400,7 +7400,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -7408,7 +7408,7 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -7432,7 +7432,7 @@
   }
 
   .valueReceived {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -7455,7 +7455,7 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -7464,7 +7464,7 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 

@@ -143,133 +143,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 7px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 13px 11px 7px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 7px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 7px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 15px 11px 14px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 7px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -484,7 +499,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -493,7 +508,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -502,7 +517,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -511,7 +526,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -520,7 +535,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -529,7 +544,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -537,7 +552,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -670,133 +685,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 10px 16px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 7px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -1011,7 +1041,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -1020,7 +1050,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -1029,7 +1059,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -1038,7 +1068,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -1047,7 +1077,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -1056,7 +1086,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -1064,7 +1094,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -1199,131 +1229,146 @@
   .textDate {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 7px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 7px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 11px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 7px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
     border-bottom: 1px solid blue;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -1538,7 +1583,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -1547,7 +1592,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -1556,7 +1601,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -1565,7 +1610,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -1574,7 +1619,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -1583,7 +1628,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -1591,7 +1636,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -1723,133 +1768,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 22px 9px 7px;
+    padding: 0px 22px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 23px 9px 0px;
+    padding: 0px 23px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 34px 6px 10px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 7px 6px 4px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -2066,7 +2126,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -2075,7 +2135,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -2084,7 +2144,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueFloor2 {
@@ -2093,7 +2153,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 21px 0px 36px;
+    padding: 15px 21px 20px 36px;
   }
 
   .lblValueTotal {
@@ -2102,7 +2162,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -2111,7 +2171,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -2119,7 +2179,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -2252,133 +2312,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 15px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 8px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -2593,7 +2668,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -2602,7 +2677,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -2611,7 +2686,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -2620,7 +2695,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -2629,7 +2704,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -2638,7 +2713,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -2646,7 +2721,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -2779,133 +2854,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 14px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 13px 0px 8px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 38px 0px 20px;
+    padding: 0px 22px 9px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 11px 0px;
+    font-size: 18px;
+    padding: 0px 20px 16px 0px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 34px 0px 17px;
+    padding: 0px 17px 6px 11px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -3120,7 +3210,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -3129,7 +3219,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -3138,7 +3228,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -3147,7 +3237,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -3156,7 +3246,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -3165,7 +3255,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -3173,11 +3263,12 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
 
+/* AQUI */
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
 
   .marginBody {
@@ -3647,7 +3738,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -3656,7 +3747,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -3665,7 +3756,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -3674,7 +3765,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -3683,7 +3774,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -3692,7 +3783,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -3700,7 +3791,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -3833,133 +3924,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 10px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -4174,7 +4280,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -4183,7 +4289,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -4192,7 +4298,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -4201,7 +4307,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -4210,7 +4316,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -4219,7 +4325,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -4227,7 +4333,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -4360,133 +4466,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 0px 15px 7px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 0px 15px 11px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 7px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 7px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 7px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 9px 11px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 7px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -4701,7 +4822,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -4710,7 +4831,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -4719,7 +4840,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -4728,7 +4849,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -4737,7 +4858,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -4746,7 +4867,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -4754,7 +4875,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -4887,133 +5008,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 21px 11px 7px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -5228,7 +5364,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -5237,7 +5373,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -5246,7 +5382,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -5255,7 +5391,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -5264,7 +5400,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -5273,7 +5409,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -5281,7 +5417,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -5414,133 +5550,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -5755,7 +5906,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -5764,7 +5915,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -5773,7 +5924,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -5782,7 +5933,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -5791,7 +5942,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -5800,7 +5951,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -5808,7 +5959,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -5941,133 +6092,148 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 19px 10px 0px;
+    padding: 0px 19px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 22px 0px 4px;
+    padding: 22px 22px 6px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 80px;
-    padding: 22px 11px 0px 4px;
+    padding: 22px 15px 9px 4px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 36px 9px 29px;
+    padding: 0px 36px 16px 29px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 35px 9px 0px;
+    padding: 0px 35px 16px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 15px 9px 7px;
+    padding: 0px 15px 16px 7px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     white-space: pre;
-    padding: 0px 8px 9px 20px;
+    padding: 0px 8px 16px 20px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 0px 8px;
+    padding: 0px 31px 6px 8px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 0px 19px;
+    font-size: 18px;
+    padding: 0px 6px 6px 19px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 20px 0px 0px;
+    font-size: 18px;
+    padding: 0px 20px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+    padding: 0px 0px 6px 0px;
     line-height: 1.2rem;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 14px;
-    padding: 0px 9px 0px 15px;
+    padding: 0px 13px 9px 15px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 11px 12px;
+    font-size: 18px;
+    padding: 0px 10px 16px 12px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 73px;
-    padding: 0px 10px 0px 17px;
+    padding: 0px 10px 6px 17px;
     word-wrap: break-word;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 40px 11px 26px;
+    font-size: 18px;
+    padding: 0px 40px 16px 26px;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -6282,7 +6448,7 @@
     font-weight: bold;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 0px 7px 0px;
+    padding: 15px 0px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -6291,7 +6457,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblValueFloor1 {
@@ -6300,7 +6466,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 6px;
+    padding: 15px 31px 20px 6px;
   }
 
   .lblValueFloor2 {
@@ -6309,7 +6475,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 31px 0px 7px;
+    padding: 15px 31px 20px 7px;
   }
 
   .lblValueTotal {
@@ -6318,7 +6484,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 23px 0px 23px;
+    padding: 15px 23px 20px 23px;
   }
 
   .lblVaueTotalFloor2 {
@@ -6327,7 +6493,7 @@
     font-size: 16px;
     color: #8C52FF;
     white-space: pre;
-    padding: 15px 32px 0px 0px;
+    padding: 15px 32px 20px 0px;
   }
 
   .lblValueTotals {
@@ -6335,7 +6501,7 @@
     font-family: sans-serif;
     font-size: 16px;
     color: #8C52FF;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 22px 20px 0px;
     white-space: nowrap;
   }
 }
@@ -6423,122 +6589,137 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 30px 22px 17px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 0px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 0px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 30px 22px 13px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 3rem;
     padding: 0px 27px 21px 22px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 4rem;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 4rem;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -6764,7 +6945,7 @@
     font-weight: bold;
     white-space: pre;
     color: #8C52FF;
-    padding: 21px 21px 0px 0px;
+    padding: 21px 21px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -6773,7 +6954,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueFloor1 {
@@ -6782,7 +6963,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueFloor2 {
@@ -6791,7 +6972,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueTotal {
@@ -6800,7 +6981,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblVaueTotalFloor2 {
@@ -6809,7 +6990,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 16px 0px 0px;
+    padding: 22px 16px 20px 0px;
   }
 
   .lblValueTotals {
@@ -6818,7 +6999,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 }
 
@@ -6906,128 +7087,143 @@
   }
 
   .textDate {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 3rem;
     max-width: 95px;
     padding: 0px 56px 22px 11px;
+    text-transform: capitalize;
   }
 
   .textTherapist {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textManager {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textExit {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 30px 22px 13px;
+    text-transform: capitalize;
   }
 
   .textHour {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 4rem;
     width: 0px;
     padding: 0px 0px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textMin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
+    text-transform: capitalize;
   }
 
   .textPay {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 3rem;
     padding: 0px 27px 21px 22px;
+    text-transform: capitalize;
   }
 
   .textTreatment {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 4rem;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textValue {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textFloor1 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textFloor2 {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textTip {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     height: 4rem;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textColumn {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textVitamin {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .textClient {
-    border-bottom: 1px solid blue;
+    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
+    text-transform: capitalize;
   }
 
   .columnNote {
@@ -7263,7 +7459,7 @@
     font-weight: bold;
     white-space: pre;
     color: #8C52FF;
-    padding: 21px 21px 0px 0px;
+    padding: 21px 21px 20px 0px;
   }
 
   .lblValueTreatment {
@@ -7272,7 +7468,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueFloor1 {
@@ -7281,7 +7477,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueFloor2 {
@@ -7290,7 +7486,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblValueTotal {
@@ -7299,7 +7495,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 
   .lblVaueTotalFloor2 {
@@ -7308,7 +7504,7 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 16px 0px 0px;
+    padding: 22px 16px 20px 0px;
   }
 
   .lblValueTotals {
@@ -7317,6 +7513,6 @@
     font-size: 18px;
     white-space: pre;
     color: #8C52FF;
-    padding: 22px 22px 0px 0px;
+    padding: 22px 22px 20px 0px;
   }
 }

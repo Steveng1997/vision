@@ -505,24 +505,24 @@ export class TherapistComponent implements OnInit {
               comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
               // Conversion decimal
-              this.serviceCommission = Math.trunc(comisiServicio)
-              this.commissionTip = Math.trunc(comiPropina)
-              this.beverageCommission = Math.trunc(comiBebida)
-              this.tobaccoCommission = Math.trunc(comiTabaco)
-              this.vitaminCommission = Math.trunc(comiVitamina)
-              this.commissionOthers = Math.trunc(comiOtros)
+              this.serviceCommission = Math.ceil(comisiServicio)
+              this.commissionTip = Math.ceil(comiPropina)
+              this.beverageCommission = Math.ceil(comiBebida)
+              this.tobaccoCommission = Math.ceil(comiTabaco)
+              this.vitaminCommission = Math.ceil(comiVitamina)
+              this.commissionOthers = Math.ceil(comiOtros)
 
               sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
                 Number(this.beverageCommission) + Number(this.tobaccoCommission) +
                 Number(this.vitaminCommission) + Number(this.commissionOthers)
 
               if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.trunc(sumComision)
+                this.sumCommission = Math.ceil(sumComision)
               }
 
               // Recibido
               this.receivedTherapist = this.totalTherapistValue
-              this.totalCommission = Math.trunc(this.sumCommission) - Number(this.receivedTherapist)
+              this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
               this.liquidationTherapist.importe = this.totalCommission
 
               this.validateNullData()
@@ -550,24 +550,24 @@ export class TherapistComponent implements OnInit {
               comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
               // Conversion decimal
-              this.serviceCommission = Math.trunc(comisiServicio)
-              this.commissionTip = Math.trunc(comiPropina)
-              this.beverageCommission = Math.trunc(comiBebida)
-              this.tobaccoCommission = Math.trunc(comiTabaco)
-              this.vitaminCommission = Math.trunc(comiVitamina)
-              this.commissionOthers = Math.trunc(comiOtros)
+              this.serviceCommission = Math.ceil(comisiServicio)
+              this.commissionTip = Math.ceil(comiPropina)
+              this.beverageCommission = Math.ceil(comiBebida)
+              this.tobaccoCommission = Math.ceil(comiTabaco)
+              this.vitaminCommission = Math.ceil(comiVitamina)
+              this.commissionOthers = Math.ceil(comiOtros)
 
               sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
                 Number(this.beverageCommission) + Number(this.tobaccoCommission) +
                 Number(this.vitaminCommission) + Number(this.commissionOthers)
 
               if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.trunc(sumComision)
+                this.sumCommission = Math.ceil(sumComision)
               }
 
               // Recibido
               this.receivedTherapist = this.totalTherapistValue
-              this.totalCommission = Math.trunc(this.sumCommission) - Number(this.receivedTherapist)
+              this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
               this.liquidationTherapist.importe = this.totalCommission
 
               this.validateNullData()

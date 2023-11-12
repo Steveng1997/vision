@@ -4159,7 +4159,7 @@ input[id="transOtro"] {
   }
 }
 
-@media only screen and (min-device-width: 430px) and (max-device-height: 721px) and (max-device-height: 932px) {
+@media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
   .marginBody {
     height: 98%;
   }
