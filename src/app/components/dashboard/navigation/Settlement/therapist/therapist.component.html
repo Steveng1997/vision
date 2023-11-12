@@ -83,98 +83,62 @@
                 </form>
 
                 <!-- Table 1 -->
-                <div *ngIf="liquidationForm" class="adjustTable">
-                    <div class="row columnTable">
+                <div *ngIf="liquidationForm" class="column">
+                    <div class="columnTable">
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label class="textTherapist">Terapeuta</label>
-                            </div>
+                        <div class="textTherapist">
+                            <label>Terapeuta</label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label class="textManager">Encargada</label>
-                            </div>
+                        <div class="textManager">
+                            <label>Encargada</label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label class="textImport">Importe</label>
-                            </div>
+                        <div class="textImport">
+                            <label>Importe</label>
                         </div>
 
-
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                              display: contents">Desde</label>
-                            </div>
+                        <div class="textDate">
+                            <label>Desde</label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                              display: contents">Hasta</label>
-                            </div>
+                        <div class="textDate">
+                            <label>Hasta</label>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
-                              display: contents">Tratamiento</label>
-                            </div>
+                        <div class="textTreatment">
+                            <label>Tratamiento</label>
                         </div>
+
                     </div>
 
-                    <div class="row columnTable" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
-                    | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
-                    busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 10, currentPage: page }"
+                    <hr class="lineTable1">
+
+                    <div class="columnTable" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
+                            | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
+                            busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }"
                         (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
-                            </div>
-                        </div>
+                        <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="columnManager">{{liqTerap?.encargada}}</div>
-                            </div>
-                        </div>
+                        <div class="columnManager">{{liqTerap?.encargada}}</div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
-                            </div>
-                        </div>
+                        <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="exit">{{liqTerap?.desdeFechaLiquidado + ' - ' +
-                                    liqTerap?.desdeHoraLiquidado}} </div>
-                            </div>
-                        </div>
+                        <div class="exit">{{liqTerap?.desdeFechaLiquidado + ' - ' +
+                            liqTerap?.desdeHoraLiquidado}} </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="exit">{{liqTerap?.hastaFechaLiquidado + ' - ' +
-                                    liqTerap?.hastaHoraLiquidado}} </div>
-                            </div>
-                        </div>
+                        <div class="exit">{{liqTerap?.hastaFechaLiquidado + ' - ' +
+                            liqTerap?.hastaHoraLiquidado}} </div>
 
-                        <div class="row g-0">
-                            <div class="availableColumn">
-                                <div class="endTime">{{liqTerap?.tratamiento + ' €'}}</div>
-                            </div>
-                        </div>
+                        <div class="endTime">{{liqTerap?.tratamiento + ' €'}}</div>
                     </div>
-
-                    <pagination-controls class="pagination_Mobile" (pageChange)="page = $event" previousLabel=""
-                        nextLabel="">
-                    </pagination-controls>
                 </div>
+
+                <pagination-controls class="pagination_Mobile" (pageChange)="page = $event" previousLabel=""
+                    nextLabel="">
+                </pagination-controls>
+
 
                 <!-- Agregar Terapeuta -->
                 <div *ngIf="addForm" class="formAgregar">

@@ -30,10 +30,6 @@
   padding: 12px;
 }
 
-.availableColumn {
-  text-align-last: start;
-}
-
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .container {
@@ -49,6 +45,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -162,7 +159,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -172,7 +168,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -182,7 +177,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -190,7 +184,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -198,7 +191,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -208,7 +200,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -216,7 +207,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -224,7 +214,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -232,7 +221,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -240,7 +228,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 3px 19px;
@@ -248,7 +235,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 13px 12px;
@@ -256,19 +242,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 3px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -301,11 +280,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -11px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -476,7 +465,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -484,7 +472,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -508,7 +495,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -531,7 +517,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -540,7 +525,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -569,6 +553,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -681,7 +666,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -691,7 +675,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -701,7 +684,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -709,7 +691,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -717,7 +698,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -727,7 +707,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -735,7 +714,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -743,7 +721,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -751,7 +728,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -759,7 +735,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -767,7 +742,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -775,19 +749,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -820,11 +787,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -35px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -995,7 +972,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -1003,7 +979,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -1027,7 +1002,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -1050,7 +1024,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -1059,7 +1032,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -1088,6 +1060,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -1201,7 +1174,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1211,7 +1183,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1221,7 +1192,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1229,7 +1199,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1237,7 +1206,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1247,7 +1215,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1255,7 +1222,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1263,7 +1229,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1271,7 +1236,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1279,7 +1243,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -1287,7 +1250,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -1295,19 +1257,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -1340,11 +1295,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -35px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -1515,7 +1480,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -1523,7 +1487,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -1547,7 +1510,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -1570,7 +1532,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -1579,7 +1540,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -1608,6 +1568,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -1720,7 +1681,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1730,7 +1690,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1740,7 +1699,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1748,7 +1706,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1756,7 +1713,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1766,7 +1722,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1774,7 +1729,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1782,7 +1736,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -1790,7 +1743,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -1798,7 +1750,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -1806,7 +1757,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -1814,19 +1764,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -1859,11 +1802,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -16px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -2034,7 +1987,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -2042,7 +1994,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -2066,7 +2017,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -2089,7 +2039,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -2098,7 +2047,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -2127,6 +2075,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -2240,7 +2189,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2250,7 +2198,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2260,7 +2207,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2268,7 +2214,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2276,7 +2221,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2286,7 +2230,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2294,7 +2237,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2302,7 +2244,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -2310,7 +2251,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -2318,7 +2258,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -2326,7 +2265,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -2334,19 +2272,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -2379,11 +2310,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -31px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -2554,7 +2495,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -2562,7 +2502,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -2586,7 +2525,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -2609,7 +2547,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -2618,7 +2555,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -2647,6 +2583,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -2756,50 +2693,6 @@
 
   .tablePaidTherapist {
     margin-top: 0%;
-  }
-
-  .textTherapist {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    padding: 0px 18px 0px 9px;
-    word-wrap: break-word;
-  }
-
-  .textManager {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    padding: 0px 15px 0px 9px;
-    word-wrap: break-word;
-  }
-
-  .textImport {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 0px 15px 0px 9px;
-  }
-
-  .textDate {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 16px 10px 0px;
-  }
-
-  .textTreatment {
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    font-size: 16px;
-    max-width: 85px;
-    padding: 0px 21px 0px 0px;
-    word-wrap: break-word;
   }
 
   .textExit {
@@ -2853,12 +2746,6 @@
     word-wrap: break-word;
   }
 
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
-  }
-
   .fechaInicio {
     width: 155px;
   }
@@ -2889,19 +2776,78 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 100%;
-    margin-left: -22px;
-    /* overflow-x: auto; */
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 21% 23% 22% 38% 38% 30%;
+    grid-template-columns: 23% 23% 24% 41% 41% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 178%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
+  }
+
+  .textTherapist {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 11px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 11px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -3064,7 +3010,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -3072,7 +3017,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -3096,7 +3040,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -3119,7 +3062,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -3128,7 +3070,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -3157,6 +3098,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -3269,7 +3211,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3279,7 +3220,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3289,7 +3229,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3297,7 +3236,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3305,7 +3243,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3315,7 +3252,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3323,7 +3259,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3331,7 +3266,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3339,7 +3273,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3347,7 +3280,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -3355,7 +3287,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 20px 11px 0px;
@@ -3363,19 +3294,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 34px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -3408,11 +3332,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -31px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -3583,7 +3517,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -3591,7 +3524,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -3615,7 +3547,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -3638,7 +3569,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -3647,7 +3577,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -3676,6 +3605,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -3789,7 +3719,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3799,7 +3728,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3809,7 +3737,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3817,7 +3744,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3825,7 +3751,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3835,7 +3760,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3843,7 +3767,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3851,7 +3774,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -3859,7 +3781,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -3867,7 +3788,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 3px 19px;
@@ -3875,7 +3795,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 13px 12px;
@@ -3883,19 +3802,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 3px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -3928,11 +3840,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -28px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -4103,7 +4025,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -4111,7 +4032,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -4135,7 +4055,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -4158,7 +4077,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -4167,7 +4085,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -4196,6 +4113,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -4308,7 +4226,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4318,7 +4235,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4328,7 +4244,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4336,7 +4251,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4344,7 +4258,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4354,7 +4267,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4362,7 +4274,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4370,7 +4281,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4378,7 +4288,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4386,7 +4295,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -4394,7 +4302,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -4402,19 +4309,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -4447,11 +4347,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -20px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -4622,7 +4532,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -4630,7 +4539,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -4654,7 +4562,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -4677,7 +4584,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -4686,7 +4592,6 @@
     font-size: 16px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -4715,6 +4620,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -4827,7 +4733,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4837,7 +4742,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4847,7 +4751,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4855,7 +4758,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4863,7 +4765,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4873,7 +4774,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4881,7 +4781,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4889,7 +4788,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -4897,7 +4795,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -4905,7 +4802,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -4913,7 +4809,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -4921,19 +4816,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -4966,11 +4854,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -31px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -5141,7 +5039,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -5149,7 +5046,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -5173,7 +5069,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -5196,7 +5091,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -5205,7 +5099,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -5236,6 +5129,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -5347,7 +5241,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5357,7 +5250,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5367,7 +5259,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5375,7 +5266,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5383,7 +5273,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5393,7 +5282,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5401,7 +5289,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5409,7 +5296,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5417,7 +5303,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5425,7 +5310,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -5433,7 +5317,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -5441,19 +5324,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -5486,11 +5362,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -41px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -5661,7 +5547,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -5669,7 +5554,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -5693,7 +5577,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -5716,7 +5599,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -5725,7 +5607,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -5754,6 +5635,7 @@
   .pagination_Mobile {
     margin-bottom: 0px;
     text-align-last: end;
+    margin-top: 2rem;
   }
 
   .tableContainer {
@@ -5866,7 +5748,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5876,7 +5757,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5886,7 +5766,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5894,7 +5773,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5902,7 +5780,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5912,7 +5789,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5920,7 +5796,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5928,7 +5803,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
@@ -5936,7 +5810,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -5944,7 +5817,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 6px 0px 19px;
@@ -5952,7 +5824,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     padding: 0px 10px 11px 12px;
@@ -5960,19 +5831,12 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     line-height: 1.2rem;
     font-size: 16px;
     max-width: 73px;
     padding: 0px 10px 0px 17px;
     word-wrap: break-word;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -6005,11 +5869,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: -46px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -6180,7 +6054,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -6188,7 +6061,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -6212,7 +6084,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -6235,7 +6106,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -6244,7 +6114,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -6376,7 +6245,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6384,7 +6252,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6392,7 +6259,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6400,7 +6266,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6408,7 +6273,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6417,7 +6281,6 @@
   }
 
   .textExit {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6425,7 +6288,6 @@
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6434,13 +6296,11 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6449,7 +6309,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6457,7 +6316,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6465,17 +6323,10 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -6521,11 +6372,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: 0px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -6709,7 +6570,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -6717,7 +6577,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -6741,7 +6600,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -6764,7 +6622,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -6773,7 +6630,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
@@ -6905,7 +6761,6 @@
   }
 
   .textTherapist {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6913,7 +6768,6 @@
   }
 
   .textManager {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6921,7 +6775,6 @@
   }
 
   .textImport {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 16px;
     white-space: pre;
@@ -6929,7 +6782,6 @@
   }
 
   .textDate {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6939,7 +6791,6 @@
   }
 
   .textTreatment {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6949,13 +6800,11 @@
 
   .textExit {
     width: 80px;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
   .textTip {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6964,7 +6813,6 @@
   }
 
   .textHour {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6974,7 +6822,6 @@
   }
 
   .textPay {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6983,7 +6830,6 @@
   }
 
   .textValue {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6991,7 +6837,6 @@
   }
 
   .textColumn {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
@@ -6999,17 +6844,10 @@
   }
 
   .textVitamin {
-    border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
     white-space: pre;
     padding: 0px 22px 22px 0px;
-  }
-
-  .table {
-    display: flow;
-    overflow-y: auto;
-    margin-left: -5px;
   }
 
   .fechaInicio {
@@ -7055,11 +6893,21 @@
 
   /* Table1 */
 
-  .adjustTable {
+  .column {
     margin-top: 2rem;
-    width: 90%;
-    margin-left: 0px;
-    overflow-x: scroll;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
   }
 
   .columnTable {
@@ -7244,7 +7092,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px;
   }
 
@@ -7252,7 +7099,6 @@
     color: #242424;
     font-size: 16px;
     font-family: sans-serif;
-    border-bottom: 2.5px solid #8c52ff;
     padding: 0px 17px 0px 17px;
   }
 
@@ -7276,7 +7122,6 @@
   }
 
   .valueReceived {
-    border-bottom: 2.5px solid #8c52ff;
     font-size: 14px;
     font-family: sans-serif;
     text-align: -webkit-right;
@@ -7299,7 +7144,6 @@
     text-transform: capitalize;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
   }
 
   .sumTitleReceived {
@@ -7308,7 +7152,6 @@
     font-size: 14px;
     font-family: sans-serif;
     font-weight: normal;
-    border-bottom: 2.5px solid #8c52ff;
     width: 100%;
   }
 
