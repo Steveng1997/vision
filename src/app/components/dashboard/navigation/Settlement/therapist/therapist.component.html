@@ -86,12 +86,12 @@
                 <div *ngIf="liquidationForm" class="column">
                     <div class="columnTable">
 
-                        <div class="textTherapist">
-                            <label>Terapeuta</label>
-                        </div>
-
                         <div class="textManager">
                             <label>Encargada</label>
+                        </div>
+
+                        <div class="textTherapist">
+                            <label>Terapeuta</label>
                         </div>
 
                         <div class="textImport">
@@ -119,19 +119,19 @@
                             busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }"
                         (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
 
-                        <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
-
                         <div class="columnManager">{{liqTerap?.encargada}}</div>
+
+                        <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
 
                         <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
 
-                        <div class="exit">{{liqTerap?.desdeFechaLiquidado + ' - ' +
+                        <div>{{liqTerap?.desdeFechaLiquidado + ' - ' +
                             liqTerap?.desdeHoraLiquidado}} </div>
 
-                        <div class="exit">{{liqTerap?.hastaFechaLiquidado + ' - ' +
+                        <div>{{liqTerap?.hastaFechaLiquidado + ' - ' +
                             liqTerap?.hastaHoraLiquidado}} </div>
 
-                        <div class="endTime">{{liqTerap?.tratamiento + ' €'}}</div>
+                        <div class="columnTreatment">{{liqTerap?.tratamiento + ' €'}}</div>
                     </div>
                 </div>
 
