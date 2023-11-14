@@ -43,7 +43,7 @@ export class Service {
 
   getByManagerOrder(encargada: string) {
     return this.http.get(`${this.API_URL}/getManagerOrderCurrentDate/${encargada}`);
-  }  
+  }
 
   getByCierre(encargada: string) {
     return this.http.get(`${this.API_URL}/getEncargadaAndCierre/${encargada}`);
@@ -332,7 +332,10 @@ export class Service {
   getManagerLiqFalse(encargada: string) {
     return this.http.get(`${this.API_URL}/getByManagerLiquidatedZero/${encargada}`);
   }
-  
+
+  getPaymentForm(formaPago: string) {
+    return this.http.get(`${this.API_URL}/getPaymenForm/${formaPago}`);
+  }
 
   // Update
 

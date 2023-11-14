@@ -274,7 +274,8 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCash">
-                            <input type="checkbox" id="efectPiso1" name="efectPiso1" [(ngModel)]="services.efectPiso1">
+                            <input type="checkbox" id="efectPiso1" name="efectPiso1" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.efectPiso1">
                             <label for="efectPiso1"></label>
                         </div>
 
@@ -282,14 +283,16 @@
 
                     <div class="row g-0">
                         <div class="checkBoxBizum">
-                            <input type="checkbox" id="bizuPiso1" name="bizuPiso1" [(ngModel)]="services.bizuPiso1">
+                            <input type="checkbox" id="bizuPiso1" name="bizuPiso1" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.bizuPiso1">
                             <label for="bizuPiso1"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCard">
-                            <input type="checkbox" id="tarjPiso1" name="tarjPiso1" [(ngModel)]="services.tarjPiso1">
+                            <input type="checkbox" id="tarjPiso1" name="tarjPiso1" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.tarjPiso1">
                             <label for="tarjPiso1"></label>
                         </div>
 
@@ -297,7 +300,8 @@
 
                     <div class="row g-0">
                         <div class="checkBoxTransaction">
-                            <input type="checkbox" id="transPiso1" name="transPiso1" [(ngModel)]="services.transPiso1">
+                            <input type="checkbox" id="transPiso1" name="transPiso1" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.transPiso1">
                             <label for="transPiso1"></label>
                         </div>
                     </div>
@@ -313,28 +317,32 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCashFloor2">
-                            <input type="checkbox" id="efectPiso2" name="efectPiso2" [(ngModel)]="services.efectPiso2">
+                            <input type="checkbox" id="efectPiso2" name="efectPiso2" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.efectPiso2">
                             <label for="efectPiso2"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumFloor2">
-                            <input type="checkbox" id="bizuPiso2" name="bizuPiso2" [(ngModel)]="services.bizuPiso2">
+                            <input type="checkbox" id="bizuPiso2" name="bizuPiso2" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.bizuPiso2">
                             <label for="bizuPiso2"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardFloor2">
-                            <input type="checkbox" id="tarjPiso2" name="tarjPiso2" [(ngModel)]="services.tarjPiso2">
+                            <input type="checkbox" id="tarjPiso2" name="tarjPiso2" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.tarjPiso2">
                             <label for="tarjPiso2"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionFloor2">
-                            <input type="checkbox" id="transPiso2" name="transPiso2" [(ngModel)]="services.transPiso2">
+                            <input type="checkbox" id="transPiso2" name="transPiso2" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.transPiso2">
                             <label for="transPiso2"></label>
                         </div>
                     </div>
@@ -349,28 +357,32 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCashTherapist">
-                            <input type="checkbox" id="efectTerap" name="efectTerap" [(ngModel)]="services.efectTerap">
+                            <input type="checkbox" id="efectTerap" name="efectTerap" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.efectTerap">
                             <label for="efectTerap"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumTherapist">
-                            <input type="checkbox" id="bizuTerap" name="bizuTerap" [(ngModel)]="services.bizuTerap">
+                            <input type="checkbox" id="bizuTerap" (change)="validatePaymentMethod()" name="bizuTerap"
+                                [(ngModel)]="services.bizuTerap">
                             <label for="bizuTerap"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardTherapist">
-                            <input type="checkbox" id="tarjTerap" name="tarjTerap" [(ngModel)]="services.tarjTerap">
+                            <input type="checkbox" id="tarjTerap" (change)="validatePaymentMethod()" name="tarjTerap"
+                                [(ngModel)]="services.tarjTerap">
                             <label for="tarjTerap"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionTherapist">
-                            <input type="checkbox" id="transTerap" name="transTerap" [(ngModel)]="services.transTerap">
+                            <input type="checkbox" id="transTerap" (change)="validatePaymentMethod()" name="transTerap"
+                                [(ngModel)]="services.transTerap">
                             <label for="transTerap"></label>
                         </div>
                     </div>
@@ -386,21 +398,23 @@
                     <div class="row g-0">
                         <div class="checkBoxCashManager">
                             <input type="checkbox" id="efectEncarg" name="efectEncarg"
-                                [(ngModel)]="services.efectEncarg">
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.efectEncarg">
                             <label for="efectEncarg"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumManager">
-                            <input type="checkbox" id="bizuEncarg" name="bizuEncarg" [(ngModel)]="services.bizuEncarg">
+                            <input type="checkbox" id="bizuEncarg" name="bizuEncarg" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.bizuEncarg">
                             <label for="bizuEncarg"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardManager">
-                            <input type="checkbox" id="tarjEncarg" name="tarjEncarg" [(ngModel)]="services.tarjEncarg">
+                            <input type="checkbox" id="tarjEncarg" name="tarjEncarg" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.tarjEncarg">
                             <label for="tarjEncarg"></label>
                         </div>
                     </div>
@@ -408,7 +422,7 @@
                     <div class="row g-0">
                         <div class="checkBoxTransactionManager">
                             <input type="checkbox" id="transEncarg" name="transEncarg"
-                                [(ngModel)]="services.transEncarg">
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.transEncarg">
                             <label for="transEncarg"></label>
                         </div>
                     </div>
@@ -423,28 +437,32 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCashOther">
-                            <input type="checkbox" id="efectOtro" name="efectOtro" [(ngModel)]="services.efectOtro">
+                            <input type="checkbox" id="efectOtro" name="efectOtro" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.efectOtro">
                             <label for="efectOtro"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumOther">
-                            <input type="checkbox" id="bizuOtro" name="bizuOtro" [(ngModel)]="services.bizuOtro">
+                            <input type="checkbox" id="bizuOtro" name="bizuOtro" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.bizuOtro">
                             <label for="bizuOtro"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardOther">
-                            <input type="checkbox" id="tarjOtro" name="tarjOtro" [(ngModel)]="services.tarjOtro">
+                            <input type="checkbox" id="tarjOtro" name="tarjOtro" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.tarjOtro">
                             <label for="tarjOtro"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionOther">
-                            <input type="checkbox" id="transOtro" name="transOtro" [(ngModel)]="services.transOtro">
+                            <input type="checkbox" id="transOtro" name="transOtro" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.transOtro">
                             <label for="transOtro"></label>
                         </div>
                     </div>

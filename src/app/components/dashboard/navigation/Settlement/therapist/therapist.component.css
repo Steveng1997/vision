@@ -75,9 +75,9 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 37% 26%;
+    grid-template-columns: 85% 24%;
     margin-top: 2rem;
-    margin-left: 1rem;
+    margin-left: 8px;
   }
 
   .therapistContainer {
@@ -103,12 +103,12 @@
 
   .color2 {
     background: #8C52FF;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: block;
-    margin-top: 8%;
-    margin-left: 52%;
+    margin-top: -7%;
+    margin-left: 35%;
   }
 
   .title {
@@ -145,95 +145,12 @@
   }
 
   .lineLiquidation {
-    width: 101%;
+    width: 104%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
-  .textExit {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 36px 15px 29px;
-  }
-
-  .textHour {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 35px 15px 0px;
-  }
-
-  .textTip {
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    font-size: 16px;
-    padding: 0px 0px 4px 0px;
-  }
-
-  .textPay {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 0px 13px 12px;
-  }
-
-  .textValue {
-    font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 6px 3px 19px;
-    line-height: 1.2rem;
-  }
-
-  .textColumn {
-    font-family: sans-serif;
-    font-size: 16px;
-    padding: 0px 10px 13px 12px;
-    white-space: nowrap;
-  }
-
-  .textVitamin {
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    font-size: 16px;
-    max-width: 73px;
-    padding: 0px 10px 3px 17px;
-    word-wrap: break-word;
-  }
-
-  .fechaInicio {
-    width: 155px;
-  }
-
-  .horaInicio {
-    align-self: end;
-    margin-left: -11px;
-    width: 122px;
-  }
-
-  .fechaFinal {
-    width: 155px;
-  }
-
-  .horaFinal {
-    width: 122px;
-    margin-left: -11px;
-    margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
-  }
-
-  .btnCancelar {
-    padding-bottom: 6%;
+    margin-left: -6px;
   }
 
   /* Table1 */
@@ -312,7 +229,7 @@
     padding: 0px 18px 0px 0px;
   }
 
-  /* Column Table */
+  /* Column Table 1 */
 
   .columnTherapist {
     line-height: 1.4rem;
@@ -344,6 +261,135 @@
     justify-self: end;
   }
 
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    margin-top: 2rem;
+    margin-left: 0%;
+    margin-bottom: 2px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 15% 29% 36% 42% 29% 29% 32% 24% 27% 27% 23% 23%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: -3%;
+  }
+
+  .lineTable2 {
+    width: 347%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -11px;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueTherapist {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 18px 0px 0px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 18px 0px 0px;
+  }
+
+  .fechaInicio {
+    width: 155px;
+  }
+
+  .horaInicio {
+    align-self: end;
+    margin-left: -11px;
+    width: 122px;
+  }
+
+  .fechaFinal {
+    width: 155px;
+  }
+
+  .horaFinal {
+    width: 122px;
+    margin-left: -11px;
+    margin-top: 10px;
+  }
+
+  .fechas {
+    justify-content: center;
+  }
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
   .columnDate {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
@@ -373,18 +419,6 @@
     text-align-last: left;
     cursor: pointer;
   }
-
-  .columnTreatment {
-    line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  /* fin Table 1 */
 
   .columnValueTip {
     border-bottom: hidden;
@@ -666,10 +700,6 @@
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .textExit {
@@ -1184,10 +1214,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -1697,10 +1723,6 @@
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .textExit {
@@ -2215,10 +2237,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -2730,10 +2748,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -3233,10 +3247,6 @@
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .textTherapist {
@@ -3741,10 +3751,6 @@
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .textExit {
@@ -4258,10 +4264,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -4771,10 +4773,6 @@
     border-width: initial;
     opacity: initial;
     margin-left: -2px;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .textExit {
@@ -5289,10 +5287,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -5803,10 +5797,6 @@
     margin-left: -2px;
   }
 
-  .tablePaidTherapist {
-    margin-top: 0%;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -6302,10 +6292,6 @@
     color: #8c52ff;
     border-width: initial;
     opacity: initial;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .formAgregar {
@@ -6818,10 +6804,6 @@
     color: #8c52ff;
     border-width: initial;
     opacity: initial;
-  }
-
-  .tablePaidTherapist {
-    margin-top: 0%;
   }
 
   .formAgregar {

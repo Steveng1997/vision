@@ -632,7 +632,7 @@ input[id="transOtro"] {
 
   .containerTitleService {
     display: grid;
-    grid-template-columns: 40% 40%;
+    grid-template-columns: 40% 42%;
     margin-right: 9%;
   }
 
