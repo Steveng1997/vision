@@ -111,8 +111,6 @@ export class TableComponent implements OnInit {
           }
         }, 1000);
       })
-
-
     }
 
     this.getTherapist()
@@ -142,9 +140,6 @@ export class TableComponent implements OnInit {
           this.servicio = datoServicio
           if (datoServicio.length != 0) {
             this.totalSumOfServices()
-            for (let i = 0; i < this.servicio.length; i++) {
-              this.pointThousandTable(i)
-            }
           }
         })
       } else {
@@ -152,9 +147,6 @@ export class TableComponent implements OnInit {
           this.servicio = datoServicio
           if (datoServicio.length != 0) {
             this.totalSumOfServices()
-            for (let i = 0; i < this.servicio.length; i++) {
-              this.pointThousandTable(i)
-            }
           }
         })
       }
@@ -497,17 +489,18 @@ export class TableComponent implements OnInit {
     })
 
     if (this.selectedFormPago != '') {
-      this.PaymentForm()
-      // this.calculateSumOfServices()
+      if (!this.PaymentForm()) return
     }
+
+    this.calculateSumOfServices()
   }
 
   PaymentForm() {
     this.service.getPaymentForm(this.selectedFormPago).subscribe((rp) => {
-      console.log(rp)
       this.servicio = rp
-      this.calculateSumOfServices()
+      return true
     })
+    return false
   }
 
   calculateSumOfServices() {
@@ -520,14 +513,10 @@ export class TableComponent implements OnInit {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
     }
 
-    // const conditionMethodOfPayment = serv => {
-    //   return (this.selectedFormPago) ? serv.formaPago === this.selectedFormPago : true
-    // }
-
     const conditionBetweenDates = serv => {
       if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
       if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true
-      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return ɵbypassSanitizationTrustResourceUrl
+      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return true
       if (serv.fecha >= this.fechaInicio && serv.fecha <= this.fechaFinal) return true
 
       return false
@@ -546,98 +535,86 @@ export class TableComponent implements OnInit {
     // Filter by Servicio
     if (Array.isArray(this.servicio)) {
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalServicio = servicios.reduce((accumulator, serv) => {
         return accumulator + serv.servicio
       }, 0)
+      
 
       // Filter by Pisos
       const pisoss = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalPiso = pisoss.reduce((accumulator, serv) => {
         return accumulator + serv.numberPiso1
       }, 0)
 
       // Filter by Pisos
       const pisos2 = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalPiso2 = pisoss.reduce((accumulator, serv) => {
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
+      this.totalPiso2 = pisos2.reduce((accumulator, serv) => {
         return accumulator + serv.numberPiso2
       }, 0)
 
       // Filter by Terapeuta
       const terapeuta = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
         return accumulator + serv.numberTerap
       }, 0)
 
       // Filter by Encargada
       const encargada = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
         return accumulator + serv.numberEncarg
       }, 0)
 
       // Filter by Valor Otro
       const valorOtro = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
         return accumulator + serv.numberOtro
       }, 0)
 
       // Filter by Valor Bebida
       const valorBebida = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
         return accumulator + serv.bebidas
       }, 0)
 
       // Filter by Valor Tabaco
       const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
         return accumulator + serv.tabaco
       }, 0)
 
       // Filter by Valor Vitamina
       const valorVitamina = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
         return accumulator + serv.vitaminas
       }, 0)
 
       // Filter by Valor Propina
       const valorPropina = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
         return accumulator + serv.propina
       }, 0)
 
       // Filter by Valor Total
       const valorTotal = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValor = valorTotal.reduce((accumulator, serv) => {
         this.idService = valorTotal
         return accumulator + serv.totalServicio
       }, 0)
 
-
       // Filter by Valor Propina
       const valorOtros = this.servicio.filter(serv => therapistCondition(serv)
-        && managerCondition(serv)
-        && searchCondition(serv) && conditionBetweenDates(serv))
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
       this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
         return accumulator + serv.otros
       }, 0)
