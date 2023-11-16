@@ -267,16 +267,20 @@
                             <label>Fecha</label>
                         </div>
 
-                        <div class="textExit">
-                            <label>Salida</label>
-                        </div>
-
                         <div class="textHour">
                             <label>Hora</label>
                         </div>
 
+                        <div class="textHour">
+                            <label>Min</label>
+                        </div>
+
                         <div class="textTreatmentTable2">
                             <label>Tratamiento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
                         </div>
 
                         <div class="textTip">
@@ -320,12 +324,15 @@
 
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
-                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
-
                         <div class="columnHour" (click)="goToEdit(serv.id)">
                             {{serv.horaStart + ' :' + serv.horaEnd}} </div>
 
+
+                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+
                         <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{textTotalTreatment + ' €'}} </div>
+
+                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
 
                         <div class="columnValueTip" (click)="goToEdit(serv.id)">{{textTotalTip + ' €'}} </div>
 
