@@ -155,7 +155,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 26% 25% 27% 46% 46% 26%;
+    grid-template-columns: 26% 25% 27% 51% 51% 26%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -749,7 +749,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 25% 25% 25% 44% 44% 25%;
+    grid-template-columns: 25% 25% 25% 49% 49% 25%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -1361,7 +1361,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 24% 24% 25% 44% 44% 26%;
+    grid-template-columns: 24% 24% 25% 48% 48% 26%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -1863,7 +1863,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 24% 24% 25% 44% 43% 24%;
+    grid-template-columns: 24% 24% 25% 48% 48% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -2366,7 +2366,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 23% 23% 25% 41% 42% 24%;
+    grid-template-columns: 23% 23% 25% 46% 47% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -2667,9 +2667,9 @@
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
-  .container {
+  /* .container {
     height: 92%;
-  }
+  } */
 
   .marginPage {
     margin: 0px auto 9px;
@@ -2710,7 +2710,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     margin-top: 2rem;
-    margin-left: -15px;
+    margin-left: -13%;
   }
 
   .therapistContainer {
@@ -2737,12 +2737,12 @@
 
   .color2 {
     background: #8C52FF;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     display: block;
     margin-top: -7%;
-    margin-left: 35%;
+    margin-left: 13%;
   }
 
   .title {
@@ -2783,9 +2783,9 @@
   }
 
   .horaInicio {
+    width: 68%;
     align-self: end;
     margin-left: -11px;
-    width: 74%;
   }
 
   .fechaFinal {
@@ -2794,7 +2794,7 @@
   }
 
   .horaFinal {
-    width: 74%;
+    width: 68%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -2814,7 +2814,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 23% 23% 24% 41% 41% 24%;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -2957,21 +2957,22 @@
 
   .column2 {
     margin-top: 0rem;
-    margin-left: -7px;
+    margin-left: -33px;
     margin-bottom: 2px;
     overflow-x: auto;
+    min-width: max-content;
   }
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 15% 29% 36% 42% 29% 29% 32% 24% 27% 27% 23% 23%;
+    grid-template-columns: 8% 16% 17% 22% 15% 15% 13% 14% 14% 14% 12% 11%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    margin-left: -3%;
+    margin-left: 28%;
   }
 
   .lineTable2 {
-    width: 341%;
+    width: 175%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3021,14 +3022,14 @@
   }
 
   .textValueTherapist {
-    line-break: anywhere;
+    /* line-break: anywhere; */
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 31px 0px 0px;
   }
 
   .textVitamin {
@@ -3078,18 +3079,18 @@
     border-bottom: hidden;
     word-wrap: break-word;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 8px 15px 0px 0px;
+    padding: 0px 15px 0px 0px;
   }
 
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 68%;
+    max-width: 85%;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     line-height: normal;
   }
 
@@ -3149,13 +3150,13 @@
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -29px;
+    margin-left: -33px;
     margin-bottom: 2px;
   }
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 20% 36% 17%;
+    grid-template-columns: 31% 20% 36% 19%;
     margin-top: 0.5rem;
     margin-bottom: -0.5rem;
     margin-left: 0%;
@@ -3240,9 +3241,8 @@
 
   .column4 {
     margin-top: 2rem;
-    margin-left: -7px;
+    margin-left: -33px;
     margin-bottom: 2px;
-    overflow: hidden;
   }
 
   .columnTable4 {
@@ -3994,7 +3994,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 23% 23% 24% 41% 41% 24%;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -4496,7 +4496,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 22% 22% 23% 39% 38% 24%;
+    grid-template-columns: 22% 22% 23% 43% 42% 24%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -4998,7 +4998,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 21% 22% 23% 38% 37% 24%;
+    grid-template-columns: 21% 22% 23% 44% 44% 22%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -5501,7 +5501,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 21% 21% 21% 38% 34% 19%;
+    grid-template-columns: 21% 21% 21% 41% 37% 19%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -3%;
@@ -6002,7 +6002,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 17% 17% 17% 29% 27% 19%;
+    grid-template-columns: 17% 17% 17% 33% 30% 19%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: -2%;
