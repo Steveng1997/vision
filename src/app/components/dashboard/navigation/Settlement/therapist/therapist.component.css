@@ -148,7 +148,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -731,13 +731,13 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
   .lineTable1 {
-    width: 202%;
+    width: 200%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1352,7 +1352,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: -1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -1365,7 +1365,7 @@
   }
 
   .lineTable1 {
-    width: 191%;
+    width: 198%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1854,7 +1854,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 4%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -1867,7 +1867,7 @@
   }
 
   .lineTable1 {
-    width: 197%;
+    width: 196%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2357,7 +2357,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2370,7 +2370,7 @@
   }
 
   .lineTable1 {
-    width: 182%;
+    width: 190%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2665,10 +2665,6 @@
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
-  /* .container {
-    height: 92%;
-  } */
-
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -2691,7 +2687,7 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 29px;
+    margin-left: 4px;
   }
 
   .titleLiquidation {
@@ -2767,22 +2763,22 @@
   }
 
   .fechaInicio {
-    width: 93%;
+    width: 79%;
   }
 
   .horaInicio {
-    width: 68%;
+    width: 64%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 93%;
+    width: 79%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 68%;
+    width: 64%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -2795,7 +2791,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: -5%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2808,7 +2804,7 @@
   }
 
   .lineTable1 {
-    width: 178%;
+    width: 188%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2951,13 +2947,13 @@
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 9% 30% 26% 42% 28% 27% 29% 21% 23% 24% 20% 17%;
+    grid-template-columns: 9% 24% 18% 32% 21% 23% 24% 19% 20% 21% 19% 15%;
     margin-bottom: 8px;
     margin-left: -18px;
   }
 
   .lineTable2 {
-    width: 300%;
+    width: 248%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3035,7 +3031,19 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 22px 0px 0px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 0px;
+
   }
 
   /* Column */
@@ -3070,6 +3078,16 @@
     cursor: pointer;
   }
 
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTip {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -3077,7 +3095,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 13px 0px 0px;
   }
 
   .columnPaymentMethod {
@@ -3091,7 +3109,7 @@
 
   .columnValueTherapist {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 12px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3101,7 +3119,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 9px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3111,7 +3129,7 @@
 
   .columnValueTobacco {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3121,7 +3139,7 @@
 
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 25px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3131,7 +3149,7 @@
 
   .columnValueOthers {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3219,8 +3237,21 @@
   .columnTotalPay {
     color: #000000;
     font-size: 18px;
-    place-self: end;
     font-family: sans-serif;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
   }
 
   .columnTotal {
@@ -3231,12 +3262,12 @@
   }
 
   .lineTotalPay {
-    width: 59%;
+    width: 54%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 53%;
+    margin-left: 51%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -3254,19 +3285,19 @@
   .columnTable4 {
     display: grid;
     grid-template-columns: 47% 32%;
-    margin-top: 0.7em;
-    margin-bottom: -0.5rem;
+    margin-bottom: -5px;
     margin-left: 0%;
   }
 
   .lineTable4 {
-    width: 84%;
+    width: 81%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
     margin-top: -7px;
+    margin-bottom: 6px;
   }
 
   .textPayToTherapist {
@@ -3993,7 +4024,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -4496,7 +4527,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 4%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -4509,7 +4540,7 @@
   }
 
   .lineTable1 {
-    width: 179%;
+    width: 177%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4998,7 +5029,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -5011,7 +5042,7 @@
   }
 
   .lineTable1 {
-    width: 168%;
+    width: 178%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5501,7 +5532,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 0%;
+    margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -6002,7 +6033,7 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: -4%;
+    margin-left: -6%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -6015,7 +6046,7 @@
   }
 
   .lineTable1 {
-    width: 134%;
+    width: 133%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;

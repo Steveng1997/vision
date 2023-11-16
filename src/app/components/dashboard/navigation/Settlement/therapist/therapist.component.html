@@ -123,7 +123,7 @@
 
                         <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
 
-                        <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
+                        <div class="columnImport">{{textImport + ' €'}}</div>
 
                         <div style="font-family: sans-serif; font-size: 18px">
                             {{liqTerap?.desdeFechaLiquidado + ' - ' + liqTerap?.desdeHoraLiquidado}} </div>
@@ -131,7 +131,7 @@
                         <div style="font-family: sans-serif; font-size: 18px">
                             {{liqTerap?.hastaFechaLiquidado + ' - ' + liqTerap?.hastaHoraLiquidado}} </div>
 
-                        <div class="columnTreatment">{{liqTerap?.tratamiento + ' €'}}</div>
+                        <div class="columnTreatment">{{liqTerap?.tratamiento}}</div>
                     </div>
                 </div>
 
@@ -248,7 +248,7 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{totalCommission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
 
                     </div>
@@ -275,7 +275,7 @@
                             <label>Hora</label>
                         </div>
 
-                        <div class="textTreatment">
+                        <div class="textTreatmentTable2">
                             <label>Tratamiento</label>
                         </div>
 
@@ -325,21 +325,22 @@
                         <div class="columnHour" (click)="goToEdit(serv.id)">
                             {{serv.horaStart + ' :' + serv.horaEnd}} </div>
 
-                        <div class="columnTreatment" (click)="goToEdit(serv.id)">{{serv.servicio}} </div>
+                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{textTotalTreatment + ' €'}} </div>
 
-                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina}} </div>
+                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{textTotalTip + ' €'}} </div>
 
                         <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
 
-                        <div class="columnValueTherapist" (click)="goToEdit(serv.id)">{{serv?.numberTerap + ' €'}}</div>
+                        <div class="columnValueTherapist" (click)="goToEdit(serv.id)">
+                            {{textTotalTherapist + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{textTotalDrink + ' €'}}</div>
 
-                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{textTotalTobacco + ' €'}}</div>
 
-                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{textTotalVitamin + ' €'}}</div>
 
-                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{textTotalOthers + ' €'}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -393,60 +394,60 @@
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Tratamiento</label>
-                        <label class="columnSum">{{totalService + ' €'}}</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.servicio + '
                             %'}}</label>
-                        <label class="columnTotal">{{serviceCommission + ' €'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Propina</label>
-                        <label class="columnSum">{{totalTipValue + ' €'}}</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.propina + ' %'}}</label>
                         <label class="columnTotal">{{commissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Bebida</label>
-                        <label class="columnSum">{{totalValueDrink + ' €'}}</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
-                        <label class="columnTotal">{{beverageCommission + ' €'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Tabaco</label>
-                        <label class="columnSum">{{totalTobaccoValue + ' €'}}</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.tabaco + ' %'}}</label>
-                        <label class="columnTotal">{{tobaccoCommission + ' €'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Vitamina</label>
-                        <label class="columnSum">{{totalValueVitamins + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.vitamina + '
-                            %'}}</label>
-                        <label class="columnTotal">{{vitaminCommission + ' €'}}</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label class="columnComission">
+                            {{terapeutaName?.vitamina + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Otros</label>
-                        <label class="columnSum">{{totalValueOther + ' €'}}</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.otros + ' %'}}</label>
-                        <label class="columnTotal">{{commissionOthers + ' €'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnSum"></label>
-                        <label class="columnComission">Suma</label>
-                        <label class="columnTotal">{{sumCommission + ' €'}}</label>
+                        <label class="textSum2">Suma</label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnSum"></label>
-                        <label class="columnComission">Recibido</label>
-                        <label class="columnTotal">{{receivedTherapist + ' €'}}</label>
+                        <label class="textReceivend">Recibido</label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
                     </div>
 
                     <hr class="lineTotalPay">
@@ -455,7 +456,7 @@
                         <label class="columnTreatment3"></label>
                         <label class="columnSum"></label>
                         <label class="columnTotalPay">Total a pagar</label>
-                        <label class="columnTotal">{{totalCommission + ' €'}}</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>
 
@@ -469,29 +470,29 @@
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Efectivo</label>
-                        <label class="columnSum">{{totalCash + ' €'}}</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
                     </div>
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Bizum</label>
-                        <label class="columnSum">{{totalBizum + ' €'}}</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
                     </div>
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Tarjeta</label>
-                        <label class="columnSum">{{totalCard + ' €'}}</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
                     </div>
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Transferencia</label>
-                        <label class="columnSum">{{totalTransaction + ' €'}}</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
                     </div>
 
                     <hr class="lineTable4">
 
                     <div class="columnTable4">
-                        <label class="columnTreatment4">Transferencia</label>
-                        <label class="columnSum">{{totalTherapistPayment + ' €'}}</label>
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
                     </div>
                 </div>
 
