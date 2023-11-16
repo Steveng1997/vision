@@ -2674,9 +2674,9 @@
   }
 
   .pagination_Mobile {
-    margin-bottom: 0px;
+    margin-bottom: -27px;
     text-align-last: end;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .tableContainer {
@@ -2708,7 +2708,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     margin-top: 2rem;
-    margin-left: -13%;
+    margin-left: -17%;
   }
 
   .therapistContainer {
@@ -2731,16 +2731,6 @@
     margin-top: 43px;
     width: 6rem;
     margin-left: 2.3rem;
-  }
-
-  .color2 {
-    background: #8C52FF;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: block;
-    margin-top: -7%;
-    margin-left: 13%;
   }
 
   .title {
@@ -2956,26 +2946,37 @@
   .column2 {
     margin-top: 0rem;
     margin-left: -33px;
-    margin-bottom: 2px;
+    margin-bottom: -46px;
     overflow-x: auto;
-    min-width: max-content;
+    min-width: max-content; 
   }
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 7% 16% 17% 22% 15% 15% 13% 14% 15% 15% 12% 11%;
-    margin-bottom: 4px;
-    margin-left: 28%;
+    grid-template-columns: 4% 14% 15% 22% 15% 15% 15% 12% 13% 14% 13% 11%;
+    margin-bottom: 8px;
+    margin-left: 461px;
   }
 
   .lineTable2 {
-    width: 175%;
+    width: 165%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
-    margin-top: -15px;
+    margin-left: 29px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
   }
 
   .textExit {
@@ -3147,15 +3148,14 @@
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -33px;
+    margin-left: -46px;
     margin-bottom: 2px;
   }
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 20% 36% 19%;
-    margin-top: 0.7em;
-    margin-bottom: -0.5rem;
+    grid-template-columns: 31% 20% 36% 24%;
+    margin-bottom: -5px;
     margin-left: 0%;
   }
 
@@ -3166,7 +3166,8 @@
     border-width: initial;
     opacity: initial;
     margin-left: 0rem;
-    margin-top: 0px;
+    margin-top: -8px;
+    margin-bottom: 6px;
   }
 
   .textSum {
@@ -3232,13 +3233,24 @@
     font-family: sans-serif;
   }
 
+  .lineTotalPay{
+    width: 59%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 53%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
   /* fin Table 3 */
 
   /* Table 4 */
 
   .column4 {
     margin-top: 2rem;
-    margin-left: -33px;
+    margin-left: -46px;
     margin-bottom: 2px;
   }
 

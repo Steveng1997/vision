@@ -142,7 +142,7 @@
                 <!-- Agregar Terapeuta -->
 
 
-                <label class="title">NUEVA LIQUIDACIÓN</label>
+                <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
 
                 <form *ngIf="addForm">
 
@@ -448,6 +448,8 @@
                         <label class="columnComission">Recibido</label>
                         <label class="columnTotal">{{receivedTherapist + ' €'}}</label>
                     </div>
+
+                    <hr class="lineTotalPay">
 
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
