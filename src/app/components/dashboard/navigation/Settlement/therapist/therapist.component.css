@@ -2667,24 +2667,12 @@
 
   .titleEdit {
     display: grid;
-    justify-content: center;
+    margin-left: -15px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 0rem;
-    white-space: inherit;
-  }
-
-  .lineLiquidation{
-    width: 107%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -12px;
-    margin-top: -8px;
-    margin-bottom: 9px;
   }
 
   .textDates{
@@ -2693,7 +2681,14 @@
     color: #000000;
     font-family: sans-serif;
     white-space: pre;
-    margin-left: -7px;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
   }
 
   .fechaInicio {
@@ -2878,13 +2873,13 @@
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 15% 30% 29% 19% 25% 24% 23% 26% 20% 15%;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
     margin-bottom: 8px;
     margin-left: -18px;
   }
 
   .lineTable2 {
-    width: 296%;
+    width: 302%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2937,7 +2932,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-break: break-all;
-    padding: 0px 28px 0px 0px;
+    padding: 0px 24px 0px 25px;
   }
 
   .textPay {
@@ -2963,7 +2958,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 31px 0px 0px;
+    padding: 0px 0px 0px 8px;
   }
 
   .textVitamin {
@@ -2974,7 +2969,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 0px;
+    padding: 0px 10px 0px 15px;
   }
 
   .textTreatmentTable2 {
@@ -2985,7 +2980,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 41px 0px 0px;
+    padding: 0px 42px 0px 7px;
   }
 
   /* Column */
@@ -3037,7 +3032,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 0px 30px 0px 0px;
+    padding: 0px 27px 0px 0px;
   }
 
   .columnPaymentMethod {
@@ -3051,7 +3046,7 @@
 
   .columnValueTherapist {
     line-height: 1.4rem;
-    padding: 0px 30px 0px 0px;
+    padding: 0px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3071,7 +3066,7 @@
 
   .columnValueTobacco {
     line-height: 1.4rem;
-    padding: 0px 30px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3081,7 +3076,7 @@
 
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 28px 0px 0px;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3111,7 +3106,7 @@
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 19% 34% 20%;
+    grid-template-columns: 31% 20% 34% 19%;
     margin-bottom: -5px;
     margin-left: -5px;
   }

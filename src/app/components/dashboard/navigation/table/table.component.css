@@ -140,6 +140,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -682,6 +684,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -1224,6 +1228,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -1765,6 +1771,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -2309,6 +2317,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -2845,12 +2855,14 @@
 
   .adjustTable {
     margin-top: 13%;
-    margin-left: -10px;
+    margin-left: 3px;
   }
 
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -3394,6 +3406,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -3921,6 +3935,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -4463,6 +4479,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -5005,6 +5023,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -5547,6 +5567,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -6089,6 +6111,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -6586,6 +6610,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
@@ -7084,6 +7110,8 @@
   .textNote {
     max-width: 0px;
     padding: 0px 25px 0px 0px;
+    border-bottom: hidden;
+    border-top: hidden;
   }
 
   .textDate {
