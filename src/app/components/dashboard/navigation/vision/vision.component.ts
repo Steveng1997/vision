@@ -253,15 +253,15 @@ export class VisionComponent implements OnInit {
       hora_inicio = '0' + hora_inicio
     }
 
-    setTimeout(() => {
-      if (convertFecha < fechaEnd) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
-          this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
-            return ''
-          })
-        })
-      }
-    }, 1000);
+    // setTimeout(() => {
+    //   if (convertFecha < fechaEnd) {
+    //     this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
+    //       this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
+    //         return ''
+    //       })
+    //     })
+    //   }
+    // }, 1000);
 
     // Si algún valor no tiene formato correcto sale
     if (!(hora_inicio.match(formatohora) && hora_final.match(formatohora))) {

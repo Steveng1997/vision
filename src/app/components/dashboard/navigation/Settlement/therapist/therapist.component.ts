@@ -94,7 +94,6 @@ export class TherapistComponent implements OnInit {
   textTotalCard: string
   textTotalTransaction: string
   textTotalTherapistPayment: string
-  textImport: string
 
   // Total Payment Method
   totalCash: number
@@ -256,29 +255,31 @@ export class TherapistComponent implements OnInit {
         this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe((datoLiquidaciones: any) => {
           this.liquidated = datoLiquidaciones
 
-          if (this.liquidated[0].importe > 999) {
+          for (let o = 0; o < this.liquidated.length; o++) {
+            if (this.liquidated[o].importe > 999) {
 
-            const coma = this.liquidated[0].importe.toString().indexOf(".") !== -1 ? true : false;
-            const array = coma ? this.liquidated[0].importe.toString().split(".") : this.liquidated[0].importe.toString().split("");
-            let integer = coma ? array[0].split("") : array;
-            let subIndex = 1;
+              const coma = this.liquidated[o].importe.toString().indexOf(".") !== -1 ? true : false;
+              const array = coma ? this.liquidated[o].importe.toString().split(".") : this.liquidated[o].importe.toString().split("");
+              let integer = coma ? array[o].split("") : array;
+              let subIndex = 1;
 
-            for (let i = integer.length - 1; i >= 0; i--) {
+              for (let i = integer.length - 1; i >= 0; i--) {
 
-              if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
 
-                integer.splice(i, 0, ".");
-                subIndex++;
+                  integer.splice(i, 0, ".");
+                  subIndex++;
 
-              } else {
-                subIndex++;
+                } else {
+                  subIndex++;
+                }
               }
-            }
 
-            integer = [integer.toString().replace(/,/gi, "")]
-            this.textImport = integer[0].toString()
-          } else {
-            this.textImport = this.liquidated[0].importe.toString()
+              integer = [integer.toString().replace(/,/gi, "")]
+              this.liquidated[o]['importe'] = integer[0].toString()
+            } else {
+              this.liquidated[o]['importe'] = this.liquidated[o].importe.toString()
+            }
           }
 
           for (let index = 0; index < this.liquidated.length; index++) {

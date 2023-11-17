@@ -122,8 +122,8 @@
                         <div class="columnManager">{{liqTerap?.encargada}}</div>
 
                         <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
-
-                        <div class="columnImport">{{textImport + ' €'}}</div>
+                    
+                        <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
 
                         <div style="font-family: sans-serif; font-size: 18px">
                             {{liqTerap?.desdeFechaLiquidado + ' - ' + liqTerap?.desdeHoraLiquidado}} </div>
@@ -619,7 +619,7 @@
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
                         <div class="columnHour" (click)="goToEdit(serv.id)">
-                            {{serv.horaStart + ' :' + serv.horaEnd}} </div>
+                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
 
                         <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
