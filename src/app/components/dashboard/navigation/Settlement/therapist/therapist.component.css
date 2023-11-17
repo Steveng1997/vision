@@ -3106,7 +3106,7 @@
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 20% 34% 19%;
+    grid-template-columns: 31% 24% 26% 23%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -3127,7 +3127,8 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
   }
 
   .textCommision {
@@ -3162,6 +3163,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
   }
 
   .columnComission {
@@ -3169,13 +3171,14 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 27px 0px 0px;
+    padding: 0px 1px 0px 0px;
   }
 
   .columnTotalPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
+    justify-self: start;
   }
 
   .textSum2 {
@@ -3200,12 +3203,12 @@
   }
 
   .lineTotalPay {
-    width: 54%;
+    width: 76%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 51%;
+    margin-left: 30%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
