@@ -139,8 +139,7 @@
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
-                <!-- Agregar Terapeuta -->
-
+                <!-- Add Therapist -->
 
                 <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
 
@@ -503,10 +502,283 @@
                     </div>
                 </div>
 
+
+                <!-- Edit Liquidation -->
+
+                <label *ngIf="editTerap" class="titleEdit">Visualizacion de la liquidación de
+                    {{settledData[0]['terapeuta']}} con {{settledData[0]['encargada']}}</label>
+
+                <div *ngIf="editTerap">
+                    <div class="row containerTitleSelect">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                        </div>
+                    </div>
+                    <hr class="lineLiquidation">
+
+                    <label class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' : ' +
+                        liquidationTherapist.desdeHoraLiquidado + ' - ' + liquidationTherapist.hastaFechaLiquidado
+                        + ' : ' + liquidationTherapist.hastaHoraLiquidado}}</label>
+
+                </div>
+
+                <!-- Table 2 -->
+
+                <div class="column2" *ngIf="editTerap">
+                    <div class="columnTable2">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Hora</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Min</label>
+                        </div>
+
+                        <div class="textTreatmentTable2">
+                            <label>Tratamiento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textValueTherapist">
+                            <label>€ A Terap.</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2" *ngFor="let serv of (settledData 
+                                    | terapeuta: liquidationTherapist.terapeuta | encargada: liquidationTherapist.encargada) 
+                                    | paginate: { itemsPerPage: 10, currentPage: page }">
+
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
+                        </div>
+
+                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+
+                        <div class="columnHour" (click)="goToEdit(serv.id)">
+                            {{serv.horaStart + ' :' + serv.horaEnd}} </div>
+
+
+                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+
+                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{textTotalTreatment + ' €'}} </div>
+
+                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+
+                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{textTotalTip + ' €'}} </div>
+
+                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+
+                        <div class="columnValueTherapist" (click)="goToEdit(serv.id)">
+                            {{textTotalTherapist + ' €'}} </div>
+
+                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{textTotalDrink + ' €'}}</div>
+
+                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{textTotalTobacco + ' €'}}</div>
+
+                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{textTotalVitamin + ' €'}}</div>
+
+                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{textTotalOthers + ' €'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="editTerap" class="pagination_Mobile" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 3 -->
+
+                <div class="column3" *ngIf="editTerap">
+                    <div class="columnTable3">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textSum">
+                            <label>Suma</label>
+                        </div>
+
+                        <div class="textCommision">
+                            <label>Comisión</label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>Total</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.servicio + '
+                            %'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Propina</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.propina + ' %'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tabaco</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.tabaco + ' %'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Vitamina</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label class="columnComission">
+                            {{terapeutaName?.vitamina + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Otros</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.otros + ' %'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnSum"></label>
+                        <label class="textSum2">Suma</label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnSum"></label>
+                        <label class="textReceivend">Recibido</label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalPay">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnSum"></label>
+                        <label class="columnTotalPay">Total a pagar</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="editTerap">
+
+                    <label class="textPayToTherapist">Pagado a terapeuta</label>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Efectivo</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Bizum</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Tarjeta</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Transferencia</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <div *ngIf="!editTerap" class="row inputButton">
+        <div *ngIf="editTerap" class="row inputButton">
 
             <div *ngIf="selected && unliquidatedService.length <= 0">
                 <div class="row g-0">
@@ -531,264 +803,6 @@
         </div>
 
         <!-- Editar Terapeuta -->
-        <div *ngIf="editTerap">
 
-            <label class="titleEdit">Visualizacion de la liquidación de {{settledData[0]['terapeuta']}}
-                con
-                {{settledData[0]['encargada']}}
-            </label>
-
-            <div class="container">
-
-                <div class="row containerTitleSelect">
-                    <div class="row g-0">
-                        <!-- <label class="titleLiquidation">Liquidación de Terapeuta
-                                        {{settledData[0]['terapeuta']}}</label> -->
-                        <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
-                    </div>
-
-                    <div class="row g-0">
-                        <label class="titleLiquidation">{{totalCommission + ' €'}}</label>
-                    </div>
-                </div>
-
-                <hr class="lineLiquidation">
-
-                <div class="col-auto" style="display: contents">
-                    <label style="float: left">
-                        {{liquidationTherapist.desdeFechaLiquidado + ' : ' +
-                        liquidationTherapist.desdeHoraLiquidado + ' - '
-                        +
-                        liquidationTherapist.hastaFechaLiquidado + ' : ' +
-                        liquidationTherapist.hastaHoraLiquidado}}</label>
-                </div>
-
-                <div class="row g-0 adjustTable outer">
-                    <table class="table">
-                        <thead>
-                            <tr style="line-height: 0%; letter-spacing: 0px;">
-
-                                <th></th>
-                                <th class="textDate">Fecha</th>
-                                <th class="textExit">Salida</th>
-                                <th class="textHour">Hora</th>
-                                <th class="textTreatment">Tratamiento</th>
-                                <th class="textTip">Propina</th>
-                                <th class="textPay">Pago</th>
-                                <th class="textValue">€ a terap </th>
-                                <th class="textColumn">Bebida</th>
-                                <th class="textColumn">Tabaco</th>
-                                <th class="textVitamin">Vitamina</th>
-                                <th class="textColumn">Otros</th>
-
-                            </tr>
-                        </thead>
-                        <tbody *ngFor="let serv of (settledData | terapeuta: liquidationTherapist.terapeuta 
-                                            | encargada: liquidationTherapist.encargada) | paginate: { itemsPerPage: 10, 
-                                            currentPage: page }">
-
-                            <tr style="cursor: pointer; line-height: 0%;">
-
-                                <td class="columnNote" [ngClass]="{'color2':serv.nota !== ''}"
-                                    (click)="notes(serv.id, modalTabl)">
-                                </td>
-
-                                <td class="columnDate" (click)="goToEdit(serv.id)">
-                                    {{serv.fecha}} </td>
-
-                                <td class="columnExit" (click)="goToEdit(serv.id)">
-                                    {{serv.salida}} </td>
-
-                                <td class="columnHour" (click)="goToEdit(serv.id)">
-                                    {{serv.horaStart + ' :' + serv.horaEnd}}</td>
-
-                                <td class="columnTreatment" (click)="goToEdit(serv.id)">
-                                    {{serv.servicio}}</td>
-
-                                <td class="columnValueTip" (click)="goToEdit(serv.id)">
-                                    {{serv.propina}}</td>
-
-                                <td class="columnPaymentMethod" (click)="goToEdit(serv.id)">
-                                    {{serv.formaPago}}</td>
-
-                                <td class="columnValueTherapist" (click)="goToEdit(serv.id)">
-                                    {{serv.numberTerap}}</td>
-
-                                <td class="columnValueDrink" (click)="goToEdit(serv.id)">
-                                    {{serv.bebidas}}</td>
-
-                                <td class="columnValueTobacco" (click)="goToEdit(serv.id)">
-                                    {{serv.tabaco}}</td>
-
-                                <td class="columnValueVitamin" (click)="goToEdit(serv.id)">
-                                    {{serv.vitaminas}}</td>
-
-                                <td class="columnValueOthers" (click)="goToEdit(serv.id)">
-                                    {{serv.otros}}</td>
-                            </tr>
-
-                            <!-- Modal -->
-                            <ng-template class="custom-modal" #modalTabl let-modal>
-                                <div class="modal-header">
-                                    <h5 class="modal-title"> Nota </h5>
-                                    <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                <div class="modal-body" style="text-align: center;">
-                                    <!-- Aqui se coloca lo adentro -->
-
-                                    <h4>{{serv.nota}}</h4>
-
-                                    <!-- Afuera -->
-                                </div>
-                            </ng-template>
-                            <!-- Fin Modal -->
-
-                        </tbody>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td style="font-weight: bold; padding: 25px 19px 0px 0px; 
-                                            float: inline-end; margin-bottom: 1rem"> {{totalService + '€'}}
-                            </td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalTipValue + '€'}} </td>
-
-                            <td></td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalTherapistValue + '€'}}
-                            </td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalValueDrink + '€'}}
-                            </td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalTobaccoValue + '€'}}
-                            </td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalValueVitamins + '€'}}
-                            </td>
-
-                            <td style="font-weight: bold; padding: 24px 0px 0px 8px; margin-bottom: 1rem">
-                                {{totalValueOther + '€'}}
-                            </td>
-                        </tr>
-                    </table>
-
-                    <pagination-controls style="text-align-last: end;" (pageChange)="page = $event" previousLabel=""
-                        nextLabel="">
-                    </pagination-controls>
-
-                </div>
-
-
-                <!-- Table Sumatoria -->
-                <div class="row g-0 adjustTables outer">
-                    <table class="table">
-                        <thead>
-                            <tr class="table-secondary">
-                                <th style="border-bottom: hidden;"></th>
-                                <th class="sumTitleTable"> Suma</th>
-                                <th class="textCommission"> Comisión</th>
-                                <th class="sumTitleTable"> Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Tratamiento</th>
-                                <td class="valueColumnSum">{{totalService + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName?.servicio + ' %'}} </td>
-                                <td class="valueColumnSum"> {{serviceCommission + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Propina</th>
-                                <td class="valueColumnSum">{{totalTipValue + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName?.propina + ' %'}} </td>
-                                <td class="valueColumnSum">{{commissionTip + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Bebida</th>
-                                <td class="valueColumnSum">{{totalValueDrink + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName?.bebida + ' %'}} </td>
-                                <td class="valueColumnSum"> {{beverageCommission + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Tabaco</th>
-                                <td class="valueColumnSum"> {{totalTobaccoValue + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName?.tabaco + ' %'}} </td>
-                                <td class="valueColumnSum"> {{tobaccoCommission + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Vitamina</th>
-                                <td class="valueColumnSum"> {{totalValueVitamins + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName['vitamina'] + ' %'}} </td>
-                                <td class="valueColumnSum"> {{vitaminCommission + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" class="sumTitle"> Otros</th>
-                                <td class="valueColumnSum">{{totalValueOther + ' €'}}</td>
-                                <td class="valueColumnSum"> {{terapeutaName['otros'] + ' %'}}</td>
-                                <td class="valueColumnSum">{{commissionOthers + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" style="border-bottom: hidden;"></th>
-                                <td style="border-bottom: hidden;"></td>
-                                <td class="sumTitle" style="text-align: center;">Suma</td>
-                                <td class="valueColumnSum">{{sumCommission + ' €'}}</td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" style="border-bottom: hidden;"></th>
-                                <td style="border-bottom: hidden;"></td>
-                                <td class="sumTitleReceived">Recibido </td>
-                                <td class="valueReceived"> {{receivedTherapist + ' €'}}
-                                </td>
-                            </tr>
-
-                            <tr style="line-height: 40%">
-                                <th scope="row" style="border-bottom: hidden"></th>
-                                <td style="border-bottom: hidden"></td>
-                                <td class="totalToPay">Total a pagar</td>
-                                <td class="totalAmountToPay"> {{totalCommission + ' €'}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="row inputButton">
-
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="edit()">Editar</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
     </div>
 </div>

@@ -133,17 +133,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   /* Table1 */
 
   .column {
@@ -540,10 +529,6 @@
     margin-top: 10px;
   }
 
-  .fechas {
-    justify-content: center;
-  }
-
   .btnCancelar {
     padding-bottom: 6%;
   }
@@ -714,17 +699,6 @@
     font-family: sans-serif;
     margin-bottom: 1.5rem;
     white-space: inherit;
-  }
-
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
   }
 
   /* Table1 */
@@ -985,10 +959,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -1258,17 +1228,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -1338,10 +1297,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -1760,17 +1715,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -1840,10 +1784,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -2263,17 +2203,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -2343,10 +2272,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -2747,19 +2672,28 @@
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0rem;
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
+  .lineLiquidation{
+    width: 107%;
     color: #8c52ff;
-    font-weight: bold;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textDates{
+    display: grid;
+    font-size: 18px;
+    color: #000000;
     font-family: sans-serif;
-    margin-bottom: 1.5rem;
     white-space: pre;
+    margin-left: -7px;
   }
 
   .fechaInicio {
@@ -2781,10 +2715,6 @@
     width: 64%;
     margin-left: -11px;
     margin-top: 43px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   /* Table1 */
@@ -3448,17 +3378,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textTherapist {
     font-family: sans-serif;
     line-height: 1.2rem;
@@ -3569,10 +3488,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -3943,17 +3858,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -4023,10 +3927,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -4446,17 +4346,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -4526,10 +4415,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -4948,17 +4833,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -5028,10 +4902,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -5451,17 +5321,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -5531,10 +5390,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -5952,17 +5807,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textExit {
     font-family: sans-serif;
     font-size: 16px;
@@ -6032,10 +5876,6 @@
     width: 122px;
     margin-left: -11px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .btnCancelar {
@@ -6440,17 +6280,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textTherapist {
     font-family: sans-serif;
     font-size: 18px;
@@ -6554,10 +6383,6 @@
     align-self: end;
     width: 122px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .selectTerap {
@@ -6939,17 +6764,6 @@
     white-space: inherit;
   }
 
-  .thereIsNoTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
   .textTherapist {
     font-family: sans-serif;
     font-size: 18px;
@@ -7058,10 +6872,6 @@
     align-self: end;
     width: 122px;
     margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
   }
 
   .selectTerap {

@@ -1354,6 +1354,709 @@ export class TherapistComponent implements OnInit {
 
   // Edit
 
+  thousandPointEdit(){
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalComission = integer[0].toString()
+    } else {
+      this.textTotalComission = this.totalCommission.toString()
+    }
+
+    if (this.settledData[0]?.servicio > 999) {
+
+      const coma = this.settledData[0]?.servicio.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.servicio.toString().split(".") : this.settledData[0]?.servicio.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTreatment = integer[0].toString()
+    } else {
+      this.textTotalTreatment = this.settledData[0]?.servicio
+    }
+
+    if (this.settledData[0]?.propina > 999) {
+
+      const coma = this.settledData[0]?.propina.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.propina.toString().split(".") : this.settledData[0]?.propina.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTip = integer[0].toString()
+    } else {
+      this.textTotalTip = this.settledData[0]?.propina
+    }
+
+    if (this.settledData[0]?.numberTerap > 999) {
+
+      const coma = this.settledData[0]?.numberTerap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.numberTerap.toString().split(".") : this.settledData[0]?.numberTerap.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTherapist = integer[0].toString()
+    } else {
+      this.textTotalTherapist = this.settledData[0]?.numberTerap
+    }
+
+    if (this.settledData[0]?.bebidas > 999) {
+
+      const coma = this.settledData[0]?.bebidas.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.bebidas.toString().split(".") : this.settledData[0]?.bebidas.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalDrink = integer[0].toString()
+    } else {
+      this.textTotalDrink = this.settledData[0]?.bebidas
+    }
+
+    if (this.settledData[0]?.tabaco > 999) {
+
+      const coma = this.settledData[0]?.tabaco.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.tabaco.toString().split(".") : this.settledData[0]?.tabaco.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTobacco = integer[0].toString()
+    } else {
+      this.textTotalTobacco = this.settledData[0]?.tabaco
+    }
+
+    if (this.settledData[0]?.vitaminas > 999) {
+
+      const coma = this.settledData[0]?.vitaminas.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.vitaminas.toString().split(".") : this.settledData[0]?.vitaminas.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalVitamin = integer[0].toString()
+    } else {
+      this.textTotalVitamin = this.settledData[0]?.vitaminas
+    }
+
+    if (this.settledData[0]?.otros > 999) {
+
+      const coma = this.settledData[0]?.otros.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.settledData[0]?.otros.toString().split(".") : this.settledData[0]?.otros.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalOthers = integer[0].toString()
+    } else {
+      this.textTotalOthers = this.settledData[0]?.otros
+    }
+
+    if (this.totalService > 999) {
+
+      const coma = this.totalService.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalService.toString().split(".") : this.totalService.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalService = integer[0].toString()
+    } else {
+      this.textTotalService = this.totalService.toString()
+    }
+
+    if (this.serviceCommission > 999) {
+
+      const coma = this.serviceCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.serviceCommission.toString().split(".") : this.serviceCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textServiceComission = integer[0].toString()
+    } else {
+      this.textServiceComission = this.serviceCommission.toString()
+    }
+
+    if (this.totalTipValue > 999) {
+
+      const coma = this.totalTipValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTipValue.toString().split(".") : this.totalTipValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTip2 = integer[0].toString()
+    } else {
+      this.textTotalTip2 = this.totalTipValue.toString()
+    }
+
+    if (this.commissionTip > 999) {
+
+      const coma = this.commissionTip.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionTip.toString().split(".") : this.commissionTip.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textComissionTip = integer[0].toString()
+    } else {
+      this.textComissionTip = this.commissionTip.toString()
+    }
+
+    if (this.totalValueDrink > 999) {
+
+      const coma = this.totalValueDrink.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrink.toString().split(".") : this.totalValueDrink.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrink = integer[0].toString()
+    } else {
+      this.textValueDrink = this.totalValueDrink.toString()
+    }
+
+    if (this.beverageCommission > 999) {
+
+      const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageCommission.toString().split(".") : this.beverageCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textBeverageCommission = integer[0].toString()
+    } else {
+      this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.totalTobaccoValue > 999) {
+
+      const coma = this.totalTobaccoValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTobaccoValue.toString().split(".") : this.totalTobaccoValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoValue = integer[0].toString()
+    } else {
+      this.textTobaccoValue = this.totalTobaccoValue.toString()
+    }
+
+    if (this.tobaccoCommission > 999) {
+
+      const coma = this.tobaccoCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.tobaccoCommission.toString().split(".") : this.tobaccoCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoCommission = integer[0].toString()
+    } else {
+      this.textTobaccoCommission = this.tobaccoCommission.toString()
+    }
+
+    if (this.totalValueVitamins > 999) {
+
+      const coma = this.totalValueVitamins.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueVitamins.toString().split(".") : this.totalValueVitamins.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueVitamins = integer[0].toString()
+    } else {
+      this.textValueVitamins = this.totalValueVitamins.toString()
+    }
+
+    if (this.vitaminCommission > 999) {
+
+      const coma = this.vitaminCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.vitaminCommission.toString().split(".") : this.vitaminCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textVitaminCommission = integer[0].toString()
+    } else {
+      this.textVitaminCommission = this.vitaminCommission.toString()
+    }
+
+    if (this.totalValueOther > 999) {
+
+      const coma = this.totalValueOther.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueOther.toString().split(".") : this.totalValueOther.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueOther = integer[0].toString()
+    } else {
+      this.textValueOther = this.totalValueOther.toString()
+    }
+
+    if (this.commissionOthers > 999) {
+
+      const coma = this.commissionOthers.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionOthers.toString().split(".") : this.commissionOthers.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textCommissionOthers = integer[0].toString()
+    } else {
+      this.textCommissionOthers = this.commissionOthers.toString()
+    }
+
+    if (this.sumCommission > 999) {
+
+      const coma = this.sumCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.sumCommission.toString().split(".") : this.sumCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textSumCommission = integer[0].toString()
+    } else {
+      this.textSumCommission = this.sumCommission.toString()
+    }
+
+    if (this.receivedTherapist > 999) {
+
+      const coma = this.receivedTherapist.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.receivedTherapist.toString().split(".") : this.receivedTherapist.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textReceivedTherapist = integer[0].toString()
+    } else {
+      this.textReceivedTherapist = this.receivedTherapist.toString()
+    }
+
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCommission = integer[0].toString()
+    } else {
+      this.textTotalCommission = this.totalCommission.toString()
+    }
+
+    if (this.totalCash > 999) {
+
+      const coma = this.totalCash.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCash.toString().split(".") : this.totalCash.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCash = integer[0].toString()
+    } else {
+      this.textTotalCash = this.totalCash.toString()
+    }
+
+    if (this.totalBizum > 999) {
+
+      const coma = this.totalBizum.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizum.toString().split(".") : this.totalBizum.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizum = integer[0].toString()
+    } else {
+      this.textTotalBizum = this.totalBizum.toString()
+    }
+
+
+    if (this.totalCard > 999) {
+
+      const coma = this.totalCard.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCard.toString().split(".") : this.totalCard.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCard = integer[0].toString()
+    } else {
+      this.textTotalCard = this.totalCard.toString()
+    }
+
+    if (this.totalTransaction > 999) {
+
+      const coma = this.totalTransaction.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransaction.toString().split(".") : this.totalTransaction.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransaction = integer[0].toString()
+    } else {
+      this.textTotalTransaction = this.totalTransaction.toString()
+    }
+    
+    if (this.totalTherapistPayment > 999) {
+
+      const coma = this.totalTherapistPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTherapistPayment.toString().split(".") : this.totalTherapistPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTherapistPayment = integer[0].toString()
+    } else {
+      this.textTotalTherapistPayment = this.totalTherapistPayment.toString()
+    }
+  }
+
   goToEdit(id: number) {
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
@@ -1475,7 +2178,8 @@ export class TherapistComponent implements OnInit {
             return accumulator + serv.numberTerap
           }, 0)
         }
-        return this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+        this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+        this.thousandPointEdit()
       })
     })
   }
