@@ -2654,6 +2654,18 @@
     margin-left: 2.3rem;
   }
 
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
   .title {
     display: grid;
     justify-content: center;
