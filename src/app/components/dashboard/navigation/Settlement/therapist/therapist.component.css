@@ -5629,6 +5629,7 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+    margin-left: -19px;
   }
 
   .tableContainer2 {
@@ -5636,7 +5637,7 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 4px;
+    margin-left: 6px;
   }
 
   .titleLiquidation {
@@ -5653,21 +5654,21 @@
     display: grid;
     grid-template-columns: 89% 107px;
     margin-top: 2rem;
-    margin-left: -187%;
+    margin-left: -217%;
   }
 
   .therapistContainer {
-    width: 83%;
+    width: 76%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 83%;
+    width: 76%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 83%;
+    width: 76%;
     justify-self: center;
     margin-top: 8%;
   }
@@ -5728,22 +5729,22 @@
   }
 
   .fechaInicio {
-    width: 79%;
+    width: 76%;
   }
 
   .horaInicio {
-    width: 64%;
+    width: 61%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 79%;
+    width: 76%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 64%;
+    width: 61%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -5759,13 +5760,13 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    grid-template-columns: 23% 23% 24% 46% 46% 20%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTable1 {
-    width: 188%;
+    width: 186%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5821,7 +5822,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 5px 0px 0px
   }
 
   /* Column Table */
@@ -5878,7 +5879,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 10px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5911,11 +5912,11 @@
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
     margin-bottom: 8px;
-    margin-left: -18px;
+    margin-left: -16px;
   }
 
   .lineTable2 {
-    width: 302%;
+    width: 305%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5968,7 +5969,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-break: break-all;
-    padding: 0px 24px 0px 25px;
+    padding: 0px 24px 0px 30px;
   }
 
   .textPay {
@@ -6005,7 +6006,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 10px 0px 15px;
+    padding: 0px 13px 0px 22px;
   }
 
   .textTreatmentTable2 {
@@ -6016,7 +6017,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 0px 42px 0px 12px;
   }
 
   /* Column */
@@ -6144,16 +6145,16 @@
     display: grid;
     grid-template-columns: 31% 24% 26% 23%;
     margin-bottom: -5px;
-    margin-left: -5px;
+    margin-left: -2px;
   }
 
   .lineTable3 {
-    width: 104%;
+    width: 105%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
+    margin-left: -1px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -6267,7 +6268,7 @@
   }
 
   .lineTable4 {
-    width: 81%;
+    width: 77%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
