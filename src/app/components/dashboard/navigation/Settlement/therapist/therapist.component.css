@@ -32,6 +32,10 @@
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
+  .container {
+    height: 92%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -729,6 +733,10 @@
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
+
+  .container {
+    height: 92%;
+  }
 
   .marginPage {
     margin: 0px auto 9px;
@@ -1429,6 +1437,10 @@
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
 
+  .container {
+    height: 92%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -2128,6 +2140,10 @@
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
 
+  .container {
+    height: 100%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -2825,6 +2841,10 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+
+  .container {
+    height: 92%;
+  }
 
   .marginPage {
     margin: 0px auto 9px;
@@ -3525,6 +3545,10 @@
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
+  .container {
+    height: 92%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -4222,6 +4246,10 @@
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
 
+  .container {
+    height: 93%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -4918,6 +4946,10 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
+  .container {
+    height: 93%;
+  }
 
   .marginPage {
     margin: 0px auto 9px;
@@ -5618,12 +5650,17 @@
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
 
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
 
   .pagination_Mobile {
-    margin-bottom: -27px;
+    margin-bottom: -20px;
     text-align-last: end;
     margin-top: 3rem;
   }
@@ -6315,6 +6352,10 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
+  .container {
+    height: 92%;
+  }
 
   .marginPage {
     margin: 0px auto 9px;
@@ -7015,6 +7056,10 @@
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
 
+  .container {
+    height: 92%;
+  }
+
   .marginPage {
     margin: 0px auto 9px;
   }
@@ -7713,6 +7758,10 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
+  .container {
+    height: 92%;
+  }
 
   .marginPage {
     margin: 0px auto 9px;

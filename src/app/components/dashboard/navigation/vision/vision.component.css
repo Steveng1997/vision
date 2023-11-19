@@ -3059,7 +3059,7 @@
 
   .container {
     overflow-x: hidden;
-    height: 92%;
+    height: 100%;
   }
 
   .marginPage {
@@ -3228,7 +3228,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
-    margin-bottom: 46px;
+    margin-bottom: 6rem;
   }
 
   .columnService {
