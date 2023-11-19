@@ -38,7 +38,7 @@
   .title {
     display: grid;
     justify-content: center;
-    font-size: 28px;
+    font-size: 25px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -6039,20 +6039,21 @@
     grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 1rem;
+    margin-left: -49px;
   }
 
   .therapistContainer {
-    width: 82%;
+     width: 57%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 82%;
+     width: 57%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 82%;
+    width: 57%;
     justify-self: center;
     margin-top: 8%;
   }
@@ -6062,33 +6063,33 @@
     grid-template-columns: 58% 58%;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: -2%;
+    margin-left: -43px;
   }
 
   .containerPaymentMethod {
-    width: 72%;
+    width: 50%;
     justify-self: center;
     margin-left: 0%;
     margin-top: -7%;
   }
 
   .searchContainer {
-    width: 144px;
+    width: 147px;
     justify-self: center;
-    margin-left: 13px;
+    margin-left: 10px;
     margin-top: -7%;
   }
 
   .buttonDeleteContainer {
     margin-top: 18px;
     width: 6rem;
-    margin-left: 3.3rem;
+    margin-left: 5rem;
   }
 
   .exportExcel {
     margin-top: 18px;
     width: 2rem;
-    margin-left: 3rem;
+    margin-left: 5rem;
   }
 
   /* Table */
@@ -6189,7 +6190,7 @@
     line-height: 1.2rem;
     font-size: 18px;
     max-width: 100px;
-    padding: 0px 31px 6px 8px;
+    padding: 0px 33px 6px 20px;
     word-wrap: break-word;
     text-transform: capitalize;
   }
@@ -6216,7 +6217,7 @@
     border-bottom: 2.5px solid #8c52ff;
     font-family: sans-serif;
     font-size: 18px;
-    padding: 0px 0px 6px 0px;
+    padding: 0px 0px 6px 5px;
     line-height: 1.2rem;
     text-transform: capitalize;
   }
@@ -6227,7 +6228,7 @@
     line-height: 1.2rem;
     font-size: 18px;
     max-width: 14px;
-    padding: 0px 13px 9px 15px;
+    padding: 0px 15px 9px 24px;
     word-wrap: break-word;
     text-transform: capitalize;
   }
