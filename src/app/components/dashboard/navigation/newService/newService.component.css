@@ -481,6 +481,7 @@ input[id="transOtro"] {
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
+
   .marginBody {
     height: 100%;
   }
@@ -837,18 +838,19 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
+
   .marginBody {
     height: 100%;
   }
@@ -1205,18 +1207,19 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
   .marginBody {
     height: 100%;
   }
@@ -1573,18 +1576,19 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
+
   .marginBody {
     height: 100%;
   }
@@ -1941,18 +1945,19 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+
   .marginBody {
     height: 100%;
   }
@@ -2309,20 +2314,21 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -2676,20 +2682,21 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -3043,20 +3050,21 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -3410,13 +3418,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -7px;
   }
 }
@@ -3424,8 +3432,9 @@ input[id="transOtro"] {
 /* Steven */
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -3779,13 +3788,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
@@ -3793,8 +3802,9 @@ input[id="transOtro"] {
 /* fin Steven */
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -4148,20 +4158,21 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -4515,20 +4526,21 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
   .marginBody {
-    height: 98%;
+    height: 100%;
   }
 
   .container {
@@ -4882,13 +4894,13 @@ input[id="transOtro"] {
   .inputButtonSave {
     display: grid;
     justify-content: center;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
   }
 
   .inputButton {
     display: grid;
     grid-template-columns: 31% 33% 25%;
-    margin-bottom: 4em;
+    margin-bottom: 2rem;
     margin-left: -1.9rem;
   }
 }
