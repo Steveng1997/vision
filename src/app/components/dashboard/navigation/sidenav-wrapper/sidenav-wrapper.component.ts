@@ -10,6 +10,10 @@ import { ServiceManager } from 'src/app/core/services/manager'
 
 export class SidenavWrapperComponent implements OnInit {
   public idUser: any
+  validationMenu: boolean = false
+  validationLiquidation: boolean = false
+  contentLiquidation: any
+  contentMenu: any
 
   constructor(
     public router: Router,
@@ -35,34 +39,47 @@ export class SidenavWrapperComponent implements OnInit {
   }
 
   buttonLiquidation() {
-    var contentLiquidation = document.getElementById('containerLiquidation');
+    if (this.validationMenu == true) {
+      this.contentMenu.style.display = "none";
+    }
+
+    this.contentLiquidation = document.getElementById('containerLiquidation');
     var x = window.matchMedia("(min-device-width: 1030px)")
     var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
 
     if (!x.matches) {
-      if (contentLiquidation.style.display == "none") {
-        contentLiquidation.style.display = "block";
+      if (this.contentLiquidation.style.display == "none") {
+        this.contentLiquidation.style.display = "block";
         contenedor[0].style.position = 'relative';
-        contentLiquidation.classList.add('animationLiquidation');
+        this.contentLiquidation.classList.add('animationLiquidation');
+        this.validationLiquidation = true
       } else {
-        contentLiquidation.style.display = "none";
+        this.contentLiquidation.style.display = "none";
         contenedor[0].style.position = 'static';
+        this.validationLiquidation = false
       }
     }
   }
 
+
   buttonMenu() {
-    var contentMenu = document.getElementById('containerMenu');
+    if (this.validationLiquidation == true) {
+      this.contentLiquidation.style.display = "none";
+    }
+
+    this.contentMenu = document.getElementById('containerMenu');
     var x = window.matchMedia("(min-device-width: 1030px)")
     var contenedor = Array.from(document.getElementsByClassName('marginPage') as HTMLCollectionOf<HTMLElement>)
     if (!x.matches) {
-      if (contentMenu.style.display == "none") {
-        contentMenu.style.display = "block";
+      if (this.contentMenu.style.display == "none") {
+        this.contentMenu.style.display = "block";
         contenedor[0].style.position = 'relative';
-        contentMenu.classList.add('animationMenu');
+        this.contentMenu.classList.add('animationMenu');
+        this.validationMenu = true
       } else {
-        contentMenu.style.display = "none";
+        this.contentMenu.style.display = "none";
         contenedor[0].style.position = 'static';
+        this.validationMenu = false
       }
     }
   }
