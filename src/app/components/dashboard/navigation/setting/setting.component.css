@@ -1,9 +1,43 @@
-.pagination_Mobile ::ng-deep .ngx-pagination .current {
-    background: #8c52ff;
+.pagination_Manager ::ng-deep .ngx-pagination .current {
+    background: white;
+    color: #8c52ff;
+    font-weight: bold;
 }
 
-.pagination_Mobile2 ::ng-deep .ngx-pagination .current {
-    background: #8c52ff;
+.pagination_Manager ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_Manager ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+    color: #8c52ff;
+}
+
+.pagination_Manager ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_Manager ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+    color: #8c52ff;
+}
+
+.pagination_Therapist ::ng-deep .ngx-pagination .current {
+    background: white;
+    color: #8c52ff;
+    font-weight: bold;
+}
+
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+    color: #8c52ff;
+    font-weight: bold;
+}
+
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+    color: #8c52ff;
+    font-weight: bold;
+}
+
+.titleAdd {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
@@ -17,13 +51,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -45,21 +134,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -262,61 +351,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -331,13 +365,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -359,21 +448,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -576,61 +665,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -645,13 +679,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 36% 27% 24% 24% 24% 20% 16%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 177%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -673,22 +762,22 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
-        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+        grid-template-columns: 36% 24% 27% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
-        width: 248%;
+    .lineTableManager {
+        width: 254%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -824,7 +913,7 @@
 
     .columnFixedDay {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -834,7 +923,7 @@
 
     .columnService {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 14px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -844,7 +933,7 @@
 
     .columnDrink {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 15px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -854,7 +943,7 @@
 
     .columnTobacco {
         word-break: break-all;
-        padding: 0px 12px 0px 0px;
+        padding: 0px 14px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -884,67 +973,12 @@
 
     .columnOthers {
         word-break: break-all;
-        padding: 0px 0px 0px 0px;
+        padding: 0px 2px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -959,13 +993,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -987,21 +1076,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -1204,61 +1293,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -1273,13 +1307,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -1301,21 +1390,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -1518,61 +1607,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -1588,13 +1622,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -1616,22 +1705,22 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 28% 24% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
-        width: 248%;
+    .lineTableManager {
+        width: 246%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -1777,7 +1866,7 @@
 
     .columnService {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -1787,7 +1876,7 @@
 
     .columnDrink {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -1797,7 +1886,7 @@
 
     .columnTobacco {
         word-break: break-all;
-        padding: 0px 12px 0px 0px;
+        padding: 0px 17px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -1834,6 +1923,24 @@
         cursor: pointer;
         justify-self: end;
     }
+}
+
+@media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 
     /* Therapist */
 
@@ -1863,7 +1970,7 @@
         margin-left: -3%;
     }
 
-    .lineTable2 {
+    .lineTableTherapist {
         width: 168%;
         color: #8c52ff;
         margin: auto;
@@ -1884,31 +1991,13 @@
         padding: 0px 18px 0px 14px;
     }
 
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-}
-
-@media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Therapist {
+        margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -1930,21 +2019,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -2148,6 +2237,24 @@
         cursor: pointer;
         justify-self: end;
     }
+}
+
+@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 
     /* Therapist */
 
@@ -2177,7 +2284,7 @@
         margin-left: -3%;
     }
 
-    .lineTable2 {
+    .lineTableTherapist {
         width: 168%;
         color: #8c52ff;
         margin: auto;
@@ -2198,31 +2305,13 @@
         padding: 0px 18px 0px 14px;
     }
 
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-}
-
-@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Therapist {
+        margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -2244,21 +2333,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -2462,6 +2551,24 @@
         cursor: pointer;
         justify-self: end;
     }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 
     /* Therapist */
 
@@ -2491,8 +2598,8 @@
         margin-left: -3%;
     }
 
-    .lineTable2 {
-        width: 168%;
+    .lineTableTherapist {
+        width: 167%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -2512,31 +2619,13 @@
         padding: 0px 18px 0px 14px;
     }
 
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-}
-
-@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Therapist {
+        margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -2558,21 +2647,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 246%;
         color: #8c52ff;
         margin: auto;
@@ -2776,6 +2865,24 @@
         cursor: pointer;
         justify-self: end;
     }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 
     /* Therapist */
 
@@ -2805,8 +2912,8 @@
         margin-left: -3%;
     }
 
-    .lineTable2 {
-        width: 167%;
+    .lineTableTherapist {
+        width: 168%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -2826,31 +2933,13 @@
         padding: 0px 18px 0px 14px;
     }
 
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-}
-
-@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Therapist {
+        margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -2872,21 +2961,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -3089,61 +3178,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -3158,13 +3192,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 28% 21% 19% 18% 18% 17% 13%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 138%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -3186,22 +3275,22 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
-        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+        grid-template-columns: 28% 20% 18% 19% 21% 19% 19% 18% 17% 13%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
-        width: 248%;
+    .lineTableManager {
+        width: 198%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -3281,7 +3370,7 @@
         font-weight: bold;
         font-family: sans-serif;
         word-break: break-all;
-        padding: 0px 16px 0px 6px;
+        padding: 0px 15px 0px 16px;
     }
 
     .textTip {
@@ -3291,7 +3380,7 @@
         font-weight: bold;
         font-family: sans-serif;
         word-break: break-all;
-        padding: 0px 18px 0px 7px;
+        padding: 0px 15px 0px 19px;
     }
 
     .textOthers {
@@ -3347,7 +3436,7 @@
 
     .columnService {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 16px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3357,7 +3446,7 @@
 
     .columnDrink {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 17px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3397,67 +3486,12 @@
 
     .columnOthers {
         word-break: break-all;
-        padding: 0px 0px 0px 0px;
+        padding: 0px 4px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -3472,13 +3506,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -3500,21 +3589,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -3717,61 +3806,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -3786,13 +3820,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -3814,21 +3903,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -4031,61 +4120,6 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }
 
@@ -4100,13 +4134,68 @@
         margin: 0px auto 9px;
     }
 
-    .pagination_Mobile {
-        margin-bottom: -2rem;
+    .pagination_Manager {
+        margin-bottom: 6rem;
         text-align-last: end;
         margin-top: 3rem;
     }
 
-    /* Table1 */
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Manager */
 
     .titleManager {
         display: grid;
@@ -4128,21 +4217,21 @@
         margin-left: -19px;
     }
 
-    .column {
+    .columnManager {
         margin-top: 2rem;
         margin-left: 1%;
         margin-bottom: -30px;
         overflow-x: auto;
     }
 
-    .columnTable {
+    .columnTableManager {
         display: grid;
         grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
-    .lineTable1 {
+    .lineTableManager {
         width: 248%;
         color: #8c52ff;
         margin: auto;
@@ -4345,60 +4434,5 @@
         word-wrap: break-word;
         cursor: pointer;
         justify-self: end;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTable2 {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Mobile2 {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
     }
 }

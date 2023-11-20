@@ -74,9 +74,9 @@ export class SettingComponent implements OnInit {
     nombre: "",
     otros: "",
     pass: "",
-    propina: "100",
+    propina: "",
     rol: 'encargada',
-    servicio: "50",
+    servicio: "",
     tabaco: "",
     usuario: "",
     vitamina: ""
@@ -145,11 +145,11 @@ export class SettingComponent implements OnInit {
     if (this.manager.usuario != '') this.manager.usuario = ''
     if (this.manager.pass != '') this.manager.pass = ''
     if (Number(this.manager.fijoDia) > 0) this.manager.fijoDia = ''
-    if (Number(this.manager.servicio) > 0) this.manager.servicio = '50'
+    if (Number(this.manager.servicio) > 0) this.manager.servicio = ''
     if (Number(this.manager.bebida) > 0) this.manager.bebida = ''
     if (Number(this.manager.tabaco) > 0) this.manager.tabaco = ''
     if (Number(this.manager.vitamina) > 0) this.manager.vitamina = ''
-    if (Number(this.manager.propina) > 0) this.manager.propina = '100'
+    if (Number(this.manager.propina) > 0) this.manager.propina = ''
     if (Number(this.manager.otros) > 0) this.manager.otros = ''
   }
 

@@ -31,7 +31,18 @@
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .current {
-  background: #8c52ff;
+  background: white;
+  color: #8c52ff;
+}
+
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  color: #8c52ff;
+}
+
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  color: #8c52ff;
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
