@@ -74,9 +74,9 @@ export class SettingComponent implements OnInit {
     nombre: "",
     otros: "",
     pass: "",
-    propina: "",
+    propina: "100",
     rol: 'encargada',
-    servicio: "",
+    servicio: "50",
     tabaco: "",
     usuario: "",
     vitamina: ""
@@ -90,9 +90,9 @@ export class SettingComponent implements OnInit {
     id: 0,
     nombre: "",
     otros: "",
-    propina: "",
+    propina: "100",
     salida: "",
-    servicio: "",
+    servicio: "50",
     tabaco: "",
     vitamina: "",
   }

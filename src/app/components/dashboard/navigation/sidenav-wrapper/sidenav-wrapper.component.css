@@ -62,6 +62,10 @@ a {
   display: none;
 }
 
+.pagination_Mobile ::ng-deep .ngx-pagination .current {
+  background: #8c52ff;
+}
+
 /* Mobile */
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {

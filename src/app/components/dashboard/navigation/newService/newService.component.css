@@ -3453,7 +3453,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 0px;
+    margin-left: 4px;
   }
 
   .title {
@@ -3467,16 +3467,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 88%;
+    width: 310px;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 3%;
+    margin-left: 4%;
   }
 
   .lastService {
-    margin-left: 1%;
+    margin-left: 2px;
   }
 
   .sumServices {
@@ -3495,12 +3495,12 @@ input[id="transOtro"] {
   }
 
   .serviceLine {
-    width: 88%;
+    width: 310px;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 3%;
+    margin-left: 4%;
   }
 
   .lastServiceOrdered {
@@ -3523,8 +3523,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 58.1% 44%;
-    margin-left: -6px;
+    grid-template-columns: 58% 58%;
+    margin-left: -8px;
   }
 
   .therapistContainer {
@@ -3547,9 +3547,9 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 57% 42%;
+    grid-template-columns: 56% 42%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: -8px;
   }
 
   .dateContainer {
@@ -3558,13 +3558,13 @@ input[id="transOtro"] {
 
   .containerStartTime {
     width: 73%;
-    margin-left: auto;
+    margin-left: 40px;
   }
 
   .datesContainer2 {
     display: grid;
     grid-template-columns: 42% 196px;
-    margin-left: -6px;
+    margin-left: -8px;
   }
 
   .containerDuration {
@@ -3573,7 +3573,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 46%;
+    margin-left: 45%;
     margin-top: 1.5rem;
   }
 
@@ -3635,7 +3635,7 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 10%;
+    margin-left: 7%;
   }
 
   .collectionContainer {
@@ -3775,14 +3775,14 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 337px;
+    grid-template-columns: 335px;
     margin-top: 1rem;
     margin-left: -6%;
     margin-bottom: 1.5rem;
   }
 
   .notes {
-    margin-left: 14px;
+    margin-left: 13px;
   }
 
   .inputButtonSave {

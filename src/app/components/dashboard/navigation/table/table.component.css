@@ -15,6 +15,10 @@
   border-style: hidden;
 }
 
+.pagination_Mobile ::ng-deep .ngx-pagination .current {
+  background: #8c52ff;
+}
+
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .marginBody {

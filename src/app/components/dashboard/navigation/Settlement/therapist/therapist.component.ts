@@ -353,7 +353,6 @@ export class TherapistComponent implements OnInit {
         }
       }
     })
-
   }
 
   getThoseThatNotLiquidated() {

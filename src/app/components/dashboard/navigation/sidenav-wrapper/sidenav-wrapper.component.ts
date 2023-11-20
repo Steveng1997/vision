@@ -50,7 +50,6 @@ export class SidenavWrapperComponent implements OnInit {
     if (!x.matches) {
       if (this.contentLiquidation.style.display == "none") {
         this.contentLiquidation.style.display = "block";
-        contenedor[0].style.position = 'relative';
         this.contentLiquidation.classList.add('animationLiquidation');
         this.validationLiquidation = true
       } else {
@@ -60,7 +59,6 @@ export class SidenavWrapperComponent implements OnInit {
       }
     }
   }
-
 
   buttonMenu() {
     if (this.validationLiquidation == true) {
@@ -73,7 +71,6 @@ export class SidenavWrapperComponent implements OnInit {
     if (!x.matches) {
       if (this.contentMenu.style.display == "none") {
         this.contentMenu.style.display = "block";
-        contenedor[0].style.position = 'relative';
         this.contentMenu.classList.add('animationMenu');
         this.validationMenu = true
       } else {
@@ -93,12 +90,10 @@ export class SidenavWrapperComponent implements OnInit {
     if (!x.matches) {
       if (contentMenu.style.display == "block") {
         contentMenu.style.display = "none";
-        contenedor[0].style.position = 'static';
       }
 
       if (contentLiquidation.style.display == "block") {
         contentLiquidation.style.display = "none";
-        contenedor[0].style.position = 'static';
       }
     }
   }
