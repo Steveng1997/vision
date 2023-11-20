@@ -5,18 +5,27 @@
 
                 <!-- Therapist -->
 
-                <label class="titleTherapist"> TERAPEUTAS </label>
+                <div class="columnTherapistAdd">
+                    <div class="row g-0">
+                        <label class="titleTherapist"> TERAPEUTAS </label>
+                    </div>
 
-                <div class="buttonAdd">
-                    <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                        (click)="openTherapist(addTherapist)">Agregar</button>
+                    <div class="row g-0 buttonAdd">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            style="cursor: pointer; color: #8c52ff" class="bi bi-plus-circle" viewBox="0 0 16 16"
+                            (click)="openTherapist(addTherapist)">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                    </div>
 
                     <!-- Modal -->
                     <ng-template class="custom-modal" #addTherapist let-modal>
                         <div class="modal-header">
                             <label class="modal-title titleAdd"> Agregar Terapeuta
                                 <br>
-                                <small style="text-transform: capitalize">Establecer los (%) de comision</small>
+                                <small>Establecer los (%) de comisión</small>
                             </label>
 
                             <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
@@ -89,7 +98,7 @@
                     <!-- Fin Modal -->
                 </div>
 
-                <!-- Table 1 -->
+                <!-- Table Therapist -->
                 <div class="columnTherapist">
                     <div class="columnTableTherapist">
 
@@ -229,110 +238,116 @@
 
                 <!-- Manager -->
 
-                <label class="titleManager"> ENCARGADAS </label>
+                <div class="columnManagerAdd">
+                    <div class="row g-0">
+                        <label class="titleManager">ENCARGADAS</label>
+                    </div>
 
-                <div class="buttonAdd">
-                    <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                        (click)="openManager(addManager)">Agregar</button>
+                    <div class="row g-0 buttonAdd">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            style="cursor: pointer; color: #8c52ff" class="bi bi-plus-circle" viewBox="0 0 16 16"
+                            (click)="openManager(addManager)">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
 
-                    <!-- Modal -->
-                    <ng-template class="custom-modal" #addManager let-modal>
-                        <div class="modal-header">
-                            <label class="modal-title titleAdd"> Agregar Encargada
-                                <br>
-                                <small style="text-transform: capitalize">Establecer los (%) de comision</small>
-                            </label>
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #addManager let-modal>
+                            <div class="modal-header">
+                                <label class="modal-title titleAdd"> Agregar Encargada
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
 
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span (click)="closeManager()" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-                            <!-- <label class="modal-title titleAdd"> Establecer los (%) de comision </label> -->
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
 
-                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                <span (click)="closeManager()" aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                                <form action="" style="text-align: -webkit-center;">
 
-                        <div class="modal-body" style="text-align: center;">
-                            <!-- Aqui se coloca lo adentro -->
+                                    <div class="row">
 
-                            <form action="" style="text-align: -webkit-center;">
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="manager.nombre">
+                                        </mat-form-field>
 
-                                <div class="row">
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Usuario:</mat-label>
+                                            <input type="text" matInput name="usuario" [(ngModel)]="manager.usuario">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Nombre:</mat-label>
-                                        <input type="text" matInput name="nombre" [(ngModel)]="manager.nombre">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Contraseña:</mat-label>
+                                            <input type="password" matInput name="pass" [(ngModel)]="manager.pass">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Usuario:</mat-label>
-                                        <input type="text" matInput name="usuario" [(ngModel)]="manager.usuario">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Fijo por día (€)</mat-label>
+                                            <input type="number" matInput name="fijoDia" [(ngModel)]="manager.fijoDia"
+                                                placeholder="€">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Contraseña:</mat-label>
-                                        <input type="password" matInput name="pass" [(ngModel)]="manager.pass">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Servicio (%)</mat-label>
+                                            <input type="number" matInput name="servicio" [(ngModel)]="manager.servicio"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Fijo por día (€)</mat-label>
-                                        <input type="number" matInput name="fijoDia" [(ngModel)]="manager.fijoDia"
-                                            placeholder="€">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Propina (%)</mat-label>
+                                            <input type="number" matInput name="propina" [(ngModel)]="manager.propina"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Servicio (%)</mat-label>
-                                        <input type="number" matInput name="servicio" [(ngModel)]="manager.servicio"
-                                            placeholder="%">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida (%)</mat-label>
+                                            <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Propina (%)</mat-label>
-                                        <input type="number" matInput name="propina" [(ngModel)]="manager.propina"
-                                            placeholder="%">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Tabaco (%)</mat-label>
+                                            <input type="number" matInput name="tabaco" [(ngModel)]="manager.tabaco"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Bebida (%)</mat-label>
-                                        <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
-                                            placeholder="%">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Vitamina (%)</mat-label>
+                                            <input type="number" matInput name="vitamina" [(ngModel)]="manager.vitamina"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Tabaco (%)</mat-label>
-                                        <input type="number" matInput name="tabaco" [(ngModel)]="manager.tabaco"
-                                            placeholder="%">
-                                    </mat-form-field>
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Otros (%)</mat-label>
+                                            <input type="number" matInput name="otros" [(ngModel)]="manager.otros"
+                                                placeholder="%">
+                                        </mat-form-field>
 
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Vitamina (%)</mat-label>
-                                        <input type="number" matInput name="vitamina" [(ngModel)]="manager.vitamina"
-                                            placeholder="%">
-                                    </mat-form-field>
-
-                                    <mat-form-field class="col-6">
-                                        <mat-label>Otros (%)</mat-label>
-                                        <input type="number" matInput name="otros" [(ngModel)]="manager.otros"
-                                            placeholder="%">
-                                    </mat-form-field>
-
-                                    <div style="display: grid; place-items: center;">
-                                        <div style="text-align: center; width: max-content;">
-                                            <button mat-raised-button type="submit" color="primary"
-                                                (click)="registerManager()">Aceptar</button>
+                                        <div style="display: grid; place-items: center;">
+                                            <div style="text-align: center; width: max-content;">
+                                                <button mat-raised-button type="submit" color="primary"
+                                                    (click)="registerManager()">Aceptar</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
 
-                            <!-- Afuera -->
-                        </div>
+                                <!-- Afuera -->
+                            </div>
 
-                    </ng-template>
+                        </ng-template>
 
-                    <!-- Fin Modal -->
+                        <!-- Fin Modal -->
+                    </div>
                 </div>
 
-                <!-- Table 1 -->
+                <!-- Table Manager -->
                 <div class="columnManager">
                     <div class="columnTableManager">
 
@@ -392,17 +407,17 @@
 
                         <div class="columnFixedDay">{{manager?.fijoDia + ' €'}}</div>
 
-                        <div class="columnService">{{manager?.servicio + '%'}}</div>
+                        <div class="columnServiceManager">{{manager?.servicio + '%'}}</div>
 
-                        <div class="columnDrink">{{manager?.bebida + '%'}}</div>
+                        <div class="columnDrinkManager">{{manager?.bebida + '%'}}</div>
 
-                        <div class="columnTobacco">{{manager?.tabaco + '%'}}</div>
+                        <div class="columnTobaccoManager">{{manager?.tabaco + '%'}}</div>
 
-                        <div class="columnVitamin">{{manager?.vitamina + '%'}}</div>
+                        <div class="columnVitaminManager">{{manager?.vitamina + '%'}}</div>
 
-                        <div class="columnTip">{{manager?.propina + '%'}}</div>
+                        <div class="columnTipManager">{{manager?.propina + '%'}}</div>
 
-                        <div class="columnOthers">{{manager?.otros + '%'}}</div>
+                        <div class="columnOthersManager">{{manager?.otros + '%'}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>

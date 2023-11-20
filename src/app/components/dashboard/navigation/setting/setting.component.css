@@ -71,6 +71,13 @@
         margin-left: -19px;
     }
 
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .columnTherapist {
         margin-top: 2rem;
         margin-left: 1%;
@@ -112,6 +119,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 10px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 13px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 12px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -126,12 +235,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -253,39 +367,9 @@
 
     /* Column */
 
-    .columnUser {
+    .columnDrinkManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -293,9 +377,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -303,9 +387,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -313,17 +397,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 12px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -333,7 +407,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -343,7 +417,7 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -385,6 +459,13 @@
         margin-left: -19px;
     }
 
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .columnTherapist {
         margin-top: 2rem;
         margin-left: 1%;
@@ -426,6 +507,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 10px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 13px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 12px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -440,12 +623,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -567,39 +755,9 @@
 
     /* Column */
 
-    .columnUser {
+    .columnDrinkManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -607,9 +765,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -617,9 +775,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -627,17 +785,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 12px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -647,7 +795,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -657,7 +805,7 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -697,6 +845,13 @@
         margin-bottom: -0.5rem;
         margin-top: 25px;
         margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
     }
 
     .columnTherapist {
@@ -740,6 +895,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 14px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 15px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 14px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 2px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -754,12 +1011,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -881,37 +1143,7 @@
 
     /* Column */
 
-    .columnUser {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
+    .columnDrinkManager {
         word-break: break-all;
         padding: 0px 19px 0px 0px;
         font-family: sans-serif;
@@ -921,9 +1153,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 14px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -931,9 +1163,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 15px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -941,17 +1173,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 14px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -961,7 +1183,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -971,9 +1193,9 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
-        padding: 0px 2px 0px 0px;
+        padding: 0px 0px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -1011,6 +1233,13 @@
         margin-bottom: -0.5rem;
         margin-top: 25px;
         margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
     }
 
     .columnTherapist {
@@ -1052,145 +1281,6 @@
         margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
-    }
-
-    /* Manager */
-
-    .titleManager {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 5px;
-        margin-left: -19px;
-    }
-
-    .buttonAdd {
-        display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
-    }
-
-    .columnManager {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableManager {
-        display: grid;
-        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableManager {
-        width: 248%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textUser {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textPass {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textName {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textFixedDay {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textService {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textDrink {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textTobacco {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textVitamin {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 16px 0px 6px;
-    }
-
-    .textTip {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 7px;
-    }
-
-    .textOthers {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
     }
 
     /* Column */
@@ -1294,79 +1384,6 @@
         cursor: pointer;
         justify-self: end;
     }
-}
-
-@media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Manager {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableTherapist {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Therapist {
-        margin-bottom: 0rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
 
     /* Manager */
 
@@ -1382,12 +1399,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -1509,6 +1531,148 @@
 
     /* Column */
 
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+}
+
+@media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Column */
+
     .columnUser {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
@@ -1600,6 +1764,212 @@
     }
 
     .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    /* Manager */
+
+    .titleManager {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 5px;
+        margin-left: -19px;
+    }
+
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .buttonAdd {
+        display: grid;
+        align-self: end;
+        margin-left: -1rem;
+    }
+
+    .columnManager {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableManager {
+        display: grid;
+        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableManager {
+        width: 248%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textUser {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textPass {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textName {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textFixedDay {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textService {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textDrink {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textTobacco {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textVitamin {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 16px 0px 6px;
+    }
+
+    .textTip {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 7px;
+    }
+
+    .textOthers {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    /* Column */
+
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -1642,6 +2012,13 @@
         margin-left: -19px;
     }
 
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .columnTherapist {
         margin-top: 2rem;
         margin-left: 1%;
@@ -1651,13 +2028,13 @@
 
     .columnTableTherapist {
         display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 15%;
         margin-bottom: 4px;
         margin-left: -3%;
     }
 
     .lineTableTherapist {
-        width: 168%;
+        width: 166%;
         color: #8c52ff;
         margin: auto;
         border-width: initial;
@@ -1683,6 +2060,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 23px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -1697,12 +2176,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -1824,47 +2308,7 @@
 
     /* Column */
 
-    .columnUser {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 23px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnService {
+    .columnDrinkManager {
         word-break: break-all;
         padding: 0px 19px 0px 0px;
         font-family: sans-serif;
@@ -1874,7 +2318,7 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnServiceManager {
         word-break: break-all;
         padding: 0px 19px 0px 0px;
         font-family: sans-serif;
@@ -1884,9 +2328,9 @@
         justify-self: end;
     }
 
-    .columnTobacco {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 17px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -1894,7 +2338,7 @@
         justify-self: end;
     }
 
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -1904,7 +2348,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -1914,7 +2358,7 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -1954,6 +2398,13 @@
         margin-bottom: -0.5rem;
         margin-top: 25px;
         margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
     }
 
     .columnTherapist {
@@ -1997,6 +2448,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 10px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 13px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 12px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -2011,12 +2564,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -2138,6 +2696,148 @@
 
     /* Column */
 
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+}
+
+@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Column */
+
     .columnUser {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
@@ -2237,79 +2937,6 @@
         cursor: pointer;
         justify-self: end;
     }
-}
-
-@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Manager {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableTherapist {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Therapist {
-        margin-bottom: 0rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
 
     /* Manager */
 
@@ -2325,12 +2952,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -2452,6 +3084,148 @@
 
     /* Column */
 
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 167%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Column */
+
     .columnUser {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
@@ -2551,79 +3325,6 @@
         cursor: pointer;
         justify-self: end;
     }
-}
-
-@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Manager {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableTherapist {
-        width: 167%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Therapist {
-        margin-bottom: 0rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
 
     /* Manager */
 
@@ -2639,12 +3340,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -2766,6 +3472,148 @@
 
     /* Column */
 
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Column */
+
     .columnUser {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
@@ -2865,79 +3713,6 @@
         cursor: pointer;
         justify-self: end;
     }
-}
-
-@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Manager {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableTherapist {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Therapist {
-        margin-bottom: 0rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
 
     /* Manager */
 
@@ -2953,12 +3728,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -3080,39 +3860,9 @@
 
     /* Column */
 
-    .columnUser {
+    .columnDrinkManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3120,9 +3870,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3130,9 +3880,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3140,17 +3890,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 12px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -3160,7 +3900,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -3170,7 +3910,7 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -3210,6 +3950,13 @@
         margin-bottom: -0.5rem;
         margin-top: 25px;
         margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
     }
 
     .columnTherapist {
@@ -3253,6 +4000,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 17px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 12px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 4px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -3267,12 +4116,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -3394,39 +4248,9 @@
 
     /* Column */
 
-    .columnUser {
+    .columnDrinkManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3434,9 +4258,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3444,9 +4268,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 17px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3454,17 +4278,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 12px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -3474,7 +4288,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -3484,9 +4298,9 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
-        padding: 0px 4px 0px 0px;
+        padding: 0px 0px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3524,6 +4338,13 @@
         margin-bottom: -0.5rem;
         margin-top: 25px;
         margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
     }
 
     .columnTherapist {
@@ -3567,6 +4388,108 @@
         margin-top: 3rem;
     }
 
+    /* Column */
+
+    .columnUser {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnPass {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnName {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: start;
+    }
+
+    .columnFixedDay {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnService {
+        word-break: break-all;
+        padding: 0px 10px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnDrink {
+        word-break: break-all;
+        padding: 0px 13px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobacco {
+        word-break: break-all;
+        padding: 0px 12px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitamin {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTip {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
     /* Manager */
 
     .titleManager {
@@ -3581,12 +4504,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -3708,39 +4636,9 @@
 
     /* Column */
 
-    .columnUser {
+    .columnDrinkManager {
         word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnPass {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnName {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: start;
-    }
-
-    .columnFixedDay {
-        word-break: break-all;
-        padding: 0px 16px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3748,9 +4646,9 @@
         justify-self: end;
     }
 
-    .columnService {
+    .columnServiceManager {
         word-break: break-all;
-        padding: 0px 10px 0px 0px;
+        padding: 0px 19px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3758,9 +4656,9 @@
         justify-self: end;
     }
 
-    .columnDrink {
+    .columnTobaccoManager {
         word-break: break-all;
-        padding: 0px 13px 0px 0px;
+        padding: 0px 21px 0px 0px;
         font-family: sans-serif;
         font-size: 18px;
         word-wrap: break-word;
@@ -3768,17 +4666,7 @@
         justify-self: end;
     }
 
-    .columnTobacco {
-        word-break: break-all;
-        padding: 0px 12px 0px 0px;
-        font-family: sans-serif;
-        font-size: 18px;
-        word-wrap: break-word;
-        cursor: pointer;
-        justify-self: end;
-    }
-
-    .columnVitamin {
+    .columnVitaminManager {
         word-break: break-all;
         padding: 0px 18px 0px 0px;
         font-family: sans-serif;
@@ -3788,7 +4676,7 @@
         justify-self: end;
     }
 
-    .columnTip {
+    .columnTipManager {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
         font-family: sans-serif;
@@ -3798,7 +4686,7 @@
         justify-self: end;
     }
 
-    .columnOthers {
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
@@ -3840,6 +4728,13 @@
         margin-left: -19px;
     }
 
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .columnTherapist {
         margin-top: 2rem;
         margin-left: 1%;
@@ -3879,145 +4774,6 @@
         margin-bottom: 0rem;
         text-align-last: end;
         margin-top: 3rem;
-    }
-
-    /* Manager */
-
-    .titleManager {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 5px;
-        margin-left: -19px;
-    }
-
-    .buttonAdd {
-        display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
-    }
-
-    .columnManager {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableManager {
-        display: grid;
-        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableManager {
-        width: 248%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textUser {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textPass {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textName {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textFixedDay {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textService {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textDrink {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textTobacco {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
-    }
-
-    .textVitamin {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 16px 0px 6px;
-    }
-
-    .textTip {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 7px;
-    }
-
-    .textOthers {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        padding: 27px 0px 0px 0px;
     }
 
     /* Column */
@@ -4121,79 +4877,6 @@
         cursor: pointer;
         justify-self: end;
     }
-}
-
-@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
-
-    .container {
-        overflow-x: hidden;
-        height: 100%;
-    }
-
-    .marginPage {
-        margin: 0px auto 9px;
-    }
-
-    .pagination_Manager {
-        margin-bottom: 6rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
-
-    /* Therapist */
-
-    .titleTherapist {
-        display: grid;
-        justify-content: start;
-        font-size: 28px;
-        color: #8c52ff;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin-bottom: -0.5rem;
-        margin-top: 25px;
-        margin-left: -19px;
-    }
-
-    .columnTherapist {
-        margin-top: 2rem;
-        margin-left: 1%;
-        margin-bottom: -30px;
-        overflow-x: auto;
-    }
-
-    .columnTableTherapist {
-        display: grid;
-        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
-        margin-bottom: 4px;
-        margin-left: -3%;
-    }
-
-    .lineTableTherapist {
-        width: 168%;
-        color: #8c52ff;
-        margin: auto;
-        border-width: initial;
-        opacity: initial;
-        margin-left: -1rem;
-        margin-top: -8px;
-        margin-bottom: 9px;
-    }
-
-    .textVitamin2 {
-        display: grid;
-        color: #000000;
-        font-size: 18px;
-        font-weight: bold;
-        font-family: sans-serif;
-        word-break: break-all;
-        padding: 0px 18px 0px 14px;
-    }
-
-    .pagination_Therapist {
-        margin-bottom: 0rem;
-        text-align-last: end;
-        margin-top: 3rem;
-    }
 
     /* Manager */
 
@@ -4209,12 +4892,17 @@
         margin-left: -19px;
     }
 
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
     .buttonAdd {
         display: grid;
-        justify-content: start;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
-        margin-left: -19px;
+        align-self: end;
+        margin-left: -1rem;
     }
 
     .columnManager {
@@ -4336,6 +5024,148 @@
 
     /* Column */
 
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+}
+
+@media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
+    .container {
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .marginPage {
+        margin: 0px auto 9px;
+    }
+
+    .pagination_Manager {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Therapist */
+
+    .titleTherapist {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 25px;
+        margin-left: -19px;
+    }
+
+    .columnTherapistAdd {
+        display: grid;
+        grid-template-columns: 51% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .columnTherapist {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableTherapist {
+        display: grid;
+        grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableTherapist {
+        width: 168%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textVitamin2 {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Therapist {
+        margin-bottom: 0rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
+
+    /* Column */
+
     .columnUser {
         word-break: break-all;
         padding: 0px 16px 0px 0px;
@@ -4427,6 +5257,212 @@
     }
 
     .columnOthers {
+        word-break: break-all;
+        padding: 0px 0px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    /* Manager */
+
+    .titleManager {
+        display: grid;
+        justify-content: start;
+        font-size: 28px;
+        color: #8c52ff;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: -0.5rem;
+        margin-top: 5px;
+        margin-left: -19px;
+    }
+
+    .columnManagerAdd {
+        display: grid;
+        grid-template-columns: 55% 27%;
+        margin-bottom: 4px;
+        margin-left: 6%;
+    }
+
+    .buttonAdd {
+        display: grid;
+        align-self: end;
+        margin-left: -1rem;
+    }
+
+    .columnManager {
+        margin-top: 2rem;
+        margin-left: 1%;
+        margin-bottom: -30px;
+        overflow-x: auto;
+    }
+
+    .columnTableManager {
+        display: grid;
+        grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+        margin-bottom: 4px;
+        margin-left: -3%;
+    }
+
+    .lineTableManager {
+        width: 248%;
+        color: #8c52ff;
+        margin: auto;
+        border-width: initial;
+        opacity: initial;
+        margin-left: -1rem;
+        margin-top: -8px;
+        margin-bottom: 9px;
+    }
+
+    .textUser {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textPass {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textName {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textFixedDay {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textService {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textDrink {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textTobacco {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    .textVitamin {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 16px 0px 6px;
+    }
+
+    .textTip {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        word-break: break-all;
+        padding: 0px 18px 0px 7px;
+    }
+
+    .textOthers {
+        display: grid;
+        color: #000000;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: sans-serif;
+        padding: 27px 0px 0px 0px;
+    }
+
+    /* Column */
+
+    .columnDrinkManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnServiceManager {
+        word-break: break-all;
+        padding: 0px 19px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTobaccoManager {
+        word-break: break-all;
+        padding: 0px 21px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnVitaminManager {
+        word-break: break-all;
+        padding: 0px 18px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnTipManager {
+        word-break: break-all;
+        padding: 0px 16px 0px 0px;
+        font-family: sans-serif;
+        font-size: 18px;
+        word-wrap: break-word;
+        cursor: pointer;
+        justify-self: end;
+    }
+
+    .columnOthersManager {
         word-break: break-all;
         padding: 0px 0px 0px 0px;
         font-family: sans-serif;
