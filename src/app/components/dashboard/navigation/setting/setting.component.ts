@@ -145,11 +145,11 @@ export class SettingComponent implements OnInit {
     if (this.manager.usuario != '') this.manager.usuario = ''
     if (this.manager.pass != '') this.manager.pass = ''
     if (Number(this.manager.fijoDia) > 0) this.manager.fijoDia = ''
-    if (Number(this.manager.servicio) > 0) this.manager.servicio = ''
+    if (Number(this.manager.servicio) > 0) this.manager.servicio = '50'
     if (Number(this.manager.bebida) > 0) this.manager.bebida = ''
     if (Number(this.manager.tabaco) > 0) this.manager.tabaco = ''
     if (Number(this.manager.vitamina) > 0) this.manager.vitamina = ''
-    if (Number(this.manager.propina) > 0) this.manager.propina = ''
+    if (Number(this.manager.propina) > 0) this.manager.propina = '100'
     if (Number(this.manager.otros) > 0) this.manager.otros = ''
   }
 
@@ -338,11 +338,11 @@ export class SettingComponent implements OnInit {
 
   resetTherapist() {
     if (this.therapist.nombre != '') this.therapist.nombre = ''
-    if (Number(this.therapist.servicio) > 0) this.therapist.servicio = ""
+    if (Number(this.therapist.servicio) > 0) this.therapist.servicio = "50"
     if (Number(this.therapist.bebida) > 0) this.therapist.bebida = ""
     if (Number(this.therapist.tabaco) > 0) this.therapist.tabaco = ""
     if (Number(this.therapist.vitamina) > 0) this.therapist.vitamina = ""
-    if (Number(this.therapist.propina) > 0) this.therapist.propina = ""
+    if (Number(this.therapist.propina) > 0) this.therapist.propina = "100"
     if (Number(this.therapist.otros) > 0) this.therapist.otros = ""
   }
 

@@ -2,6 +2,10 @@
     background: #8c52ff;
 }
 
+.pagination_Mobile2 ::ng-deep .ngx-pagination .current {
+    background: #8c52ff;
+}
+
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
     .container {
@@ -307,6 +311,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -616,6 +626,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
@@ -923,6 +939,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -1232,6 +1254,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
@@ -1539,6 +1567,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -1849,6 +1883,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
@@ -2157,6 +2197,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
@@ -2303,7 +2349,7 @@
         font-weight: bold;
         font-family: sans-serif;
         word-break: break-all;
-        padding: 0px 18px 0px 7px;
+        padding: 0px 16px 0px 14px;
     }
 
     .textOthers {
@@ -2464,6 +2510,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -2773,6 +2825,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
@@ -3080,6 +3138,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -3389,6 +3453,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
@@ -3696,6 +3766,12 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
 
@@ -4005,6 +4081,12 @@
         word-break: break-all;
         padding: 0px 18px 0px 14px;
     }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
@@ -4312,5 +4394,11 @@
         font-family: sans-serif;
         word-break: break-all;
         padding: 0px 18px 0px 14px;
+    }
+
+    .pagination_Mobile2 {
+        margin-bottom: 6rem;
+        text-align-last: end;
+        margin-top: 3rem;
     }
 }
