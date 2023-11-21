@@ -416,6 +416,7 @@ export class SettingComponent implements OnInit {
     this.modelService.idTerapeuta = uuid
     this.liquidationTherapist.idUnico = uuid
     this.liquidationTherapist.idTerapeuta = uuid
+    this.modelService.idTerapeuta = uuid
     return this.liquidationTherapist.idUnico
   }
 
@@ -474,6 +475,8 @@ export class SettingComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
 
+            debugger
+
             this.createIdUnicoTherapist()
             this.dateTherapist(nombre)
             this.liquidationTherapist.currentDate = this.currentDate.toString()
@@ -481,6 +484,10 @@ export class SettingComponent implements OnInit {
 
             this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
               this.liquidationTherapist.tratamiento = rp.length
+
+              for (let o = 0; o < rp.length; o++) {
+                this.services.updateLiquidacionTerap(rp[0]['id'], this.modelService).subscribe((rp: any) => { })
+              }
             })
 
             setTimeout(() => {
