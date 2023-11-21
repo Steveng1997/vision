@@ -1625,7 +1625,7 @@
 
   .columnTherapistAdd {
     display: grid;
-    grid-template-columns: 51% 27%;
+    grid-template-columns: 52% 27%;
     margin-bottom: 0px;
     margin-left: 6%;
   }
@@ -1639,13 +1639,13 @@
 
   .columnTableTherapist {
     display: grid;
-    grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+    grid-template-columns: 35% 27% 24% 25% 22% 20% 15%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableTherapist {
-    width: 168%;
+    width: 175%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1662,7 +1662,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 18px 0px 14px;
+    padding: 0px 15px 0px 12px;
   }
 
   .pagination_Therapist {
@@ -1705,7 +1705,7 @@
 
   .columnService {
     word-break: break-all;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 17px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1715,7 +1715,7 @@
 
   .columnDrink {
     word-break: break-all;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1725,7 +1725,7 @@
 
   .columnTobacco {
     word-break: break-all;
-    padding: 0px 12px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1735,7 +1735,7 @@
 
   .columnVitamin {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1745,7 +1745,7 @@
 
   .columnTip {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 19px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1779,7 +1779,7 @@
 
   .columnManagerAdd {
     display: grid;
-    grid-template-columns: 55% 27%;
+    grid-template-columns: 56% 27%;
     margin-bottom: 4px;
     margin-left: 6%;
   }
@@ -1799,13 +1799,13 @@
 
   .columnTableManager {
     display: grid;
-    grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+    grid-template-columns: 35% 24% 24% 26% 27% 24% 24% 21% 20% 16%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableManager {
-    width: 248%;
+    width: 249%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1895,7 +1895,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 18px 0px 7px;
+    padding: 0px 17px 0px 10px;
   }
 
   .textOthers {
@@ -1911,7 +1911,7 @@
 
   .columnFixedDay {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 21px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1941,7 +1941,7 @@
 
   .columnTobaccoManager {
     word-break: break-all;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 17px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1951,7 +1951,7 @@
 
   .columnVitaminManager {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1961,7 +1961,7 @@
 
   .columnTipManager {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 19px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1971,7 +1971,7 @@
 
   .columnOthersManager {
     word-break: break-all;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3192,7 +3192,7 @@
 
   .columnTherapistAdd {
     display: grid;
-    grid-template-columns: 51% 27%;
+    grid-template-columns: 49% 27%;
     margin-bottom: 0px;
     margin-left: 6%;
   }
@@ -3206,13 +3206,13 @@
 
   .columnTableTherapist {
     display: grid;
-    grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+    grid-template-columns: 33% 24% 21% 21% 22% 20% 15%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableTherapist {
-    width: 168%;
+    width: 162%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3229,7 +3229,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 18px 0px 14px;
+    padding: 0px 17px 0px 15px;
   }
 
   .pagination_Therapist {
@@ -3272,7 +3272,7 @@
 
   .columnService {
     word-break: break-all;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 12px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3292,7 +3292,7 @@
 
   .columnTobacco {
     word-break: break-all;
-    padding: 0px 12px 0px 0px;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3302,7 +3302,7 @@
 
   .columnVitamin {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 21px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3312,7 +3312,7 @@
 
   .columnTip {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3322,7 +3322,7 @@
 
   .columnOthers {
     word-break: break-all;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3346,7 +3346,7 @@
 
   .columnManagerAdd {
     display: grid;
-    grid-template-columns: 55% 27%;
+    grid-template-columns: 52% 27%;
     margin-bottom: 4px;
     margin-left: 6%;
   }
@@ -3366,13 +3366,13 @@
 
   .columnTableManager {
     display: grid;
-    grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+    grid-template-columns: 33% 25% 25% 24% 25% 24% 23% 21% 20% 15%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableManager {
-    width: 248%;
+    width: 243%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3452,7 +3452,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 16px 0px 6px;
+    padding: 0px 16px 0px 11px;
   }
 
   .textTip {
@@ -3462,7 +3462,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 18px 0px 7px;
+    padding: 0px 20px 0px 10px;
   }
 
   .textOthers {
@@ -3478,7 +3478,7 @@
 
   .columnFixedDay {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3488,7 +3488,7 @@
 
   .columnServiceManager {
     word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3498,7 +3498,7 @@
 
   .columnDrinkManager {
     word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3508,7 +3508,7 @@
 
   .columnTobaccoManager {
     word-break: break-all;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 19px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3518,7 +3518,7 @@
 
   .columnVitaminManager {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3528,7 +3528,7 @@
 
   .columnTipManager {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3538,7 +3538,7 @@
 
   .columnOthersManager {
     word-break: break-all;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
