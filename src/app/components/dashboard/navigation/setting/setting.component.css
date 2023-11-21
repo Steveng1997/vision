@@ -5,10 +5,7 @@
 }
 
 .pagination_Manager ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Manager
-  ::ng-deep
-  .ngx-pagination
-  .pagination-previous.disabled::before {
+.pagination_Manager ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
@@ -24,19 +21,13 @@
 }
 
 .pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Therapist
-  ::ng-deep
-  .ngx-pagination
-  .pagination-previous.disabled::before {
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
   color: #8c52ff;
   font-weight: bold;
 }
 
 .pagination_Therapist ::ng-deep .ngx-pagination .pagination-next a::after,
-.pagination_Therapist
-  ::ng-deep
-  .ngx-pagination
-  .pagination-next.disabled::after {
+.pagination_Therapist ::ng-deep .ngx-pagination .pagination-next.disabled::after {
   color: #8c52ff;
   font-weight: bold;
 }
@@ -50,6 +41,7 @@
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -157,16 +149,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -375,7 +357,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -385,7 +377,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -437,6 +429,7 @@
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -544,16 +537,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -762,7 +745,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -772,7 +765,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -824,6 +817,7 @@
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -931,16 +925,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -1149,7 +1133,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1159,7 +1153,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1211,6 +1205,7 @@
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -1318,16 +1313,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -1536,7 +1521,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1546,7 +1541,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1598,6 +1593,7 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -1705,16 +1701,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -1923,7 +1909,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1933,7 +1929,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -1986,6 +1982,7 @@
 
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2022,13 +2019,13 @@
     margin-left: 6%;
   }
 
-  .columnArrow{
+  .columnArrow {
     margin-top: 1rem;
     margin-bottom: -44px;
     overflow-x: auto;
   }
 
-  .arrow{
+  .arrow {
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
@@ -2107,16 +2104,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 23px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -2325,9 +2312,9 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
     word-break: break-all;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -2338,6 +2325,16 @@
   .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnDrinkManager {
+    word-break: break-all;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -2387,6 +2384,7 @@
 }
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2494,16 +2492,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -2712,7 +2700,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -2722,7 +2720,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -2774,6 +2772,7 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2881,16 +2880,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -3099,9 +3088,9 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
     word-break: break-all;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3112,6 +3101,16 @@
   .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnDrinkManager {
+    word-break: break-all;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3161,6 +3160,7 @@
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -3268,16 +3268,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -3486,7 +3476,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -3496,7 +3496,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -3548,6 +3548,7 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -3655,16 +3656,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -3873,7 +3864,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -3883,7 +3884,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -3935,6 +3936,7 @@
 }
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -3966,7 +3968,7 @@
 
   .columnTherapistAdd {
     display: grid;
-    grid-template-columns: 51% 27%;
+    grid-template-columns: 41% 23%;
     margin-bottom: 0px;
     margin-left: 6%;
   }
@@ -3980,13 +3982,13 @@
 
   .columnTableTherapist {
     display: grid;
-    grid-template-columns: 26% 27% 24% 25% 22% 20% 17%;
+    grid-template-columns: 28% 21% 18% 17% 18% 17% 12%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableTherapist {
-    width: 168%;
+    width: 136%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4044,19 +4046,9 @@
     justify-self: start;
   }
 
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
   .columnService {
     word-break: break-all;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4066,7 +4058,7 @@
 
   .columnDrink {
     word-break: break-all;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4076,7 +4068,7 @@
 
   .columnTobacco {
     word-break: break-all;
-    padding: 0px 12px 0px 0px;
+    padding: 0px 7px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4086,7 +4078,7 @@
 
   .columnVitamin {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4096,7 +4088,7 @@
 
   .columnTip {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4106,7 +4098,7 @@
 
   .columnOthers {
     word-break: break-all;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 1px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4130,7 +4122,7 @@
 
   .columnManagerAdd {
     display: grid;
-    grid-template-columns: 55% 27%;
+    grid-template-columns: 44% 23%;
     margin-bottom: 4px;
     margin-left: 6%;
   }
@@ -4150,13 +4142,13 @@
 
   .columnTableManager {
     display: grid;
-    grid-template-columns: 28% 24% 28% 26% 27% 24% 24% 21% 20% 16%;
+    grid-template-columns: 28% 20% 20% 20% 22% 19% 20% 21% 17% 16%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTableManager {
-    width: 248%;
+    width: 206%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4236,7 +4228,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 16px 0px 6px;
+    padding: 0px 23px 0px 18px;
   }
 
   .textTip {
@@ -4246,7 +4238,7 @@
     font-weight: bold;
     font-family: sans-serif;
     word-break: break-all;
-    padding: 0px 18px 0px 7px;
+    padding: 0px 17px 0px 14px;
   }
 
   .textOthers {
@@ -4260,9 +4252,9 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
     word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4271,6 +4263,16 @@
   }
 
   .columnServiceManager {
+    word-break: break-all;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -4292,7 +4294,7 @@
 
   .columnVitaminManager {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 29px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4302,7 +4304,7 @@
 
   .columnTipManager {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 20px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4312,7 +4314,7 @@
 
   .columnOthersManager {
     word-break: break-all;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4322,6 +4324,7 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -4429,16 +4432,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -4647,7 +4640,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -4657,7 +4660,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -4709,6 +4712,7 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -4816,16 +4820,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -5034,7 +5028,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -5044,7 +5048,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -5096,6 +5100,7 @@
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -5203,16 +5208,6 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
-  }
-
-  .columnFixedDay {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   .columnService {
@@ -5421,7 +5416,17 @@
 
   /* Column */
 
-  .columnDrinkManager {
+  .columnFixedDay {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnServiceManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
@@ -5431,7 +5436,7 @@
     justify-self: end;
   }
 
-  .columnServiceManager {
+  .columnDrinkManager {
     word-break: break-all;
     padding: 0px 19px 0px 0px;
     font-family: sans-serif;
