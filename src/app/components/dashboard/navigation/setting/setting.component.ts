@@ -31,6 +31,7 @@ export class SettingComponent implements OnInit {
   pageEncargada!: number
   modalManager: any
   currentDate = new Date().getTime()
+  idTherapist: any
 
   liquidationManager: LiquidationManager = {
     currentDate: "",
@@ -462,6 +463,13 @@ export class SettingComponent implements OnInit {
     })
   }
 
+  getTerapLiquidationFalse(nombre) {
+    this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
+      this.liquidationTherapist.tratamiento = rp.length
+      this.idTherapist = rp
+    })
+  }
+
   removeTherapist(id: number, nombre: string) {
     this.serviceTherapist.getByIdTerapeuta(id).subscribe((rp: any) => {
       if (rp) {
@@ -475,30 +483,27 @@ export class SettingComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
 
-            debugger
-
             this.createIdUnicoTherapist()
             this.dateTherapist(nombre)
             this.liquidationTherapist.currentDate = this.currentDate.toString()
             this.liquidationTherapist.terapeuta = nombre
 
-            this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
-              this.liquidationTherapist.tratamiento = rp.length
-
-              for (let o = 0; o < rp.length; o++) {
-                this.services.updateLiquidacionTerap(rp[0]['id'], this.modelService).subscribe((rp: any) => { })
-              }
-            })
+            this.getTerapLiquidationFalse(nombre)
 
             setTimeout(() => {
-              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
-            }, 1000)
 
-            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
-            this.serviceTherapist.deleteTerapeuta(id).subscribe((resp: any) => {
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((rp) => { })
+
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
+              this.serviceTherapist.deleteTerapeuta(id).subscribe((rp: any) => { })
+
+              for (let o = 0; o < this.idTherapist.length; o++) {
+                this.services.deleteServicio(this.idTherapist[o].id).subscribe((rp: any) => { })
+              }
+
               this.consultTherapists()
               this.modalService.dismissAll()
-            })
+            }, 2000)
           }
         })
       }

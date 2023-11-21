@@ -82,7 +82,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -469,7 +469,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -856,7 +856,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -1243,7 +1243,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -1630,7 +1630,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -2018,8 +2018,22 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
+  }
+
+  .columnArrow{
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow{
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -2405,7 +2419,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -2792,7 +2806,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -3179,7 +3193,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -3566,7 +3580,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -3953,7 +3967,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -4340,7 +4354,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -4727,7 +4741,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
@@ -5114,7 +5128,7 @@
   .columnTherapistAdd {
     display: grid;
     grid-template-columns: 51% 27%;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
     margin-left: 6%;
   }
 
