@@ -119,6 +119,14 @@ export class SettingComponent implements OnInit {
     this.consultManager()
   }
 
+  arrowLeftTherapist() {
+    document.querySelector('.columnTherapist').scrollLeft += 10;
+  }
+
+  arrowLeftManager(){
+    document.querySelector('.columnManager').scrollLeft += 10;
+  }
+
   openManager(targetEncargada) {
     this.modalService.open(targetEncargada, {
       centered: true,

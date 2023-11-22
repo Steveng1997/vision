@@ -75,7 +75,21 @@
     display: grid;
     grid-template-columns: 56% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 24px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -229,7 +243,7 @@
     display: grid;
     grid-template-columns: 60% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 22px;
   }
 
   .buttonAdd {
@@ -464,6 +478,20 @@
     grid-template-columns: 55% 27%;
     margin-bottom: 0px;
     margin-left: 23px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -851,7 +879,21 @@
     display: grid;
     grid-template-columns: 54% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 22px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -1005,7 +1047,7 @@
     display: grid;
     grid-template-columns: 58% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 20px
   }
 
   .buttonAdd {
@@ -1239,7 +1281,21 @@
     display: grid;
     grid-template-columns: 53% 27%;
     margin-bottom: 0px;
-    margin-left: 23px;
+    margin-left: 22px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -1393,7 +1449,7 @@
     display: grid;
     grid-template-columns: 57% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 20px;
   }
 
   .buttonAdd {
@@ -1627,7 +1683,21 @@
     display: grid;
     grid-template-columns: 52% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 22px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -1781,7 +1851,7 @@
     display: grid;
     grid-template-columns: 56% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 20px;
   }
 
   .buttonAdd {
@@ -2421,6 +2491,20 @@
     margin-left: 6%;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   .columnTherapist {
     margin-top: 2rem;
     margin-left: 1%;
@@ -2806,7 +2890,21 @@
     display: grid;
     grid-template-columns: 51% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 21px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -2960,7 +3058,7 @@
     display: grid;
     grid-template-columns: 55% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 20px;
   }
 
   .buttonAdd {
@@ -3194,7 +3292,21 @@
     display: grid;
     grid-template-columns: 49% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 21px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -3348,7 +3460,7 @@
     display: grid;
     grid-template-columns: 52% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 20px;
   }
 
   .buttonAdd {
@@ -3582,7 +3694,21 @@
     display: grid;
     grid-template-columns: 48% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 19px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -3736,7 +3862,7 @@
     display: grid;
     grid-template-columns: 52% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 19px;
   }
 
   .buttonAdd {
@@ -3970,7 +4096,21 @@
     display: grid;
     grid-template-columns: 41% 23%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 17px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -4124,7 +4264,7 @@
     display: grid;
     grid-template-columns: 44% 23%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 15px;
   }
 
   .buttonAdd {
@@ -4358,7 +4498,21 @@
     display: grid;
     grid-template-columns: 36% 27%;
     margin-bottom: 0px;
-    margin-left: 24px;
+    margin-left: 25px;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
@@ -4749,6 +4903,20 @@
     margin-left: 6%;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   .columnTherapist {
     margin-top: 2rem;
     margin-left: 1%;
@@ -5135,6 +5303,20 @@
     grid-template-columns: 51% 27%;
     margin-bottom: 0px;
     margin-left: 6%;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -44px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   .columnTherapist {
