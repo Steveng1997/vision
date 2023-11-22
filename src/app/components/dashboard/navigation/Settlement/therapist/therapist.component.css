@@ -33,6 +33,7 @@
 .pagination_Mobile ::ng-deep .ngx-pagination .current {
   background: white;
   color: #8c52ff;
+  font-weight: bold;
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
