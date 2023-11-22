@@ -159,7 +159,10 @@
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
                             <div class="modal-header">
-                                <h5 class="modal-title"> {{therapist?.nombre}} </h5>
+                                <label class="modal-title titleAdd"> {{therapist?.nombre}}
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
 
                                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -178,38 +181,39 @@
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Servicio</mat-label>
+                                            <mat-label>Servicio (%)</mat-label>
                                             <input type="text" matInput name="servicio" [(ngModel)]="therapist.servicio"
-                                                #servicio="ngModel">
+                                                #servicio="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Propina</mat-label>
+                                            <mat-label>Propina (%)</mat-label>
                                             <input type="text" matInput name="propina" [(ngModel)]="therapist.propina"
-                                                #propina="ngModel">
+                                                #propina="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Bebida</mat-label>
+                                            <mat-label>Bebida (%)</mat-label>
                                             <input type="text" matInput name="bebida" [(ngModel)]="therapist.bebida"
-                                                #bebida="ngModel">
+                                                #bebida="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Tabaco</mat-label>
+                                            <mat-label>Tabaco (%)</mat-label>
                                             <input type="text" matInput name="tabaco" [(ngModel)]="therapist.tabaco"
-                                                #tabaco="ngModel">
+                                                #tabaco="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Vitamina</mat-label>
+                                            <mat-label>Vitamina (%)</mat-label>
                                             <input type="text" matInput name="vitamina" [(ngModel)]="therapist.vitamina"
-                                                #vitamina="ngModel">
+                                                #vitamina="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Otros</mat-label>
-                                            <input type="text" matInput name="otros" [(ngModel)]="therapist.otros">
+                                            <mat-label>Otros (%)</mat-label>
+                                            <input type="text" matInput name="otros" [(ngModel)]="therapist.otros"
+                                                placeholder="%">
                                         </mat-form-field>
 
                                         <div class="row">
@@ -430,7 +434,10 @@
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
                             <div class="modal-header">
-                                <h5 class="modal-title"> {{manager?.nombre}} </h5>
+                                <label class="modal-title titleAdd"> {{manager?.nombre}}
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
 
                                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -461,45 +468,45 @@
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Fijo día</mat-label>
+                                            <mat-label>Fijo día (€)</mat-label>
                                             <input type="number" matInput name="fijoDia" [(ngModel)]="manager.fijoDia"
-                                                #fijoDia="ngModel">
+                                                #fijoDia="ngModel" placeholder="€">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Servicio:</mat-label>
+                                            <mat-label>Servicio (%)</mat-label>
                                             <input type="number" matInput name="servicio" [(ngModel)]="manager.servicio"
-                                                #servicio="ngModel">
+                                                #servicio="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Propina</mat-label>
+                                            <mat-label>Propina (%)</mat-label>
                                             <input type="number" matInput name="propina" [(ngModel)]="manager.propina"
-                                                #propina="ngModel">
+                                                #propina="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Bebida:</mat-label>
+                                            <mat-label>Bebida (%)</mat-label>
                                             <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
-                                                #bebida="ngModel">
+                                                #bebida="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Tabaco</mat-label>
+                                            <mat-label>Tabaco (%)</mat-label>
                                             <input type="number" matInput name="tabaco" [(ngModel)]="manager.tabaco"
-                                                #tabaco="ngModel">
+                                                #tabaco="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Vitamina</mat-label>
+                                            <mat-label>Vitamina (%)</mat-label>
                                             <input type="number" matInput name="vitamina" [(ngModel)]="manager.vitamina"
-                                                #vitamina="ngModel">
+                                                #vitamina="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Otros</mat-label>
+                                            <mat-label>Otros (%)</mat-label>
                                             <input type="number" matInput name="otros" [(ngModel)]="manager.otros"
-                                                #otros="ngModel">
+                                                #otros="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <div class="row">
