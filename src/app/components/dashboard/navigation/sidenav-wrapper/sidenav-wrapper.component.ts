@@ -9,7 +9,7 @@ import { ServiceManager } from 'src/app/core/services/manager'
 })
 
 export class SidenavWrapperComponent implements OnInit {
-  public idUser: any
+  idUser: any
   validationMenu: boolean = false
   validationLiquidation: boolean = false
   contentLiquidation: any

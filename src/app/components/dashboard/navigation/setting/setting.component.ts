@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Alert
@@ -26,6 +26,7 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 })
 export class SettingComponent implements OnInit {
 
+  idUser: any
   // Encargada
   managers: any
   pageEncargada!: number
@@ -106,6 +107,7 @@ export class SettingComponent implements OnInit {
 
   constructor(
     public router: Router,
+    private activeRoute: ActivatedRoute,
     public serviceTherapist: ServiceTherapist,
     public serviceManager: ServiceManager,
     public services: Service,
@@ -117,13 +119,16 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
     this.consultTherapists()
     this.consultManager()
+
+    this.idUser = this.activeRoute.snapshot['_urlSegment'].segments['1'].path;
+    if (this.idUser) {
+      this.serviceManager.getById(this.idUser).subscribe((res) => {
+        this.idUser = res[0]
+      })
+    }
   }
 
-  arrowLeftTherapist() {
-    document.querySelector('.columnTherapist').scrollLeft += 10;
-  }
-
-  arrowLeftManager(){
+  arrowLeftManager() {
     document.querySelector('.columnManager').scrollLeft += 10;
   }
 
@@ -283,7 +288,6 @@ export class SettingComponent implements OnInit {
     })
   }
 
-
   removeManager(id: number, nombre: string) {
     this.serviceManager.getById(id).subscribe((resp: any) => {
       if (resp) {
@@ -322,6 +326,10 @@ export class SettingComponent implements OnInit {
   }
 
   // Therapist
+
+  arrowLeftTherapist() {
+    document.querySelector('.columnTherapist').scrollLeft += 10;
+  }
 
   openTherapist(targetModal) {
     this.modalService.open(targetModal, {
