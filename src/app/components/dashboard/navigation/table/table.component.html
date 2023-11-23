@@ -102,7 +102,7 @@
 
                         <div> </div>
 
-                        <div>
+                        <div class="textManager">
                             <label>Encargada</label>
                         </div>
 
@@ -110,75 +110,75 @@
                             <label>Fecha</label>
                         </div>
 
-                        <div>
+                        <div class="textTherapist">
                             <label>Terapeuta</label>
                         </div>
 
-                        <div>
+                        <div class="textTime">
                             <label>Tiempo</label>
                         </div>
 
-                        <div>
+                        <div class="textMin">
                             <label>Min</label>
                         </div>
 
-                        <div>
+                        <div class="textTotal">
                             <label>Total</label>
                         </div>
 
-                        <div>
+                        <div class="textPay">
                             <label>Pago</label>
                         </div>
 
-                        <div>
+                        <div class="textExit">
                             <label>Salida</label>
                         </div>
 
-                        <div>
+                        <div class="textTreatment">
                             <label>Tratamiento</label>
                         </div>
 
-                        <div>
+                        <div class="textFloor1">
                             <label>€ a piso 1</label>
                         </div>
 
-                        <div>
+                        <div class="textFloor2">
                             <label>€ a piso 2</label>
                         </div>
 
-                        <div>
+                        <div class="textValueTherapist">
                             <label>€ a terap.</label>
                         </div>
 
-                        <div>
+                        <div class="textValueManager">
                             <label>€ a enc.</label>
                         </div>
 
-                        <div>
+                        <div class="textValueOther">
                             <label>€ a otros</label>
                         </div>
 
-                        <div>
+                        <div class="textDrink">
                             <label>Bebida</label>
                         </div>
 
-                        <div>
+                        <div class="textTobacco">
                             <label>Tabaco</label>
                         </div>
 
-                        <div>
+                        <div class="textVitamin">
                             <label>Vitamina</label>
                         </div>
 
-                        <div>
+                        <div class="textTip">
                             <label>Propina</label>
                         </div>
 
-                        <div>
+                        <div class="textOthers">
                             <label>Otros</label>
                         </div>
 
-                        <div>
+                        <div class="textClient">
                             <label>Cliente</label>
                         </div>
                     </div>
@@ -194,45 +194,45 @@
                             (click)="notes(services.id, modalTabl)">
                         </div>
 
-                        <div (click)="editForm(services.id)">{{services.encargada}}</div>
+                        <div class="columnManager" (click)="editForm(services.id)">{{services.encargada}}</div>
 
                         <div (click)="editForm(services.id)">{{services.fecha}}</div>
 
                         <div (click)="editForm(services.id)">{{services.terapeuta}}</div>
 
-                        <div (click)="editForm(services.id)"> </div>
+                        <div (click)="editForm(services.id)">{{services.horaStart + '-' + services.horaEnd}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.minuto + ' min'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.totalServicio+ ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.formaPago}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.salida}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.servicio + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.numberPiso1 + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.numberPiso2 + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.numberTerap + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.numberEncarg + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.numberOtro + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.bebidas + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.tabaco + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.vitaminas + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.propina + ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.otros+ ' €'}}</div>
 
-                        <div> </div>
+                        <div (click)="editForm(services.id)">{{services.cliente}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>

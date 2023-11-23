@@ -18,7 +18,10 @@
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+.pagination_Mobile
+  ::ng-deep
+  .ngx-pagination
+  .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
@@ -28,7 +31,6 @@
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -47,7 +49,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -115,7 +117,6 @@
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -134,7 +135,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -202,7 +203,6 @@
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -221,7 +221,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -289,7 +289,6 @@
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -308,7 +307,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -376,7 +375,6 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -395,7 +393,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -463,7 +461,6 @@
 }
 
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -482,13 +479,13 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
-    margin-left: 20%;
+    margin-top: 8%;
+    margin-left: 19%;
   }
 
   .tableContainer {
@@ -519,20 +516,20 @@
     grid-template-columns: 58% 58%;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: -2%;
+    margin-left: -6px;
   }
 
   .containerPaymentMethod {
-    width: 72%;
+    width: 74%;
     justify-self: center;
     margin-left: 0%;
     margin-top: -7%;
   }
 
   .searchContainer {
-    width: 138px;
+    width: 151px;
     justify-self: center;
-    margin-left: 11px;
+    margin-left: 12px;
     margin-top: -7%;
   }
 
@@ -552,16 +549,27 @@
 
   .column {
     margin-top: 2rem;
-    margin-left: 1%;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
   .columnTable {
     display: grid;
-    grid-template-columns: 9% 24% 30% 25% 23% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20%;
+    grid-template-columns: 9% 28% 25% 28% 31% 20% 25% 24% 31% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25%;
     margin-bottom: 4px;
     margin-left: -3%;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 44px 0px 0px;
   }
 
   .textDate {
@@ -572,21 +580,193 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textTherapist {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 36px 0px 0px;
+  }
+
+  .textTime {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textMin {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTotal {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  .textFloor1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textFloor2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textValueTherapist {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textValueOther {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textDrink {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTobacco {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 36px 0px 0px;
+  }
+
+  .textTip {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 3px;
+  }
+
+  .textOthers {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textClient {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .lineTable {
-    width: 188%;
+    width: 514%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -1rem;
+    margin-left: -4px;
     margin-top: -8px;
     margin-bottom: 9px;
+  }
+
+  /* Column */
+
+  .columnManager {
+    word-break: break-all;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: start;
   }
 }
 
 /* AQUI */
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -605,7 +785,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -673,7 +853,6 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -692,7 +871,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -760,7 +939,6 @@
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -779,7 +957,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -848,7 +1026,6 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -867,7 +1044,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -935,7 +1112,6 @@
 }
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -954,7 +1130,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1022,7 +1198,6 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
-
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
@@ -1041,7 +1216,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1110,9 +1285,8 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
-
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1185,9 +1359,8 @@
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
-
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
