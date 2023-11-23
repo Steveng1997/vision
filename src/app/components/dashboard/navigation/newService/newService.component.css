@@ -835,9 +835,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -1196,9 +1196,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -1557,9 +1557,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -1918,9 +1918,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -2279,9 +2279,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px; 
   }
 }
 
@@ -2640,9 +2640,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: 1.1rem;
+    margin-left: -30px;
   }
 }
 
@@ -3209,7 +3209,7 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 19% 19% 19% 19%;
     margin-top: 1rem;
-    margin-left: 83vh;
+    margin-left: 27vh;
   }
 
   .collectionContainer2 {
@@ -3360,9 +3360,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -7px;
+    margin-left: -30px;
   }
 }
 
@@ -3722,9 +3722,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -36px;
   }
 }
 
@@ -4084,9 +4084,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -4426,7 +4426,7 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 371px;
+    grid-template-columns: 401px;
     margin-top: 1rem;
     margin-left: -12px;
     margin-bottom: 1.5rem;
@@ -4444,9 +4444,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -30px;
   }
 }
 
@@ -4804,9 +4804,9 @@ input[id="transOtro"] {
 
   .inputButton {
     display: grid;
-    grid-template-columns: 31% 33% 25%;
+    grid-template-columns: 35% 35% 35%;
     margin-bottom: 124px;
-    margin-left: -1.9rem;
+    margin-left: -36px;
   }
 }
 
