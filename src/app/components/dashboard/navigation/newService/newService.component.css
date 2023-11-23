@@ -494,7 +494,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: -34px;
+    margin-left: -30px;
   }
 
   .title {
@@ -508,16 +508,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 95%;
+    width: 94%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
+    margin-left: 0px;
   }
 
   .lastService {
-    margin-left: -17px;
+    margin-left: -15px;
     width: 59%;
   }
 
@@ -532,17 +532,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: -5px;
+    margin-left: -3px;
     width: 19rem;
   }
 
   .serviceLine {
-    width: 95%;
+    width: 94%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
+    margin-left: 0px;
   }
 
   .lastServiceOrdered {
@@ -565,25 +565,25 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 65% 48%;
-    margin-left: -47px;
+    grid-template-columns: 65% 45%;
+    margin-left: -40px;
   }
 
   .therapistContainer {
-    width: 136px;
+    width: 137px;
   }
 
   .containerInCharge {
-    width: 99%;
+    width: 137px;
   }
 
   .clientContainer {
-    width: 136px;
+    width: 137px;
     margin-top: 1rem;
   }
 
   .containerPlaceExit {
-    width: 99%;
+    width: 137px;
     margin-top: 1rem;
   }
 
@@ -591,31 +591,31 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 60% 43%;
     margin-top: 1rem;
-    margin-left: -47px;
+    margin-left: -40px;
   }
 
   .dateContainer {
-    width: 79%;
+    width: 73%;
   }
 
   .containerStartTime {
-    width: 89%;
-    margin-left: 15px;
+    width: 78%;
+    margin-left: 15.8px;
   }
 
   .datesContainer2 {
     display: grid;
     grid-template-columns: 45% 54%;
-    margin-left: -47px;
+    margin-left: -40px;
   }
 
   .containerDuration {
-    width: 100%;
+    width: 136.5px;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    margin-left: 37%;
+    margin-left: 62.5px;
     margin-top: 1.5rem;
   }
 
@@ -626,7 +626,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 42%;
-    margin-right: 9%;
+    margin-right: 37px;
   }
 
   .titleService {
@@ -644,9 +644,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 42% 40% 30%;
+    grid-template-columns: 41% 39% 29%;
     margin-top: 1rem;
-    margin-left: -44px;
+    margin-left: -40px;
   }
 
   .treatmentContainer {
@@ -692,7 +692,7 @@ input[id="transOtro"] {
     grid-template-columns: 26% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -14%;
+    margin-left: -40px;
   }
 
   .collectionPiso1 {
@@ -817,9 +817,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 299px;
+    grid-template-columns: 339px;
     margin-top: 1rem;
-    margin-left: -7%;
+    margin-left: -18px;
     margin-bottom: 1.5rem;
   }
 
@@ -855,7 +855,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: -21px;
+    margin-left: -12px;
   }
 
   .title {
@@ -869,16 +869,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 91%;
+    width: 90%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1px;
+    margin-left: 5px;
   }
 
   .lastService {
-    margin-left: -11px;
+    margin-left: -6px;
     width: 55%;
   }
 
@@ -893,17 +893,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 2px;
+    margin-left: 6px;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 91%;
+    width: 90%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1px;
+    margin-left: 5px;
   }
 
   .lastServiceOrdered {
@@ -926,8 +926,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 61% 56%;
-    margin-left: -31px;
+    grid-template-columns: 61% 53%;
+    margin-left: -23px;
   }
 
   .therapistContainer {
@@ -950,9 +950,9 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 64% 42%;
+    grid-template-columns: 60% 40%;
     margin-top: 1rem;
-    margin-left: -31px;
+    margin-left: -23px;
   }
 
   .dateContainer {
@@ -960,14 +960,14 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 82%;
-    margin-left: auto;
+    width: 81%;
+    margin-left: 3px;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 45% 54%;
-    margin-left: -30px;
+    grid-template-columns: 42% 54%;
+    margin-left: -23px;
   }
 
   .containerDuration {
@@ -976,7 +976,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 49%;
+    margin-left: 61px;
     margin-top: 1.5rem;
   }
 
@@ -987,7 +987,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 8%;
+    margin-right: 36px;
   }
 
   .titleService {
@@ -1005,9 +1005,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 39% 36% 31%;
+    grid-template-columns: 39% 36% 28.4%;
     margin-top: 1rem;
-    margin-left: -31px;
+    margin-left: -23px;
   }
 
   .treatmentContainer {
@@ -1053,7 +1053,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -9%;
+    margin-left: -23px;
   }
 
   .collectionPiso1 {
@@ -1178,9 +1178,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 310px;
+    grid-template-columns: 335px;
     margin-top: 1rem;
-    margin-left: -7%;
+    margin-left: -17px;
     margin-bottom: 1.5rem;
   }
 
@@ -1216,7 +1216,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: -21px;
+    margin-left: -10px;
   }
 
   .title {
@@ -1230,16 +1230,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 91%;
+    width: 89%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1px;
+    margin-left: 7px;
   }
 
   .lastService {
-    margin-left: -11px;
+    margin-left: -5px;
     width: 55%;
   }
 
@@ -1254,17 +1254,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 2px;
+    margin-left: 7px;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 91%;
+    width: 89%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1px;
+    margin-left: 7px;
   }
 
   .lastServiceOrdered {
@@ -1287,8 +1287,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 61% 56%;
-    margin-left: -31px;
+    grid-template-columns: 61% 52%;
+    margin-left: -21px;
   }
 
   .therapistContainer {
@@ -1311,9 +1311,9 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 64% 42%;
+    grid-template-columns: 59% 39%;
     margin-top: 1rem;
-    margin-left: -31px;
+    margin-left: -21px;
   }
 
   .dateContainer {
@@ -1322,22 +1322,22 @@ input[id="transOtro"] {
 
   .containerStartTime {
     width: 82%;
-    margin-left: auto;
+    margin-left: 7px;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 45% 54%;
-    margin-left: -30px;
+    grid-template-columns: 42% 54%;
+    margin-left: -22px;
   }
 
   .containerDuration {
-    width: 100%;
+    width: 135.4px;
     margin-top: 17%;
   }
 
   .EndTimeContainer {
-    margin-left: 49%;
+    margin-left: 63px;
     margin-top: 1.5rem;
   }
 
@@ -1348,7 +1348,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 8%;
+    margin-right: 39px;
   }
 
   .titleService {
@@ -1366,9 +1366,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 39% 36% 31%;
+    grid-template-columns: 39% 36% 27.5%;
     margin-top: 1rem;
-    margin-left: -31px;
+    margin-left: -21px;
   }
 
   .treatmentContainer {
@@ -1414,7 +1414,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -9%;
+    margin-left: -6%;
   }
 
   .collectionPiso1 {
@@ -1539,9 +1539,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 310px;
+    grid-template-columns: 335px;
     margin-top: 1rem;
-    margin-left: -7%;
+    margin-left: -14px;
     margin-bottom: 1.5rem;
   }
 
@@ -1577,7 +1577,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 6px;
+    margin-left: 8px;
   }
 
   .title {
@@ -1600,7 +1600,7 @@ input[id="transOtro"] {
   }
 
   .lastService {
-    margin-left: 3px;
+    margin-left: 4px;
     width: 55%;
   }
 
@@ -1615,7 +1615,7 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 15px;
+    margin-left: 16px;
     width: 21rem;
   }
 
@@ -1648,8 +1648,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 56% 43%;
-    margin-left: -6px;
+    grid-template-columns: 56% 41%;
+    margin-left: -3px;
   }
 
   .therapistContainer {
@@ -1672,9 +1672,9 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 57% 42%;
+    grid-template-columns: 52% 39%;
     margin-top: 1rem;
-    margin-left: -7px;
+    margin-left: -3px;
   }
 
   .dateContainer {
@@ -1682,14 +1682,14 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 82%;
-    margin-left: auto;
+    width: 81%;
+    margin-left: 13.5px;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 45% 54%;
-    margin-left: -6px;
+    grid-template-columns: 41% 54%;
+    margin-left: -3px;
   }
 
   .containerDuration {
@@ -1698,7 +1698,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 36%;
+    margin-left: 50px;
     margin-top: 1.5rem;
   }
 
@@ -1709,7 +1709,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 9%;
+    margin-right: 42px;
   }
 
   .titleService {
@@ -1727,9 +1727,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 38% 36% 25%;
+    grid-template-columns: 38% 35% 24%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: -3px;
   }
 
   .treatmentContainer {
@@ -1760,7 +1760,7 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 10%;
+    margin-left: 17%;
   }
 
   .collectionContainer {
@@ -1775,7 +1775,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -2%;
+    margin-left: -3px;
   }
 
   .collectionPiso1 {
@@ -1900,9 +1900,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 299px;
+    grid-template-columns: 323px;
     margin-top: 1rem;
-    margin-left: -7%;
+    margin-left: -23px;
     margin-bottom: 1.5rem;
   }
 
@@ -1938,7 +1938,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 3px;
+    margin-left: 12px;
   }
 
   .title {
@@ -1957,11 +1957,11 @@ input[id="transOtro"] {
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
+    margin-left: 18px;
   }
 
   .lastService {
-    margin-left: 3px;
+    margin-left: 6px;
     width: 55%;
   }
 
@@ -1976,7 +1976,7 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 15px;
+    margin-left: 18px;
     width: 20rem;
   }
 
@@ -1986,7 +1986,7 @@ input[id="transOtro"] {
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
+    margin-left: 18px;
   }
 
   .lastServiceOrdered {
@@ -2009,8 +2009,8 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 56% 43%;
-    margin-left: -6px;
+    grid-template-columns: 56% 40%;
+    margin-left: 1px;
   }
 
   .therapistContainer {
@@ -2033,9 +2033,9 @@ input[id="transOtro"] {
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 57% 42%;
+    grid-template-columns: 53% 37%;
     margin-top: 1rem;
-    margin-left: -7px;
+    margin-left: 1px;
   }
 
   .dateContainer {
@@ -2044,13 +2044,13 @@ input[id="transOtro"] {
 
   .containerStartTime {
     width: 82%;
-    margin-left: auto;
+    margin-left: 10px;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 45% 54%;
-    margin-left: -6px;
+    grid-template-columns: 42% 54%;
+    margin-left: 1px;
   }
 
   .containerDuration {
@@ -2059,7 +2059,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 36%;
+    margin-left: 47px;
     margin-top: 1.5rem;
   }
 
@@ -2070,7 +2070,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 11%;
+    margin-right: 46px;
   }
 
   .titleService {
@@ -2088,9 +2088,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 38% 36% 25%;
+    grid-template-columns: 37% 34% 25%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: 1px;
   }
 
   .treatmentContainer {
@@ -2121,14 +2121,14 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 18%;
+    margin-left: 22px;
   }
 
   .collectionContainer {
     display: grid;
     grid-template-columns: 18% 19% 17% 17%;
     margin-top: 1rem;
-    margin-left: 182px;
+    margin-left: 206px;
   }
 
   .collectionContainer2 {
@@ -2136,7 +2136,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -2%;
+    margin-left: 1px;
   }
 
   .collectionPiso1 {
@@ -2261,9 +2261,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 315px;
+    grid-template-columns: 330px;
     margin-top: 1rem;
-    margin-left: -7%;
+    margin-left: -17px;
     margin-bottom: 1.5rem;
   }
 
@@ -2299,7 +2299,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: 4px;
+    margin-left: 0px;
   }
 
   .title {
@@ -2318,11 +2318,11 @@ input[id="transOtro"] {
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 4%;
+    margin-left: 12px;
   }
 
   .lastService {
-    margin-left: 1%;
+    margin-left: 0%;
   }
 
   .sumServices {
@@ -2336,7 +2336,7 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 5%;
+    margin-left: 12px;
     width: 20rem;
   }
 
@@ -2346,7 +2346,7 @@ input[id="transOtro"] {
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 4%;
+    margin-left: 12px;
   }
 
   .lastServiceOrdered {
@@ -2370,7 +2370,7 @@ input[id="transOtro"] {
   .inputContainer {
     display: grid;
     grid-template-columns: 60% 42%;
-    margin-left: -6px;
+    margin-left: -11px;
   }
 
   .therapistContainer {
@@ -2395,7 +2395,7 @@ input[id="transOtro"] {
     display: grid;
     grid-template-columns: 57% 42%;
     margin-top: 1rem;
-    margin-left: -6px;
+    margin-left: -11px;
   }
 
   .dateContainer {
@@ -2403,23 +2403,24 @@ input[id="transOtro"] {
   }
 
   .containerStartTime {
-    width: 79%;
-    margin-left: 10px;
+    width: 73%;
+    margin-left: 10.9px;
   }
 
   .datesContainer2 {
     display: grid;
     grid-template-columns: 42% 196px;
-    margin-left: -6px;
+    margin-left: -7px;
   }
 
   .containerDuration {
-    width: 99%;
+    width: 100%;
     margin-top: 17%;
+    margin-left: -2px;
   }
 
   .EndTimeContainer {
-    margin-left: 29.5%;
+    margin-left: 61px;
     margin-top: 1.5rem;
   }
 
@@ -2430,7 +2431,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 2%;
+    margin-right: 17px;
   }
 
   .titleService {
@@ -2448,9 +2449,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 38% 36% 25%;
+    grid-template-columns: 38% 36% 25.6%;
     margin-top: 1rem;
-    margin-left: -2%;
+    margin-left: -11px;
   }
 
   .treatmentContainer {
@@ -2496,7 +2497,7 @@ input[id="transOtro"] {
     grid-template-columns: 21.6% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -2%;
+    margin-left: -11px;
   }
 
   .collectionPiso1 {
@@ -2621,9 +2622,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 317px;
+    grid-template-columns: 341px;
     margin-top: 1rem;
-    margin-left: -6%;
+    margin-left: -25px;
     margin-bottom: 1.5rem;
   }
 
@@ -3019,7 +3020,7 @@ input[id="transOtro"] {
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-left: -17px;
+    margin-left: -6px;
   }
 
   .title {
@@ -3033,16 +3034,16 @@ input[id="transOtro"] {
   }
 
   .timeline {
-    width: 91%;
+    width: 89%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1%;
+    margin-left: 9px;
   }
 
   .lastService {
-    margin-left: -8px;
+    margin-left: -3px;
   }
 
   .sumServices {
@@ -3056,17 +3057,17 @@ input[id="transOtro"] {
   }
 
   .serviceDescription {
-    margin-left: 5px;
+    margin-left: 9px;
     width: 21rem;
   }
 
   .serviceLine {
-    width: 91%;
+    width: 89%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1%;
+    margin-left: 9px;
   }
 
   .lastServiceOrdered {
@@ -3089,33 +3090,33 @@ input[id="transOtro"] {
 
   .inputContainer {
     display: grid;
-    grid-template-columns: 62% 60%;
-    margin-left: -28px;
+    grid-template-columns: 62% 62%;
+    margin-left: -18px;
   }
 
   .therapistContainer {
-    width: 70%;
+    width: 64%;
   }
 
   .containerInCharge {
-    width: 72%;
+    width: 64%;
   }
 
   .clientContainer {
-    width: 70%;
+    width: 64%;
     margin-top: 1rem;
   }
 
   .containerPlaceExit {
-    width: 72%;
+    width: 64%;
     margin-top: 1rem;
   }
 
   .datesContainer {
     display: grid;
-    grid-template-columns: 223px 41%;
+    grid-template-columns: 215px 39%;
     margin-top: 1rem;
-    margin-left: -28px;
+    margin-left: -17px;
   }
 
   .dateContainer {
@@ -3124,13 +3125,13 @@ input[id="transOtro"] {
 
   .containerStartTime {
     width: 79%;
-    margin-left: 10px;
+    margin-left: -1px;
   }
 
   .datesContainer2 {
     display: grid;
-    grid-template-columns: 157px 41%;
-    margin-left: -28px;
+    grid-template-columns: 152px 41%;
+    margin-left: -13px;
   }
 
   .containerDuration {
@@ -3139,7 +3140,7 @@ input[id="transOtro"] {
   }
 
   .EndTimeContainer {
-    margin-left: 58%;
+    margin-left: 60px;
     margin-top: 1.5rem;
   }
 
@@ -3150,7 +3151,7 @@ input[id="transOtro"] {
   .containerTitleService {
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-right: 0%;
+    margin-right: 12px;
   }
 
   .titleService {
@@ -3168,9 +3169,9 @@ input[id="transOtro"] {
 
   .servicesContainer {
     display: grid;
-    grid-template-columns: 39% 37% 29%;
+    grid-template-columns: 39% 34.7% 29%;
     margin-top: 1rem;
-    margin-left: -8%;
+    margin-left: -17px;
   }
 
   .treatmentContainer {
@@ -3201,14 +3202,14 @@ input[id="transOtro"] {
   }
 
   .titleCollection {
-    margin-left: 10%;
+    margin-left: 14px;
   }
 
   .collectionContainer {
     display: grid;
     grid-template-columns: 19% 19% 19% 19%;
     margin-top: 1rem;
-    margin-left: 26vh;
+    margin-left: 83vh;
   }
 
   .collectionContainer2 {
@@ -3216,7 +3217,7 @@ input[id="transOtro"] {
     grid-template-columns: 24% 22% 16% 20% 14%;
     margin-top: 0rem;
     margin-bottom: 1.5rem;
-    margin-left: -8%;
+    margin-left: -18px;
   }
 
   .collectionPiso1 {
@@ -3341,9 +3342,9 @@ input[id="transOtro"] {
 
   .notesContainer {
     display: grid;
-    grid-template-columns: 338px;
+    grid-template-columns: 351px;
     margin-top: 1rem;
-    margin-left: -6%;
+    margin-left: -11px;
     margin-bottom: 1.5rem;
   }
 
