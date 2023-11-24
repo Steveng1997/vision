@@ -553,7 +553,7 @@
 
   .columnTable {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 26% 24% 31% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 30%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
@@ -562,7 +562,7 @@
 
   .valueTotal{
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 15.5px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -572,7 +572,7 @@
 
   .valueTreatment{
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 23.4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -582,7 +582,7 @@
 
   .valueFloor1{
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -592,7 +592,7 @@
 
   .valueFloor2{
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -734,7 +734,8 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31px;
+    justify-self: end;
+    padding: 15px 15px 0px 0px;
   }
 
   .textPay {
@@ -761,7 +762,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 22px 0px 26px;
   }
 
   .textFloor1 {
@@ -770,7 +771,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 6px 0px 9px;
+    padding: 0px 6px 0px 34px;
   }
 
   .textFloor2 {
@@ -779,7 +780,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 7px 0px 7px;
+    padding: 0px 23px 0px 32px;
   }
 
   .textValueTherapist {
@@ -864,7 +865,7 @@
   }
 
   .lineTable {
-    width: 537%;
+    width: 631%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -928,7 +929,7 @@
 
   .columnTotal {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 15.5px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -957,7 +958,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 24px 0px 0px;
+    padding: 0px 23.6px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
