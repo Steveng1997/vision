@@ -3330,7 +3330,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 30%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -3356,7 +3356,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 30%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
@@ -3681,7 +3681,7 @@
   }
 
   .lineTable {
-    width: 652%;
+    width: 689%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
