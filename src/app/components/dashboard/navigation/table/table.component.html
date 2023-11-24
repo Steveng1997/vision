@@ -100,7 +100,7 @@
                 <div class="column">
 
                     <!-- Total value -->
-                    <div class="columnTable">
+                    <div class="columnTableLine1">
 
                         <div> </div>
 
@@ -187,7 +187,92 @@
 
                     <!-- Text -->
 
-                    <div class="columnTable">
+                    <div class="columnTableLine1">
+
+                        <div> </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTherapistLine1">
+                            <label>Tera</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentLine1">
+                            <label>Trata</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="columnTableLine2">
 
                         <div> </div>
 
@@ -199,8 +284,8 @@
                             <label>Fecha</label>
                         </div>
 
-                        <div class="textTherapist">
-                            <label>Terapeuta</label>
+                        <div class="textTherapistLine2">
+                            <label>peuta</label>
                         </div>
 
                         <div class="textTime">
@@ -223,8 +308,8 @@
                             <label>Salida</label>
                         </div>
 
-                        <div class="textTreatment">
-                            <label>Tratamiento</label>
+                        <div class="textTreatmentLine2">
+                            <label>miento</label>
                         </div>
 
                         <div class="textFloor1">
@@ -274,7 +359,7 @@
 
                     <hr class="lineTable">
 
-                    <div class="columnTable" *ngFor="let services of (servicio | terapeuta: selectedTerapeuta |
+                    <div class="columnTableLine2" *ngFor="let services of (servicio | terapeuta: selectedTerapeuta |
                     encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
                     busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
                     paginate: { itemsPerPage: 50, currentPage: page }">

@@ -458,11 +458,6 @@
 }
 
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: 6rem;
-  }
 
   .title {
     display: grid;
@@ -487,7 +482,7 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 56% 56%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -545,13 +540,41 @@
   /* Table */
 
   .column {
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 30%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 27px;
+  }
+
+  /* Line 2 */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 30%;
     margin-bottom: 4px;
@@ -560,7 +583,7 @@
 
   /* Text value total */
 
-  .valueTotal{
+  .valueTotal {
     word-break: break-all;
     padding: 15px 15.5px 0px 0px;
     font-family: sans-serif;
@@ -570,7 +593,7 @@
     justify-self: end;
   }
 
-  .valueTreatment{
+  .valueTreatment {
     word-break: break-all;
     padding: 15px 23.4px 0px 0px;
     font-family: sans-serif;
@@ -580,7 +603,7 @@
     justify-self: end;
   }
 
-  .valueFloor1{
+  .valueFloor1 {
     word-break: break-all;
     padding: 15px 24px 0px 0px;
     font-family: sans-serif;
@@ -590,7 +613,7 @@
     justify-self: end;
   }
 
-  .valueFloor2{
+  .valueFloor2 {
     word-break: break-all;
     padding: 15px 24px 0px 0px;
     font-family: sans-serif;
@@ -600,9 +623,9 @@
     justify-self: end;
   }
 
-  .valueTherapist{
+  .valueTherapist {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -610,9 +633,9 @@
     justify-self: end;
   }
 
-  .valueManager{
+  .valueManager {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -620,9 +643,9 @@
     justify-self: end;
   }
 
-  .valueOther{
+  .valueOther {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 25px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -630,9 +653,9 @@
     justify-self: end;
   }
 
-  .valueDrink{
+  .valueDrink {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -640,9 +663,9 @@
     justify-self: end;
   }
 
-  .valueTobacco{
+  .valueTobacco {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -650,9 +673,9 @@
     justify-self: end;
   }
 
-  .valueVitamin{
+  .valueVitamin {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -660,9 +683,9 @@
     justify-self: end;
   }
 
-  .valueTip{
+  .valueTip {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -670,16 +693,15 @@
     justify-self: end;
   }
 
-  .valueOthers{
+  .valueOthers {
     word-break: break-all;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 24px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
   }
-
 
   /* Text table */
 
@@ -702,15 +724,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 36px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTime {
@@ -754,15 +773,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 22px 0px 26px;
+    padding: 15px 0px 0px 26px;
   }
 
   .textFloor1 {
@@ -789,7 +805,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 30px 0px 0px;
+    padding: 0px 30px 0px 35.5px;
   }
 
   .textValueManager {
@@ -798,7 +814,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 26px;
+    padding: 0px 19px 0px 50px;
   }
 
   .textValueOther {
@@ -807,7 +823,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 15px;
+    padding: 0px 0px 0px 40px;
   }
 
   .textDrink {
@@ -815,7 +831,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 25px;
   }
 
   .textTobacco {
@@ -823,7 +839,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 24px;
   }
 
   .textVitamin {
@@ -834,7 +850,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 18px 0px 20px;
+    padding: 0px 18px 0px 44.5px;
   }
 
   .textTip {
@@ -845,7 +861,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 23px 0px 24px;
+    padding: 0px 22px 0px 49px;
   }
 
   .textOthers {
@@ -853,7 +869,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 13px;
+    padding: 15px 0px 0px 38px;
   }
 
   .textClient {
@@ -1046,7 +1062,7 @@
     justify-self: end;
   }
 
-  .columnValueTip{
+  .columnValueTip {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -1056,7 +1072,7 @@
     justify-self: end;
   }
 
-  .columnOther{
+  .columnOther {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -1066,7 +1082,7 @@
     justify-self: end;
   }
 
-  .columnClient{
+  .columnClient {
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -1074,6 +1090,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: start;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: 5.2rem;
   }
 }
 
