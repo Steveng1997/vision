@@ -3330,7 +3330,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 30%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 30%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -3349,25 +3349,34 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 27px;
+    padding: 15px 0px 0px 33px;
   }
 
   /* Line 2 */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 30%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 32% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 30%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   /* Text value total */
 
+  .textTotals {
+    color: #000000;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .valueTotal {
     word-break: break-all;
     padding: 15px 15.5px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3377,7 +3386,8 @@
     word-break: break-all;
     padding: 15px 23.4px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3385,9 +3395,10 @@
 
   .valueFloor1 {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3395,9 +3406,10 @@
 
   .valueFloor2 {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3405,9 +3417,10 @@
 
   .valueTherapist {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3415,9 +3428,10 @@
 
   .valueManager {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3425,9 +3439,10 @@
 
   .valueOther {
     word-break: break-all;
-    padding: 15px 25px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3435,9 +3450,10 @@
 
   .valueDrink {
     word-break: break-all;
-    padding: 15px 23px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3445,9 +3461,10 @@
 
   .valueTobacco {
     word-break: break-all;
-    padding: 15px 22px 0px 0px;
+    padding: 15px 21.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3455,9 +3472,10 @@
 
   .valueVitamin {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3465,9 +3483,10 @@
 
   .valueTip {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3475,9 +3494,10 @@
 
   .valueOthers {
     word-break: break-all;
-    padding: 15px 24px 0px 0px;
+    padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: bold;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
@@ -3558,7 +3578,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 26px;
+    padding: 15px 0px 0px 32.8px;
   }
 
   .textFloor1 {
@@ -3567,7 +3587,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 6px 0px 34px;
+    padding: 0px 11px 0px 41px;
   }
 
   .textFloor2 {
@@ -3576,7 +3596,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 23px 0px 32px;
+    padding: 0px 7px 0px 39px;
   }
 
   .textValueTherapist {
@@ -3585,7 +3605,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 30px 0px 35.5px;
+    padding: 0px 20px 0px 42.5px;
   }
 
   .textValueManager {
@@ -3594,7 +3614,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 19px 0px 50px;
+    padding: 0px 0px 0px 57.5px;
   }
 
   .textValueOther {
@@ -3603,7 +3623,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 40px;
+    padding: 0px 0px 0px 47.5px;
   }
 
   .textDrink {
@@ -3611,7 +3631,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 25px;
+    padding: 15px 0px 0px 31.5px;
   }
 
   .textTobacco {
@@ -3619,7 +3639,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 24px;
+    padding: 15px 0px 0px 31.5px;
   }
 
   .textVitamin {
@@ -3630,7 +3650,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 18px 0px 44.5px;
+    padding: 0px 23px 0px 51.5px;
   }
 
   .textTip {
@@ -3641,7 +3661,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 49px;
+    padding: 0px 20px 0px 56.5px;
   }
 
   .textOthers {
@@ -3649,7 +3669,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
+    padding: 15px 0px 0px 44.5px;
   }
 
   .textClient {
@@ -3661,7 +3681,7 @@
   }
 
   .lineTable {
-    width: 631%;
+    width: 652%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3675,6 +3695,7 @@
 
   .columnManager {
     word-break: break-all;
+    line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
@@ -3695,6 +3716,7 @@
 
   .columnTherapist {
     word-break: break-all;
+    line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
@@ -3725,6 +3747,7 @@
 
   .columnTotal {
     word-break: break-all;
+    line-height: 1.4rem;
     padding: 0px 15.5px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
@@ -3734,6 +3757,7 @@
   }
 
   .columnPaymentMethod {
+    line-height: 1.4rem;
     border-bottom: hidden;
     word-wrap: break-word;
     max-width: 85%;
