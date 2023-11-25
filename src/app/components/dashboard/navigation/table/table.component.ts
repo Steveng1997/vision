@@ -181,7 +181,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].numberPiso1 = integer[0].toString()
     } else {
-      this.servicio[i].numberPiso1 = this.totalValor.toString()
+      this.servicio[i].numberPiso1 = this.totalValor
     }
 
     if (this.servicio[i].numberPiso2 > 0) {
@@ -206,7 +206,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].numberPiso2 = integer[0].toString()
     } else {
-      this.servicio[i].numberPiso2 = this.servicio[i].numberPiso2.toString()
+      this.servicio[i].numberPiso2 = this.servicio[i].numberPiso2
     }
 
     if (this.servicio[i].numberTerap > 0) {
@@ -231,7 +231,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].numberTerap = integer[0].toString()
     } else {
-      this.servicio[i].numberTerap = this.servicio[i].numberTerap.toString()
+      this.servicio[i].numberTerap = this.servicio[i].numberTerap
     }
 
     if (this.servicio[i].numberEncarg > 0) {
@@ -256,7 +256,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].numberEncarg = integer[0].toString()
     } else {
-      this.servicio[i].numberEncarg = this.servicio[i].numberEncarg.toString()
+      this.servicio[i].numberEncarg = this.servicio[i].numberEncarg
     }
 
     if (this.servicio[i].numberOtro > 0) {
@@ -281,7 +281,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].numberOtro = integer[0].toString()
     } else {
-      this.servicio[i].numberOtro = this.servicio[i].numberOtro.toString()
+      this.servicio[i].numberOtro = this.servicio[i].numberOtro
     }
 
     if (this.servicio[i].bebidas > 0) {
@@ -306,7 +306,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].bebidas = integer[0].toString()
     } else {
-      this.servicio[i].bebidas = this.servicio[i].bebidas.toString()
+      this.servicio[i].bebidas = this.servicio[i].bebidas
     }
 
     if (this.servicio[i].tabaco > 0) {
@@ -356,7 +356,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].vitaminas = integer[0].toString()
     } else {
-      this.servicio[i].vitaminas = this.servicio[i].vitaminas.toString()
+      this.servicio[i].vitaminas = this.servicio[i].vitaminas
     }
 
     if (this.servicio[i].propina > 0) {
@@ -381,7 +381,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].propina = integer[0].toString()
     } else {
-      this.servicio[i].propina = this.servicio[i].propina.toString()
+      this.servicio[i].propina = this.servicio[i].propina
     }
 
     if (this.servicio[i].otros > 0) {
@@ -406,7 +406,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].otros = integer[0].toString()
     } else {
-      this.servicio[i].otros = this.servicio[i].otros.toString()
+      this.servicio[i].otros = this.servicio[i].otros
     }
 
     if (this.servicio[i].totalServicio > 0) {
@@ -431,7 +431,7 @@ export class TableComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.servicio[i].totalServicio = integer[0].toString()
     } else {
-      this.servicio[i].totalServicio = this.servicio[i].totalServicio.toString()
+      this.servicio[i].totalServicio = this.servicio[i].totalServicio
     }
 
     if (this.servicio[i].servicio > 0) {
@@ -494,7 +494,7 @@ export class TableComponent implements OnInit {
     })
 
     if (this.selectedFormPago != '') {
-      if (!this.PaymentForm()) return
+      this.PaymentForm()
     }
 
     this.calculateSumOfServices()
@@ -503,12 +503,11 @@ export class TableComponent implements OnInit {
   PaymentForm() {
     this.service.getPaymentForm(this.selectedFormPago).subscribe((rp) => {
       this.servicio = rp
-      return true
     })
-    return false
   }
 
   calculateSumOfServices() {
+    let validationPount = true
 
     const therapistCondition = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
@@ -539,98 +538,351 @@ export class TableComponent implements OnInit {
 
     // Filter by Servicio
     if (Array.isArray(this.servicio)) {
+
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalServicio = servicios.reduce((accumulator, serv) => {
-        return accumulator + serv.servicio
-      }, 0)
 
+      if (servicios.length > 0) {
+        for (let o = 0; o < servicios.length; o++) {
 
-      // Filter by Pisos
-      const pisoss = this.servicio.filter(serv => therapistCondition(serv)
+          if (servicios[o]['servicio'] == 0) {
+            servicios[o] = 0
+          } else {
+
+            validationPount = servicios[o]['servicio'].includes(".")
+
+            if (validationPount == true) {
+              servicios[o] = Number(servicios[o]['servicio'].replace(".", ""))
+            }
+            else servicios[o]['servicio'] = Number(servicios[o]['servicio'])
+          }
+        }
+
+        this.totalServicio = servicios.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalServicio = 0
+      }
+
+      // Filter by Floor 1
+      const piso1 = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalPiso = pisoss.reduce((accumulator, serv) => {
-        return accumulator + serv.numberPiso1
-      }, 0)
 
-      // Filter by Pisos
-      const pisos2 = this.servicio.filter(serv => therapistCondition(serv)
+      if (piso1.length > 0) {
+        for (let o = 0; o < piso1.length; o++) {
+
+          if (piso1[o]['numberPiso1'] == 0) {
+            piso1[o] = 0
+          } else {
+
+            validationPount = piso1[o]['numberPiso1'].includes(".")
+
+            if (validationPount == true) {
+              piso1[o] = Number(piso1[o]['numberPiso1'].replace(".", ""))
+            }
+            else piso1[o] = Number(piso1[o]['numberPiso1'])
+          }
+        }
+
+        this.totalPiso = piso1.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalPiso = 0
+      }
+
+      // Filter by Floor 2
+      const piso2 = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalPiso2 = pisos2.reduce((accumulator, serv) => {
-        return accumulator + serv.numberPiso2
-      }, 0)
 
-      // Filter by Terapeuta
+      if (piso2.length > 0) {
+        for (let o = 0; o < piso2.length; o++) {
+
+          if (piso2[o]['numberPiso2'] == 0) {
+            piso2[o] = 0
+          } else {
+
+            validationPount = piso2[o]['numberPiso2'].includes(".")
+
+            if (validationPount == true) {
+              piso2[o] = Number(piso2[o]['numberPiso2'].replace(".", ""))
+            }
+
+            else piso2[o] = Number(piso2[o]['numberPiso2'])
+          }
+        }
+
+        this.totalPiso2 = piso2.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalPiso2 = 0
+      }
+
+      // Filter by Therapist
       const terapeuta = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
-        return accumulator + serv.numberTerap
-      }, 0)
 
-      // Filter by Encargada
+      if (terapeuta.length > 0) {
+        for (let o = 0; o < terapeuta.length; o++) {
+
+          if (terapeuta[o]['numberTerap'] == 0) {
+            terapeuta[o] = 0
+          } else {
+
+            validationPount = terapeuta[o]['numberTerap'].includes(".")
+
+            if (validationPount == true) {
+              terapeuta[o] = Number(terapeuta[o]['numberTerap'].replace(".", ""))
+            }
+            else terapeuta[o] = Number(terapeuta[o]['numberTerap'])
+          }
+        }
+
+        this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorTerapeuta = 0
+      }
+
+      // Filter by Manager
       const encargada = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
-        return accumulator + serv.numberEncarg
-      }, 0)
 
-      // Filter by Valor Otro
+      if (encargada.length > 0) {
+        for (let o = 0; o < encargada.length; o++) {
+
+          if (encargada[o]['numberEncarg'] == 0) {
+            encargada[o] = 0
+          } else {
+
+            validationPount = encargada[o]['numberEncarg'].includes(".")
+
+            if (validationPount == true) {
+              encargada[o] = Number(encargada[o]['numberEncarg'].replace(".", ""))
+            }
+            else encargada[o] = Number(encargada[o]['numberEncarg'])
+          }
+        }
+
+        this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorEncargada = 0
+      }
+
+      // Filter by Value Other
       const valorOtro = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
-        return accumulator + serv.numberOtro
-      }, 0)
 
-      // Filter by Valor Bebida
+      if (valorOtro.length > 0) {
+        for (let o = 0; o < valorOtro.length; o++) {
+
+          if (valorOtro[o]['numberOtro'] == 0) {
+            valorOtro[o] = 0
+          } else {
+
+            validationPount = valorOtro[o]['numberOtro'].includes(".")
+
+            if (validationPount == true) {
+              valorOtro[o] = Number(valorOtro[o]['numberOtro'].replace(".", ""))
+            }
+            else valorOtro[o] = Number(valorOtro[o]['numberOtro'])
+          }
+        }
+
+        this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorAOtros = 0
+      }
+
+      // Filter by Value Drink
       const valorBebida = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
-        return accumulator + serv.bebidas
-      }, 0)
 
-      // Filter by Valor Tabaco
+      if (valorBebida.length > 0) {
+        for (let o = 0; o < valorBebida.length; o++) {
+
+          if (valorBebida[o]['bebidas'] == 0) {
+            valorBebida[o] = 0
+          } else {
+
+            validationPount = valorBebida[o]['bebidas'].includes(".")
+
+            if (validationPount == true) {
+              valorBebida[o] = Number(valorBebida[o]['bebidas'].replace(".", ""))
+            }
+            else valorBebida[o] = Number(valorBebida[o]['bebidas'])
+          }
+        }
+
+        this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.TotalValorBebida = 0
+      }
+
+      // Filter by Value Tobacco
       const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
-        return accumulator + serv.tabaco
-      }, 0)
 
-      // Filter by Valor Vitamina
+      if (valorTabaco.length > 0) {
+        for (let o = 0; o < valorTabaco.length; o++) {
+
+          if (valorTabaco[o]['tabaco'] == 0) {
+            valorTabaco[o] = 0
+          } else {
+
+            validationPount = valorTabaco[o]['tabaco'].includes(".")
+
+            if (validationPount == true) {
+              valorTabaco[o] = Number(valorTabaco[o]['tabaco'].replace(".", ""))
+            }
+            else valorTabaco[o] = Number(valorTabaco[o]['tabaco'])
+          }
+        }
+
+        this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.TotalValorTabaco = 0
+      }
+
+      // Filter by Value Vitamin
       const valorVitamina = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
-        return accumulator + serv.vitaminas
-      }, 0)
 
-      // Filter by Valor Propina
+      if (valorVitamina.length > 0) {
+        for (let o = 0; o < valorVitamina.length; o++) {
+
+          if (valorVitamina[o]['vitaminas'] == 0) {
+            valorVitamina[o] = 0
+          } else {
+
+            validationPount = valorVitamina[o]['vitaminas'].includes(".")
+
+            if (validationPount == true) {
+              valorVitamina[o] = Number(valorVitamina[o]['vitaminas'].replace(".", ""))
+            }
+            else valorVitamina[o] = Number(valorVitamina[o]['vitaminas'])
+          }
+        }
+
+        this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorVitaminas = 0
+      }
+
+      // Filter by Value Tip
       const valorPropina = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
-        return accumulator + serv.propina
-      }, 0)
 
-      // Filter by Valor Total
+      if (valorPropina.length > 0) {
+        for (let o = 0; o < valorPropina.length; o++) {
+
+          if (valorPropina[o]['propina'] == 0) {
+            valorPropina[o] = 0
+          } else {
+
+            validationPount = valorPropina[o]['propina'].includes(".")
+            if (validationPount == true) {
+              valorPropina[o] = Number(valorPropina[o]['propina'].replace(".", ""))
+            }
+            else valorPropina[o] = Number(valorPropina[o]['propina'])
+          }
+        }
+
+        this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorPropina = 0
+      }
+
+      // Filter by Value Total
       const valorTotal = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValor = valorTotal.reduce((accumulator, serv) => {
-        this.idService = valorTotal
-        return accumulator + serv.totalServicio
-      }, 0)
 
-      // Filter by Valor Propina
+      if (valorTotal.length > 0) {
+        for (let o = 0; o < valorTotal.length; o++) {
+
+          if (valorTotal[o]['totalServicio'] == 0) {
+            valorTotal[o] = 0
+          } else {
+
+            validationPount = valorTotal[o]['totalServicio'].includes(".")
+
+            if (validationPount == true) {
+              valorTotal[o] = Number(valorTotal[o]['totalServicio'].replace(".", ""))
+            }
+            else {
+              valorTotal[0] = Number(valorTotal[o]['totalServicio'])
+            }
+          }
+        }
+
+        this.totalValor = valorTotal.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValor = 0
+      }
+
+      // Filter by Value Others
       const valorOtros = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
-      this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
-        return accumulator + serv.otros
-      }, 0)
+
+      if (valorOtros.length > 0) {
+        for (let o = 0; o < valorOtros.length; o++) {
+
+          if (valorOtros[o]['otros'] == 0) {
+            valorOtros[o] = 0
+          } else {
+
+            validationPount = ['otros'].includes(".")
+
+            if (validationPount == true) {
+              valorOtros[o] = Number(valorOtros[o]['otros'].replace(".", ""))
+            }
+            else valorOtros[o] = Number(valorOtros[o]['otros'])
+          }
+        }
+
+        this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
+          return accumulator + serv
+        }, 0)
+
+      } else {
+        this.totalValorOtroServ = 0
+      }
     }
 
     this.thousandPoint()
   }
 
   thousandPoint() {
-    if (this.totalValor > 0) {
 
+    if (this.totalValor > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValor.toString().split(".") : this.totalValor.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -654,7 +906,7 @@ export class TableComponent implements OnInit {
       this.TotalValueLetter = this.totalValor.toString()
     }
 
-    if (this.totalServicio > 0) {
+    if (this.totalServicio > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalServicio.toString().split(".") : this.totalServicio.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -678,7 +930,7 @@ export class TableComponent implements OnInit {
       this.TotalServiceLetter = this.totalServicio.toString()
     }
 
-    if (this.totalPiso > 0) {
+    if (this.totalPiso > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalPiso.toString().split(".") : this.totalPiso.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -702,7 +954,7 @@ export class TableComponent implements OnInit {
       this.TotalFloor1Letter = this.totalPiso.toString()
     }
 
-    if (this.totalPiso2 > 0) {
+    if (this.totalPiso2 > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalPiso2.toString().split(".") : this.totalPiso2.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -726,7 +978,7 @@ export class TableComponent implements OnInit {
       this.TotalFloor2Letter = this.totalPiso2.toString()
     }
 
-    if (this.totalValorTerapeuta > 0) {
+    if (this.totalValorTerapeuta > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorTerapeuta.toString().split(".") : this.totalValorTerapeuta.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -750,7 +1002,7 @@ export class TableComponent implements OnInit {
       this.TotalTherapistLetter = this.totalValorTerapeuta.toString()
     }
 
-    if (this.totalValorEncargada > 0) {
+    if (this.totalValorEncargada > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorEncargada.toString().split(".") : this.totalValorEncargada.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -774,7 +1026,7 @@ export class TableComponent implements OnInit {
       this.TotalManagerLetter = this.totalValorEncargada.toString()
     }
 
-    if (this.totalValorAOtros > 0) {
+    if (this.totalValorAOtros > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorAOtros.toString().split(".") : this.totalValorAOtros.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -798,31 +1050,7 @@ export class TableComponent implements OnInit {
       this.TotalToAnotherLetter = this.totalValorAOtros.toString()
     }
 
-    if (this.totalValorAOtros > 0) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalValorAOtros.toString().split(".") : this.totalValorAOtros.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.TotalToAnotherLetter = integer[0].toString()
-    } else {
-      this.TotalToAnotherLetter = this.totalValorAOtros.toString()
-    }
-
-    if (this.TotalValorBebida > 0) {
+    if (this.TotalValorBebida > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.TotalValorBebida.toString().split(".") : this.TotalValorBebida.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -846,7 +1074,7 @@ export class TableComponent implements OnInit {
       this.TotalDrinkLetter = this.TotalValorBebida.toString()
     }
 
-    if (this.TotalValorTabaco > 0) {
+    if (this.TotalValorTabaco > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.TotalValorTabaco.toString().split(".") : this.TotalValorTabaco.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -870,7 +1098,7 @@ export class TableComponent implements OnInit {
       this.TotalTobaccoLetter = this.TotalValorTabaco.toString()
     }
 
-    if (this.totalValorVitaminas > 0) {
+    if (this.totalValorVitaminas > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorVitaminas.toString().split(".") : this.totalValorVitaminas.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -894,7 +1122,7 @@ export class TableComponent implements OnInit {
       this.TotalVitaminsLetter = this.totalValorVitaminas.toString()
     }
 
-    if (this.totalValorPropina > 0) {
+    if (this.totalValorPropina > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorPropina.toString().split(".") : this.totalValorPropina.toString().split("");
       let integer = coma ? array[0].split("") : array;
@@ -918,7 +1146,7 @@ export class TableComponent implements OnInit {
       this.TotalTipLetter = this.totalValorPropina.toString()
     }
 
-    if (this.totalValorOtroServ > 0) {
+    if (this.totalValorOtroServ > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorOtroServ.toString().split(".") : this.totalValorOtroServ.toString().split("");
       let integer = coma ? array[0].split("") : array;

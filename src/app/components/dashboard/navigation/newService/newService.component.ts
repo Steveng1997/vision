@@ -331,7 +331,6 @@ export class NewServiceComponent implements OnInit {
   }
 
   saveService() {
-    debugger
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
