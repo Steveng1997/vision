@@ -331,58 +331,59 @@ export class NewServiceComponent implements OnInit {
   }
 
   saveService() {
+    debugger
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
           if (this.services.minuto != '') {
-            // Methods 
-            this.createUniqueId()
-            this.validateTheEmptyField()
-            if (!this.expiredDateValidations()) return
-            if (!this.paymentMethodValidation()) return
-            if (!this.validatePaymentMethod()) return
-            this.sumService()
+            if (this.sumatoriaCobros == this.sumatoriaServicios) {
+              // Methods 
+              this.createUniqueId()
+              this.validateTheEmptyField()
+              if (!this.expiredDateValidations()) return
+              if (!this.paymentMethodValidation()) return
+              if (!this.validatePaymentMethod()) return
+              this.sumService()
 
-            if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
-              this.services.efectTerap == true || this.services.efectEncarg == true ||
-              this.services.efectOtro == true) {
-              this.validateEfect = true
-              this.efectCheckToggle(this.validateEfect)
-            } else {
-              localStorage.removeItem('Efectivo')
-            }
+              if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
+                this.services.efectTerap == true || this.services.efectEncarg == true ||
+                this.services.efectOtro == true) {
+                this.validateEfect = true
+                this.efectCheckToggle(this.validateEfect)
+              } else {
+                localStorage.removeItem('Efectivo')
+              }
 
-            if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
-              this.services.bizuTerap == true || this.services.bizuEncarg == true ||
-              this.services.bizuOtro == true) {
-              this.validateBizum = true
-              this.bizumCheckToggle(this.validateBizum)
-            } else {
-              localStorage.removeItem('Bizum')
-            }
+              if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
+                this.services.bizuTerap == true || this.services.bizuEncarg == true ||
+                this.services.bizuOtro == true) {
+                this.validateBizum = true
+                this.bizumCheckToggle(this.validateBizum)
+              } else {
+                localStorage.removeItem('Bizum')
+              }
 
-            if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
-              this.services.tarjTerap == true || this.services.tarjEncarg == true ||
-              this.services.tarjOtro == true) {
-              this.validateTarjeta = true
-              this.tarjCheckToggle(this.validateTarjeta)
-            } else {
-              localStorage.removeItem('Tarjeta')
-            }
+              if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
+                this.services.tarjTerap == true || this.services.tarjEncarg == true ||
+                this.services.tarjOtro == true) {
+                this.validateTarjeta = true
+                this.tarjCheckToggle(this.validateTarjeta)
+              } else {
+                localStorage.removeItem('Tarjeta')
+              }
 
-            if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
-              this.services.transTerap == true || this.services.transEncarg == true ||
-              this.services.transOtro == true) {
-              this.validateTrans = true
-              this.transCheckToggle(this.validateTrans)
-            } else {
-              localStorage.removeItem('Trans')
-            }
+              if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
+                this.services.transTerap == true || this.services.transEncarg == true ||
+                this.services.transOtro == true) {
+                this.validateTrans = true
+                this.transCheckToggle(this.validateTrans)
+              } else {
+                localStorage.removeItem('Trans')
+              }
 
-            this.wayToPay()
-            this.managerAndTherapist()
+              this.wayToPay()
+              this.managerAndTherapist()
 
-            if (this.restamosCobro == 0) {
               this.services.currentDate = this.currentDate.toString()
 
               this.sortedDate()
@@ -408,8 +409,8 @@ export class NewServiceComponent implements OnInit {
                   }, 1000)
                 }
               })
-
-            } else {
+            }
+            else {
               Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
             }
           } else {
@@ -960,7 +961,7 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
     }
   }
-  
+
   validationsFormOfPaymentToEdit() {
     // Efectivo Editar
     if (this.editarService[0]['efectPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
