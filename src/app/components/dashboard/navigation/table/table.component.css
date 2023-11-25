@@ -6714,7 +6714,7 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 46% 46%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -6737,7 +6737,7 @@
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 58% 58%;
+    grid-template-columns: 46% 46%;
     justify-content: center;
     margin-top: 2rem;
     margin-left: -2%;

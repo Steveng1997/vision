@@ -766,35 +766,6 @@ export class NewServiceComponent implements OnInit {
     }
   }
 
-  editMinutes(event: any) {
-
-    let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
-
-    if (event === null) sumarsesion = 0
-
-    // Create date by Date and Hour
-    const splitDate = this.fechaActual.toString().split('-')
-    // const splitHour = this.horaInicialServicio.split(':')
-    const splitHour = this.editarService[0]['horaStart'].split(':')
-
-    let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
-
-    defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-
-    horas = defineDate.getHours()
-    minutos = defineDate.getMinutes()
-
-    if (horas > 0 && horas < 10) {
-      convertHora = '0' + horas
-      let hora = convertHora
-      let minutes = minutos
-      this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-    } else {
-      let minutes = minutos
-      this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-    }
-  }
-
   serviceValue() {
 
     let restamos = 0
@@ -961,6 +932,35 @@ export class NewServiceComponent implements OnInit {
 
   // -------------------------------------------- Editamos  // ---------------------------------------------
 
+  editMinutes(event: any) {
+
+    let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
+
+    if (event === null) sumarsesion = 0
+
+    // Create date by Date and Hour
+    const splitDate = this.fechaActual.toString().split('-')
+    // const splitHour = this.horaInicialServicio.split(':')
+    const splitHour = this.editarService[0]['horaStart'].split(':')
+
+    let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+
+    defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+
+    horas = defineDate.getHours()
+    minutos = defineDate.getMinutes()
+
+    if (horas > 0 && horas < 10) {
+      convertHora = '0' + horas
+      let hora = convertHora
+      let minutes = minutos
+      this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    } else {
+      let minutes = minutos
+      this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+    }
+  }
+  
   validationsFormOfPaymentToEdit() {
     // Efectivo Editar
     if (this.editarService[0]['efectPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
