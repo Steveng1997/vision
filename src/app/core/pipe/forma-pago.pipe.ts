@@ -13,7 +13,6 @@ export class FormaPagoPipe implements PipeTransform {
 
     if (items) {
       return items.filter((item, index) => item.formaPago.indexOf(param) > -1);
-      // return items.filter((item, index) => item.formaPago.indexOf(param.toLowerCase()) > -1);
     }
   }
 }

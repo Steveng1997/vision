@@ -13,7 +13,7 @@
                             <div class="row g-0">
                                 <label class="text">Terapeuta</label>
                                 <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                         font-family: sans-serif;">
                                     <option selected value="">Selecciona</option>
                                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
@@ -26,7 +26,7 @@
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                         font-family: sans-serif;">
                                     <option *ngIf="administratorRole" selected value="">Selecciona</option>
                                     <option *ngFor="let managers of manager" [value]="managers.nombre">
@@ -40,7 +40,7 @@
                             <div class="row g-0">
                                 <label class="text">Fecha Inicio</label>
                                 <input type="date" class="form-control" formControlName="fechaInicio"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif">
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="row g-0">
                                 <label class="text">Fecha Final</label>
                                 <input type="date" class="form-control" formControlName="FechaFin"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif">
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="row g-0">
                                 <label class="text">Tipo de Pago</label>
                                 <select class="form-select" formControlName="formaPago" [(ngModel)]="selectedFormPago"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                     font-family: sans-serif;">
                                     <option selected value="">Selecciona</option>
                                     <option value="Efectivo">Efectivo</option>
@@ -76,7 +76,7 @@
                             <div class="row g-0">
                                 <label class="text">Busqueda</label>
                                 <input type="text" class="form-control input-sm" formControlName="busqueda"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
                                     color: #242424; font-size: 18px; font-family: sans-serif;" />
                             </div>
                         </div>
