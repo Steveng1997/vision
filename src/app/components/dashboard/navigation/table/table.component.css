@@ -677,6 +677,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -741,23 +742,23 @@
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 58% 58%;
+    grid-template-columns: 57% 57%;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: -2%;
+    margin-left: -14px;
   }
 
   .containerPaymentMethod {
-    width: 72%;
+    width: 148.9px;
     justify-self: center;
-    margin-left: 0%;
+    margin-left: 9px;
     margin-top: -7%;
   }
 
   .searchContainer {
-    width: 135px;
+    width: 148.5px;
     justify-self: center;
-    margin-left: 14px;
+    margin-left: 19px;
     margin-top: -7%;
   }
 
@@ -805,7 +806,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 33px;
+    padding: 15px 0px 0px 26px;
   }
 
   /* Line 2 */
@@ -969,7 +970,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 0px 30px 0px 0px
   }
 
   .textDate {
@@ -1001,7 +1002,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 43px;
+    padding: 15px 0px 0px 37.5px;
   }
 
   .textTotal {
@@ -1034,7 +1035,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 32.8px;
+    padding: 15px 0px 0px 25.8px;
   }
 
   .textFloor1 {
@@ -1043,7 +1044,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 11px 0px 41px;
+    padding: 0px 11px 0px 34px;
   }
 
   .textFloor2 {
@@ -1052,7 +1053,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 7px 0px 39px;
+    padding: 0px 8px 0px 31.5px;
   }
 
   .textValueTherapist {
@@ -1061,7 +1062,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 20px 0px 42.5px;
+    padding: 0px 20px 0px 35.5px;
   }
 
   .textValueManager {
@@ -1070,7 +1071,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 57.5px;
+    padding: 0px 0px 0px 50.5px;
   }
 
   .textValueOther {
@@ -1079,7 +1080,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 47.5px;
+    padding: 0px 0px 0px 40.5px;
   }
 
   .textDrink {
@@ -1087,7 +1088,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 24.5px;
   }
 
   .textTobacco {
@@ -1095,7 +1096,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 24px;
   }
 
   .textVitamin {
@@ -1106,7 +1107,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 23px 0px 51.5px;
+    padding: 0px 20px 0px 44.5px;
   }
 
   .textTip {
@@ -1117,7 +1118,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 20px 0px 56.5px;
+    padding: 0px 20px 0px 49.5px;
   }
 
   .textOthers {
@@ -1125,7 +1126,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 44.5px;
+    padding: 15px 0px 0px 36.5px;
   }
 
   .textClient {
@@ -1343,6 +1344,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -2050,7 +2052,7 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 53% 53%;
     justify-content: center;
     margin-top: 1rem;
   }
@@ -2073,23 +2075,22 @@
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 58% 58%;
+    grid-template-columns: 53% 53%;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: -2%;
   }
 
   .containerPaymentMethod {
-    width: 79%;
+    width: 147px;
     justify-self: center;
-    margin-left: -1px;
+    margin-left: -2px;
     margin-top: -7%;
   }
 
   .searchContainer {
-    width: 79%;
+    width: 147px;
     justify-self: center;
-    margin-left: 14px;
+    margin-left: 16px;
     margin-top: -7%;
   }
 
@@ -2137,7 +2138,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 33px;
+    padding: 15px 0px 0px 31px;
   }
 
   /* Line 2 */
@@ -2301,7 +2302,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 0px 32px 0px 0px;
   }
 
   .textDate {
@@ -2333,7 +2334,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 43px;
+    padding: 15px 0px 0px 42px;
   }
 
   .textTotal {
@@ -2366,7 +2367,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 32.8px;
+    padding: 15px 0px 0px 30.5px;
   }
 
   .textFloor1 {
@@ -2375,7 +2376,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 11px 0px 41px;
+    padding: 0px 11px 0px 39px;
   }
 
   .textFloor2 {
@@ -2384,7 +2385,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 7px 0px 39px;
+    padding: 0px 9px 0px 37px;
   }
 
   .textValueTherapist {
@@ -2393,7 +2394,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 20px 0px 42.5px;
+    padding: 0px 20px 0px 40.8px;
   }
 
   .textValueManager {
@@ -2402,7 +2403,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 57.5px;
+    padding: 0px 0px 0px 55.5px;
   }
 
   .textValueOther {
@@ -2411,7 +2412,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 47.5px;
+    padding: 0px 0px 0px 45.5px;
   }
 
   .textDrink {
@@ -2419,7 +2420,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 29.5px;
   }
 
   .textTobacco {
@@ -2427,7 +2428,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 29.5px;
   }
 
   .textVitamin {
@@ -2438,7 +2439,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 23px 0px 51.5px;
+    padding: 0px 23px 0px 50px;
   }
 
   .textTip {
@@ -2449,7 +2450,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 20px 0px 56.5px;
+    padding: 0px 21px 0px 54.5px;
   }
 
   .textOthers {
@@ -2457,7 +2458,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 44.5px;
+    padding: 15px 0px 0px 42.5px;
   }
 
   .textClient {
@@ -2675,6 +2676,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -3341,6 +3343,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -4675,6 +4678,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -7381,10 +7385,10 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 58% 58%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: -49px;
+    margin-left: -12px;
   }
 
   .therapistContainer {
@@ -7400,7 +7404,7 @@
   .dateContainer {
     width: 57%;
     justify-self: center;
-    margin-top: 8%;
+    margin-top: 3%;
   }
 
   .tableContainer2 {
@@ -7408,20 +7412,20 @@
     grid-template-columns: 58% 58%;
     justify-content: center;
     margin-top: 2rem;
-    margin-left: -43px;
+    margin-left: -12px;
   }
 
   .containerPaymentMethod {
     width: 50%;
     justify-self: center;
-    margin-left: 0%;
+    margin-left: 5px;
     margin-top: -7%;
   }
 
   .searchContainer {
-    width: 147px;
+    width: 146px;
     justify-self: center;
-    margin-left: 10px;
+    margin-left: 19px;
     margin-top: -7%;
   }
 
@@ -7469,7 +7473,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 33px;
+    padding: 15px 0px 0px 84px;
   }
 
   /* Line 2 */
@@ -7633,7 +7637,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 0px 75px 0px 0px;
   }
 
   .textDate {
@@ -7665,7 +7669,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 43px;
+    padding: 15px 0px 0px 77.5px;
   }
 
   .textTotal {
@@ -7698,7 +7702,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 32.8px;
+    padding: 15px 0px 0px 83.8px;
   }
 
   .textFloor1 {
@@ -7707,7 +7711,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 11px 0px 41px;
+    padding: 0px 17px 0px 92.5px;
   }
 
   .textFloor2 {
@@ -7716,7 +7720,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 7px 0px 39px;
+    padding: 0px 17px 0px 90.5px;
   }
 
   .textValueTherapist {
@@ -7725,7 +7729,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 20px 0px 42.5px;
+    padding: 0px 20px 0px 94.1px;
   }
 
   .textValueManager {
@@ -7734,7 +7738,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 57.5px;
+    padding: 0px 27px 0px 108.9px;
   }
 
   .textValueOther {
@@ -7743,7 +7747,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 47.5px;
+    padding: 0px 25px 0px 98.5px;
   }
 
   .textDrink {
@@ -7751,7 +7755,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 83.5px;
   }
 
   .textTobacco {
@@ -7759,7 +7763,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
+    padding: 15px 0px 0px 83px;
   }
 
   .textVitamin {
@@ -7770,7 +7774,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 23px 0px 51.5px;
+    padding: 0px 23px 0px 102.5px;
   }
 
   .textTip {
@@ -7781,7 +7785,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 20px 0px 56.5px;
+    padding: 0px 20px 0px 108.5px;
   }
 
   .textOthers {
@@ -7789,7 +7793,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 44.5px;
+    padding: 15px 0px 0px 95.5px;
   }
 
   .textClient {
@@ -8007,6 +8011,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -8658,6 +8663,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -9309,6 +9315,7 @@
   }
 
   .columnClient {
+    line-height: 1.4rem;
     word-break: break-all;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
