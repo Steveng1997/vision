@@ -541,7 +541,7 @@ export class TableComponent implements OnInit {
 
     // Filter by Servicio
     if (Array.isArray(this.servicio)) {
-      debugger
+      
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
         && wayToPay(serv))
@@ -996,6 +996,13 @@ export class TableComponent implements OnInit {
           centered: true,
           backdrop: 'static',
         })
+    })
+  }
+
+  modalFiltres(modal) {
+    this.modalService.open(modal, {
+      centered: true,
+      backdrop: 'static',
     })
   }
 
