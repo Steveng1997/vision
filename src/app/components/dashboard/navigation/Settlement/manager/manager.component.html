@@ -7,7 +7,7 @@
 
                 <form *ngIf="liquidationForm" [formGroup]="formTemplate">
 
-                    <div class="text-center mt-4 mb-4">
+                    <div *ngIf="administratorRole" class="text-center mt-4 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                             style="cursor: pointer;" class="bi bi-plus-circle text-primary" viewBox="0 0 16 16"
                             (click)="insertForm()">
@@ -131,7 +131,7 @@
 
                     <div class="row containerSelect">
 
-                        <div *ngIf="administratorRole" class="containerInCharge">
+                        <div *ngIf="administratorRole" class="containerSelectManager">
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
@@ -365,7 +365,7 @@
                         <label class="columnTreatment3">Propina</label>
                         <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
                         <label class="columnComission">{{managerName?.propina + ' %'}}</label>
-                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                        <label class="columnTotal">{{textComissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
