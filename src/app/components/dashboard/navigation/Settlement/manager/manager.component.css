@@ -2,32 +2,12 @@
   text-align: center;
 }
 
-.table-secondary {
-  --bs-table-bg: transparent;
-  background-color: transparent;
-}
-
-tr {
-  line-height: 0%;
-  font-size: 14px;
-}
-
-th {
-  white-space: nowrap;
-  font-size: 14px;
-}
-
-th,
-td {
-  font-size: 14px;
-}
-
-.quitarBordes {
-  line-height: 100%;
-}
-
-.quitarBordesVacio {
-  border-style: hidden;
+.text {
+  display: contents;
+  color: #242424;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .lbelTotal {
@@ -44,586 +24,8643 @@ td {
   text-align: right;
 }
 
-@media only screen and (min-device-width: 270px) and (max-device-width: 392px) {
+.columnNote {
+  border-top: hidden;
+  border-bottom: hidden;
+  padding: 12px;
+}
+
+.pagination_Mobile ::ng-deep .ngx-pagination .current {
+  background: white;
+  color: #8c52ff;
+  font-weight: bold;
+}
+
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  color: #8c52ff;
+}
+
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  color: #8c52ff;
+}
+
+@media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -3px;
+
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 77% 79px;
+    margin-top: 2rem;
+    margin-left: -2%;
+  }
+
+  .containerInCharge {
+    width: 92%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 92%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 92%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 25px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 17px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -14px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 88% 82px;
+    margin-top: 1rem;
+    margin-left: -99%;
+  }
+
+  .fechaInicio {
+    width: 88%;
+  }
+
+  .horaInicio {
+    width: 70%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 88%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 70%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 30% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 191%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 15px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 11px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 23px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 14% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: 8px;
+    margin-left: -15px;
+  }
+
+  .lineTable2 {
+    width: 310%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
   .color2 {
     background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 4%;
-    margin-left: 40%;
+    margin-top: 1%;
+    margin-left: 19%;
   }
 
-  .trFechas {
-    white-space: nowrap;
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
-  .classTable {
-    margin-top: -2%;
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
   }
 
-  .lineaHoy {
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 16px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 11px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 6px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -5px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
     display: grid;
+    grid-template-columns: 34% 25% 26% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 108%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
   }
 
-  .tableEdtit {
-    margin-top: -12%;
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
   }
 
-  .tablePaidManager {
-    margin-top: 0%;
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* fin Table 3 */
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
-  .datesColumn {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .noteColumn {
-    /* width: 80px; */
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .outputColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .timeColumn {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Encarg {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  table {
-    width: inherit;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
-  }
-
-  .fechaInicio {
-    width: 155px;
-  }
-
-  .horaInicio {
-    align-self: end;
-    margin-left: -11px;
-    width: 122px;
-  }
-
-  .fechaFinal {
-    width: 155px;
-  }
-
-  .horaFinal {
-    width: 122px;
-    margin-left: -11px;
-    margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
-  }
-
-  .selectManager {
-    width: 45%;
-  }
+  /* fin Table 4 */
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
-@media only screen and (min-device-width: 393px) and (max-device-width: 1030px) {
+@media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -7px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 91px;
+    margin-top: 2rem;
+    margin-left: -145%;
+  }
+
+  .containerInCharge {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 88%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 88%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 26px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 85%;
+  }
+
+  .horaInicio {
+    width: 68%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 85%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 68%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 190%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 15px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 4px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 35% 13% 26% 29% 23% 26% 24% 21% 19% 21% 16%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 291%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
   .color2 {
     background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 4%;
-    margin-left: 40%;
+    margin-top: 1%;
+    margin-left: 19%;
   }
 
-  .trFechas {
-    white-space: nowrap;
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
-  .classTable {
-    margin-top: -2%;
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
-  .noHayCierre {
-    font-size: x-large;
-    color: red;
-    container-type: inline-size;
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
   }
 
-  .lineaHoy {
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 16px 0px 21px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 19px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 19px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 8px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -11px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
     display: grid;
+    grid-template-columns: 34% 24% 26% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
     margin: auto;
     border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -1%;
-    width: 100%;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
   }
 
-  .tableEdtit {
-    margin-top: -12%;
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
   }
 
-  .tablePaidManager {
-    margin-top: 0%;
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
   }
 
-  .managerColumn {
-    padding: 24px 12px 0px 0px;
-    text-align: center;
-    max-width: 48px;
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
-  .AmountColumn {
-    padding: 24px 0px 0px 6px;
-    text-align: center;
-    max-width: 30px;
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
   }
 
-  .datesColumn {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .treatmentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .noteColumn {
-    /* width: 80px; */
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .outputColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .timeColumn {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .tipColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .paymentColumn {
-    padding: 25px 23px 0px 6px;
-    text-align: center;
-    max-width: 73px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .column€Encarg {
-    text-align: center;
-    padding: 24px 0px 0px 6px;
-    display: inline-block;
-    width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .drinkColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .tobaccoColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 27px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .vitaminColumn {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .columnOthers {
-    padding: 24px 0px 0px 0px;
-    text-align: center;
-    max-width: 36px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  table {
-    width: inherit;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
-    width: 65%;
-    padding: 8px 0px 0px 0px;
-  }
-
-  .fechaInicio {
-    width: 155px;
-  }
-
-  .horaInicio {
-    align-self: end;
-    margin-left: -11px;
-    width: 122px;
-  }
-
-  .fechaFinal {
-    width: 155px;
-  }
-
-  .horaFinal {
-    width: 122px;
-    margin-left: -11px;
-    margin-top: 10px;
-  }
-
-  .fechas {
-    justify-content: center;
-  }
-
-  .selectManager {
-    width: 45%;
-  }
+  /* fin Table 4 */
 
   .btnCancelar {
     padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -7px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 94px;
+    margin-top: 2rem;
+    margin-left: -154%;
+  }
+
+  .containerInCharge {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 87%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 87%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 83%;
+  }
+
+  .horaInicio {
+    width: 67%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 83%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 67%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 21px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 15px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 4px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 306%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 22px 0px 24px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 41px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -7px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 33% 24% 26% 22%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 106%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -9px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 91px;
+    margin-top: 2rem;
+    margin-left: -161%;
+  }
+
+  .containerInCharge {
+    width: 85%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 85%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 85%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 26px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 82%;
+  }
+
+  .horaInicio {
+    width: 66%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 82%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 66%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 20%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 6px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 35% 13% 26% 29% 23% 26% 24% 21% 19% 21% 16%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 291%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 18px 0px 24px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 19px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 23px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 19px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 11px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 15px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -6px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 34% 24% 26% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 106%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -3px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -183%;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 80%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 80%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 3px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 305%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 25px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -8px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 78%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+/* Pedro */
+@media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -187%;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 22px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 27px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 79%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 79%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 164%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 302%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 25px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -11px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* fin Table 3 */
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 81%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 4px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -187%;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 79%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 79%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 302%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 25px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -11px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 81%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-left: -14px;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 5px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -187%;
+  }
+
+  .containerInCharge {
+    width: 81%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 81%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 81%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 80%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 80%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 3px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -17px;
+  }
+
+  .lineTable2 {
+    width: 306%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 25px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -7px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -17px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -19px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 6px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -217%;
+  }
+
+  .containerInCharge {
+    width: 76%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 76%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 76%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 76%;
+  }
+
+  .horaInicio {
+    width: 61%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 76%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 61%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 20%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 186%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 5px 0px 0px
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -16px;
+  }
+
+  .lineTable2 {
+    width: 305%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 30px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 13px 0px 22px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 12px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -11px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -2px;
+  }
+
+  .lineTable3 {
+    width: 105%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -19px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 6px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -223%;
+  }
+
+  .containerInCharge {
+    width: 76%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 76%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 76%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 76%;
+  }
+
+  .horaInicio {
+    width: 61%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 76%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 61%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 21px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: 3px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 306%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 25px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -8px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 78%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -40px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 10px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -317%;
+  }
+
+  .containerInCharge {
+    width: 62%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 62%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 62%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 3.3rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 65%;
+  }
+
+  .horaInicio {
+    width: 52%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 65%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 52%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 1%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 17%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 190%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 36px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 11px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    margin-left: -1px;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 8px;
+    margin-left: -18px;
+  }
+
+  .lineTable2 {
+    width: 305%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 25px 0px 49px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 8px 0px 27px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 12px 0px 37px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 47px 0px 35px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 20px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -9px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -2px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -18px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .pagination_Mobile {
+    margin-bottom: -2rem;
+    text-align-last: end;
+    margin-top: 3rem;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -51px;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 17px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -113em;
+  }
+
+  .containerInCharge {
+    width: 54%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 54%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 54%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 4.6rem;
+  }
+
+  .titleLiqudationManager {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
+  }
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  .fechaInicio {
+    width: 171px;
+  }
+
+  .horaInicio {
+    width: 46%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 171px;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 46%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 2%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 16%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
+  .lineTable1 {
+    width: 181%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 47px 0px 3px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatment {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 15px 0px 0px;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 3px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 17px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 9% 17% 23% 10% 23% 24% 20% 18% 18% 16% 16% 16% 11%;
+    margin-bottom: 8px;
+    margin-left: -16px;
+  }
+
+  .lineTable2 {
+    width: 222%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 3px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 25px 0px 36px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueManager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 23px;
+  }
+
+  .textTreatmentTable2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 0px 27px 0px 0px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    line-height: 1.4rem;
+    padding: 0px 27px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueDrink {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueVitamin {
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnValueOthers {
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -11px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 31% 24% 26% 23%;
+    margin-bottom: -5px;
+    margin-left: -1px;
+  }
+
+  .lineTable3 {
+    width: 104%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 1px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  /* Sum */
+
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 13px 0px 0px;
+  }
+
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+  }
+
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    justify-self: start;
+  }
+
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    place-self: start;
+  }
+
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+  }
+
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Fixed Day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 31% 24% 17% 11% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 78%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
 
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    justify-content: center;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 37% 26%;
+    margin-top: 2rem;
+    margin-left: 1rem;
+  }
+
+  .containerInCharge {
+    width: 84%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 84%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 90%;
+    justify-self: center;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
   .color2 {
     background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 6%;
-    margin-left: 40%;
+    margin-top: 8%;
+    margin-left: 52%;
   }
 
-  .classTable {
-    text-align-last: center;
-    text-align: -webkit-center;
-  }
-
-  .noHayCierre {
-    text-align: center;
-    font-size: x-large;
-    color: red;
-  }
-
-  .lineaHoy {
+  .title {
     display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -0.5%;
-    width: 100%;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
-  .tabla {
-    margin-top: 3%;
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
-  .tableEdtit {
-    margin-top: 0%;
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
   }
 
-  .tablePaidManager {
-    margin-top: 0%;
+  .textManager {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 0px 22px 0px;
   }
 
-  .formAgregar {
-    overflow: hidden;
+  .textImport {
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 32px 9px 13px;
   }
 
-  .managerColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 15px 10px 6px;
-    text-align: center;
+  .textDate {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 17px;
   }
 
-  .AmountColumn {
-    padding: 26px 0px 0px 0px;
-    text-align: center;
-    max-width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
+  .textTreatment {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
-  .datesColumn {
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textExit {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 30px 22px 13px;
   }
 
-  .treatmentColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textTip {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
-  .noteColumn {
-    /* width: 80px; */
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textHour {
+    font-family: sans-serif;
+    font-size: 18px;
   }
 
-  .outputColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textPay {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 21px 22px;
   }
 
-  .tipColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textValue {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .timeColumn {
-    width: 100px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textColumn {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .paymentColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .column€Encarg {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .drinkColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .tobaccoColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .vitaminColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnOthers {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  table {
-    width: auto;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
+  .textVitamin {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
   .fechaInicio {
@@ -646,10 +8683,6 @@ td {
     margin-top: 10px;
   }
 
-  .fechas {
-    justify-content: center;
-  }
-
   .selectTerap {
     display: grid;
     justify-items: right;
@@ -663,178 +8696,464 @@ td {
     width: 35%;
   }
 
-  .worth {
-    padding-left: 15px;
-  }
-
-  .selectManager {
-    width: 45%;
-  }
-
   .btnCancelar {
     padding-bottom: 3%;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 35% 38% 30% 49% 49% 37%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: -4%;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnPaymentMethod {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0%;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-transform: capitalize;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 0px;
+  }
+
+  .textCommission {
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 0px 17px 0px 17px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
+
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    margin-left: 26px;
+    margin-top: 1rem;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 37% 26%;
+    margin-top: 2rem;
+    margin-left: 1rem;
+  }
+
+  .containerInCharge {
+    width: 77.1%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 77.1%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 77%;
+    justify-self: center;
+  }
+
+  .buttonDeleteContainer {
+    margin-top: 43px;
+    width: 6rem;
+    margin-left: 2.3rem;
+  }
+
   .color2 {
     background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 6%;
-    margin-left: 40%;
+    margin-top: 8%;
+    margin-left: 52%;
   }
 
-  .classTable {
-    text-align-last: center;
-    text-align: -webkit-center;
-  }
-
-  .noHayCierre {
-    text-align: center;
-    font-size: x-large;
-    color: red;
-  }
-
-  .lineaHoy {
+  .title {
     display: grid;
-    margin: auto;
-    border-width: initial;
-    color: blue;
-    margin-bottom: 0%;
-    margin-top: -0.5%;
-    width: 100%;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
-  .tabla {
-    margin-top: 3%;
+  .titleEdit {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: inherit;
   }
 
-  .tableEdtit {
-    margin-top: 0%;
+  .containerSelect {
+    width: 56%;
+    margin-left: -21px;
+    margin-top: 1rem;
   }
 
-  .tablePaidManager {
-    margin-top: 0%;
+  .textManager {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .formAgregar {
-    overflow: hidden;
+  .textImport {
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: pre;
+    padding: 0px 32px 9px 13px;
   }
 
-  .managerColumn {
+  .textDate {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    max-width: 95px;
+    padding: 0px 56px 22px 11px;
+  }
+
+  .textTreatment {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
+  }
+
+  .textExit {
     width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 15px 10px 6px;
-    text-align: center;
-  }
-
-  .AmountColumn {
-    padding: 26px 0px 0px 0px;
-    text-align: center;
-    max-width: 50px;
-    word-wrap: break-word;
-    line-height: normal;
-    border-bottom: 1px solid blue;
-  }
-
-  .datesColumn {
-    border-bottom: 1px solid blue;
     padding: 35px 0px 10px 6px;
     text-align: center;
   }
 
-  .treatmentColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textTip {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    padding: 0px 22px 22px 0px;
   }
 
-  .noteColumn {
-    /* width: 80px; */
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textHour {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 4rem;
+    width: 0px;
+    padding: 0px 0px 22px 0px;
   }
 
-  .outputColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textPay {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    height: 3rem;
+    padding: 0px 27px 21px 22px;
   }
 
-  .tipColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textValue {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .timeColumn {
-    width: 100px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
+  .textColumn {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
-  .paymentColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .column€Encarg {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .drinkColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .tobaccoColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .vitaminColumn {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .columnOthers {
-    width: 80px;
-    border-bottom: 1px solid blue;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  table {
-    width: auto;
-  }
-
-  .trFechaDesde {
-    text-align: left;
-    border-bottom: hidden;
-  }
-
-  .trFechaHasta {
-    text-align: left;
-    border-bottom: hidden;
+  .textVitamin {
+    font-family: sans-serif;
+    font-size: 18px;
+    white-space: pre;
+    padding: 0px 22px 22px 0px;
   }
 
   .fechaInicio {
@@ -857,10 +9176,6 @@ td {
     margin-top: 10px;
   }
 
-  .fechas {
-    justify-content: center;
-  }
-
   .selectTerap {
     display: grid;
     justify-items: right;
@@ -874,15 +9189,280 @@ td {
     width: 35%;
   }
 
-  .worth {
-    padding-left: 15px;
-  }
-
-  .selectManager {
-    width: 45%;
-  }
-
   .btnCancelar {
     padding-bottom: 3%;
+  }
+
+  /* Table1 */
+
+  .column {
+    margin-top: 2rem;
+    margin-left: 0%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .lineTable1 {
+    width: 227%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: 0.1rem;
+  }
+
+  .columnTable {
+    display: grid;
+    grid-template-columns: 35% 38% 30% 49% 49% 37%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: -4%;
+  }
+
+  /* Column Table */
+
+  .columnTherapist {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  /* fin Table 1 */
+
+  .columnValueTip {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnPaymentMethod {
+    word-wrap: break-word;
+    max-width: 65px;
+    border-bottom: hidden;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: normal;
+    padding: 22px 0px;
+  }
+
+  .columnValueManager {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueDrink {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueTobacco {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueVitamin {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  .columnValueOthers {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: end;
+    line-height: normal;
+    padding: 22px 17px;
+  }
+
+  /* Sum */
+
+  .sumTitle {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-transform: capitalize;
+    border-bottom: hidden;
+  }
+
+  .sumTitleTable {
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 0px;
+  }
+
+  .textCommission {
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 0px 17px 0px 17px;
+  }
+
+  .totalToPay {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: normal;
+    border-bottom: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .valueColumnSum {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .valueReceived {
+    font-size: 14px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .totalAmountToPay {
+    border-bottom: hidden;
+    text-wrap: nowrap;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: -webkit-right;
+    width: 40%;
+  }
+
+  .textTotal {
+    display: inline-flex;
+    color: #242424;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: sans-serif;
+    font-weight: normal;
+  }
+
+  .sumTitleReceived {
+    display: inline-flex;
+    color: #242424;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    width: 100%;
+  }
+
+  .inputButton {
+    display: grid;
+    grid-template-columns: 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
+    margin-left: -1.9rem;
+    justify-content: center;
   }
 }

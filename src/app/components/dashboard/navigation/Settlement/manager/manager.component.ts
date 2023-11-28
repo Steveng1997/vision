@@ -5,14 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Servicios
-import { ServiceManager } from 'src/app/core/services/manager'
 import { Service } from 'src/app/core/services/service'
-import { ServiceTherapist } from 'src/app/core/services/therapist'
+import { ServiceManager } from 'src/app/core/services/manager'
 import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseouts'
 
 // Model
-import { ModelService } from 'src/app/core/models/service'
 import { LiquidationManager } from 'src/app/core/models/liquidationManager'
+import { ModelService } from 'src/app/core/models/service'
 
 @Component({
   selector: 'app-manager',
@@ -28,10 +27,12 @@ export class ManagerComponent implements OnInit {
   editEncarg: boolean
   filterByName: string
   filterByNumber: number
+  filtredBusqueda: string
   unliquidatedService: any
   liquidated: any
   settledData: any
   page!: number
+
   fijoDia: number
   fixedTotalDay: number
   fixedDay: number
@@ -39,7 +40,7 @@ export class ManagerComponent implements OnInit {
   // Encargada
   manager: any
   administratorRole: boolean = false
-  encargadaName: any
+  managerName: any
 
   // Fecha
   fechaInicio: string
@@ -51,7 +52,7 @@ export class ManagerComponent implements OnInit {
   // Servicios
   totalService: number
   totalTipValue: number
-  totalValueOrdered: number
+  totalTherapistValue: number
   totalValueDrink: number
   totalTobaccoValue: number
   totalValueVitamins: number
@@ -66,15 +67,40 @@ export class ManagerComponent implements OnInit {
   commissionOthers: number
   sumCommission: number
   idUnico: string
-  receivedManager: any
+  receivedTherapist: any
+
+  // Comission
   totalCommission: number
+
+  // Thousand pount
+  textTotalComission: string
+  textTotalService: string
+  textServiceComission: string
+  textTotalTip2: string
+  textComissionTip: string
+  textValueDrink: string
+  textBeverageCommission: string
+  textTobaccoValue: string
+  textTobaccoCommission: string
+  textValueVitamins: string
+  textVitaminCommission: string
+  textValueOther: string
+  textCommissionOthers: string
+  textSumCommission: string
+  textReceivedTherapist: string
+  textTotalCommission: string
+  textTotalCash: string
+  textTotalBizum: string
+  textTotalCard: string
+  textTotalTransaction: string
+  textTotalTherapistPayment: string
 
   // Total Payment Method
   totalCash: number
   totalCard: number
   totalBizum: number
   totalTransaction: number
-  totalManagerPayment: number
+  totalTherapistPayment: number
 
   currentDate = new Date().getTime()
 
@@ -93,7 +119,7 @@ export class ManagerComponent implements OnInit {
   }
 
   services: ModelService = {
-    idEncargada: "",
+    idTerapeuta: "",
   }
 
   formTemplate = new FormGroup({
@@ -107,9 +133,8 @@ export class ManagerComponent implements OnInit {
   constructor(
     public router: Router,
     public fb: FormBuilder,
+    private activeRoute: ActivatedRoute,
     private modalService: NgbModal,
-    private activatedRoute: ActivatedRoute,
-    public serviceTherapist: ServiceTherapist,
     public service: Service,
     public serviceManager: ServiceManager,
     public serviceLiquidationManager: ServiceLiquidationManager
@@ -121,21 +146,24 @@ export class ManagerComponent implements OnInit {
     this.selected = false
     this.editEncarg = false
 
-    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-        this.administratorRole = true
-        this.getManager()
-      } else {
-        this.manager = rp
-        this.liquidationManager.encargada = this.manager[0].nombre
-      }
-    })
+    if (this.idUser) {
+      this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getManager()
+        } else {
+          this.manager = rp
+          this.liquidationManager.encargada = this.manager[0].nombre
+        }
+      })
+    }
 
     this.date()
     this.getSettlements()
+    this.getManager()
   }
 
   date() {
@@ -163,17 +191,11 @@ export class ManagerComponent implements OnInit {
   convertToZero() {
     this.totalService = 0
     this.totalTipValue = 0
+    this.totalTherapistValue = 0
     this.totalValueDrink = 0
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
     this.totalValueOther = 0
-    this.totalValueOrdered = 0
-    this.encargadaName['servicio'] = 0
-    this.encargadaName['propina'] = 0
-    this.encargadaName['bebida'] = 0
-    this.encargadaName['tabaco'] = 0
-    this.encargadaName['vitamina'] = 0
-    this.encargadaName['otros'] = 0
     this.serviceCommission = 0
     this.commissionTip = 0
     this.beverageCommission = 0
@@ -181,19 +203,27 @@ export class ManagerComponent implements OnInit {
     this.vitaminCommission = 0
     this.commissionOthers = 0
     this.sumCommission = 0
-    this.receivedManager = 0
+    this.receivedTherapist = 0
     this.totalCommission = 0
+
+    this.managerName['servicio'] = 0
+    this.managerName['propina'] = 0
+    this.managerName['bebida'] = 0
+    this.managerName['tabaco'] = 0
+    this.managerName['vitamina'] = 0
+    this.managerName['otros'] = 0
   }
 
   validateNullData() {
-    if (this.encargadaName?.['servicio'] == "") this.encargadaName['servicio'] = 0
-    if (this.encargadaName?.['propina'] == "") this.encargadaName['propina'] = 0
-    if (this.encargadaName?.['bebida'] == "") this.encargadaName['bebida'] = 0
-    if (this.encargadaName?.['tabaco'] == "") this.encargadaName['tabaco'] = 0
-    if (this.encargadaName?.['vitamina'] == "") this.encargadaName['vitamina'] = 0
-    if (this.encargadaName?.['otros'] == "") this.encargadaName['otros'] = 0
+    if (this.managerName?.['servicio'] == "") this.managerName['servicio'] = 0
+    if (this.managerName?.['propina'] == "") this.managerName['propina'] = 0
+    if (this.managerName?.['bebida'] == "") this.managerName['bebida'] = 0
+    if (this.managerName?.['tabaco'] == "") this.managerName['tabaco'] = 0
+    if (this.managerName?.['vitamina'] == "") this.managerName['vitamina'] = 0
+    if (this.managerName?.['otros'] == "") this.managerName['otros'] = 0
     if (this.totalService == undefined) this.totalService = 0
     if (this.totalTipValue == undefined) this.totalTipValue = 0
+    if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
     if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
     if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
@@ -206,33 +236,82 @@ export class ManagerComponent implements OnInit {
     if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
     if (this.sumCommission == undefined || Number.isNaN(this.sumCommission)) this.sumCommission = 0
     if (this.totalCommission == undefined || Number.isNaN(this.totalCommission)) this.totalCommission = 0
-    if (this.receivedManager == undefined || Number.isNaN(this.receivedManager)) this.receivedManager = 0
-    if (this.totalValueOrdered == undefined) this.totalValueOrdered = 0
+    if (this.receivedTherapist == undefined || Number.isNaN(this.receivedTherapist)) this.receivedTherapist = 0
     if (this.totalCash == undefined) this.totalCash = 0
     if (this.totalBizum == undefined) this.totalBizum = 0
     if (this.totalCard == undefined) this.totalCard = 0
     if (this.totalTransaction == undefined) this.totalTransaction = 0
-    if (this.totalManagerPayment == undefined) this.totalManagerPayment = 0
+    if (this.totalTherapistPayment == undefined) this.totalTherapistPayment = 0
   }
 
   getSettlements() {
     let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
 
-    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((datoLiquidaciones: any) => {
-      this.liquidated = datoLiquidaciones
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
 
-      for (let index = 0; index < this.liquidated.length; index++) {
-        añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
-        mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
-        diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
-        this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+        this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((datoLiquidaciones: any) => {
+          this.liquidated = datoLiquidaciones
 
-        if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
-          añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
-          mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
-          diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
-          this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
-        }
+          for (let o = 0; o < this.liquidated.length; o++) {
+            if (this.liquidated[o].importe > 999) {
+
+              const coma = this.liquidated[o].importe.toString().indexOf(".") !== -1 ? true : false;
+              const array = coma ? this.liquidated[o].importe.toString().split(".") : this.liquidated[o].importe.toString().split("");
+              let integer = coma ? array[o].split("") : array;
+              let subIndex = 1;
+
+              for (let i = integer.length - 1; i >= 0; i--) {
+
+                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+                  integer.splice(i, 0, ".");
+                  subIndex++;
+
+                } else {
+                  subIndex++;
+                }
+              }
+
+              integer = [integer.toString().replace(/,/gi, "")]
+              this.liquidated[o]['importe'] = integer[0].toString()
+            } else {
+              this.liquidated[o]['importe'] = this.liquidated[o].importe.toString()
+            }
+          }
+
+          for (let index = 0; index < this.liquidated.length; index++) {
+            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+            }
+          }
+        })
+      } else {
+        this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((datoLiquidaciones: any) => {
+          this.liquidated = datoLiquidaciones
+
+          for (let index = 0; index < this.liquidated.length; index++) {
+            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
+            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
+            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
+            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
+
+            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
+              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
+              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
+              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
+              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
+            }
+          }
+        })
       }
     })
   }
@@ -249,10 +328,8 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  filters(event: any) {
-    this.formTemplate.value.fechaInicio = event.target.value
-    this.filterByName = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-    this.filterByNumber = Number(this.formTemplate.value.busqueda)
+  filters() {
+    this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
@@ -262,6 +339,18 @@ export class ManagerComponent implements OnInit {
       año = fecha.substring(2, 4)
       this.fechaInicio = `${dia}-${mes}-${año}`
     }
+
+    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+
+        if (this.liquidationManager.encargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
+        } else {
+          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
+        }
+      }
+    })
   }
 
   getThoseThatNotLiquidated() {
@@ -286,14 +375,13 @@ export class ManagerComponent implements OnInit {
       }
     })
 
-    this.calculateServices()
     this.liquidationForm = false
     this.editEncarg = false
     this.selected = false
     this.addForm = true
   }
 
-  comments(targetModal, modal) {
+  notes(targetModal, modal) {
     var notaMensaje = []
     this.service.getById(targetModal).subscribe((datoServicio) => {
       notaMensaje = datoServicio[0]
@@ -341,44 +429,18 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  fixedNumberDay(event: any) {
-    let numberValue = 0
-    numberValue = Number(event.target.value)
-    if (numberValue > 0) {
-      this.fixedTotalDay = numberValue * this.fijoDia
-      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
-    }
-  }
-
-  editConsultWithManager(encargada) {
-    this.serviceManager.getEncargada(encargada).subscribe((resp: any) => {
-      this.fijoDia = resp[0]['fijoDia']
-      this.fixedTotalDay = resp[0]['fijoDia']
-    })
-    return true
-  }
-
-  consultWithManager() {
-    this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
-      this.fijoDia = resp[0]['fijoDia']
-      this.fixedTotalDay = resp[0]['fijoDia']
-    })
-    return true
-  }
-
   calculateServices(): any {
-    if (this.liquidationManager.encargada != "") {
+    if (this.liquidationManager.encargada) {
       this.getThoseThatNotLiquidated()
 
-      if (!this.consultWithManager()) return
-      this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
+      this.service.getByManagerOrder(this.liquidationManager.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
-          this.selected = true
-          this.dateExists()
 
           setTimeout(() => {
+            this.selected = true
+            this.dateExists()
             if (this.inputDateAndTime()) return
-          }, 200);
+          }, 600);
 
         } else {
           this.selected = false
@@ -394,184 +456,181 @@ export class ManagerComponent implements OnInit {
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
     this.totalCommission = 0
 
-    setTimeout(() => {
-      this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
-        this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
-        this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
+    this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
+      this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
+      this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
 
-          if (rp.length > 0) {
+        if (rp.length > 0) {
 
-            this.unliquidatedService = rp
+          this.unliquidatedService = rp
 
-            // Filter by servicio
-            const servicios = this.unliquidatedService.filter(serv => rp)
-            this.totalService = servicios.reduce((accumulator, serv) => {
-              return accumulator + serv.servicio
-            }, 0)
+          // Filter by servicio
+          const servicios = this.unliquidatedService.filter(serv => rp)
+          this.totalService = servicios.reduce((accumulator, serv) => {
+            return accumulator + serv.servicio
+          }, 0)
 
-            // Filter by Propina
-            const propinas = this.unliquidatedService.filter(serv => rp)
-            this.totalTipValue = propinas.reduce((accumulator, serv) => {
-              return accumulator + serv.propina
-            }, 0)
+          // Filter by Propina
+          const propinas = this.unliquidatedService.filter(serv => rp)
+          this.totalTipValue = propinas.reduce((accumulator, serv) => {
+            return accumulator + serv.propina
+          }, 0)
 
-            const encargada = this.unliquidatedService.filter(serv => rp)
-            this.totalValueOrdered = encargada.reduce((accumulator, serv) => {
-              return accumulator + serv.numberEncarg
-            }, 0)
+          // Filter by Pago
+          const terapeuta = this.unliquidatedService.filter(serv => rp)
+          this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+            return accumulator + serv.numberTerap
+          }, 0)
 
-            // Filter by Bebida
-            const bebida = this.unliquidatedService.filter(serv => rp)
-            this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-              return accumulator + serv.bebidas
-            }, 0)
+          // Filter by Bebida
+          const bebida = this.unliquidatedService.filter(serv => rp)
+          this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+            return accumulator + serv.bebidas
+          }, 0)
 
-            // Filter by Tabaco
-            const tabac = this.unliquidatedService.filter(serv => rp)
-            this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-              return accumulator + serv.tabaco
-            }, 0)
+          // Filter by Tabaco
+          const tabac = this.unliquidatedService.filter(serv => rp)
+          this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+            return accumulator + serv.tabaco
+          }, 0)
 
-            // Filter by Vitamina
-            const vitamina = this.unliquidatedService.filter(serv => rp)
-            this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-              return accumulator + serv.vitaminas
-            }, 0)
+          // Filter by Vitamina
+          const vitamina = this.unliquidatedService.filter(serv => rp)
+          this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+            return accumulator + serv.vitaminas
+          }, 0)
 
-            // Filter by Others
-            const otroServicio = this.unliquidatedService.filter(serv => rp)
-            this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-              return accumulator + serv.otros
-            }, 0)
+          // Filter by Others
+          const otroServicio = this.unliquidatedService.filter(serv => rp)
+          this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+            return accumulator + serv.otros
+          }, 0)
 
-            // Filter by totalCash
-            const totalCashs = this.unliquidatedService.filter(serv => rp)
-            this.totalCash = totalCashs.reduce((accumulator, serv) => {
-              return accumulator + serv.valueEfectEncargada
-            }, 0)
+          // Filter by totalCash
+          const totalCashs = this.unliquidatedService.filter(serv => rp)
+          this.totalCash = totalCashs.reduce((accumulator, serv) => {
+            return accumulator + serv.valueEfectTerapeuta
+          }, 0)
 
-            // Filter by totalBizum
-            const totalBizums = this.unliquidatedService.filter(serv => rp)
-            this.totalBizum = totalBizums.reduce((accumulator, serv) => {
-              return accumulator + serv.valueBizuEncargada
-            }, 0)
+          // Filter by totalBizum
+          const totalBizums = this.unliquidatedService.filter(serv => rp)
+          this.totalBizum = totalBizums.reduce((accumulator, serv) => {
+            return accumulator + serv.valueBizuTerapeuta
+          }, 0)
 
-            // Filter by totalCard
-            const totalCards = this.unliquidatedService.filter(serv => rp)
-            this.totalCard = totalCards.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTarjeEncargada
-            }, 0)
+          // Filter by totalCard
+          const totalCards = this.unliquidatedService.filter(serv => rp)
+          this.totalCard = totalCards.reduce((accumulator, serv) => {
+            return accumulator + serv.valueTarjeTerapeuta
+          }, 0)
 
-            // Filter by totalTransaction
-            const totalTransactions = this.unliquidatedService.filter(serv => rp)
-            this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTransEncargada
-            }, 0)
+          // Filter by totalTransaction
+          const totalTransactions = this.unliquidatedService.filter(serv => rp)
+          this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
+            return accumulator + serv.valueTransTerapeuta
+          }, 0)
 
-            // Total therapist payment
-            this.totalManagerPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
+          // Total therapist payment
+          this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
 
-            this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
-              this.encargadaName = datosNameTerapeuta[0]
+          this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
+            this.managerName = datosNameTerapeuta[0]
 
-              // Comision
-              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+            // Comision
+            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
-              // Conversion decimal
-              this.serviceCommission = Math.trunc(comisiServicio)
-              this.commissionTip = Math.trunc(comiPropina)
-              this.beverageCommission = Math.trunc(comiBebida)
-              this.tobaccoCommission = Math.trunc(comiTabaco)
-              this.vitaminCommission = Math.trunc(comiVitamina)
-              this.commissionOthers = Math.trunc(comiOtros)
+            // Conversion decimal
+            this.serviceCommission = Math.ceil(comisiServicio)
+            this.commissionTip = Math.ceil(comiPropina)
+            this.beverageCommission = Math.ceil(comiBebida)
+            this.tobaccoCommission = Math.ceil(comiTabaco)
+            this.vitaminCommission = Math.ceil(comiVitamina)
+            this.commissionOthers = Math.ceil(comiOtros)
 
-              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-                Number(this.vitaminCommission) + Number(this.commissionOthers)
+            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-              if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.trunc(sumComision)
-              }
+            if (this.sumCommission != 0 || this.sumCommission != undefined) {
+              this.sumCommission = Math.ceil(sumComision)
+            }
 
-              let dayStart = 0, dayEnd = 0
+            let dayStart = 0, dayEnd = 0
               dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
               dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
-              this.fixedDay = dayEnd - dayStart
-              this.fixedTotalDay = this.fixedDay * this.fijoDia
+            this.fixedDay = dayEnd - dayStart
+            this.fixedTotalDay = this.fixedDay * this.fijoDia
 
-              // Recibido
-              this.receivedManager = this.totalValueOrdered
-              this.totalCommission = Math.trunc(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
-              this.liquidationManager.importe = this.totalCommission
+            // Recibido
+            this.receivedTherapist = this.totalTherapistValue
+            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
+            this.liquidationManager.importe = this.totalCommission
 
-              this.validateNullData()
-            })
+            this.validateNullData()
+            this.thousandPoint()
+          })
+          return true
+        } else {
+          this.unliquidatedService = rp
+
+          Swal.fire({
+            icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+          })
+
+          let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+          this.totalCommission = 0
+
+          this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
+            this.managerName = datosNameTerapeuta[0]
+
+            // Comision
+            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+
+            // Conversion decimal
+            this.serviceCommission = Math.ceil(comisiServicio)
+            this.commissionTip = Math.ceil(comiPropina)
+            this.beverageCommission = Math.ceil(comiBebida)
+            this.tobaccoCommission = Math.ceil(comiTabaco)
+            this.vitaminCommission = Math.ceil(comiVitamina)
+            this.commissionOthers = Math.ceil(comiOtros)
+
+            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.vitaminCommission) + Number(this.commissionOthers)
+
+            if (this.sumCommission != 0 || this.sumCommission != undefined) {
+              this.sumCommission = Math.ceil(sumComision)
+            }
+
+            // Recibido
+            this.receivedTherapist = this.totalTherapistValue
+            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
+            this.liquidationManager.importe = this.totalCommission
+
+            this.validateNullData()
             return true
-          } else {
-            this.unliquidatedService = rp
-
-            this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
-              this.encargadaName = datosNameTerapeuta[0]
-
-              // Comision
-              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
-
-              // Conversion decimal
-              this.serviceCommission = Math.trunc(comisiServicio)
-              this.commissionTip = Math.trunc(comiPropina)
-              this.beverageCommission = Math.trunc(comiBebida)
-              this.tobaccoCommission = Math.trunc(comiTabaco)
-              this.vitaminCommission = Math.trunc(comiVitamina)
-              this.commissionOthers = Math.trunc(comiOtros)
-
-              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-                Number(this.vitaminCommission) + Number(this.commissionOthers)
-
-              if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.trunc(sumComision)
-              }
-
-              let dayStart = 0, dayEnd = 0
-              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
-
-              this.fixedDay = dayEnd - dayStart
-              this.fixedTotalDay = this.fixedDay * this.fijoDia
-
-              // Recibido
-              this.receivedManager = this.totalValueOrdered
-              this.totalCommission = Math.trunc(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
-              this.liquidationManager.importe = this.totalCommission
-
-              this.validateNullData()
-            })
-
-            Swal.fire({
-              icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
-            })
-            return false
-          }
-        })
-    }, 900);
+          })
+          return false
+        }
+      })
     return false
   }
 
   dateDoesNotExist() {
     let año = "", mes = "", dia = ""
 
-    this.service.getEncargFechaAsc(this.liquidationManager.encargada).subscribe((rp) => {
+    this.service.getEncargadaFechaAsc(this.liquidationManager.encargada).subscribe((rp) => {
       año = rp[0]['fechaHoyInicio'].substring(0, 4)
       mes = rp[0]['fechaHoyInicio'].substring(5, 7)
       dia = rp[0]['fechaHoyInicio'].substring(8, 10)
@@ -580,13 +639,1466 @@ export class ManagerComponent implements OnInit {
     })
   }
 
+  thousandPoint() {
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalComission = integer[0].toString()
+    } else {
+      this.textTotalComission = this.totalCommission.toString()
+    }
+
+    for (let o = 0; o < this.unliquidatedService.length; o++) {
+      if (this.unliquidatedService[o]?.servicio > 999) {
+
+        const coma = this.unliquidatedService[o]?.servicio.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.servicio.toString().split(".") : this.unliquidatedService[o]?.servicio.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['servicio'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['servicio'] = this.unliquidatedService[o]?.servicio
+      }
+
+      if (this.unliquidatedService[o]?.propina > 999) {
+
+        const coma = this.unliquidatedService[o]?.propina.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.propina.toString().split(".") : this.unliquidatedService[o]?.propina.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['propina'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['propina'] = this.unliquidatedService[o]?.propina
+      }
+
+      if (this.unliquidatedService[o]?.numberTerap > 999) {
+
+        const coma = this.unliquidatedService[o]?.numberTerap.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.numberTerap.toString().split(".") : this.unliquidatedService[o]?.numberTerap.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['numberTerap'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['numberTerap'] = this.unliquidatedService[o]?.numberTerap
+      }
+
+      if (this.unliquidatedService[o]?.bebidas > 999) {
+
+        const coma = this.unliquidatedService[o]?.bebidas.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.bebidas.toString().split(".") : this.unliquidatedService[o]?.bebidas.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['bebidas'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['bebidas'] = this.unliquidatedService[o]?.bebidas
+      }
+
+      if (this.unliquidatedService[o]?.tabaco > 999) {
+
+        const coma = this.unliquidatedService[o]?.tabaco.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.tabaco.toString().split(".") : this.unliquidatedService[o]?.tabaco.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['tabaco'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['tabaco'] = this.unliquidatedService[o]?.tabaco
+      }
+
+      if (this.unliquidatedService[o]?.vitaminas > 999) {
+
+        const coma = this.unliquidatedService[o]?.vitaminas.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.vitaminas.toString().split(".") : this.unliquidatedService[o]?.vitaminas.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['vitaminas'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['vitaminas'] = this.unliquidatedService[o]?.vitaminas
+      }
+
+      if (this.unliquidatedService[o]?.otros > 999) {
+
+        const coma = this.unliquidatedService[o]?.otros.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.otros.toString().split(".") : this.unliquidatedService[o]?.otros.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.unliquidatedService[o]['otros'] = integer[0].toString()
+      } else {
+        this.unliquidatedService[o]['otros'] = this.unliquidatedService[o]?.otros
+      }
+    }
+
+    if (this.totalService > 999) {
+
+      const coma = this.totalService.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalService.toString().split(".") : this.totalService.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalService = integer[0].toString()
+    } else {
+      this.textTotalService = this.totalService.toString()
+    }
+
+    if (this.serviceCommission > 999) {
+
+      const coma = this.serviceCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.serviceCommission.toString().split(".") : this.serviceCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textServiceComission = integer[0].toString()
+    } else {
+      this.textServiceComission = this.serviceCommission.toString()
+    }
+
+    if (this.totalTipValue > 999) {
+
+      const coma = this.totalTipValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTipValue.toString().split(".") : this.totalTipValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTip2 = integer[0].toString()
+    } else {
+      this.textTotalTip2 = this.totalTipValue.toString()
+    }
+
+    if (this.commissionTip > 999) {
+
+      const coma = this.commissionTip.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionTip.toString().split(".") : this.commissionTip.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textComissionTip = integer[0].toString()
+    } else {
+      this.textComissionTip = this.commissionTip.toString()
+    }
+
+    if (this.totalValueDrink > 999) {
+
+      const coma = this.totalValueDrink.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrink.toString().split(".") : this.totalValueDrink.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrink = integer[0].toString()
+    } else {
+      this.textValueDrink = this.totalValueDrink.toString()
+    }
+
+    if (this.beverageCommission > 999) {
+
+      const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageCommission.toString().split(".") : this.beverageCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textBeverageCommission = integer[0].toString()
+    } else {
+      this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.totalTobaccoValue > 999) {
+
+      const coma = this.totalTobaccoValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTobaccoValue.toString().split(".") : this.totalTobaccoValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoValue = integer[0].toString()
+    } else {
+      this.textTobaccoValue = this.totalTobaccoValue.toString()
+    }
+
+    if (this.tobaccoCommission > 999) {
+
+      const coma = this.tobaccoCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.tobaccoCommission.toString().split(".") : this.tobaccoCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoCommission = integer[0].toString()
+    } else {
+      this.textTobaccoCommission = this.tobaccoCommission.toString()
+    }
+
+    if (this.totalValueVitamins > 999) {
+
+      const coma = this.totalValueVitamins.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueVitamins.toString().split(".") : this.totalValueVitamins.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueVitamins = integer[0].toString()
+    } else {
+      this.textValueVitamins = this.totalValueVitamins.toString()
+    }
+
+    if (this.vitaminCommission > 999) {
+
+      const coma = this.vitaminCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.vitaminCommission.toString().split(".") : this.vitaminCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textVitaminCommission = integer[0].toString()
+    } else {
+      this.textVitaminCommission = this.vitaminCommission.toString()
+    }
+
+    if (this.totalValueOther > 999) {
+
+      const coma = this.totalValueOther.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueOther.toString().split(".") : this.totalValueOther.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueOther = integer[0].toString()
+    } else {
+      this.textValueOther = this.totalValueOther.toString()
+    }
+
+    if (this.commissionOthers > 999) {
+
+      const coma = this.commissionOthers.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionOthers.toString().split(".") : this.commissionOthers.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textCommissionOthers = integer[0].toString()
+    } else {
+      this.textCommissionOthers = this.commissionOthers.toString()
+    }
+
+    if (this.sumCommission > 999) {
+
+      const coma = this.sumCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.sumCommission.toString().split(".") : this.sumCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textSumCommission = integer[0].toString()
+    } else {
+      this.textSumCommission = this.sumCommission.toString()
+    }
+
+    if (this.receivedTherapist > 999) {
+
+      const coma = this.receivedTherapist.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.receivedTherapist.toString().split(".") : this.receivedTherapist.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textReceivedTherapist = integer[0].toString()
+    } else {
+      this.textReceivedTherapist = this.receivedTherapist.toString()
+    }
+
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCommission = integer[0].toString()
+    } else {
+      this.textTotalCommission = this.totalCommission.toString()
+    }
+
+    if (this.totalCash > 999) {
+
+      const coma = this.totalCash.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCash.toString().split(".") : this.totalCash.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCash = integer[0].toString()
+    } else {
+      this.textTotalCash = this.totalCash.toString()
+    }
+
+    if (this.totalBizum > 999) {
+
+      const coma = this.totalBizum.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizum.toString().split(".") : this.totalBizum.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizum = integer[0].toString()
+    } else {
+      this.textTotalBizum = this.totalBizum.toString()
+    }
+
+
+    if (this.totalCard > 999) {
+
+      const coma = this.totalCard.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCard.toString().split(".") : this.totalCard.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCard = integer[0].toString()
+    } else {
+      this.textTotalCard = this.totalCard.toString()
+    }
+
+    if (this.totalTransaction > 999) {
+
+      const coma = this.totalTransaction.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransaction.toString().split(".") : this.totalTransaction.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransaction = integer[0].toString()
+    } else {
+      this.textTotalTransaction = this.totalTransaction.toString()
+    }
+
+    if (this.totalTherapistPayment > 999) {
+
+      const coma = this.totalTherapistPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTherapistPayment.toString().split(".") : this.totalTherapistPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTherapistPayment = integer[0].toString()
+    } else {
+      this.textTotalTherapistPayment = this.totalTherapistPayment.toString()
+    }
+  }
+
+  fixedNumberDay(event: any) {
+    let numberValue = 0
+    numberValue = Number(event.target.value)
+    if (numberValue > 0) {
+      this.fixedTotalDay = numberValue * this.fijoDia
+      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.textReceivedTherapist)
+    }
+  }
+
+  consultWithManager() {
+    this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
+      this.fijoDia = resp[0]['fijoDia']
+      this.fixedTotalDay = resp[0]['fijoDia']
+    })
+    return true
+  }
+
+  // Edit
+
+  editConsultWithManager(encargada) {
+    this.serviceManager.getEncargada(encargada).subscribe((resp: any) => {
+      this.fijoDia = resp[0]['fijoDia']
+      this.fixedTotalDay = resp[0]['fijoDia']
+    })
+    return true
+  }
+
+  thousandPointEdit() {
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalComission = integer[0].toString()
+    } else {
+      this.textTotalComission = this.totalCommission.toString()
+    }
+
+    for (let o = 0; o < this.settledData.length; o++) {
+      if (this.settledData[o]?.servicio > 999) {
+
+        const coma = this.settledData[o]?.servicio.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.servicio.toString().split(".") : this.settledData[o]?.servicio.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['servicio'] = integer[0].toString()
+      } else {
+        this.settledData[o]['servicio'] = this.settledData[o]?.servicio
+      }
+
+      if (this.settledData[o]?.propina > 999) {
+
+        const coma = this.settledData[o]?.propina.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.propina.toString().split(".") : this.settledData[o]?.propina.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['propina'] = integer[0].toString()
+      } else {
+        this.settledData[o]['propina'] = this.settledData[o]?.propina
+      }
+
+      if (this.settledData[o]?.numberTerap > 999) {
+
+        const coma = this.settledData[o]?.numberTerap.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.numberTerap.toString().split(".") : this.settledData[o]?.numberTerap.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['numberTerap'] = integer[0].toString()
+      } else {
+        this.settledData[o]['numberTerap'] = this.settledData[o]?.numberTerap
+      }
+
+      if (this.settledData[o]?.bebidas > 999) {
+
+        const coma = this.settledData[o]?.bebidas.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.bebidas.toString().split(".") : this.settledData[o]?.bebidas.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['bebidas'] = integer[0].toString()
+      } else {
+        this.settledData[o]['bebidas'] = this.settledData[o]?.bebidas
+      }
+
+      if (this.settledData[o]?.tabaco > 999) {
+
+        const coma = this.settledData[o]?.tabaco.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.tabaco.toString().split(".") : this.settledData[o]?.tabaco.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['tabaco'] = integer[0].toString()
+      } else {
+        this.settledData[o]['tabaco'] = this.settledData[o]?.tabaco
+      }
+
+      if (this.settledData[o]?.vitaminas > 999) {
+
+        const coma = this.settledData[o]?.vitaminas.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.vitaminas.toString().split(".") : this.settledData[o]?.vitaminas.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['vitaminas'] = integer[0].toString()
+      } else {
+        this.settledData[o]['vitaminas'] = this.settledData[o]?.vitaminas
+      }
+
+      if (this.settledData[o]?.otros > 999) {
+
+        const coma = this.settledData[o]?.otros.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.otros.toString().split(".") : this.settledData[o]?.otros.toString().split("");
+        let integer = coma ? array[o].split("") : array;
+        let subIndex = 1;
+
+        for (let i = integer.length - 1; i >= 0; i--) {
+
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+            integer.splice(i, 0, ".");
+            subIndex++;
+
+          } else {
+            subIndex++;
+          }
+        }
+
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.settledData[o]['otros'] = integer[0].toString()
+      } else {
+        this.settledData[o]['otros'] = this.settledData[o]?.otros
+      }
+    }
+
+    if (this.totalService > 999) {
+
+      const coma = this.totalService.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalService.toString().split(".") : this.totalService.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalService = integer[0].toString()
+    } else {
+      this.textTotalService = this.totalService.toString()
+    }
+
+    if (this.serviceCommission > 999) {
+
+      const coma = this.serviceCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.serviceCommission.toString().split(".") : this.serviceCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textServiceComission = integer[0].toString()
+    } else {
+      this.textServiceComission = this.serviceCommission.toString()
+    }
+
+    if (this.totalTipValue > 999) {
+
+      const coma = this.totalTipValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTipValue.toString().split(".") : this.totalTipValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTip2 = integer[0].toString()
+    } else {
+      this.textTotalTip2 = this.totalTipValue.toString()
+    }
+
+    if (this.commissionTip > 999) {
+
+      const coma = this.commissionTip.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionTip.toString().split(".") : this.commissionTip.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textComissionTip = integer[0].toString()
+    } else {
+      this.textComissionTip = this.commissionTip.toString()
+    }
+
+    if (this.totalValueDrink > 999) {
+
+      const coma = this.totalValueDrink.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrink.toString().split(".") : this.totalValueDrink.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrink = integer[0].toString()
+    } else {
+      this.textValueDrink = this.totalValueDrink.toString()
+    }
+
+    if (this.beverageCommission > 999) {
+
+      const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageCommission.toString().split(".") : this.beverageCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textBeverageCommission = integer[0].toString()
+    } else {
+      this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.totalTobaccoValue > 999) {
+
+      const coma = this.totalTobaccoValue.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTobaccoValue.toString().split(".") : this.totalTobaccoValue.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoValue = integer[0].toString()
+    } else {
+      this.textTobaccoValue = this.totalTobaccoValue.toString()
+    }
+
+    if (this.tobaccoCommission > 999) {
+
+      const coma = this.tobaccoCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.tobaccoCommission.toString().split(".") : this.tobaccoCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTobaccoCommission = integer[0].toString()
+    } else {
+      this.textTobaccoCommission = this.tobaccoCommission.toString()
+    }
+
+    if (this.totalValueVitamins > 999) {
+
+      const coma = this.totalValueVitamins.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueVitamins.toString().split(".") : this.totalValueVitamins.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueVitamins = integer[0].toString()
+    } else {
+      this.textValueVitamins = this.totalValueVitamins.toString()
+    }
+
+    if (this.vitaminCommission > 999) {
+
+      const coma = this.vitaminCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.vitaminCommission.toString().split(".") : this.vitaminCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textVitaminCommission = integer[0].toString()
+    } else {
+      this.textVitaminCommission = this.vitaminCommission.toString()
+    }
+
+    if (this.totalValueOther > 999) {
+
+      const coma = this.totalValueOther.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueOther.toString().split(".") : this.totalValueOther.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueOther = integer[0].toString()
+    } else {
+      this.textValueOther = this.totalValueOther.toString()
+    }
+
+    if (this.commissionOthers > 999) {
+
+      const coma = this.commissionOthers.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.commissionOthers.toString().split(".") : this.commissionOthers.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textCommissionOthers = integer[0].toString()
+    } else {
+      this.textCommissionOthers = this.commissionOthers.toString()
+    }
+
+    if (this.sumCommission > 999) {
+
+      const coma = this.sumCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.sumCommission.toString().split(".") : this.sumCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textSumCommission = integer[0].toString()
+    } else {
+      this.textSumCommission = this.sumCommission.toString()
+    }
+
+    if (this.receivedTherapist > 999) {
+
+      const coma = this.receivedTherapist.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.receivedTherapist.toString().split(".") : this.receivedTherapist.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textReceivedTherapist = integer[0].toString()
+    } else {
+      this.textReceivedTherapist = this.receivedTherapist.toString()
+    }
+
+    if (this.totalCommission > 999) {
+
+      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCommission = integer[0].toString()
+    } else {
+      this.textTotalCommission = this.totalCommission.toString()
+    }
+
+    if (this.totalCash > 999) {
+
+      const coma = this.totalCash.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCash.toString().split(".") : this.totalCash.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCash = integer[0].toString()
+    } else {
+      this.textTotalCash = this.totalCash.toString()
+    }
+
+    if (this.totalBizum > 999) {
+
+      const coma = this.totalBizum.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizum.toString().split(".") : this.totalBizum.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizum = integer[0].toString()
+    } else {
+      this.textTotalBizum = this.totalBizum.toString()
+    }
+
+
+    if (this.totalCard > 999) {
+
+      const coma = this.totalCard.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCard.toString().split(".") : this.totalCard.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCard = integer[0].toString()
+    } else {
+      this.textTotalCard = this.totalCard.toString()
+    }
+
+    if (this.totalTransaction > 999) {
+
+      const coma = this.totalTransaction.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransaction.toString().split(".") : this.totalTransaction.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransaction = integer[0].toString()
+    } else {
+      this.textTotalTransaction = this.totalTransaction.toString()
+    }
+
+    if (this.totalTherapistPayment > 999) {
+
+      const coma = this.totalTherapistPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTherapistPayment.toString().split(".") : this.totalTherapistPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTherapistPayment = integer[0].toString()
+    } else {
+      this.textTotalTherapistPayment = this.totalTherapistPayment.toString()
+    }
+  }
+
   goToEdit(id: number) {
-    const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
+    const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
     this.service.getById(id).subscribe((rp: any) => {
       if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
     })
+  }
+
+  formatDate() {
+    let diaDesde = '', mesDesde = '', añoDesde = '', diaHasta = '', mesHasta = '', añoHasta = ''
+
+    diaDesde = this.liquidationManager.desdeFechaLiquidado.substring(8, 10)
+    mesDesde = this.liquidationManager.desdeFechaLiquidado.substring(5, 7)
+    añoDesde = this.liquidationManager.desdeFechaLiquidado.substring(0, 4)
+
+    this.liquidationManager.desdeFechaLiquidado = `${diaDesde}/${mesDesde}/${añoDesde}`
+
+    diaHasta = this.liquidationManager.hastaFechaLiquidado.substring(8, 10)
+    mesHasta = this.liquidationManager.hastaFechaLiquidado.substring(5, 7)
+    añoHasta = this.liquidationManager.hastaFechaLiquidado.substring(0, 4)
+
+    this.liquidationManager.hastaFechaLiquidado = `${diaHasta}/${mesHasta}/${añoHasta}`
   }
 
   edit() {
@@ -603,8 +2115,8 @@ export class ManagerComponent implements OnInit {
     }, 1000);
   }
 
-  dataFormEdit(id: number, idEncarg: number) {
-    this.idSettled = idEncarg
+  dataFormEdit(id: number, idLiq: number) {
+    this.idSettled = idLiq
     this.liquidationForm = false
     this.editEncarg = true
 
@@ -615,10 +2127,8 @@ export class ManagerComponent implements OnInit {
       this.liquidationManager.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
     })
 
-    this.service.getByIdEncarg(id).subscribe((datosTerapeuta) => {
+    this.service.getByIdTerap(id).subscribe((datosTerapeuta) => {
       this.settledData = datosTerapeuta;
-
-      if (!this.editConsultWithManager(this.settledData[0]['encargada'])) return
 
       // Filter by servicio
       const servicios = this.settledData.filter(serv => serv)
@@ -630,6 +2140,12 @@ export class ManagerComponent implements OnInit {
       const propinas = this.settledData.filter(serv => serv)
       this.totalTipValue = propinas.reduce((accumulator, serv) => {
         return accumulator + serv.propina
+      }, 0)
+
+      // Filter by Pago
+      const terapeuta = this.settledData.filter(serv => serv)
+      this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+        return accumulator + serv.numberTerap
       }, 0)
 
       // Filter by Bebida
@@ -659,17 +2175,17 @@ export class ManagerComponent implements OnInit {
       let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
       this.totalCommission = 0
 
-      this.serviceTherapist.getTerapeuta(this.settledData[0]['terapeuta']).subscribe((datosNameTerapeuta) => {
-        this.encargadaName = datosNameTerapeuta[0]
+      this.serviceManager.getEncargada(this.settledData[0]['encargada']).subscribe((datesNameManager) => {
+        this.managerName = datesNameManager[0]
         this.validateNullData()
 
         // Comision
-        comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-        comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-        comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-        comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-        comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-        comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+        comisiServicio = this.totalService / 100 * datesNameManager[0]['servicio']
+        comiPropina = this.totalTipValue / 100 * datesNameManager[0]['propina']
+        comiBebida = this.totalValueDrink / 100 * datesNameManager[0]['bebida']
+        comiTabaco = this.totalTobaccoValue / 100 * datesNameManager[0]['tabaco']
+        comiVitamina = this.totalValueVitamins / 100 * datesNameManager[0]['vitamina']
+        comiOtros = this.totalValueOther / 100 * datesNameManager[0]['otros']
 
         // Conversion decimal
         this.serviceCommission = Number(comisiServicio.toFixed(1))
@@ -702,11 +2218,13 @@ export class ManagerComponent implements OnInit {
 
         for (let index = 0; index < this.settledData.length; index++) {
           const numbTerap = this.settledData.filter(serv => serv)
-          this.receivedManager = numbTerap.reduce((accumulator, serv) => {
-            return accumulator + serv.numberEncarg
+          this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
+            return accumulator + serv.numberTerap
           }, 0)
         }
-        return this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
+        this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+        this.thousandPointEdit()
+        this.formatDate()
       })
     })
   }
@@ -720,13 +2238,6 @@ export class ManagerComponent implements OnInit {
     this.liquidationManager.encargada = ""
   }
 
-  getDateFrom() {
-    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp) => {
-      this.liquidationManager.desdeFechaLiquidado = rp[0]['hastaFechaLiquidado']
-      this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
-    })
-  }
-
   createUniqueId() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -735,7 +2246,7 @@ export class ManagerComponent implements OnInit {
       return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
     })
 
-    this.services.idEncargada = uuid
+    this.services.idTerapeuta = uuid
     this.liquidationManager.idUnico = uuid
     this.liquidationManager.idEncargada = uuid
     return this.liquidationManager.idUnico
@@ -744,17 +2255,19 @@ export class ManagerComponent implements OnInit {
   save() {
     this.createUniqueId()
     this.liquidationManager.currentDate = this.currentDate.toString()
+
     if (this.liquidationManager.encargada != "") {
 
       this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
+
         if (rp.length > 0) {
 
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
+            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
           }
 
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates) => {
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => {
 
             setTimeout(() => { this.getSettlements() }, 1000);
 
@@ -771,7 +2284,7 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length == 0) {
 
-          this.service.getEncargadaAndLiquidacion(this.liquidationManager.encargada).subscribe((datesForDate) => {
+          this.service.getEncargada(this.liquidationManager.encargada).subscribe((datesForDate) => {
             this.liquidationManager.desdeFechaLiquidado = datesForDate[0]['fechaHoyInicio']
             this.liquidationManager.desdeHoraLiquidado = datesForDate[0]['horaStart']
 
@@ -785,7 +2298,7 @@ export class ManagerComponent implements OnInit {
 
             for (let index = 0; index < this.unliquidatedService.length; index++) {
               this.liquidationManager.tratamiento = this.unliquidatedService.length
-              this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+              this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
               })
             }
 
@@ -806,10 +2319,15 @@ export class ManagerComponent implements OnInit {
           })
         }
       })
+
     } else {
       Swal.fire({
         icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
       })
     }
+  }
+
+  deleteService() {
+
   }
 }

@@ -1,913 +1,786 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-90 row justify-content-center align-items-center">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-e v="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style href="manager.component.css"></style>
-</head>
+                <label *ngIf="liquidationForm" class="titleLiqudationManager"> LIQUIDACIÓN ENCARGADA </label>
 
-<body>
+                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
-                <div class="m-0 vh-90 row justify-content-center align-items-center">
+                    <div class="text-center mt-4 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                            style="cursor: pointer;" class="bi bi-plus-circle text-primary" viewBox="0 0 16 16"
+                            (click)="insertForm()">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                        <div>
+                            <label> Nueva liquidación </label>
+                        </div>
+                    </div>
 
-                    <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                    <div class="row tableContainer">
 
-                        <div class="text-center mt-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                style="cursor: pointer;" class="bi bi-plus-circle text-primary" viewBox="0 0 16 16"
-                                (click)="insertForm()">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                <path
-                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                            </svg>
-                            <div>
-                                <label> Nueva liquidación </label>
+                        <div class="containerInCharge">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" formControlName="encargada"
+                                    [(ngModel)]="liquidationManager.encargada" (ngModelChange)="filters()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col-6">
-                                    <label style="display: contents;">Encargada</label>
-                                    <select class="form-select" formControlName="encargada"
-                                        [(ngModel)]="liquidationManager.encargada" (ngModelChange)="filters($event)">
-                                        <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                        <option *ngFor="let encarg of manager" [value]="encarg.nombre"
-                                            style="font-size: 14px;">
-                                            {{encarg.nombre}}
-                                        </option>
-                                    </select>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="row" style="margin-top: 2%;">
-                                        <div class="col-2" style="display: grid; align-content: center;">
-                                            <label style="display: contents;">Buscar</label>
-                                        </div>
-                                        <div class="col-10">
-                                            <input type="text" class="form-control" formControlName="busqueda"
-                                                (ngModelChange)="filters($event)"
-                                                style="font-size: 14px; max-width: inherit;">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6" style="margin-top: 2%;">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <input type="date" class="form-control" (change)="filters($event)"
-                                                [value]="CurrenDate" style="font-size: 14px;">
-                                        </div>
-                                        <div class="col-3"
-                                            style="display: grid; align-content: center; justify-items: flex-start;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                <path
-                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6" style="margin-top: 2%;">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <input type="date" class="form-control" (change)="filtersDateEnd($event)"
-                                                [value]="CurrenDate" style="font-size: 14px;">
-                                        </div>
-                                        <div class="col-3"
-                                            style="display: grid; align-content: center; justify-items: flex-start;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                <path
-                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-
+                        <div class="containerSearch">
+                            <div class="row g-0">
+                                <label class="text">Buscar</label>
+                                <input type="text" class="form-control" formControlName="busqueda"
+                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                        font-size: 18px; font-family: sans-serif;">
                             </div>
                         </div>
-                    </form>
 
-                    <div *ngIf="liquidationForm" class="container" style="margin-top: 3%; text-align: -webkit-center;">
-                        <table class="table">
-                            <thead>
-                                <tr class="table-secondary quitarBordes"
-                                    style="line-height: 0%; letter-spacing: normal">
-                                    <!-- 1 -->
-                                    <td class="managerColumn">Encargada</td>
-                                    <!-- 2 -->
-                                    <td class="AmountColumn">Importe</td>
-                                    <!-- 3 -->
-                                    <td class="datesColumn">Desde</td>
-                                    <!-- 4 -->
-                                    <td class="datesColumn">Hasta</td>
-                                    <!-- 5 -->
-                                    <td class="treatmentColumn">Tratamiento</td>
-                                </tr>
-                            </thead>
-                            <tbody *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada | fechaFinalEncargada: fechaInicio:fechaFinal 
-                | busquedaEncargada: filterByName:filterByNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
-                                (click)="dataFormEdit(liqEncarg.idEncargada, liqEncarg.id)">
-                                <tr style="cursor: pointer">
-                                    <!-- 1 -->
-                                    <td class="quitarBordes" style="text-align: left; border-bottom: hidden;">
-                                        {{liqEncarg?.encargada}}
-                                    </td>
-                                    <!-- 2 -->
-                                    <td class="quitarBordes" style="text-align: right; border-bottom: hidden">
-                                        {{liqEncarg?.importe}}</td>
-                                    <!-- 3 -->
-                                    <td class="quitarBordes trFechaDesde">
-                                        {{liqEncarg?.desdeFechaLiquidado + ' - ' + liqEncarg?.desdeHoraLiquidado}}</td>
-                                    <!-- 4 -->
-                                    <td class="quitarBordes trFechaHasta">
-                                        {{liqEncarg?.hastaFechaLiquidado + ' - ' + liqEncarg?.hastaHoraLiquidado}}</td>
-                                    <!-- 5 -->
-                                    <td class="quitarBordes" style="text-align: right; border-bottom: hidden">
-                                        {{liqEncarg?.tratamiento}}
-                                    </td>
-                                </tr>
+                        <div class="dateContainer">
+                            <div class="row g-0">
+                                <label class="text">Fecha Inicio</label>
+                                <input type="date" class="form-control" (change)="filters()"
+                                    formControlName="fechaInicio" [value]="CurrenDate"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                            </div>
+                        </div>
 
-                                <!-- Modal -->
-                                <ng-template class="custom-modal" #modalTabl let-modal>
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"> Nota </h5>
-                                        <button type="button" class="close" (click)="modal.dismiss()"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
+                        <div class="dateContainer">
+                            <div class="row g-0">
+                                <label class="text">Fecha Final</label>
+                                <input type="date" class="form-control" (change)="filtersDateEnd($event)"
+                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
+                                        color: #242424; font-size: 18px; font-family: sans-serif">
+                            </div>
+                        </div>
 
-                                    <div class="modal-body" style="text-align: center;">
-                                        <!-- Aqui se coloca lo adentro -->
+                        <div class="buttonDeleteContainer">
+                            <div class="row g-0">
+                                <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
+                                    (click)="deleteService()">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
-                                        <h4>{{liqEncarg.nota}}</h4>
+                <!-- Table 1 -->
+                <div *ngIf="liquidationForm" class="column">
+                    <div class="columnTable">
 
-                                        <!-- Afuera -->
-                                    </div>
-                                </ng-template>
-                                <!-- Fin Modal -->
+                        <div class="textManager">
+                            <label>Encargada</label>
+                        </div>
 
-                            </tbody>
-                        </table>
+                        <div class="textImport">
+                            <label>Importe</label>
+                        </div>
 
-                        <p class="noHayCierre" *ngIf="liquidated?.length === 0"> Actualmente no hay Liquidación para
-                            Encargadas
-                        </p>
+                        <div class="textDate">
+                            <label>Desde</label>
+                        </div>
 
-                        <pagination-controls style="float: right;" (pageChange)="page = $event" previousLabel="Anterior"
-                            nextLabel="Siguiente">
-                        </pagination-controls>
+                        <div class="textDate">
+                            <label>Hasta</label>
+                        </div>
+
+                        <div class="textTreatment">
+                            <label>Tratamiento</label>
+                        </div>
+
                     </div>
 
-                    <!-- Agregar Encargada -->
-                    <div *ngIf="addForm" class="formAgregar">
+                    <hr class="lineTable1">
 
-                        <label style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large;">NUEVA
-                            LIQUIDACIÓN</label>
+                    <div class="columnTable"
+                        *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada | fechaFinalEncargada: fechaInicio:fechaFinal 
+                    | busquedaEncargada: filterByName:filterByNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
+                        (click)="dataFormEdit(liqEncarg.idEncargada, liqEncarg.id)">
 
-                        <form>
-                            <div class="container">
+                        <div class="columnManager">{{liqEncarg?.encargada}}</div>
 
-                                <div class="row" style="justify-content: center;">
-                                    <div class="col-2 selectManager" style="text-align: -webkit-center;">
-                                        <label style="display: contents;">Encargada</label>
-                                        <select class="form-select addEncargada" name="encargada"
-                                            [(ngModel)]="liquidationManager.encargada"
-                                            (ngModelChange)="calculateServices()">
-                                            <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                            <option *ngFor="let managers of manager" [value]="managers.nombre">
-                                                {{managers.nombre}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
+                        <div class="columnImport">{{liqEncarg?.importe + ' €'}}</div>
 
-                                <div *ngIf="selected">
+                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
+                            {{liqEncarg?.desdeFechaLiquidado + ' - ' + liqEncarg?.desdeHoraLiquidado}} </div>
 
-                                    <div class="row fechas" style="margin-top: 2%; text-align-last: left;">
-                                        <div class="col-2 fechaInicio">
-                                            <label style="display: contents;">Inicial</label>
-                                            <input type="date" class="form-control" name="desdeFechaLiquidado"
-                                                (change)="inputDateAndTime()"
-                                                [(ngModel)]="liquidationManager.desdeFechaLiquidado"
-                                                [value]="liquidationManager.desdeFechaLiquidado">
-                                        </div>
+                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
+                            {{liqEncarg?.hastaFechaLiquidado + ' - ' + liqEncarg?.hastaHoraLiquidado}} </div>
 
-                                        <div class="col-2 horaInicio" style="align-self: end;">
-                                            <input type="time" min="18:00" max="21:00" step="3600" class="form-control"
-                                                (change)="inputDateAndTime()" name="desdeHoraLiquidado"
-                                                [(ngModel)]="liquidationManager.desdeHoraLiquidado"
-                                                [value]="liquidationManager.desdeHoraLiquidado" />
-                                        </div>
+                        <div class="columnTreatment">{{liqEncarg?.tratamiento}}</div>
+                    </div>
+                </div>
 
-                                        <div class="col-2 fechaFinal">
-                                            <label style="display: contents;">Final</label>
-                                            <input type="date" class="form-control" name="hastaFechaLiquidado"
-                                                [(ngModel)]="liquidationManager.hastaFechaLiquidado"
-                                                (change)="inputDateAndTime()"
-                                                [value]="liquidationManager.hastaFechaLiquidado">
-                                        </div>
+                <pagination-controls *ngIf="liquidationForm" class="pagination_Mobile" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
 
-                                        <div class="col-2 horaFinal" style="align-self: end;">
-                                            <input type="time" name="horaStart" min="18:00" max="21:00" step="3600"
-                                                class="form-control" [(ngModel)]="liquidationManager.hastaHoraLiquidado"
-                                                (change)="inputDateAndTime()"
-                                                [value]="liquidationManager.hastaHoraLiquidado">
-                                        </div>
-                                    </div>
+                <!-- Add Therapist -->
 
-                                    <div class="row" style="margin-top: 4%;">
-                                        <div class="col-9">
-                                            <label style="font-weight: bold; font-size: larger;">Liquidación de
-                                                Encargada
-                                                {{liquidationManager.encargada}}</label>
-                                        </div>
+                <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
 
-                                        <div class="col-3">
-                                            <label style="float: right; font-weight: bold;">{{totalCommission + '
-                                                €'}}</label>
-                                        </div>
-                                    </div>
+                <form *ngIf="addForm">
 
-                                    <hr class="lineaHoy">
+                    <div class="row containerSelect">
 
-                                    <div style="display: grid; place-items: center;" class="classTable">
-                                        <div style="text-align: center; width: max-content;">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary quitarBordes"
-                                                        style="line-height: 0%; letter-spacing: normal;">
-
-                                                        <td class="noteColumn">Nota</td>
-                                                        <td class="datesColumn">Fecha</td>
-                                                        <td class="outputColumn">Salida</td>
-                                                        <td class="timeColumn">Hora</td>
-                                                        <td class="treatmentColumn">Tratamiento</td>
-                                                        <td class="tipColumn">Propina</td>
-                                                        <td class="paymentColumn">Pago</td>
-                                                        <td class="column€Encarg">€ a Encarg </td>
-                                                        <td class="drinkColumn">Bebida</td>
-                                                        <td class="tobaccoColumn">Tabaco</td>
-                                                        <td class="vitaminColumn">Vitamina</td>
-                                                        <td class="columnOthers">Otros</td>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada) 
-                            | paginate: { itemsPerPage: 10, currentPage: page }">
-                                                    <tr style="cursor: pointer">
-
-                                                        <td class="quitarBordes" [ngClass]="{'color2':serv.nota !== ''}"
-                                                            (click)="comments(serv.id, modalTabl)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                        </td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.fecha}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.salida}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.horaStart + ' :' + serv.horaEnd}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.servicio}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.propina}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.formaPago}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.numberEncarg}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.bebidas}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.tabaco}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.vitaminas}}</td>
-
-                                                        <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                            style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                            {{serv.otros}}</td>
-                                                    </tr>
-
-                                                    <!-- Modal -->
-                                                    <ng-template class="custom-modal" #modalTabl let-modal>
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title"> Nota </h5>
-                                                            <button type="button" class="close"
-                                                                (click)="modal.dismiss()" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-
-                                                        <div class="modal-body" style="text-align: center;">
-                                                            <!-- Aqui se coloca lo adentro -->
-
-                                                            <h4>{{serv.nota}}</h4>
-
-                                                            <!-- Afuera -->
-                                                        </div>
-                                                    </ng-template>
-                                                    <!-- Fin Modal -->
-
-                                                </tbody>
-
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalService + '€'}}</td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalTipValue + '€'}}</td>
-                                                    <td></td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueOrdered + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueDrink + '€'}}</td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalTobaccoValue + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueVitamins + '€'}}
-                                                    </td>
-                                                    <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                        {{totalValueOther + '€'}}</td>
-                                                </tr>
-                                            </table>
-
-                                            <pagination-controls style="float: right;" (pageChange)="page = $event"
-                                                previousLabel="Anterior" nextLabel="Siguiente">
-                                            </pagination-controls>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- Table Sumatoria -->
-                                    <div style="display: grid; place-items: center;" class="tableEdtit">
-                                        <div style="text-align: center; width: min-content;">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary">
-                                                        <th style="border-bottom: hidden;"></th>
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                            Suma</th>
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                            Comisión</th>
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                            Total</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Tratamiento</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalService + ' €'}}</td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.servicio + '
-                                                            %'}}
-                                                        </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{serviceCommission + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Propina</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalTipValue + ' €'}}</td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.propina + '
-                                                            %'}} </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{commissionTip + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                            Bebida</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalValueDrink + ' €'}}
-                                                        </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.bebida + '
-                                                            %'}} </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{beverageCommission + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                            Tabaco</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalTobaccoValue + ' €'}}
-                                                        </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.tabaco + '
-                                                            %'}} </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{tobaccoCommission + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                            Vitamina</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalValueVitamins + ' €'}}
-                                                        </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.vitamina + '
-                                                            %'}} </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{vitaminCommission + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                            Otros</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalValueOther + ' €'}}
-                                                        </td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{encargadaName?.otros + '
-                                                            %'}}</td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{commissionOthers + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th style="border-bottom: hidden;"></th>
-                                                        <td style="border-bottom: hidden; text-align: start;">Suma</td>
-                                                        <td style="border-bottom: hidden; text-align: start;"></td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{sumCommission + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <td style="border-bottom: hidden; text-align: right;"></td>
-                                                        <td
-                                                            style="border-bottom: hidden; text-align: start; width: 0%;">
-                                                            Fijo/día
-                                                        </td>
-                                                        <td
-                                                            style="display: inline-table;border-bottom: hidden;border-top: hidden;">
-                                                            <input type="number" style="width:50%; float: left;"
-                                                                (change)="fixedNumberDay($event)" [value]="fixedDay">
-                                                            <label style="margin-top: 9%;">{{'X' + fijoDia +
-                                                                '€'}}</label>
-                                                        </td>
-                                                        <td
-                                                            style="border-bottom: hidden; text-align: right; width: 0%;">
-                                                            {{fixedTotalDay + '€'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row" style="border-bottom: hidden;"></th>
-                                                        <td style="border-bottom: 1px solid blue; text-align: start;">
-                                                            Recibido</td>
-                                                        <td
-                                                            style="border-bottom: 1px solid blue; text-align: start; border-top: hidden;">
-                                                        </td>
-                                                        <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                            {{receivedManager + ' €'}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row" style="border-bottom: hidden;"></th>
-                                                        <td style="border-bottom: hidden; text-align: start;">Total</td>
-                                                        <td style="border-bottom: hidden; text-align: start;"></td>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalCommission + ' €'}}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <!-- Table Paid To Manager -->
-                                    <div style="display: grid; place-items: center;" class="tablePaidManager">
-                                        <div style="text-align: center; width: max-content;">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary">
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                            Pagado a encargada</th>
-                                                        <th style="border-bottom: 1px solid blue; text-align: center;">
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Efectivo</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalCash + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Bizum</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalBizum + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Tarjeta</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalCard + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: 1px solid blue; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Transferencia</th>
-                                                        <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                            {{totalTransaction + ' €'}}</td>
-                                                    </tr>
-                                                    <tr style="line-height: 40%">
-                                                        <th scope="row"
-                                                            style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                            Transferencia</th>
-                                                        <td style="border-bottom: hidden; text-align: right;">
-                                                            {{totalManagerPayment + '
-                                                            €'}}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <div class="btnCancelar" *ngIf="selected && unliquidatedService.length <= 0">
-                                        <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                            (click)="cancel()">Cancelar</button>
-                                    </div>
-
-                                    <div class="row" *ngIf="selected && unliquidatedService.length > 0"
-                                        style="margin-bottom: 4%">
-                                        <div class="col-6">
-                                            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                                (click)="save()">Guardar</button>
-                                        </div>
-                                        <div class="col-6">
-                                            <button mat-flat-button color="primary" style="display: grid; margin: auto;"
-                                                (click)="cancel()">Cancelar</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div *ngIf="administratorRole" class="containerInCharge">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
+                                    (ngModelChange)="calculateServices()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
                             </div>
-                        </form>
+                        </div>
+
+                        <div *ngIf="!administratorRole" class="containerInCharge">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div *ngIf="selected && addForm">
+
+                    <div class="row tableContainer2">
+                        <div class="fechaInicio">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        font-weight: bold; display: contents;">Inicial</label>
+                            <input type="date" class="form-control" name="desdeFechaLiquidado"
+                                (change)="inputDateAndTime()" [(ngModel)]="liquidationManager.desdeFechaLiquidado"
+                                [value]="liquidationManager.desdeFechaLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
+
+                        <div class="horaInicio">
+                            <input type="time" min="18:00" max="21:00" step="3600" class="form-control"
+                                (change)="inputDateAndTime()" name="desdeHoraLiquidado"
+                                [(ngModel)]="liquidationManager.desdeHoraLiquidado"
+                                [value]="liquidationManager.desdeHoraLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif" />
+                        </div>
+
+                        <div class="fechaFinal">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                            font-weight: bold; display: contents;">Final</label>
+                            <input type="date" class="form-control" name="hastaFechaLiquidado"
+                                (change)="inputDateAndTime()" [(ngModel)]="liquidationManager.hastaFechaLiquidado"
+                                [value]="liquidationManager.hastaFechaLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
+
+                        <div class="horaFinal">
+                            <input type="time" name="horaStart" min="18:00" max="21:00" step="3600" class="form-control"
+                                [(ngModel)]="liquidationManager.hastaHoraLiquidado" (change)="inputDateAndTime()"
+                                [value]="liquidationManager.hastaHoraLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
                     </div>
 
-                    <!-- Editar Encargada -->
-                    <div *ngIf="editEncarg">
+                    <div class="row containerTitleSelect">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
 
-                        <label
-                            style="display: grid; text-align: center; margin-bottom: 5%; font-size: x-large; margin-top: 1rem">Visualizacion
-                            de Encargada {{settledData[0]['encargada']}}
-                        </label>
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                        </div>
 
-                        <div class="container">
+                    </div>
+                </div>
 
-                            <div class="row" style="margin-top: 4%;">
-                                <div class="col-9">
-                                    <label style="font-weight: bold; font-size: larger;">Liquidación de Encargada
-                                        {{settledData[0]['encargada']}}</label>
-                                </div>
+                <!-- Table 2 -->
 
-                                <div class="col-3">
-                                    <label style="float: right; font-weight: bold;">{{totalCommission + ' €'}}</label>
-                                </div>
-                            </div>
+                <div class="column2" *ngIf="selected && addForm">
+                    <div class="columnTable2">
 
-                            <hr class="lineaHoy">
+                        <div>
+                            <label></label>
+                        </div>
 
-                            <div class="col-auto" style="display: contents">
-                                <label style="float: left">
-                                    {{liquidationManager.desdeFechaLiquidado + ' : ' +
-                                    liquidationManager.desdeHoraLiquidado + ' - ' +
-                                    liquidationManager.hastaFechaLiquidado + ' : ' +
-                                    liquidationManager.hastaHoraLiquidado}}</label>
-                            </div>
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
 
-                            <div style="display: grid; place-items: center; clear: left" class="classTable">
-                                <div style="text-align: center; width: max-content">
-                                    <table class="table">
-                                        <thead>
-                                            <tr class="table-secondary quitarBordes"
-                                                style="line-height: 0%; letter-spacing: normal">
+                        <div class="textHour">
+                            <label>Hora</label>
+                        </div>
 
-                                                <td class="noteColumn">Nota</td>
-                                                <td class="datesColumn">Fecha</td>
-                                                <td class="outputColumn">Salida</td>
-                                                <td class="timeColumn">Hora</td>
-                                                <td class="treatmentColumn">Tratamiento</td>
-                                                <td class="tipColumn">Propina</td>
-                                                <td class="paymentColumn">Pago</td>
-                                                <td class="column€Encarg">€ a Encarg </td>
-                                                <td class="drinkColumn">Bebida</td>
-                                                <td class="tobaccoColumn">Tabaco</td>
-                                                <td class="vitaminColumn">Vitamina</td>
-                                                <td class="columnOthers">Otros</td>
+                        <div class="textHour">
+                            <label>Min</label>
+                        </div>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody *ngFor="let serv of (settledData | encargada: liquidationManager.encargada) 
+                        <div class="textTreatmentTable2">
+                            <label>Tratamiento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textValueManager">
+                            <label>€ A Encarg.</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2" *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada) 
                     | paginate: { itemsPerPage: 10, currentPage: page }">
-                                            <tr style="cursor: pointer;">
-                                                <!-- 1 -->
-                                                <td class="quitarBordes"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden;"
-                                                    [ngClass]="{'color2':serv.nota !== ''}"
-                                                    (click)="comments(serv.id, modalTabl)">
-                                                </td>
-                                                <!-- 2 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.fecha}}</td>
-                                                <!-- 3 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.salida}}
-                                                </td>
-                                                <!-- 4 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.horaStart + ' -' + serv.horaEnd}} </td>
-                                                <!-- 5 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.servicio}}
-                                                </td>
-                                                <!-- 6 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.propina}}</td>
-                                                <!-- 7 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.formaPago}}</td>
-                                                <!-- 8 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.numberEncarg}}</td>
-                                                <!-- 9 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.bebidas}}</td>
-                                                <!-- 10 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.tabaco}}</td>
-                                                <!-- 11 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.vitaminas}}</td>
-                                                <!-- 12 -->
-                                                <td class="quitarBordes" (click)="goToEdit(serv.id)"
-                                                    style="padding: 0px 0px 0px 0px; border-bottom: hidden; line-height: 2em;">
-                                                    {{serv.otros}}</td>
-                                            </tr>
 
-                                            <!-- Modal -->
-                                            <ng-template class="custom-modal" #modalTabl let-modal>
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title"> Nota </h5>
-                                                    <button type="button" class="close" (click)="modal.dismiss()"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body" style="text-align: center;">
-                                                    <!-- Aqui se coloca lo adentro -->
-
-                                                    <h4>{{serv.nota}}</h4>
-
-                                                    <!-- Afuera -->
-                                                </div>
-                                            </ng-template>
-
-                                            <!-- Fin Modal -->
-
-                                        </tbody>
-
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px"> {{totalService +
-                                                '€'}}</td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">{{totalTipValue +
-                                                '€'}}</td>
-                                            <td></td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">{{totalValueOrdered
-                                                + '€'}}
-                                            </td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">{{totalValueDrink +
-                                                '€'}}</td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">{{totalTobaccoValue
-                                                + '€'}}
-                                            </td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">
-                                                {{totalValueVitamins + '€'}}
-                                            </td>
-                                            <td style="font-weight: bold; padding: 24px 0px 0px 8px">{{totalValueOther +
-                                                '€'}}</td>
-                                        </tr>
-                                    </table>
-
-                                    <pagination-controls style="float: right;" (pageChange)="page = $event"
-                                        previousLabel="Anterior" nextLabel="Siguiente">
-                                    </pagination-controls>
-                                </div>
-                            </div>
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
                         </div>
 
-                        <!-- Table Sumatoria -->
-                        <div style="display: grid; place-items: center;" class="tableEdtit">
-                            <div style="text-align: center; width: min-content;">
-                                <table class="table">
-                                    <thead>
-                                        <tr class="table-secondary">
-                                            <th style="border-bottom: hidden;"></th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Suma</th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Comisión</th>
-                                            <th style="border-bottom: 1px solid blue; text-align: center;">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Tratamiento</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalService + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.servicio + ' %'}} </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{serviceCommission +
-                                                ' €'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize">
-                                                Propina</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalTipValue + '
-                                                €'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.propina + ' %'}} </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{commissionTip + '
-                                                €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                Bebida</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueDrink + '
-                                                €'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.bebida + ' %'}} </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{beverageCommission +
-                                                ' €'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                Tabaco</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalTobaccoValue +
-                                                ' €'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.tabaco + ' %'}} </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{tobaccoCommission +
-                                                ' €'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                Vitamina</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueVitamins +
-                                                ' €'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.vitamina + ' %'}} </td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{vitaminCommission +
-                                                ' €'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row"
-                                                style="border-bottom: hidden; text-align: left; font-weight: normal; text-transform: capitalize;">
-                                                Otros</th>
-                                            <td style="border-bottom: hidden; text-align: right;">{{totalValueOther + '
-                                                €'}}
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{encargadaName?.otros + ' %'}}</td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{commissionOthers + '
-                                                €'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: hidden; text-align: start;">Suma</td>
-                                            <td style="border-bottom: hidden; text-align: start;"></td>
-                                            <td style="border-bottom: hidden; text-align: right;">{{sumCommission + '
-                                                €'}}</td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <td style="border-bottom: hidden; text-align: right;"></td>
-                                            <td style="border-bottom: hidden; text-align: start; width: 0%;"> Fijo/día
-                                            </td>
-                                            <td style="display: inline-table;border-bottom: hidden;border-top: hidden;">
-                                                <input type="number" style="width:50%; float: left;"
-                                                    (change)="fixedNumberDay($event)" [value]="fixedDay" disabled>
-                                                <label style="margin-top: 9%;">{{'X' + fijoDia + '€'}}</label>
-                                            </td>
-                                            <td style="border-bottom: hidden; text-align: right; width: 0%;">
-                                                {{fixedTotalDay + '€'}}
-                                            </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row" style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: 1px solid blue; text-align: start;">Recibido</td>
-                                            <td
-                                                style="border-bottom: 1px solid blue; text-align: start; border-top: hidden;">
-                                            </td>
-                                            <td style="border-bottom: 1px solid blue; text-align: right;">
-                                                {{receivedManager + ' €'}} </td>
-                                        </tr>
-                                        <tr style="line-height: 40%">
-                                            <th scope="row" style="border-bottom: hidden;"></th>
-                                            <td style="border-bottom: hidden; text-align: start;">Total</td>
-                                            <td style="border-bottom: hidden; text-align: start;"></td>
-                                            <td style="border-bottom: hidden; text-align: right;">
-                                                {{totalCommission + ' €'}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+
+                        <div class="columnHour" (click)="goToEdit(serv.id)">
+                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+
+
+                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+
+                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+
+                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+
+                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+
+                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+
+                        <div class="columnValueManager" (click)="goToEdit(serv.id)">
+                            {{serv?.numberEncarg + ' €'}} </div>
+
+                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+
+                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+
+                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+
+                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="selected && addForm" class="pagination_Mobile" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 3 -->
+
+                <div class="column3" *ngIf="selected && addForm">
+                    <div class="columnTable3">
+
+                        <div class="">
+                            <label></label>
                         </div>
 
-                        <div class="row" *ngIf="editEncarg">
-                            <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                                <button mat-raised-button (click)="cancel()" color="primary">Cancelar</button>
-                            </div>
+                        <div class="textSum">
+                            <label>Suma</label>
+                        </div>
 
-                            <div class="col-6" style="display: grid; justify-content: center; margin-bottom: 4%">
-                                <button mat-raised-button (click)="edit()" color="primary">Editar</button>
-                            </div>
+                        <div class="textCommision">
+                            <label>Comisión</label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>Total</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.servicio + '
+                            %'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Propina</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.propina + ' %'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.bebida + ' %'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tabaco</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.tabaco + ' %'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Vitamina</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label class="columnComission">
+                            {{managerName?.vitamina + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Otros</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.otros + ' %'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Suma</label>
+                        <label></label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnFixedDay">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Fijo/día</label>
+                        <input type="number" style="width:70%; float: left; height: 59%;" [value]="fixedDay"
+                            (change)="fixedNumberDay($event)">
+                        <label for="">X 30</label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textReceivend">Recibido</label>
+                        <label></label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalPay">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnTotalPay">Total a</label>
+                        <label class="columnTotalPay">pagar</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="selected && addForm">
+
+                    <label class="textPayToTherapist">Pagado a encargada</label>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Efectivo</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Bizum</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Tarjeta</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Transferencia</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="!editEncarg" class="row inputButton">
+
+                    <div *ngIf="selected && unliquidatedService.length <= 0">
+                        <div class="row g-0">
+                            <button mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="cancel()">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <div *ngIf="selected && unliquidatedService.length > 0">
+                        <div class="row g-0">
+                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="save()">Guardar</button>
+                        </div>
+                    </div>
+
+                    <div *ngIf="selected && unliquidatedService.length > 0">
+                        <div class="row g-0">
+                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="cancel()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Liquidation -->
+
+                <label *ngIf="editEncarg" class="titleEdit">
+                    Liquidación {{settledData[0]['encargada']}}</label>
+
+                <label *ngIf="editEncarg" class="textDates">{{liquidationManager.desdeFechaLiquidado + ' : ' +
+                    liquidationManager.desdeHoraLiquidado + ' - ' + liquidationManager.hastaFechaLiquidado
+                    + ' : ' + liquidationManager.hastaHoraLiquidado}}</label>
+
+                <div *ngIf="editEncarg">
+                    <div class="row containerTitleEdit">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Table 2 -->
+
+                <div class="column2" *ngIf="editEncarg">
+                    <div class="columnTable2">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Hora</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Min</label>
+                        </div>
+
+                        <div class="textTreatmentTable2">
+                            <label>Tratamiento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textValueManager">
+                            <label>€ A Encarg.</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textValue">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2" *ngFor="let serv of (settledData | encargada: liquidationManager.encargada) 
+                    | paginate: { itemsPerPage: 10, currentPage: page }">
+
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
+                        </div>
+
+                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+
+                        <div class="columnHour" (click)="goToEdit(serv.id)">
+                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+
+
+                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+
+                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+
+                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+
+                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+
+                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+
+                        <div class="columnValueManager" (click)="goToEdit(serv.id)">
+                            {{serv?.numberEncarg + ' €'}} </div>
+
+                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+
+                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+
+                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+
+                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="editEncarg" class="pagination_Mobile" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 3 -->
+
+                <div class="column3" *ngIf="editEncarg">
+                    <div class="columnTable3">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textSum">
+                            <label>Suma</label>
+                        </div>
+
+                        <div class="textCommision">
+                            <label>Comisión</label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>Total</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.servicio + '
+                            %'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Propina</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.propina + ' %'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.bebida + ' %'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tabaco</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.tabaco + ' %'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Vitamina</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label class="columnComission">
+                            {{managerName?.vitamina + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Otros</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.otros + ' %'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Suma</label>
+                        <label></label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textReceivend">Recibido</label>
+                        <label></label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalPay">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnTotalPay">Total a</label>
+                        <label class="columnTotalPay">pagar</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="editEncarg">
+
+                    <label class="textPayToTherapist">Pagado a encargada</label>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Efectivo</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Bizum</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Tarjeta</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Transferencia</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="editEncarg" class="row inputButton">
+
+                    <div>
+                        <div class="row g-0">
+                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="cancel()">Cancelar</button>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div class="row g-0">
+                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="edit()">Editar</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
+
     </div>
-
-</body>
-
-</html>
+</div>

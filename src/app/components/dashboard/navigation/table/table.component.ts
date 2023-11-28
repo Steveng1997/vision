@@ -541,7 +541,7 @@ export class TableComponent implements OnInit {
 
     // Filter by Servicio
     if (Array.isArray(this.servicio)) {
-      
+
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
         && wayToPay(serv))
@@ -1006,7 +1006,12 @@ export class TableComponent implements OnInit {
     })
   }
 
+  arrowLeft() {
+    document.querySelector('.column').scrollLeft += 10;
+  }
+
   exportExcel() {
+    debugger
     let element = document.getElementById('excel-table')
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
     const wb: XLSX.WorkBook = XLSX.utils.book_new()

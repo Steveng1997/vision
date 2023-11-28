@@ -107,6 +107,20 @@
     margin-left: 2rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -772,6 +786,20 @@
     margin-top: 18px;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
@@ -1441,6 +1469,20 @@
     margin-left: 2rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -2104,6 +2146,20 @@
     margin-top: 18px;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
@@ -2773,6 +2829,20 @@
     margin-left: 2rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -3438,6 +3508,20 @@
     margin-top: 18px;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
@@ -4108,6 +4192,20 @@
     margin-left: 0rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -4773,6 +4871,20 @@
     margin-top: 18px;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
@@ -5441,6 +5553,20 @@
     margin-left: 3rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -6105,6 +6231,20 @@
     margin-top: 18px;
     width: 2rem;
     margin-left: 3rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
@@ -6774,6 +6914,20 @@
     margin-left: 3rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -7441,6 +7595,20 @@
     margin-left: 5rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -8093,6 +8261,20 @@
     margin-left: 2rem;
   }
 
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
+  }
+
   /* Table */
 
   .column {
@@ -8743,6 +8925,20 @@
     margin-top: 1.4rem;
     width: 2rem;
     margin-left: 2rem;
+  }
+
+  .columnArrow {
+    margin-top: 1rem;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    float: inline-end;
   }
 
   /* Table */
