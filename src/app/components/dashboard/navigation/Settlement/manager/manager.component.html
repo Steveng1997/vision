@@ -74,7 +74,32 @@
 
                 <!-- Table 1 -->
                 <div *ngIf="liquidationForm" class="column">
-                    <div class="columnTable">
+
+                    <div class="columnTableLine1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatment1">
+                            <label>Trata</label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTableLine2">
 
                         <div class="textManager">
                             <label>Encargada</label>
@@ -92,15 +117,15 @@
                             <label>Hasta</label>
                         </div>
 
-                        <div class="textTreatment">
-                            <label>Tratamiento</label>
+                        <div class="textTreatment2">
+                            <label>miento</label>
                         </div>
 
                     </div>
 
                     <hr class="lineTable1">
 
-                    <div class="columnTable"
+                    <div class="columnTableLine2"
                         *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada | fechaFinalEncargada: fechaInicio:fechaFinal 
                     | busquedaEncargada: filterByName:filterByNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
                         (click)="dataFormEdit(liqEncarg.idEncargada, liqEncarg.id)">
