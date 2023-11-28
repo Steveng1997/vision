@@ -2,7 +2,11 @@ import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angula
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import * as XLSX from 'xlsx'
+
+// Excel
+import { Workbook, Worksheet } from 'exceljs';
+import * as fs from 'file-saver';
+
 import Swal from 'sweetalert2'
 
 // Service
@@ -38,7 +42,6 @@ export class TableComponent implements OnInit {
   servicio: any
   horario: any
 
-  fileName = 'tabla.xlsx'
   idUser: number
 
   administratorRole: boolean = false
@@ -73,6 +76,10 @@ export class TableComponent implements OnInit {
   TotalOthersLetter: string
 
   idService: any
+
+  // Excel
+
+  private _workbook!: Workbook;
 
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
@@ -1011,12 +1018,108 @@ export class TableComponent implements OnInit {
   }
 
   exportExcel() {
-    debugger
-    let element = document.getElementById('excel-table')
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
-    const wb: XLSX.WorkBook = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
-    XLSX.writeFile(wb, this.fileName)
+    this._workbook = new Workbook();
+
+    this._workbook.creator = 'Servicios realizados';
+
+    this._createHeroTable();
+
+    this._workbook.xlsx.writeBuffer().then((data) => {
+      const blob = new Blob([data]);
+      fs.saveAs(blob, 'Servicios Realizados.xlsx');
+    });
+
+  }
+
+  _createHeroTable() {
+    const sheet = this._workbook.addWorksheet('Servicios Realizados');
+
+    // ESTABLECEMOS EL ANCHO Y ESTILO DE LAS COLUMNAS
+    sheet.getColumn('B').width = 21;
+    sheet.getColumn('C').width = 21;
+    sheet.getColumn('D').width = 21;
+    sheet.getColumn('E').width = 21;
+    sheet.getColumn('F').width = 21;
+    sheet.getColumn('G').width = 21;
+    sheet.getColumn('H').width = 21;
+    sheet.getColumn('I').width = 21;
+    sheet.getColumn('J').width = 21;
+    sheet.getColumn('K').width = 21;
+    sheet.getColumn('L').width = 21;
+    sheet.getColumn('M').width = 21;
+    sheet.getColumn('N').width = 21;
+    sheet.getColumn('O').width = 21;
+    sheet.getColumn('P').width = 21;
+    sheet.getColumn('Q').width = 21;
+    sheet.getColumn('R').width = 21;
+    sheet.getColumn('S').width = 21;
+    sheet.getColumn('T').width = 21;
+    sheet.getColumn('U').width = 21;
+
+    //AGREGAMOS UN TITULO
+    const titleCell = sheet.getCell('C2');
+    titleCell.value = 'SERVICIOS REALIZADOS';
+    titleCell.style.font = { bold: true, size: 18 };
+
+    const headerRow = sheet.getRow(4);
+    // ESTAMOS JALANDO TODAS LAS COLUMNAS DE ESA FILA, "A","B","C"..etc
+    headerRow.values = [
+      '', // column A
+      'Encargada', // column B
+      'Fecha', // column C
+      'Terapeuta', // column D
+      'Tiempo', // column E
+      'Minuto', // column F
+      'Total', // column G
+      'Pago', // column H
+      'Salida', // column I
+      'Tratamiento', // column J
+      '€ a piso 1', // column K
+      '€ a piso 2', // column L
+      '€ a terap.', // column M
+      '€ a enc.', // column N
+      '€ a otros', // column O
+      'Bebida', // column P
+      'Tabaco', // column Q
+      'Vitamina', // column R
+      'Propina', // column S
+      'Otros', // column T
+      'Cliente', // column U
+    ];
+
+    headerRow.font = { bold: true, size: 12 };
+
+    // INSERTAMOS LOS DATOS EN LAS RESPECTIVAS COLUMNAS
+    const rowsToInsert = sheet.getRows(5, this.idService.length)!;
+
+    for (let index = 0; index < rowsToInsert.length; index++) {
+      const itemData = this.servicio[index]; // obtenemos el item segun el index de la iteracion (recorrido)
+      const row = rowsToInsert[index]; // obtenemos la primera fila segun el index de la iteracion (recorrido)
+
+      row.values = [
+        '',
+        itemData.encargada, // column B
+        itemData.fecha, // column C
+        itemData.terapeuta, // column D
+        itemData.horaStart + ' - ' + itemData.horaEnd, // column E
+        itemData.minuto + ' min', // column F
+        itemData.totalServicio + ' €', // column G
+        itemData.formaPago, // column H
+        itemData.salida, // column I
+        itemData.servicio + ' €', // column J
+        itemData.numberPiso1 + ' €', // column K
+        itemData.numberPiso2 + ' €', // column L
+        itemData.numberTerap + ' €', // column M
+        itemData.numberEncarg + ' €', // column N
+        itemData.numberOtro + ' €', // column O
+        itemData.bebidas + ' €', // column P
+        itemData.tabaco + ' €', // column Q
+        itemData.vitaminas + ' €', // column R
+        itemData.propina + ' €', // column S
+        itemData.otros + ' €', // column T
+        itemData.cliente, // column U
+      ];
+    }
   }
 
   editForm(id: string) {
