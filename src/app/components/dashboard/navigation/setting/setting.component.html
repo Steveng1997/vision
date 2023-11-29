@@ -98,8 +98,8 @@
                     <!-- Fin Modal -->
                 </div>
 
-                <div class="columnArrow">
-                    <i id="arrowLeftTherapist" class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftTherapist()"></i>
+                <div class="columnArrow" id="arrowLeftTherapist">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftTherapist()"></i>
                     <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftTherapist()">></label> -->
                 </div>
 
@@ -356,8 +356,8 @@
                     </div>
                 </div>
 
-                <div class="columnArrow" *ngIf="idUser['rol'] == 'administrador'">
-                    <i id="arrowLeftManager" class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftManager()"></i>
+                <div class="columnArrow" *ngIf="idUser['rol'] == 'administrador'" id="arrowLeftManager">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftManager()"></i>
                     <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftManager()">></label> -->
                 </div>
 

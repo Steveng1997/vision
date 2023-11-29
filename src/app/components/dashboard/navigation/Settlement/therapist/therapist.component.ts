@@ -1347,6 +1347,16 @@ export class TherapistComponent implements OnInit {
     }
   }
 
+  arrowLine1() {
+    document.querySelector('.column').scrollLeft += 30;
+    document.getElementById('arrowLine1').style.display = 'none'
+  }
+
+  arrowTable2Add(){
+    document.querySelector('.column2').scrollLeft += 30;
+    document.getElementById('arrowTable2Add').style.display = 'none'
+  }
+
   // Edit
 
   thousandPointEdit() {

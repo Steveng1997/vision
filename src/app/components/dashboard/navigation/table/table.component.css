@@ -108,7 +108,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -122,8 +123,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -133,7 +134,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -159,7 +160,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
@@ -703,7 +704,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -788,7 +789,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -802,8 +804,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -1383,7 +1385,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -1468,7 +1470,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -1482,8 +1485,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -2062,7 +2065,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -2146,7 +2149,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2160,8 +2164,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -2741,7 +2745,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -2826,7 +2830,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2840,8 +2845,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -3421,7 +3426,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -3506,7 +3511,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -3520,8 +3526,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -4101,7 +4107,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -4187,7 +4193,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -4201,8 +4208,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -4782,7 +4789,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -4867,7 +4874,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -4881,8 +4889,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -5462,7 +5470,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -5546,7 +5554,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -5560,8 +5569,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -6141,7 +6150,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -6225,7 +6234,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -6239,8 +6249,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -6820,7 +6830,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -6905,7 +6915,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -6919,8 +6930,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -7499,7 +7510,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -7585,7 +7596,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -7599,8 +7611,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -8180,7 +8192,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -8250,7 +8262,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -8264,8 +8277,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -8845,7 +8858,7 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }
 
@@ -8915,7 +8928,8 @@
   }
 
   .columnArrow {
-    margin-top: 1rem;
+    position: relative;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -8929,8 +8943,8 @@
   /* Table */
 
   .column {
-    /* margin-top: 0rem; */
-    margin-top: 2rem;
+    position: static;
+    margin-top: 0rem;
     margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -9510,6 +9524,6 @@
   .pagination_Mobile {
     text-align-last: end;
     margin-top: 2rem;
-    margin-bottom: 5.2rem;
+    margin-bottom: 86px;
   }
 }

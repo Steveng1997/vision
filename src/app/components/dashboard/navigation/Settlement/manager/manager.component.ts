@@ -2328,6 +2328,5 @@ export class ManagerComponent implements OnInit {
   }
 
   deleteService() {
-
   }
 }
