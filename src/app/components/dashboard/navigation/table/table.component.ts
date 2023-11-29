@@ -1014,7 +1014,8 @@ export class TableComponent implements OnInit {
   }
 
   arrowLeft() {
-    document.querySelector('.column').scrollLeft += 10;
+    document.querySelector('.column').scrollLeft += 30;
+    document.getElementById('arrowLeft').style.display = 'none'
   }
 
   exportExcel() {

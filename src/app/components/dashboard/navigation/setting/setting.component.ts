@@ -129,7 +129,8 @@ export class SettingComponent implements OnInit {
   }
 
   arrowLeftManager() {
-    document.querySelector('.columnManager').scrollLeft += 10;
+    document.querySelector('.columnManager').scrollLeft += 30;
+    document.getElementById('arrowLeftManager').style.display = 'none'
   }
 
   openManager(targetEncargada) {
@@ -328,7 +329,8 @@ export class SettingComponent implements OnInit {
   // Therapist
 
   arrowLeftTherapist() {
-    document.querySelector('.columnTherapist').scrollLeft += 10;
+    document.querySelector('.columnTherapist').scrollLeft += 30;
+    document.getElementById('arrowLeftTherapist').style.display = 'none'
   }
 
   openTherapist(targetModal) {

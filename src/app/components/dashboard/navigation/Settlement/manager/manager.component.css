@@ -694,6 +694,15 @@
     margin-left: -5px;
   }
 
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
   /* fin Table 3 */
 
   /* Table 4 */
@@ -1394,8 +1403,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -1404,6 +1411,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -2103,8 +2121,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -2113,6 +2129,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -2811,8 +2838,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -2821,6 +2846,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -3519,8 +3555,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -3529,6 +3563,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -3631,7 +3676,7 @@
     display: grid;
     grid-template-columns: 89% 107px;
     margin-top: 2rem;
-    margin-left: -187%;
+    margin-left: -191%;
   }
 
   .containerInCharge {
@@ -4135,7 +4180,7 @@
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 24% 26% 23%;
+    grid-template-columns: 25% 30% 26% 23%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -4246,9 +4291,18 @@
 
   .columnFixedDay {
     display: grid;
-    grid-template-columns: 31% 24% 17% 11% 21%;
+    grid-template-columns: 25% 21% 19% 18% 21%;
     margin-bottom: -5px;
     margin-left: -5px;
+  }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
   }
 
   /* fin Table 3 */
@@ -4949,8 +5003,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -4959,6 +5011,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -5658,8 +5721,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -5668,6 +5729,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -6366,8 +6438,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -6376,6 +6446,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -7075,8 +7156,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -7085,6 +7164,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -7784,8 +7874,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -7794,6 +7882,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -8491,8 +8590,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Fixed Day */
 
   .columnFixedDay {
@@ -8501,6 +8598,17 @@
     margin-bottom: -5px;
     margin-left: -5px;
   }
+
+  .inputFixedDay {
+    width: 61%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -2px;
+    margin-left: 0.5em;
+  }
+
+  /* fin Table 3 */
 
   /* Table 4 */
 

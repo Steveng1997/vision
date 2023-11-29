@@ -9,7 +9,7 @@
 
                     <div *ngIf="administratorRole" class="text-center mt-4 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                            style="cursor: pointer;" class="bi bi-plus-circle text-primary" viewBox="0 0 16 16"
+                            style="cursor: pointer; color: #8c52ff;" class="bi bi-plus-circle" viewBox="0 0 16 16"
                             (click)="insertForm()">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                             <path
@@ -379,7 +379,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{managerName?.servicio + '
                             %'}}</label>
@@ -432,9 +432,8 @@
                     <div class="columnFixedDay">
                         <label class="columnTreatment3"></label>
                         <label class="textSum2">Fijo/día</label>
-                        <input type="number" style="width:70%; float: left; height: 59%;" [value]="fixedDay"
-                            (change)="fixedNumberDay($event)">
-                        <label for="">X 30</label>
+                        <input type="number" class="inputFixedDay" [value]="fixedDay" (change)="fixedNumberDay($event)">
+                        <label class="textSum2">X 30 €</label>
                         <label class="columnTotal">{{textSumCommission + ' €'}}</label>
                     </div>
 
@@ -682,7 +681,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{managerName?.servicio + '
                             %'}}</label>
@@ -693,7 +692,7 @@
                         <label class="columnTreatment3">Propina</label>
                         <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
                         <label class="columnComission">{{managerName?.propina + ' %'}}</label>
-                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                        <label class="columnTotal">{{textComissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
@@ -729,6 +728,15 @@
                         <label class="columnTreatment3"></label>
                         <label class="textSum2">Suma</label>
                         <label></label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnFixedDay">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Fijo/día</label>
+                        <input type="number" class="inputFixedDay" [value]="fixedDay" disabled
+                            (change)="fixedNumberDay($event)">
+                        <label class="textSum2">X 30 €</label>
                         <label class="columnTotal">{{textSumCommission + ' €'}}</label>
                     </div>
 

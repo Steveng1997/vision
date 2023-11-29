@@ -99,7 +99,8 @@
                 </div>
 
                 <div class="columnArrow">
-                    <label class="arrow" id="scrolling-button-left" (click)="arrowLeftTherapist()">></label>
+                    <i id="arrowLeftTherapist" class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftTherapist()"></i>
+                    <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftTherapist()">></label> -->
                 </div>
 
                 <!-- Table Therapist -->
@@ -356,7 +357,8 @@
                 </div>
 
                 <div class="columnArrow" *ngIf="idUser['rol'] == 'administrador'">
-                    <label class="arrow" id="scrolling-button-left" (click)="arrowLeftManager()">></label>
+                    <i id="arrowLeftManager" class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftManager()"></i>
+                    <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftManager()">></label> -->
                 </div>
 
                 <!-- Table Manager -->
