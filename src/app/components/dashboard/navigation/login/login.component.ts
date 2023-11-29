@@ -16,6 +16,8 @@ import { ModelManager } from 'src/app/core/models/manager'
 })
 export class LoginComponent implements OnInit {
 
+  dateTmp = ''
+
   manager: ModelManager = {
     activo: true,
     bebida: "0",
@@ -41,16 +43,42 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dateTpm(){
+    let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
+
+    dia = fecha.getDate()
+    mes = fecha.getMonth() + 1
+    año = fecha.getFullYear()
+
+    if (mes > 0 && mes < 10) {
+      convertMes = '0' + mes
+      this.dateTmp = `${dia}/${convertMes}/${año}`
+    } else {
+      convertMes = mes.toString()
+      this.dateTmp = `${dia}/${mes}/${año}`
+    }
+
+    if (dia > 0 && dia < 10) {
+      convertDia = '0' + dia
+      this.dateTmp = `${convertDia}/${convertMes}/${año}`
+    } else {
+      convertDia = dia.toString()
+      this.dateTmp = `${dia}/${convertMes}/${año}`
+    }
+  }
+
   onLogin(): void {
     if (this.manager.usuario != "") {
       if (this.manager.pass != "") {
         this.serviceManager.getByUsuario(this.manager.usuario).subscribe((resp: any) => {
           if (resp.length > 0) {
             if (resp[0]['activo'] == true) {
+              this.dateTpm()
               this.serviceManager.getByUserAndPass(this.manager.usuario, this.manager.pass).subscribe((res: any) => {
                 if (res.token != "") {
                   if (res.token != undefined || res != "Usuario o clave incorrectos") {
                     localStorage.setItem('token', res.token);
+                    localStorage.setItem('dateTmp', this.dateTmp);
                     this.router.navigate([`menu/${resp[0]['id']}/vision/${resp[0]['id']}`])
                   } else {
                     Swal.fire({ icon: 'error', title: 'Oops...', text: 'La contraseña es incorrecta' })
