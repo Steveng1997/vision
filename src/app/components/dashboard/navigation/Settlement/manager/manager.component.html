@@ -237,7 +237,64 @@
                 <!-- Table 2 -->
 
                 <div class="column2" *ngIf="selected && addForm">
-                    <div class="columnTable2">
+                    <div class="columnTable2Line1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDate">
+                            <label></label>
+                        </div>
+
+                        <div class="textHour">
+                            <label></label>
+                        </div>
+
+                        <div class="textHour">
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentTable2Line1">
+                            <label>Trata</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label></label>
+                        </div>
+
+                        <div class="textTip">
+                            <label></label>
+                        </div>
+
+                        <div class="textPay">
+                            <label></label>
+                        </div>
+
+                        <div class="textValueManager">
+                            <label></label>
+                        </div>
+
+                        <div class="textValue">
+                            <label></label>
+                        </div>
+
+                        <div class="textValue">
+                            <label></label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label></label>
+                        </div>
+
+                        <div class="textValue">
+                            <label></label>
+                        </div>
+
+                    </div>
+                    
+
+                    <div class="columnTable2Line2">
 
                         <div>
                             <label></label>
@@ -255,8 +312,8 @@
                             <label>Min</label>
                         </div>
 
-                        <div class="textTreatmentTable2">
-                            <label>Tratamiento</label>
+                        <div class="textTreatmentTable2Line2">
+                            <label>miento</label>
                         </div>
 
                         <div class="textExit">
@@ -295,7 +352,7 @@
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2" *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada) 
+                    <div class="columnTable2Line2" *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada) 
                     | paginate: { itemsPerPage: 10, currentPage: page }">
 
                         <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
