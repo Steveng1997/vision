@@ -367,7 +367,7 @@
                             <label>Hora</label>
                         </div>
 
-                        <div class="textHour">
+                        <div class="textMin">
                             <label>Min</label>
                         </div>
 
@@ -424,7 +424,7 @@
                             {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
 
-                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto + ' min'}}</div>
 
                         <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
 
@@ -466,8 +466,8 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="selected && addForm" class="pagination_MobileTable2" (pageChange)="page = $event"
-                    previousLabel="" nextLabel="">
+                <pagination-controls *ngIf="selected && addForm" class="pagination_MobileTable2"
+                    (pageChange)="page = $event" previousLabel="" nextLabel="">
                 </pagination-controls>
 
                 <!-- Table 3 -->
@@ -496,7 +496,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.servicio + '
                             %'}}</label>
@@ -558,7 +558,7 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnTotalPay">Total a</label>
-                        <label class="columnTotalPay">pagar</label>
+                        <label class="columnPay">pagar</label>
                         <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>
@@ -847,7 +847,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.servicio + '
                             %'}}</label>
@@ -909,7 +909,7 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnTotalPay">Total a</label>
-                        <label class="columnTotalPay">pagar</label>
+                        <label class="columnPay">pagar</label>
                         <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>

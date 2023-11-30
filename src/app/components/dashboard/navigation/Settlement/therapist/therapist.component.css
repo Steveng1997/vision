@@ -456,13 +456,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 12px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -549,6 +548,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -724,6 +732,10 @@
     justify-self: start;
   }
 
+  .columnPay{
+    margin-left: -20px;
+  }
+
   .textSum2 {
     color: #000000;
     font-size: 18px;
@@ -821,12 +833,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -967,7 +973,13 @@
     float: inline-end;
   }
 
-  /* Table1 */
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
     position: static;
@@ -981,7 +993,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    grid-template-columns: 23% 23% 27% 49% 49% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -1000,20 +1012,20 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 10px 0px 0px;
+    padding: 15px 10px 0px 0px
   }
 
-  /* Line 2 */
+  /* Line 2  */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    grid-template-columns: 23% 23% 27% 49% 49% 24%;
     margin-bottom: 4px;
     margin-left: -3%;
   }
 
   .lineTable1 {
-    width: 190%;
+    width: 200%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1090,7 +1102,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 17px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1142,23 +1154,55 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
     margin-top: 2rem;
-    margin-left: 4px;
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
-    grid-template-columns: 9% 24% 35% 13% 26% 29% 23% 26% 24% 21% 19% 21% 16%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    grid-template-columns: 9% 24% 37% 18% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 18% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: 4px;
+    margin-left: -15px;
   }
 
   .lineTable2 {
-    width: 291%;
+    width: 315%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1194,14 +1238,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 15px;
   }
 
   .textTip {
@@ -1211,7 +1253,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-break: break-all;
-    padding: 0px 16px 0px 21px;
+    padding: 0px 22px 0px 21px;
   }
 
   .textPay {
@@ -1251,15 +1293,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 19px 0px 7px;
+    padding: 15px 19px 0px 7px;
   }
 
   /* Column */
@@ -1294,9 +1333,18 @@
     cursor: pointer;
   }
 
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 10px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
   .columnTreatment2 {
     line-height: 1.4rem;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 47px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1311,7 +1359,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 26px 0px 0px;
   }
 
   .columnPaymentMethod {
@@ -1335,7 +1383,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 8px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1345,7 +1393,7 @@
 
   .columnValueTobacco {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 9px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1355,7 +1403,7 @@
 
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 12px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -1365,12 +1413,18 @@
 
   .columnValueOthers {
     line-height: 1.4rem;
-    padding: 0px 4px 0px 0px;
+    padding: 0px 3px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -1379,13 +1433,13 @@
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -11px;
+    margin-left: -7px;
     margin-bottom: 2px;
   }
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 34% 24% 26% 21%;
+    grid-template-columns: 30% 26% 28% 22%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -1458,6 +1512,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -1557,12 +1615,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -1690,16 +1742,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -1717,15 +1817,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 23px 0px 0px;
+    padding: 15px 23px 0px 0px;
   }
 
   .textManager {
@@ -1755,15 +1852,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 15px 0px 0px;
+    padding: 15px 15px 0px 0px;
   }
 
   /* Column Table */
@@ -1842,19 +1936,51 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
     margin-top: 2rem;
-    margin-left: 4px;
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -1894,14 +2020,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -1951,15 +2075,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 41px 0px 7px;
+    padding: 15px 41px 0px 7px;
   }
 
   /* Column */
@@ -1991,6 +2112,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -2071,6 +2201,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -2158,6 +2294,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -2259,12 +2399,6 @@
     height: 100%;
   }
 
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
   .tableContainer {
     display: grid;
     grid-template-columns: 57% 57%;
@@ -2299,17 +2433,17 @@
   }
 
   .therapistContainer {
-    width: 85%;
+     width: 85%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 85%;
+     width: 85%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 85%;
+     width: 85%;
     justify-self: center;
     margin-top: 8%;
   }
@@ -2390,16 +2524,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 20%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 20%;
     margin-bottom: 4px;
@@ -2417,15 +2599,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   .textManager {
@@ -2455,15 +2634,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   /* Column Table */
@@ -2542,6 +2718,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -2550,11 +2739,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 35% 13% 26% 29% 23% 26% 24% 21% 19% 21% 16%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 35% 13% 26% 29% 23% 26% 24% 21% 19% 21% 16%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -2594,13 +2803,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 10px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -2650,15 +2858,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 19px 0px 7px;
+    padding: 15px 19px 0px 7px;
   }
 
   /* Column */
@@ -2690,6 +2895,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -2772,13 +2986,19 @@
     justify-self: end;
   }
 
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
+  }
+
   /* fin Table 2 */
 
   /* Table 3 */
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -6px;
+    margin-left: -5px;
     margin-bottom: 2px;
   }
 
@@ -2857,6 +3077,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -2956,12 +3180,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -3088,16 +3306,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -3115,15 +3381,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -3153,15 +3416,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -3240,19 +3500,51 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
     margin-top: 2rem;
-    margin-left: 3px;
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -3292,14 +3584,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -3349,15 +3639,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -3389,6 +3676,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -3433,7 +3729,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3471,13 +3767,19 @@
     justify-self: end;
   }
 
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
+  }
+
   /* fin Table 2 */
 
   /* Table 3 */
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -8px;
+    margin-left: -5px;
     margin-bottom: 2px;
   }
 
@@ -3556,6 +3858,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -3658,12 +3964,6 @@
     height: 100%;
   }
 
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
   .tableContainer {
     display: grid;
     grid-template-columns: 57% 57%;
@@ -3788,16 +4088,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -3815,15 +4163,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -3853,15 +4198,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -3940,6 +4282,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -3947,11 +4302,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -3991,14 +4366,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -4048,15 +4421,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -4088,6 +4458,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -4168,6 +4547,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -4255,6 +4640,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -4356,12 +4745,6 @@
     height: 100%;
   }
 
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
   .tableContainer {
     display: grid;
     grid-template-columns: 57% 57%;
@@ -4486,16 +4869,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -4513,15 +4944,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -4551,15 +4979,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -4638,6 +5063,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -4645,11 +5083,30 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -4689,14 +5146,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -4746,15 +5201,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -4786,6 +5238,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+  
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -4866,6 +5327,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -4953,6 +5420,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -5052,12 +5523,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -5185,16 +5650,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -5212,15 +5725,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -5250,15 +5760,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -5337,6 +5844,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -5345,11 +5865,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -17px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -5389,14 +5929,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -5446,15 +5984,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -5486,6 +6021,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -5566,6 +6110,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -5653,6 +6203,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -5752,12 +6306,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -5885,16 +6433,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 20%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 20%;
     margin-bottom: 4px;
@@ -5912,15 +6508,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -5950,15 +6543,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 5px 0px 0px
+    padding: 15px 5px 0px 0px;
   }
 
   /* Column Table */
@@ -6037,6 +6627,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -6044,11 +6647,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -16px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -6088,14 +6711,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -6145,15 +6766,12 @@
     padding: 0px 13px 0px 22px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 12px;
+    padding: 15px 42px 0px 12px;
   }
 
   /* Column */
@@ -6185,6 +6803,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -6265,6 +6892,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -6352,6 +6985,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -6451,12 +7088,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -6584,16 +7215,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 24%;
     margin-bottom: 4px;
@@ -6611,15 +7290,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 27px 0px 0px;
+    padding: 15px 27px 0px 0px;
   }
 
   .textManager {
@@ -6649,15 +7325,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 20px 0px 0px;
+    padding: 15px 20px 0px 0px;
   }
 
   /* Column Table */
@@ -6736,6 +7409,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -6744,11 +7430,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -6788,14 +7494,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -6845,15 +7549,12 @@
     padding: 0px 10px 0px 15px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -6885,6 +7586,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -6965,6 +7675,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -7052,6 +7768,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -7151,12 +7871,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -7284,16 +7998,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 1%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 17%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 17%;
     margin-bottom: 4px;
@@ -7311,15 +8073,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 40px 0px 0px;
+    padding: 15px 40px 0px 0px;
   }
 
   .textManager {
@@ -7349,15 +8108,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   /* Column Table */
@@ -7384,7 +8140,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -7436,19 +8192,51 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
     margin-top: 2rem;
-    margin-left: -1px;
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
-    margin-bottom: 8px;
-    margin-left: -18px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -7488,14 +8276,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -7545,15 +8331,12 @@
     padding: 0px 12px 0px 37px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 47px 0px 35px;
+    padding: 15px 47px 0px 35px;
   }
 
   /* Column */
@@ -7585,6 +8368,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -7665,6 +8457,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -7752,6 +8550,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -7851,12 +8653,6 @@
   .container {
     overflow-x: hidden;
     height: 100%;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
   }
 
   .tableContainer {
@@ -7984,16 +8780,64 @@
     margin-top: 43px;
   }
 
-  /* Table1 */
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 2%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTable {
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 23% 24% 46% 46% 16%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
     display: grid;
     grid-template-columns: 23% 23% 24% 46% 46% 16%;
     margin-bottom: 4px;
@@ -8011,15 +8855,12 @@
     margin-bottom: 9px;
   }
 
-  .textTherapist {
-    line-break: anywhere;
+  .textTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 53px 0px 0px;
+    padding: 15px 53px 0px 0px;
   }
 
   .textManager {
@@ -8049,15 +8890,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .textTreatment {
-    line-break: anywhere;
+  .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 15px 0px 0px;
+    padding: 15px 15px 0px 0px;
   }
 
   /* Column Table */
@@ -8136,6 +8974,19 @@
 
   /* Table 2 */
 
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -8143,11 +8994,31 @@
     overflow-x: auto;
   }
 
-  .columnTable2 {
+  /* Line 1 */
+
+  .columnTable2Line1 {
     display: grid;
     grid-template-columns: 9% 17% 23% 10% 23% 24% 20% 18% 18% 16% 16% 16% 11%;
-    margin-bottom: 8px;
-    margin-left: -16px;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 17% 23% 10% 23% 24% 20% 18% 18% 16% 16% 16% 11%;
+    margin-bottom: 4px;
+    margin-left: -20px;
   }
 
   .lineTable2 {
@@ -8187,13 +9058,12 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 3px;
-    font-family: sans-serif;
+  .textMin {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -8243,15 +9113,12 @@
     padding: 0px 10px 0px 23px;
   }
 
-  .textTreatmentTable2 {
-    line-break: anywhere;
+  .textTreatmentTable2Line2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 42px 0px 7px;
+    padding: 15px 42px 0px 7px;
   }
 
   /* Column */
@@ -8283,6 +9150,15 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
     cursor: pointer;
   }
 
@@ -8363,6 +9239,12 @@
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
   }
 
   /* fin Table 2 */
@@ -8450,6 +9332,10 @@
     font-size: 18px;
     font-family: sans-serif;
     justify-self: start;
+  }
+
+  .columnPay{
+    margin-left: -20px;
   }
 
   .textSum2 {
@@ -8598,22 +9484,25 @@
   .dateContainer {
     width: 90%;
     justify-self: center;
+    margin-top: 8%;
   }
 
   .buttonDeleteContainer {
-    margin-top: 43px;
+    margin-top: 40px;
     width: 6rem;
     margin-left: 2.3rem;
   }
 
-  .color2 {
-    background: #8C52FF;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 8%;
-    margin-left: 52%;
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 25px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
   }
 
   .title {
@@ -8629,162 +9518,167 @@
 
   .titleEdit {
     display: grid;
-    justify-content: center;
+    margin-left: -15px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: inherit;
+    margin-bottom: 0rem;
   }
 
-  .textTherapist {
+  .textDates {
+    display: grid;
+    font-size: 17px;
+    color: #000000;
     font-family: sans-serif;
-    font-size: 18px;
     white-space: pre;
-    padding: 0px 0px 22px 0px;
+    margin-left: -14px;
   }
 
-  .textManager {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 0px 22px 0px;
-  }
-
-  .textImport {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 32px 9px 13px;
-  }
-
-  .textDate {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 30px 22px 17px;
-  }
-
-  .textTreatment {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textExit {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 30px 22px 13px;
-  }
-
-  .textTip {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textHour {
-    font-family: sans-serif;
-    font-size: 18px;
-  }
-
-  .textPay {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 3rem;
-    padding: 0px 27px 21px 22px;
-  }
-
-  .textValue {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textColumn {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textVitamin {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 88% 82px;
+    margin-top: 1rem;
+    margin-left: -99%;
   }
 
   .fechaInicio {
-    width: 155px;
+    width: 88%;
   }
 
   .horaInicio {
+    width: 70%;
+    align-self: end;
     margin-left: -11px;
-    width: 122px;
   }
 
   .fechaFinal {
-    width: 155px;
-    margin-left: -11px;
+    width: 88%;
+    margin-top: 1em;
   }
 
   .horaFinal {
-    align-self: end;
-    width: 122px;
-    margin-top: 10px;
+    width: 70%;
+    margin-left: -11px;
+    margin-top: 43px;
   }
 
-  .selectTerap {
-    display: grid;
-    justify-items: right;
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
   }
 
-  .addTerapeuta {
-    width: 35%;
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
   }
 
-  .addEncargada {
-    width: 35%;
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
   }
 
-  .btnCancelar {
-    padding-bottom: 3%;
-  }
-
-  /* Table1 */
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 0%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
+    display: grid;
+    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
   .lineTable1 {
-    width: 227%;
+    width: 200%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -1rem;
-    margin-top: 0.1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
   }
 
-  .columnTable {
-    display: grid;
-    grid-template-columns: 35% 38% 30% 49% 49% 37%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: -4%;
+  .textTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
   }
 
   /* Column Table */
@@ -8792,7 +9686,6 @@
   .columnTherapist {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8803,7 +9696,6 @@
   .columnManager {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8813,30 +9705,17 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
+    padding: 0px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
-    text-align-last: left;
     cursor: pointer;
-  }
-
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
+    justify-self: end;
   }
 
   .columnExit {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8847,7 +9726,6 @@
   .columnHour {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8857,8 +9735,17 @@
 
   .columnTreatment {
     line-height: 1.4rem;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8868,159 +9755,452 @@
 
   /* fin Table 1 */
 
+  /* Table 2 */
+
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  /* Line 1 */
+
+  .columnTable2Line1 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 14% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 14% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: 4px;
+    margin-left: -20px;
+  }
+
+  .lineTable2 {
+    width: 310%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textMin {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 16px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueTherapist {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTip {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 22px 17px;
+    padding: 0px 27px 0px 0px;
   }
 
   .columnPaymentMethod {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0%;
+    max-width: 85%;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
     line-height: normal;
   }
 
   .columnValueTherapist {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueDrink {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueTobacco {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 6px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueVitamin {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueOthers {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -5px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 34% 25% 26% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 108%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
   }
 
   /* Sum */
 
-  .sumTitle {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    font-weight: normal;
-    text-transform: capitalize;
-    border-bottom: hidden;
+    word-wrap: break-word;
   }
 
-  .sumTitleTable {
-    color: #242424;
-    font-size: 16px;
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    padding: 0px;
+    padding: 0px 13px 0px 0px;
   }
 
-  .textCommission {
-    color: #242424;
-    font-size: 16px;
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    padding: 0px 17px 0px 17px;
+    padding: 0px 1px 0px 0px;
   }
 
-  .totalToPay {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    font-weight: normal;
-    border-bottom: hidden;
-    margin-bottom: 1rem;
+    justify-self: start;
   }
 
-  .valueColumnSum {
-    border-bottom: hidden;
-    text-wrap: nowrap;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+  .columnPay{
+    margin-left: -20px;
   }
 
-  .valueReceived {
-    font-size: 14px;
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+    place-self: start;
   }
 
-  .totalAmountToPay {
-    border-bottom: hidden;
-    text-wrap: nowrap;
-    font-size: 16px;
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+    place-self: start;
   }
 
-  .textTotal {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
-    text-transform: capitalize;
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    font-weight: normal;
   }
 
-  .sumTitleReceived {
-    display: inline-flex;
-    color: #242424;
-    font-size: 14px;
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
     font-family: sans-serif;
-    font-weight: normal;
-    width: 100%;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
   }
 
   .inputButton {
@@ -9042,67 +10222,69 @@
 
   .tableContainer {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 56% 56%;
     justify-content: center;
-    margin-left: 1.2rem;
     margin-top: 1rem;
+    margin-left: -11px;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 56% 56%;
     justify-content: center;
-    margin-left: 26px;
     margin-top: 1rem;
+    margin-left: -3.4px;
   }
 
   .titleLiquidation {
     display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
+    font-size: 22px;
+    color: #000000;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
+    margin-left: -1rem;
+    justify-items: end;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 37% 26%;
+    grid-template-columns: 77% 79px;
     margin-top: 2rem;
-    margin-left: 1rem;
+    margin-left: -9%; 
   }
 
   .therapistContainer {
-    width: 77.1%;
+    width: 92%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 77.1%;
+    width: 92%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 77%;
+    width: 92%;
     justify-self: center;
+    margin-top: 8%;
   }
 
   .buttonDeleteContainer {
-    margin-top: 43px;
+    margin-top: 40px;
     width: 6rem;
     margin-left: 2.3rem;
   }
 
-  .color2 {
-    background: #8C52FF;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: block;
-    margin-top: 8%;
-    margin-left: 52%;
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 25px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: -0.5rem;
+    margin-top: 5px;
+    white-space: pre;
   }
 
   .title {
@@ -9118,167 +10300,167 @@
 
   .titleEdit {
     display: grid;
-    justify-content: center;
+    margin-left: -15px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: inherit;
+    margin-bottom: 0rem;
   }
 
-  .textTherapist {
+  .textDates {
+    display: grid;
+    font-size: 17px;
+    color: #000000;
     font-family: sans-serif;
-    font-size: 18px;
     white-space: pre;
-    padding: 0px 22px 22px 0px;
+    margin-left: -14px;
   }
 
-  .textManager {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textImport {
-    font-family: sans-serif;
-    font-size: 16px;
-    white-space: pre;
-    padding: 0px 32px 9px 13px;
-  }
-
-  .textDate {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 3rem;
-    max-width: 95px;
-    padding: 0px 56px 22px 11px;
-  }
-
-  .textTreatment {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textExit {
-    width: 80px;
-    padding: 35px 0px 10px 6px;
-    text-align: center;
-  }
-
-  .textTip {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textHour {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 4rem;
-    width: 0px;
-    padding: 0px 0px 22px 0px;
-  }
-
-  .textPay {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    height: 3rem;
-    padding: 0px 27px 21px 22px;
-  }
-
-  .textValue {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textColumn {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
-  }
-
-  .textVitamin {
-    font-family: sans-serif;
-    font-size: 18px;
-    white-space: pre;
-    padding: 0px 22px 22px 0px;
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 88% 82px;
+    margin-top: 1rem;
+    margin-left: -99%;
   }
 
   .fechaInicio {
-    width: 155px;
+    width: 88%;
   }
 
   .horaInicio {
+    width: 70%;
+    align-self: end;
     margin-left: -11px;
-    width: 122px;
   }
 
   .fechaFinal {
-    width: 155px;
-    margin-left: -11px;
+    width: 88%;
+    margin-top: 1em;
   }
 
   .horaFinal {
-    align-self: end;
-    width: 122px;
-    margin-top: 10px;
+    width: 70%;
+    margin-left: -11px;
+    margin-top: 43px;
   }
 
-  .selectTerap {
-    display: grid;
-    justify-items: right;
+  .columnArrow {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -29px;
+    overflow-x: auto;
   }
 
-  .addTerapeuta {
-    width: 35%;
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
   }
 
-  .addEncargada {
-    width: 35%;
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
   }
 
-  .btnCancelar {
-    padding-bottom: 3%;
-  }
-
-  /* Table1 */
+  /* Table 1 */
 
   .column {
-    margin-top: 2rem;
-    margin-left: 0%;
+    position: static;
+    margin-top: 0rem;
+    margin-left: -2%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
+    display: grid;
+    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    margin-bottom: 4px;
+    margin-left: -3%;
+  }
+
   .lineTable1 {
-    width: 227%;
+    width: 200%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -1rem;
-    margin-top: 0.1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
   }
 
-  .columnTable {
-    display: grid;
-    grid-template-columns: 35% 38% 30% 49% 49% 37%;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: -4%;
+  .textTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 15px 0px 0px;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
   }
 
   /* Column Table */
@@ -9286,7 +10468,6 @@
   .columnTherapist {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9297,7 +10478,6 @@
   .columnManager {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9307,30 +10487,17 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
+    padding: 0px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
-    text-align-last: left;
     cursor: pointer;
-  }
-
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
+    justify-self: end;
   }
 
   .columnExit {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9341,7 +10508,6 @@
   .columnHour {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9351,8 +10517,17 @@
 
   .columnTreatment {
     line-height: 1.4rem;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTip {
+    line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
-    text-align: center;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9362,160 +10537,452 @@
 
   /* fin Table 1 */
 
+  /* Table 2 */
+
+  .columnArrowTable2 {
+    position: relative;
+    margin-top: 2.3rem;
+    margin-bottom: -61px;
+    overflow-x: auto;
+  }
+
+  .arrowTable2 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  .column2 {
+    padding: 0px 0px 0px 14px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  /* Line 1 */
+
+  .columnTable2Line1 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 14% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTreatmentTable2Line1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Line 2  */
+
+  .columnTable2Line2 {
+    display: grid;
+    grid-template-columns: 9% 24% 37% 14% 34% 29% 25% 27% 24% 23% 22% 22% 16%;
+    margin-bottom: 4px;
+    margin-left: -20px;
+  }
+
+  .lineTable2 {
+    width: 310%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
+  }
+
+  .color2 {
+    background: #8C52FF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: 19%;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textHour {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textMin {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTip {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-break: break-all;
+    padding: 0px 24px 0px 16px;
+  }
+
+  .textPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValue {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textValueTherapist {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .textVitamin {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 15px;
+  }
+
+  .textTreatmentTable2Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 42px 0px 7px;
+  }
+
+  /* Column */
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnMin {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 12px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
+
+  .columnTreatment2 {
+    line-height: 1.4rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTip {
     border-bottom: hidden;
     word-wrap: break-word;
-    max-width: 0px;
     font-family: sans-serif;
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 22px 17px;
+    padding: 0px 27px 0px 0px;
   }
 
   .columnPaymentMethod {
-    word-wrap: break-word;
-    max-width: 65px;
     border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: justify;
     line-height: normal;
-    padding: 22px 0px;
   }
 
   .columnValueTherapist {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueDrink {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueTobacco {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 6px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueVitamin {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 14px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .columnValueOthers {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 0px;
+    line-height: 1.4rem;
+    padding: 0px 4px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 22px 17px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .pagination_MobileTable2{
+    text-align-last: end;
+    margin-top: 3rem;
+    margin-bottom: 0px;
+  }
+
+  /* fin Table 2 */
+
+  /* Table 3 */
+
+  .column3 {
+    margin-top: 2rem;
+    margin-left: -5px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 34% 25% 26% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .lineTable3 {
+    width: 108%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  .textSum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 13px 0px 0px;
+    justify-self: end;
+  }
+
+  .textCommision {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textTotals {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
   }
 
   /* Sum */
 
-  .sumTitle {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
+  .columnTreatment3 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    font-weight: normal;
-    text-transform: capitalize;
-    border-bottom: hidden;
+    word-wrap: break-word;
   }
 
-  .sumTitleTable {
-    color: #242424;
-    font-size: 16px;
+  .columnSum {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    padding: 0px;
+    padding: 0px 13px 0px 0px;
   }
 
-  .textCommission {
-    color: #242424;
-    font-size: 16px;
+  .columnComission {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    padding: 0px 17px 0px 17px;
+    padding: 0px 1px 0px 0px;
   }
 
-  .totalToPay {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
+  .columnTotalPay {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    font-weight: normal;
-    border-bottom: hidden;
-    margin-bottom: 1rem;
+    justify-self: start;
   }
 
-  .valueColumnSum {
-    border-bottom: hidden;
-    text-wrap: nowrap;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+  .columnPay{
+    margin-left: -20px;
   }
 
-  .valueReceived {
-    font-size: 14px;
+  .textSum2 {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+    place-self: start;
   }
 
-  .totalAmountToPay {
-    border-bottom: hidden;
-    text-wrap: nowrap;
-    font-size: 16px;
+  .textReceivend {
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
-    text-align: -webkit-right;
-    width: 40%;
+    place-self: start;
   }
 
-  .textTotal {
-    display: inline-flex;
-    color: #242424;
-    font-size: 16px;
-    text-transform: capitalize;
+  .columnTotal {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
     font-family: sans-serif;
-    font-weight: normal;
   }
 
-  .sumTitleReceived {
-    display: inline-flex;
-    color: #242424;
-    font-size: 14px;
+  .lineTotalPay {
+    width: 76%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 30%;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* fin Table 3 */
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 2rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 47% 32%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .lineTable4 {
+    width: 77%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textPayToTherapist {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
     font-family: sans-serif;
-    font-weight: normal;
-    width: 100%;
+  }
+
+  .columnTreatment4 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  /* fin Table 4 */
+
+  .btnCancelar {
+    padding-bottom: 6%;
   }
 
   .inputButton {
