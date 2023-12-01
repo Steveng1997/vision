@@ -229,10 +229,10 @@ export class Service {
       params: {
         terapeuta,
         encargada,
-        horaStart,
-        horaEnd,
         fecha,
-        fechaFin
+        horaStart,
+        fechaFin,
+        horaEnd
       }
     });
   }
@@ -241,10 +241,10 @@ export class Service {
     return this.http.get(`${this.API_URL}/getEncargadaFechaHoraInicioFechaHoraFin`, {
       params: {
         encargada,
-        horaStart,
-        horaEnd,
         fecha,
-        fechaFin
+        horaStart,
+        fechaFin,
+        horaEnd,
       }
     });
   }

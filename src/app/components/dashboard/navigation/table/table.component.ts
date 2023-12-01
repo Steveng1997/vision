@@ -1033,36 +1033,36 @@ export class TableComponent implements OnInit {
   }
 
   _createHeroTable() {
-    const sheet = this._workbook.addWorksheet('Servicios Realizados');
+    const sheet = this._workbook.addWorksheet('Servicios Realizados')
 
     // ESTABLECEMOS EL ANCHO Y ESTILO DE LAS COLUMNAS
-    sheet.getColumn('B').width = 21;
-    sheet.getColumn('C').width = 21;
-    sheet.getColumn('D').width = 21;
-    sheet.getColumn('E').width = 21;
-    sheet.getColumn('F').width = 21;
-    sheet.getColumn('G').width = 21;
-    sheet.getColumn('H').width = 21;
-    sheet.getColumn('I').width = 21;
-    sheet.getColumn('J').width = 21;
-    sheet.getColumn('K').width = 21;
-    sheet.getColumn('L').width = 21;
-    sheet.getColumn('M').width = 21;
-    sheet.getColumn('N').width = 21;
-    sheet.getColumn('O').width = 21;
-    sheet.getColumn('P').width = 21;
-    sheet.getColumn('Q').width = 21;
-    sheet.getColumn('R').width = 21;
-    sheet.getColumn('S').width = 21;
-    sheet.getColumn('T').width = 21;
-    sheet.getColumn('U').width = 21;
+    sheet.getColumn('B').width = 21
+    sheet.getColumn('C').width = 21
+    sheet.getColumn('D').width = 21
+    sheet.getColumn('E').width = 21
+    sheet.getColumn('F').width = 21
+    sheet.getColumn('G').width = 21
+    sheet.getColumn('H').width = 21
+    sheet.getColumn('I').width = 21
+    sheet.getColumn('J').width = 21
+    sheet.getColumn('K').width = 21
+    sheet.getColumn('L').width = 21
+    sheet.getColumn('M').width = 21
+    sheet.getColumn('N').width = 21
+    sheet.getColumn('O').width = 21
+    sheet.getColumn('P').width = 21
+    sheet.getColumn('Q').width = 21
+    sheet.getColumn('R').width = 21
+    sheet.getColumn('S').width = 21
+    sheet.getColumn('T').width = 21
+    sheet.getColumn('U').width = 21
 
     //AGREGAMOS UN TITULO
-    const titleCell = sheet.getCell('C2');
-    titleCell.value = 'SERVICIOS REALIZADOS';
-    titleCell.style.font = { bold: true, size: 18 };
+    const titleCell = sheet.getCell('C2')
+    titleCell.value = 'SERVICIOS REALIZADOS'
+    titleCell.style.font = { bold: true, size: 18 }
 
-    const headerRow = sheet.getRow(4);
+    const headerRow = sheet.getRow(4)
     // ESTAMOS JALANDO TODAS LAS COLUMNAS DE ESA FILA, "A","B","C"..etc
     headerRow.values = [
       '', // column A
@@ -1088,14 +1088,14 @@ export class TableComponent implements OnInit {
       'Cliente', // column U
     ];
 
-    headerRow.font = { bold: true, size: 12 };
+    headerRow.font = { bold: true, size: 12 }
 
     // INSERTAMOS LOS DATOS EN LAS RESPECTIVAS COLUMNAS
-    const rowsToInsert = sheet.getRows(5, this.idService.length)!;
+    const rowsToInsert = sheet.getRows(5, this.idService.length)
 
-    for (let index = 0; index < rowsToInsert.length; index++) {
-      const itemData = this.servicio[index]; // obtenemos el item segun el index de la iteracion (recorrido)
-      const row = rowsToInsert[index]; // obtenemos la primera fila segun el index de la iteracion (recorrido)
+    for (let o = 0; o < rowsToInsert.length; o++) {
+      const itemData = this.servicio[o] // obtenemos el item segun el o de la iteracion (recorrido)
+      const row = rowsToInsert[o] // obtenemos la primera fila segun el index de la iteracion (recorrido)
 
       row.values = [
         '',
@@ -1119,7 +1119,7 @@ export class TableComponent implements OnInit {
         itemData.propina + ' €', // column S
         itemData.otros + ' €', // column T
         itemData.cliente, // column U
-      ];
+      ]
     }
   }
 

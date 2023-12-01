@@ -833,6 +833,7 @@ export class VisionComponent implements OnInit {
         fechaActualmente = '', convertionAño
 
       for (let i = 0; i < this.count; i++) {
+        
         this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)

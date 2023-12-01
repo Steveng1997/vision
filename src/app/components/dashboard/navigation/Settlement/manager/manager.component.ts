@@ -405,12 +405,13 @@ export class ManagerComponent implements OnInit {
     if (this.liquidationManager.encargada) {
       this.getThoseThatNotLiquidated()
 
-      this.service.getByManagerOrder(this.liquidationManager.encargada).subscribe((resp: any) => {
+      this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
 
+          this.selected = true
+          this.dateExists()
+
           setTimeout(() => {
-            this.selected = true
-            this.dateExists()
             if (this.inputDateAndTime()) return
           }, 600);
 
@@ -461,6 +462,7 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length > 0) {
 
+          debugger
           this.unliquidatedService = rp
 
           // Filter by servicio
@@ -2235,7 +2237,7 @@ export class ManagerComponent implements OnInit {
         }
 
         // Recibido
-        for (let index = 0; index < this.settledData.length; index++) {
+        for (let o = 0; o < this.settledData.length; o++) {
           const numbTerap = this.settledData.filter(serv => serv)
           this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
             return accumulator + serv.numberTerap
@@ -2311,9 +2313,9 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length > 0) {
 
-          for (let index = 0; index < this.unliquidatedService.length; index++) {
+          for (let o = 0; o < this.unliquidatedService.length; o++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
           }
 
           this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
@@ -2331,9 +2333,9 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length == 0) {
 
-          for (let index = 0; index < this.unliquidatedService.length; index++) {
+          for (let o = 0; o < this.unliquidatedService.length; o++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
             })
           }
 

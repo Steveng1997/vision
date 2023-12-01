@@ -411,12 +411,14 @@ export class TherapistComponent implements OnInit {
       this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
         if (resp.length > 0) {
 
-          setTimeout(() => {
-            this.selected = true
+          this.selected = true
             this.dateExists()
+
+          setTimeout(() => {
             if (this.inputDateAndTime()) return
           }, 600);
 
+          
         } else {
           this.selected = false
           Swal.fire({
@@ -2147,7 +2149,7 @@ export class TherapistComponent implements OnInit {
           }
 
           // Recibido
-          for (let index = 0; index < this.settledData.length; index++) {
+          for (let o = 0; o < this.settledData.length; o++) {
             const numbTerap = this.settledData.filter(serv => serv)
             this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
               return accumulator + serv.numberTerap
@@ -2218,9 +2220,9 @@ export class TherapistComponent implements OnInit {
 
             if (rp.length > 0) {
 
-              for (let index = 0; index < this.unliquidatedService.length; index++) {
+              for (let o = 0; o < this.unliquidatedService.length; o++) {
                 this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-                this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
+                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
               }
 
               this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((dates) => { })
@@ -2240,9 +2242,9 @@ export class TherapistComponent implements OnInit {
 
             else if (rp.length == 0) {
 
-              for (let index = 0; index < this.unliquidatedService.length; index++) {
+              for (let o = 0; o < this.unliquidatedService.length; o++) {
                 this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-                this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
+                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
                 })
               }
 
