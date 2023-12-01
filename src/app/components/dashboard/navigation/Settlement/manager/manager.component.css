@@ -4235,7 +4235,7 @@
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 25% 30% 26% 23%;
+    grid-template-columns: 23% 30% 28% 23%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -4332,12 +4332,12 @@
   }
 
   .lineTotalPay {
-    width: 76%;
+    width: 82%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 30%;
+    margin-left: 22%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -4346,9 +4346,9 @@
 
   .columnFixedDay {
     display: grid;
-    grid-template-columns: 25% 21% 19% 18% 21%;
+    grid-template-columns: 25% 19% 17% 22% 21%;
     margin-bottom: -5px;
-    margin-left: -5px;
+    margin-left: -14px;
   }
 
   .inputFixedDay {

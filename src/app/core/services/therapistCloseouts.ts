@@ -25,7 +25,7 @@ export class ServiceLiquidationTherapist {
     return this.http.get(`${this.API_URL}/getByLiquidacionesTerapeuta`);
   }
 
-  consultTherapistId(idTerapeuta: number) {
+  consultTherapistId(idTerapeuta: string) {
     return this.http.get(`${this.API_URL}/getByIdTerap/${idTerapeuta}`);
   }
 

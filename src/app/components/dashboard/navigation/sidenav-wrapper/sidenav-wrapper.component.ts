@@ -54,8 +54,10 @@ export class SidenavWrapperComponent implements OnInit {
         this.validationLiquidation = true
       } else {
         this.contentLiquidation.style.display = "none";
-        contenedor[0].style.position = 'static';
-        this.validationLiquidation = false
+        if (contenedor.length > 0) {
+          contenedor[0].style.position = 'static';
+          this.validationLiquidation = false
+        }
       }
     }
   }
@@ -75,8 +77,10 @@ export class SidenavWrapperComponent implements OnInit {
         this.validationMenu = true
       } else {
         this.contentMenu.style.display = "none";
-        contenedor[0].style.position = 'static';
-        this.validationMenu = false
+        if (contenedor.length > 0) {
+          contenedor[0].style.position = 'static';
+          this.validationMenu = false
+        }
       }
     }
   }

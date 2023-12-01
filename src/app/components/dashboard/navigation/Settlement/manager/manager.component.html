@@ -489,9 +489,9 @@
                     <div class="columnFixedDay">
                         <label class="columnTreatment3"></label>
                         <label class="textSum2">Fijo/día</label>
-                        <input type="number" class="inputFixedDay" [value]="fixedDay" (change)="fixedNumberDay($event)">
-                        <label class="textSum2">X 30 €</label>
-                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                        <input type="number" (change)="fixedNumberDay($event)" [value]="fixedDay" class="inputFixedDay"  >
+                        <label class="textSum2">{{ 'X ' + letterFixedDay + ' €'}}</label>
+                        <label class="columnTotal">{{totalFixedDay + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
@@ -850,8 +850,8 @@
                         <label class="textSum2">Fijo/día</label>
                         <input type="number" class="inputFixedDay" [value]="fixedDay" disabled
                             (change)="fixedNumberDay($event)">
-                        <label class="textSum2">X 30 €</label>
-                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                        <label class="textSum2">{{ 'X ' + letterFixedDay + ' €'}}</label>
+                        <label class="columnTotal">{{totalFixedDay + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">

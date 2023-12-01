@@ -36,6 +36,8 @@ export class ManagerComponent implements OnInit {
   fijoDia: number
   fixedTotalDay: number
   fixedDay: number
+  letterFixedDay = ""
+  totalFixedDay = ""
 
   // Encargada
   manager: any
@@ -119,7 +121,7 @@ export class ManagerComponent implements OnInit {
   }
 
   services: ModelService = {
-    idTerapeuta: "",
+    idEncargada: "",
   }
 
   formTemplate = new FormGroup({
@@ -162,8 +164,7 @@ export class ManagerComponent implements OnInit {
     }
 
     this.date()
-    this.getSettlements()
-    this.getManager()
+    this.thousandPount()
   }
 
   date() {
@@ -244,7 +245,7 @@ export class ManagerComponent implements OnInit {
     if (this.totalTherapistPayment == undefined) this.totalTherapistPayment = 0
   }
 
-  getSettlements() {
+  thousandPount() {
     let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
@@ -277,38 +278,6 @@ export class ManagerComponent implements OnInit {
               this.liquidated[o]['importe'] = integer[0].toString()
             } else {
               this.liquidated[o]['importe'] = this.liquidated[o].importe.toString()
-            }
-          }
-
-          for (let index = 0; index < this.liquidated.length; index++) {
-            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
-            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
-            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
-            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
-
-            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
-              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
-              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
-              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
-              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
-            }
-          }
-        })
-      } else {
-        this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((datoLiquidaciones: any) => {
-          this.liquidated = datoLiquidaciones
-
-          for (let index = 0; index < this.liquidated.length; index++) {
-            añoHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(2, 4)
-            mesHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(5, 7)
-            diaHasta = this.liquidated[index]['hastaFechaLiquidado'].toString().substring(8, 10)
-            this.liquidated[index]['hastaFechaLiquidado'] = `${diaHasta}-${mesHasta}-${añoHasta}`
-
-            if (this.liquidated[index]['desdeFechaLiquidado'].length >= 10) {
-              añoDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(2, 4)
-              mesDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(5, 7)
-              diaDesde = this.liquidated[index]['desdeFechaLiquidado'].toString().substring(8, 10)
-              this.liquidated[index]['desdeFechaLiquidado'] = `${diaDesde}-${mesDesde}-${añoDesde}`
             }
           }
         })
@@ -395,37 +364,40 @@ export class ManagerComponent implements OnInit {
   }
 
   dateExists() {
-    let fecha = new Date(), dia = '', mes = '', año = 0, diaHasta = 0, mesHasta = 0, añoHasta = 0, convertMes = '', convertDia = ''
+    let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
+      untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
     this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
       if (rp.length > 0) {
-        año = fecha.getFullYear()
-        mes = rp[0]['hastaFechaLiquidado'].substring(5, 7)
-        dia = rp[0]['hastaFechaLiquidado'].substring(8, 10)
-        this.liquidationManager.desdeFechaLiquidado = `${año}-${mes}-${dia}`
+
+        fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
+        fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
+        fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
+
+        this.liquidationManager.desdeFechaLiquidado = `${'20' + fromYear}-${fromMonth}-${fromDay}`
         this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
         this.dateDoesNotExist()
       }
     })
 
-    diaHasta = fecha.getDate()
-    mesHasta = fecha.getMonth() + 1
-    añoHasta = fecha.getFullYear()
+    untilDay = currentDate.getDate()
+    untilMonth = currentDate.getMonth() + 1
+    untilYear = currentDate.getFullYear()
 
-    if (mesHasta > 0 && mesHasta < 10) {
-      convertMes = '0' + mesHasta
-      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    if (untilMonth > 0 && untilMonth < 10) {
+      convertMonth = '0' + untilMonth
+      this.liquidationManager.hastaFechaLiquidado = `${untilYear}-${convertMonth}-${untilDay}`
     } else {
-      convertMes = mesHasta.toString()
-      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      convertMonth = untilMonth.toString()
+      this.liquidationManager.hastaFechaLiquidado = `${untilYear}-${convertMonth}-${untilDay}`
     }
 
-    if (diaHasta > 0 && diaHasta < 10) {
-      convertDia = '0' + diaHasta
-      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+    if (untilDay > 0 && untilDay < 10) {
+      convertDay = '0' + untilDay
+      this.liquidationManager.hastaFechaLiquidado = `${untilYear}-${convertMonth}-${convertDay}`
     } else {
-      this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      this.liquidationManager.hastaFechaLiquidado = `${untilYear}-${convertMonth}-${untilDay}`
     }
   }
 
@@ -449,6 +421,33 @@ export class ManagerComponent implements OnInit {
           })
         }
       })
+    }
+  }
+
+  pountFixedDay() {
+    if (this.fixedTotalDay > 999) {
+
+      const coma = this.fixedTotalDay.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.fixedTotalDay.toString().split(".") : this.fixedTotalDay.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.totalFixedDay = integer[0].toString()
+    } else {
+      this.totalFixedDay = this.fixedTotalDay.toString()
     }
   }
 
@@ -535,6 +534,8 @@ export class ManagerComponent implements OnInit {
 
           this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
             this.managerName = datosNameTerapeuta[0]
+            this.fijoDia = datosNameTerapeuta[0]['fijoDia']
+            this.letterFixedDay = this.fijoDia.toString()
 
             // Comision
             comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
@@ -561,15 +562,16 @@ export class ManagerComponent implements OnInit {
             }
 
             let dayStart = 0, dayEnd = 0
-              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+            dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+            dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
             this.fixedDay = dayEnd - dayStart
             this.fixedTotalDay = this.fixedDay * this.fijoDia
+            this.pountFixedDay()
 
             // Recibido
             this.receivedTherapist = this.totalTherapistValue
-            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
+            this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedTherapist)
             this.liquidationManager.importe = this.totalCommission
 
             this.validateNullData()
@@ -588,6 +590,8 @@ export class ManagerComponent implements OnInit {
 
           this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
             this.managerName = datosNameTerapeuta[0]
+            this.fijoDia = datosNameTerapeuta[0]['fijoDia']
+            this.letterFixedDay = this.fijoDia.toString()
 
             // Comision
             comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
@@ -613,9 +617,17 @@ export class ManagerComponent implements OnInit {
               this.sumCommission = Math.ceil(sumComision)
             }
 
+            let dayStart = 0, dayEnd = 0
+            dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+            dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+
+            this.fixedDay = dayEnd - dayStart
+            this.fixedTotalDay = this.fixedDay * this.fijoDia
+            this.pountFixedDay()
+
             // Recibido
             this.receivedTherapist = this.totalTherapistValue
-            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
+            this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedTherapist)
             this.liquidationManager.importe = this.totalCommission
 
             this.validateNullData()
@@ -1347,29 +1359,45 @@ export class ManagerComponent implements OnInit {
   fixedNumberDay(event: any) {
     let numberValue = 0
     numberValue = Number(event.target.value)
+
     if (numberValue > 0) {
-      this.fixedTotalDay = numberValue * this.fijoDia
-      this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.textReceivedTherapist)
+      this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
+        this.fijoDia = resp[0]['fijoDia']
+        this.letterFixedDay = this.fijoDia.toString()
+        this.fixedTotalDay = numberValue * this.fijoDia
+        this.pountFixedDay()
+        this.totalCommission = this.sumCommission + this.fixedTotalDay - this.receivedTherapist
+        this.liquidationManager.importe = this.totalCommission
+
+        if (this.totalCommission > 999) {
+
+          const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
+          const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+          let integer = coma ? array[0].split("") : array;
+          let subIndex = 1;
+
+          for (let i = integer.length - 1; i >= 0; i--) {
+
+            if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+              integer.splice(i, 0, ".");
+              subIndex++;
+
+            } else {
+              subIndex++;
+            }
+          }
+
+          integer = [integer.toString().replace(/,/gi, "")]
+          this.textTotalCommission = integer[0].toString()
+        } else {
+          this.textTotalCommission = this.totalCommission.toString()
+        }
+      })
     }
   }
 
-  consultWithManager() {
-    this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
-      this.fijoDia = resp[0]['fijoDia']
-      this.fixedTotalDay = resp[0]['fijoDia']
-    })
-    return true
-  }
-
   // Edit
-
-  editConsultWithManager(encargada) {
-    this.serviceManager.getEncargada(encargada).subscribe((resp: any) => {
-      this.fijoDia = resp[0]['fijoDia']
-      this.fixedTotalDay = resp[0]['fijoDia']
-    })
-    return true
-  }
 
   thousandPointEdit() {
     if (this.totalCommission > 999) {
@@ -2085,29 +2113,13 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  formatDate() {
-    let diaDesde = '', mesDesde = '', añoDesde = '', diaHasta = '', mesHasta = '', añoHasta = ''
-
-    diaDesde = this.liquidationManager.desdeFechaLiquidado.substring(8, 10)
-    mesDesde = this.liquidationManager.desdeFechaLiquidado.substring(5, 7)
-    añoDesde = this.liquidationManager.desdeFechaLiquidado.substring(0, 4)
-
-    this.liquidationManager.desdeFechaLiquidado = `${diaDesde}/${mesDesde}/${añoDesde}`
-
-    diaHasta = this.liquidationManager.hastaFechaLiquidado.substring(8, 10)
-    mesHasta = this.liquidationManager.hastaFechaLiquidado.substring(5, 7)
-    añoHasta = this.liquidationManager.hastaFechaLiquidado.substring(0, 4)
-
-    this.liquidationManager.hastaFechaLiquidado = `${diaHasta}/${mesHasta}/${añoHasta}`
-  }
-
   edit() {
     this.idSettled
     this.liquidationManager.importe = this.totalCommission
     this.serviceLiquidationManager.updateEncargImporteId(this.idSettled, this.liquidationManager).subscribe((rp) => { })
 
     setTimeout(() => {
-      this.getSettlements()
+      this.thousandPount()
       this.liquidationForm = true
       this.editEncarg = false
       this.selected = false
@@ -2120,117 +2132,153 @@ export class ManagerComponent implements OnInit {
     this.liquidationForm = false
     this.editEncarg = true
 
-    this.serviceLiquidationManager.getIdEncarg(id).subscribe((datosTerapeuta) => {
-      this.liquidationManager.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-      this.liquidationManager.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-      this.liquidationManager.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-      this.liquidationManager.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
+    this.serviceLiquidationManager.getIdEncarg(id).subscribe((datosManager: any) => {
+      if (datosManager.length > 0) {
+        this.liquidationManager.desdeFechaLiquidado = datosManager[0]['desdeFechaLiquidado']
+        this.liquidationManager.desdeHoraLiquidado = datosManager[0]['desdeHoraLiquidado']
+        this.liquidationManager.hastaFechaLiquidado = datosManager[0]['hastaFechaLiquidado']
+        this.liquidationManager.hastaHoraLiquidado = datosManager[0]['hastaHoraLiquidado']
+      }
     })
 
-    this.service.getByIdTerap(id).subscribe((datosTerapeuta) => {
-      this.settledData = datosTerapeuta;
+    setTimeout(() => {
+      this.service.getByIdEncarg(id).subscribe((datosManager: any) => {
+        if (datosManager.length > 0) {
+          this.settledData = datosManager;
 
-      // Filter by servicio
-      const servicios = this.settledData.filter(serv => serv)
-      this.totalService = servicios.reduce((accumulator, serv) => {
-        return accumulator + serv.servicio
-      }, 0)
+          // Filter by servicio
+          const servicios = this.settledData.filter(serv => serv)
+          this.totalService = servicios.reduce((accumulator, serv) => {
+            return accumulator + serv.servicio
+          }, 0)
 
-      // Filter by Propina
-      const propinas = this.settledData.filter(serv => serv)
-      this.totalTipValue = propinas.reduce((accumulator, serv) => {
-        return accumulator + serv.propina
-      }, 0)
+          // Filter by Propina
+          const propinas = this.settledData.filter(serv => serv)
+          this.totalTipValue = propinas.reduce((accumulator, serv) => {
+            return accumulator + serv.propina
+          }, 0)
 
-      // Filter by Pago
-      const terapeuta = this.settledData.filter(serv => serv)
-      this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-        return accumulator + serv.numberTerap
-      }, 0)
+          // Filter by Pago
+          const terapeuta = this.settledData.filter(serv => serv)
+          this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+            return accumulator + serv.numberTerap
+          }, 0)
 
-      // Filter by Bebida
-      const bebida = this.settledData.filter(serv => serv)
-      this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-        return accumulator + serv.bebidas
-      }, 0)
+          // Filter by Bebida
+          const bebida = this.settledData.filter(serv => serv)
+          this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+            return accumulator + serv.bebidas
+          }, 0)
 
-      // Filter by Tabaco
-      const tabac = this.settledData.filter(serv => serv)
-      this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-        return accumulator + serv.tabaco
-      }, 0)
+          // Filter by Tabaco
+          const tabac = this.settledData.filter(serv => serv)
+          this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+            return accumulator + serv.tabaco
+          }, 0)
 
-      // Filter by Vitamina
-      const vitamina = this.settledData.filter(serv => serv)
-      this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-        return accumulator + serv.vitaminas
-      }, 0)
+          // Filter by Vitamina
+          const vitamina = this.settledData.filter(serv => serv)
+          this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+            return accumulator + serv.vitaminas
+          }, 0)
 
-      // Filter by Vitamina
-      const otroServicio = this.settledData.filter(serv => serv)
-      this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-        return accumulator + serv.otros
-      }, 0)
+          // Filter by Vitamina
+          const otroServicio = this.settledData.filter(serv => serv)
+          this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+            return accumulator + serv.otros
+          }, 0)
 
-      let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-      this.totalCommission = 0
+          let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+          this.totalCommission = 0
 
-      this.serviceManager.getEncargada(this.settledData[0]['encargada']).subscribe((datesNameManager) => {
-        this.managerName = datesNameManager[0]
-        this.validateNullData()
+          this.serviceManager.getEncargada(this.settledData[0]['encargada']).subscribe((datesNameManager) => {
+            this.fijoDia = datesNameManager[0]['fijoDia']
+            this.letterFixedDay = this.fijoDia.toString()
+            this.managerName = datesNameManager[0]
+            this.validateNullData()
 
-        // Comision
-        comisiServicio = this.totalService / 100 * datesNameManager[0]['servicio']
-        comiPropina = this.totalTipValue / 100 * datesNameManager[0]['propina']
-        comiBebida = this.totalValueDrink / 100 * datesNameManager[0]['bebida']
-        comiTabaco = this.totalTobaccoValue / 100 * datesNameManager[0]['tabaco']
-        comiVitamina = this.totalValueVitamins / 100 * datesNameManager[0]['vitamina']
-        comiOtros = this.totalValueOther / 100 * datesNameManager[0]['otros']
+            // Comision
+            comisiServicio = this.totalService / 100 * datesNameManager[0]['servicio']
+            comiPropina = this.totalTipValue / 100 * datesNameManager[0]['propina']
+            comiBebida = this.totalValueDrink / 100 * datesNameManager[0]['bebida']
+            comiTabaco = this.totalTobaccoValue / 100 * datesNameManager[0]['tabaco']
+            comiVitamina = this.totalValueVitamins / 100 * datesNameManager[0]['vitamina']
+            comiOtros = this.totalValueOther / 100 * datesNameManager[0]['otros']
 
-        // Conversion decimal
-        this.serviceCommission = Number(comisiServicio.toFixed(1))
-        this.commissionTip = Number(comiPropina.toFixed(1))
-        this.beverageCommission = Number(comiBebida.toFixed(1))
-        this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-        this.vitaminCommission = Number(comiVitamina.toFixed(1))
-        this.commissionOthers = Number(comiOtros.toFixed(1))
+            // Conversion decimal
+            this.serviceCommission = Number(comisiServicio.toFixed(1))
+            this.commissionTip = Number(comiPropina.toFixed(1))
+            this.beverageCommission = Number(comiBebida.toFixed(1))
+            this.tobaccoCommission = Number(comiTabaco.toFixed(1))
+            this.vitaminCommission = Number(comiVitamina.toFixed(1))
+            this.commissionOthers = Number(comiOtros.toFixed(1))
 
-        sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-          Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-          Number(this.vitaminCommission) + Number(this.commissionOthers)
+            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-        // return this.sumCommission = sumComision.toFixed(0)
-        if (this.sumCommission != 0 || this.sumCommission != undefined) {
-          this.sumCommission = Number(sumComision.toFixed(1))
+            // return this.sumCommission = sumComision.toFixed(0)
+            if (this.sumCommission != 0 || this.sumCommission != undefined) {
+              this.sumCommission = Number(sumComision.toFixed(1))
+            }
+
+
+            let dayStart = 0, dayEnd = 0
+
+            dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
+            dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
+
+            this.fixedDay = dayEnd - dayStart
+            this.fixedTotalDay = this.fixedDay * this.fijoDia
+            this.pountFixedDay()
+          })
         }
 
-        let dayStart = 0, dayEnd = 0
-
-        if (this.liquidationManager.desdeFechaLiquidado.length == 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-        if (this.liquidationManager.desdeFechaLiquidado.length < 10) dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
-        if (this.liquidationManager.hastaFechaLiquidado.length == 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
-        if (this.liquidationManager.hastaFechaLiquidado.length < 10) dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
-
-        this.fixedDay = dayEnd - dayStart
-        this.fixedTotalDay = this.fixedDay * this.fijoDia
-
         // Recibido
-
         for (let index = 0; index < this.settledData.length; index++) {
           const numbTerap = this.settledData.filter(serv => serv)
           this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
             return accumulator + serv.numberTerap
           }, 0)
         }
-        this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
-        this.thousandPointEdit()
+
+        console.log(this.totalCommission)
+
+        this.totalCommission = this.sumCommission - this.fixedTotalDay - Number(this.receivedTherapist)
+
+        setTimeout(() => {
+          this.thousandPointEdit()
+        }, 500);
+
+
         this.formatDate()
       })
     })
   }
 
+  formatDate() {
+    let fromDay = '', fromMonth = '', fromYear = '', untilDay = '', untilMonth = '', untilYear = ''
+
+    // From 
+
+    fromDay = this.liquidationManager.desdeFechaLiquidado.substring(8, 10)
+    fromMonth = this.liquidationManager.desdeFechaLiquidado.substring(5, 7)
+    fromYear = this.liquidationManager.desdeFechaLiquidado.substring(2, 4)
+
+    this.liquidationManager.desdeFechaLiquidado = `${fromDay}-${fromMonth}-${fromYear}`
+
+    // Until
+
+    untilDay = this.liquidationManager.hastaFechaLiquidado.substring(8, 10)
+    untilMonth = this.liquidationManager.hastaFechaLiquidado.substring(5, 7)
+    untilYear = this.liquidationManager.hastaFechaLiquidado.substring(2, 4)
+
+    this.liquidationManager.hastaFechaLiquidado = `${untilDay}-${untilMonth}-${untilYear}`
+  }
+
+  // End edit
+
   cancel() {
-    this.getSettlements()
     this.liquidationForm = true
     this.addForm = false
     this.editEncarg = false
@@ -2246,7 +2294,7 @@ export class ManagerComponent implements OnInit {
       return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16)
     })
 
-    this.services.idTerapeuta = uuid
+    this.services.idEncargada = uuid
     this.liquidationManager.idUnico = uuid
     this.liquidationManager.idEncargada = uuid
     return this.liquidationManager.idUnico
@@ -2255,6 +2303,7 @@ export class ManagerComponent implements OnInit {
   save() {
     this.createUniqueId()
     this.liquidationManager.currentDate = this.currentDate.toString()
+    this.formatDate()
 
     if (this.liquidationManager.encargada != "") {
 
@@ -2264,18 +2313,16 @@ export class ManagerComponent implements OnInit {
 
           for (let index = 0; index < this.unliquidatedService.length; index++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((dates) => { })
           }
 
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => {
-
-            setTimeout(() => { this.getSettlements() }, 1000);
-
-            this.liquidationForm = true
-            this.addForm = false
-            this.editEncarg = false
-            this.selected = false
-          })
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
+          this.thousandPount()
+          this.liquidationForm = true
+          this.addForm = false
+          this.editEncarg = false
+          this.selected = false
+          this.liquidationManager.encargada = ""
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -2284,38 +2331,24 @@ export class ManagerComponent implements OnInit {
 
         if (rp.length == 0) {
 
-          this.service.getEncargada(this.liquidationManager.encargada).subscribe((datesForDate) => {
-            this.liquidationManager.desdeFechaLiquidado = datesForDate[0]['fechaHoyInicio']
-            this.liquidationManager.desdeHoraLiquidado = datesForDate[0]['horaStart']
-
-            let convertMes = '', convertDia = '', convertAno = ''
-
-            convertDia = this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 11)
-            convertMes = this.liquidationManager.desdeFechaLiquidado.toString().substring(5, 7)
-            convertAno = this.liquidationManager.desdeFechaLiquidado.toString().substring(2, 4)
-
-            this.liquidationManager.desdeFechaLiquidado = `${convertDia}-${convertMes}-${convertAno}`
-
-            for (let index = 0; index < this.unliquidatedService.length; index++) {
-              this.liquidationManager.tratamiento = this.unliquidatedService.length
-              this.service.updateLiquidacionTerap(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
-              })
-            }
-
-            this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
-
-            setTimeout(() => {
-              this.getSettlements()
-            }, 1000);
-
-            this.liquidationForm = true
-            this.addForm = false
-            this.editEncarg = false
-            this.selected = false
-            this.convertToZero()
-            Swal.fire({
-              position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+          for (let index = 0; index < this.unliquidatedService.length; index++) {
+            this.liquidationManager.tratamiento = this.unliquidatedService.length
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[index]['id'], this.services).subscribe((datos) => {
             })
+          }
+
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
+
+          this.thousandPount()
+          this.liquidationForm = true
+          this.addForm = false
+          this.editEncarg = false
+          this.selected = false
+          this.liquidationManager.encargada = ""
+          this.convertToZero()
+
+          Swal.fire({
+            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
           })
         }
       })

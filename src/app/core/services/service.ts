@@ -57,7 +57,7 @@ export class Service {
     return this.http.get(`${this.API_URL}/getByLiquidacionTerapeutaFalse`);
   }
 
-  getByIdTerap(idTerap: number) {
+  getByIdTerap(idTerap: string) {
     return this.http.get(`${this.API_URL}/getIdTerapeuta/${idTerap}`);
   }
 
