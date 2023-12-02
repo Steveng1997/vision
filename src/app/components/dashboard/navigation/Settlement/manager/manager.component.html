@@ -128,7 +128,7 @@
                     <div class="columnTableLine2"
                         *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada | fechaFinalEncargada: fechaInicio:fechaFinal 
                     | busquedaEncargada: filterByName:filterByNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
-                        (click)="dataFormEdit(liqEncarg.idEncargada, liqEncarg.id)">
+                        (click)="dataFormEdit(liqEncarg.idEncargada)">
 
                         <div class="columnManager">{{liqEncarg?.encargada}}</div>
 
@@ -438,8 +438,7 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.servicio + '
-                            %'}}</label>
+                        <label class="columnComission">{{managerName?.servicio + ' %'}}</label>
                         <label class="columnTotal">{{textServiceComission + ' €'}}</label>
                     </div>
 
@@ -489,7 +488,7 @@
                     <div class="columnFixedDay">
                         <label class="columnTreatment3"></label>
                         <label class="textSum2">Fijo/día</label>
-                        <input type="number" (change)="fixedNumberDay($event)" [value]="fixedDay" class="inputFixedDay"  >
+                        <input type="number" (change)="fixedNumberDay($event)" [value]="fixedDay" class="inputFixedDay">
                         <label class="textSum2">{{ 'X ' + letterFixedDay + ' €'}}</label>
                         <label class="columnTotal">{{totalFixedDay + ' €'}}</label>
                     </div>
@@ -574,7 +573,7 @@
                 <!-- Edit Liquidation -->
 
                 <label *ngIf="editEncarg" class="titleEdit">
-                    Liquidación {{settledData[0]['encargada']}}</label>
+                    Liquidación {{settledData?.encargada}}</label>
 
                 <label *ngIf="editEncarg" class="textDates">{{liquidationManager.desdeFechaLiquidado + ' : ' +
                     liquidationManager.desdeHoraLiquidado + ' - ' + liquidationManager.hastaFechaLiquidado

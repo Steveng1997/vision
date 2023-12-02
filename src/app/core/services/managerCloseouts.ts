@@ -27,7 +27,7 @@ export class ServiceLiquidationManager {
     return this.http.get(`${this.API_URL}/getByLiquidacionesEncargada`);
   }
 
-  getIdEncarg(idEncargada: number) {
+  getIdEncarg(idEncargada: string) {
     return this.http.get(`${this.API_URL}/getByIdEncarg/${idEncargada}`);
   }
 

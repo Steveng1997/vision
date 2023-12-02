@@ -626,7 +626,7 @@
                 <!-- Edit Liquidation -->
 
                 <label *ngIf="editTerap" class="titleEdit">
-                    Liquidación {{settledData[0]['terapeuta']}}</label>
+                    Liquidación {{settledData[0]?.terapeuta}}</label>
 
                 <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' : ' +
                     liquidationTherapist.desdeHoraLiquidado + ' - ' + liquidationTherapist.hastaFechaLiquidado

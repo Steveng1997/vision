@@ -65,7 +65,7 @@ export class Service {
     return this.http.get(`${this.API_URL}/getIdCierre/${idCierre}`);
   }
 
-  getByIdEncarg(idEncargada: number) {
+  getByIdEncarg(idEncargada: string) {
     return this.http.get(`${this.API_URL}/getIdEncargada/${idEncargada}`);
   }
 

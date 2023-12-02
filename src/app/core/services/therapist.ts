@@ -46,10 +46,6 @@ export class ServiceTherapist {
     return this.http.get(`${this.API_Terapeuta}/getNombre/${nombre}`);
   }
 
-  getEncargada(nombre: string) {
-    return this.http.get(`${this.API_Encargada}/nombreEncargada/${nombre}`);
-  }
-
   // Update
 
   updateTerapeutas(id: number, therapist: ModelTherapist) {

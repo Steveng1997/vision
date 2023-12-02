@@ -30,8 +30,8 @@ export class TherapistComponent implements OnInit {
   filterByNumber: number
   filtredBusqueda: string
   unliquidatedService: any
-  liquidated: any
-  settledData: any
+  liquidated: any[] = [];
+  settledData: any[] = [];
   page!: number
 
   // Encargada
@@ -39,7 +39,7 @@ export class TherapistComponent implements OnInit {
   administratorRole: boolean = false
 
   // Terapeuta
-  terapeuta: any[]
+  terapeuta: any[] = [];
   terapeutaName: any
 
   // Fecha
@@ -412,13 +412,13 @@ export class TherapistComponent implements OnInit {
         if (resp.length > 0) {
 
           this.selected = true
-            this.dateExists()
+          this.dateExists()
 
           setTimeout(() => {
             if (this.inputDateAndTime()) return
           }, 600);
 
-          
+
         } else {
           this.selected = false
           Swal.fire({
@@ -2061,104 +2061,101 @@ export class TherapistComponent implements OnInit {
     this.editTerap = true
 
     this.serviceLiquidationTherapist.consultTherapistId(idTerap).subscribe((datosTerapeuta: any) => {
-      if (datosTerapeuta.length > 0) {
-        this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-        this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-        this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-        this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
-      }
+      this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]?.desdeFechaLiquidado
+      this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]?.desdeHoraLiquidado
+      this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]?.hastaFechaLiquidado
+      this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]?.hastaHoraLiquidado
     })
 
     this.service.getByIdTerap(idTerap).subscribe((datosTerapeuta: any) => {
-      if (datosTerapeuta.length > 0) {
-        this.settledData = datosTerapeuta;
+      this.settledData = datosTerapeuta;
 
-        // Filter by servicio
-        const servicios = this.settledData.filter(serv => serv)
-        this.totalService = servicios.reduce((accumulator, serv) => {
-          return accumulator + serv.servicio
-        }, 0)
+      // Filter by servicio
+      const servicios = this.settledData.filter(serv => serv)
+      this.totalService = servicios.reduce((accumulator, serv) => {
+        return accumulator + serv?.servicio
+      }, 0)
 
-        // Filter by Propina
-        const propinas = this.settledData.filter(serv => serv)
-        this.totalTipValue = propinas.reduce((accumulator, serv) => {
-          return accumulator + serv.propina
-        }, 0)
+      // Filter by Propina
+      const propinas = this.settledData.filter(serv => serv)
+      this.totalTipValue = propinas.reduce((accumulator, serv) => {
+        return accumulator + serv?.propina
+      }, 0)
 
-        // Filter by Pago
-        const terapeuta = this.settledData.filter(serv => serv)
-        this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+      // Filter by Pago
+      const terapeuta = this.settledData.filter(serv => serv)
+      this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+        return accumulator + serv?.numberTerap
+      }, 0)
+
+      // Filter by Bebida
+      const bebida = this.settledData.filter(serv => serv)
+      this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+        return accumulator + serv?.bebidas
+      }, 0)
+
+      // Filter by Tabaco
+      const tabac = this.settledData.filter(serv => serv)
+      this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+        return accumulator + serv?.tabaco
+      }, 0)
+
+      // Filter by Vitamina
+      const vitamina = this.settledData.filter(serv => serv)
+      this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+        return accumulator + serv?.vitaminas
+      }, 0)
+
+      // Filter by Vitamina
+      const otroServicio = this.settledData.filter(serv => serv)
+      this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+        return accumulator + serv?.otros
+      }, 0)
+
+      let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+      this.totalCommission = 0
+
+      this.serviceTherapist.getTerapeuta(this.settledData[0]?.terapeuta).subscribe((datosNameTerapeuta: any) => {
+        if (datosNameTerapeuta.length > 0) {
+          this.terapeutaName = datosNameTerapeuta[0]
+          this.validateNullData()
+
+          // Comision
+          comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]?.servicio
+          comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]?.propina
+          comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]?.bebida
+          comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]?.tabaco
+          comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]?.vitamina
+          comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]?.otros
+
+          // Conversion decimal
+          this.serviceCommission = Number(comisiServicio.toFixed(1))
+          this.commissionTip = Number(comiPropina.toFixed(1))
+          this.beverageCommission = Number(comiBebida.toFixed(1))
+          this.tobaccoCommission = Number(comiTabaco.toFixed(1))
+          this.vitaminCommission = Number(comiVitamina.toFixed(1))
+          this.commissionOthers = Number(comiOtros.toFixed(1))
+
+          sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+            Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+            Number(this.vitaminCommission) + Number(this.commissionOthers)
+
+          if (this.sumCommission != 0 || this.sumCommission != undefined) {
+            this.sumCommission = Number(sumComision.toFixed(1))
+          }
+        }
+      })
+
+      // Recibido
+      for (let o = 0; o < this.settledData.length; o++) {
+        const numbTerap = this.settledData.filter(serv => serv)
+        this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
           return accumulator + serv.numberTerap
         }, 0)
-
-        // Filter by Bebida
-        const bebida = this.settledData.filter(serv => serv)
-        this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-          return accumulator + serv.bebidas
-        }, 0)
-
-        // Filter by Tabaco
-        const tabac = this.settledData.filter(serv => serv)
-        this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-          return accumulator + serv.tabaco
-        }, 0)
-
-        // Filter by Vitamina
-        const vitamina = this.settledData.filter(serv => serv)
-        this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-          return accumulator + serv.vitaminas
-        }, 0)
-
-        // Filter by Vitamina
-        const otroServicio = this.settledData.filter(serv => serv)
-        this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-          return accumulator + serv.otros
-        }, 0)
-
-        let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-        this.totalCommission = 0
-
-        this.serviceTherapist.getTerapeuta(this.settledData[0]['terapeuta']).subscribe((datosNameTerapeuta: any) => {
-          if (datosNameTerapeuta.length > 0) {
-            this.terapeutaName = datosNameTerapeuta[0]
-            this.validateNullData()
-
-            // Comision
-            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
-
-            // Conversion decimal
-            this.serviceCommission = Number(comisiServicio.toFixed(1))
-            this.commissionTip = Number(comiPropina.toFixed(1))
-            this.beverageCommission = Number(comiBebida.toFixed(1))
-            this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-            this.vitaminCommission = Number(comiVitamina.toFixed(1))
-            this.commissionOthers = Number(comiOtros.toFixed(1))
-
-            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-              Number(this.vitaminCommission) + Number(this.commissionOthers)
-
-            if (this.sumCommission != 0 || this.sumCommission != undefined) {
-              this.sumCommission = Number(sumComision.toFixed(1))
-            }
-          }
-
-          // Recibido
-          for (let o = 0; o < this.settledData.length; o++) {
-            const numbTerap = this.settledData.filter(serv => serv)
-            this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
-              return accumulator + serv.numberTerap
-            }, 0)
-          }
-          this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
-          this.thousandPointEdit()
-        })
       }
+
+      this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+      this.thousandPointEdit()
     })
   }
 
