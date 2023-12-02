@@ -153,7 +153,7 @@
                     <div class="columnTableLine2" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
                             | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
                             busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }"
-                        (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
+                        (click)="dataFormEdit(liqTerap.idTerapeuta)">
 
                         <div class="columnManager">{{liqTerap?.encargada}}</div>
 

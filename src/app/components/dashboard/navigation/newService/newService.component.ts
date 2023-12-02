@@ -1122,8 +1122,6 @@ export class NewServiceComponent implements OnInit {
       this.service.getByEditar(this.idEditar).subscribe((datosServicio: any) => {
         if (datosServicio.length > 0) {
           this.editamos = true
-          // document.getElementById('idTitulo').style.display = 'block'
-          // document.getElementById('idTitulo').innerHTML = 'Editar servicio'
 
           this.editarService = datosServicio
           this.SetTheValuesToEmpty()
