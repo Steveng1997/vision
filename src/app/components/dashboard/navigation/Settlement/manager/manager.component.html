@@ -185,7 +185,7 @@
                     </div>
                 </form>
 
-                <div *ngIf="selected && addForm">
+                <div *ngIf="dates">
 
                     <div class="row tableContainer2">
                         <div class="fechaInicio">
@@ -228,7 +228,7 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalCommission + ' €'}}</label>
                         </div>
 
                     </div>
@@ -236,7 +236,7 @@
 
                 <!-- Table 2 -->
 
-                <div class="column2" *ngIf="selected && addForm">
+                <div class="column2" *ngIf="selected">
                     <div class="columnTable2Line1">
 
                         <div>
@@ -406,13 +406,13 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="selected && addForm" class="pagination_Mobile" (pageChange)="page = $event"
+                <pagination-controls *ngIf="selected" class="pagination_Mobile" (pageChange)="page = $event"
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
                 <!-- Table 3 -->
 
-                <div class="column3" *ngIf="selected && addForm">
+                <div class="column3" *ngIf="selected">
                     <div class="columnTable3">
 
                         <div class="">
@@ -512,7 +512,7 @@
 
                 <!-- Table 4 -->
 
-                <div class="column4" *ngIf="selected && addForm">
+                <div class="column4" *ngIf="selected">
 
                     <label class="textPayToTherapist">Pagado a encargada</label>
 
@@ -586,7 +586,7 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalCommission + ' €'}}</label>
                         </div>
                     </div>
 
@@ -924,8 +924,11 @@
                     </div>
 
                 </div>
-
             </div>
+        </div>
+
+        <div *ngIf="loading" id="container_loading">
+            <div id="load"></div>
         </div>
 
     </div>

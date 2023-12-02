@@ -21,6 +21,7 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
+  loading: boolean = false
   CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
@@ -2114,7 +2115,7 @@ export class TherapistComponent implements OnInit {
     this.serviceTherapist.getTerapeuta(this.settledData[0]?.terapeuta).subscribe((datosNameTerapeuta: any) => {
       if (datosNameTerapeuta.length > 0) {
         this.terapeutaName = datosNameTerapeuta[0]
-        
+
         // Comision
         comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]?.servicio
         comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]?.propina
@@ -2156,26 +2157,33 @@ export class TherapistComponent implements OnInit {
   }
 
   dataFormEdit(idTherapist: string) {
-    this.liquidationForm = false
-    this.editTerap = true
-
-    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe((datosTerapeuta) => {
-      this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-      this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-      this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-      this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
-    })
+    this.loading = true
 
     setTimeout(() => {
-      if (!this.sumTotal(idTherapist)) return
-    }, 1000);
+      this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe((datosTerapeuta) => {
+        this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
+        this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
+        this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
+        this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
+      })
 
-    setTimeout(() => {
-      if (!this.comission()) return
-    }, 3000);
+      setTimeout(() => {
+        if (!this.sumTotal(idTherapist)) return
+      }, 1000);
 
-    this.validateNullData()
-    this.thousandPointEdit()
+      setTimeout(() => {
+        if (!this.comission()) return
+      }, 3000);
+
+      setTimeout(() => {
+        this.validateNullData()
+        this.thousandPointEdit()
+
+        this.loading = false
+        this.liquidationForm = false
+        this.editTerap = true
+      }, 5000);
+    }, 5000);
   }
 
   formatDate() {
