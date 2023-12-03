@@ -148,7 +148,7 @@
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
-                <!-- Add Therapist -->
+                <!-- Add Manager -->
 
                 <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
 
@@ -174,7 +174,8 @@
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    (ngModelChange)="calculateServices()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                    font-size: 18px; font-family: sans-serif;">
                                     <option *ngFor="let managers of manager" [value]="managers.nombre">
                                         {{managers.nombre}}
                                     </option>

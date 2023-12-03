@@ -21,6 +21,8 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
+  exitTherapistAndManager: boolean = false
+  dates: boolean = false
   loading: boolean = false
   CurrenDate = ""
   idSettled: number
@@ -148,6 +150,7 @@ export class TherapistComponent implements OnInit {
     this.addForm = false
     this.selected = false
     this.editTerap = false
+    this.dates = false
 
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
@@ -320,7 +323,9 @@ export class TherapistComponent implements OnInit {
   getThoseThatNotLiquidated() {
     this.service.getByLiquidTerapFalse().subscribe((datoServicio) => {
       this.unliquidatedService = datoServicio
+      return true
     })
+    return false
   }
 
   getTerapeuta() {
@@ -349,7 +354,9 @@ export class TherapistComponent implements OnInit {
     this.liquidationForm = false
     this.editTerap = false
     this.selected = false
+    this.dates = false
     this.addForm = true
+
   }
 
   notes(targetModal, modal) {
@@ -405,196 +412,186 @@ export class TherapistComponent implements OnInit {
     }
   }
 
+  getTherapistAndManager() {
+    debugger
+    this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta,
+      this.liquidationTherapist.encargada).subscribe((resp: any) => {
+        console.log(resp)
+        if (resp > 0) this.exitTherapistAndManager = true
+        else this.exitTherapistAndManager = false
+        return true
+      })
+    return false
+  }
+
   calculateServices(): any {
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
+      this.loading = true
       this.getThoseThatNotLiquidated()
 
-      this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
-        if (resp.length > 0) {
+      setTimeout(() => {
+        if (!this.getTherapistAndManager()) return
+      }, 1200);
 
-          this.selected = true
-          this.dateExists()
+      // if (this.exitTherapistAndManager == true) {
 
-          setTimeout(() => {
-            if (this.inputDateAndTime()) return
-          }, 600);
+      //   this.selected = false
+      //   this.dates = false
+      //   this.dateExists()
 
+      //   setTimeout(() => {
+      //     if (this.inputDateAndTime()) return
+      //   }, 2000);
+      // }
 
-        } else {
-          this.selected = false
-          Swal.fire({
-            icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
-          })
-        }
-      })
+      // else if (this.exitTherapistAndManager == false) {
+      //   this.selected = false
+      //   this.dates = false
+      //   this.loading = false
+
+      //   Swal.fire({
+      //     icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
+      //   })
+      // }
+    }
+    else {
+      this.selected = false
+      this.dates = false
     }
   }
 
   inputDateAndTime() {
-    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-    this.totalCommission = 0
+    setTimeout(() => {
+      let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+      this.totalCommission = 0
 
-    this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
-      this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
-      this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe((rp: any) => {
+      this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
+        this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
+        this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe((rp: any) => {
 
-        if (rp.length > 0) {
+          if (rp.length > 0) {
+            this.unliquidatedService = rp
 
-          this.unliquidatedService = rp
+            // Filter by servicio
+            const servicios = this.unliquidatedService.filter(serv => serv)
+            this.totalService = servicios.reduce((accumulator, serv) => {
+              return accumulator + serv.servicio
+            }, 0)
 
-          // Filter by servicio
-          const servicios = this.unliquidatedService.filter(serv => rp)
-          this.totalService = servicios.reduce((accumulator, serv) => {
-            return accumulator + serv.servicio
-          }, 0)
+            // Filter by Propina
+            const propinas = this.unliquidatedService.filter(serv => serv)
+            this.totalTipValue = propinas.reduce((accumulator, serv) => {
+              return accumulator + serv.propina
+            }, 0)
 
-          // Filter by Propina
-          const propinas = this.unliquidatedService.filter(serv => rp)
-          this.totalTipValue = propinas.reduce((accumulator, serv) => {
-            return accumulator + serv.propina
-          }, 0)
+            // Filter by Pago
+            const terapeuta = this.unliquidatedService.filter(serv => serv)
+            this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+              return accumulator + serv.numberTerap
+            }, 0)
 
-          // Filter by Pago
-          const terapeuta = this.unliquidatedService.filter(serv => rp)
-          this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-            return accumulator + serv.numberTerap
-          }, 0)
+            // Filter by Bebida
+            const bebida = this.unliquidatedService.filter(serv => serv)
+            this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+              return accumulator + serv.bebidas
+            }, 0)
 
-          // Filter by Bebida
-          const bebida = this.unliquidatedService.filter(serv => rp)
-          this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-            return accumulator + serv.bebidas
-          }, 0)
+            // Filter by Tabaco
+            const tabac = this.unliquidatedService.filter(serv => serv)
+            this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+              return accumulator + serv.tabaco
+            }, 0)
 
-          // Filter by Tabaco
-          const tabac = this.unliquidatedService.filter(serv => rp)
-          this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-            return accumulator + serv.tabaco
-          }, 0)
+            // Filter by Vitamina
+            const vitamina = this.unliquidatedService.filter(serv => serv)
+            this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+              return accumulator + serv.vitaminas
+            }, 0)
 
-          // Filter by Vitamina
-          const vitamina = this.unliquidatedService.filter(serv => rp)
-          this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-            return accumulator + serv.vitaminas
-          }, 0)
+            // Filter by Others
+            const otroServicio = this.unliquidatedService.filter(serv => serv)
+            this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+              return accumulator + serv.otros
+            }, 0)
 
-          // Filter by Others
-          const otroServicio = this.unliquidatedService.filter(serv => rp)
-          this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-            return accumulator + serv.otros
-          }, 0)
+            // Filter by totalCash
+            const totalCashs = this.unliquidatedService.filter(serv => serv)
+            this.totalCash = totalCashs.reduce((accumulator, serv) => {
+              return accumulator + serv.valueEfectTerapeuta
+            }, 0)
 
-          // Filter by totalCash
-          const totalCashs = this.unliquidatedService.filter(serv => rp)
-          this.totalCash = totalCashs.reduce((accumulator, serv) => {
-            return accumulator + serv.valueEfectTerapeuta
-          }, 0)
+            // Filter by totalBizum
+            const totalBizums = this.unliquidatedService.filter(serv => serv)
+            this.totalBizum = totalBizums.reduce((accumulator, serv) => {
+              return accumulator + serv.valueBizuTerapeuta
+            }, 0)
 
-          // Filter by totalBizum
-          const totalBizums = this.unliquidatedService.filter(serv => rp)
-          this.totalBizum = totalBizums.reduce((accumulator, serv) => {
-            return accumulator + serv.valueBizuTerapeuta
-          }, 0)
+            // Filter by totalCard
+            const totalCards = this.unliquidatedService.filter(serv => serv)
+            this.totalCard = totalCards.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTarjeTerapeuta
+            }, 0)
 
-          // Filter by totalCard
-          const totalCards = this.unliquidatedService.filter(serv => rp)
-          this.totalCard = totalCards.reduce((accumulator, serv) => {
-            return accumulator + serv.valueTarjeTerapeuta
-          }, 0)
+            // Filter by totalTransaction
+            const totalTransactions = this.unliquidatedService.filter(serv => serv)
+            this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
+              return accumulator + serv.valueTransTerapeuta
+            }, 0)
 
-          // Filter by totalTransaction
-          const totalTransactions = this.unliquidatedService.filter(serv => rp)
-          this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
-            return accumulator + serv.valueTransTerapeuta
-          }, 0)
+            // Total therapist payment
+            this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
 
-          // Total therapist payment
-          this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
+            this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
+              this.terapeutaName = datosNameTerapeuta[0]
 
-          this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
-            this.terapeutaName = datosNameTerapeuta[0]
+              // Comision
+              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
-            // Comision
-            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+              // Conversion decimal
+              this.serviceCommission = Math.ceil(comisiServicio)
+              this.commissionTip = Math.ceil(comiPropina)
+              this.beverageCommission = Math.ceil(comiBebida)
+              this.tobaccoCommission = Math.ceil(comiTabaco)
+              this.vitaminCommission = Math.ceil(comiVitamina)
+              this.commissionOthers = Math.ceil(comiOtros)
 
-            // Conversion decimal
-            this.serviceCommission = Math.ceil(comisiServicio)
-            this.commissionTip = Math.ceil(comiPropina)
-            this.beverageCommission = Math.ceil(comiBebida)
-            this.tobaccoCommission = Math.ceil(comiTabaco)
-            this.vitaminCommission = Math.ceil(comiVitamina)
-            this.commissionOthers = Math.ceil(comiOtros)
+              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+                Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-              Number(this.vitaminCommission) + Number(this.commissionOthers)
+              if (this.sumCommission != 0 || this.sumCommission != undefined) {
+                this.sumCommission = Math.ceil(sumComision)
+              }
 
-            if (this.sumCommission != 0 || this.sumCommission != undefined) {
-              this.sumCommission = Math.ceil(sumComision)
-            }
+              // Recibido
+              this.receivedTherapist = this.totalTherapistValue
+              this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
+              this.liquidationTherapist.importe = this.totalCommission
 
-            // Recibido
-            this.receivedTherapist = this.totalTherapistValue
-            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
-            this.liquidationTherapist.importe = this.totalCommission
-
-            this.validateNullData()
-            this.thousandPoint()
-          })
-          return true
-        } else {
-          this.unliquidatedService = rp
-
-          Swal.fire({
-            icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
-          })
-
-          let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-          this.totalCommission = 0
-
-          this.serviceTherapist.getTerapeuta(this.liquidationTherapist.terapeuta).subscribe((datosNameTerapeuta) => {
-            this.terapeutaName = datosNameTerapeuta[0]
-
-            // Comision
-            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
-
-            // Conversion decimal
-            this.serviceCommission = Math.ceil(comisiServicio)
-            this.commissionTip = Math.ceil(comiPropina)
-            this.beverageCommission = Math.ceil(comiBebida)
-            this.tobaccoCommission = Math.ceil(comiTabaco)
-            this.vitaminCommission = Math.ceil(comiVitamina)
-            this.commissionOthers = Math.ceil(comiOtros)
-
-            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-              Number(this.vitaminCommission) + Number(this.commissionOthers)
-
-            if (this.sumCommission != 0 || this.sumCommission != undefined) {
-              this.sumCommission = Math.ceil(sumComision)
-            }
-
-            // Recibido
-            this.receivedTherapist = this.totalTherapistValue
-            this.totalCommission = Math.ceil(this.sumCommission) - Number(this.receivedTherapist)
-            this.liquidationTherapist.importe = this.totalCommission
-
-            this.validateNullData()
+              this.validateNullData()
+              this.thousandPoint()
+              this.loading = false
+              this.selected = true
+              this.dates = true
+            })
             return true
-          })
-          return false
-        }
-      })
+          } else {
+            this.unliquidatedService = rp
+            this.loading = false
+
+            Swal.fire({
+              icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+            })
+
+            return false
+          }
+        })
+    }, 2000);
     return false
   }
 

@@ -19,8 +19,7 @@ import { ModelService } from 'src/app/core/models/service'
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent implements OnInit {
-
-  existIdManager: boolean = false
+  
   loading: boolean = false
   dates: boolean = false
   CurrenDate = ""
@@ -408,15 +407,6 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  GetManager() {
-    this.service.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
-      if (rp.length > 0) this.existIdManager = true
-      else this.existIdManager = false
-      return true
-    })
-    return false
-  }
-
   calculateServices(): any {
     if (this.liquidationManager.encargada != "") {
       this.loading = true
@@ -436,6 +426,7 @@ export class ManagerComponent implements OnInit {
         } else {
           this.selected = false
           this.dates = false
+          this.loading = false
 
           Swal.fire({
             icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
@@ -489,67 +480,67 @@ export class ManagerComponent implements OnInit {
             this.unliquidatedService = rp
 
             // Filter by servicio
-            const servicios = this.unliquidatedService.filter(serv => rp)
+            const servicios = this.unliquidatedService.filter(serv => serv)
             this.totalService = servicios.reduce((accumulator, serv) => {
               return accumulator + serv.servicio
             }, 0)
 
             // Filter by Propina
-            const propinas = this.unliquidatedService.filter(serv => rp)
+            const propinas = this.unliquidatedService.filter(serv => serv)
             this.totalTipValue = propinas.reduce((accumulator, serv) => {
               return accumulator + serv.propina
             }, 0)
 
             // Filter by Pago
-            const terapeuta = this.unliquidatedService.filter(serv => rp)
+            const terapeuta = this.unliquidatedService.filter(serv => serv)
             this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
               return accumulator + serv.numberTerap
             }, 0)
 
             // Filter by Bebida
-            const bebida = this.unliquidatedService.filter(serv => rp)
+            const bebida = this.unliquidatedService.filter(serv => serv)
             this.totalValueDrink = bebida.reduce((accumulator, serv) => {
               return accumulator + serv.bebidas
             }, 0)
 
             // Filter by Tabaco
-            const tabac = this.unliquidatedService.filter(serv => rp)
+            const tabac = this.unliquidatedService.filter(serv => serv)
             this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
               return accumulator + serv.tabaco
             }, 0)
 
             // Filter by Vitamina
-            const vitamina = this.unliquidatedService.filter(serv => rp)
+            const vitamina = this.unliquidatedService.filter(serv => serv)
             this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
               return accumulator + serv.vitaminas
             }, 0)
 
             // Filter by Others
-            const otroServicio = this.unliquidatedService.filter(serv => rp)
+            const otroServicio = this.unliquidatedService.filter(serv => serv)
             this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
               return accumulator + serv.otros
             }, 0)
 
             // Filter by totalCash
-            const totalCashs = this.unliquidatedService.filter(serv => rp)
+            const totalCashs = this.unliquidatedService.filter(serv => serv)
             this.totalCash = totalCashs.reduce((accumulator, serv) => {
               return accumulator + serv.valueEfectTerapeuta
             }, 0)
 
             // Filter by totalBizum
-            const totalBizums = this.unliquidatedService.filter(serv => rp)
+            const totalBizums = this.unliquidatedService.filter(serv => serv)
             this.totalBizum = totalBizums.reduce((accumulator, serv) => {
               return accumulator + serv.valueBizuTerapeuta
             }, 0)
 
             // Filter by totalCard
-            const totalCards = this.unliquidatedService.filter(serv => rp)
+            const totalCards = this.unliquidatedService.filter(serv => serv)
             this.totalCard = totalCards.reduce((accumulator, serv) => {
               return accumulator + serv.valueTarjeTerapeuta
             }, 0)
 
             // Filter by totalTransaction
-            const totalTransactions = this.unliquidatedService.filter(serv => rp)
+            const totalTransactions = this.unliquidatedService.filter(serv => serv)
             this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
               return accumulator + serv.valueTransTerapeuta
             }, 0)
@@ -614,54 +605,6 @@ export class ManagerComponent implements OnInit {
               icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
             })
 
-            let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-            this.totalCommission = 0
-
-            this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
-              this.managerName = datosNameTerapeuta[0]
-              this.fijoDia = datosNameTerapeuta[0]['fijoDia']
-              this.letterFixedDay = this.fijoDia.toString()
-
-              // Comision
-              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
-
-              // Conversion decimal
-              this.serviceCommission = Math.ceil(comisiServicio)
-              this.commissionTip = Math.ceil(comiPropina)
-              this.beverageCommission = Math.ceil(comiBebida)
-              this.tobaccoCommission = Math.ceil(comiTabaco)
-              this.vitaminCommission = Math.ceil(comiVitamina)
-              this.commissionOthers = Math.ceil(comiOtros)
-
-              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-                Number(this.vitaminCommission) + Number(this.commissionOthers)
-
-              if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.ceil(sumComision)
-              }
-
-              let dayStart = 0, dayEnd = 0
-              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
-
-              this.fixedDay = dayEnd - dayStart
-              this.fixedTotalDay = this.fixedDay * this.fijoDia
-              this.pountFixedDay()
-
-              // Recibido
-              this.receivedTherapist = this.totalTherapistValue
-              this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedTherapist)
-              this.liquidationManager.importe = this.totalCommission
-
-              this.validateNullData()
-              return true
-            })
             return false
           }
         })
