@@ -21,7 +21,6 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
-  exitTherapistAndManager: boolean = false
   dates: boolean = false
   loading: boolean = false
   CurrenDate = ""
@@ -376,21 +375,19 @@ export class TherapistComponent implements OnInit {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
-    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
-      this.liquidationTherapist.encargada).subscribe((rp: any) => {
+    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp: any) => {
+      if (rp.length > 0) {
 
-        if (rp.length > 0) {
+        fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
+        fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
+        fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
 
-          fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
-          fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
-          fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
-
-          this.liquidationTherapist.desdeFechaLiquidado = `${'20' + fromYear}-${fromMonth}-${fromDay}`
-          this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
-        } else {
-          this.dateDoesNotExist()
-        }
-      })
+        this.liquidationTherapist.desdeFechaLiquidado = `${'20' + fromYear}-${fromMonth}-${fromDay}`
+        this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+      } else {
+        this.dateDoesNotExist()
+      }
+    })
 
     untilDay = currentDate.getDate()
     untilMonth = currentDate.getMonth() + 1
@@ -412,47 +409,32 @@ export class TherapistComponent implements OnInit {
     }
   }
 
-  getTherapistAndManager() {
-    debugger
-    this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta,
-      this.liquidationTherapist.encargada).subscribe((resp: any) => {
-        console.log(resp)
-        if (resp > 0) this.exitTherapistAndManager = true
-        else this.exitTherapistAndManager = false
-        return true
-      })
-    return false
-  }
-
   calculateServices(): any {
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
 
-      setTimeout(() => {
-        if (!this.getTherapistAndManager()) return
-      }, 1200);
+      this.service.getByTerapeutaAndEncargada(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((resp: any) => {
+        if (resp.length > 0) {
 
-      // if (this.exitTherapistAndManager == true) {
+          this.selected = false
+          this.dates = false
+          this.dateExists()
 
-      //   this.selected = false
-      //   this.dates = false
-      //   this.dateExists()
+          setTimeout(() => {
+            if (this.inputDateAndTime()) return
+          }, 600);
 
-      //   setTimeout(() => {
-      //     if (this.inputDateAndTime()) return
-      //   }, 2000);
-      // }
+        } else {
+          this.selected = false
+          this.dates = false
+          this.loading = false
 
-      // else if (this.exitTherapistAndManager == false) {
-      //   this.selected = false
-      //   this.dates = false
-      //   this.loading = false
-
-      //   Swal.fire({
-      //     icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
-      //   })
-      // }
+          Swal.fire({
+            icon: 'error', title: 'Oops...', text: 'No existe ningun servicio para liquidar', showConfirmButton: false, timer: 2500
+          })
+        }
+      })
     }
     else {
       this.selected = false
@@ -583,6 +565,8 @@ export class TherapistComponent implements OnInit {
           } else {
             this.unliquidatedService = rp
             this.loading = false
+            this.dates = true
+            this.textTotalComission = '0'
 
             Swal.fire({
               icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
@@ -591,7 +575,7 @@ export class TherapistComponent implements OnInit {
             return false
           }
         })
-    }, 2000);
+    }, 400);
     return false
   }
 

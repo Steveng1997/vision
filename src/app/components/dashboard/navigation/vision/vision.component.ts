@@ -17,6 +17,7 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 
 export class VisionComponent implements OnInit {
 
+  loading: boolean = false
   vision: any
   page!: number
   fechaDiaHoy = ''
@@ -96,6 +97,7 @@ export class VisionComponent implements OnInit {
   ) { }
 
   public async ngOnInit(): Promise<void> {
+    this.loading = true
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
@@ -111,6 +113,7 @@ export class VisionComponent implements OnInit {
 
     setTimeout(() => {
       this.getMinute()
+      this.loading = false
     }, 1200);
   }
 

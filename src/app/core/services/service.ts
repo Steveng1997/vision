@@ -29,12 +29,7 @@ export class Service {
   }
 
   getByTerapeutaAndEncargada(terapeuta: string, encargada: string) {
-    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada`, {
-      params: {
-        terapeuta,
-        encargada
-      }
-    });
+    return this.http.get(`${this.API_URL}/getTerapeutaAndEncargada/${terapeuta}/${encargada}`);
   }
 
   getByEncargada(encargada: string) {

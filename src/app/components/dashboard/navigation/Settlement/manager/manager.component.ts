@@ -19,7 +19,7 @@ import { ModelService } from 'src/app/core/models/service'
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent implements OnInit {
-  
+
   loading: boolean = false
   dates: boolean = false
   CurrenDate = ""
@@ -425,11 +425,12 @@ export class ManagerComponent implements OnInit {
 
         } else {
           this.selected = false
-          this.dates = false
           this.loading = false
+          this.dates = true
+          this.textTotalComission = '0'
 
           Swal.fire({
-            icon: 'error', title: 'Oops...', text: 'No existe ningun servicio', showConfirmButton: false, timer: 2500
+            icon: 'error', title: 'Oops...', text: 'No existe ningun servicio para liquidar', showConfirmButton: false, timer: 2500
           })
         }
       })
@@ -619,6 +620,7 @@ export class ManagerComponent implements OnInit {
       año = rp[0]['fechaHoyInicio'].substring(0, 4)
       mes = rp[0]['fechaHoyInicio'].substring(5, 7)
       dia = rp[0]['fechaHoyInicio'].substring(8, 10)
+
       this.liquidationManager.desdeFechaLiquidado = `${año}-${mes}-${dia}`
       this.liquidationManager.desdeHoraLiquidado = rp[0]['horaStart']
     })

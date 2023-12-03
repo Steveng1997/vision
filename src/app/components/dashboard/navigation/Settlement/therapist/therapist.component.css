@@ -4683,6 +4683,9 @@
   }
 
   .columnPay {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
     margin-left: -20px;
   }
 
