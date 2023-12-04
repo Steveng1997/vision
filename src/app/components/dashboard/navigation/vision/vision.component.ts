@@ -9,6 +9,8 @@ import { ServiceTherapist } from 'src/app/core/services/therapist'
 // Models
 import { ModelTherapist } from 'src/app/core/models/therapist'
 
+import moment from 'moment'
+
 @Component({
   selector: 'app-vision',
   templateUrl: './vision.component.html',
@@ -17,6 +19,7 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 
 export class VisionComponent implements OnInit {
 
+  diferenceMinutes: number
   tableVision: boolean = false
   loading: boolean = false
   vision: any
@@ -179,8 +182,8 @@ export class VisionComponent implements OnInit {
       if (this.therapist?.horaEnd != "") {
         for (let i in this.therapist) {
           this.minuteDifference(this.therapist[i]?.horaEnd, this.therapist[i]?.nombre, this.therapist[i]?.fechaEnd)
-          if (this.therapist[i]?.minuto != null && this.therapist[i]?.minuto != "") {
-            this.therapist[i].minuto = this.horaEnd
+          if (this.diferenceMinutes > 0) {
+            this.therapist[i].minuto = this.diferenceMinutes
             this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp) => {
               if (!this.consultTherapist()) return
             })
@@ -218,48 +221,38 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  minuteDifference(horaFin: string, nombre: string, fecha: string) {
+  minuteDifference(horaFin: string, nombre: string, dateEnd: string) {
+    let date = new Date(), day = 0, convertDay = '', month = 0, year = 0, hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
 
-    let hora_actual: any = new Date(), convertHora = '', fechaEnd = '', convertFecha = '',
-      fechaHoy = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
+    dayEnd = dateEnd.substring(0, 2)
+    monthEnd = dateEnd.substring(3, 5)
+    yearEnd = dateEnd.substring(6, 9)
+    yearEnd = + '20' + yearEnd
 
-    dia = fechaHoy.getDate()
-    mes = fechaHoy.getMonth() + 1
-    año = fechaHoy.getFullYear()
+    var fecha1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${horaFin}:00`, "YYYY-MM-DD HH:mm:ss")
 
-    let minutes = hora_actual.getMinutes().toString().length === 1 ?
-      '0' + hora_actual.getMinutes() : hora_actual.getMinutes()
-    hora_actual = hora_actual.getHours() + ':' + minutes
-    let hora_inicio = hora_actual
-    const hora_final: any = horaFin
+    // fecha 2
 
-    if (mes > 0 && mes < 10) {
-      convertMes = '0' + mes
-      fechaEnd = `${dia}-${convertMes}-${año}`
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+    var second = date.getSeconds()
+
+    debugger
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      var fecha2 = moment(`${year}-${month}-${convertDay} ${hour}:${second}`, "YYYY-MM-DD HH:mm:ss")
     } else {
-      convertMes = mes.toString()
-      fechaEnd = `${dia}-${mes}-${año}`
+      day = day
+      var fecha2 = moment(`${year}-${month}-${day} ${hour}`, "YYYY-MM-DD HH:mm:ss")
     }
 
-    if (dia > 0 && dia < 10) {
-      convertDia = '0' + dia
-      fechaEnd = `${año}-${convertMes}-${convertDia}`
-    } else {
-      fechaEnd = `${año}-${convertMes}-${dia}`
-    }
-
-    // Convertimos fecha
-    if (fecha != "") convertFecha = fecha?.replace("/", "-").replace("/", "-")
-
-    // Expresión regular para comprobar formato
-    var formatohora = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
-
-    if (hora_inicio.length == 4) {
-      hora_inicio = '0' + hora_inicio
-    }
+    // var diferenceMinutes = fecha2.diff(fecha1, 'minute')
+    this.diferenceMinutes = fecha1.diff(fecha2, 'minute')
 
     setTimeout(() => {
-      if (convertFecha < fechaEnd) {
+      if (this.diferenceMinutes == 0) {
         this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
           this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
             return ''
@@ -268,48 +261,7 @@ export class VisionComponent implements OnInit {
       }
     }, 1000);
 
-    // Si algún valor no tiene formato correcto sale
-    if (!(hora_inicio.match(formatohora) && hora_final.match(formatohora))) {
-      return ''
-    }
-
-    // Calcula los minutos de cada hora
-    var minutos_inicio = hora_inicio.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c))
-    var minutos_final = hora_final.split(':').reduce((p, c) => parseInt(p) * 60 + parseInt(c))
-
-    if (hora_inicio.length === 4) {
-      convertHora = '0' + hora_inicio
-    } else {
-      convertHora = hora_inicio
-    }
-
-    // Si la hora final es anterior a la hora inicial sale
-    if (minutos_final <= minutos_inicio) {
-      this.therapist[0].fechaEnd = ""
-      this.therapist[0].horaEnd = ""
-      this.therapist[0].minuto = ""
-      this.therapist[0].salida = ""
-      this.serviceTherapist.updateHoraAndSalida(nombre, this.therapist[0]).subscribe((resp: any) => { })
-      return ''
-    }
-
-    // Diferencia de minutos
-    var diferencia = parseInt(minutos_final) - minutos_inicio
-
-    // Cálculo de horas y minutos de la diferencia
-    var horas = Math.floor(diferencia / 60)
-    var minutos = diferencia % 60
-
-    // this.horaEnd = horas + ':' + (minutos < 10 ? '0' : '') + minutos
-    this.horaHoy = horas + ':' + (minutos < 10 ? '0' : '') + minutos
-
-    if (this.horaHoy.slice(0, 1) === "0") {
-      this.horaEnd = this.horaHoy.slice(2, 4)
-    } else {
-      this.horaEnd = this.horaHoy
-    }
-
-    return this.horaEnd
+    return this.diferenceMinutes
   }
 
   validateTheEmptyField() {
@@ -838,7 +790,7 @@ export class VisionComponent implements OnInit {
         fechaActualmente = '', convertionAño
 
       for (let i = 0; i < this.count; i++) {
-        
+
         this.fechaFormat.setDate(this.fechaFormat.getDate() - this.count)
         convertDia = this.fechaFormat.toString().substring(8, 10)
         convertmes = this.fechaFormat.toString().substring(4, 7)

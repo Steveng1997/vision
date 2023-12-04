@@ -229,7 +229,6 @@ export class NewServiceComponent implements OnInit {
 
     this.fechaActual = `${dia}-${mes}-${año}`
     this.services.fecha = this.fechaActual
-    this.services.fechaFin = this.fechaActual
 
     this.services.fechaHoyInicio = `${currentDate.getFullYear()}-${mes}-${dia}`
   }
@@ -390,7 +389,7 @@ export class NewServiceComponent implements OnInit {
 
               this.therapist.horaEnd = this.services.horaEnd
               this.therapist.salida = this.services.salida
-              this.therapist.fechaEnd = this.services.fechaHoyInicio
+              this.therapist.fechaEnd = this.services.fechaFin
               this.therapist.minuto = this.services.minuto
 
               this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
@@ -648,60 +647,6 @@ export class NewServiceComponent implements OnInit {
     this.services.formaPago = formPago.join(',')
   }
 
-  editStartTime(event: any) {
-    this.horaInicialServicio = event.target.value.toString()
-
-    if (Number(this.editarService[0]['minuto']) > 0) {
-      let sumarsesion = Number(this.editarService[0]['minuto']), horas = 0, minutos = 0, convertHora = ''
-
-      // Create date by Date and Hour
-      const splitDate = this.fechaActual.toString().split('-')
-      const splitHour = this.horaInicialServicio.split(':')
-
-      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
-
-      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-
-      horas = defineDate.getHours()
-      minutos = defineDate.getMinutes()
-
-      if (horas > 0 && horas < 10) {
-        convertHora = '0' + horas
-        let hora = convertHora
-        let minutes = minutos
-        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      } else {
-        let minutes = minutos
-        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      }
-    }
-
-    if (Number(this.services.minuto) > 0) {
-      let sumarsesion = Number(this.services.minuto), horas = 0, minutos = 0, convertHora = ''
-
-      // Create date by Date and Hour
-      const splitDate = this.fechaActual.toString().split('-')
-      const splitHour = this.horaInicialServicio.split(':')
-
-      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
-
-      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
-
-      horas = defineDate.getHours()
-      minutos = defineDate.getMinutes()
-
-      if (horas > 0 && horas < 10) {
-        convertHora = '0' + horas
-        let hora = convertHora
-        let minutes = minutos
-        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      } else {
-        let minutes = minutos
-        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
-      }
-    }
-  }
-
   startTime(event: any) {
     this.services.horaEnd = event.target.value.toString()
     this.horaInicialServicio = event.target.value.toString()
@@ -741,7 +686,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   minutes(event: any) {
-    let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
+    let sumarsesion = event, horas = 0, minutos = 0, convertHora = '', day = '', month = '', year = ''
     if (event === null) sumarsesion = 0
 
     // Create date by Date and Hour
@@ -749,8 +694,29 @@ export class NewServiceComponent implements OnInit {
     const splitHour = this.horaInicialServicio.split(':')
 
     let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
-
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+
+    let datesEnd = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+    datesEnd.setMinutes(datesEnd.getMinutes() + sumarsesion).toString().substring(4, 15)
+
+    day = datesEnd.toString().substring(8, 10)
+    month = datesEnd.toString().substring(4, 7)
+    year = datesEnd.toString().substring(13, 15)
+
+    if (month == 'Dec') month = "12"
+    if (month == 'Nov') month = "11"
+    if (month == 'Oct') month = "10"
+    if (month == 'Sep') month = "09"
+    if (month == 'Aug') month = "08"
+    if (month == 'Jul') month = "07"
+    if (month == 'Jun') month = "06"
+    if (month == 'May') month = "05"
+    if (month == 'Apr') month = "04"
+    if (month == 'Mar') month = "03"
+    if (month == 'Feb') month = "02"
+    if (month == 'Jan') month = "01"
+
+    this.services.fechaFin = `${day}-${month}-${year}`
 
     horas = defineDate.getHours()
     minutos = defineDate.getMinutes()
@@ -932,19 +898,69 @@ export class NewServiceComponent implements OnInit {
 
   // -------------------------------------------- Editamos  // ---------------------------------------------
 
+  editStartTime(event: any) {
+    this.horaInicialServicio = event.target.value.toString()
+
+    if (Number(this.editarService[0]['minuto']) > 0) {
+      let sumarsesion = Number(this.editarService[0]['minuto']), horas = 0, minutos = 0, convertHora = ''
+
+      // Create date by Date and Hour
+      const splitDate = this.fechaActual.toString().split('-')
+      const splitHour = this.horaInicialServicio.split(':')
+
+      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+
+      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+
+      horas = defineDate.getHours()
+      minutos = defineDate.getMinutes()
+
+      if (horas > 0 && horas < 10) {
+        convertHora = '0' + horas
+        let hora = convertHora
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      } else {
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      }
+    }
+
+    if (Number(this.services.minuto) > 0) {
+      let sumarsesion = Number(this.services.minuto), horas = 0, minutos = 0, convertHora = ''
+
+      // Create date by Date and Hour
+      const splitDate = this.fechaActual.toString().split('-')
+      const splitHour = this.horaInicialServicio.split(':')
+
+      let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+      defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
+
+      horas = defineDate.getHours()
+      minutos = defineDate.getMinutes()
+
+      if (horas > 0 && horas < 10) {
+        convertHora = '0' + horas
+        let hora = convertHora
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = hora + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      } else {
+        let minutes = minutos
+        this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
+      }
+    }
+  }
+
   editMinutes(event: any) {
 
-    let sumarsesion = event, horas = 0, minutos = 0, convertHora = ''
+    let sumarsesion = event, horas = 0, minutos = 0, convertHora = '', day = '', month = '', year = ''
 
     if (event === null) sumarsesion = 0
 
-    // Create date by Date and Hour
     const splitDate = this.fechaActual.toString().split('-')
-    // const splitHour = this.horaInicialServicio.split(':')
     const splitHour = this.editarService[0]['horaStart'].split(':')
 
     let defineDate = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
-
     defineDate.setMinutes(defineDate.getMinutes() + sumarsesion)
 
     horas = defineDate.getHours()
@@ -959,6 +975,28 @@ export class NewServiceComponent implements OnInit {
       let minutes = minutos
       this.editarService[0]['horaEnd'] = horas + ':' + (Number(minutes) < 10 ? '0' : '') + minutes
     }
+
+    let datesEnd = new Date(Number(splitDate[0]), (Number(splitDate[1]) - 1), Number(splitDate[2]), Number(splitHour[0]), Number(splitHour[1]))
+    datesEnd.setMinutes(datesEnd.getMinutes() + sumarsesion).toString().substring(4, 15)
+
+    day = datesEnd.toString().substring(8, 10)
+    month = datesEnd.toString().substring(4, 7)
+    year = datesEnd.toString().substring(13, 15)
+
+    if (month == 'Dec') month = "12"
+    if (month == 'Nov') month = "11"
+    if (month == 'Oct') month = "10"
+    if (month == 'Sep') month = "09"
+    if (month == 'Aug') month = "08"
+    if (month == 'Jul') month = "07"
+    if (month == 'Jun') month = "06"
+    if (month == 'May') month = "05"
+    if (month == 'Apr') month = "04"
+    if (month == 'Mar') month = "03"
+    if (month == 'Feb') month = "02"
+    if (month == 'Jan') month = "01"
+
+    this.editarService[0]['fechaFin'] = `${day}-${month}-${year}`
   }
 
   validationsFormOfPaymentToEdit() {
@@ -1087,7 +1125,6 @@ export class NewServiceComponent implements OnInit {
     año = this.editarService[0]['fecha'].substring(2, 4)
 
     this.editarService[0]['fecha'] = `${dia}-${mes}-${año}`
-    this.editarService[0]['fechaFin'] = this.editarService[0]['fecha']
   }
 
   consultToEditTheTherapist(nombre: string) {
@@ -1289,7 +1326,7 @@ export class NewServiceComponent implements OnInit {
         this.editValue()
 
         this.therapist.horaEnd = serv.horaEnd
-        this.therapist.fechaEnd = serv.fecha
+        this.therapist.fechaEnd = serv.fechaFin
         this.therapist.salida = serv.salida
         this.therapist.minuto = serv.minuto
 
