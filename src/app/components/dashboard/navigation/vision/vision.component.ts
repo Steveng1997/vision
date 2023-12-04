@@ -20,6 +20,7 @@ import moment from 'moment'
 export class VisionComponent implements OnInit {
 
   diferenceMinutes: number
+  delay = 5000
   tableVision: boolean = false
   loading: boolean = false
   vision: any
@@ -117,8 +118,8 @@ export class VisionComponent implements OnInit {
 
     setTimeout(() => {
       this.getMinute()
-      this.loading = false
       this.tableVision = true
+      this.loading = false
     }, 1200);
   }
 
@@ -229,37 +230,31 @@ export class VisionComponent implements OnInit {
     yearEnd = dateEnd.substring(6, 9)
     yearEnd = + '20' + yearEnd
 
-    var fecha1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${horaFin}:00`, "YYYY-MM-DD HH:mm:ss")
+    var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${horaFin}`, "YYYY-MM-DD HH:mm")
 
-    // fecha 2
+    // Date 2
 
     day = date.getDate()
     month = date.getMonth() + 1
     year = date.getFullYear()
-    var second = date.getSeconds()
-
-    debugger
 
     if (day > 0 && day < 10) {
       convertDay = '0' + day
-      var fecha2 = moment(`${year}-${month}-${convertDay} ${hour}:${second}`, "YYYY-MM-DD HH:mm:ss")
+      var date2 = moment(`${year}-${month}-${convertDay} ${hour}`, "YYYY-MM-DD HH:mm")
     } else {
       day = day
-      var fecha2 = moment(`${year}-${month}-${day} ${hour}`, "YYYY-MM-DD HH:mm:ss")
+      var date2 = moment(`${year}-${month}-${day} ${hour}`, "YYYY-MM-DD HH:mm:ss")
     }
 
-    // var diferenceMinutes = fecha2.diff(fecha1, 'minute')
-    this.diferenceMinutes = fecha1.diff(fecha2, 'minute')
+    this.diferenceMinutes = date1.diff(date2, 'minute')
 
-    setTimeout(() => {
-      if (this.diferenceMinutes == 0) {
-        this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
-          this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
-            return ''
-          })
+    if (this.diferenceMinutes <= 0) {
+      this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
+        this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
+          return ''
         })
-      }
-    }, 1000);
+      })
+    }
 
     return this.diferenceMinutes
   }

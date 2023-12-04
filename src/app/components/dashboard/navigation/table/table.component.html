@@ -3,6 +3,10 @@
         <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
             <div class="m-0 vh-90 row justify-content-center align-items-center">
 
+                <div *ngIf="loading" id="container_loading">
+                    <div id="load"></div>
+                </div>
+
                 <label class="title">SERVICIOS REALIZADOS</label>
 
                 <form [formGroup]="formTemplate">
@@ -96,13 +100,13 @@
                     </div>
                 </form>
 
-                <div class="columnArrow" id="arrowLeft">
+                <div class="columnArrow" id="arrowLeft" *ngIf="table">
                     <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeft()"></i>
                     <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeft()">></label> -->
                 </div>
 
                 <!-- Table -->
-                <div class="column" id="excel-table">
+                <div class="column" id="excel-table" *ngIf="table">
 
                     <!-- Total value -->
                     <div class="columnTableLine1">
@@ -442,8 +446,8 @@
 
                 <!-- Fin table -->
 
-                <pagination-controls class="pagination_Mobile" (pageChange)="page = $event" previousLabel=""
-                    nextLabel="">
+                <pagination-controls class="pagination_Mobile" *ngIf="table" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
                 </pagination-controls>
 
             </div>

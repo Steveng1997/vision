@@ -23,6 +23,8 @@ import { ServiceManager } from 'src/app/core/services/manager'
 
 export class TableComponent implements OnInit {
 
+  loading: boolean = false
+  table: boolean = false
   validationThousand: boolean = false;
 
   fechaInicio: string
@@ -43,7 +45,6 @@ export class TableComponent implements OnInit {
   horario: any
 
   idUser: number
-
   administratorRole: boolean = false
 
   // Servicios
@@ -59,7 +60,6 @@ export class TableComponent implements OnInit {
   totalValorPropina: number
   totalValorOtroServ: number
   totalValor: number
-
 
   // Services String
   TotalValueLetter: string
@@ -101,6 +101,8 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loading = true
+    this.table = false
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
     this.selectedFormPago = ""
@@ -125,6 +127,11 @@ export class TableComponent implements OnInit {
     this.getTherapist()
     this.getServices()
     this.emptyTotals()
+
+    setTimeout(() => {
+      this.loading = false
+      this.table = true
+    }, 2000);
   }
 
   emptyTotals() {
@@ -1145,17 +1152,24 @@ export class TableComponent implements OnInit {
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!'
         }).then((result) => {
+
+          this.loading = true
+
           this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
             this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
           })
 
-          for (let i = 0; this.idService.length; i++) {
-            this.service.deleteServicio(this.idService[i].id).subscribe((rp: any) => {
-              this.getServices()
+          for (let i = 0; i < this.idService.length; i++) {
+            this.service.deleteServicio(this.idService[i]['id']).subscribe((rp: any) => {
             })
           }
 
-          Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
+          this.getServices()
+
+          setTimeout(() => {
+            this.loading = false
+            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+          }, 2000);
         })
       }
     })
