@@ -31,7 +31,7 @@ export class VisionComponent implements OnInit {
   therapist: any
   horaEnd: string
   horaHoy: string
-  diferenceMinuto: string
+  getResultName: any
 
   // TOTALES
   totalVision: number
@@ -118,9 +118,9 @@ export class VisionComponent implements OnInit {
 
     setTimeout(() => {
       this.getMinute()
-      this.tableVision = true
       this.loading = false
-    }, 1200);
+      this.tableVision = true
+    }, 1000);
   }
 
   totalsAtZero() {
@@ -181,15 +181,7 @@ export class VisionComponent implements OnInit {
   getMinute() {
     if (this.therapist.length > 0) {
       if (this.therapist?.horaEnd != "") {
-        for (let i in this.therapist) {
-          this.minuteDifference(this.therapist[i]?.horaEnd, this.therapist[i]?.nombre, this.therapist[i]?.fechaEnd)
-          if (this.diferenceMinutes > 0) {
-            this.therapist[i].minuto = this.diferenceMinutes
-            this.serviceTherapist.updateMinute(this.therapist[i]?.id, this.therapist[i]).subscribe((rp) => {
-              if (!this.consultTherapist()) return
-            })
-          }
-        }
+        this.minuteDifference()
       }
     }
   }
@@ -222,41 +214,58 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  minuteDifference(horaFin: string, nombre: string, dateEnd: string) {
-    let date = new Date(), day = 0, convertDay = '', month = 0, year = 0, hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
 
-    dayEnd = dateEnd.substring(0, 2)
-    monthEnd = dateEnd.substring(3, 5)
-    yearEnd = dateEnd.substring(6, 9)
-    yearEnd = + '20' + yearEnd
-
-    var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${horaFin}`, "YYYY-MM-DD HH:mm")
-
-    // Date 2
-
-    day = date.getDate()
-    month = date.getMonth() + 1
-    year = date.getFullYear()
-
-    if (day > 0 && day < 10) {
-      convertDay = '0' + day
-      var date2 = moment(`${year}-${month}-${convertDay} ${hour}`, "YYYY-MM-DD HH:mm")
-    } else {
-      day = day
-      var date2 = moment(`${year}-${month}-${day} ${hour}`, "YYYY-MM-DD HH:mm:ss")
-    }
-
-    this.diferenceMinutes = date1.diff(date2, 'minute')
-
+  updateHourAndExit(o) {
     if (this.diferenceMinutes <= 0) {
-      this.serviceTherapist.getByNombre(nombre).subscribe((rp) => {
-        this.serviceTherapist.updateHoraAndSalida(nombre, rp[0]).subscribe((rp) => {
-          return ''
-        })
-      })
+      this.serviceTherapist.getByNombre(this.therapist[o]['nombre']).subscribe((rp) => {
+        this.getResultName = rp[0]
+      }).add(this.serviceTherapist.updateHoraAndSalida(this.therapist[o]['nombre'], this.getResultName).subscribe((rp) => { }))
     }
+  }
 
-    return this.diferenceMinutes
+  updateMinute(o) {
+    if (this.diferenceMinutes > 0) {
+      this.therapist[o]['minuto'] = this.diferenceMinutes
+      this.serviceTherapist.updateMinute(this.therapist[o]['id'], this.therapist[o]).subscribe((rp) => {
+      }).add(this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+        this.therapist = rp
+      }))
+    }
+  }
+
+  minuteDifference() {
+    for (let o = 0; o < this.therapist.length; o++) {
+
+      if (this.therapist[o]['fechaEnd'] != "") {
+        let date = new Date(), day = 0, convertDay = '', month = 0, year = 0, hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
+
+        dayEnd = this.therapist[o]['fechaEnd'].substring(0, 2)
+        monthEnd = this.therapist[o]['fechaEnd'].substring(3, 5)
+        yearEnd = this.therapist[o]['fechaEnd'].substring(6, 9)
+        yearEnd = + '20' + yearEnd
+
+        var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${this.therapist[o]['horaEnd']}`, "YYYY-MM-DD HH:mm")
+
+        // Date 2
+
+        day = date.getDate()
+        month = date.getMonth() + 1
+        year = date.getFullYear()
+
+        if (day > 0 && day < 10) {
+          convertDay = '0' + day
+          var date2 = moment(`${year}-${month}-${convertDay} ${hour}`, "YYYY-MM-DD HH:mm")
+        } else {
+          day = day
+          var date2 = moment(`${year}-${month}-${day} ${hour}`, "YYYY-MM-DD HH:mm:ss")
+        }
+
+        this.diferenceMinutes = date1.diff(date2, 'minute')
+
+        this.updateMinute(o)
+        this.updateHourAndExit(o)
+      }
+    }
   }
 
   validateTheEmptyField() {

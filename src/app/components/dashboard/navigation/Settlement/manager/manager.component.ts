@@ -2230,7 +2230,7 @@ export class ManagerComponent implements OnInit {
 
       setTimeout(() => {
         if (!this.comission()) return
-      }, 3000);
+      }, 2000);
 
       setTimeout(() => {
         this.validateNullData()
@@ -2239,8 +2239,8 @@ export class ManagerComponent implements OnInit {
         this.loading = false
         this.liquidationForm = false
         this.editEncarg = true
-      }, 5000);
-    }, 5000);
+      }, 3000);
+    }, 3000);
   }
 
   formatDate() {

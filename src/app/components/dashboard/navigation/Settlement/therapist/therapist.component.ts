@@ -2154,7 +2154,7 @@ export class TherapistComponent implements OnInit {
 
       setTimeout(() => {
         if (!this.comission()) return
-      }, 3000);
+      }, 2000);
 
       setTimeout(() => {
         this.validateNullData()
@@ -2163,8 +2163,8 @@ export class TherapistComponent implements OnInit {
         this.loading = false
         this.liquidationForm = false
         this.editTerap = true
-      }, 5000);
-    }, 5000);
+      }, 3000);
+    }, 3000);
   }
 
   formatDate() {
