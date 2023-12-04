@@ -26,6 +26,7 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 })
 export class SettingComponent implements OnInit {
 
+  loading: boolean = false
   idUser: any
   // Encargada
   managers: any
@@ -119,6 +120,7 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
     this.consultTherapists()
     this.consultManager()
+    this.loading = false
 
     this.idUser = this.activeRoute.snapshot['_urlSegment'].segments['1'].path;
     if (this.idUser) {
@@ -195,22 +197,30 @@ export class SettingComponent implements OnInit {
     if (this.manager.nombre) {
       if (this.manager.usuario) {
         if (this.manager.pass) {
-          this.manager.nombre = this.manager.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-          this.serviceManager.getByUsuario(this.manager.usuario).subscribe((nameRegistro: any) => {
-            if (nameRegistro.length == 0) {
-              this.validateValuesOfEmptyManagers()
-              this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
-                this.consultManager()
-                Swal.fire({
-                  position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+
+          this.loading = true
+          setTimeout(() => {
+            this.manager.nombre = this.manager.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+            this.serviceManager.getByUsuario(this.manager.usuario).subscribe((nameRegistro: any) => {
+              if (nameRegistro.length == 0) {
+                this.validateValuesOfEmptyManagers()
+                this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
+                  this.consultManager()
+                  Swal.fire({
+                    position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+                  })
+                  this.modalService.dismissAll()
+                  this.resetManager()
+                  this.loading = false
                 })
-                this.modalService.dismissAll()
-                this.resetManager()
-              })
-            } else {
-              Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya existe este usuario' })
-            }
-          })
+              } else {
+                this.loading = false
+                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya existe este usuario' })
+              }
+            })
+
+          }, 800);
+
         } else {
           Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo de la contraseña se encuentra vacío' })
         }
@@ -302,6 +312,8 @@ export class SettingComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
 
+            this.loading = true
+
             this.createIdUnicoManager()
             this.dateManager(nombre)
             this.liquidationManager.currentDate = this.currentDate.toString()
@@ -315,10 +327,11 @@ export class SettingComponent implements OnInit {
               this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
             }, 1000)
 
-            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
             this.serviceManager.deleteManager(id).subscribe((resp: any) => {
               this.consultManager()
               this.modalService.dismissAll()
+              this.loading = false
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2000 })
             })
           }
         })
@@ -371,41 +384,45 @@ export class SettingComponent implements OnInit {
 
   therapistRegistration() {
     if (this.therapist.nombre != '') {
-      this.therapist.nombre = this.therapist.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-      this.validateValuesOfEmptyTherapists()
-      this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
-        if (res.length > 0) {
-          Swal.fire({
-            title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No`
-          }).then((result) => {
-            if (result.isConfirmed) {
-              this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
-                this.consultTherapists()
-                Swal.fire({
-                  position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+
+      this.loading = true
+      setTimeout(() => {
+        this.therapist.nombre = this.therapist.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+        this.validateValuesOfEmptyTherapists()
+        this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
+          if (res.length > 0) {
+
+            this.loading = false
+            Swal.fire({ title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No` }).then((result) => {
+
+              if (result.isConfirmed) {
+                this.loading = true
+                this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
+                  this.consultTherapists()
+                  this.modalService.dismissAll()
+                  this.resetTherapist()
+                  this.loading = false
+                  Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
                 })
+              } else if (result.isDenied) {
                 this.modalService.dismissAll()
                 this.resetTherapist()
-              })
-            } else if (result.isDenied) {
+                this.loading = false
+              }
+            })
+
+          } else {
+            this.serviceTherapist.save(this.therapist).subscribe((res: any) => {
+              this.consultTherapists()
               this.modalService.dismissAll()
               this.resetTherapist()
-            }
-          })
-
-        } else {
-          this.serviceTherapist.save(this.therapist).subscribe((res: any) => {
-            this.consultTherapists()
-            Swal.fire({
-              position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+              this.loading = false
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
             })
-            this.modalService.dismissAll()
-            this.resetTherapist()
-          })
-        }
-      })
-    }
-    else {
+          }
+        })
+      }, 800)
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'El campo nombre se encuentra vacío.',
@@ -501,6 +518,8 @@ export class SettingComponent implements OnInit {
         }).then((result) => {
           if (result.isConfirmed) {
 
+            this.loading = true
+
             this.createIdUnicoTherapist()
             this.dateTherapist(nombre)
             this.liquidationTherapist.currentDate = this.currentDate.toString()
@@ -511,8 +530,6 @@ export class SettingComponent implements OnInit {
             setTimeout(() => {
 
               this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((rp) => { })
-
-              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
               this.serviceTherapist.deleteTerapeuta(id).subscribe((rp: any) => { })
 
               for (let o = 0; o < this.idTherapist.length; o++) {
@@ -521,6 +538,8 @@ export class SettingComponent implements OnInit {
 
               this.consultTherapists()
               this.modalService.dismissAll()
+              this.loading = false
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2000 })
             }, 2000)
           }
         })

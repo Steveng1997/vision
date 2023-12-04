@@ -3,6 +3,10 @@
     <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
       <div class="m-0 vh-90 row justify-content-center align-items-center">
 
+        <div *ngIf="loading" id="container_loading">
+          <div id="load"></div>
+        </div>
+
         <div class="row columnIcon">
 
           <div class="row g-0">
@@ -27,7 +31,7 @@
 
         <!-- Table -->
 
-        <div class="adjustTable">
+        <div class="adjustTable" *ngIf="tableVision">
           <div class="row columnTable">
 
             <div class="row g-0">
@@ -104,7 +108,7 @@
 
         <!-- fin Table -->
 
-        <div class="row columnArrows">
+        <div class="row columnArrows" *ngIf="tableVision">
 
           <div class="row g-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" (click)="backArrow()"
@@ -131,7 +135,7 @@
 
         <!-- table Result -->
 
-        <div class="row column">
+        <div class="row column" *ngIf="tableVision">
 
           <!-- SERVICIOS -->
           <div class="row g-0">
@@ -252,11 +256,6 @@
             </div>
           </div>
         </div>
-
-        <div *ngIf="loading" id="container_loading">
-          <div id="load"></div>
-        </div>
-
 
       </div>
     </div>

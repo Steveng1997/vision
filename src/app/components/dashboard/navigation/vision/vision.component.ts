@@ -17,6 +17,7 @@ import { ModelTherapist } from 'src/app/core/models/therapist'
 
 export class VisionComponent implements OnInit {
 
+  tableVision: boolean = false
   loading: boolean = false
   vision: any
   page!: number
@@ -114,6 +115,7 @@ export class VisionComponent implements OnInit {
     setTimeout(() => {
       this.getMinute()
       this.loading = false
+      this.tableVision = true
     }, 1200);
   }
 

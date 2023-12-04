@@ -60,8 +60,9 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #F4266A;
-  border-top-style: groove;
+  /* border-top-color: #F4266A; */
+  border-top-color: #8C52FF;
+  /* border-top-style: groove; */
   height: 100px;
   width: 100px;
   border-radius: 100%;

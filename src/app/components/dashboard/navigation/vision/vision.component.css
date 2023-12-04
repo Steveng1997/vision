@@ -2,7 +2,7 @@
 
 #container_loading {
   /* background-color: rgba(250, 240, 245, 0.9); */
-  background-color: transparent;
+  background-color: white;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -14,13 +14,15 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #F4266A;
-  border-top-style: groove;
+  /* border-top-color: #F4266A; */
+  border-top-color: #8C52FF;
+  /* border-top-style: groove; */
   height: 100px;
   width: 100px;
   border-radius: 100%;
   position: absolute;
-  top: 0;
+  /* top: 0; */
+  top: auto;
   left: 0;
   right: 0;
   bottom: 0;
