@@ -2113,8 +2113,6 @@ export class ManagerComponent implements OnInit {
         return accumulator + serv.servicio
       }, 0)
 
-      console.log(this.totalService)
-
       // Filter by Propina
       const propinas = this.settledData.filter(serv => serv)
       this.totalTipValue = propinas.reduce((accumulator, serv) => {

@@ -30,7 +30,6 @@ export class VisionComponent implements OnInit {
   therapist: any
   horaEnd: string
   horaHoy: string
-  getResultName: any
 
   // TOTALES
   totalVision: number
@@ -105,10 +104,13 @@ export class VisionComponent implements OnInit {
     private serviceTherapist: ServiceTherapist
   ) { }
 
-  public async ngOnInit(): Promise<void> {
-    // this.loading = true
-    this.tableVision = true
+  public async ngOnInit() {
+
+    this.loading = true
+    this.tableVision = false
+
     const params = this.activatedRoute.snapshot.params;
+
     this.idUser = Number(params['id'])
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
@@ -119,26 +121,24 @@ export class VisionComponent implements OnInit {
       }
     })
 
-    var terapeutas = await this.consultTherapist()
-
-    // if (!this.consultTherapist()) return
-  
-    //if(!terapeutas) return
-
-    console.log(terapeutas)
-    // setTimeout(() => {
-      
-      this.getMinute(terapeutas)
-      
-      // this.tableTherapist()
-      // this.loading = false
-      this.tableVision = true;
-    // }, 3000);
+    await this.getTherapist()
   }
 
-  tableTherapist() {
-    let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = '',
-      obj = { 0: "a", 1: "b", 2: "c", length: 3 }
+  getTherapist = async () => {
+    let terapia
+    this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+      this.therapist = rp
+      terapia = rp
+
+      this.getMinute(terapia)
+      this.tableTherapist(terapia)
+
+      return terapia
+    })
+  }
+
+  tableTherapist = async (element) => {
+    let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
 
     day = date.getDate()
     month = date.getMonth() + 1
@@ -152,17 +152,22 @@ export class VisionComponent implements OnInit {
       dates = `${year}-${month}-${day}`
     }
 
-    this.servicesTherapist = this.therapist
+    this.servicesTherapist = element
 
-    for (let o = 0; o < this.therapist.length; o++) {
-      this.service.getTherapistAndDates(this.therapist[o]['nombre'], dates).subscribe((rp: any) => {
+    for (let o = 0; o < element.length; o++) {
+      this.service.getTherapistAndDates(element[o]['nombre'], dates).subscribe((rp: any) => {
         this.therapistCount = rp.length
         this.servicesTherapist[o]['conteo'] = this.therapistCount
 
-        if (rp[o]['totalServicio'] > 999) {
+        const servicios = rp.filter(serv => serv)
+        const sumatoria = servicios.reduce((accumulator, serv) => {
+          return accumulator + serv.totalServicio
+        }, 0)
 
-          const coma = rp[o]['totalServicio'].toString().indexOf(".") !== -1 ? true : false;
-          const array = coma ? rp[o]['totalServicio'].toString().split(".") : rp[o]['totalServicio'].toString().split("");
+        if (sumatoria > 999) {
+
+          const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+          const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
           let integer = coma ? array[0].split("") : array;
           let subIndex = 1;
 
@@ -181,12 +186,10 @@ export class VisionComponent implements OnInit {
           integer = [integer.toString().replace(/,/gi, "")]
           this.servicesTherapist[o]['suma'] = integer[0].toString()
         } else {
-          this.servicesTherapist[o]['suma'] = rp[o]['totalServicio']
+          this.servicesTherapist[o]['suma'] = sumatoria
         }
       })
     }
-
-    console.log(this.servicesTherapist)
   }
 
   totalsAtZero() {
@@ -236,23 +239,10 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  async consultTherapist() {
-    let terapia;
-    let terapeuta = await this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
-      this.therapist = rp
-      terapia = rp
-
-      //return this.therapist
-      // return true
-      return terapia
-    })
-    // return terapia
-  }
-
   getMinute(element) {
     if (element.length > 0) {
       if (element?.horaEnd != "") {
-        this.minuteDifference()
+        this.minuteDifference(element)
       }
     }
   }
@@ -282,41 +272,47 @@ export class VisionComponent implements OnInit {
       } else {
         this.totalsAtZero()
       }
+
+      this.loading = false
+      this.tableVision = true
     })
   }
 
-  updateHourAndExit(o) {
+  updateHourAndExit(element, o) {
     if (this.diferenceMinutes <= 0) {
-      this.serviceTherapist.getByNombre(this.therapist[o]['nombre']).subscribe((rp) => {
-        this.getResultName = rp[0]
-      }).add(this.serviceTherapist.updateHoraAndSalida(this.therapist[o]['nombre'], this.getResultName).subscribe((rp) => {
-        this.therapist = rp
-       }))
-    }
-  }
-
-  updateMinute(o) {
-    if (this.diferenceMinutes > 0) {
-      this.therapist[o]['minuto'] = this.diferenceMinutes
-      this.serviceTherapist.updateMinute(this.therapist[o]['id'], this.therapist[o]).subscribe((rp) => {
+      element[o]['minuto'] = ''
+      element[o]['fechaEnd'] = ''
+      element[o]['horaEnd'] = ''
+      element[o]['salida'] = ''
+      this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe((rp) => {
       }).add(this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
-        this.therapist = rp
+        element = rp
       }))
     }
   }
 
-  minuteDifference() {
-    for (let o = 0; o < this.therapist.length; o++) {
+  updateMinute(element, o) {
+    if (this.diferenceMinutes > 0) {
+      element[o]['minuto'] = this.diferenceMinutes
+      this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe((rp) => {
+      }).add(this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+        element = rp
+      }))
+    }
+  }
 
-      if (this.therapist[o]['fechaEnd'] != "") {
+  minuteDifference(element) {
+    for (let o = 0; o < element.length; o++) {
+
+      if (element[o]['fechaEnd'] != "") {
         let date = new Date(), day = 0, convertDay = '', month = 0, year = 0, hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
 
-        dayEnd = this.therapist[o]['fechaEnd'].substring(0, 2)
-        monthEnd = this.therapist[o]['fechaEnd'].substring(3, 5)
-        yearEnd = this.therapist[o]['fechaEnd'].substring(6, 9)
+        dayEnd = element[o]['fechaEnd'].substring(0, 2)
+        monthEnd = element[o]['fechaEnd'].substring(3, 5)
+        yearEnd = element[o]['fechaEnd'].substring(6, 9)
         yearEnd = + '20' + yearEnd
 
-        var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${this.therapist[o]['horaEnd']}`, "YYYY-MM-DD HH:mm")
+        var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd} ${element[o]['horaEnd']}`, "YYYY-MM-DD HH:mm")
 
         // Date 2
 
@@ -334,8 +330,8 @@ export class VisionComponent implements OnInit {
 
         this.diferenceMinutes = date1.diff(date2, 'minute')
 
-        this.updateMinute(o)
-        this.updateHourAndExit(o)
+        this.updateMinute(element, o)
+        this.updateHourAndExit(element, o)
       }
     }
   }

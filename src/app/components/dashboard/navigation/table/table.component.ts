@@ -157,11 +157,6 @@ export class TableComponent implements OnInit {
           if (datoServicio.length != 0) {
             this.totalSumOfServices()
           }
-
-          // for (let i = 0; i < this.servicio.length; i++) {
-          //   this.pointThousandTable(i)
-          // }
-
         })
       } else {
         this.service.getByManagerOrder(rp[0]['nombre']).subscribe((datoServicio: any) => {
