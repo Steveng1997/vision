@@ -291,16 +291,6 @@ export class Service {
     });
   }
 
-  getTherapistAndDate(terapeuta: string, fecha: string, fechaFin: string) {
-    return this.http.get(`${this.API_URL}/getTherapistAndDate`, {
-      params: {
-        terapeuta,
-        fecha,
-        fechaFin
-      }
-    });
-  }
-
   getpaymentFormAndDate(formaPago: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getpaymentFormAndDate`, {
       params: {
@@ -330,6 +320,10 @@ export class Service {
 
   getPaymentForm(formaPago: string) {
     return this.http.get(`${this.API_URL}/getPaymenForm/${formaPago}`);
+  }
+
+  getTherapistAndDates(terapeuta: string, fechaHoyInicio: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndDate/${terapeuta}/${fechaHoyInicio}`);
   }
 
   // Update

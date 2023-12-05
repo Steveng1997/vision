@@ -29,7 +29,7 @@
 
         </div>
 
-        <!-- Table -->
+        <!-- Table minutes -->
 
         <div class="adjustTable" *ngIf="tableVision">
           <div class="row columnTable">
@@ -106,7 +106,7 @@
           </div>
         </div>
 
-        <!-- fin Table -->
+        <!-- Fin table minutes -->
 
         <div class="row columnArrows" *ngIf="tableVision">
 
@@ -133,7 +133,7 @@
           </div>
         </div>
 
-        <!-- table Result -->
+        <!-- table result -->
 
         <div class="row column" *ngIf="tableVision">
 
@@ -256,6 +256,59 @@
             </div>
           </div>
         </div>
+
+        <!-- Table therapist -->
+
+        <div class="adjustTableTherapist" *ngIf="tableVision">
+          <div class="row columnTableTherapist">
+
+            <div class="row g-0">
+              <div class="textTherapist">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Terapeuta</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="textImportTherapist">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Importe</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="textServiceTherapist">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Serv.</label>
+              </div>
+            </div>
+          </div>
+
+          <hr class="lineTherapist">
+
+          <div class="row columnTableTherapist" *ngFor="let therapist of servicesTherapist">
+
+            <div class="row g-0">
+              <div class="availableColumnTherapist" >
+                <div class="columnTherapistTableTherapist">{{therapist.nombre}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumnTherapist">
+                <div class="columnImportTableTherapist">aaa</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumnTherapist" >
+                <div class="columnServiceTableTherapist">{{therapist.conteo}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fin table therapist -->
 
       </div>
     </div>

@@ -20,7 +20,6 @@ import moment from 'moment'
 export class VisionComponent implements OnInit {
 
   diferenceMinutes: number
-  delay = 5000
   tableVision: boolean = false
   loading: boolean = false
   vision: any
@@ -77,6 +76,11 @@ export class VisionComponent implements OnInit {
   totalOtr: string
   totalCollections: string
 
+  // Sum Total Therapist
+  therapistCount: number
+  textTotalService: string
+  servicesTherapist = []
+
   therapistModel: ModelTherapist = {
     activo: true,
     bebida: "",
@@ -102,7 +106,8 @@ export class VisionComponent implements OnInit {
   ) { }
 
   public async ngOnInit(): Promise<void> {
-    this.loading = true
+    // this.loading = true
+    this.tableVision = true
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
@@ -114,13 +119,74 @@ export class VisionComponent implements OnInit {
       }
     })
 
-    if (!this.consultTherapist()) return
+    var terapeutas = await this.consultTherapist()
 
-    setTimeout(() => {
-      this.getMinute()
-      this.loading = false
-      this.tableVision = true
-    }, 1000);
+    // if (!this.consultTherapist()) return
+  
+    //if(!terapeutas) return
+
+    console.log(terapeutas)
+    // setTimeout(() => {
+      
+      this.getMinute(terapeutas)
+      
+      // this.tableTherapist()
+      // this.loading = false
+      this.tableVision = true;
+    // }, 3000);
+  }
+
+  tableTherapist() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = '',
+      obj = { 0: "a", 1: "b", 2: "c", length: 3 }
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      dates = `${year}-${month}-${convertDay}`
+    } else {
+      day = day
+      dates = `${year}-${month}-${day}`
+    }
+
+    this.servicesTherapist = this.therapist
+
+    for (let o = 0; o < this.therapist.length; o++) {
+      this.service.getTherapistAndDates(this.therapist[o]['nombre'], dates).subscribe((rp: any) => {
+        this.therapistCount = rp.length
+        this.servicesTherapist[o]['conteo'] = this.therapistCount
+
+        if (rp[o]['totalServicio'] > 999) {
+
+          const coma = rp[o]['totalServicio'].toString().indexOf(".") !== -1 ? true : false;
+          const array = coma ? rp[o]['totalServicio'].toString().split(".") : rp[o]['totalServicio'].toString().split("");
+          let integer = coma ? array[0].split("") : array;
+          let subIndex = 1;
+
+          for (let i = integer.length - 1; i >= 0; i--) {
+
+            if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+              integer.splice(i, 0, ".");
+              subIndex++;
+
+            } else {
+              subIndex++;
+            }
+          }
+
+          integer = [integer.toString().replace(/,/gi, "")]
+          this.servicesTherapist[o]['suma'] = integer[0].toString()
+        } else {
+          this.servicesTherapist[o]['suma'] = rp[o]['totalServicio']
+        }
+      })
+    }
+
+    console.log(this.servicesTherapist)
   }
 
   totalsAtZero() {
@@ -170,17 +236,22 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  consultTherapist() {
-    this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+  async consultTherapist() {
+    let terapia;
+    let terapeuta = await this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
       this.therapist = rp
-      return true
+      terapia = rp
+
+      //return this.therapist
+      // return true
+      return terapia
     })
-    return true
+    // return terapia
   }
 
-  getMinute() {
-    if (this.therapist.length > 0) {
-      if (this.therapist?.horaEnd != "") {
+  getMinute(element) {
+    if (element.length > 0) {
+      if (element?.horaEnd != "") {
         this.minuteDifference()
       }
     }
@@ -214,12 +285,13 @@ export class VisionComponent implements OnInit {
     })
   }
 
-
   updateHourAndExit(o) {
     if (this.diferenceMinutes <= 0) {
       this.serviceTherapist.getByNombre(this.therapist[o]['nombre']).subscribe((rp) => {
         this.getResultName = rp[0]
-      }).add(this.serviceTherapist.updateHoraAndSalida(this.therapist[o]['nombre'], this.getResultName).subscribe((rp) => { }))
+      }).add(this.serviceTherapist.updateHoraAndSalida(this.therapist[o]['nombre'], this.getResultName).subscribe((rp) => {
+        this.therapist = rp
+       }))
     }
   }
 
