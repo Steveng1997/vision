@@ -125,15 +125,15 @@ export class VisionComponent implements OnInit {
   }
 
   getTherapist = async () => {
-    let terapia
+    let therapit
     this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
       this.therapist = rp
-      terapia = rp
+      therapit = rp
 
-      this.getMinute(terapia)
-      this.tableTherapist(terapia)
+      this.getMinute(therapit)
+      this.tableTherapist(therapit)
 
-      return terapia
+      return therapit
     })
   }
 
@@ -236,6 +236,9 @@ export class VisionComponent implements OnInit {
       } else {
         this.totalsAtZero()
       }
+
+      this.loading = false
+      this.tableVision = true
     })
   }
 

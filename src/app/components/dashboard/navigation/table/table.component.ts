@@ -25,7 +25,6 @@ export class TableComponent implements OnInit {
 
   loading: boolean = false
   table: boolean = false
-  validationThousand: boolean = false;
 
   fechaInicio: string
   fechaFinal: string
@@ -100,38 +99,30 @@ export class TableComponent implements OnInit {
     private activeRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void {
-    this.loading = true
-    this.table = false
+  public async ngOnInit() {
     this.selectedTerapeuta = ""
     this.selectedEncargada = ""
     this.selectedFormPago = ""
+    this.loading = true
 
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
     if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((rp) => {
-        setTimeout(() => {
-          if (rp[0]['rol'] == 'administrador') {
-            this.administratorRole = true
-            this.getManager()
-          } else {
-            this.manager = rp
-            this.selectedEncargada = this.manager[0].nombre
-          }
-        }, 1000);
+      await this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        if (rp[0]['rol'] == 'administrador') {
+          this.administratorRole = true
+          this.getManager()
+        } else {
+          this.manager = rp
+          this.selectedEncargada = this.manager[0].nombre
+        }
       })
     }
 
-    this.getTherapist()
-    this.getServices()
+    await this.getTherapist()
+    await this.getServices()
     this.emptyTotals()
-
-    setTimeout(() => {
-      this.loading = false
-      this.table = true
-    }, 1000);
   }
 
   emptyTotals() {
@@ -149,21 +140,27 @@ export class TableComponent implements OnInit {
     if (this.totalValor == undefined) this.totalValor = 0
   }
 
-  getServices() {
+  getServices = async () => {
+    let service
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
-        this.service.getServicio().subscribe((datoServicio: any) => {
-          this.servicio = datoServicio
-          if (datoServicio.length != 0) {
-            this.totalSumOfServices()
+        this.service.getServicio().subscribe((rp: any) => {
+          this.servicio = rp
+          service = rp
+
+          if (rp.length != 0) {
+            this.totalSumOfServices(service)
           }
+          return service
         })
       } else {
-        this.service.getByManagerOrder(rp[0]['nombre']).subscribe((datoServicio: any) => {
-          this.servicio = datoServicio
-          if (datoServicio.length != 0) {
-            this.totalSumOfServices()
+        this.service.getByManagerOrder(rp[0]['nombre']).subscribe((rp: any) => {
+          this.servicio = rp
+          service = rp
+          if (rp.length != 0) {
+            this.totalSumOfServices(service)
           }
+          return service
         })
       }
     })
@@ -471,7 +468,7 @@ export class TableComponent implements OnInit {
     }
   }
 
-  filters() {
+  filters = async () => {
     this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
@@ -493,6 +490,7 @@ export class TableComponent implements OnInit {
     }
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      debugger
       if (rp[0]['rol'] == 'administrador') {
 
         if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
@@ -504,9 +502,7 @@ export class TableComponent implements OnInit {
       }
     })
 
-    // if (this.selectedFormPago != '') this.PaymentForm()
-
-    this.calculateSumOfServices()
+    await this.calculateSumOfServices()
   }
 
   PaymentForm() {
@@ -515,7 +511,7 @@ export class TableComponent implements OnInit {
     })
   }
 
-  calculateSumOfServices() {
+  calculateSumOfServices = async () => {
 
     const therapistCondition = serv => {
       return (this.selectedTerapeuta) ? serv.terapeuta === this.selectedTerapeuta : true
@@ -941,51 +937,58 @@ export class TableComponent implements OnInit {
     } else {
       this.TotalOthersLetter = this.totalValorOtroServ.toString()
     }
+
+    this.loading = false
+    this.table = true
   }
 
-  totalSumOfServices() {
-    const totalServ = this.servicio.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
+  totalSumOfServices(element) {
+    const totalServ = element.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
     this.totalServicio = totalServ
 
-    const totalPisos = this.servicio.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)
+    const totalPisos = element.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)
     this.totalPiso = totalPisos
 
-    const totalPisos2 = this.servicio.map(({ numberPiso2 }) => numberPiso2).reduce((acc, value) => acc + value, 0)
+    const totalPisos2 = element.map(({ numberPiso2 }) => numberPiso2).reduce((acc, value) => acc + value, 0)
     this.totalPiso2 = totalPisos2
 
-    const totalTera = this.servicio.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
+    const totalTera = element.map(({ numberTerap }) => numberTerap).reduce((acc, value) => acc + value, 0)
     this.totalValorTerapeuta = totalTera
 
-    const totalEncarg = this.servicio.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
+    const totalEncarg = element.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
     this.totalValorEncargada = totalEncarg
 
-    const totalOtr = this.servicio.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
+    const totalOtr = element.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
     this.totalValorAOtros = totalOtr
 
-    const totalValorBebida = this.servicio.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
+    const totalValorBebida = element.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
     this.TotalValorBebida = totalValorBebida
 
-    const totalValorTab = this.servicio.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
+    const totalValorTab = element.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
     this.TotalValorTabaco = totalValorTab
 
-    const totalValorVitamina = this.servicio.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
+    const totalValorVitamina = element.map(({ vitaminas }) => vitaminas).reduce((acc, value) => acc + value, 0)
     this.totalValorVitaminas = totalValorVitamina
 
-    const totalValorProp = this.servicio.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
+    const totalValorProp = element.map(({ propina }) => propina).reduce((acc, value) => acc + value, 0)
     this.totalValorPropina = totalValorProp
 
-    const totalValorOtroServicio = this.servicio.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
+    const totalValorOtroServicio = element.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
     this.totalValorOtroServ = totalValorOtroServicio
 
-    const totalvalors = this.servicio.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0)
+    const totalvalors = element.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0)
     this.totalValor = totalvalors
 
     this.thousandPoint()
   }
 
-  getTherapist() {
-    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta) => {
-      this.terapeuta = datosTerapeuta
+  getTherapist = async () => {
+    let therapit
+    this.serviceTherapist.getAllTerapeuta().subscribe((rp) => {
+      this.terapeuta = rp
+      therapit = rp
+
+      return therapit
     })
   }
 

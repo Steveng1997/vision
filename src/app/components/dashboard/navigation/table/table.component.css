@@ -48,7 +48,8 @@
   width: 100px;
   border-radius: 100%;
   position: absolute;
-  top: 0;
+  /* top: 0; */
+  top: auto;
   left: 0;
   right: 0;
   bottom: 0;
