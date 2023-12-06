@@ -296,19 +296,68 @@
 
             <div class="row g-0">
               <div class="availableColumnTherapist">
-                <div class="columnImportTableTherapist">{{therapist.suma}}</div>
+                <div class="columnImportTableTherapist">{{therapist.sum + ' €'}}</div>
               </div>
             </div>
 
             <div class="row g-0">
               <div class="availableColumnTherapist">
-                <div class="columnServiceTableTherapist">{{therapist.conteo}}</div>
+                <div class="columnServiceTableTherapist">{{therapist.count}}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Fin table therapist -->
+        <!-- Table manager -->
+
+        <div class="adjustTableManager" *ngIf="tableVision">
+          <div class="row columnTableManager">
+
+            <div class="row g-0">
+              <div class="textManager">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Encargada</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="textImportManager">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Importe</label>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="textServiceManager">
+                <label style="color: #000000; font-size: 18px; font-weight: bold; font-family: sans-serif; 
+                          display: contents">Serv.</label>
+              </div>
+            </div>
+          </div>
+
+          <hr class="lineManager">
+
+          <div class="row columnTableManager" *ngFor="let manager of servicesManager">
+
+            <div class="row g-0">
+              <div class="availableColumnManager">
+                <div class="columnManagerTableManager">{{manager.nombre}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumnManager">
+                <div class="columnImportTableManager">{{manager.sum + ' €'}}</div>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="availableColumnManager">
+                <div class="columnServiceTableManager">{{manager.count}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>

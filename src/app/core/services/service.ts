@@ -101,7 +101,6 @@ export class Service {
     });
   }
 
-
   getTerapeutaEncargada(terapeuta: string, encargada: string) {
     return this.http.get(`${this.API_URL}/getTerapeuAndEncar`, {
       params: {
@@ -324,6 +323,10 @@ export class Service {
 
   getTherapistAndDates(terapeuta: string, fechaHoyInicio: string) {
     return this.http.get(`${this.API_URL}/getTherapistAndDate/${terapeuta}/${fechaHoyInicio}`);
+  }
+
+  getManagerAndDates(encargada: string, fechaHoyInicio: string) {
+    return this.http.get(`${this.API_URL}/getManagerAndDate/${encargada}/${fechaHoyInicio}`);
   }
 
   // Update

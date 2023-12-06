@@ -11,6 +11,7 @@ import { ModelManager } from '../models/manager';
 export class ServiceManager {
 
   API_URL = 'http://3.12.102.108:3000/api/encargada';
+  length: number;
 
   constructor(
     public router: Router,

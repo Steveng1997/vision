@@ -75,10 +75,13 @@ export class VisionComponent implements OnInit {
   totalOtr: string
   totalCollections: string
 
-  // Sum Total Therapist
+  // Table therapist
   therapistCount: number
-  textTotalService: string
   servicesTherapist = []
+
+  // Table manager
+  managerCount: number
+  servicesManager = []
 
   therapistModel: ModelTherapist = {
     activo: true,
@@ -105,59 +108,120 @@ export class VisionComponent implements OnInit {
   ) { }
 
   public async ngOnInit() {
-
+    let manager, element
     this.loading = true
     this.tableVision = false
-
     const params = this.activatedRoute.snapshot.params;
-
     this.idUser = Number(params['id'])
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.servicesManager = rp
+      manager = rp
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
+        await this.getManagerall(element)
       } else {
         this.getServiceByManager(rp[0])
+        await this.getManager(manager, element, 'array')
       }
     })
 
-    await this.getTherapist()
+    await this.getTherapist('array', element)
   }
 
-  getTherapist = async () => {
-    let therapit
-    this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
-      this.therapist = rp
-      therapit = rp
+  getManagerall = async (element) => {
+    if (element == undefined) {
 
-      this.getMinute(therapit)
-      this.tableTherapist(therapit)
+      this.todaysDate()
+      this.serviceManager.getUsuarios().subscribe((rp: any) => {
+        this.servicesManager = rp
 
-      return therapit
-    })
-  }
+        for (let o = 0; o < rp.length; o++) {
+          this.service.getManagerAndDates(rp[o]['nombre'], this.fechaDiaHoy).subscribe((rp: any) => {
+            this.managerCount = rp.length
+            this.servicesManager[o]['count'] = this.managerCount
 
-  tableTherapist = async (element) => {
-    let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
+            const servicios = rp.filter(serv => serv)
+            const sumatoria = servicios.reduce((accumulator, serv) => {
+              return accumulator + serv.totalServicio
+            }, 0)
 
-    day = date.getDate()
-    month = date.getMonth() + 1
-    year = date.getFullYear()
+            if (sumatoria > 999) {
+              const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+              const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
+              let integer = coma ? array[0].split("") : array;
+              let subIndex = 1;
 
-    if (day > 0 && day < 10) {
-      convertDay = '0' + day
-      dates = `${year}-${month}-${convertDay}`
+              for (let i = integer.length - 1; i >= 0; i--) {
+
+                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+                  integer.splice(i, 0, ".");
+                  subIndex++;
+
+                } else {
+                  subIndex++;
+                }
+              }
+
+              integer = [integer.toString().replace(/,/gi, "")]
+              this.servicesManager[o]['sum'] = integer[0].toString()
+            } else {
+              this.servicesManager[o]['sum'] = sumatoria.toString()
+            }
+          })
+        }
+      })
     } else {
-      day = day
-      dates = `${year}-${month}-${day}`
+      this.serviceManager.getUsuarios().subscribe((rp: any) => {
+        this.servicesManager = rp
+
+        for (let o = 0; o < rp.length; o++) {
+          this.service.getManagerAndDates(rp[o]['nombre'], element).subscribe((rp: any) => {
+            this.managerCount = rp.length
+            this.servicesManager[o]['count'] = this.managerCount
+
+            const servicios = rp.filter(serv => serv)
+            const sumatoria = servicios.reduce((accumulator, serv) => {
+              return accumulator + serv.totalServicio
+            }, 0)
+
+            if (sumatoria > 999) {
+              const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+              const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
+              let integer = coma ? array[0].split("") : array;
+              let subIndex = 1;
+
+              for (let i = integer.length - 1; i >= 0; i--) {
+
+                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+                  integer.splice(i, 0, ".");
+                  subIndex++;
+
+                } else {
+                  subIndex++;
+                }
+              }
+
+              integer = [integer.toString().replace(/,/gi, "")]
+              this.servicesManager[o]['sum'] = integer[0].toString()
+            } else {
+              this.servicesManager[o]['sum'] = sumatoria.toString()
+            }
+          })
+        }
+      })
     }
+  }
 
-    this.servicesTherapist = element
+  getManager = async (element, dates, text) => {
+    if (text == 'array') {
+      this.todaysDate()
 
-    for (let o = 0; o < element.length; o++) {
-      this.service.getTherapistAndDates(element[o]['nombre'], dates).subscribe((rp: any) => {
-        this.therapistCount = rp.length
-        this.servicesTherapist[o]['conteo'] = this.therapistCount
+      this.service.getManagerAndDates(element[0]['nombre'], this.fechaDiaHoy).subscribe((rp: any) => {
+        this.managerCount = rp.length
+        this.servicesManager[0]['count'] = this.managerCount
 
         const servicios = rp.filter(serv => serv)
         const sumatoria = servicios.reduce((accumulator, serv) => {
@@ -165,7 +229,6 @@ export class VisionComponent implements OnInit {
         }, 0)
 
         if (sumatoria > 999) {
-
           const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
           const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
           let integer = coma ? array[0].split("") : array;
@@ -184,12 +247,183 @@ export class VisionComponent implements OnInit {
           }
 
           integer = [integer.toString().replace(/,/gi, "")]
-          this.servicesTherapist[o]['suma'] = integer[0].toString()
+          this.servicesManager[0]['sum'] = integer[0].toString()
         } else {
-          this.servicesTherapist[o]['suma'] = sumatoria
+          this.servicesManager[0]['sum'] = sumatoria.toString()
+        }
+      })
+    } else {
+      this.service.getManagerAndDates(element[0]['nombre'], dates).subscribe((rp: any) => {
+        this.managerCount = rp.length
+        this.servicesManager[0]['count'] = this.managerCount
+
+        const servicios = rp.filter(serv => serv)
+        const sumatoria = servicios.reduce((accumulator, serv) => {
+          return accumulator + serv.totalServicio
+        }, 0)
+
+        if (sumatoria > 999) {
+          const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+          const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
+          let integer = coma ? array[0].split("") : array;
+          let subIndex = 1;
+
+          for (let i = integer.length - 1; i >= 0; i--) {
+
+            if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+              integer.splice(i, 0, ".");
+              subIndex++;
+
+            } else {
+              subIndex++;
+            }
+          }
+
+          integer = [integer.toString().replace(/,/gi, "")]
+          this.servicesManager[0]['sum'] = integer[0].toString()
+        } else {
+          this.servicesManager[0]['sum'] = sumatoria.toString()
         }
       })
     }
+  }
+
+  getTherapist = async (text, dates) => {
+    let therapit
+    await this.serviceTherapist.getAllTerapeutaByOrden().subscribe(async (rp: any) => {
+      this.therapist = rp
+      therapit = rp
+
+      await this.getMinute(therapit)
+      await this.tableTherapist(therapit, text, dates)
+
+      return therapit
+    })
+  }
+
+  tableTherapist = async (element, text, dateCurent) => {
+    if (text == 'array') {
+
+      let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
+
+      day = date.getDate()
+      month = date.getMonth() + 1
+      year = date.getFullYear()
+
+      if (day > 0 && day < 10) {
+        convertDay = '0' + day
+        dates = `${year}-${month}-${convertDay}`
+      } else {
+        day = day
+        dates = `${year}-${month}-${day}`
+      }
+
+      this.servicesTherapist = element
+
+      for (let o = 0; o < element.length; o++) {
+        this.service.getTherapistAndDates(element[o]['nombre'], dates).subscribe((rp: any) => {
+          this.therapistCount = rp.length
+          this.servicesTherapist[o]['count'] = this.therapistCount
+
+          const servicios = rp.filter(serv => serv)
+          const sumatoria = servicios.reduce((accumulator, serv) => {
+            return accumulator + serv.totalServicio
+          }, 0)
+
+          if (sumatoria > 999) {
+
+            const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+            const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
+            let integer = coma ? array[0].split("") : array;
+            let subIndex = 1;
+
+            for (let i = integer.length - 1; i >= 0; i--) {
+
+              if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+                integer.splice(i, 0, ".");
+                subIndex++;
+
+              } else {
+                subIndex++;
+              }
+            }
+
+            integer = [integer.toString().replace(/,/gi, "")]
+            this.servicesTherapist[o]['sum'] = integer[0].toString()
+
+            this.servicesTherapist.sort(function (a, b) {
+              if (a.sum > b.sum) {
+                return -1;
+              }
+              if (a.sum < b.sum) {
+                return 1;
+              }
+
+              return 0;
+            })
+
+          } else {
+            this.servicesTherapist[o]['sum'] = sumatoria
+
+            this.servicesTherapist.sort(function (a, b) {
+              if (a.sum > b.sum) {
+                return -1;
+              }
+              if (a.sum < b.sum) {
+                return 1;
+              }
+
+              return 0;
+            })
+          }
+        })
+      }
+
+    } else {
+      this.servicesTherapist = element
+
+      for (let o = 0; o < element.length; o++) {
+        this.service.getTherapistAndDates(element[o]['nombre'], dateCurent).subscribe((rp: any) => {
+          this.therapistCount = rp.length
+          this.servicesTherapist[o]['count'] = this.therapistCount
+
+          const servicios = rp.filter(serv => serv)
+          const sumatoria = servicios.reduce((accumulator, serv) => {
+            return accumulator + serv.totalServicio
+          }, 0)
+
+          if (sumatoria > 999) {
+
+            const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
+            const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
+            let integer = coma ? array[0].split("") : array;
+            let subIndex = 1;
+
+            for (let i = integer.length - 1; i >= 0; i--) {
+
+              if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+                integer.splice(i, 0, ".");
+                subIndex++;
+
+              } else {
+                subIndex++;
+              }
+            }
+
+            integer = [integer.toString().replace(/,/gi, "")]
+            this.servicesTherapist[o]['sum'] = integer[0].toString()
+          } else {
+            this.servicesTherapist[o]['sum'] = sumatoria
+          }
+        })
+      }
+
+      this.servicesTherapist.sort()
+    }
+
   }
 
   totalsAtZero() {
@@ -834,7 +1068,7 @@ export class VisionComponent implements OnInit {
     this.validateTheEmptyField()
   }
 
-  backArrow() {
+  backArrow = async () => {
     let fechHoy = new Date(), fechaEnd = '', convertDiaHoy = '', diaHoy = 0, mesHoy = 0,
       añoHoy = 0, convertMesHoy = ''
 
@@ -892,14 +1126,22 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+        this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
           if (rp[0]['rol'] == 'administrador') {
+
+            await this.getManagerall(fechaActualmente)
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
               if (rp.length > 0) this.totalVisionSum()
               else this.totalsAtZero()
             })
           } else {
+
+            await this.getManager(rp, fechaActualmente, 'date')
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
 
@@ -955,14 +1197,22 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+        this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
           if (rp[0]['rol'] == 'administrador') {
+
+            await this.getManagerall(fechaActualmente)
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
               if (rp.length > 0) this.totalVisionSum()
               else this.totalsAtZero()
             })
           } else {
+
+            await this.getManager(rp, fechaActualmente, 'date')
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
 
@@ -980,7 +1230,7 @@ export class VisionComponent implements OnInit {
     return false
   }
 
-  nextArrow() {
+  nextArrow = async () => {
     let fechaDia = new Date(), mesDelDia = 0, convertMess = '', messs = '', convertimosMes = 0
     mesDelDia = fechaDia.getMonth() + 1
 
@@ -1062,16 +1312,26 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+        this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
           if (rp[0]['rol'] == 'administrador') {
+
+            await this.getManagerall(fechaActualmente)
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
+
               if (rp.length > 0) this.totalVisionSum()
               else this.totalsAtZero()
             })
           } else {
+
+            await this.getManager(rp, fechaActualmente, 'date')
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
+
 
               if (rp.length > 0) this.totalVisionSum()
               else this.totalsAtZero()
@@ -1093,7 +1353,6 @@ export class VisionComponent implements OnInit {
       let convertmes = '', convertDia = '', convertAño = '', mes = '', fechaHoy = '',
         convertFecha = '', fechaActualmente = '', convertionAño
 
-      var result = new Date(new Date().toISOString())
       for (let i = 0; i < this.count; i++) {
 
         this.fechaFormat.setDate(this.fechaFormat.getDate() + this.count)
@@ -1129,14 +1388,22 @@ export class VisionComponent implements OnInit {
 
         fechaActualmente = `${convertAño}-${mes}-${convertDia}`
 
-        this.serviceManager.getById(this.idUser).subscribe((rp: any) => {
+        this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
           if (rp[0]['rol'] == 'administrador') {
+
+            await this.getManagerall(fechaActualmente)
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
               if (rp.length > 0) this.totalVisionSum()
               else this.totalsAtZero()
             })
           } else {
+
+            await this.getManager(rp, fechaActualmente, 'date')
+            await this.getTherapist('date', fechaActualmente)
+
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
 
@@ -1147,7 +1414,6 @@ export class VisionComponent implements OnInit {
         })
 
         this.siguienteCount = this.count
-
         return true
       }
     }
