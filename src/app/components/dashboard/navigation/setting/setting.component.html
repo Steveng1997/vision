@@ -5,7 +5,7 @@
 
                 <div *ngIf="loading" id="container_loading">
                     <div id="load"></div>
-                  </div>
+                </div>
 
                 <!-- Therapist -->
 
@@ -297,7 +297,17 @@
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Contraseña:</mat-label>
-                                            <input type="password" matInput name="pass" [(ngModel)]="manager.pass">
+                                            <input matInput type="password" name="pass" autocomplete="on"
+                                                [(ngModel)]="manager.pass">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Rol:</mat-label>
+                                            <select matNativeControl [(ngModel)]="manager.rol">
+                                                <option value="" selected>Selecciona</option>
+                                                <option value="administrador">Administrador</option>
+                                                <option value="encargada">Encargada</option>
+                                            </select>
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -471,6 +481,15 @@
                                             <mat-label>Password:</mat-label>
                                             <input type="text" matInput name="pass" [(ngModel)]="manager.pass"
                                                 #pass="ngModel">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Rol:</mat-label>
+                                            <select matNativeControl name="rol" [(ngModel)]="manager.rol" #rol="ngModel">
+                                                <option value="" selected>Selecciona</option>
+                                                <option value="administrador">Administrador</option>
+                                                <option value="encargada">Encargada</option>
+                                            </select>
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">

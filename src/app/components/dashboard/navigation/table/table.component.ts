@@ -4,7 +4,7 @@ import { Service } from 'src/app/core/services/service'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 // Excel
-import { Workbook, Worksheet } from 'exceljs';
+import { Workbook } from 'exceljs';
 import * as fs from 'file-saver';
 
 import Swal from 'sweetalert2'
@@ -490,7 +490,6 @@ export class TableComponent implements OnInit {
     }
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      debugger
       if (rp[0]['rol'] == 'administrador') {
 
         if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
@@ -520,7 +519,7 @@ export class TableComponent implements OnInit {
     const managerCondition = serv => {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
     }
-
+    
     const conditionBetweenDates = serv => {
       if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
       if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true

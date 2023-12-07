@@ -268,12 +268,12 @@ export class VisionComponent implements OnInit {
     }
   }
 
-  getTherapist = async (text, dates) => {
+  async getTherapist(text, dates) {
     let therapit
     await this.serviceTherapist.getMinutes().subscribe(async (rp: any) => {
-      this.therapist = rp
-      console.log(this.therapist)
       therapit = rp
+      this.therapist = rp
+      console.log(therapit)
 
       await this.getMinute(therapit)
       await this.tableTherapist(therapit, text, dates)
@@ -389,7 +389,7 @@ export class VisionComponent implements OnInit {
     this.totalCollections = '0'
   }
 
-  getServiceByManager(manager: string) {
+  async getServiceByManager(manager: string) {
     this.todaysDate()
     this.dateTodayCurrent = 'HOY'
     this.service.getEncargadaAndDate(this.fechaDiaHoy, manager['nombre']).subscribe((rp: any) => {
@@ -406,15 +406,15 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  getMinute(element) {
+  async getMinute(element) {
     if (element.length > 0) {
       if (element?.horaEnd != "") {
-        this.minuteDifference(element)
+        await this.minuteDifference(element)
       }
     }
   }
 
-  todaysDate() {
+  async todaysDate() {
     let convertDia
     let currentDate = new Date()
     let dia = currentDate.getDate()
@@ -427,7 +427,7 @@ export class VisionComponent implements OnInit {
     }
   }
 
-  getService() {
+  async getService() {
     this.todaysDate()
     this.dateTodayCurrent = 'HOY'
 
@@ -445,32 +445,30 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  updateHourAndExit(element, o) {
+  async updateHourAndExit(element, o) {
     if (this.diferenceMinutes <= 0) {
       element[o]['minuto'] = 0
       element[o]['fechaEnd'] = ''
       element[o]['horaEnd'] = ''
       element[o]['salida'] = ''
       this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe((rp) => {
-      }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
-        this.therapist = rp
-        console.log(this.therapist)
+      }).add(await this.serviceTherapist.getMinutes().subscribe((rp: any) => {
+        return this.therapist = rp
       }))
     }
   }
 
-  updateMinute(element, o) {
+  async updateMinute(element, o) {
     if (this.diferenceMinutes > 0) {
       element[o]['minuto'] = this.diferenceMinutes
       this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe((rp) => {
-      }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
-        this.therapist = rp
-        console.log(this.therapist)
+      }).add(await this.serviceTherapist.getMinutes().subscribe((rp: any) => {
+        return this.therapist = rp
       }))
     }
   }
 
-  minuteDifference(element) {
+  async minuteDifference(element) {
     for (let o = 0; o < element.length; o++) {
 
       if (element[o]['fechaEnd'] != "") {
@@ -503,9 +501,11 @@ export class VisionComponent implements OnInit {
         this.updateHourAndExit(element, o)
       }
     }
+
+    return this.therapist = element
   }
 
-  validateTheEmptyField() {
+  async validateTheEmptyField() {
     if (this.totalTreatment == undefined) this.totalTreatment = '0'
     if (this.totalDrinks == undefined) this.totalDrinks = '0'
     if (this.totalTobacco == undefined) this.totalTobacco = '0'

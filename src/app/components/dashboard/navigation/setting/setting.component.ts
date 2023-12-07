@@ -34,6 +34,7 @@ export class SettingComponent implements OnInit {
   modalManager: any
   currentDate = new Date().getTime()
   idTherapist: any
+  selectedFormPago: string
 
   liquidationManager: LiquidationManager = {
     currentDate: "",
@@ -78,7 +79,7 @@ export class SettingComponent implements OnInit {
     otros: "",
     pass: "",
     propina: "",
-    rol: 'encargada',
+    rol: "",
     servicio: "",
     tabaco: "",
     usuario: "",
