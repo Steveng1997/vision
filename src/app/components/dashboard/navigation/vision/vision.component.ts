@@ -89,7 +89,7 @@ export class VisionComponent implements OnInit {
     fechaEnd: "",
     horaEnd: "",
     id: 0,
-    minuto: "",
+    minuto: 0,
     nombre: "",
     otros: "",
     propina: "",
@@ -129,7 +129,7 @@ export class VisionComponent implements OnInit {
     await this.getTherapist('array', element)
   }
 
-  getManagerall = async (element) => {
+  getManagerall(element) {
     if (element == undefined) {
 
       this.todaysDate()
@@ -146,29 +146,18 @@ export class VisionComponent implements OnInit {
               return accumulator + serv.totalServicio
             }, 0)
 
-            if (sumatoria > 999) {
-              const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
-              const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
-              let integer = coma ? array[0].split("") : array;
-              let subIndex = 1;
+            this.servicesManager[o]['sum'] = sumatoria
 
-              for (let i = integer.length - 1; i >= 0; i--) {
-
-                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-                  integer.splice(i, 0, ".");
-                  subIndex++;
-
-                } else {
-                  subIndex++;
-                }
+            this.servicesManager.sort(function (a, b) {
+              if (a.sum > b.sum) {
+                return -1;
+              }
+              if (a.sum < b.sum) {
+                return 1;
               }
 
-              integer = [integer.toString().replace(/,/gi, "")]
-              this.servicesManager[o]['sum'] = integer[0].toString()
-            } else {
-              this.servicesManager[o]['sum'] = sumatoria.toString()
-            }
+              return 0;
+            })
           })
         }
       })
@@ -186,29 +175,19 @@ export class VisionComponent implements OnInit {
               return accumulator + serv.totalServicio
             }, 0)
 
-            if (sumatoria > 999) {
-              const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
-              const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
-              let integer = coma ? array[0].split("") : array;
-              let subIndex = 1;
 
-              for (let i = integer.length - 1; i >= 0; i--) {
+            this.servicesManager[o]['sum'] = sumatoria
 
-                if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-                  integer.splice(i, 0, ".");
-                  subIndex++;
-
-                } else {
-                  subIndex++;
-                }
+            this.servicesManager.sort(function (a, b) {
+              if (a.sum > b.sum) {
+                return -1;
+              }
+              if (a.sum < b.sum) {
+                return 1;
               }
 
-              integer = [integer.toString().replace(/,/gi, "")]
-              this.servicesManager[o]['sum'] = integer[0].toString()
-            } else {
-              this.servicesManager[o]['sum'] = sumatoria.toString()
-            }
+              return 0;
+            })
           })
         }
       })
@@ -293,6 +272,7 @@ export class VisionComponent implements OnInit {
     let therapit
     await this.serviceTherapist.getMinutes().subscribe(async (rp: any) => {
       this.therapist = rp
+      console.log(this.therapist)
       therapit = rp
 
       await this.getMinute(therapit)
@@ -331,53 +311,18 @@ export class VisionComponent implements OnInit {
             return accumulator + serv.totalServicio
           }, 0)
 
-          if (sumatoria > 999) {
+          this.servicesTherapist[o]['sum'] = sumatoria
 
-            const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
-            const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
-            let integer = coma ? array[0].split("") : array;
-            let subIndex = 1;
-
-            for (let i = integer.length - 1; i >= 0; i--) {
-
-              if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-                integer.splice(i, 0, ".");
-                subIndex++;
-
-              } else {
-                subIndex++;
-              }
+          this.servicesTherapist.sort(function (a, b) {
+            if (a.sum > b.sum) {
+              return -1;
+            }
+            if (a.sum < b.sum) {
+              return 1;
             }
 
-            integer = [integer.toString().replace(/,/gi, "")]
-            this.servicesTherapist[o]['sum'] = integer[0].toString()
-
-            this.servicesTherapist.sort(function (a, b) {
-              if (a.sum > b.sum) {
-                return -1;
-              }
-              if (a.sum < b.sum) {
-                return 1;
-              }
-
-              return 0;
-            })
-
-          } else {
-            this.servicesTherapist[o]['sum'] = sumatoria
-
-            this.servicesTherapist.sort(function (a, b) {
-              if (a.sum > b.sum) {
-                return -1;
-              }
-              if (a.sum < b.sum) {
-                return 1;
-              }
-
-              return 0;
-            })
-          }
+            return 0;
+          })
         })
       }
 
@@ -394,36 +339,21 @@ export class VisionComponent implements OnInit {
             return accumulator + serv.totalServicio
           }, 0)
 
-          if (sumatoria > 999) {
+          this.servicesTherapist[o]['sum'] = sumatoria
 
-            const coma = sumatoria.toString().indexOf(".") !== -1 ? true : false;
-            const array = coma ? sumatoria.toString().split(".") : sumatoria.toString().split("");
-            let integer = coma ? array[0].split("") : array;
-            let subIndex = 1;
-
-            for (let i = integer.length - 1; i >= 0; i--) {
-
-              if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-                integer.splice(i, 0, ".");
-                subIndex++;
-
-              } else {
-                subIndex++;
-              }
+          this.servicesTherapist.sort(function (a, b) {
+            if (a.sum > b.sum) {
+              return -1;
+            }
+            if (a.sum < b.sum) {
+              return 1;
             }
 
-            integer = [integer.toString().replace(/,/gi, "")]
-            this.servicesTherapist[o]['sum'] = integer[0].toString()
-          } else {
-            this.servicesTherapist[o]['sum'] = sumatoria
-          }
+            return 0;
+          })
         })
       }
-
-      this.servicesTherapist.sort()
     }
-
   }
 
   totalsAtZero() {
@@ -517,13 +447,14 @@ export class VisionComponent implements OnInit {
 
   updateHourAndExit(element, o) {
     if (this.diferenceMinutes <= 0) {
-      element[o]['minuto'] = ''
+      element[o]['minuto'] = 0
       element[o]['fechaEnd'] = ''
       element[o]['horaEnd'] = ''
       element[o]['salida'] = ''
       this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe((rp) => {
       }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
-        element = rp
+        this.therapist = rp
+        console.log(this.therapist)
       }))
     }
   }
@@ -533,7 +464,8 @@ export class VisionComponent implements OnInit {
       element[o]['minuto'] = this.diferenceMinutes
       this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe((rp) => {
       }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
-        element = rp
+        this.therapist = rp
+        console.log(this.therapist)
       }))
     }
   }

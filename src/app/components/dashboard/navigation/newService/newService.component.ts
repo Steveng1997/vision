@@ -68,6 +68,7 @@ export class NewServiceComponent implements OnInit {
   terapEdit: any
   terapeutaSelect: any
   addService = false
+  Servminutes = ""
 
   services: ModelService = {
     bebidas: "",
@@ -99,7 +100,7 @@ export class NewServiceComponent implements OnInit {
     idUnico: "",
     liquidadoEncargada: false,
     liquidadoTerapeuta: false,
-    minuto: "",
+    minuto: 0,
     nota: "",
     numberEncarg: "",
     numberOtro: "",
@@ -152,7 +153,7 @@ export class NewServiceComponent implements OnInit {
     fechaEnd: "",
     horaEnd: "",
     id: 0,
-    minuto: "",
+    minuto: 0,
     nombre: "",
     otros: "",
     propina: "",
@@ -333,7 +334,7 @@ export class NewServiceComponent implements OnInit {
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
-          if (this.services.minuto != '') {
+          if (this.services.minuto != 0) {
             if (this.sumatoriaCobros == this.sumatoriaServicios) {
               // Methods 
               this.createUniqueId()
@@ -393,6 +394,7 @@ export class NewServiceComponent implements OnInit {
               this.therapist.minuto = this.services.minuto
 
               this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
+                .add(this.serviceTherapist.getMinutes().subscribe((rp: any) => { }))
 
               this.service.registerServicio(this.services).subscribe((rp: any) => {
                 if (rp) {
@@ -686,6 +688,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   minutes(event: any) {
+    this.services.minuto = event
     let sumarsesion = event, horas = 0, minutos = 0, convertHora = '', day = '', month = '', year = ''
     if (event === null) sumarsesion = 0
 

@@ -9,8 +9,6 @@ import { ModelTherapist } from '../models/therapist';
   providedIn: 'root'
 })
 export class ServiceTherapist {
-
-  API_Encargada = 'http://3.12.102.108:3000/api/encargada';
   API_Terapeuta = 'http://3.12.102.108:3000/api/terapeuta';
 
   constructor(
