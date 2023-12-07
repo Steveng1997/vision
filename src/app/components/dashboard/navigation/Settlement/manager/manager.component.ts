@@ -293,10 +293,11 @@ export class ManagerComponent implements OnInit {
     if (this.formTemplate.value.FechaFin != "") {
       let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
       fechaFin = this.formTemplate.value.FechaFin
-      diaFin = fechaFin.substring(8, 11)
-      mesFin = fechaFin.substring(5, 7)
-      añoFin = fechaFin.substring(2, 4)
-      this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
+      this.fechaFinal = fechaFin
+      // diaFin = fechaFin.substring(8, 11)
+      // mesFin = fechaFin.substring(5, 7)
+      // añoFin = fechaFin.substring(2, 4)
+      // this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
   }
 
@@ -306,10 +307,11 @@ export class ManagerComponent implements OnInit {
     if (this.formTemplate.value.fechaInicio != "") {
       let mes = '', dia = '', año = '', fecha = ''
       fecha = this.formTemplate.value.fechaInicio
-      dia = fecha.substring(8, 11)
-      mes = fecha.substring(5, 7)
-      año = fecha.substring(2, 4)
-      this.fechaInicio = `${dia}-${mes}-${año}`
+      this.fechaInicio = fecha
+      // dia = fecha.substring(8, 11)
+      // mes = fecha.substring(5, 7)
+      // año = fecha.substring(2, 4)
+      // this.fechaInicio = `${dia}-${mes}-${año}`
     }
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {

@@ -11,9 +11,9 @@ export class FechaFinalEncargadaPipe implements PipeTransform {
     }
 
     if (items) {
-      if (paramFechaInicial === undefined) return items.filter((item, index) => item.hastaFechaLiquidado === paramFechaFinal)
-      if (paramFechaFinal === undefined) return items.filter((item, index) => item.desdeFechaLiquidado === paramFechaInicial)
-      return items.filter((item, index) => item.desdeFechaLiquidado >= paramFechaInicial && item.hastaFechaLiquidado <= paramFechaFinal)
+      if (paramFechaInicial === undefined) return items.filter((item, index) => item.createdDate === paramFechaFinal)
+      if (paramFechaFinal === undefined) return items.filter((item, index) => item.createdDate === paramFechaInicial)
+      return items.filter((item, index) => item.createdDate >= paramFechaInicial && item.createdDate <= paramFechaFinal)
     }
   }
 }
