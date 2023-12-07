@@ -291,7 +291,7 @@ export class VisionComponent implements OnInit {
 
   getTherapist = async (text, dates) => {
     let therapit
-    await this.serviceTherapist.getAllTerapeutaByOrden().subscribe(async (rp: any) => {
+    await this.serviceTherapist.getMinutes().subscribe(async (rp: any) => {
       this.therapist = rp
       therapit = rp
 
@@ -522,7 +522,7 @@ export class VisionComponent implements OnInit {
       element[o]['horaEnd'] = ''
       element[o]['salida'] = ''
       this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe((rp) => {
-      }).add(this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+      }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
         element = rp
       }))
     }
@@ -532,7 +532,7 @@ export class VisionComponent implements OnInit {
     if (this.diferenceMinutes > 0) {
       element[o]['minuto'] = this.diferenceMinutes
       this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe((rp) => {
-      }).add(this.serviceTherapist.getAllTerapeutaByOrden().subscribe((rp: any) => {
+      }).add(this.serviceTherapist.getMinutes().subscribe((rp: any) => {
         element = rp
       }))
     }
