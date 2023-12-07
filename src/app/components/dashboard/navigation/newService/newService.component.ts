@@ -394,7 +394,6 @@ export class NewServiceComponent implements OnInit {
               this.therapist.minuto = this.services.minuto
 
               this.serviceTherapist.update(this.services.terapeuta, this.therapist).subscribe((rp: any) => { })
-                .add(this.serviceTherapist.getMinutes().subscribe((rp: any) => { }))
 
               this.service.registerServicio(this.services).subscribe((rp: any) => {
                 if (rp) {

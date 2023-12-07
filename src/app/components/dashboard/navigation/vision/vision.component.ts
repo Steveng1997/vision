@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
 
@@ -77,11 +77,13 @@ export class VisionComponent implements OnInit {
 
   // Table therapist
   therapistCount: number
-  servicesTherapist = []
+  servicesTherapist: any
 
   // Table manager
   managerCount: number
   servicesManager = []
+
+  daniel: any
 
   therapistModel: ModelTherapist = {
     activo: true,
@@ -114,19 +116,18 @@ export class VisionComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     this.idUser = Number(params['id'])
 
-    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+    await this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
       this.servicesManager = rp
       manager = rp
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
-        await this.getManagerall(element)
+        this.getManagerall(element)
       } else {
         this.getServiceByManager(rp[0])
-        await this.getManager(manager, element, 'array')
+        this.getManager(manager, element, 'array')
       }
     })
 
-    await this.getTherapist('array', element)
   }
 
   getManagerall(element) {
@@ -268,22 +269,23 @@ export class VisionComponent implements OnInit {
     }
   }
 
-  async getTherapist(text, dates) {
+  async getTherapist() {
     let therapit
     await this.serviceTherapist.getMinutes().subscribe(async (rp: any) => {
       therapit = rp
       this.therapist = rp
-      console.log(therapit)
 
       await this.getMinute(therapit)
-      await this.tableTherapist(therapit, text, dates)
+      // await this.tableTherapist(therapit, )
 
       return therapit
     })
   }
 
-  tableTherapist = async (element, text, dateCurent) => {
+  async tableTherapist(element, text, dateCurent) {
+
     if (text == 'array') {
+
 
       let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
 
@@ -299,21 +301,47 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${day}`
       }
 
-      this.servicesTherapist = element
+      this.daniel = element
 
-      for (let o = 0; o < element.length; o++) {
-        this.service.getTherapistAndDates(element[o]['nombre'], dates).subscribe((rp: any) => {
+      // let variableperra = this.servicesTherapist.map(element => {
+
+      //   this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
+      //         this.therapistCount = rp.length
+      //         this.servicesTherapist[o]['count'] = this.therapistCount
+
+      //         const servicios = rp.filter(serv => serv)
+      //         const sumatoria = servicios.reduce((accumulator, serv) => {
+      //           return accumulator + serv.totalServicio
+      //         }, 0)
+
+      //         this.servicesTherapist[o]['sum'] = sumatoria
+      //         console.log(this.therapist)
+
+      //       })
+
+      //   return element
+      // })
+
+      // console.log(variableperra)
+
+      for (let o = 0; o < this.daniel.length; o++) {
+
+
+
+        await this.service.getTherapistAndDates(this.daniel[o]['nombre'], dates).subscribe((rp: any) => {
           this.therapistCount = rp.length
-          this.servicesTherapist[o]['count'] = this.therapistCount
+          this.daniel[o]['count'] = this.therapistCount
 
           const servicios = rp.filter(serv => serv)
           const sumatoria = servicios.reduce((accumulator, serv) => {
             return accumulator + serv.totalServicio
           }, 0)
 
-          this.servicesTherapist[o]['sum'] = sumatoria
+          this.daniel[o]['sum'] = sumatoria
+          console.log(this.therapist)
 
-          this.servicesTherapist.sort(function (a, b) {
+          //this.daniel = 
+          this.daniel.sort(function (a, b) {
             if (a.sum > b.sum) {
               return -1;
             }
@@ -327,10 +355,10 @@ export class VisionComponent implements OnInit {
       }
 
     } else {
-      this.servicesTherapist = element
+      //this.daniel = element
 
-      for (let o = 0; o < element.length; o++) {
-        this.service.getTherapistAndDates(element[o]['nombre'], dateCurent).subscribe((rp: any) => {
+      for (let o = 0; o < this.servicesTherapist.length; o++) {
+        await this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dateCurent).subscribe((rp: any) => {
           this.therapistCount = rp.length
           this.servicesTherapist[o]['count'] = this.therapistCount
 
@@ -469,6 +497,7 @@ export class VisionComponent implements OnInit {
   }
 
   async minuteDifference(element) {
+
     for (let o = 0; o < element.length; o++) {
 
       if (element[o]['fechaEnd'] != "") {
@@ -501,8 +530,6 @@ export class VisionComponent implements OnInit {
         this.updateHourAndExit(element, o)
       }
     }
-
-    return this.therapist = element
   }
 
   async validateTheEmptyField() {
@@ -1062,7 +1089,7 @@ export class VisionComponent implements OnInit {
           if (rp[0]['rol'] == 'administrador') {
 
             await this.getManagerall(fechaActualmente)
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
@@ -1072,7 +1099,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1133,7 +1160,7 @@ export class VisionComponent implements OnInit {
           if (rp[0]['rol'] == 'administrador') {
 
             await this.getManagerall(fechaActualmente)
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
@@ -1143,7 +1170,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1248,7 +1275,7 @@ export class VisionComponent implements OnInit {
           if (rp[0]['rol'] == 'administrador') {
 
             await this.getManagerall(fechaActualmente)
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
@@ -1259,7 +1286,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1324,7 +1351,7 @@ export class VisionComponent implements OnInit {
           if (rp[0]['rol'] == 'administrador') {
 
             await this.getManagerall(fechaActualmente)
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getFechaHoy(fechaActualmente).subscribe((rp: any) => {
               this.vision = rp
@@ -1334,7 +1361,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.getTherapist('date', fechaActualmente)
+            // await this.getTherapist('date', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp

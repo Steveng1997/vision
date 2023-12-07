@@ -5,6 +5,7 @@ export class LiquidationTherapist {
     encargada?: string;
     hastaFechaLiquidado?: string;
     hastaHoraLiquidado?: string;
+    createdDate?: string;
     id?: number;
     idUnico?: string;
     idTerapeuta?: string;

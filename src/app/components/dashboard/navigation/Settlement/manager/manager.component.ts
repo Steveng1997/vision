@@ -115,6 +115,7 @@ export class ManagerComponent implements OnInit {
     encargada: "",
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
+    createdDate: "",
     id: 0,
     idUnico: "",
     idEncargada: "",
@@ -2286,6 +2287,29 @@ export class ManagerComponent implements OnInit {
     this.liquidationManager.idUnico = uuid
     this.liquidationManager.idEncargada = uuid
     return this.liquidationManager.idUnico
+  }
+
+  dateCurrentDay() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = ''
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${day}`
+    } else {
+      convertMonth = month.toString()
+      this.liquidationManager.createdDate = `${year}-${month}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${day}`
+    }
   }
 
   save() {

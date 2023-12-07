@@ -5,6 +5,7 @@ export class LiquidationManager {
   encargada?: string;
   hastaFechaLiquidado?: string;
   hastaHoraLiquidado?: string;
+  createdDate?: string;
   id?: number;
   idUnico?: string;
   idEncargada?: string;
