@@ -77,13 +77,11 @@ export class VisionComponent implements OnInit {
 
   // Table therapist
   therapistCount: number
-  servicesTherapist: any
+  servicesTherapist = []
 
   // Table manager
   managerCount: number
   servicesManager = []
-
-  daniel: any
 
   therapistModel: ModelTherapist = {
     activo: true,
@@ -128,6 +126,9 @@ export class VisionComponent implements OnInit {
       }
     })
 
+
+    await this.getTherapist()
+    await this.tableTherapist('array', 'date')
   }
 
   getManagerall(element) {
@@ -276,16 +277,12 @@ export class VisionComponent implements OnInit {
       this.therapist = rp
 
       await this.getMinute(therapit)
-      // await this.tableTherapist(therapit, )
-
       return therapit
     })
   }
 
-  async tableTherapist(element, text, dateCurent) {
-
+  async tableTherapist(text, dateCurent) {
     if (text == 'array') {
-
 
       let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
 
@@ -301,61 +298,38 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${day}`
       }
 
-      this.daniel = element
+      this.serviceTherapist.getAllTerapeuta().subscribe(async (rp: any) => {
+        this.servicesTherapist = rp
 
-      // let variableperra = this.servicesTherapist.map(element => {
+        for (let o = 0; o < this.servicesTherapist.length; o++) {
 
-      //   this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
-      //         this.therapistCount = rp.length
-      //         this.servicesTherapist[o]['count'] = this.therapistCount
+          await this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
+            this.therapistCount = rp.length
+            this.servicesTherapist[o]['count'] = this.therapistCount
 
-      //         const servicios = rp.filter(serv => serv)
-      //         const sumatoria = servicios.reduce((accumulator, serv) => {
-      //           return accumulator + serv.totalServicio
-      //         }, 0)
+            const servicios = rp.filter(serv => serv)
+            const sumatoria = servicios.reduce((accumulator, serv) => {
+              return accumulator + serv.totalServicio
+            }, 0)
 
-      //         this.servicesTherapist[o]['sum'] = sumatoria
-      //         console.log(this.therapist)
+            this.servicesTherapist[o]['sum'] = sumatoria
+            console.log(this.therapist)
 
-      //       })
+            this.servicesTherapist.sort(function (a, b) {
+              if (a.sum > b.sum) {
+                return -1;
+              }
+              if (a.sum < b.sum) {
+                return 1;
+              }
 
-      //   return element
-      // })
-
-      // console.log(variableperra)
-
-      for (let o = 0; o < this.daniel.length; o++) {
-
-
-
-        await this.service.getTherapistAndDates(this.daniel[o]['nombre'], dates).subscribe((rp: any) => {
-          this.therapistCount = rp.length
-          this.daniel[o]['count'] = this.therapistCount
-
-          const servicios = rp.filter(serv => serv)
-          const sumatoria = servicios.reduce((accumulator, serv) => {
-            return accumulator + serv.totalServicio
-          }, 0)
-
-          this.daniel[o]['sum'] = sumatoria
-          console.log(this.therapist)
-
-          //this.daniel = 
-          this.daniel.sort(function (a, b) {
-            if (a.sum > b.sum) {
-              return -1;
-            }
-            if (a.sum < b.sum) {
-              return 1;
-            }
-
-            return 0;
+              return 0;
+            })
           })
-        })
-      }
+        }
+      })
 
     } else {
-      //this.daniel = element
 
       for (let o = 0; o < this.servicesTherapist.length; o++) {
         await this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dateCurent).subscribe((rp: any) => {
