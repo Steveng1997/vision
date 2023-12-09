@@ -145,40 +145,9 @@
                 <div class="row servicesContainer">
                     <div class="row g-0">
                         <div class="treatmentContainer">
-
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
                                         display: contents; font-weight: bold">Tratamiento</label>
                             <input type="number" class="form-control" name="services" [(ngModel)]="services.servicio"
-                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                        </div>
-                    </div>
-
-                    <div class="row g-0">
-                        <div class="beverageContainer">
-                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
-                                        display: contents; font-weight: bold">Bebidas</label>
-                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="services.bebidas"
-                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                        </div>
-                    </div>
-
-                    <div class="row g-0">
-                        <div class="tobaccoContainer">
-                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Tabaco</label>
-                            <input type="number" class="form-control" name="tabaco" [(ngModel)]="services.tabaco"
-                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
-                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-                        </div>
-                    </div>
-
-                    <div class="row g-0">
-                        <div class="vitaminColumn">
-                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
-                                        display: contents; font-weight: bold">Vitaminas</label>
-                            <input type="number" class="form-control" name="vitaminas" [(ngModel)]="services.vitaminas"
                                 (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
@@ -195,6 +164,36 @@
                     </div>
 
                     <div class="row g-0">
+                        <div class="taxiColumn">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Taxi</label>
+                            <input type="number" class="form-control" name="propina" [(ngModel)]="services.propina"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="vitaminColumn">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Vitaminas</label>
+                            <input type="number" class="form-control" name="vitaminas" [(ngModel)]="services.vitaminas"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="tobaccoContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Tabaco</label>
+                            <input type="number" class="form-control" name="tabaco" [(ngModel)]="services.tabaco"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
                         <div class="columnOthers">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Otros</label>
@@ -203,8 +202,27 @@
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
                     </div>
-                </div>
 
+                    <div class="row g-0">
+                        <div class="beverageContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Bebida casa</label>
+                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="services.bebidas"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="beverageTherapistContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Bebida terap.</label>
+                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="services.bebidas"
+                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+                </div>
 
                 <!---------------------------------------- COBROS  ---------------------------------------->
 
@@ -437,32 +455,32 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCashOther">
-                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.efectDriverTaxi">
+                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi"
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.efectDriverTaxi">
                             <label for="efectDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumOther">
-                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.bizuDriverTaxi">
+                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi"
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.bizuDriverTaxi">
                             <label for="bizuDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardOther">
-                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.tarjDriverTaxi">
+                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi"
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.tarjDriverTaxi">
                             <label for="tarjDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionOther">
-                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.transDriverTaxi">
+                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi"
+                                (change)="validatePaymentMethod()" [(ngModel)]="services.transDriverTaxi">
                             <label for="transDriverTaxi"></label>
                         </div>
                     </div>
@@ -654,20 +672,20 @@
                     </div>
 
                     <div class="row g-0">
-                        <div class="beverageContainer">
-                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
-                                        display: contents; font-weight: bold">Bebidas</label>
-                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="edServ.bebidas"
+                        <div class="tipColumn">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                                        display: contents; font-weight: bold">Propina</label>
+                            <input type="number" class="form-control" name="propina" [(ngModel)]="edServ.propina"
                                 (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
                     </div>
 
                     <div class="row g-0">
-                        <div class="tobaccoContainer">
+                        <div class="taxiColumn">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Tabaco</label>
-                            <input type="number" class="form-control" name="tabaco" [(ngModel)]="edServ.tabaco"
+                                        display: contents; font-weight: bold">Taxi</label>
+                            <input type="number" class="form-control" name="propina" [(ngModel)]="edServ.propina"
                                 (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
@@ -684,10 +702,10 @@
                     </div>
 
                     <div class="row g-0">
-                        <div class="tipColumn">
+                        <div class="tobaccoContainer">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Propina</label>
-                            <input type="number" class="form-control" name="propina" [(ngModel)]="edServ.propina"
+                                        display: contents; font-weight: bold">Tabaco</label>
+                            <input type="number" class="form-control" name="tabaco" [(ngModel)]="edServ.tabaco"
                                 (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
@@ -702,7 +720,28 @@
                                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
                         </div>
                     </div>
+
+                    <div class="row g-0">
+                        <div class="beverageContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Bebida casa</label>
+                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="edServ.bebidas"
+                                (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="beverageTherapistContainer">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        display: contents; font-weight: bold">Bebida Terap.</label>
+                            <input type="number" class="form-control" name="bebidas" [(ngModel)]="edServ.bebidas"
+                                (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
+                                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+                        </div>
+                    </div>
                 </div>
+                
 
 
                 <!---------------------------------------- COBROS  ---------------------------------------->
@@ -920,28 +959,32 @@
 
                     <div class="row g-0">
                         <div class="checkBoxCashOther">
-                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi" [(ngModel)]="edServ.efectDriverTaxi">
+                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi"
+                                [(ngModel)]="edServ.efectDriverTaxi">
                             <label for="efectDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumOther">
-                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi" [(ngModel)]="edServ.bizuDriverTaxi">
+                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi"
+                                [(ngModel)]="edServ.bizuDriverTaxi">
                             <label for="bizuDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardOther">
-                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi" [(ngModel)]="edServ.tarjDriverTaxi">
+                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi"
+                                [(ngModel)]="edServ.tarjDriverTaxi">
                             <label for="tarjDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionOther">
-                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi" [(ngModel)]="edServ.transDriverTaxi">
+                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi"
+                                [(ngModel)]="edServ.transDriverTaxi">
                             <label for="transDriverTaxi"></label>
                         </div>
                     </div>
