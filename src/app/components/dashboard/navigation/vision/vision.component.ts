@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Service } from 'src/app/core/services/service'
 
@@ -140,17 +140,17 @@ export class VisionComponent implements OnInit {
       this.serviceManager.getUsuarios().subscribe((rp: any) => {
         this.servicesManager = rp
 
-        for (let o = 0; o < rp.length; o++) {
-          this.service.getManagerAndDates(rp[o]['nombre'], this.fechaDiaHoy).subscribe((rp: any) => {
+        rp.map(item => {
+          this.service.getManagerAndDates(item['nombre'], this.fechaDiaHoy).subscribe((rp: any) => {
             this.managerCount = rp.length
-            this.servicesManager[o]['count'] = this.managerCount
+            item['count'] = this.managerCount
 
             const servicios = rp.filter(serv => serv)
             const sumatoria = servicios.reduce((accumulator, serv) => {
               return accumulator + serv.totalServicio
             }, 0)
 
-            this.servicesManager[o]['sum'] = sumatoria
+            item['sum'] = sumatoria
 
             this.servicesManager.sort(function (a, b) {
               if (a.sum > b.sum) {
@@ -163,24 +163,23 @@ export class VisionComponent implements OnInit {
               return 0;
             })
           })
-        }
+        })
       })
     } else {
       this.serviceManager.getUsuarios().subscribe((rp: any) => {
         this.servicesManager = rp
 
-        for (let o = 0; o < rp.length; o++) {
-          this.service.getManagerAndDates(rp[o]['nombre'], element).subscribe((rp: any) => {
+        rp.map(item => {
+          this.service.getManagerAndDates(item['nombre'], element).subscribe((rp: any) => {
             this.managerCount = rp.length
-            this.servicesManager[o]['count'] = this.managerCount
+            item['count'] = this.managerCount
 
             const servicios = rp.filter(serv => serv)
             const sumatoria = servicios.reduce((accumulator, serv) => {
               return accumulator + serv.totalServicio
             }, 0)
 
-
-            this.servicesManager[o]['sum'] = sumatoria
+            item['sum'] = sumatoria
 
             this.servicesManager.sort(function (a, b) {
               if (a.sum > b.sum) {
@@ -192,8 +191,9 @@ export class VisionComponent implements OnInit {
 
               return 0;
             })
+
           })
-        }
+        })
       })
     }
   }
@@ -306,19 +306,15 @@ export class VisionComponent implements OnInit {
       this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
         this.servicesTherapist = rp
 
-        for (let o = 0; o < this.servicesTherapist.length; o++) {
-
-          this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
-
+        rp.map(item => {
+          this.service.getTherapistAndDates(item['nombre'], dates).subscribe((rp: any) => {
             this.therapistCount = rp.length
-            this.servicesTherapist[o]['count'] = this.therapistCount
+            item['count'] = this.therapistCount
 
             const servicios = rp.filter(serv => serv)
-            const sumatoria = servicios.reduce((accumulator, serv) => {
+            item['sum'] = servicios.reduce((accumulator, serv) => {
               return accumulator + serv.totalServicio
             }, 0)
-
-            this.servicesTherapist[o]['sum'] = sumatoria
 
             this.servicesTherapist.sort(function (a, b) {
               if (a.sum > b.sum) {
@@ -330,8 +326,9 @@ export class VisionComponent implements OnInit {
 
               return 0;
             })
+
           })
-        }
+        })
       })
 
     } else {
@@ -339,19 +336,15 @@ export class VisionComponent implements OnInit {
       this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
         this.servicesTherapist = rp
 
-        for (let o = 0; o < this.servicesTherapist.length; o++) {
-
-          this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dateCurent).subscribe((rp: any) => {
-
+        rp.map(item => {
+          this.service.getTherapistAndDates(item['nombre'], dateCurent).subscribe((rp: any) => {
             this.therapistCount = rp.length
-            this.servicesTherapist[o]['count'] = this.therapistCount
+            item['count'] = this.therapistCount
 
             const servicios = rp.filter(serv => serv)
-            const sumatoria = servicios.reduce((accumulator, serv) => {
+            item['sum'] = servicios.reduce((accumulator, serv) => {
               return accumulator + serv.totalServicio
             }, 0)
-
-            this.servicesTherapist[o]['sum'] = sumatoria
 
             this.servicesTherapist.sort(function (a, b) {
               if (a.sum > b.sum) {
@@ -363,14 +356,14 @@ export class VisionComponent implements OnInit {
 
               return 0;
             })
+
           })
-        }
+        })
       })
     }
   }
 
   tableTherapistForManager(element, text, dateCurrent) {
-    debugger
     this.existTherapist = false
     this.message = false
 
@@ -393,23 +386,22 @@ export class VisionComponent implements OnInit {
       this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe((rp: any) => {
         this.servicesTherapist = rp
 
-        for (let o = 0; o < this.servicesTherapist.length; o++) {
+        rp.map(item => {
+          item['nombre'] = item['terapeuta']
 
-          this.servicesTherapist[o]['nombre'] = rp[o]['terapeuta']
-
-          this.service.getTherapistAndDates(this.servicesTherapist[o]['terapeuta'], dates).subscribe((rp: any) => {
+          this.service.getTherapistAndDates(item['terapeuta'], dates).subscribe((rp: any) => {
             if (rp.length > 0) {
               this.existTherapist = true
 
               this.therapistCount = rp.length
-              this.servicesTherapist[o]['count'] = this.therapistCount
+              item['count'] = this.therapistCount
 
               const servicios = rp.filter(serv => serv)
               const sumatoria = servicios.reduce((accumulator, serv) => {
                 return accumulator + serv.totalServicio
               }, 0)
 
-              this.servicesTherapist[o]['sum'] = sumatoria
+              item['sum'] = sumatoria
 
               this.servicesTherapist.sort(function (a, b) {
                 if (a.sum > b.sum) {
@@ -426,30 +418,29 @@ export class VisionComponent implements OnInit {
             }
 
           })
-        }
+        })
       })
 
     } else {
       this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dateCurrent).subscribe((rp: any) => {
         this.servicesTherapist = rp
 
-        for (let o = 0; o < this.servicesTherapist.length; o++) {
+        rp.map(item => {
+          item['nombre'] = item['terapeuta']
 
-          this.servicesTherapist[o]['nombre'] = rp[o]['terapeuta']
-
-          this.service.getTherapistAndDates(this.servicesTherapist[o]['terapeuta'], dateCurrent).subscribe((rp: any) => {
+          this.service.getTherapistAndDates(item['terapeuta'], dateCurrent).subscribe((rp: any) => {
 
             if (rp.length > 0) {
               this.existTherapist = true
               this.therapistCount = rp.length
-              this.servicesTherapist[o]['count'] = this.therapistCount
+              item['count'] = this.therapistCount
 
               const servicios = rp.filter(serv => serv)
               const sumatoria = servicios.reduce((accumulator, serv) => {
                 return accumulator + serv.totalServicio
               }, 0)
 
-              this.servicesTherapist[o]['sum'] = sumatoria
+              item['sum'] = sumatoria
 
               this.servicesTherapist.sort(function (a, b) {
                 if (a.sum > b.sum) {
@@ -464,9 +455,8 @@ export class VisionComponent implements OnInit {
             } else {
               this.message = true
             }
-          }
-          )
-        }
+          })
+        })
       })
     }
   }

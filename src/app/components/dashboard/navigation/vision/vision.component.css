@@ -3634,7 +3634,7 @@
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
+    margin-left: 3px;
     margin-top: 0.1rem;
     margin-bottom: 4px;
   }
@@ -3709,7 +3709,7 @@
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
+    margin-left: 3px;
     margin-top: 0.1rem;
     margin-bottom: 4px;
   }
@@ -3933,7 +3933,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -2%;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
   }
 
   .columnService {
@@ -4139,6 +4139,156 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: 0rem;
+  }
+
+  /* Table therapist */
+
+  .adjustTableTherapist {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  .columnTableTherapist {
+    display: grid;
+    grid-template-columns: 42.4% 40.4% 16%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: 1px;
+  }
+
+  .lineTherapist {
+    width: 303px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textTherapist {
+    text-align-last: start;
+  }
+
+  .textImportTherapist {
+    margin-left: -1rem;
+  }
+
+  .textServiceTherapist {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnTherapist {
+    text-align-last: start;
+  }
+
+  .columnTherapistTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0px 3px 0px 0px;
+  }
+
+  /* Table Manager */
+
+  .adjustTableManager {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 7.1rem;
+  }
+
+  .columnTableManager {
+    display: grid;
+    grid-template-columns: 42.4% 40.4% 16%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: 1px;
+  }
+
+  .lineManager {
+    width: 303px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textManager {
+    text-align-last: start;
+  }
+
+  .textImportManager {
+    margin-left: -1rem;
+  }
+
+  .textServiceManager {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnManager {
+    text-align-last: start;
+  }
+
+  .columnManagerTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0px 3px 0px 0px;
   }
 }
 
@@ -4315,7 +4465,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
   }
 
   .columnService {
@@ -4521,6 +4671,156 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: 0rem;
+  }
+
+  /* Table therapist */
+
+  .adjustTableTherapist {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  .columnTableTherapist {
+    display: grid;
+    grid-template-columns: 42.4% 37.8% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -10.2px;
+  }
+
+  .lineTherapist {
+    width: 306px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textTherapist {
+    text-align-last: start;
+  }
+
+  .textImportTherapist {
+    margin-left: -1rem;
+  }
+
+  .textServiceTherapist {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnTherapist {
+    text-align-last: start;
+  }
+
+  .columnTherapistTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 42px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align-last: right;
+  }
+
+  /* Table Manager */
+
+  .adjustTableManager {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 7.1rem;
+  }
+
+  .columnTableManager {
+    display: grid;
+    grid-template-columns: 42.4% 37.8% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -10.2px;
+  }
+
+  .lineManager {
+    width: 306px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textManager {
+    text-align-last: start;
+  }
+
+  .textImportManager {
+    margin-left: -1rem;
+  }
+
+  .textServiceManager {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnManager {
+    text-align-last: start;
+  }
+
+  .columnManagerTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 42px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align-last: right;
   }
 }
 
@@ -4697,7 +4997,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
   }
 
   .columnService {
@@ -4903,6 +5203,154 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: 0rem;
+  }
+
+  /* Table therapist */
+
+  .adjustTableTherapist {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  .columnTableTherapist {
+    display: grid;
+    grid-template-columns: 42.4% 37.8% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -10.2px;
+  }
+
+  .lineTherapist {
+    width: 303px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textTherapist {
+    text-align-last: start;
+  }
+
+  .textImportTherapist {
+    margin-left: -1rem;
+  }
+
+  .textServiceTherapist {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnTherapist {
+    text-align-last: start;
+  }
+
+  .columnTherapistTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableTherapist {
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0.1rem -4px 0px 0px;
+  }
+
+  /* Table Manager */
+
+  .adjustTableManager {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 7.1rem;
+  }
+
+  .columnTableManager {
+    display: grid;
+    grid-template-columns: 42.4% 37.8% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -10.2px;
+  }
+
+  .lineManager {
+    width: 303px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 3px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textManager {
+    text-align-last: start;
+  }
+
+  .textImportManager {
+    margin-left: -1rem;
+  }
+
+  .textServiceManager {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnManager {
+    text-align-last: start;
+  }
+
+  .columnManagerTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 43px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableManager {
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0.1rem -4px 0px 0px;
   }
 }
 
@@ -5079,7 +5527,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
   }
 
   .columnService {
@@ -5285,6 +5733,154 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: 0rem;
+  }
+
+  /* Table therapist */
+
+  .adjustTableTherapist {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  .columnTableTherapist {
+    display: grid;
+    grid-template-columns: 42.4% 39% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -9px;
+  }
+
+  .lineTherapist {
+    width: 323px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textTherapist {
+    text-align-last: start;
+  }
+
+  .textImportTherapist {
+    margin-left: -1rem;
+  }
+
+  .textServiceTherapist {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnTherapist {
+    text-align-last: start;
+  }
+
+  .columnTherapistTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 46px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableTherapist {
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0.1rem -2px 0px 0px;
+  }
+
+  /* Table Manager */
+
+  .adjustTableManager {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 7.1rem;
+  }
+
+  .columnTableManager {
+    display: grid;
+    grid-template-columns: 42.4% 39% 14%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -9px;
+  }
+
+  .lineManager {
+    width: 323px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textManager {
+    text-align-last: start;
+  }
+
+  .textImportManager {
+    margin-left: -1rem;
+  }
+
+  .textServiceManager {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnManager {
+    text-align-last: start;
+  }
+
+  .columnManagerTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 46px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableManager {
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0.1rem -2px 0px 0px;
   }
 }
 
@@ -5461,7 +6057,7 @@
     justify-items: center;
     margin-top: 2rem;
     margin-left: -4%;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
   }
 
   .columnService {
@@ -5667,6 +6263,156 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: 0rem;
+  }
+
+  /* Table therapist */
+
+  .adjustTableTherapist {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  .columnTableTherapist {
+    display: grid;
+    grid-template-columns: 38.4% 47% 11%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -11px;
+  }
+
+  .lineTherapist {
+    width: 420px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textTherapist {
+    text-align-last: start;
+  }
+
+  .textImportTherapist {
+    margin-left: -1rem;
+  }
+
+  .textServiceTherapist {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnTherapist {
+    text-align-last: start;
+  }
+
+  .columnTherapistTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 84px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableTherapist {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align-last: right;
+  }
+
+  /* Table Manager */
+
+  .adjustTableManager {
+    margin-top: 24px;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 7.1rem;
+  }
+
+  .columnTableManager {
+    display: grid;
+    grid-template-columns: 38.4% 47% 11%;
+    margin-top: 0rem;
+    margin-bottom: 1px;
+    justify-content: center;
+    text-align-last: center;
+    margin-left: -11px;
+  }
+
+  .lineManager {
+    width: 420px;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1px;
+    margin-top: 0.1rem;
+    margin-bottom: 4px;
+  }
+
+  .textManager {
+    text-align-last: start;
+  }
+
+  .textImportManager {
+    margin-left: -1rem;
+  }
+
+  .textServiceManager {
+    text-align-last: start;
+  }
+
+  /* Column */
+
+  .availableColumnManager {
+    text-align-last: start;
+  }
+
+  .columnManagerTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: left;
+  }
+
+  .columnImportTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    padding: 0px 84px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align-last: right;
+    cursor: pointer;
+  }
+
+  .columnServiceTableManager {
+    margin-top: 0.1rem;
+    line-height: 1.8rem;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align-last: right;
   }
 }
 
