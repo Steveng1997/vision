@@ -49,7 +49,7 @@ export class VisionComponent implements OnInit {
   totalTrasnf: number
   totalTerap: number
   totalEncarg: number
-  totalOtro: number
+  totalDriverTaxi: number
   totalPisos: number
 
   // Conteo fecha
@@ -475,7 +475,7 @@ export class VisionComponent implements OnInit {
     this.totalTarjeta = 0
     this.totalTrasnf = 0
     this.totalTerap = 0
-    this.totalOtro = 0
+    this.totalDriverTaxi = 0
     this.totalCollection = 0
     this.totalTreatment = '0'
     this.totalTobacco = '0'
@@ -1014,13 +1014,13 @@ export class VisionComponent implements OnInit {
       this.totalEncargada = this.totalEncarg.toString()
     }
 
-    const totalValorOtro = this.vision.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
-    this.totalOtro = totalValorOtro
+    const totalValueTaxDriver = this.vision.map(({ numberTaxi }) => numberTaxi).reduce((acc, value) => acc + value, 0)
+    this.totalDriverTaxi = totalValueTaxDriver
 
-    if (this.totalOtro > 0) {
+    if (this.totalDriverTaxi > 0) {
 
-      const coma = this.totalOtro.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalOtro.toString().split(".") : this.totalOtro.toString().split("");
+      const coma = this.totalDriverTaxi.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalDriverTaxi.toString().split(".") : this.totalDriverTaxi.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -1039,7 +1039,7 @@ export class VisionComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.totalOtr = integer[0].toString()
     } else {
-      this.totalOtr = this.totalOtro.toString()
+      this.totalOtr = this.totalDriverTaxi.toString()
     }
 
     this.totalPisos = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
@@ -1070,7 +1070,7 @@ export class VisionComponent implements OnInit {
     }
 
     this.totalCollection = this.totalEfectivo + this.totalBizum + this.totalTarjeta + this.totalTrasnf
-      + this.totalTerap + this.totalEncarg + this.totalOtro
+      + this.totalTerap + this.totalEncarg + this.totalDriverTaxi
 
     if (this.totalCollection > 0) {
 

@@ -1,7 +1,7 @@
 export class ModelService {
   bebidas?: string;
   bizuEncarg?: boolean;
-  bizuOtro?: boolean;
+  bizuDriverTaxi?: boolean;
   bizuPiso1?: boolean;
   bizuPiso2?: boolean;
   bizuTerap?: boolean;
@@ -10,7 +10,7 @@ export class ModelService {
   currentDate?: string;
   editar?: boolean;
   efectEncarg?: boolean;
-  efectOtro?: boolean;
+  efectDriverTaxi?: boolean;
   efectPiso1?: boolean;
   efectPiso2?: boolean;
   efectTerap?: boolean;
@@ -31,7 +31,7 @@ export class ModelService {
   minuto?: number;
   nota?: string;
   numberEncarg?: string;
-  numberOtro?: string;
+  numberTaxi?: string;
   numberPiso1?: string;
   numberPiso2?: string;
   numberTerap?: string;
@@ -41,14 +41,14 @@ export class ModelService {
   servicio?: string;
   tabaco?: string;
   tarjEncarg?: boolean;
-  tarjOtro?: boolean;
+  tarjDriverTaxi?: boolean;
   tarjPiso1?: boolean;
   tarjPiso2?: boolean;
   tarjTerap?: boolean;
   terapeuta?: string;
   totalServicio?: number;
   transEncarg?: boolean;
-  transOtro?: boolean;
+  transDriverTaxi?: boolean;
   transPiso1?: boolean;
   transPiso2?: boolean;
   transTerap?: boolean;

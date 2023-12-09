@@ -370,7 +370,7 @@ input[id="transEncarg"] {
 
 /* Cash Other */
 
-input[id="efectOtro"]+label {
+input[id="efectDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -378,7 +378,7 @@ input[id="efectOtro"]+label {
   cursor: pointer;
 }
 
-input[id="efectOtro"]:checked+label:after {
+input[id="efectDriverTaxi"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -387,13 +387,13 @@ input[id="efectOtro"]:checked+label:after {
   color: #8c52ff;
 }
 
-input[id="efectOtro"] {
+input[id="efectDriverTaxi"] {
   display: none;
 }
 
 /* Bizum Other */
 
-input[id="bizuOtro"]+label {
+input[id="bizuDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -401,7 +401,7 @@ input[id="bizuOtro"]+label {
   cursor: pointer;
 }
 
-input[id="bizuOtro"]:checked+label:after {
+input[id="bizuDriverTaxi"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -410,13 +410,13 @@ input[id="bizuOtro"]:checked+label:after {
   color: #8c52ff;
 }
 
-input[id="bizuOtro"] {
+input[id="bizuDriverTaxi"] {
   display: none;
 }
 
 /* Card Other */
 
-input[id="tarjOtro"]+label {
+input[id="tarjDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -424,7 +424,7 @@ input[id="tarjOtro"]+label {
   cursor: pointer;
 }
 
-input[id="tarjOtro"]:checked+label:after {
+input[id="tarjDriverTaxi"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -433,13 +433,13 @@ input[id="tarjOtro"]:checked+label:after {
   color: #8c52ff;
 }
 
-input[id="tarjOtro"] {
+input[id="tarjDriverTaxi"] {
   display: none;
 }
 
 /* Transaction Other */
 
-input[id="transOtro"]+label {
+input[id="transDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
@@ -447,7 +447,7 @@ input[id="transOtro"]+label {
   cursor: pointer;
 }
 
-input[id="transOtro"]:checked+label:after {
+input[id="transDriverTaxi"]:checked+label:after {
   position: relative;
   top: -4px;
   left: 2px;
@@ -456,7 +456,7 @@ input[id="transOtro"]:checked+label:after {
   color: #8c52ff;
 }
 
-input[id="transOtro"] {
+input[id="transDriverTaxi"] {
   display: none;
 }
 

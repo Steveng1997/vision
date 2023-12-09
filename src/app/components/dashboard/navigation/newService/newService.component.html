@@ -266,7 +266,7 @@
 
                     <div class="collectionPiso1 row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Piso 1</label>
+                                        display: contents; font-weight: bold">Casa</label>
                         <input type="number" class="form-control" name="numberPiso1" [(ngModel)]="services.numberPiso1"
                             (ngModelChange)="collectionsValue()" style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif;
                                             border-color: #8C52FF">
@@ -309,7 +309,7 @@
 
                     <div class="collectionPiso2 row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Piso 2</label>
+                                        display: contents; font-weight: bold">Casa</label>
                         <input matInput type="number" class="form-control" name="numberPiso2"
                             [(ngModel)]="services.numberPiso2" (ngModelChange)="collectionsValue()"
                             style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
@@ -430,40 +430,40 @@
                     <div class="collectionOther row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Taxista</label>
-                        <input matInput type="number" class="form-control" name="numberOtro"
-                            [(ngModel)]="services.numberOtro" (ngModelChange)="collectionsValue()"
+                        <input matInput type="number" class="form-control" name="numberTaxi"
+                            [(ngModel)]="services.numberTaxi" (ngModelChange)="collectionsValue()"
                             style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxCashOther">
-                            <input type="checkbox" id="efectOtro" name="efectOtro" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.efectOtro">
-                            <label for="efectOtro"></label>
+                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.efectDriverTaxi">
+                            <label for="efectDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumOther">
-                            <input type="checkbox" id="bizuOtro" name="bizuOtro" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.bizuOtro">
-                            <label for="bizuOtro"></label>
+                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.bizuDriverTaxi">
+                            <label for="bizuDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardOther">
-                            <input type="checkbox" id="tarjOtro" name="tarjOtro" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.tarjOtro">
-                            <label for="tarjOtro"></label>
+                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.tarjDriverTaxi">
+                            <label for="tarjDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionOther">
-                            <input type="checkbox" id="transOtro" name="transOtro" (change)="validatePaymentMethod()"
-                                [(ngModel)]="services.transOtro">
-                            <label for="transOtro"></label>
+                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi" (change)="validatePaymentMethod()"
+                                [(ngModel)]="services.transDriverTaxi">
+                            <label for="transDriverTaxi"></label>
                         </div>
                     </div>
                     <!-- AQUI -->
@@ -765,7 +765,7 @@
 
                     <div class="collectionPiso1 row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Piso 1</label>
+                                        display: contents; font-weight: bold">Casa</label>
                         <input type="number" class="form-control" name="numberPiso1" [(ngModel)]="edServ.numberPiso1"
                             (ngModelChange)="editCollectionsValue()" style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif;
                                             border-color: #8C52FF">
@@ -804,7 +804,7 @@
 
                     <div class="collectionPiso2 row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
-                                        display: contents; font-weight: bold">Piso 2</label>
+                                        display: contents; font-weight: bold">Casa</label>
                         <input matInput type="number" class="form-control" name="numberPiso2"
                             [(ngModel)]="edServ.numberPiso2" (ngModelChange)="editCollectionsValue()"
                             style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
@@ -913,36 +913,36 @@
                     <div class="collectionOther row g-0" style="display: block;">
                         <label style="color: #242424; font-size: 17px; font-family: sans-serif;
                                         display: contents; font-weight: bold">Taxista</label>
-                        <input matInput type="number" class="form-control" name="numberOtro"
-                            [(ngModel)]="edServ.numberOtro" (ngModelChange)="editCollectionsValue()"
+                        <input matInput type="number" class="form-control" name="numberTaxi"
+                            [(ngModel)]="edServ.numberTaxi" (ngModelChange)="editCollectionsValue()"
                             style="height: 2.2rem; color: #000000; font-size: 18px; font-family: sans-serif; border-color: #8C52FF">
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxCashOther">
-                            <input type="checkbox" id="efectOtro" name="efectOtro" [(ngModel)]="edServ.efectOtro">
-                            <label for="efectOtro"></label>
+                            <input type="checkbox" id="efectDriverTaxi" name="efectDriverTaxi" [(ngModel)]="edServ.efectDriverTaxi">
+                            <label for="efectDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxBizumOther">
-                            <input type="checkbox" id="bizuOtro" name="bizuOtro" [(ngModel)]="edServ.bizuOtro">
-                            <label for="bizuOtro"></label>
+                            <input type="checkbox" id="bizuDriverTaxi" name="bizuDriverTaxi" [(ngModel)]="edServ.bizuDriverTaxi">
+                            <label for="bizuDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="CheckBoxCardOther">
-                            <input type="checkbox" id="tarjOtro" name="tarjOtro" [(ngModel)]="edServ.tarjOtro">
-                            <label for="tarjOtro"></label>
+                            <input type="checkbox" id="tarjDriverTaxi" name="tarjDriverTaxi" [(ngModel)]="edServ.tarjDriverTaxi">
+                            <label for="tarjDriverTaxi"></label>
                         </div>
                     </div>
 
                     <div class="row g-0">
                         <div class="checkBoxTransactionOther">
-                            <input type="checkbox" id="transOtro" name="transOtro" [(ngModel)]="edServ.transOtro">
-                            <label for="transOtro"></label>
+                            <input type="checkbox" id="transDriverTaxi" name="transDriverTaxi" [(ngModel)]="edServ.transDriverTaxi">
+                            <label for="transDriverTaxi"></label>
                         </div>
                     </div>
                     <!-- AQUI -->

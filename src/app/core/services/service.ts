@@ -359,30 +359,6 @@ export class Service {
     return this.http.put(`${this.API_URL}/updateByWithValueNumberPiso2/${id}/${idUnico}`, service);
   }
 
-  updateNumberEncargada(idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByNumberEncargada/${idUnico}`, service);
-  }
-
-  updateWithValueNumberEncargada(id: number, idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberEncargada/${id}/${idUnico}`, service);
-  }
-
-  updateNumberTerap(idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByNumberTerap/${idUnico}`, service);
-  }
-
-  updateWithValueNumberTerap(id: number, idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberTerap/${id}/${idUnico}`, service);
-  }
-
-  updateNumberOtros(idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByNumberOtros/${idUnico}`, service);
-  }
-
-  updateWithValueNumberOtros(id: number, idUnico: string, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByWithValueNumberOtros/${id}/${idUnico}`, service);
-  }
-
   updateLiquidacionTerap(id: number, service: ModelService) {
     return this.http.put(`${this.API_URL}/updateByLiquidacionTerap/${id}`, service);
   }

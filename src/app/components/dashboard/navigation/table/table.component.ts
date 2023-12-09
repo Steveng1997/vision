@@ -267,10 +267,10 @@ export class TableComponent implements OnInit {
       this.servicio[i].numberEncarg = this.servicio[i].numberEncarg
     }
 
-    if (this.servicio[i].numberOtro > 0) {
+    if (this.servicio[i].numberTaxi > 0) {
 
-      const coma = this.servicio[i].numberOtro.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.servicio[i].numberOtro.toString().split(".") : this.servicio[i].numberOtro.toString().split("");
+      const coma = this.servicio[i].numberTaxi.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.servicio[i].numberTaxi.toString().split(".") : this.servicio[i].numberTaxi.toString().split("");
       let integer = coma ? array[i].split("") : array;
       let subIndex = 1;
 
@@ -287,9 +287,9 @@ export class TableComponent implements OnInit {
       }
 
       integer = [integer.toString().replace(/,/gi, "")]
-      this.servicio[i].numberOtro = integer[0].toString()
+      this.servicio[i].numberTaxi = integer[0].toString()
     } else {
-      this.servicio[i].numberOtro = this.servicio[i].numberOtro
+      this.servicio[i].numberTaxi = this.servicio[i].numberTaxi
     }
 
     if (this.servicio[i].bebidas > 0) {
@@ -594,7 +594,7 @@ export class TableComponent implements OnInit {
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
         && wayToPay(serv))
       this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
-        return accumulator + serv.numberOtro
+        return accumulator + serv.numberTaxi
       }, 0)
 
       // Filter by Valor Bebida
@@ -960,7 +960,7 @@ export class TableComponent implements OnInit {
     const totalEncarg = element.map(({ numberEncarg }) => numberEncarg).reduce((acc, value) => acc + value, 0)
     this.totalValorEncargada = totalEncarg
 
-    const totalOtr = element.map(({ numberOtro }) => numberOtro).reduce((acc, value) => acc + value, 0)
+    const totalOtr = element.map(({ numberTaxi }) => numberTaxi).reduce((acc, value) => acc + value, 0)
     this.totalValorAOtros = totalOtr
 
     const totalValorBebida = element.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
@@ -1119,7 +1119,7 @@ export class TableComponent implements OnInit {
         itemData.numberPiso2 + ' €', // column L
         itemData.numberTerap + ' €', // column M
         itemData.numberEncarg + ' €', // column N
-        itemData.numberOtro + ' €', // column O
+        itemData.numberTaxi + ' €', // column O
         itemData.bebidas + ' €', // column P
         itemData.tabaco + ' €', // column Q
         itemData.vitaminas + ' €', // column R

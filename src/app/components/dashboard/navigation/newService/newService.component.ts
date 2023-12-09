@@ -73,7 +73,7 @@ export class NewServiceComponent implements OnInit {
   services: ModelService = {
     bebidas: "",
     bizuEncarg: false,
-    bizuOtro: false,
+    bizuDriverTaxi: false,
     bizuPiso1: false,
     bizuPiso2: false,
     bizuTerap: false,
@@ -82,7 +82,7 @@ export class NewServiceComponent implements OnInit {
     currentDate: "",
     editar: false,
     efectEncarg: false,
-    efectOtro: false,
+    efectDriverTaxi: false,
     efectPiso1: false,
     efectPiso2: false,
     efectTerap: false,
@@ -103,7 +103,7 @@ export class NewServiceComponent implements OnInit {
     minuto: 0,
     nota: "",
     numberEncarg: "",
-    numberOtro: "",
+    numberTaxi: "",
     numberPiso1: "",
     numberPiso2: "",
     numberTerap: "",
@@ -113,14 +113,14 @@ export class NewServiceComponent implements OnInit {
     servicio: "",
     tabaco: "",
     tarjEncarg: false,
-    tarjOtro: false,
+    tarjDriverTaxi: false,
     tarjPiso1: false,
     tarjPiso2: false,
     tarjTerap: false,
     terapeuta: "",
     totalServicio: 0,
     transEncarg: false,
-    transOtro: false,
+    transDriverTaxi: false,
     transPiso1: false,
     transPiso2: false,
     transTerap: false,
@@ -307,7 +307,7 @@ export class NewServiceComponent implements OnInit {
     this.services.numberPiso2 = "0"
     this.services.numberEncarg = "0"
     this.services.numberTerap = "0"
-    this.services.numberOtro = "0"
+    this.services.numberTaxi = "0"
     this.services.servicio = "0"
     this.services.bebidas = "0"
     this.services.tabaco = "0"
@@ -320,7 +320,7 @@ export class NewServiceComponent implements OnInit {
   validateTheEmptyField() {
     if (this.services.bebidas == "") this.services.bebidas = "0"
     if (this.services.numberEncarg == "") this.services.numberEncarg = "0"
-    if (this.services.numberOtro == "") this.services.numberOtro = "0"
+    if (this.services.numberTaxi == "") this.services.numberTaxi = "0"
     if (this.services.numberPiso1 == "") this.services.numberPiso1 = "0"
     if (this.services.numberPiso2 == "") this.services.numberPiso2 = "0"
     if (this.services.numberTerap == "") this.services.numberTerap = "0"
@@ -346,7 +346,7 @@ export class NewServiceComponent implements OnInit {
 
               if (this.services.efectPiso1 == true || this.services.efectPiso2 == true ||
                 this.services.efectTerap == true || this.services.efectEncarg == true ||
-                this.services.efectOtro == true) {
+                this.services.efectDriverTaxi == true) {
                 this.validateEfect = true
                 this.efectCheckToggle(this.validateEfect)
               } else {
@@ -355,7 +355,7 @@ export class NewServiceComponent implements OnInit {
 
               if (this.services.bizuPiso1 == true || this.services.bizuPiso2 == true ||
                 this.services.bizuTerap == true || this.services.bizuEncarg == true ||
-                this.services.bizuOtro == true) {
+                this.services.bizuDriverTaxi == true) {
                 this.validateBizum = true
                 this.bizumCheckToggle(this.validateBizum)
               } else {
@@ -364,7 +364,7 @@ export class NewServiceComponent implements OnInit {
 
               if (this.services.tarjPiso1 == true || this.services.tarjPiso2 == true ||
                 this.services.tarjTerap == true || this.services.tarjEncarg == true ||
-                this.services.tarjOtro == true) {
+                this.services.tarjDriverTaxi == true) {
                 this.validateTarjeta = true
                 this.tarjCheckToggle(this.validateTarjeta)
               } else {
@@ -373,7 +373,7 @@ export class NewServiceComponent implements OnInit {
 
               if (this.services.transPiso1 == true || this.services.transPiso2 == true ||
                 this.services.transTerap == true || this.services.transEncarg == true ||
-                this.services.transOtro == true) {
+                this.services.transDriverTaxi == true) {
                 this.validateTrans = true
                 this.transCheckToggle(this.validateTrans)
               } else {
@@ -428,7 +428,7 @@ export class NewServiceComponent implements OnInit {
 
   sumService() {
     this.services.totalServicio = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) +
-      Number(this.services.numberTerap) + Number(this.services.numberEncarg) + Number(this.services.numberOtro)
+      Number(this.services.numberTerap) + Number(this.services.numberEncarg) + Number(this.services.numberTaxi)
   }
 
   efectCheckToggle(event: any) {
@@ -463,8 +463,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.services.numberOtro) > 0 && this.services.efectOtro == true) {
-        otroservic = Number(this.services.numberOtro)
+      if (Number(this.services.numberTaxi) > 0 && this.services.efectDriverTaxi == true) {
+        otroservic = Number(this.services.numberTaxi)
       } else {
         otroservic = 0
       }
@@ -508,8 +508,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.services.numberOtro) > 0 && this.services.bizuOtro == true) {
-        otroservic = Number(this.services.numberOtro)
+      if (Number(this.services.numberTaxi) > 0 && this.services.bizuDriverTaxi == true) {
+        otroservic = Number(this.services.numberTaxi)
       } else {
         otroservic = 0
       }
@@ -553,8 +553,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.services.numberOtro) > 0 && this.services.tarjOtro == true) {
-        otroservic = Number(this.services.numberOtro)
+      if (Number(this.services.numberTaxi) > 0 && this.services.tarjDriverTaxi == true) {
+        otroservic = Number(this.services.numberTaxi)
       } else {
         otroservic = 0
       }
@@ -598,8 +598,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.services.numberOtro) > 0 && this.services.transOtro == true) {
-        otroservic = Number(this.services.numberOtro)
+      if (Number(this.services.numberTaxi) > 0 && this.services.transDriverTaxi == true) {
+        otroservic = Number(this.services.numberTaxi)
       } else {
         otroservic = 0
       }
@@ -742,7 +742,7 @@ export class NewServiceComponent implements OnInit {
       Number(this.services.vitaminas) + Number(this.services.propina) + Number(this.services.otros)
 
     restamos = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) + Number(this.services.numberTerap) +
-      Number(this.services.numberEncarg) + Number(this.services.numberOtro)
+      Number(this.services.numberEncarg) + Number(this.services.numberTaxi)
 
     if (Number(this.services.numberPiso1) > 0 || this.services.numberPiso1 != '') {
       this.restamosCobro = this.sumatoriaServicios - restamos
@@ -760,7 +760,7 @@ export class NewServiceComponent implements OnInit {
       this.restamosCobro = this.sumatoriaServicios - restamos
     }
 
-    if (Number(this.services.numberOtro) > 0 || this.services.numberOtro != '') {
+    if (Number(this.services.numberTaxi) > 0 || this.services.numberTaxi != '') {
       this.restamosCobro = this.sumatoriaServicios - restamos
     }
   }
@@ -769,7 +769,7 @@ export class NewServiceComponent implements OnInit {
     let resultado = 0
 
     this.sumatoriaCobros = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) +
-      Number(this.services.numberTerap) + Number(this.services.numberEncarg) + Number(this.services.numberOtro)
+      Number(this.services.numberTerap) + Number(this.services.numberEncarg) + Number(this.services.numberTaxi)
 
     resultado = this.sumatoriaServicios - this.sumatoriaCobros
     this.restamosCobro = resultado
@@ -810,14 +810,14 @@ export class NewServiceComponent implements OnInit {
     // Efectivo
     if (this.services.efectPiso1 == true && this.services.bizuPiso1 == true || this.services.efectPiso2 == true &&
       this.services.bizuPiso2 == true || this.services.efectTerap == true && this.services.bizuTerap == true ||
-      this.services.efectEncarg == true && this.services.bizuEncarg == true || this.services.efectOtro == true &&
-      this.services.bizuOtro == true || this.services.efectPiso1 == true && this.services.tarjPiso1 == true ||
+      this.services.efectEncarg == true && this.services.bizuEncarg == true || this.services.efectDriverTaxi == true &&
+      this.services.bizuDriverTaxi == true || this.services.efectPiso1 == true && this.services.tarjPiso1 == true ||
       this.services.efectPiso2 == true && this.services.tarjPiso2 == true || this.services.efectTerap == true &&
       this.services.tarjTerap == true || this.services.efectEncarg == true && this.services.tarjEncarg == true ||
-      this.services.efectOtro == true && this.services.tarjOtro == true || this.services.efectPiso1 == true &&
+      this.services.efectDriverTaxi == true && this.services.tarjDriverTaxi == true || this.services.efectPiso1 == true &&
       this.services.transPiso1 == true || this.services.efectPiso2 == true && this.services.transPiso2 == true ||
       this.services.efectTerap == true && this.services.transTerap == true || this.services.efectEncarg == true &&
-      this.services.transEncarg == true || this.services.efectOtro == true && this.services.transOtro == true) {
+      this.services.transEncarg == true || this.services.efectDriverTaxi == true && this.services.transDriverTaxi == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -825,14 +825,14 @@ export class NewServiceComponent implements OnInit {
     // Bizum
     if (this.services.bizuPiso1 == true && this.services.efectPiso1 == true || this.services.bizuPiso2 == true &&
       this.services.efectPiso2 == true || this.services.bizuTerap == true && this.services.efectTerap == true ||
-      this.services.bizuEncarg == true && this.services.efectEncarg == true || this.services.bizuOtro == true &&
-      this.services.efectOtro == true || this.services.bizuPiso1 == true && this.services.tarjPiso1 == true ||
+      this.services.bizuEncarg == true && this.services.efectEncarg == true || this.services.bizuDriverTaxi == true &&
+      this.services.efectDriverTaxi == true || this.services.bizuPiso1 == true && this.services.tarjPiso1 == true ||
       this.services.bizuPiso2 == true && this.services.tarjPiso2 == true || this.services.bizuTerap == true &&
       this.services.tarjTerap == true || this.services.bizuEncarg == true && this.services.tarjEncarg == true ||
-      this.services.bizuOtro == true && this.services.tarjOtro == true || this.services.bizuPiso1 == true &&
+      this.services.bizuDriverTaxi == true && this.services.tarjDriverTaxi == true || this.services.bizuPiso1 == true &&
       this.services.transPiso1 == true || this.services.bizuPiso2 == true && this.services.transPiso2 == true ||
       this.services.bizuTerap == true && this.services.transTerap == true || this.services.bizuEncarg == true &&
-      this.services.transEncarg == true || this.services.bizuOtro == true && this.services.transOtro == true) {
+      this.services.transEncarg == true || this.services.bizuDriverTaxi == true && this.services.transDriverTaxi == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -840,14 +840,14 @@ export class NewServiceComponent implements OnInit {
     // Tarjeta
     if (this.services.tarjPiso1 == true && this.services.efectPiso1 == true || this.services.tarjPiso2 == true &&
       this.services.efectPiso2 == true || this.services.tarjTerap == true && this.services.efectTerap == true ||
-      this.services.tarjEncarg == true && this.services.efectEncarg == true || this.services.tarjOtro == true &&
-      this.services.efectOtro == true || this.services.tarjPiso1 == true && this.services.bizuPiso1 == true ||
+      this.services.tarjEncarg == true && this.services.efectEncarg == true || this.services.tarjDriverTaxi == true &&
+      this.services.efectDriverTaxi == true || this.services.tarjPiso1 == true && this.services.bizuPiso1 == true ||
       this.services.tarjPiso2 == true && this.services.bizuPiso2 == true || this.services.tarjTerap == true &&
       this.services.bizuTerap == true || this.services.tarjEncarg == true && this.services.bizuEncarg == true ||
-      this.services.tarjOtro == true && this.services.bizuOtro == true || this.services.tarjPiso1 == true &&
+      this.services.tarjDriverTaxi == true && this.services.bizuDriverTaxi == true || this.services.tarjPiso1 == true &&
       this.services.transPiso1 == true || this.services.tarjPiso2 == true && this.services.transPiso2 == true ||
       this.services.tarjTerap == true && this.services.transTerap == true || this.services.tarjEncarg == true &&
-      this.services.transEncarg == true || this.services.tarjOtro == true && this.services.transOtro == true) {
+      this.services.transEncarg == true || this.services.tarjDriverTaxi == true && this.services.transDriverTaxi == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -855,14 +855,14 @@ export class NewServiceComponent implements OnInit {
     // Trans
     if (this.services.transPiso1 == true && this.services.efectPiso1 == true || this.services.transPiso2 == true &&
       this.services.efectPiso2 == true || this.services.transTerap == true && this.services.efectTerap == true ||
-      this.services.transEncarg == true && this.services.efectEncarg == true || this.services.transOtro == true &&
-      this.services.efectOtro == true || this.services.transPiso1 == true && this.services.bizuPiso1 == true ||
+      this.services.transEncarg == true && this.services.efectEncarg == true || this.services.transDriverTaxi == true &&
+      this.services.efectDriverTaxi == true || this.services.transPiso1 == true && this.services.bizuPiso1 == true ||
       this.services.transPiso2 == true && this.services.bizuPiso2 == true || this.services.transTerap == true &&
       this.services.bizuTerap == true || this.services.transEncarg == true && this.services.bizuEncarg == true ||
-      this.services.transOtro == true && this.services.bizuOtro == true || this.services.transPiso1 == true &&
+      this.services.transDriverTaxi == true && this.services.bizuDriverTaxi == true || this.services.transPiso1 == true &&
       this.services.tarjPiso1 == true || this.services.transPiso2 == true && this.services.tarjPiso2 == true ||
       this.services.transTerap == true && this.services.tarjTerap == true || this.services.transEncarg == true &&
-      this.services.tarjEncarg == true || this.services.transOtro == true && this.services.tarjOtro == true) {
+      this.services.tarjEncarg == true || this.services.transDriverTaxi == true && this.services.tarjDriverTaxi == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -890,9 +890,9 @@ export class NewServiceComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para encargada' })
       return false
     }
-    if (Number(this.services.numberOtro) > 0 && this.services.efectOtro == false && this.services.bizuOtro == false &&
-      this.services.tarjOtro == false && this.services.transOtro == false) {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para otros' })
+    if (Number(this.services.numberTaxi) > 0 && this.services.efectDriverTaxi == false && this.services.bizuDriverTaxi == false &&
+      this.services.tarjDriverTaxi == false && this.services.transDriverTaxi == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para taxista' })
       return false
     }
     return true
@@ -1007,17 +1007,17 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['efectPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
       this.editarService[0]['efectTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
       this.editarService[0]['efectEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
-      this.editarService[0]['efectOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['efectDriverTaxi'] == true && this.editarService[0]['bizuDriverTaxi'] == true ||
       this.editarService[0]['efectPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
       this.editarService[0]['efectPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
       this.editarService[0]['efectTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
       this.editarService[0]['efectEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
-      this.editarService[0]['efectOtro'] == true && this.editarService[0]['tarjOtro'] == true ||
+      this.editarService[0]['efectDriverTaxi'] == true && this.editarService[0]['tarjDriverTaxi'] == true ||
       this.editarService[0]['efectPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
       this.editarService[0]['efectPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
       this.editarService[0]['efectTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['efectEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
-      this.editarService[0]['efectOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      this.editarService[0]['efectDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1027,17 +1027,17 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
       this.editarService[0]['bizuTerap'] == true && this.editarService[0]['efectTerap'] == true ||
       this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
-      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['bizuDriverTaxi'] == true && this.editarService[0]['efectDriverTaxi'] == true ||
       this.editarService[0]['bizuPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
       this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
       this.editarService[0]['bizuTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
       this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
-      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['tarjOtro'] == true ||
+      this.editarService[0]['bizuDriverTaxi'] == true && this.editarService[0]['tarjDriverTaxi'] == true ||
       this.editarService[0]['bizuPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
       this.editarService[0]['bizuPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
       this.editarService[0]['bizuTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
-      this.editarService[0]['bizuOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      this.editarService[0]['bizuDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1047,17 +1047,17 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
       this.editarService[0]['tarjTerap'] == true && this.editarService[0]['efectTerap'] == true ||
       this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
-      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['tarjDriverTaxi'] == true && this.editarService[0]['efectDriverTaxi'] == true ||
       this.editarService[0]['tarjPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
       this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
       this.editarService[0]['tarjTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
       this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
-      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['tarjDriverTaxi'] == true && this.editarService[0]['bizuDriverTaxi'] == true ||
       this.editarService[0]['tarjPiso1'] == true && this.editarService[0]['transPiso1'] == true ||
       this.editarService[0]['tarjPiso2'] == true && this.editarService[0]['transPiso2'] == true ||
       this.editarService[0]['tarjTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
-      this.editarService[0]['tarjOtro'] == true && this.editarService[0]['transOtro'] == true) {
+      this.editarService[0]['tarjDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1067,17 +1067,17 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['transPiso2'] == true && this.editarService[0]['efectPiso2'] == true ||
       this.editarService[0]['transTerap'] == true && this.editarService[0]['efectTerap'] == true ||
       this.editarService[0]['transEncarg'] == true && this.editarService[0]['efectEncarg'] == true ||
-      this.editarService[0]['transOtro'] == true && this.editarService[0]['efectOtro'] == true ||
+      this.editarService[0]['transDriverTaxi'] == true && this.editarService[0]['efectDriverTaxi'] == true ||
       this.editarService[0]['transPiso1'] == true && this.editarService[0]['bizuPiso1'] == true ||
       this.editarService[0]['transPiso2'] == true && this.editarService[0]['bizuPiso2'] == true ||
       this.editarService[0]['transTerap'] == true && this.editarService[0]['bizuTerap'] == true ||
       this.editarService[0]['transEncarg'] == true && this.editarService[0]['bizuEncarg'] == true ||
-      this.editarService[0]['transOtro'] == true && this.editarService[0]['bizuOtro'] == true ||
+      this.editarService[0]['transDriverTaxi'] == true && this.editarService[0]['bizuDriverTaxi'] == true ||
       this.editarService[0]['transPiso1'] == true && this.editarService[0]['tarjPiso1'] == true ||
       this.editarService[0]['transPiso2'] == true && this.editarService[0]['tarjPiso2'] == true ||
       this.editarService[0]['transTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
       this.editarService[0]['transEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
-      this.editarService[0]['transOtro'] == true && this.editarService[0]['tarjOtro'] == true) {
+      this.editarService[0]['transDriverTaxi'] == true && this.editarService[0]['tarjDriverTaxi'] == true) {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1110,10 +1110,10 @@ export class NewServiceComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para encargada' })
       return false
     }
-    if (Number(this.editarService[0]['numberOtro']) > 0 && this.editarService[0]['efectOtro'] == false &&
-      this.editarService[0]['bizuOtro'] == false && this.editarService[0]['tarjOtro'] == false &&
-      this.editarService[0]['transOtro'] == false) {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para otros' })
+    if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['efectDriverTaxi'] == false &&
+      this.editarService[0]['bizuDriverTaxi'] == false && this.editarService[0]['tarjDriverTaxi'] == false &&
+      this.editarService[0]['transDriverTaxi'] == false) {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para taxista' })
       return false
     }
     return true
@@ -1146,7 +1146,7 @@ export class NewServiceComponent implements OnInit {
     if (this.editarService[0]['numberPiso2'] == '0') this.editarService[0]['numberPiso2'] = ''
     if (this.editarService[0]['numberTerap'] == '0') this.editarService[0]['numberTerap'] = ''
     if (this.editarService[0]['numberEncarg'] == '0') this.editarService[0]['numberEncarg'] = ''
-    if (this.editarService[0]['numberOtro'] == '0') this.editarService[0]['numberOtro'] = ''
+    if (this.editarService[0]['numberTaxi'] == '0') this.editarService[0]['numberTaxi'] = ''
   }
 
   editForm() {
@@ -1223,11 +1223,11 @@ export class NewServiceComponent implements OnInit {
       encargada = Number(this.editarService[0]['numberEncarg'])
     }
 
-    if (Number(this.editarService[0]['numberOtro']) == 0) {
+    if (Number(this.editarService[0]['numberTaxi']) == 0) {
       otros = 0
-      this.editarService[0]['numberOtro'] = "0"
+      this.editarService[0]['numberTaxi'] = "0"
     } else {
-      otros = Number(this.editarService[0]['numberOtro'])
+      otros = Number(this.editarService[0]['numberTaxi'])
     }
 
     this.servicioTotal = Number(piso1 + piso2 + terap + encargada + otros)
@@ -1288,7 +1288,7 @@ export class NewServiceComponent implements OnInit {
 
         if (this.editarService[0]['efectPiso1'] == true || this.editarService[0]['efectPiso2'] == true ||
           this.editarService[0]['efectTerap'] == true || this.editarService[0]['efectEncarg'] == true ||
-          this.editarService[0]['efectOtro'] == true) {
+          this.editarService[0]['efectDriverTaxi'] == true) {
           this.validateEfect = true
           this.efectCheckToggleEdit(this.validateEfect)
         } else {
@@ -1297,7 +1297,7 @@ export class NewServiceComponent implements OnInit {
 
         if (this.editarService[0]['bizuPiso1'] == true || this.editarService[0]['bizuPiso2'] == true ||
           this.editarService[0]['bizuTerap'] == true || this.editarService[0]['bizuEncarg'] == true ||
-          this.editarService[0]['bizuOtro'] == true) {
+          this.editarService[0]['bizuDriverTaxi'] == true) {
           this.validateBizum = true
           this.bizumCheckToggleEdit(this.validateBizum)
         } else {
@@ -1306,7 +1306,7 @@ export class NewServiceComponent implements OnInit {
 
         if (this.editarService[0]['tarjPiso1'] == true || this.editarService[0]['tarjPiso2'] == true ||
           this.editarService[0]['tarjTerap'] == true || this.editarService[0]['tarjEncarg'] == true ||
-          this.editarService[0]['tarjOtro'] == true) {
+          this.editarService[0]['tarjDriverTaxi'] == true) {
           this.validateTarjeta = true
           this.tarjCheckToggleEdit(this.validateTarjeta)
         } else {
@@ -1315,7 +1315,7 @@ export class NewServiceComponent implements OnInit {
 
         if (this.editarService[0]['transPiso1'] == true || this.editarService[0]['transPiso2'] == true ||
           this.editarService[0]['transTerap'] == true || this.editarService[0]['transEncarg'] == true ||
-          this.editarService[0]['transOtro'] == true) {
+          this.editarService[0]['transDriverTaxi'] == true) {
           this.validateTrans = true
           this.transCheckToggleEdit(this.validateTrans)
         } else {
@@ -1394,7 +1394,7 @@ export class NewServiceComponent implements OnInit {
     this.restamosCobroEdit = sumatoriaEdit
 
     const restamosEdit = Number(this.editarService[0]['numberPiso1']) + Number(this.editarService[0]['numberPiso2']) + Number(this.editarService[0]['numberTerap']) +
-      Number(this.editarService[0]['numberEncarg']) + Number(this.editarService[0]['numberOtro'])
+      Number(this.editarService[0]['numberEncarg']) + Number(this.editarService[0]['numberTaxi'])
 
     if (Number(this.editarService[0]['numberPiso1']) > 0) {
       this.restamosCobroEdit = sumatoriaEdit - restamosEdit
@@ -1412,7 +1412,7 @@ export class NewServiceComponent implements OnInit {
       this.restamosCobroEdit = sumatoriaEdit - restamosEdit
     }
 
-    if (Number(this.editarService[0]['numberOtro']) > 0) {
+    if (Number(this.editarService[0]['numberTaxi']) > 0) {
       this.restamosCobroEdit = sumatoriaEdit - restamosEdit
     }
   }
@@ -1444,8 +1444,8 @@ export class NewServiceComponent implements OnInit {
       valueEncargEdit = 0
     }
 
-    if (Number(this.editarService[0]['numberOtro']) > 0) {
-      valueotrosEdit = Number(this.editarService[0]['numberOtro'])
+    if (Number(this.editarService[0]['numberTaxi']) > 0) {
+      valueotrosEdit = Number(this.editarService[0]['numberTaxi'])
     } else {
       valueotrosEdit = 0
     }
@@ -1493,8 +1493,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.editarService[0]['numberOtro']) > 0 && this.editarService[0]['efectOtro'] === true) {
-        otroserv = Number(this.editarService[0]['numberOtro'])
+      if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['efectDriverTaxi'] === true) {
+        otroserv = Number(this.editarService[0]['numberTaxi'])
       } else {
         otroserv = 0
       }
@@ -1539,8 +1539,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.editarService[0]['numberOtro']) > 0 && this.editarService[0]['bizuOtro'] === true) {
-        otroservic = Number(this.editarService[0]['numberOtro'])
+      if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['bizuDriverTaxi'] === true) {
+        otroservic = Number(this.editarService[0]['numberTaxi'])
       } else {
         otroservic = 0
       }
@@ -1584,8 +1584,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.editarService[0]['numberOtro']) > 0 && this.editarService[0]['tarjOtro'] === true) {
-        otroservic = Number(this.editarService[0]['numberOtro'])
+      if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['tarjDriverTaxi'] === true) {
+        otroservic = Number(this.editarService[0]['numberTaxi'])
       } else {
         otroservic = 0
       }
@@ -1629,8 +1629,8 @@ export class NewServiceComponent implements OnInit {
         encarg = 0
       }
 
-      if (Number(this.editarService[0]['numberOtro']) > 0 && this.editarService[0]['transOtro'] === true) {
-        otroservic = Number(this.editarService[0]['numberOtro'])
+      if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['transDriverTaxi'] === true) {
+        otroservic = Number(this.editarService[0]['numberTaxi'])
       } else {
         otroservic = 0
       }
