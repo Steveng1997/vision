@@ -248,6 +248,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -273,6 +279,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -780,6 +792,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -805,6 +823,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -1312,6 +1336,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -1337,6 +1367,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -1844,6 +1880,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -1869,6 +1911,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -2376,6 +2424,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -2401,6 +2455,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -2908,6 +2968,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -2933,6 +2999,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -3440,6 +3512,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -3465,6 +3543,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -3972,6 +4056,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -3997,6 +4087,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 72% 48%;
     line-height: 1.4rem;
@@ -4504,6 +4600,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -4529,6 +4631,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 78% 42%;
     line-height: 1.4rem;
@@ -5036,6 +5144,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 72% 48%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -5061,6 +5175,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 78% 42%;
     line-height: 1.4rem;
@@ -5566,6 +5686,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -5591,6 +5717,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 78% 42%;
     line-height: 1.4rem;
@@ -6096,6 +6228,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -6121,6 +6259,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 78% 42%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 78% 42%;
     line-height: 1.4rem;
@@ -6624,6 +6768,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 70% 34%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -6649,6 +6799,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 70% 34%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 70% 34%;
     line-height: 1.4rem;
@@ -6999,6 +7155,12 @@
     line-height: 1.4rem;
   }
 
+  .columnDrinkTherapist {
+    display: grid;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
+  }
+
   .drinkValue {
     justify-self: end;
   }
@@ -7024,6 +7186,12 @@
   }
 
   .columnTip {
+    display: grid;
+    grid-template-columns: 61% 34%;
+    line-height: 1.4rem;
+  }
+
+  .columnTaxi{
     display: grid;
     grid-template-columns: 61% 34%;
     line-height: 1.4rem;

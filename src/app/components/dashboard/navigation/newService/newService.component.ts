@@ -72,6 +72,7 @@ export class NewServiceComponent implements OnInit {
 
   services: ModelService = {
     bebidas: "",
+    bebidaTerap: "",
     bizuEncarg: false,
     bizuDriverTaxi: false,
     bizuPiso1: false,
@@ -117,6 +118,7 @@ export class NewServiceComponent implements OnInit {
     tarjPiso1: false,
     tarjPiso2: false,
     tarjTerap: false,
+    taxi: "",
     terapeuta: "",
     totalServicio: 0,
     transEncarg: false,
@@ -310,7 +312,9 @@ export class NewServiceComponent implements OnInit {
     this.services.numberTaxi = "0"
     this.services.servicio = "0"
     this.services.bebidas = "0"
+    this.services.bebidaTerap = "0"
     this.services.tabaco = "0"
+    this.services.taxi = "0"
     this.services.vitaminas = "0"
     this.services.propina = "0"
     this.services.otros = "0"
@@ -319,6 +323,7 @@ export class NewServiceComponent implements OnInit {
 
   validateTheEmptyField() {
     if (this.services.bebidas == "") this.services.bebidas = "0"
+    if (this.services.bebidaTerap == "") this.services.bebidaTerap = "0"
     if (this.services.numberEncarg == "") this.services.numberEncarg = "0"
     if (this.services.numberTaxi == "") this.services.numberTaxi = "0"
     if (this.services.numberPiso1 == "") this.services.numberPiso1 = "0"
@@ -327,6 +332,7 @@ export class NewServiceComponent implements OnInit {
     if (this.services.otros == "") this.services.otros = "0"
     if (this.services.propina == "") this.services.propina = "0"
     if (this.services.tabaco == "") this.services.tabaco = "0"
+    if (this.services.taxi == "") this.services.taxi = "0"
     if (this.services.vitaminas == "") this.services.vitaminas = "0"
   }
 
@@ -738,8 +744,9 @@ export class NewServiceComponent implements OnInit {
 
     let restamos = 0
 
-    this.sumatoriaServicios = Number(this.services.servicio) + Number(this.services.bebidas) + Number(this.services.tabaco) +
-      Number(this.services.vitaminas) + Number(this.services.propina) + Number(this.services.otros)
+    this.sumatoriaServicios = Number(this.services.servicio) + Number(this.services.propina) + Number(this.services.taxi) +
+      Number(this.services.bebidas) + Number(this.services.bebidaTerap) + Number(this.services.tabaco) +
+      Number(this.services.vitaminas) + Number(this.services.otros)
 
     restamos = Number(this.services.numberPiso1) + Number(this.services.numberPiso2) + Number(this.services.numberTerap) +
       Number(this.services.numberEncarg) + Number(this.services.numberTaxi)
@@ -1138,7 +1145,9 @@ export class NewServiceComponent implements OnInit {
   SetTheValuesToEmpty() {
     if (this.editarService[0]['servicio'] == '0') this.editarService[0]['servicio'] = ''
     if (this.editarService[0]['bebidas'] == '0') this.editarService[0]['bebidas'] = ''
+    if (this.editarService[0]['bebidaTerap'] == '0') this.editarService[0]['bebidaTerap'] = ''
     if (this.editarService[0]['tabaco'] == '0') this.editarService[0]['tabaco'] = ''
+    if (this.editarService[0]['taxi'] == '0') this.editarService[0]['taxi'] = ''    
     if (this.editarService[0]['vitaminas'] == '0') this.editarService[0]['vitaminas'] = ''
     if (this.editarService[0]['propina'] == '0') this.editarService[0]['propina'] = ''
     if (this.editarService[0]['otros'] == '0') this.editarService[0]['otros'] = ''
@@ -1246,11 +1255,25 @@ export class NewServiceComponent implements OnInit {
       otros = Number(this.editarService[0]['bebidas'])
     }
 
+    if (Number(this.editarService[0]['bebidaTerap']) == 0) {
+      otros = 0
+      this.editarService[0]['bebidaTerap'] = "0"
+    } else {
+      otros = Number(this.editarService[0]['bebidaTerap'])
+    }
+
     if (Number(this.editarService[0]['tabaco']) == 0) {
       otros = 0
       this.editarService[0]['tabaco'] = "0"
     } else {
       otros = Number(this.editarService[0]['tabaco'])
+    }
+
+    if (Number(this.editarService[0]['taxi']) == 0) {
+      otros = 0
+      this.editarService[0]['taxi'] = "0"
+    } else {
+      otros = Number(this.editarService[0]['taxi'])
     }
 
     if (Number(this.editarService[0]['vitaminas']) == 0) {
@@ -1351,7 +1374,7 @@ export class NewServiceComponent implements OnInit {
   }
 
   editServiceValue() {
-    let servicioEdit = 0, bebidaEdit = 0, tabacoEdit = 0, vitaminasEdit = 0, propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0
+    let servicioEdit = 0, bebidaEdit = 0, bebidaTerapEdit = 0, tabacoEdit = 0, taxiEdit = 0, vitaminasEdit = 0, propinaEdit = 0, otrosEdit = 0, sumatoriaEdit = 0
 
     if (Number(this.editarService[0]['servicio']) > 0) {
       servicioEdit = Number(this.editarService[0]['servicio'])
@@ -1363,12 +1386,24 @@ export class NewServiceComponent implements OnInit {
       bebidaEdit = Number(this.editarService[0]['bebidas'])
     } else {
       bebidaEdit = 0
+    }    
+
+    if (Number(this.editarService[0]['bebidaTerap']) > 0) {
+      bebidaTerapEdit = Number(this.editarService[0]['bebidaTerap'])
+    } else {
+      bebidaTerapEdit = 0
     }
 
     if (Number(this.editarService[0]['tabaco']) > 0) {
       tabacoEdit = Number(this.editarService[0]['tabaco'])
     } else {
       tabacoEdit = 0
+    }
+
+    if (Number(this.editarService[0]['taxi']) > 0) {
+      taxiEdit = Number(this.editarService[0]['taxi'])
+    } else {
+      taxiEdit = 0
     }
 
     if (Number(this.editarService[0]['vitaminas']) > 0) {
@@ -1389,7 +1424,7 @@ export class NewServiceComponent implements OnInit {
       otrosEdit = 0
     }
 
-    sumatoriaEdit = servicioEdit + bebidaEdit + tabacoEdit + vitaminasEdit + propinaEdit + otrosEdit
+    sumatoriaEdit = servicioEdit + bebidaEdit + bebidaTerapEdit + tabacoEdit + vitaminasEdit + propinaEdit + otrosEdit
     this.editarService[0]['totalServicio'] = sumatoriaEdit
     this.restamosCobroEdit = sumatoriaEdit
 

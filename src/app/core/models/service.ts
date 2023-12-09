@@ -1,5 +1,6 @@
 export class ModelService {
   bebidas?: string;
+  bebidaTerap?: string;
   bizuEncarg?: boolean;
   bizuDriverTaxi?: boolean;
   bizuPiso1?: boolean;
@@ -45,6 +46,7 @@ export class ModelService {
   tarjPiso1?: boolean;
   tarjPiso2?: boolean;
   tarjTerap?: boolean;
+  taxi?: string;
   terapeuta?: string;
   totalServicio?: number;
   transEncarg?: boolean;

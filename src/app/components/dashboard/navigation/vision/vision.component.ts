@@ -36,9 +36,11 @@ export class VisionComponent implements OnInit {
   // TOTALES
   totalVision: number
   totalBebida: number
+  totalBebidaTherapist: number
   totalTobaccoo: number
   totalVitamina: number
   totalTipa: number
+  totalTaxita: number
   totalOtros: number
   totalCollection: number
 
@@ -62,9 +64,11 @@ export class VisionComponent implements OnInit {
   // string Number
   totalTreatment: string
   totalDrinks: string
+  totalDrinksTherapist: string
   totalTobacco: string
   totalVitamin: string
   totalTip: string
+  totalTaxi: string
   totalOthers: string
   totalVisions: string
   totalPiso: string
@@ -466,9 +470,11 @@ export class VisionComponent implements OnInit {
     this.totalVision = 0
     this.totalServicio = 0
     this.totalDrinks = '0'
+    this.totalDrinksTherapist = '0'
     this.totalTobaccoo = 0
     this.totalVitamina = 0
     this.totalTipa = 0
+    this.totalTaxita = 0
     this.totalOtros = 0
     this.totalEfectivo = 0
     this.totalBizum = 0
@@ -481,6 +487,7 @@ export class VisionComponent implements OnInit {
     this.totalTobacco = '0'
     this.totalVitamin = '0'
     this.totalTip = '0'
+    this.totalTaxi = '0'
     this.totalOthers = '0'
     this.totalVisions = '0'
     this.totalPiso = '0'
@@ -608,9 +615,11 @@ export class VisionComponent implements OnInit {
   async validateTheEmptyField() {
     if (this.totalTreatment == undefined) this.totalTreatment = '0'
     if (this.totalDrinks == undefined) this.totalDrinks = '0'
+    if (this.totalDrinksTherapist == undefined) this.totalDrinksTherapist = '0'
     if (this.totalTobacco == undefined) this.totalTobacco = '0'
     if (this.totalVitamin == undefined) this.totalVitamin = '0'
     if (this.totalTip == undefined) this.totalTip = '0'
+    if (this.totalTaxi == undefined) this.totalTaxi = '0'
     if (this.totalOthers == undefined) this.totalOthers = '0'
     if (this.totalVisions == undefined) this.totalVisions = '0'
 
@@ -684,6 +693,34 @@ export class VisionComponent implements OnInit {
       this.totalDrinks = integer[0].toString()
     } else {
       this.totalDrinks = totalValorBebida.toString()
+    }
+
+    const totalValueDrinkTherapist = this.vision.map(({ bebidaTerap }) => bebidaTerap).reduce((acc, value) => acc + value, 0)
+    this.totalBebidaTherapist = totalValueDrinkTherapist
+
+    if (this.totalBebidaTherapist > 0) {
+
+      const coma = this.totalBebidaTherapist.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBebidaTherapist.toString().split(".") : this.totalBebidaTherapist.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.totalDrinksTherapist = integer[0].toString()
+    } else {
+      this.totalDrinksTherapist = totalValueDrinkTherapist.toString()
     }
 
     const totalValorTab = this.vision.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
@@ -770,6 +807,34 @@ export class VisionComponent implements OnInit {
       this.totalTip = totalValorProp.toString()
     }
 
+    const totalValueTaxi = this.vision.map(({ taxi }) => taxi).reduce((acc, value) => acc + value, 0)
+    this.totalTaxita = totalValueTaxi
+
+    if (this.totalTaxita > 0) {
+
+      const coma = this.totalTaxita.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTaxita.toString().split(".") : this.totalTaxita.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.totalTaxi = integer[0].toString()
+    } else {
+      this.totalTaxi = totalValueTaxi.toString()
+    }
+
     const totalValorOtroServicio = this.vision.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
     this.totalOtros = totalValorOtroServicio
 
@@ -798,7 +863,7 @@ export class VisionComponent implements OnInit {
       this.totalOthers = totalValorOtroServicio.toString()
     }
 
-    this.totalVision = this.totalServicio + this.totalBebida + this.totalTobaccoo +
+    this.totalVision = this.totalServicio + this.totalBebida + this.totalBebidaTherapist + this.totalTobaccoo + this.totalTaxita +
       this.totalVitamina + this.totalTipa + this.totalOtros
 
     if (this.totalVision > 0) {
