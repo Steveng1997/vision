@@ -329,6 +329,10 @@ export class Service {
     return this.http.get(`${this.API_URL}/getManagerAndDate/${encargada}/${fechaHoyInicio}`);
   }
 
+  getTherapistConsultingManagerAndDate(encargada: string, fechaHoyInicio: string) {
+    return this.http.get(`${this.API_URL}/getTherapistConsultManagerAndDate/${encargada}/${fechaHoyInicio}`);
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {

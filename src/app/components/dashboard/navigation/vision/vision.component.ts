@@ -19,6 +19,8 @@ import moment from 'moment'
 
 export class VisionComponent implements OnInit {
 
+  existTherapist: boolean = false
+  message: boolean = false
   diferenceMinutes: number
   tableVision: boolean = false
   loading: boolean = false
@@ -120,14 +122,15 @@ export class VisionComponent implements OnInit {
       if (rp[0]['rol'] == 'administrador') {
         this.getService()
         this.getManagerall(element)
+        this.tableTherapist('array', 'date')
       } else {
         this.getServiceByManager(rp[0])
         this.getManager(manager, element, 'array')
+        this.tableTherapistForManager(manager, 'array', 'date')
       }
     })
 
     await this.getTherapist()
-    await this.tableTherapist('array', 'date')
   }
 
   getManagerall(element) {
@@ -233,6 +236,7 @@ export class VisionComponent implements OnInit {
         }
       })
     } else {
+
       this.service.getManagerAndDates(element[0]['nombre'], dates).subscribe((rp: any) => {
         this.managerCount = rp.length
         this.servicesManager[0]['count'] = this.managerCount
@@ -279,7 +283,10 @@ export class VisionComponent implements OnInit {
     })
   }
 
-  async tableTherapist(text, dateCurent) {
+  tableTherapist(text, dateCurent) {
+    this.existTherapist = true
+    this.message = false
+
     if (text == 'array') {
 
       let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
@@ -296,12 +303,13 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${day}`
       }
 
-      await this.serviceTherapist.getAllTerapeuta().subscribe(async (rp: any) => {
+      this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
         this.servicesTherapist = rp
 
         for (let o = 0; o < this.servicesTherapist.length; o++) {
 
-          await this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
+          this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dates).subscribe((rp: any) => {
+
             this.therapistCount = rp.length
             this.servicesTherapist[o]['count'] = this.therapistCount
 
@@ -328,11 +336,13 @@ export class VisionComponent implements OnInit {
 
     } else {
 
-      await this.serviceTherapist.getAllTerapeuta().subscribe(async (rp: any) => {
+      this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
         this.servicesTherapist = rp
 
         for (let o = 0; o < this.servicesTherapist.length; o++) {
-          await this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dateCurent).subscribe((rp: any) => {
+
+          this.service.getTherapistAndDates(this.servicesTherapist[o]['nombre'], dateCurent).subscribe((rp: any) => {
+
             this.therapistCount = rp.length
             this.servicesTherapist[o]['count'] = this.therapistCount
 
@@ -353,8 +363,109 @@ export class VisionComponent implements OnInit {
 
               return 0;
             })
+          })
+        }
+      })
+    }
+  }
+
+  tableTherapistForManager(element, text, dateCurrent) {
+    debugger
+    this.existTherapist = false
+    this.message = false
+
+    if (text == 'array') {
+
+      let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
+
+      day = date.getDate()
+      month = date.getMonth() + 1
+      year = date.getFullYear()
+
+      if (day > 0 && day < 10) {
+        convertDay = '0' + day
+        dates = `${year}-${month}-${convertDay}`
+      } else {
+        day = day
+        dates = `${year}-${month}-${day}`
+      }
+
+      this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe((rp: any) => {
+        this.servicesTherapist = rp
+
+        for (let o = 0; o < this.servicesTherapist.length; o++) {
+
+          this.servicesTherapist[o]['nombre'] = rp[o]['terapeuta']
+
+          this.service.getTherapistAndDates(this.servicesTherapist[o]['terapeuta'], dates).subscribe((rp: any) => {
+            if (rp.length > 0) {
+              this.existTherapist = true
+
+              this.therapistCount = rp.length
+              this.servicesTherapist[o]['count'] = this.therapistCount
+
+              const servicios = rp.filter(serv => serv)
+              const sumatoria = servicios.reduce((accumulator, serv) => {
+                return accumulator + serv.totalServicio
+              }, 0)
+
+              this.servicesTherapist[o]['sum'] = sumatoria
+
+              this.servicesTherapist.sort(function (a, b) {
+                if (a.sum > b.sum) {
+                  return -1;
+                }
+                if (a.sum < b.sum) {
+                  return 1;
+                }
+
+                return 0;
+              })
+            } else {
+              this.message = true
+            }
 
           })
+        }
+      })
+
+    } else {
+      this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dateCurrent).subscribe((rp: any) => {
+        this.servicesTherapist = rp
+
+        for (let o = 0; o < this.servicesTherapist.length; o++) {
+
+          this.servicesTherapist[o]['nombre'] = rp[o]['terapeuta']
+
+          this.service.getTherapistAndDates(this.servicesTherapist[o]['terapeuta'], dateCurrent).subscribe((rp: any) => {
+
+            if (rp.length > 0) {
+              this.existTherapist = true
+              this.therapistCount = rp.length
+              this.servicesTherapist[o]['count'] = this.therapistCount
+
+              const servicios = rp.filter(serv => serv)
+              const sumatoria = servicios.reduce((accumulator, serv) => {
+                return accumulator + serv.totalServicio
+              }, 0)
+
+              this.servicesTherapist[o]['sum'] = sumatoria
+
+              this.servicesTherapist.sort(function (a, b) {
+                if (a.sum > b.sum) {
+                  return -1;
+                }
+                if (a.sum < b.sum) {
+                  return 1;
+                }
+
+                return 0;
+              })
+            } else {
+              this.message = true
+            }
+          }
+          )
         }
       })
     }
@@ -1071,7 +1182,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.tableTherapist('date', fechaActualmente)
+            await this.tableTherapistForManager(rp, 'arrow', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1142,7 +1253,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.tableTherapist('date', fechaActualmente)
+            await this.tableTherapistForManager(rp, 'arrow', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1258,7 +1369,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.tableTherapist('date', fechaActualmente)
+            await this.tableTherapistForManager(rp, 'arrow', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
@@ -1333,7 +1444,7 @@ export class VisionComponent implements OnInit {
           } else {
 
             await this.getManager(rp, fechaActualmente, 'date')
-            await this.tableTherapist('date', fechaActualmente)
+            await this.tableTherapistForManager(rp, 'arrow', fechaActualmente)
 
             this.service.getEncargadaAndDate(fechaActualmente, rp[0]['nombre']).subscribe((rp: any) => {
               this.vision = rp
