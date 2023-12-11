@@ -2242,7 +2242,6 @@ export class TherapistComponent implements OnInit {
     this.createUniqueId()
     this.liquidationTherapist.currentDate = this.currentDate.toString()
     this.formatDate()
-    debugger
     this.dateCurrentDay()
 
     if (this.liquidationTherapist.terapeuta != "") {

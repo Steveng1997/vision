@@ -9,101 +9,142 @@
 
                 <label *ngIf="table" class="title">SERVICIOS REALIZADOS</label>
 
-                <form [formGroup]="formTemplate" *ngIf="table">
+                <div class="row tableContainerFilters">
 
-                    <div class="row tableContainer">
+                    <div class="buttonFilters">
 
-                        <div class="therapistContainer">
-                            <div class="row g-0">
-                                <label class="text">Terapeuta</label>
-                                <select class="form-select" formControlName="terapeuta" [(ngModel)]="selectedTerapeuta"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif;">
-                                    <option selected value="">Selecciona</option>
-                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                                        {{terap.nombre}} </option>
-                                </select>
-                            </div>
+                        <div class="row g-0">
+                            <i class="fa fa-filter iconFilters" aria-hidden="true"
+                                (click)="modalFiltres(modalFilter)"></i>
                         </div>
 
-                        <div class="containerInCharge">
-                            <div class="row g-0">
-                                <label class="text">Encargada</label>
-                                <select class="form-select" formControlName="encargada" [(ngModel)]="selectedEncargada"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
-                                        {{managers.nombre}}
-                                    </option>
-                                </select>
-                            </div>
+                        <div class="row g-0">
+                            <label class="filters">Filtrar</label>
                         </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Inicio</label>
-                                <input type="date" class="form-control" formControlName="fechaInicio"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                            font-family: sans-serif">
-                            </div>
-                        </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Final</label>
-                                <input type="date" class="form-control" formControlName="FechaFin"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                            font-family: sans-serif">
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalFilter let-modal>
+                            <div class="modal-header">
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <form [formGroup]="formTemplate" *ngIf="table">
+
+                                    <div class="row tableContainer">
+
+                                        <div class="therapistContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Terapeuta</label>
+                                                <select class="form-select" formControlName="terapeuta"
+                                                    [(ngModel)]="selectedTerapeuta" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;" (change)="filters()">
+                                                    <option selected value="">Selecciona</option>
+                                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                                        {{terap.nombre}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="containerInCharge">
+                                            <div class="row g-0">
+                                                <label class="text">Encargada</label>
+                                                <select class="form-select" formControlName="encargada"
+                                                    [(ngModel)]="selectedEncargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                font-family: sans-serif;" (change)="filters()">
+                                                    <option *ngIf="administratorRole" selected value="">
+                                                        Selecciona
+                                                    </option>
+                                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                                        {{managers.nombre}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Inicio</label>
+                                                <input type="date" class="form-control" formControlName="fechaInicio"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                        font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Final</label>
+                                                <input type="date" class="form-control" formControlName="FechaFin"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                        font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tableContainer2">
+
+                                        <div class="containerPaymentMethod">
+                                            <div class="row g-0">
+                                                <label class="text">Tipo de Pago</label>
+                                                <select class="form-select" formControlName="formaPago"
+                                                    [(ngModel)]="selectedFormPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;" (change)="filters()">
+                                                    <option selected value="">Selecciona</option>
+                                                    <option value="Efectivo">Efectivo</option>
+                                                    <option value="Bizum">Bizum</option>
+                                                    <option value="Tarjeta">Tarjeta</option>
+                                                    <option value="Trans">Trans</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="searchContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Busqueda</label>
+                                                <input type="text" class="form-control input-sm"
+                                                    formControlName="busqueda"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;"
+                                                    (change)="filters()" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" mat-raised-button class="btn btn-primary"
+                                            style="display: grid; margin: auto; margin-top: 1rem" color="primary"
+                                            (click)="OK()">OK</button>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+
+                    <div class="buttonDeleteContainer">
+                        <div class="row g-0">
+                            <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
+                                (click)="deleteService()">Eliminar</button>
                         </div>
                     </div>
 
-                    <div class="tableContainer2">
-
-                        <div class="containerPaymentMethod">
-                            <div class="row g-0">
-                                <label class="text">Tipo de Pago</label>
-                                <select class="form-select" formControlName="formaPago" [(ngModel)]="selectedFormPago"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                    font-family: sans-serif;">
-                                    <option selected value="">Selecciona</option>
-                                    <option value="Efectivo">Efectivo</option>
-                                    <option value="Bizum">Bizum</option>
-                                    <option value="Tarjeta">Tarjeta</option>
-                                    <option value="Trans">Trans</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="searchContainer">
-                            <div class="row g-0">
-                                <label class="text">Busqueda</label>
-                                <input type="text" class="form-control input-sm" formControlName="busqueda"
-                                    (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; 
-                                    color: #242424; font-size: 18px; font-family: sans-serif;" />
-                            </div>
-                        </div>
-
-                        <div class="buttonDeleteContainer">
-                            <div class="row g-0">
-                                <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
-                                    (click)="deleteService()">Eliminar</button>
-                            </div>
-                        </div>
-
-                        <div class="exportExcel">
-                            <div class="row g-0">
-                                <img src="./assets/excel.png" (click)="exportExcel()" width="30">
-                            </div>
+                    <div class="exportExcel">
+                        <div class="row g-0">
+                            <img src="./assets/excel.png" (click)="exportExcel()" width="30">
                         </div>
                     </div>
-                </form>
+                </div>
 
                 <div class="columnArrow" id="arrowLeft" *ngIf="table">
                     <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeft()"></i>
-                    <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeft()">></label> -->
                 </div>
+
 
                 <!-- Table -->
                 <div class="column" id="excel-table" *ngIf="table">
@@ -173,6 +214,10 @@
                             <label>{{TotalDrinkLetter + ' €'}}</label>
                         </div>
 
+                        <div class="valueDrinkTherapist">
+                            <label>{{totalDrinkTherapistLetter + ' €'}}</label>
+                        </div>
+
                         <div class="valueTobacco">
                             <label>{{TotalTobaccoLetter + ' €'}}</label>
                         </div>
@@ -187,6 +232,10 @@
 
                         <div class="valueOthers">
                             <label>{{TotalOthersLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueTaxi">
+                            <label>{{TotalTaxiLetter + ' €'}}</label>
                         </div>
 
                         <div>
@@ -254,6 +303,14 @@
 
                         <div>
                             <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
+                            <label>Bebida</label>
                         </div>
 
                         <div>
@@ -341,8 +398,12 @@
                             <label>€ A taxista</label>
                         </div>
 
-                        <div class="textDrink">
-                            <label>Bebida</label>
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
                         </div>
 
                         <div class="textTobacco">
@@ -359,6 +420,10 @@
 
                         <div class="textOthers">
                             <label>Otros</label>
+                        </div>
+
+                        <div class="textTaxi">
+                            <label>Taxi</label>
                         </div>
 
                         <div class="textClient">
@@ -411,6 +476,10 @@
 
                         <div class="columnValueDrink" (click)="editForm(services.id)">{{services.bebidas + ' €'}}</div>
 
+                        <div class="columnValueDrinkTherapist" (click)="editForm(services.id)">{{services.bebidaTerap +
+                            ' €'}}
+                        </div>
+
                         <div class="columnValueTobacco" (click)="editForm(services.id)">{{services.tabaco + ' €'}}</div>
 
                         <div class="columnValueVitamin" (click)="editForm(services.id)">
@@ -419,6 +488,8 @@
                         <div class="columnValueTip" (click)="editForm(services.id)">{{services.propina + ' €'}}</div>
 
                         <div class="columnOther" (click)="editForm(services.id)">{{services.otros+ ' €'}}</div>
+
+                        <div class="columnTaxi" (click)="editForm(services.id)">{{services.taxi+ ' €'}}</div>
 
                         <div class="columnClient" (click)="editForm(services.id)">{{services.cliente}}</div>
 

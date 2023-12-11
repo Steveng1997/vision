@@ -54,10 +54,12 @@ export class TableComponent implements OnInit {
   totalValorEncargada: number
   totalValorAOtros: number
   TotalValorBebida: number
+  totalValueDrinkTherapist: number
   TotalValorTabaco: number
   totalValorVitaminas: number
   totalValorPropina: number
   totalValorOtroServ: number
+  totalValueTaxi: number
   totalValor: number
 
   // Services String
@@ -69,10 +71,12 @@ export class TableComponent implements OnInit {
   TotalManagerLetter: string
   TotalToAnotherLetter: string
   TotalDrinkLetter: string
+  totalDrinkTherapistLetter: string
   TotalTobaccoLetter: string
   TotalVitaminsLetter: string
   TotalTipLetter: string
   TotalOthersLetter: string
+  TotalTaxiLetter: string
 
   idService: any
 
@@ -133,10 +137,12 @@ export class TableComponent implements OnInit {
     if (this.totalValorEncargada == undefined) this.totalValorEncargada = 0
     if (this.totalValorAOtros == undefined) this.totalValorAOtros = 0
     if (this.TotalValorBebida == undefined) this.TotalValorBebida = 0
+    if (this.totalValueDrinkTherapist == undefined) this.totalValueDrinkTherapist = 0
     if (this.TotalValorTabaco == undefined) this.TotalValorTabaco = 0
     if (this.totalValorVitaminas == undefined) this.totalValorVitaminas = 0
     if (this.totalValorPropina == undefined) this.totalValorPropina = 0
     if (this.totalValorOtroServ == undefined) this.totalValorOtroServ = 0
+    if (this.totalValueTaxi == undefined) this.totalValueTaxi = 0
     if (this.totalValor == undefined) this.totalValor = 0
   }
 
@@ -468,28 +474,24 @@ export class TableComponent implements OnInit {
     }
   }
 
+  OK(){
+    this.modalService.dismissAll()
+  }
+
   filters = async () => {
+
     this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
-      let mes = '', dia = '', año = '', fecha = ''
+      let fecha = ''
       fecha = this.formTemplate.value.fechaInicio
-      debugger
       this.fechaInicio = fecha
-      // dia = fecha.substring(8, 11)
-      // mes = fecha.substring(5, 7)
-      // año = fecha.substring(2, 4)
-      // this.fechaInicio = `${dia}-${mes}-${año}`
     }
 
     if (this.formTemplate.value.FechaFin != "") {
-      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      let fechaFin = ''
       fechaFin = this.formTemplate.value.FechaFin
       this.fechaFinal = fechaFin
-      // diaFin = fechaFin.substring(8, 11)
-      // mesFin = fechaFin.substring(5, 7)
-      // añoFin = fechaFin.substring(2, 4)
-      // this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
@@ -522,15 +524,17 @@ export class TableComponent implements OnInit {
     const managerCondition = serv => {
       return (this.selectedEncargada) ? serv.encargada === this.selectedEncargada : true
     }
-    
+
     const conditionBetweenDates = serv => {
       if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
-      if (this.fechaInicio === undefined && serv.fecha <= this.fechaFinal) return true
-      if (this.fechaFinal === undefined && serv.fecha === this.fechaInicio) return true
-      if (serv.fecha >= this.fechaInicio && serv.fecha <= this.fechaFinal) return true
+      if (this.fechaInicio === undefined && serv.fechaHoyInicio <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fechaHoyInicio === this.fechaInicio) return true
+      if (serv.fechaHoyInicio >= this.fechaInicio && serv.fechaHoyInicio <= this.fechaFinal) return true
 
       return false
     }
+
+    debugger
 
     const searchCondition = serv => {
       if (!this.filtredBusqueda) return true
@@ -605,6 +609,14 @@ export class TableComponent implements OnInit {
         return accumulator + serv.bebidas
       }, 0)
 
+      // Filter by Valor Bebida
+      const valueDrinkTherapist = this.servicio.filter(serv => therapistCondition(serv)
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
+        && wayToPay(serv))
+      this.totalValueDrinkTherapist = valueDrinkTherapist.reduce((accumulator, serv) => {
+        return accumulator + serv.bebidaTerap
+      }, 0)
+
       // Filter by Valor Tabaco
       const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
@@ -644,6 +656,14 @@ export class TableComponent implements OnInit {
         && wayToPay(serv))
       this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
         return accumulator + serv.otros
+      }, 0)
+
+      // Filter by Valor Total
+      const valueTaxi = this.servicio.filter(serv => therapistCondition(serv)
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
+        && wayToPay(serv))
+      this.totalValueTaxi = valueTaxi.reduce((accumulator, serv) => {
+        return accumulator + serv.taxi
       }, 0)
     }
 
@@ -844,6 +864,30 @@ export class TableComponent implements OnInit {
       this.TotalDrinkLetter = this.TotalValorBebida.toString()
     }
 
+    if (this.totalValueDrinkTherapist > 999) {
+      const coma = this.totalValueDrinkTherapist.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrinkTherapist.toString().split(".") : this.totalValueDrinkTherapist.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.totalDrinkTherapistLetter = integer[0].toString()
+    } else {
+      this.totalDrinkTherapistLetter = this.totalValueDrinkTherapist.toString()
+    }
+
     if (this.TotalValorTabaco > 999) {
       const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.TotalValorTabaco.toString().split(".") : this.TotalValorTabaco.toString().split("");
@@ -940,6 +984,30 @@ export class TableComponent implements OnInit {
       this.TotalOthersLetter = this.totalValorOtroServ.toString()
     }
 
+    if (this.totalValueTaxi > 999) {
+      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueTaxi.toString().split(".") : this.totalValueTaxi.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.TotalTaxiLetter = integer[0].toString()
+    } else {
+      this.TotalTaxiLetter = this.totalValueTaxi.toString()
+    }
+
     this.loading = false
     this.table = true
   }
@@ -966,6 +1034,9 @@ export class TableComponent implements OnInit {
     const totalValorBebida = element.map(({ bebidas }) => bebidas).reduce((acc, value) => acc + value, 0)
     this.TotalValorBebida = totalValorBebida
 
+    const totalValueDrinkTherapist = element.map(({ bebidaTerap }) => bebidaTerap).reduce((acc, value) => acc + value, 0)
+    this.totalValueDrinkTherapist = totalValueDrinkTherapist
+
     const totalValorTab = element.map(({ tabaco }) => tabaco).reduce((acc, value) => acc + value, 0)
     this.TotalValorTabaco = totalValorTab
 
@@ -977,6 +1048,9 @@ export class TableComponent implements OnInit {
 
     const totalValorOtroServicio = element.map(({ otros }) => otros).reduce((acc, value) => acc + value, 0)
     this.totalValorOtroServ = totalValorOtroServicio
+
+    const totalValueTaxi = element.map(({ taxi }) => taxi).reduce((acc, value) => acc + value, 0)
+    this.totalValueTaxi = totalValueTaxi
 
     const totalvalors = element.map(({ totalServicio }) => totalServicio).reduce((acc, value) => acc + value, 0)
     this.totalValor = totalvalors
@@ -1082,11 +1156,11 @@ export class TableComponent implements OnInit {
       'Pago', // column H
       'Salida', // column I
       'Tratamiento', // column J
-      '€ a piso 1', // column K
-      '€ a piso 2', // column L
-      '€ a terap.', // column M
-      '€ a enc.', // column N
-      '€ a otros', // column O
+      '€ A piso 1', // column K
+      '€ A piso 2', // column L
+      '€ A terap.', // column M
+      '€ A enc.', // column N
+      '€ A otros', // column O
       'Bebida', // column P
       'Tabaco', // column Q
       'Vitamina', // column R
