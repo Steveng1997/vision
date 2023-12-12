@@ -251,7 +251,7 @@
 
                 <!-- Manager -->
 
-                <div class="columnManagerAdd" *ngIf="idUser['rol'] == 'administrador'">
+                <div class="columnManagerAdd" *ngIf="visible">
                     <div class="row g-0">
                         <label class="titleManager">ENCARGADAS</label>
                     </div>
@@ -370,13 +370,12 @@
                     </div>
                 </div>
 
-                <div class="columnArrow" *ngIf="idUser['rol'] == 'administrador'" id="arrowLeftManager">
+                <div *ngIf="visible" class="columnArrow" id="arrowLeftManager">
                     <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftManager()"></i>
-                    <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftManager()">></label> -->
                 </div>
 
                 <!-- Table Manager -->
-                <div class="columnManager" *ngIf="idUser['rol'] == 'administrador'">
+                <div class="columnManager" *ngIf="visible">
                     <div class="columnTableManager">
 
                         <div class="textName">
@@ -555,7 +554,7 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="idUser['rol'] == 'administrador'" class="pagination_Manager"
+                <pagination-controls *ngIf="visible" class="pagination_Manager"
                     (pageChange)="pageEncargada = $event" id="pageEncargada" previousLabel="" nextLabel="">
                 </pagination-controls>
 

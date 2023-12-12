@@ -21,6 +21,7 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
+  therapist = ""
   dates: boolean = false
   loading: boolean = false
   CurrenDate = ""
@@ -211,13 +212,6 @@ export class TherapistComponent implements OnInit {
     this.sumCommission = 0
     this.receivedTherapist = 0
     this.totalCommission = 0
-
-    this.terapeutaName['servicio'] = 0
-    this.terapeutaName['propina'] = 0
-    this.terapeutaName['bebida'] = 0
-    this.terapeutaName['tabaco'] = 0
-    this.terapeutaName['vitamina'] = 0
-    this.terapeutaName['otros'] = 0
   }
 
   validateNullData() {
@@ -1311,7 +1305,32 @@ export class TherapistComponent implements OnInit {
 
   // Edit
 
-  thousandPointEdit() {
+  convertToZeroEdit() {
+    this.textTotalComission = '0'
+    this.textTotalService = '0'
+    this.textTotalTip2 = '0'
+    this.textValueDrink = '0'
+    this.textTobaccoValue = '0'
+    this.textValueVitamins = '0'
+    this.textValueOther = '0'
+    this.terapeutaName = '0'
+    this.textServiceComission = '0'
+    this.commissionTip = 0
+    this.textBeverageCommission = '0'
+    this.textTobaccoCommission = '0'
+    this.textVitaminCommission = '0'
+    this.textCommissionOthers = '0'
+    this.textSumCommission = '0'
+    this.textReceivedTherapist = '0'
+    this.textTotalCommission = '0'
+    this.textTotalCash = '0'
+    this.textTotalBizum = '0'
+    this.textTotalCard = '0'
+    this.textTotalTransaction = '0'
+    this.textTotalTherapistPayment = '0'
+  }
+
+  async thousandPointEdit() {
     if (this.totalCommission > 999) {
 
       const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
@@ -2040,73 +2059,84 @@ export class TherapistComponent implements OnInit {
     }, 1000);
   }
 
-  sumTotal(idTherapist: string) {
-    this.service.getByIdTerap(idTherapist).subscribe((datosTerapeuta: any) => {
-      this.settledData = datosTerapeuta;
+  async sumTotal(idTherapist: string) {
 
-      // Filter by servicio
-      const servicios = datosTerapeuta.filter(serv => serv)
-      this.totalService = servicios.reduce((accumulator, serv) => {
-        return accumulator + serv.servicio
-      }, 0)
+    this.service.getByIdTerap(idTherapist).subscribe(async (rp: any) => {
+      if (rp.length > 0) {
+        this.therapist = rp[0]['terapeuta']
+        this.settledData = rp
 
-      // Filter by Propina
-      const propinas = datosTerapeuta.filter(serv => serv)
-      this.totalTipValue = propinas.reduce((accumulator, serv) => {
-        return accumulator + serv.propina
-      }, 0)
+        // Filter by servicio
+        const servicios = rp.filter(serv => serv)
+        this.totalService = servicios.reduce((accumulator, serv) => {
+          return accumulator + serv.servicio
+        }, 0)
 
-      // Filter by Pago
-      const terapeuta = datosTerapeuta.filter(serv => serv)
-      this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-        return accumulator + serv.numberTerap
-      }, 0)
+        // Filter by Propina
+        const propinas = rp.filter(serv => serv)
+        this.totalTipValue = propinas.reduce((accumulator, serv) => {
+          return accumulator + serv.propina
+        }, 0)
 
-      // Filter by Bebida
-      const bebida = datosTerapeuta.filter(serv => serv)
-      this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-        return accumulator + serv.bebidas
-      }, 0)
+        // Filter by Pago
+        const terapeuta = rp.filter(serv => serv)
+        this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
+          return accumulator + serv.numberTerap
+        }, 0)
 
-      // Filter by Tabaco
-      const tabac = datosTerapeuta.filter(serv => serv)
-      this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-        return accumulator + serv.tabaco
-      }, 0)
+        // Filter by Bebida
+        const bebida = rp.filter(serv => serv)
+        this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+          return accumulator + serv.bebidas
+        }, 0)
 
-      // Filter by Vitamina
-      const vitamina = datosTerapeuta.filter(serv => serv)
-      this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-        return accumulator + serv.vitaminas
-      }, 0)
+        // Filter by Tabaco
+        const tabac = rp.filter(serv => serv)
+        this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+          return accumulator + serv.tabaco
+        }, 0)
 
-      // Filter by Vitamina
-      const otroServicio = datosTerapeuta.filter(serv => serv)
-      this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-        return accumulator + serv.otros
-      }, 0)
+        // Filter by Vitamina
+        const vitamina = rp.filter(serv => serv)
+        this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+          return accumulator + serv.vitaminas
+        }, 0)
 
-      return true
+        // Filter by Vitamina
+        const otroServicio = rp.filter(serv => serv)
+        this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+          return accumulator + serv.otros
+        }, 0)
+
+        this.comission(rp)
+
+      } else {
+        await this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp: any) => {
+          this.therapist = rp[0]['terapeuta']
+          this.convertToZeroEdit()
+          this.loading = false
+          this.liquidationForm = false
+          this.editTerap = true
+        })
+      }
     })
-
-    return false
   }
 
-  comission() {
+  async comission(element) {
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
     this.totalCommission = 0
 
-    this.serviceTherapist.getTerapeuta(this.settledData[0]?.terapeuta).subscribe((datosNameTerapeuta: any) => {
-      if (datosNameTerapeuta.length > 0) {
-        this.terapeutaName = datosNameTerapeuta[0]
+    this.serviceTherapist.getTerapeuta(element[0]['terapeuta']).subscribe(async (rp: any) => {
+      if (rp.length > 0) {
+        this.terapeutaName = rp[0]
 
         // Comision
-        comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]?.servicio
-        comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]?.propina
-        comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]?.bebida
-        comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]?.tabaco
-        comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]?.vitamina
-        comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]?.otros
+        comisiServicio = this.totalService / 100 * rp[0]?.servicio
+        comiPropina = this.totalTipValue / 100 * rp[0]?.propina
+        comiBebida = this.totalValueDrink / 100 * rp[0]?.bebida
+        comiTabaco = this.totalTobaccoValue / 100 * rp[0]?.tabaco
+        comiVitamina = this.totalValueVitamins / 100 * rp[0]?.vitamina
+        comiOtros = this.totalValueOther / 100 * rp[0]?.otros
 
         // Conversion decimal
         this.serviceCommission = Number(comisiServicio.toFixed(1))
@@ -2123,51 +2153,36 @@ export class TherapistComponent implements OnInit {
         if (this.sumCommission != 0 || this.sumCommission != undefined) {
           this.sumCommission = Number(sumComision.toFixed(1))
         }
-      }
 
-      // Recibido
-      for (let o = 0; o < this.settledData.length; o++) {
-        const numbTerap = this.settledData.filter(serv => serv)
-        this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
-          return accumulator + serv.numberTerap
-        }, 0)
-      }
+        // Recibido
+        element.map(item => {
+          const numbTerap = this.settledData.filter(serv => serv)
+          this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
+            return accumulator + serv.numberTerap
+          }, 0)
+        })
 
-      this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
-
-      return true
-    })
-    return false
-  }
-
-  dataFormEdit(idTherapist: string) {
-    this.loading = true
-
-    setTimeout(() => {
-      this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe((datosTerapeuta) => {
-        this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-        this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-        this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-        this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
-      })
-
-      setTimeout(() => {
-        if (!this.sumTotal(idTherapist)) return
-      }, 1000);
-
-      setTimeout(() => {
-        if (!this.comission()) return
-      }, 2000);
-
-      setTimeout(() => {
+        this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
         this.validateNullData()
-        this.thousandPointEdit()
-
+        await this.thousandPointEdit()
         this.loading = false
         this.liquidationForm = false
         this.editTerap = true
-      }, 3000);
-    }, 3000);
+      }
+    })
+  }
+
+  async dataFormEdit(idTherapist: string) {
+    this.loading = true
+
+    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (datosTerapeuta) => {
+      this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
+      this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
+      this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
+      this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
+    })
+
+    await this.sumTotal(idTherapist)
   }
 
   formatDate() {

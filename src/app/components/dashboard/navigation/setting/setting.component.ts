@@ -26,6 +26,7 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 })
 export class SettingComponent implements OnInit {
 
+  visible: boolean = false
   loading: boolean = false
   idUser: any
   // Encargada
@@ -33,7 +34,6 @@ export class SettingComponent implements OnInit {
   pageEncargada!: number
   modalManager: any
   currentDate = new Date().getTime()
-  idTherapist: any
   selectedFormPago: string
 
   liquidationManager: LiquidationManager = {
@@ -43,6 +43,7 @@ export class SettingComponent implements OnInit {
     encargada: "",
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
+    createdDate: "",
     id: 0,
     idUnico: "",
     idEncargada: "",
@@ -57,6 +58,7 @@ export class SettingComponent implements OnInit {
     encargada: "",
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
+    createdDate: "",
     id: 0,
     idUnico: "",
     idTerapeuta: "",
@@ -118,15 +120,17 @@ export class SettingComponent implements OnInit {
     private modalService: NgbModal
   ) { }
 
-  ngOnInit(): void {
-    this.consultTherapists()
-    this.consultManager()
+  async ngOnInit(): Promise<void> {
+    await this.consultTherapists()
+    await this.consultManager()
     this.loading = false
 
     this.idUser = this.activeRoute.snapshot['_urlSegment'].segments['1'].path;
     if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((res) => {
-        this.idUser = res[0]
+      await this.serviceManager.getById(this.idUser).subscribe(async (res: any) => {
+        this.idUser = res
+
+        if (res[0]['rol'] == 'administrador') this.visible = true
       })
     }
   }
@@ -152,8 +156,8 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  consultManager() {
-    this.serviceManager.getUsuarios().subscribe((dataInCharge: any) => {
+  async consultManager() {
+    await this.serviceManager.getUsuarios().subscribe(async (dataInCharge: any) => {
       this.managers = dataInCharge
     })
   }
@@ -258,7 +262,7 @@ export class SettingComponent implements OnInit {
     return this.liquidationManager.idUnico
   }
 
-  dateManager(nombre: string) {
+  async dateManager(nombre: string) {
     let fecha = new Date(), añoHasta = 0, mesHasta = 0, diaHasta = 0, convertMes = '', convertDia = '',
       añoDesde = "", mesDesde = "", diaDesde = ""
 
@@ -281,7 +285,7 @@ export class SettingComponent implements OnInit {
       this.liquidationManager.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     }
 
-    this.serviceLiquidationManager.getByEncargada(nombre).subscribe((rp: any) => {
+    this.serviceLiquidationManager.getByEncargada(nombre).subscribe(async (rp: any) => {
       if (rp.length > 0) {
         añoDesde = rp[0]['desdeFechaLiquidado'].toString().substring(2, 4)
         mesDesde = rp[0]['desdeFechaLiquidado'].toString().substring(5, 7)
@@ -289,15 +293,54 @@ export class SettingComponent implements OnInit {
         this.liquidationManager.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
         this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
-        this.services.getManagerLiqFalse(nombre).subscribe((rp: any) => {
-          añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
-          mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
-          diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
-          this.liquidationManager.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
-          this.liquidationManager.desdeHoraLiquidado = rp[0]['horaStart']
+        this.services.getManagerLiqFalse(nombre).subscribe(async (rp: any) => {
+          if (rp.length > 0) {
+            añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
+            mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
+            diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
+            this.liquidationManager.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+            this.liquidationManager.desdeHoraLiquidado = rp[0]['horaStart']
+          }
         })
       }
     })
+  }
+
+  async getManagerLiquidationFalse(nombre) {
+    await this.services.getManagerLiqFalse(nombre).subscribe(async (rp: any) => {
+      if (rp.length > 0) {
+        this.liquidationManager.tratamiento = rp.length
+
+        rp.map(item => {
+          this.services.updateLiquidacionEncarg(item['id'], this.modelService).subscribe((dates) => { })
+        })
+
+        this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((save) => { })
+      }
+    })
+  }
+
+  dateCurrentDayManager() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = ''
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${day}`
+    } else {
+      convertMonth = month.toString()
+      this.liquidationManager.createdDate = `${year}-${month}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      this.liquidationManager.createdDate = `${year}-${convertMonth}-${day}`
+    }
   }
 
   removeManager(id: number, nombre: string) {
@@ -310,26 +353,18 @@ export class SettingComponent implements OnInit {
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!',
-        }).then((result) => {
+        }).then(async (result) => {
           if (result.isConfirmed) {
-
             this.loading = true
-
+            this.dateCurrentDayManager()
             this.createIdUnicoManager()
-            this.dateManager(nombre)
+            await this.dateManager(nombre)
             this.liquidationManager.currentDate = this.currentDate.toString()
             this.liquidationManager.encargada = nombre
 
-            this.services.getManagerLiqFalse(nombre).subscribe((rp: any) => {
-              this.liquidationManager.tratamiento = rp.length
-            })
-
-            setTimeout(() => {
-              this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
-            }, 1000)
-
-            this.serviceManager.deleteManager(id).subscribe((resp: any) => {
-              this.consultManager()
+            await this.getManagerLiquidationFalse(nombre)
+            this.serviceManager.deleteManager(id).subscribe(async (resp: any) => {
+              await this.consultManager()
               this.modalService.dismissAll()
               this.loading = false
               Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2000 })
@@ -363,8 +398,8 @@ export class SettingComponent implements OnInit {
     })
   }
 
-  consultTherapists() {
-    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
+  async consultTherapists() {
+    this.serviceTherapist.getAllTerapeuta().subscribe(async (datosTerapeuta: any) => {
       this.terapeuta = datosTerapeuta
     })
   }
@@ -441,7 +476,7 @@ export class SettingComponent implements OnInit {
       })
     })
   }
-
+  
   createIdUnicoTherapist() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -457,7 +492,7 @@ export class SettingComponent implements OnInit {
     return this.liquidationTherapist.idUnico
   }
 
-  dateTherapist(nombre: string) {
+  async dateTherapist(nombre: string) {
     let fecha = new Date(), añoHasta = 0, mesHasta = 0, diaHasta = 0, convertMes = '', convertDia = '',
       añoDesde = "", mesDesde = "", diaDesde = ""
 
@@ -480,7 +515,7 @@ export class SettingComponent implements OnInit {
       this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
     }
 
-    this.serviceLiquidationTherapist.consultTherapist(nombre).subscribe((rp: any) => {
+    this.serviceLiquidationTherapist.consultTherapist(nombre).subscribe(async (rp: any) => {
       if (rp.length > 0) {
         añoDesde = rp[0]['hastaFechaLiquidado'].toString().substring(2, 4)
         mesDesde = rp[0]['hastaFechaLiquidado'].toString().substring(5, 7)
@@ -488,22 +523,54 @@ export class SettingComponent implements OnInit {
         this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
         this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
-        this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
-          añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
-          mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
-          diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
-          this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
-          this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
+        this.services.getTerapeutaLiqFalse(nombre).subscribe(async (rp: any) => {
+          if (rp.length > 0) {
+            añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
+            mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
+            diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
+            this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+            this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
+          }
         })
       }
     })
   }
 
-  getTerapLiquidationFalse(nombre) {
-    this.services.getTerapeutaLiqFalse(nombre).subscribe((rp: any) => {
-      this.liquidationTherapist.tratamiento = rp.length
-      this.idTherapist = rp
+  async getTerapLiquidationFalse(nombre) {
+    await this.services.getTerapeutaLiqFalse(nombre).subscribe(async (rp: any) => {
+      if (rp.length > 0) {
+        this.liquidationTherapist.tratamiento = rp.length
+
+        rp.map(item => {
+          this.services.updateLiquidacionTerap(item['id'], this.modelService).subscribe((dates) => { })
+        })
+
+        this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((save) => { })
+      }
     })
+  }
+
+  dateCurrentDayTherapist() {
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = ''
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      this.liquidationTherapist.createdDate = `${year}-${convertMonth}-${day}`
+    } else {
+      convertMonth = month.toString()
+      this.liquidationTherapist.createdDate = `${year}-${month}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      this.liquidationTherapist.createdDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      this.liquidationTherapist.createdDate = `${year}-${convertMonth}-${day}`
+    }
   }
 
   removeTherapist(id: number, nombre: string) {
@@ -516,32 +583,22 @@ export class SettingComponent implements OnInit {
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Si, Deseo eliminar!',
-        }).then((result) => {
+        }).then(async (result) => {
           if (result.isConfirmed) {
-
             this.loading = true
-
+            this.dateCurrentDayTherapist()
             this.createIdUnicoTherapist()
-            this.dateTherapist(nombre)
+            await this.dateTherapist(nombre)
             this.liquidationTherapist.currentDate = this.currentDate.toString()
             this.liquidationTherapist.terapeuta = nombre
 
-            this.getTerapLiquidationFalse(nombre)
-
-            setTimeout(() => {
-
-              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((rp) => { })
-              this.serviceTherapist.deleteTerapeuta(id).subscribe((rp: any) => { })
-
-              for (let o = 0; o < this.idTherapist.length; o++) {
-                this.services.deleteServicio(this.idTherapist[o].id).subscribe((rp: any) => { })
-              }
-
-              this.consultTherapists()
+            await this.getTerapLiquidationFalse(nombre)
+            this.serviceTherapist.deleteTerapeuta(id).subscribe(async (rp: any) => {
+              await this.consultTherapists()
               this.modalService.dismissAll()
               this.loading = false
               Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2000 })
-            }, 2000)
+            })
           }
         })
       }

@@ -466,8 +466,8 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="selected" class="pagination_MobileTable2"
-                    (pageChange)="page = $event" previousLabel="" nextLabel="">
+                <pagination-controls *ngIf="selected" class="pagination_MobileTable2" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
                 </pagination-controls>
 
                 <!-- Table 3 -->
@@ -626,7 +626,7 @@
                 <!-- Edit Liquidation -->
 
                 <label *ngIf="editTerap" class="titleEdit">
-                    Liquidación {{settledData[0]?.terapeuta}}</label>
+                    Liquidación {{therapist}}</label>
 
                 <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' : ' +
                     liquidationTherapist.desdeHoraLiquidado + ' - ' + liquidationTherapist.hastaFechaLiquidado
@@ -849,44 +849,55 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3">Tratam.</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.servicio + '
-                            %'}}</label>
+                        <label *ngIf="terapeutaName?.servicio != undefined" class="columnComission">
+                            {{terapeutaName?.servicio + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.servicio == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textServiceComission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Propina</label>
                         <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.propina + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.propina != undefined" class="columnComission">
+                            {{terapeutaName?.propina + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.propina == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{commissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Bebida</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.bebida != undefined"
+                            class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Tabaco</label>
                         <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.tabaco + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.tabaco != undefined" class="columnComission">
+                            {{terapeutaName?.tabaco + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.tabaco == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Vitamina</label>
                         <label class="columnSum">{{textValueVitamins + ' €'}}</label>
-                        <label class="columnComission">
+                        <label *ngIf="terapeutaName?.vitamina != undefined" class="columnComission">
                             {{terapeutaName?.vitamina + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.vitamina == undefined" class="columnComission">
+                            {{0 + ' %'}}</label>
                         <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
                         <label class="columnTreatment3">Otros</label>
                         <label class="columnSum">{{textValueOther + ' €'}}</label>
-                        <label class="columnComission">{{terapeutaName?.otros + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.otros != undefined" class="columnComission">
+                            {{terapeutaName?.otros + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.otros == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
                     </div>
 

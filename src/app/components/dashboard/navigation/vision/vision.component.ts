@@ -563,16 +563,14 @@ export class VisionComponent implements OnInit {
       element[o]['fechaEnd'] = ''
       element[o]['horaEnd'] = ''
       element[o]['salida'] = ''
-      await this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe(() => {
-      })
+      await this.serviceTherapist.updateHoraAndSalida(element[o]['nombre'], element[o]).subscribe(() => { })
     }
   }
 
   async updateMinute(element, o) {
     if (this.diferenceMinutes > 0) {
       element[o]['minuto'] = this.diferenceMinutes
-      await this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe(() => {
-      })
+      await this.serviceTherapist.updateMinute(element[o]['id'], element[o]).subscribe(() => { })
     }
   }
 
