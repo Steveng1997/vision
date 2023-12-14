@@ -367,7 +367,7 @@ export class VisionComponent implements OnInit {
     }
   }
 
-  tableTherapistForManager(element, text, dateCurrent) {
+  async tableTherapistForManager(element, text, dateCurrent) {
     this.existTherapist = false
     this.message = false
 
@@ -387,13 +387,14 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${day}`
       }
 
-      this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe((rp: any) => {
+      debugger
+      this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe(async (rp: any) => {
         this.servicesTherapist = rp
 
         rp.map(item => {
           item['nombre'] = item['terapeuta']
 
-          this.service.getTherapistAndDates(item['terapeuta'], dates).subscribe((rp: any) => {
+          this.service.getTherapistAndDates(item['terapeuta'], dates).subscribe(async (rp: any) => {
             if (rp.length > 0) {
               this.existTherapist = true
 
@@ -409,13 +410,13 @@ export class VisionComponent implements OnInit {
 
               this.servicesTherapist.sort(function (a, b) {
                 if (a.sum > b.sum) {
-                  return -1;
+                  return -1
                 }
                 if (a.sum < b.sum) {
-                  return 1;
+                  return 1
                 }
 
-                return 0;
+                return 0
               })
             } else {
               this.message = true

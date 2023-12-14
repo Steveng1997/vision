@@ -57,7 +57,7 @@ export class ManagerComponent implements OnInit {
   // Servicios
   totalService: number
   totalTipValue: number
-  totalTherapistValue: number
+  totalManagerValue: number
   totalValueDrink: number
   totalTobaccoValue: number
   totalValueVitamins: number
@@ -197,7 +197,7 @@ export class ManagerComponent implements OnInit {
   convertToZero() {
     this.totalService = 0
     this.totalTipValue = 0
-    this.totalTherapistValue = 0
+    this.totalManagerValue = 0
     this.totalValueDrink = 0
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
@@ -229,7 +229,7 @@ export class ManagerComponent implements OnInit {
     if (this.managerName?.['otros'] == "") this.managerName['otros'] = 0
     if (this.totalService == undefined) this.totalService = 0
     if (this.totalTipValue == undefined) this.totalTipValue = 0
-    if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
+    if (this.totalManagerValue == undefined) this.totalManagerValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
     if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
     if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
@@ -498,8 +498,8 @@ export class ManagerComponent implements OnInit {
 
             // Filter by Pago
             const terapeuta = this.unliquidatedService.filter(serv => serv)
-            this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-              return accumulator + serv.numberTerap
+            this.totalManagerValue = terapeuta.reduce((accumulator, serv) => {
+              return accumulator + serv.numberEncarg
             }, 0)
 
             // Filter by Bebida
@@ -529,25 +529,25 @@ export class ManagerComponent implements OnInit {
             // Filter by totalCash
             const totalCashs = this.unliquidatedService.filter(serv => serv)
             this.totalCash = totalCashs.reduce((accumulator, serv) => {
-              return accumulator + serv.valueEfectTerapeuta
+              return accumulator + serv.valueEfectEncargada
             }, 0)
 
             // Filter by totalBizum
             const totalBizums = this.unliquidatedService.filter(serv => serv)
             this.totalBizum = totalBizums.reduce((accumulator, serv) => {
-              return accumulator + serv.valueBizuTerapeuta
+              return accumulator + serv.valueBizuEncargada
             }, 0)
 
             // Filter by totalCard
             const totalCards = this.unliquidatedService.filter(serv => serv)
             this.totalCard = totalCards.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTarjeTerapeuta
+              return accumulator + serv.valueTarjeEncargada
             }, 0)
 
             // Filter by totalTransaction
             const totalTransactions = this.unliquidatedService.filter(serv => serv)
             this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTransTerapeuta
+              return accumulator + serv.valueTransEncargada
             }, 0)
 
             // Total therapist payment
@@ -586,12 +586,12 @@ export class ManagerComponent implements OnInit {
               dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
               dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
-              this.fixedDay = dayEnd - dayStart
+              this.fixedDay = dayEnd - dayStart + 1
               this.fixedTotalDay = this.fixedDay * this.fijoDia
               this.pountFixedDay()
 
               // Recibido
-              this.receivedManager = this.totalTherapistValue
+              this.receivedManager = this.totalManagerValue
               this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
               this.liquidationManager.importe = this.totalCommission
 
@@ -707,10 +707,10 @@ export class ManagerComponent implements OnInit {
         this.unliquidatedService[o]['propina'] = this.unliquidatedService[o]?.propina
       }
 
-      if (this.unliquidatedService[o]?.numberTerap > 999) {
+      if (this.unliquidatedService[o]?.numberEncarg > 999) {
 
-        const coma = this.unliquidatedService[o]?.numberTerap.toString().indexOf(".") !== -1 ? true : false;
-        const array = coma ? this.unliquidatedService[o]?.numberTerap.toString().split(".") : this.unliquidatedService[o]?.numberTerap.toString().split("");
+        const coma = this.unliquidatedService[o]?.numberEncarg.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.unliquidatedService[o]?.numberEncarg.toString().split(".") : this.unliquidatedService[o]?.numberEncarg.toString().split("");
         let integer = coma ? array[o].split("") : array;
         let subIndex = 1;
 
@@ -727,9 +727,9 @@ export class ManagerComponent implements OnInit {
         }
 
         integer = [integer.toString().replace(/,/gi, "")]
-        this.unliquidatedService[o]['numberTerap'] = integer[0].toString()
+        this.unliquidatedService[o]['numberEncarg'] = integer[0].toString()
       } else {
-        this.unliquidatedService[o]['numberTerap'] = this.unliquidatedService[o]?.numberTerap
+        this.unliquidatedService[o]['numberEncarg'] = this.unliquidatedService[o]?.numberEncarg
       }
 
       if (this.unliquidatedService[o]?.bebidas > 999) {
@@ -1392,6 +1392,7 @@ export class ManagerComponent implements OnInit {
     this.textBeverageCommission = '0'
     this.textTobaccoCommission = '0'
     this.textVitaminCommission = '0'
+    this.textComissionTip = '0'
     this.textCommissionOthers = '0'
     this.textSumCommission = '0'
     this.textReceivedManager = '0'
@@ -1981,10 +1982,10 @@ export class ManagerComponent implements OnInit {
         this.settledData[o]['propina'] = this.settledData[o]?.propina
       }
 
-      if (this.settledData[o]?.numberTerap > 999) {
+      if (this.settledData[o]?.numberEncarg > 999) {
 
-        const coma = this.settledData[o]?.numberTerap.toString().indexOf(".") !== -1 ? true : false;
-        const array = coma ? this.settledData[o]?.numberTerap.toString().split(".") : this.settledData[o]?.numberTerap.toString().split("");
+        const coma = this.settledData[o]?.numberEncarg.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.settledData[o]?.numberEncarg.toString().split(".") : this.settledData[o]?.numberEncarg.toString().split("");
         let integer = coma ? array[o].split("") : array;
         let subIndex = 1;
 
@@ -2001,9 +2002,9 @@ export class ManagerComponent implements OnInit {
         }
 
         integer = [integer.toString().replace(/,/gi, "")]
-        this.settledData[o]['numberTerap'] = integer[0].toString()
+        this.settledData[o]['numberEncarg'] = integer[0].toString()
       } else {
-        this.settledData[o]['numberTerap'] = this.settledData[o]?.numberTerap
+        this.settledData[o]['numberEncarg'] = this.settledData[o]?.numberEncarg
       }
 
       if (this.settledData[o]?.bebidas > 999) {
@@ -2152,8 +2153,8 @@ export class ManagerComponent implements OnInit {
 
         // Filter by Pago
         const terapeuta = rp.filter(serv => serv)
-        this.totalTherapistValue = terapeuta.reduce((accumulator, serv) => {
-          return accumulator + serv.numberTerap
+        this.totalManagerValue = terapeuta.reduce((accumulator, serv) => {
+          return accumulator + serv.numberEncarg
         }, 0)
 
         // Filter by Bebida
@@ -2224,7 +2225,7 @@ export class ManagerComponent implements OnInit {
         dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
         dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
 
-        this.fixedDay = dayEnd - dayStart
+        this.fixedDay = dayEnd - dayStart + 1
         this.fixedTotalDay = this.fixedDay * this.fijoDia
         this.pountFixedDay()
 

@@ -88,7 +88,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -769,7 +769,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -1450,7 +1450,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -1458,6 +1458,14 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 64% 46% 34%;
+    justify-content: center;
+    margin-right: 5.6rem;
     margin-top: -1rem;
   }
 
@@ -1499,6 +1507,26 @@
     margin-top: -7%;
   }
 
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 24px;
+    width: 6rem;
+    margin-left: 6.3rem;
+  }
+
+  .iconFilters {
+    font-size: 30px
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
   .buttonDeleteContainer {
     margin-top: 18px;
     width: 6rem;
@@ -1507,13 +1535,13 @@
 
   .exportExcel {
     margin-top: 18px;
-    width: 2rem;
+    width: 4rem;
     margin-left: 2rem;
   }
 
   .columnArrow {
     position: relative;
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -1529,7 +1557,7 @@
   .column {
     position: static;
     margin-top: 0rem;
-    margin-left: -2%;
+    margin-right: 4.5%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -1538,7 +1566,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -1560,11 +1588,27 @@
     padding: 15px 0px 0px 27px;
   }
 
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 25.5px;
+  }
+
+  .textDrinkTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 27px;
+  }
+
   /* Line 2 */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -1667,6 +1711,17 @@
     justify-self: end;
   }
 
+  .valueDrinkTherapist {
+    word-break: break-all;
+    padding: 15px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .valueTobacco {
     word-break: break-all;
     padding: 15px 21.9px 0px 0px;
@@ -1701,6 +1756,17 @@
   }
 
   .valueOthers {
+    word-break: break-all;
+    padding: 15px 23.9px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .valueTaxi {
     word-break: break-all;
     padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
@@ -1834,12 +1900,20 @@
     padding: 0px 0px 0px 27.4px;
   }
 
-  .textDrink {
+  .textDrinkHouseLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
     padding: 15px 0px 0px 25.5px;
+  }
+
+  .textDrinkTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 27.8px;
   }
 
   .textTobacco {
@@ -1880,6 +1954,14 @@
     padding: 15px 0px 0px 37.9px;
   }
 
+  .textTaxi {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 52.5px;
+  }
+
   .textClient {
     color: #000000;
     font-size: 18px;
@@ -1889,7 +1971,7 @@
   }
 
   .lineTable {
-    width: 689%;
+    width: 762%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2053,6 +2135,16 @@
     justify-self: end;
   }
 
+  .columnValueDrinkTherapist {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTobacco {
     line-height: 1.4rem;
     padding: 0px 22px 0px 0px;
@@ -2084,6 +2176,16 @@
   }
 
   .columnOther {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTaxi {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -2130,7 +2232,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -2810,7 +2912,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -2818,6 +2920,14 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 64% 46% 34%;
+    justify-content: center;
+    margin-right: 4.3rem;
     margin-top: -1rem;
   }
 
@@ -2858,6 +2968,26 @@
     margin-left: 13px;
     margin-top: -7%;
   }
+  
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 24px;
+    width: 6rem;
+    margin-left: 6.3rem;
+  }
+
+  .iconFilters {
+    font-size: 30px
+  }
+
+  .filters{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
 
   .buttonDeleteContainer {
     margin-top: 18px;
@@ -2867,13 +2997,13 @@
 
   .exportExcel {
     margin-top: 18px;
-    width: 2rem;
+    width: 4rem;
     margin-left: 2rem;
   }
 
   .columnArrow {
     position: relative;
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2889,7 +3019,7 @@
   .column {
     position: static;
     margin-top: 0rem;
-    margin-left: -2%;
+    margin-right: 0.6rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2898,7 +3028,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -2920,11 +3050,27 @@
     padding: 15px 0px 0px 32px;
   }
 
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 31px;
+  }
+
+  .textDrinkTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 32.2px;
+  }
+
   /* Line 2 */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -3027,6 +3173,17 @@
     justify-self: end;
   }
 
+  .valueDrinkTherapist {
+    word-break: break-all;
+    padding: 15px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .valueTobacco {
     word-break: break-all;
     padding: 15px 21.9px 0px 0px;
@@ -3061,6 +3218,17 @@
   }
 
   .valueOthers {
+    word-break: break-all;
+    padding: 15px 23.9px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .valueTaxi {
     word-break: break-all;
     padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
@@ -3194,12 +3362,20 @@
     padding: 0px 0px 0px 32px;
   }
 
-  .textDrink {
+  .textDrinkHouseLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 30.5px;
+    padding: 15px 0px 0px 31px;
+  }
+
+  .textDrinkTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 32.5px;
   }
 
   .textTobacco {
@@ -3240,6 +3416,14 @@
     padding: 15px 0px 0px 43px;
   }
 
+  .textTaxi {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 57.5px;
+  }
+
   .textClient {
     color: #000000;
     font-size: 18px;
@@ -3249,7 +3433,7 @@
   }
 
   .lineTable {
-    width: 689%;
+    width: 759%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3414,6 +3598,16 @@
     justify-self: end;
   }
 
+  .columnValueDrinkTherapist {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTobacco {
     line-height: 1.4rem;
     padding: 0px 22px 0px 0px;
@@ -3445,6 +3639,16 @@
   }
 
   .columnOther {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTaxi {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -3491,7 +3695,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 8%;
+    margin-top: 0%;
     margin-left: 19%;
   }
 
@@ -3561,7 +3765,7 @@
     font-size: 30px
   }
 
-  .filters{
+  .filters {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -4275,7 +4479,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -4956,7 +5160,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -4971,7 +5175,7 @@
     display: grid;
     grid-template-columns: 64% 46% 34%;
     justify-content: center;
-    margin-right: 4rem;
+    margin-right: 67px;
     margin-top: -1rem;
   }
 
@@ -5026,7 +5230,7 @@
     font-size: 30px
   }
 
-  .filters{
+  .filters {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5748,7 +5952,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -6428,7 +6632,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -6436,6 +6640,14 @@
     display: grid;
     grid-template-columns: 54% 54%;
     justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 60% 44% 30%;
+    justify-content: center;
+    margin-right: 5.9rem;
     margin-top: -1rem;
   }
 
@@ -6476,6 +6688,26 @@
     margin-top: -7%;
   }
 
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 24px;
+    width: 6rem;
+    margin-left: 6.3rem;
+  }
+
+  .iconFilters {
+    font-size: 30px
+  }
+
+  .filters{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
   .buttonDeleteContainer {
     margin-top: 18px;
     width: 6rem;
@@ -6484,13 +6716,13 @@
 
   .exportExcel {
     margin-top: 18px;
-    width: 2rem;
+    width: 4rem;
     margin-left: 3rem;
   }
 
   .columnArrow {
     position: relative;
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -6515,7 +6747,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -6537,11 +6769,27 @@
     padding: 15px 0px 0px 33px;
   }
 
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 38.5px;
+  }
+
+  .textDrinkTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 40.5px;
+  }
+
   /* Line 2 */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -6644,6 +6892,17 @@
     justify-self: end;
   }
 
+  .valueDrinkTherapist {
+    word-break: break-all;
+    padding: 15px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .valueTobacco {
     word-break: break-all;
     padding: 15px 21.9px 0px 0px;
@@ -6678,6 +6937,17 @@
   }
 
   .valueOthers {
+    word-break: break-all;
+    padding: 15px 23.9px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .valueTaxi {
     word-break: break-all;
     padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
@@ -6811,12 +7081,20 @@
     padding: 0px 0px 0px 40.5px;
   }
 
-  .textDrink {
+  .textDrinkHouseLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
     padding: 15px 0px 0px 38.5px;
+  }
+
+  .textDrinkTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 40.8px;
   }
 
   .textTobacco {
@@ -6857,6 +7135,14 @@
     padding: 15px 0px 0px 51.5px;
   }
 
+  .textTaxi {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 66.5px;
+  }
+
   .textClient {
     color: #000000;
     font-size: 18px;
@@ -6866,7 +7152,7 @@
   }
 
   .lineTable {
-    width: 689%;
+    width: 759%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -7031,6 +7317,16 @@
     justify-self: end;
   }
 
+  .columnValueDrinkTherapist {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTobacco {
     line-height: 1.4rem;
     padding: 0px 22px 0px 0px;
@@ -7062,6 +7358,16 @@
   }
 
   .columnOther {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTaxi {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -7108,7 +7414,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -7122,7 +7428,7 @@
   .tableContainerFilters {
     display: grid;
     grid-template-columns: 45% 37% 24%;
-    margin-right: 13.8rem;
+    margin-right: 12.1rem;
     margin-top: -1rem;
   }
 
@@ -7177,7 +7483,7 @@
     font-size: 30px
   }
 
-  .filters{
+  .filters {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -7889,7 +8195,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -8559,7 +8865,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
@@ -9225,7 +9531,7 @@
     height: 20px;
     border-radius: 50%;
     display: block;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 20%;
   }
 
