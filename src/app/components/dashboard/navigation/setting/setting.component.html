@@ -69,8 +69,8 @@
 
                                     <mat-form-field class="col-6">
                                         <mat-label>Bebida terap (%)</mat-label>
-                                        <input type="text" matInput name="bebidaTerap" [(ngModel)]="therapist.bebidaTerap"
-                                            placeholder="%">
+                                        <input type="text" matInput name="bebidaTerap"
+                                            [(ngModel)]="therapist.bebidaTerap" placeholder="%">
                                     </mat-form-field>
 
                                     <mat-form-field class="col-6">
@@ -115,25 +115,65 @@
 
                 <!-- Table Therapist -->
                 <div class="columnTherapist">
-                    <div class="columnTableTherapist">
+                    <div class="columnTableTherapistLine1">
 
-                        <div class="textUser">
-                            <label>Nombre</label>
+                        <div>
+                            <label></label>
                         </div>
 
-                        <div class="textService">
-                            <label>Servicio</label>
+                        <div>
+                            <label></label>
                         </div>
 
-                        <div class="textTip">
-                            <label>Propina</label>
-                        </div>
-
-                        <div class="textDrink">
+                        <div class="textDrinkHouseLine1Therap">
                             <label>Bebida</label>
                         </div>
 
-                        <div class="textTobacco">
+                        <div class="textDrinkTherapistLine1Therap">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTableTherapistLine2">
+
+                        <div class="textUserTherap">
+                            <label>Nombre</label>
+                        </div>
+
+                        <div class="textServiceTherap">
+                            <label>Servicio</label>
+                        </div>
+
+                        <div class="textTipTherap">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2Therap">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2Therap">
+                            <label>terap.</label>
+                        </div>
+
+                        <div class="textTobaccoTherap">
                             <label>Tabaco</label>
                         </div>
 
@@ -141,7 +181,7 @@
                             <label>Vitamina</label>
                         </div>
 
-                        <div class="textOthers">
+                        <div class="textOthersTherap">
                             <label>Otros</label>
                         </div>
 
@@ -149,23 +189,25 @@
 
                     <hr class="lineTableTherapist">
 
-                    <div class="columnTableTherapist" *ngFor="let therapist of (terapeuta | 
+                    <div class="columnTableTherapistLine2" *ngFor="let therapist of (terapeuta | 
                         paginate: { itemsPerPage: 10, currentPage: pageTerapeuta, id: 'pageTerapeuta'})"
                         (click)="modalTableTherapist(therapist.id, modalTabl)">
 
-                        <div class="columnName">{{therapist?.nombre}}</div>
+                        <div class="columnNameTherapist">{{therapist?.nombre}}</div>
 
-                        <div class="columnService">{{therapist?.servicio + '%'}}</div>
+                        <div class="columnServiceTherapist">{{therapist?.servicio + '%'}}</div>
 
-                        <div class="columnTip">{{therapist?.propina + '%'}}</div>
+                        <div class="columnTipTherapist">{{therapist?.propina + '%'}}</div>
 
-                        <div class="columnDrink">{{therapist?.bebida + '%'}}</div>
+                        <div class="columnDrinkTherapist">{{therapist?.bebida + '%'}}</div>
 
-                        <div class="columnTobacco">{{therapist?.tabaco + '%'}}</div>
+                        <div class="columnDrinkTherapTherapist">{{therapist?.bebidaTerap + '%'}}</div>
 
-                        <div class="columnVitamin">{{therapist?.vitamina + '%'}}</div>                        
+                        <div class="columnTobaccoTherapist">{{therapist?.tabaco + '%'}}</div>
 
-                        <div class="columnOthers">{{therapist?.otros + '%'}}</div>
+                        <div class="columnVitaminTherapist">{{therapist?.vitamina + '%'}}</div>
+
+                        <div class="columnOthersTherapist">{{therapist?.otros + '%'}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -211,8 +253,9 @@
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Bebida terap (%)</mat-label>
-                                            <input type="text" matInput name="bebidaTerap" [(ngModel)]="therapist.bebidaTerap"
-                                                #bebidaTerap="ngModel" placeholder="%">
+                                            <input type="text" matInput name="bebidaTerap"
+                                                [(ngModel)]="therapist.bebidaTerap" #bebidaTerap="ngModel"
+                                                placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -348,8 +391,8 @@
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Bebida terap (%)</mat-label>
-                                            <input type="number" matInput name="bebidaTerap" [(ngModel)]="manager.bebidaTerap"
-                                                placeholder="%">
+                                            <input type="number" matInput name="bebidaTerap"
+                                                [(ngModel)]="manager.bebidaTerap" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -502,7 +545,8 @@
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Rol:</mat-label>
-                                            <select matNativeControl name="rol" [(ngModel)]="manager.rol" #rol="ngModel">
+                                            <select matNativeControl name="rol" [(ngModel)]="manager.rol"
+                                                #rol="ngModel">
                                                 <option value="" selected>Selecciona</option>
                                                 <option value="administrador">Administrador</option>
                                                 <option value="encargada">Encargada</option>
@@ -535,8 +579,9 @@
 
                                         <mat-form-field class="col-6">
                                             <mat-label>Bebida terap (%)</mat-label>
-                                            <input type="number" matInput name="bebidaTerap" [(ngModel)]="manager.bebidaTerap"
-                                                #bebidaTerap="ngModel" placeholder="%">
+                                            <input type="number" matInput name="bebidaTerap"
+                                                [(ngModel)]="manager.bebidaTerap" #bebidaTerap="ngModel"
+                                                placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -578,8 +623,8 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="visible" class="pagination_Manager"
-                    (pageChange)="pageEncargada = $event" id="pageEncargada" previousLabel="" nextLabel="">
+                <pagination-controls *ngIf="visible" class="pagination_Manager" (pageChange)="pageEncargada = $event"
+                    id="pageEncargada" previousLabel="" nextLabel="">
                 </pagination-controls>
 
             </div>

@@ -204,7 +204,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 31% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -246,7 +246,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 31% 28% 35% 23% 33% 29% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -794,7 +794,7 @@
     justify-self: end;
   }
 
-  .columnValueVitamin {
+  .columnVitaminTherapist {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
@@ -8303,7 +8303,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 81.5px;
+    padding: 0px 22px 0px 64.2px;
   }
 
   .textTip {
@@ -8314,7 +8314,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 86.5px;
+    padding: 0px 22px 0px 69.3px;
   }
 
   .textOthers {
@@ -8330,7 +8330,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 88.9px;
+    padding: 15px 0px 0px 71.1px;
   }
 
   .textClient {
