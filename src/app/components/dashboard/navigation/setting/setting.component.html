@@ -62,8 +62,14 @@
                                     </mat-form-field>
 
                                     <mat-form-field class="col-6">
-                                        <mat-label>Bebida (%)</mat-label>
+                                        <mat-label>Bebida casa (%)</mat-label>
                                         <input type="text" matInput name="bebida" [(ngModel)]="therapist.bebida"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Bebida terap (%)</mat-label>
+                                        <input type="text" matInput name="bebidaTerap" [(ngModel)]="therapist.bebidaTerap"
                                             placeholder="%">
                                     </mat-form-field>
 
@@ -119,6 +125,10 @@
                             <label>Servicio</label>
                         </div>
 
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
                         <div class="textDrink">
                             <label>Bebida</label>
                         </div>
@@ -129,10 +139,6 @@
 
                         <div class="textVitamin2">
                             <label>Vitamina</label>
-                        </div>
-
-                        <div class="textTip">
-                            <label>Propina</label>
                         </div>
 
                         <div class="textOthers">
@@ -151,13 +157,13 @@
 
                         <div class="columnService">{{therapist?.servicio + '%'}}</div>
 
+                        <div class="columnTip">{{therapist?.propina + '%'}}</div>
+
                         <div class="columnDrink">{{therapist?.bebida + '%'}}</div>
 
                         <div class="columnTobacco">{{therapist?.tabaco + '%'}}</div>
 
-                        <div class="columnVitamin">{{therapist?.vitamina + '%'}}</div>
-
-                        <div class="columnTip">{{therapist?.propina + '%'}}</div>
+                        <div class="columnVitamin">{{therapist?.vitamina + '%'}}</div>                        
 
                         <div class="columnOthers">{{therapist?.otros + '%'}}</div>
 
@@ -198,9 +204,15 @@
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Bebida (%)</mat-label>
+                                            <mat-label>Bebida casa (%)</mat-label>
                                             <input type="text" matInput name="bebida" [(ngModel)]="therapist.bebida"
                                                 #bebida="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="text" matInput name="bebidaTerap" [(ngModel)]="therapist.bebidaTerap"
+                                                #bebidaTerap="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
@@ -329,8 +341,14 @@
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Bebida (%)</mat-label>
+                                            <mat-label>Bebida casa (%)</mat-label>
                                             <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="number" matInput name="bebidaTerap" [(ngModel)]="manager.bebidaTerap"
                                                 placeholder="%">
                                         </mat-form-field>
 
@@ -510,9 +528,15 @@
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">
-                                            <mat-label>Bebida (%)</mat-label>
+                                            <mat-label>Bebida casa (%)</mat-label>
                                             <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
                                                 #bebida="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="number" matInput name="bebidaTerap" [(ngModel)]="manager.bebidaTerap"
+                                                #bebidaTerap="ngModel" placeholder="%">
                                         </mat-form-field>
 
                                         <mat-form-field class="col-6">

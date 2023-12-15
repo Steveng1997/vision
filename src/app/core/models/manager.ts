@@ -1,6 +1,7 @@
 export class  ModelManager {
   activo?: boolean;
   bebida?: string;
+  bebidaTerap?: string;
   fijoDia?: string;
   id?: number;
   nombre?: string;

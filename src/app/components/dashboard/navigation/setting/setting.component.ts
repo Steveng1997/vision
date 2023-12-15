@@ -75,6 +75,7 @@ export class SettingComponent implements OnInit {
   manager: ModelManager = {
     activo: true,
     bebida: "",
+    bebidaTerap: "",
     fijoDia: "",
     id: 0,
     nombre: "",
@@ -91,9 +92,11 @@ export class SettingComponent implements OnInit {
   therapist: ModelTherapist = {
     activo: true,
     bebida: "",
+    bebidaTerap: "",
     fechaEnd: "",
     horaEnd: "",
     id: 0,
+    minuto: 0,
     nombre: "",
     otros: "",
     propina: "100",
