@@ -132,7 +132,7 @@
 
   .columnTherapist {
     position: static;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -142,7 +142,7 @@
 
   .columnTableTherapistLine1 {
     display: grid;
-    grid-template-columns: 32% 24% 28% 28% 28% 28% 28% 17%;
+    grid-template-columns: 32% 24% 28% 28% 28% 28% 28% 21%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -153,7 +153,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 99px;
+    padding: 15px 0px 0px 10px;
   }
 
   .textDrinkTherapistLine1Therap{
@@ -161,27 +161,27 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 99px;
+    padding: 15px 0px 0px 15px;
   }
 
   /* Line 2 */
 
   .columnTableTherapistLine2 {
     display: grid;
-    grid-template-columns: 32% 24% 28% 28% 28% 28% 28% 17%;
-    margin-bottom: 8px;
+    grid-template-columns: 32% 24% 28% 28% 28% 28% 28% 21%;
+    margin-bottom: 3.2px;
     margin-left: -3%;
   }
 
   /* Text table therapist */
 
-  .textUserTherap{
+  .textNameTherap{
     display: grid;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textServiceTherap {
@@ -190,7 +190,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTipTherap {
@@ -201,7 +201,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 45px;
+    padding: 0px 16px 0px 30px;
   }
 
   .textDrinkHouseLine2Therap{
@@ -210,7 +210,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 9.5px;
   }
 
   .textDrinkTherapistLine2Therap{
@@ -219,7 +219,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 15.6px;
   }
 
   .textTobaccoTherap {
@@ -228,17 +228,18 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
+    padding: 15px 0px 0px 20px;
   }
 
   .textVitamin2 {
-    display: grid;
+    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    word-break: break-all;
-    padding: 0px 18px 0px 14px;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 15px 0px 28px;
   }
 
   .textOthersTherap{
@@ -247,30 +248,30 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
+    padding: 15px 0px 0px 13px;
   }
 
   .lineTableTherapist {
-    width: 193%;
+    width: 222%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
+    margin-left: -8px;
+    margin-top: -3px;
     margin-bottom: 9px;
   }
 
   /* column */
 
   .columnNameTherapist{
-    word-break: break-all;
+    line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
+    text-align-last: left;
     cursor: pointer;
-    justify-self: start;
   }
 
   .columnServiceTherapist{
@@ -283,7 +284,7 @@
 
   .columnTipTherapist {
     word-break: break-all;
-    padding: 0px 25px 0px 0px;
+    padding: 0px 19px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -293,7 +294,7 @@
 
   .columnDrinkTherapist {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -303,7 +304,7 @@
 
   .columnDrinkTherapTherapist {
     word-break: break-all;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 9px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -313,7 +314,7 @@
 
   .columnTobaccoTherapist {
     word-break: break-all;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 2px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -323,7 +324,7 @@
 
   .columnVitaminTherapist {
     word-break: break-all;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -342,104 +343,12 @@
   }
 
   .pagination_Therapist {
-    margin-bottom: 0rem;
     text-align-last: end;
-    margin-top: 3rem;
+    margin-top: 37px;
+    margin-bottom: 0rem;
   }
 
-  /* Column */
-
-  .columnUser {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: start;
-  }
-
-  .columnPass {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: start;
-  }
-
-  .columnName {
-    word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: start;
-  }
-
-  .columnService {
-    word-break: break-all;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnDrink {
-    word-break: break-all;
-    padding: 0px 18px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnTobacco {
-    word-break: break-all;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnVitamin {
-    word-break: break-all;
-    padding: 0px 20px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnTip {
-    word-break: break-all;
-    padding: 0px 25px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnOthers {
-    word-break: break-all;
-    padding: 0px 2px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  /* Manager */
+  /* Table manager */
 
   .titleManager {
     display: grid;

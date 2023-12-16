@@ -472,148 +472,148 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  inputDateAndTime() {
-    setTimeout(() => {
-      let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
-      this.totalCommission = 0
+  async inputDateAndTime() {
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    this.totalCommission = 0
 
-      this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
-        this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
-        this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe((rp: any) => {
+    this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
+      this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
+      this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe(async (rp: any) => {
 
-          if (rp.length > 0) {
-            this.unliquidatedService = rp
+        if (rp.length > 0) {
+          this.unliquidatedService = rp
 
-            // Filter by servicio
-            const servicios = this.unliquidatedService.filter(serv => serv)
-            this.totalService = servicios.reduce((accumulator, serv) => {
-              return accumulator + serv.servicio
-            }, 0)
+          debugger
 
-            // Filter by Propina
-            const propinas = this.unliquidatedService.filter(serv => serv)
-            this.totalTipValue = propinas.reduce((accumulator, serv) => {
-              return accumulator + serv.propina
-            }, 0)
+          // Filter by servicio
+          const servicios = this.unliquidatedService.filter(serv => serv)
+          this.totalService = servicios.reduce((accumulator, serv) => {
+            return accumulator + serv.servicio
+          }, 0)
 
-            // Filter by Pago
-            const terapeuta = this.unliquidatedService.filter(serv => serv)
-            this.totalManagerValue = terapeuta.reduce((accumulator, serv) => {
-              return accumulator + serv.numberEncarg
-            }, 0)
+          // Filter by Propina
+          const propinas = this.unliquidatedService.filter(serv => serv)
+          this.totalTipValue = propinas.reduce((accumulator, serv) => {
+            return accumulator + serv.propina
+          }, 0)
 
-            // Filter by Bebida
-            const bebida = this.unliquidatedService.filter(serv => serv)
-            this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-              return accumulator + serv.bebidas
-            }, 0)
+          // Filter by Pago
+          const terapeuta = this.unliquidatedService.filter(serv => serv)
+          this.totalManagerValue = terapeuta.reduce((accumulator, serv) => {
+            return accumulator + serv.numberEncarg
+          }, 0)
 
-            // Filter by Tabaco
-            const tabac = this.unliquidatedService.filter(serv => serv)
-            this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-              return accumulator + serv.tabaco
-            }, 0)
+          // Filter by Bebida
+          const bebida = this.unliquidatedService.filter(serv => serv)
+          this.totalValueDrink = bebida.reduce((accumulator, serv) => {
+            return accumulator + serv.bebidas
+          }, 0)
 
-            // Filter by Vitamina
-            const vitamina = this.unliquidatedService.filter(serv => serv)
-            this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-              return accumulator + serv.vitaminas
-            }, 0)
+          // Filter by Tabaco
+          const tabac = this.unliquidatedService.filter(serv => serv)
+          this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
+            return accumulator + serv.tabaco
+          }, 0)
 
-            // Filter by Others
-            const otroServicio = this.unliquidatedService.filter(serv => serv)
-            this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-              return accumulator + serv.otros
-            }, 0)
+          // Filter by Vitamina
+          const vitamina = this.unliquidatedService.filter(serv => serv)
+          this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
+            return accumulator + serv.vitaminas
+          }, 0)
 
-            // Filter by totalCash
-            const totalCashs = this.unliquidatedService.filter(serv => serv)
-            this.totalCash = totalCashs.reduce((accumulator, serv) => {
-              return accumulator + serv.valueEfectEncargada
-            }, 0)
+          // Filter by Others
+          const otroServicio = this.unliquidatedService.filter(serv => serv)
+          this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
+            return accumulator + serv.otros
+          }, 0)
 
-            // Filter by totalBizum
-            const totalBizums = this.unliquidatedService.filter(serv => serv)
-            this.totalBizum = totalBizums.reduce((accumulator, serv) => {
-              return accumulator + serv.valueBizuEncargada
-            }, 0)
+          // Filter by totalCash
+          const totalCashs = this.unliquidatedService.filter(serv => serv)
+          this.totalCash = totalCashs.reduce((accumulator, serv) => {
+            return accumulator + serv.valueEfectEncargada
+          }, 0)
 
-            // Filter by totalCard
-            const totalCards = this.unliquidatedService.filter(serv => serv)
-            this.totalCard = totalCards.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTarjeEncargada
-            }, 0)
+          // Filter by totalBizum
+          const totalBizums = this.unliquidatedService.filter(serv => serv)
+          this.totalBizum = totalBizums.reduce((accumulator, serv) => {
+            return accumulator + serv.valueBizuEncargada
+          }, 0)
 
-            // Filter by totalTransaction
-            const totalTransactions = this.unliquidatedService.filter(serv => serv)
-            this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
-              return accumulator + serv.valueTransEncargada
-            }, 0)
+          // Filter by totalCard
+          const totalCards = this.unliquidatedService.filter(serv => serv)
+          this.totalCard = totalCards.reduce((accumulator, serv) => {
+            return accumulator + serv.valueTarjeEncargada
+          }, 0)
 
-            // Total therapist payment
-            this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
+          // Filter by totalTransaction
+          const totalTransactions = this.unliquidatedService.filter(serv => serv)
+          this.totalTransaction = totalTransactions.reduce((accumulator, serv) => {
+            return accumulator + serv.valueTransEncargada
+          }, 0)
 
-            this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
-              this.managerName = datosNameTerapeuta[0]
-              this.fijoDia = datosNameTerapeuta[0]['fijoDia']
-              this.letterFixedDay = this.fijoDia.toString()
+          // Total therapist payment
+          this.totalTherapistPayment = this.totalCash + this.totalCard + this.totalBizum + this.totalTransaction
 
-              // Comision
-              comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
-              comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
-              comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
-              comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
-              comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
-              comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
+          this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((datosNameTerapeuta) => {
+            this.managerName = datosNameTerapeuta[0]
+            this.fijoDia = datosNameTerapeuta[0]['fijoDia']
+            this.letterFixedDay = this.fijoDia.toString()
 
-              // Conversion decimal
-              this.serviceCommission = Math.ceil(comisiServicio)
-              this.commissionTip = Math.ceil(comiPropina)
-              this.beverageCommission = Math.ceil(comiBebida)
-              this.tobaccoCommission = Math.ceil(comiTabaco)
-              this.vitaminCommission = Math.ceil(comiVitamina)
-              this.commissionOthers = Math.ceil(comiOtros)
+            // Comision
+            comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
+            comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
+            comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+            comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
+            comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
+            comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
 
-              sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-                Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-                Number(this.vitaminCommission) + Number(this.commissionOthers)
+            // Conversion decimal
+            this.serviceCommission = Math.ceil(comisiServicio)
+            this.commissionTip = Math.ceil(comiPropina)
+            this.beverageCommission = Math.ceil(comiBebida)
+            this.tobaccoCommission = Math.ceil(comiTabaco)
+            this.vitaminCommission = Math.ceil(comiVitamina)
+            this.commissionOthers = Math.ceil(comiOtros)
 
-              if (this.sumCommission != 0 || this.sumCommission != undefined) {
-                this.sumCommission = Math.ceil(sumComision)
-              }
+            sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-              let dayStart = 0, dayEnd = 0
-              dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-              dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
+            if (this.sumCommission != 0 || this.sumCommission != undefined) {
+              this.sumCommission = Math.ceil(sumComision)
+            }
 
-              this.fixedDay = dayEnd - dayStart + 1
-              this.fixedTotalDay = this.fixedDay * this.fijoDia
-              this.pountFixedDay()
+            let dayStart = 0, dayEnd = 0
+            dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
+            dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
 
-              // Recibido
-              this.receivedManager = this.totalManagerValue
-              this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
-              this.liquidationManager.importe = this.totalCommission
+            this.fixedDay = dayEnd - dayStart + 1
+            this.fixedTotalDay = this.fixedDay * this.fijoDia
+            this.pountFixedDay()
 
-              this.validateNullData()
-              this.thousandPoint()
-              this.loading = false
-              this.selected = true
-              this.dates = true
-            })
-            return true
-          } else {
-            this.unliquidatedService = rp
+            // Recibido
+            this.receivedManager = this.totalManagerValue
+            this.totalCommission = Math.ceil(this.sumCommission) + this.fixedTotalDay - Number(this.receivedManager)
+            this.liquidationManager.importe = this.totalCommission
+
+            this.validateNullData()
+            this.thousandPoint()
             this.loading = false
+            this.selected = true
+            this.dates = true
+          })
+          return true
+        } else {
+          this.unliquidatedService = rp
+          this.loading = false
 
-            Swal.fire({
-              icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
-            })
+          Swal.fire({
+            icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+          })
 
-            return false
-          }
-        })
-    }, 400);
+          return false
+        }
+      })
     return false
   }
 

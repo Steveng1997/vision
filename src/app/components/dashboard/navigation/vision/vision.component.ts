@@ -387,7 +387,6 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${day}`
       }
 
-      debugger
       this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe(async (rp: any) => {
         this.servicesTherapist = rp
 

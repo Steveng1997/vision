@@ -534,8 +534,6 @@ export class TableComponent implements OnInit {
       return false
     }
 
-    debugger
-
     const searchCondition = serv => {
       if (!this.filtredBusqueda) return true
       const criterio = this.filtredBusqueda
@@ -697,7 +695,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalServicio > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalServicio.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalServicio.toString().split(".") : this.totalServicio.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -721,7 +719,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalPiso > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalPiso.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalPiso.toString().split(".") : this.totalPiso.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -745,7 +743,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalPiso2 > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalPiso2.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalPiso2.toString().split(".") : this.totalPiso2.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -769,7 +767,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorTerapeuta > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorTerapeuta.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorTerapeuta.toString().split(".") : this.totalValorTerapeuta.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -793,7 +791,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorEncargada > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorEncargada.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorEncargada.toString().split(".") : this.totalValorEncargada.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -817,7 +815,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorAOtros > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorAOtros.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorAOtros.toString().split(".") : this.totalValorAOtros.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -841,7 +839,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.TotalValorBebida > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.TotalValorBebida.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.TotalValorBebida.toString().split(".") : this.TotalValorBebida.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -889,7 +887,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.TotalValorTabaco > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.TotalValorTabaco.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.TotalValorTabaco.toString().split(".") : this.TotalValorTabaco.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -913,7 +911,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorVitaminas > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorVitaminas.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorVitaminas.toString().split(".") : this.totalValorVitaminas.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -937,7 +935,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorPropina > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorPropina.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorPropina.toString().split(".") : this.totalValorPropina.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -961,7 +959,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValorOtroServ > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValorOtroServ.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValorOtroServ.toString().split(".") : this.totalValorOtroServ.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
@@ -985,7 +983,7 @@ export class TableComponent implements OnInit {
     }
 
     if (this.totalValueTaxi > 999) {
-      const coma = this.totalValor.toString().indexOf(".") !== -1 ? true : false;
+      const coma = this.totalValueTaxi.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalValueTaxi.toString().split(".") : this.totalValueTaxi.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
