@@ -2925,10 +2925,10 @@
     height: 100%;
   }
 
-  .pagination_Manager {
-    margin-bottom: 86px;
-    text-align-last: end;
-    margin-top: 3rem;
+  .buttonAdd {
+    display: grid;
+    align-self: end;
+    margin-left: -1.8rem;
   }
 
   /* Therapist */
@@ -2947,9 +2947,9 @@
 
   .columnTherapistAdd {
     display: grid;
-    grid-template-columns: 51% 27%;
+    grid-template-columns: 56% 27%;
     margin-bottom: 0px;
-    margin-left: 6%;
+    margin-left: 24px;
   }
 
   .columnArrow {
@@ -2964,82 +2964,163 @@
     float: inline-end;
   }
 
+  /* Table */
+
   .columnTherapist {
-    margin-top: 2rem;
+    position: static;
+    margin-top: 1rem;
     margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTableTherapist {
+  /* Line 1 */
+
+  .columnTableTherapistLine1 {
     display: grid;
-    grid-template-columns: 26% 27% 24% 25% 22% 20% 15%;
-    margin-bottom: 4px;
+    grid-template-columns: 29% 23% 27% 28% 22% 25% 26% 19%;
+    margin-bottom: -31px;
+    margin-top: 26px;
     margin-left: -3%;
   }
 
-  .lineTableTherapist {
-    width: 166%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
+  .textDrinkHouseLine1Therap {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 4px;
   }
 
-  .textVitamin2 {
+  .textDrinkTherapistLine1Therap {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  /* Line 2 */
+
+  .columnTableTherapistLine2 {
+    display: grid;
+    grid-template-columns: 29% 23% 27% 28% 22% 25% 26% 19%;
+    margin-bottom: 3.2px;
+    margin-left: -3%;
+  }
+
+  /* Text table therapist */
+
+  .textNameTherap {
     display: grid;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    word-break: break-all;
-    padding: 0px 18px 0px 14px;
+    padding: 15px 0px 0px 0px;
   }
 
-  .pagination_Therapist {
-    margin-bottom: 0rem;
-    text-align-last: end;
-    margin-top: 3rem;
+  .textServiceTherap {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 3px;
   }
 
-  /* Column */
+  .textTipTherap {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 25px 0px 29px;
+  }
 
-  .columnUser {
-    word-break: break-all;
+  .textDrinkHouseLine2Therap {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 3.5px;
+  }
+
+  .textDrinkTherapistLine2Therap {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 1px;
+  }
+
+  .textTobaccoTherap {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 19px;
+  }
+
+  .textVitamin2 {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 14px 0px 28px;
+  }
+
+  .textOthersTherap {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 11px;
+  }
+
+  .lineTableTherapist {
+    width: 204%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -10px;
+    margin-top: -3px;
+    margin-bottom: 6px;
+  }
+
+  /* column */
+
+  .columnNameTherapist {
+    line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
+    text-align-last: left;
     cursor: pointer;
-    justify-self: start;
   }
 
-  .columnPass {
+  .columnServiceTherapist {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
     cursor: pointer;
-    justify-self: start;
+    text-align: end;
   }
 
-  .columnName {
+  .columnTipTherapist {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: start;
-  }
-
-  .columnService {
-    word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 26px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3047,9 +3128,9 @@
     justify-self: end;
   }
 
-  .columnDrink {
+  .columnDrinkTherapist {
     word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 29px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3057,9 +3138,9 @@
     justify-self: end;
   }
 
-  .columnTobacco {
+  .columnDrinkTherapTherapist {
     word-break: break-all;
-    padding: 0px 22px 0px 0px;
+    padding: 0px 12px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3067,7 +3148,17 @@
     justify-self: end;
   }
 
-  .columnVitamin {
+  .columnTobaccoTherapist {
+    word-break: break-all;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnVitaminTherapist {
     word-break: break-all;
     padding: 0px 18px 0px 0px;
     font-family: sans-serif;
@@ -3077,9 +3168,9 @@
     justify-self: end;
   }
 
-  .columnTip {
+  .columnOthersTherapist {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 3px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3087,17 +3178,13 @@
     justify-self: end;
   }
 
-  .columnOthers {
-    word-break: break-all;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+  .pagination_Therapist {
+    text-align-last: end;
+    margin-top: 37px;
+    margin-bottom: 0rem;
   }
 
-  /* Manager */
+  /* Table manager */
 
   .titleManager {
     display: grid;
@@ -3113,139 +3200,207 @@
 
   .columnManagerAdd {
     display: grid;
-    grid-template-columns: 55% 27%;
+    grid-template-columns: 60% 27%;
     margin-bottom: 4px;
-    margin-left: 6%;
+    margin-left: 22px;
   }
 
-  .buttonAdd {
-    display: grid;
-    align-self: end;
-    margin-left: -1rem;
-  }
+  /* Table */
 
   .columnManager {
+    position: static;
     margin-top: 2rem;
     margin-left: 1%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
 
-  .columnTableManager {
+  /* Line 1 */
+
+  .columnTableManagerLine1 {
     display: grid;
-    grid-template-columns: 28% 28% 24% 26% 27% 24% 24% 21% 20% 16%;
-    margin-bottom: 4px;
+    grid-template-columns: 31% 30% 23.2% 28% 28% 26% 25% 26% 25% 21% 21%;
+    margin-bottom: -31px;
+    margin-top: 26px;
     margin-left: -3%;
   }
 
+  .textDrinkHouseLine1Manager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 10.7px;
+  }
+
+  .textDrinkTherapistLine1Manager {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 17px;
+  }
+
+  /* Line 2 */
+
+  .columnTableManagerLine2 {
+    display: grid;
+    grid-template-columns: 31% 30% 23.2% 28% 28% 26% 25% 26% 25% 21% 21%;
+    margin-bottom: 3.2px;
+    margin-left: -3%;
+  }
+
+  /* Text table manager */
+
+  .textNameManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textUserManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textPassManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textFixedDayManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textServiceManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 2px
+  }
+
+  .textDrinkHouseLine2Manager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 11px;
+  }
+
+  .textDrinkTherapistLine2Manager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 17.8px;
+  }
+
+  .textTobaccoManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 21px;
+  }
+
+  .textVitaminManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 10px 0px 26px;
+  }
+
+  .textTipManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 18px 0px 12px;
+  }
+
+  .textOthersManager {
+    display: grid;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 8px;
+  }
+
   .lineTableManager {
-    width: 246%;
+    width: 288%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  .textUser {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textPass {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textName {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textFixedDay {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textService {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textDrink {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textTobacco {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
-  }
-
-  .textVitamin {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    word-break: break-all;
-    padding: 0px 16px 0px 6px;
-  }
-
-  .textTip {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    word-break: break-all;
-    padding: 0px 17px 0px 13px;
-  }
-
-  .textOthers {
-    display: grid;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 27px 0px 0px 0px;
+    margin-left: -9px;
+    margin-top: -3px;
+    margin-bottom: 8.5px;
   }
 
   /* Column */
 
+  .columnNameManager {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnUser {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnPass {
+    line-height: 1.4rem;
+    padding: 0px 16px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
   .columnFixedDay {
     word-break: break-all;
-    padding: 0px 23px 0px 0px;
+    padding: 0px 29px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3265,7 +3420,17 @@
 
   .columnDrinkManager {
     word-break: break-all;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnDrinkTherapManager {
+    word-break: break-all;
+    padding: 0px 6px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3275,7 +3440,7 @@
 
   .columnTobaccoManager {
     word-break: break-all;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 3px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3285,7 +3450,7 @@
 
   .columnVitaminManager {
     word-break: break-all;
-    padding: 0px 22px 0px 0px;
+    padding: 0px 17px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3295,7 +3460,7 @@
 
   .columnTipManager {
     word-break: break-all;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 23px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3305,12 +3470,18 @@
 
   .columnOthersManager {
     word-break: break-all;
-    padding: 0px 4px 0px 0px;
+    padding: 0px 13px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .pagination_Manager {
+    margin-bottom: 96px;
+    text-align-last: end;
+    margin-top: 3rem;
   }
 }
 
