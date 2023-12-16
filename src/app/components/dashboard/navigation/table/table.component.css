@@ -2447,6 +2447,14 @@
     margin-top: -1rem;
   }
 
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 64% 46% 34%;
+    justify-content: center;
+    margin-right: 5.2rem;
+    margin-top: -1rem;
+  }
+
   .therapistContainer {
     width: 89%;
     justify-self: center;
@@ -2484,6 +2492,26 @@
     margin-top: -7%;
   }
 
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 58% 58%;
+    justify-content: center;
+    margin-top: 24px;
+    width: 6rem;
+    margin-left: 6.3rem;
+  }
+
+  .iconFilters {
+    font-size: 30px
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
   .buttonDeleteContainer {
     margin-top: 18px;
     width: 6rem;
@@ -2492,13 +2520,13 @@
 
   .exportExcel {
     margin-top: 18px;
-    width: 2rem;
+    width: 4rem;
     margin-left: 2rem;
   }
 
   .columnArrow {
     position: relative;
-    margin-top: 0rem;
+    margin-top: 2rem;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -2523,7 +2551,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 28% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -2542,14 +2570,30 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 31px;
+    padding: 15px 0px 0px 28px;
+  }
+
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 27.5px;
+  }
+
+  .textDrinkTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 29px;
   }
 
   /* Line 2 */
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
+    grid-template-columns: 9% 28% 28% 28% 33% 23% 33% 26% 37% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 55%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -2652,6 +2696,17 @@
     justify-self: end;
   }
 
+  .valueDrinkTherapist {
+    word-break: break-all;
+    padding: 15px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .valueTobacco {
     word-break: break-all;
     padding: 15px 21.9px 0px 0px;
@@ -2686,6 +2741,17 @@
   }
 
   .valueOthers {
+    word-break: break-all;
+    padding: 15px 23.9px 0px 0px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .valueTaxi {
     word-break: break-all;
     padding: 15px 23.9px 0px 0px;
     font-family: sans-serif;
@@ -2771,7 +2837,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 30.5px;
+    padding: 15px 0px 0px 28.5px;
   }
 
   .textHouse1 {
@@ -2780,7 +2846,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 11px 0px 52px;
+    padding: 0px 11px 0px 49px;
   }
 
   .textHouse2 {
@@ -2789,7 +2855,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 11px 0px 52px;
+    padding: 0px 11px 0px 49px;
   }
 
   .textValueTherapist {
@@ -2798,7 +2864,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 20px 0px 40.8px;
+    padding: 0px 20px 0px 38px;
   }
 
   .textValueManager {
@@ -2807,7 +2873,7 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 55.5px;
+    padding: 0px 0px 0px 53px;
   }
 
   .textValueTaxist {
@@ -2816,15 +2882,23 @@
     font-weight: bold;
     font-family: sans-serif;
     line-height: 1.2rem;
-    padding: 0px 0px 0px 32.5px;
+    padding: 0px 0px 0px 29.5px;
   }
 
-  .textDrink {
+  .textDrinkHouseLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 29.5px;
+    padding: 15px 0px 0px 27.8px;
+  }
+
+  .textDrinkTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 29.7px;
   }
 
   .textTobacco {
@@ -2832,7 +2906,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 29.5px;
+    padding: 15px 0px 0px 28px;
   }
 
   .textVitamin {
@@ -2843,7 +2917,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 23px 0px 50px;
+    padding: 0px 22px 0px 47px;
   }
 
   .textTip {
@@ -2854,7 +2928,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 21px 0px 54.5px;
+    padding: 0px 21px 0px 52.5px;
   }
 
   .textOthers {
@@ -2862,7 +2936,15 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 42.5px;
+    padding: 15px 0px 0px 40.5px;
+  }
+
+  .textTaxi {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 54px;
   }
 
   .textClient {
@@ -2874,7 +2956,7 @@
   }
 
   .lineTable {
-    width: 689%;
+    width: 762%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3039,6 +3121,16 @@
     justify-self: end;
   }
 
+  .columnValueDrinkTherapist {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueTobacco {
     line-height: 1.4rem;
     padding: 0px 22px 0px 0px;
@@ -3070,6 +3162,16 @@
   }
 
   .columnOther {
+    line-height: 1.4rem;
+    padding: 0px 24px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTaxi {
     line-height: 1.4rem;
     padding: 0px 24px 0px 0px;
     font-family: sans-serif;
