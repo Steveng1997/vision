@@ -3982,6 +3982,7 @@
   }
 }
 
+/* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
 
   .title {
@@ -4014,10 +4015,9 @@
 
   .tableContainerFilters {
     display: grid;
-    grid-template-columns: 64% 46% 34%;
-    justify-content: center;
-    margin-right: 4rem;
+    grid-template-columns: 32% 38% 26%;
     margin-top: -1rem;
+    margin-right: 1%;
   }
 
   .therapistContainer {
@@ -4060,11 +4060,10 @@
 
   .buttonFilters {
     display: grid;
-    grid-template-columns: 58% 58%;
+    grid-template-columns: 52% 79%;
     justify-content: center;
     margin-top: 24px;
     width: 6rem;
-    margin-left: 6.3rem;
   }
 
   .iconFilters {
@@ -4079,15 +4078,33 @@
   }
 
   .buttonDeleteContainer {
-    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 24px;
     width: 6rem;
-    margin-left: 2.3rem;
+  }
+
+  .titleDelete{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
   }
 
   .exportExcel {
-    margin-top: 16px;
-    width: 4rem;
-    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 24px;
+    width: 6rem;
+  }
+
+  .titleExcel{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
   }
 
   .columnArrow {
