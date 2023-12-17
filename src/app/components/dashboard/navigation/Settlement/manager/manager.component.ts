@@ -293,13 +293,9 @@ export class ManagerComponent implements OnInit {
   filtersDateEnd(event: any) {
     this.formTemplate.value.FechaFin = event.target.value
     if (this.formTemplate.value.FechaFin != "") {
-      let mesFin = '', diaFin = '', añoFin = '', fechaFin = ''
+      let fechaFin = ''
       fechaFin = this.formTemplate.value.FechaFin
       this.fechaFinal = fechaFin
-      // diaFin = fechaFin.substring(8, 11)
-      // mesFin = fechaFin.substring(5, 7)
-      // añoFin = fechaFin.substring(2, 4)
-      // this.fechaFinal = `${diaFin}-${mesFin}-${añoFin}`
     }
   }
 
@@ -307,13 +303,9 @@ export class ManagerComponent implements OnInit {
     this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
     if (this.formTemplate.value.fechaInicio != "") {
-      let mes = '', dia = '', año = '', fecha = ''
+      let fecha = ''
       fecha = this.formTemplate.value.fechaInicio
       this.fechaInicio = fecha
-      // dia = fecha.substring(8, 11)
-      // mes = fecha.substring(5, 7)
-      // año = fecha.substring(2, 4)
-      // this.fechaInicio = `${dia}-${mes}-${año}`
     }
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
@@ -2245,7 +2237,9 @@ export class ManagerComponent implements OnInit {
           }, 0)
         })
 
-        this.totalCommission = this.sumCommission - this.fixedTotalDay - Number(this.receivedManager)
+        debugger
+
+        this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
         this.validateNullData()
         await this.thousandPointEdit()
         this.loading = false

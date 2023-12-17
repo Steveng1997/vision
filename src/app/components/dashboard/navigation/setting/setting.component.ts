@@ -172,6 +172,7 @@ export class SettingComponent implements OnInit {
     if (Number(this.manager.fijoDia) > 0) this.manager.fijoDia = ''
     if (Number(this.manager.servicio) > 0) this.manager.servicio = ''
     if (Number(this.manager.bebida) > 0) this.manager.bebida = ''
+    if (Number(this.manager.bebidaTerap) > 0) this.manager.bebidaTerap = ''
     if (Number(this.manager.tabaco) > 0) this.manager.tabaco = ''
     if (Number(this.manager.vitamina) > 0) this.manager.vitamina = ''
     if (Number(this.manager.propina) > 0) this.manager.propina = ''
@@ -180,6 +181,7 @@ export class SettingComponent implements OnInit {
 
   validateValuesOfEmptyTherapists() {
     if (this.therapist.bebida == "") this.therapist.bebida = "0"
+    if (this.therapist.bebidaTerap == "") this.therapist.bebidaTerap = "0"
     if (this.therapist.otros == "") this.therapist.otros = "0"
     if (this.therapist.propina == "") this.therapist.propina = "0"
     if (this.therapist.servicio == "") this.therapist.servicio = "0"
@@ -189,6 +191,7 @@ export class SettingComponent implements OnInit {
 
   validateValuesOfEmptyManagers() {
     if (this.manager.bebida == "") this.manager.bebida = "0"
+    if (this.manager.bebidaTerap == "") this.manager.bebidaTerap = "0"
     if (this.manager.fijoDia == "") this.manager.fijoDia = "0"
     if (this.manager.otros == "") this.manager.otros = "0"
     if (this.manager.propina == "") this.manager.propina = "0"
@@ -411,6 +414,7 @@ export class SettingComponent implements OnInit {
     if (this.therapist.nombre != '') this.therapist.nombre = ''
     if (Number(this.therapist.servicio) > 0) this.therapist.servicio = "50"
     if (Number(this.therapist.bebida) > 0) this.therapist.bebida = ""
+    if (Number(this.therapist.bebidaTerap) > 0) this.therapist.bebidaTerap = "50"
     if (Number(this.therapist.tabaco) > 0) this.therapist.tabaco = ""
     if (Number(this.therapist.vitamina) > 0) this.therapist.vitamina = ""
     if (Number(this.therapist.propina) > 0) this.therapist.propina = "100"

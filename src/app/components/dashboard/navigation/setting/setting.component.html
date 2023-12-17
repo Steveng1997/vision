@@ -532,7 +532,7 @@
                     <hr class="lineTableManager">
 
                     <div class="columnTableManagerLine2" *ngFor="let manager of (managers | 
-                    paginate: { itemsPerPage: 5, currentPage: pageEncargada, id: 'pageEncargada'})"
+                    paginate: { itemsPerPage: 6, currentPage: pageEncargada, id: 'pageEncargada'})"
                     (click)="modalTablaManager(manager.id, modalTabl)">
 
                     <div class="columnNameManager">{{manager?.nombre}}</div>

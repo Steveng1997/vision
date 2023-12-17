@@ -442,55 +442,50 @@
                             (click)="notes(services.id, modalTabl)">
                         </div>
 
-                        <div class="columnManager" (click)="editForm(services.id)">{{services.encargada}}</div>
+                        <div class="columnManager">{{services.encargada}}</div>
 
                         <div class="columnDate" (click)="editForm(services.id)">{{services.fecha}}</div>
 
-                        <div class="columnTherapist" (click)="editForm(services.id)">{{services.terapeuta}}</div>
+                        <div class="columnTherapist">{{services.terapeuta}}</div>
 
-                        <div class="columnHour" (click)="editForm(services.id)">{{services.horaStart + '-' +
+                        <div class="columnHour">{{services.horaStart + '-' +
                             services.horaEnd}}</div>
 
-                        <div class="columnMin" (click)="editForm(services.id)">{{services.minuto + ' min'}}</div>
+                        <div class="columnMin">{{services.minuto + ' min'}}</div>
 
-                        <div class="columnTotal" (click)="editForm(services.id)">{{services.totalServicio+ ' €'}}</div>
+                        <div class="columnTotal">{{services.totalServicio+ ' €'}}</div>
 
-                        <div class="columnPaymentMethod" (click)="editForm(services.id)">{{services.formaPago}}</div>
+                        <div class="columnPaymentMethod">{{services.formaPago}}</div>
 
-                        <div class="columnExit" (click)="editForm(services.id)">{{services.salida}}</div>
+                        <div class="columnExit">{{services.salida}}</div>
 
-                        <div class="columnTreatment" (click)="editForm(services.id)">{{services.servicio + ' €'}}</div>
+                        <div class="columnTreatment">{{services.servicio + ' €'}}</div>
 
-                        <div class="columnFloor1" (click)="editForm(services.id)">{{services.numberPiso1 + ' €'}}</div>
+                        <div class="columnFloor1">{{services.numberPiso1 + ' €'}}</div>
 
-                        <div class="columnFloor2" (click)="editForm(services.id)">{{services.numberPiso2 + ' €'}}</div>
+                        <div class="columnFloor2">{{services.numberPiso2 + ' €'}}</div>
 
-                        <div class="columnValueTherapist" (click)="editForm(services.id)">
-                            {{services.numberTerap + ' €'}}</div>
+                        <div class="columnValueTherapist"> {{services.numberTerap + ' €'}}</div>
 
-                        <div class="columnValueManager" (click)="editForm(services.id)">
-                            {{services.numberEncarg + ' €'}} </div>
+                        <div class="columnValueManager"> {{services.numberEncarg + ' €'}} </div>
 
-                        <div class="columnValueOther" (click)="editForm(services.id)">
-                            {{services.numberTaxi + ' €'}} </div>
+                        <div class="columnValueOther"> {{services.numberTaxi + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="editForm(services.id)">{{services.bebidas + ' €'}}</div>
+                        <div class="columnValueDrink">{{services.bebidas + ' €'}}</div>
 
-                        <div class="columnValueDrinkTherapist" (click)="editForm(services.id)">
-                            {{services.bebidaTerap + ' €'}} </div>
+                        <div class="columnValueDrinkTherapist"> {{services.bebidaTerap + ' €'}} </div>
 
-                        <div class="columnValueTobacco" (click)="editForm(services.id)">{{services.tabaco + ' €'}}</div>
+                        <div class="columnValueTobacco">{{services.tabaco + ' €'}}</div>
 
-                        <div class="columnValueVitamin" (click)="editForm(services.id)">
-                            {{services.vitaminas + ' €'}} </div>
+                        <div class="columnValueVitamin"> {{services.vitaminas + ' €'}} </div>
 
-                        <div class="columnValueTip" (click)="editForm(services.id)">{{services.propina + ' €'}}</div>
+                        <div class="columnValueTip">{{services.propina + ' €'}}</div>
 
-                        <div class="columnOther" (click)="editForm(services.id)">{{services.otros+ ' €'}}</div>
+                        <div class="columnOther">{{services.otros+ ' €'}}</div>
 
-                        <div class="columnTaxi" (click)="editForm(services.id)">{{services.taxi+ ' €'}}</div>
+                        <div class="columnTaxi">{{services.taxi+ ' €'}}</div>
 
-                        <div class="columnClient" (click)="editForm(services.id)">{{services.cliente}}</div>
+                        <div class="columnClient">{{services.cliente}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
