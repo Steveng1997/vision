@@ -41,6 +41,9 @@ export class TableComponent implements OnInit {
   selectedEncargada: string
   selectedFormPago: string
 
+  dateStart: string
+  dateEnd: string
+
   servicio: any
   horario: any
 
@@ -110,6 +113,7 @@ export class TableComponent implements OnInit {
     this.selectedFormPago = ""
     this.loading = true
     this.deleteButton = false
+    this.todaysDdate()
 
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
@@ -146,6 +150,32 @@ export class TableComponent implements OnInit {
     if (this.totalValorOtroServ == undefined) this.totalValorOtroServ = 0
     if (this.totalValueTaxi == undefined) this.totalValueTaxi = 0
     if (this.totalValor == undefined) this.totalValor = 0
+  }
+
+  todaysDdate(){
+    let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = '', currentDate
+
+    day = date.getDate()
+    month = date.getMonth() + 1
+    year = date.getFullYear()
+
+    if (month > 0 && month < 10) {
+      convertMonth = '0' + month
+      currentDate = `${year}-${convertMonth}-${day}`
+    } else {
+      convertMonth = month.toString()
+      currentDate = `${year}-${convertMonth}-${day}`
+    }
+
+    if (day > 0 && day < 10) {
+      convertDay = '0' + day
+      currentDate = `${year}-${convertMonth}-${convertDay}`
+    } else {
+      currentDate = `${year}-${convertMonth}-${day}`
+    }
+
+    this.dateStart = currentDate
+    this.dateEnd = currentDate
   }
 
   getServices = async () => {
@@ -476,15 +506,21 @@ export class TableComponent implements OnInit {
     }
   }
 
-  OK() {
+  async OK() {
     this.modalService.dismissAll()
 
-    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
-      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-      this.deleteButton = true
-    } else {
-      this.deleteButton = false
-    }
+    await this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          this.deleteButton = true
+        } else {
+          this.deleteButton = false
+        }
+      } else {
+        this.deleteButton = false
+      }
+    })
   }
 
   filters = async () => {
@@ -502,18 +538,6 @@ export class TableComponent implements OnInit {
       fechaFin = this.formTemplate.value.FechaFin
       this.fechaFinal = fechaFin
     }
-
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-
-        if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
-          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
-        } else {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
-        }
-      }
-    })
 
     await this.calculateSumOfServices()
   }
@@ -1215,48 +1239,64 @@ export class TableComponent implements OnInit {
     this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${id}/true`])
   }
 
-  deleteService() {
-    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
-      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-      Swal.fire({
-        title: '¿Deseas eliminar el registro?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, Deseo eliminar!'
-      }).then((result) => {
-        if (result.isConfirmed) {
+  async deleteService() {
+    this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
           Swal.fire({
-            title: '¿Estas seguro de eliminar?',
+            title: '¿Deseas eliminar el registro?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, Deseo eliminar!'
           }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: '¿Estas seguro de eliminar?',
+                text: "Una vez eliminados ya no se podrán recuperar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Deseo eliminar!'
+              }).then((result) => {
+                debugger
+                if (result.isConfirmed) {
+                  this.loading = true
 
-            this.loading = true
+                  this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
+                    this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
+                  })
 
-            this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
-              this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
-            })
+                  for (let i = 0; i < this.idService.length; i++) {
+                    this.service.deleteServicio(this.idService[i]['id']).subscribe((rp: any) => {
+                    })
+                  }
 
-            for (let i = 0; i < this.idService.length; i++) {
-              this.service.deleteServicio(this.idService[i]['id']).subscribe((rp: any) => {
+                  this.getServices()
+                  this.loading = false
+                  Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+                  this.emptyFilter()
+                }
+                else {
+                  this.loading = false
+                }
               })
             }
-
-            this.getServices()
-
-            setTimeout(() => {
-              this.loading = false
-              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
-            }, 2000);
           })
         }
-      })
-    }
+      }
+    })
+  }
 
+  emptyFilter() {
+    this.selectedTerapeuta = ""
+    this.selectedEncargada = ""
+    this.fechaInicio = ""
+    this.fechaFinal = ""
+    this.selectedFormPago = ""
+    this.filtredBusqueda = ""
   }
 }

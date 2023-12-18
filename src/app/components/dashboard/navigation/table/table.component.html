@@ -55,7 +55,7 @@
                                                 <label class="text">Encargada</label>
                                                 <select class="form-select" formControlName="encargada"
                                                     [(ngModel)]="selectedEncargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                                font-family: sans-serif;" (change)="filters()">
+                                                    font-family: sans-serif;" (change)="filters()">
                                                     <option *ngIf="administratorRole" selected value="">
                                                         Selecciona
                                                     </option>
@@ -70,8 +70,8 @@
                                             <div class="row g-0">
                                                 <label class="text">Fecha Inicio</label>
                                                 <input type="date" class="form-control" formControlName="fechaInicio"
-                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif" (change)="filters()">
+                                                    [(ngModel)]="dateStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
 
@@ -79,8 +79,8 @@
                                             <div class="row g-0">
                                                 <label class="text">Fecha Final</label>
                                                 <input type="date" class="form-control" formControlName="FechaFin"
-                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                        font-family: sans-serif" (change)="filters()">
+                                                    [(ngModel)]="dateEnd" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                                 <label class="text">Tipo de Pago</label>
                                                 <select class="form-select" formControlName="formaPago"
                                                     [(ngModel)]="selectedFormPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
-                                            font-family: sans-serif;" (change)="filters()">
+                                                    font-family: sans-serif;" (change)="filters()">
                                                     <option selected value="">Selecciona</option>
                                                     <option value="Efectivo">Efectivo</option>
                                                     <option value="Bizum">Bizum</option>
