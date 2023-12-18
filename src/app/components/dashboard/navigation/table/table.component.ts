@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
 
   loading: boolean = false
   table: boolean = false
-  delete: boolean = false
+  deleteButton: boolean = false
 
   fechaInicio: string
   fechaFinal: string
@@ -109,7 +109,7 @@ export class TableComponent implements OnInit {
     this.selectedEncargada = ""
     this.selectedFormPago = ""
     this.loading = true
-    this.delete = false
+    this.deleteButton = false
 
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])
@@ -476,8 +476,15 @@ export class TableComponent implements OnInit {
     }
   }
 
-  OK(){
+  OK() {
     this.modalService.dismissAll()
+
+    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+      this.deleteButton = true
+    } else {
+      this.deleteButton = false
+    }
   }
 
   filters = async () => {
@@ -1209,43 +1216,47 @@ export class TableComponent implements OnInit {
   }
 
   deleteService() {
-    Swal.fire({
-      title: '¿Deseas eliminar el registro?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Deseo eliminar!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: '¿Estas seguro de eliminar?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Si, Deseo eliminar!'
-        }).then((result) => {
+    if (this.selectedTerapeuta != "" || this.selectedEncargada != "" ||
+      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+      Swal.fire({
+        title: '¿Deseas eliminar el registro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Deseo eliminar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: '¿Estas seguro de eliminar?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Deseo eliminar!'
+          }).then((result) => {
 
-          this.loading = true
+            this.loading = true
 
-          this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
-            this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
-          })
-
-          for (let i = 0; i < this.idService.length; i++) {
-            this.service.deleteServicio(this.idService[i]['id']).subscribe((rp: any) => {
+            this.serviceTherapist.getTerapeuta(this.idService[0]['terapeuta']).subscribe((rp: any) => {
+              this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
             })
-          }
 
-          this.getServices()
+            for (let i = 0; i < this.idService.length; i++) {
+              this.service.deleteServicio(this.idService[i]['id']).subscribe((rp: any) => {
+              })
+            }
 
-          setTimeout(() => {
-            this.loading = false
-            Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
-          }, 2000);
-        })
-      }
-    })
+            this.getServices()
+
+            setTimeout(() => {
+              this.loading = false
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+            }, 2000);
+          })
+        }
+      })
+    }
+
   }
 }

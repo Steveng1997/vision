@@ -13,7 +13,8 @@
 
                     <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
 
-                        <div class="row g-0"> <img src="/assets/icons8-filtrar-100.png" class="iconFilters">
+                        <div class="row g-0"> <img src="/assets/icons8-opciones-para-ordenar-100.png"
+                                class="iconFilters">
                         </div>
 
                         <div class="row g-0">
@@ -127,19 +128,22 @@
 
                     <div class="buttonDeleteContainer" (click)="deleteService()">
 
-                        <div class="row g-0"> <img src="/assets/icons8-papelera-100.png" class="iconDelete">
-                        </div>
+                        <div *ngIf="!deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100.png"
+                                class="iconDelete"> </div>
+
+                        <div *ngIf="deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100-red.png"
+                                class="iconDelete"> </div>
 
                         <div class="row g-0">
-                            <label class="titleDelete">Eliminar</label>
+                            <label [ngClass]="{'titleDeleteRed': deleteButton == true , 
+                                'titleDelete': deleteButton == false}">Eliminar</label>
                         </div>
 
                     </div>
 
                     <div class="exportExcel" (click)="exportExcel()">
 
-                        <div class="row g-0"> <img src="/assets/icons8-ms-excel-100.png" class="iconExcel">
-                        </div>
+                        <div class="row g-0"> <img src="/assets/icons8-ms-excel-100.png" class="iconExcel"> </div>
 
                         <div class="row g-0">
                             <label class="titleExcel">Excel</label>
