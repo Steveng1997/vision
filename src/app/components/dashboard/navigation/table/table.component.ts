@@ -25,6 +25,7 @@ export class TableComponent implements OnInit {
 
   loading: boolean = false
   table: boolean = false
+  delete: boolean = false
 
   fechaInicio: string
   fechaFinal: string
@@ -108,6 +109,7 @@ export class TableComponent implements OnInit {
     this.selectedEncargada = ""
     this.selectedFormPago = ""
     this.loading = true
+    this.delete = false
 
     const params = this.activeRoute.snapshot.params;
     this.idUser = Number(params['id'])

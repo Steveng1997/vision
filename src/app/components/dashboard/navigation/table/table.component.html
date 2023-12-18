@@ -11,11 +11,9 @@
 
                 <div class="row tableContainerFilters">
 
-                    <div class="buttonFilters">
+                    <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
 
-                        <div class="row g-0">
-                            <i class="fa fa-filter iconFilters" aria-hidden="true"
-                                (click)="modalFiltres(modalFilter)"></i>
+                        <div class="row g-0"> <img src="/assets/icons8-filtrar-100.png" class="iconFilters">
                         </div>
 
                         <div class="row g-0">
@@ -127,11 +125,9 @@
                         <!-- Fin Modal -->
                     </div>
 
-                    <div class="buttonDeleteContainer">
+                    <div class="buttonDeleteContainer" (click)="deleteService()">
 
-                        <div class="row g-0">
-                            <i id="buttonDelete" class="fas fa-trash-alt iconFilters" aria-hidden="true"
-                                (click)="deleteService()"></i>
+                        <div class="row g-0"> <img src="/assets/icons8-papelera-100.png" class="iconDelete">
                         </div>
 
                         <div class="row g-0">
@@ -140,11 +136,9 @@
 
                     </div>
 
-                    <div class="exportExcel">
+                    <div class="exportExcel" (click)="exportExcel()">
 
-                        <div class="row g-0">
-                            <i class="fas fa-file-excel iconFilters" aria-hidden="true"
-                                (click)="exportExcel()"></i>
+                        <div class="row g-0"> <img src="/assets/icons8-ms-excel-100.png" class="iconExcel">
                         </div>
 
                         <div class="row g-0">
