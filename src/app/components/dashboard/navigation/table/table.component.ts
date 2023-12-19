@@ -1246,6 +1246,7 @@ export class TableComponent implements OnInit {
           this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
           Swal.fire({
             title: '¿Deseas eliminar el registro?',
+            text: "Una vez eliminados ya no se podrán recuperar",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -1255,7 +1256,6 @@ export class TableComponent implements OnInit {
             if (result.isConfirmed) {
               Swal.fire({
                 title: '¿Estas seguro de eliminar?',
-                text: "Una vez eliminados ya no se podrán recuperar",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
