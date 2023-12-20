@@ -37,7 +37,10 @@
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+.pagination_Mobile
+  ::ng-deep
+  .ngx-pagination
+  .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
@@ -59,7 +62,7 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #8C52FF;
+  border-top-color: #8c52ff;
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -85,7 +88,6 @@
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -469,7 +471,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -875,7 +877,6 @@
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -1058,7 +1059,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 10px 0px 0px
+    padding: 15px 10px 0px 0px;
   }
 
   /* Line 2  */
@@ -1259,7 +1260,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1665,7 +1666,6 @@
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2049,7 +2049,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -2455,7 +2455,6 @@
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2840,7 +2839,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -3246,7 +3245,6 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -3629,7 +3627,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -4036,7 +4034,6 @@
 
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -4243,9 +4240,7 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #8c52ff;
-    border-bottom: 1px solid #8c52ff;
-    border-top: 1px solid #8c52ff;
+    background: #8c52ff;
   }
 
   .iconNewService {
@@ -4253,11 +4248,11 @@
     margin-top: 6px;
     width: 23px;
     height: 22px;
-    /* filter: invert(1); */
+    color: white;
   }
 
   .titleNewService {
-    color: #000000;
+    color: white;
     font-size: 16px;
     font-family: sans-serif;
     margin-top: 5px;
@@ -4517,7 +4512,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -4926,7 +4921,6 @@
 }
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -5309,7 +5303,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -5715,7 +5709,6 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -6100,7 +6093,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -6506,7 +6499,6 @@
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -6890,7 +6882,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -7296,7 +7288,6 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -7681,7 +7672,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -8087,7 +8078,6 @@
 }
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -8471,7 +8461,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -8877,7 +8867,6 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -9261,7 +9250,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -9667,7 +9656,6 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -10052,7 +10040,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -10458,7 +10446,6 @@
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -10842,7 +10829,7 @@
   }
 
   .color2 {
-    background: #8C52FF;
+    background: #8c52ff;
     width: 20px;
     height: 20px;
     border-radius: 50%;

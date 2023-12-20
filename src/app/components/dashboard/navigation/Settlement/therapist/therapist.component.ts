@@ -25,6 +25,7 @@ export class TherapistComponent implements OnInit {
   dates: boolean = false
   loading: boolean = false
   deleteButton: boolean = false
+  validationFilters: boolean = true
   CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
@@ -384,6 +385,7 @@ export class TherapistComponent implements OnInit {
   }
 
   insertForm() {
+    this.validationFilters = false
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
@@ -2263,9 +2265,11 @@ export class TherapistComponent implements OnInit {
 
   cancel() {
     this.liquidationForm = true
+    this.validationFilters = true
     this.addForm = false
     this.editTerap = false
     this.selected = false
+    this.dates = false
     this.liquidationTherapist.encargada = ""
     this.liquidationTherapist.terapeuta = ""
   }
@@ -2330,6 +2334,7 @@ export class TherapistComponent implements OnInit {
 
               this.thousandPount()
               this.liquidationForm = true
+              this.validationFilters = true
               this.addForm = false
               this.editTerap = false
               this.selected = false
@@ -2353,6 +2358,7 @@ export class TherapistComponent implements OnInit {
               this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
               this.thousandPount()
               this.liquidationForm = true
+              this.validationFilters = true
               this.addForm = false
               this.editTerap = false
               this.selected = false
