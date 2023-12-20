@@ -47,7 +47,6 @@
 }
 
 #container_loading {
-  /* background-color: rgba(250, 240, 245, 0.9); */
   background-color: transparent;
   height: 100%;
   width: 100%;
@@ -60,9 +59,7 @@
 
 #load {
   border: 15px solid #ccc;
-  /* border-top-color: #F4266A; */
   border-top-color: #8C52FF;
-  /* border-top-style: groove; */
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -859,12 +856,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -1641,12 +1646,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -2423,12 +2436,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -3206,12 +3227,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -3987,12 +4016,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -4018,6 +4055,15 @@
     justify-content: center;
     margin-top: 1rem;
     margin-left: 4px;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 39% 40% 39%;
+    margin-top: -15px;
+    margin-right: 3px;
+    width: 100%;
+    height: 32px;
   }
 
   .titleLiquidation {
@@ -4066,8 +4112,7 @@
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: -0.5rem;
-    margin-top: 5px;
+    margin-bottom: 1.5rem;
     white-space: pre;
   }
 
@@ -4129,10 +4174,100 @@
     margin-top: 43px;
   }
 
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    height: 35px;
+    width: 90%;
+    border: 1px solid #8c52ff;
+  }
+
+  .iconFilters {
+    margin-left: 15px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+  }
+
+  .buttonDeleteContainer {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -14px;
+    height: 35px;
+    width: 90%;
+    border-right: 1px solid #8c52ff;
+    border-bottom: 1px solid #8c52ff;
+    border-top: 1px solid #8c52ff;
+  }
+
+  .iconDelete {
+    margin-left: 13px;
+    margin-top: 5px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .titleDelete {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .titleDeleteRed {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .newService {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -29px;
+    height: 35px;
+    width: 84%;
+    border-right: 1px solid #8c52ff;
+    border-bottom: 1px solid #8c52ff;
+    border-top: 1px solid #8c52ff;
+  }
+
+  .iconNewService {
+    margin-left: 16px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+    /* filter: invert(1); */
+  }
+
+  .titleNewService {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
   .columnArrow {
     position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -29px;
+    margin-top: 20px;
+    margin-bottom: -30px;
     overflow-x: auto;
   }
 
@@ -4772,12 +4907,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -5553,12 +5696,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -6336,12 +6487,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -7118,12 +7277,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -7901,12 +8068,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -8683,12 +8858,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -9465,12 +9648,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -10248,12 +10439,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }
@@ -11030,12 +11229,20 @@
     padding-bottom: 6%;
   }
 
-  .inputButton {
+  .inputButtonSave {
     display: grid;
     grid-template-columns: 37% 37%;
     margin-bottom: 7em;
     margin-top: 1em;
     margin-left: -1.9rem;
+    justify-content: center;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 37% 37% 37%;
+    margin-bottom: 7em;
+    margin-top: 1em;
     justify-content: center;
   }
 }

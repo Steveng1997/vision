@@ -59,4 +59,10 @@ export class ServiceLiquidationTherapist {
   updateTerapImporteId(id: number, liquidationTherapist: LiquidationTherapist) {
     return this.http.put(`${this.API_URL}/updateByTerapByImporteById/${id}`, liquidationTherapist);
   }
+
+  // Delete
+
+  deleteLiquidationTherapist(id: number) {
+    return this.http.delete(`${this.API_URL}/deleteLiquidationTherapists/${id}`);
+  }
 }

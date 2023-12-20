@@ -28,7 +28,6 @@
 }
 
 #container_loading {
-  /* background-color: rgba(250, 240, 245, 0.9); */
   background-color: transparent;
   height: 100%;
   width: 100%;
@@ -41,9 +40,7 @@
 
 #load {
   border: 15px solid #ccc;
-  /* border-top-color: #F4266A; */
   border-top-color: #8C52FF;
-  /* border-top-style: groove; */
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -206,7 +203,6 @@
     margin-top: 5px;
     margin-left: -7px;
   }
-
 
   .exportExcel {
     display: grid;
@@ -1049,7 +1045,6 @@
     margin-top: 5px;
     margin-left: -7px;
   }
-
 
   .exportExcel {
     display: grid;
@@ -4391,7 +4386,6 @@
     margin-left: -7px;
   }
 
-
   .exportExcel {
     display: grid;
     grid-template-columns: 52% 79%;
@@ -5235,7 +5229,6 @@
     margin-left: -7px;
   }
 
-
   .exportExcel {
     display: grid;
     grid-template-columns: 52% 79%;
@@ -6077,7 +6070,6 @@
     margin-top: 5px;
     margin-left: -7px;
   }
-
 
   .exportExcel {
     display: grid;

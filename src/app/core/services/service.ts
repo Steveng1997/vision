@@ -375,6 +375,14 @@ export class Service {
     return this.http.put(`${this.API_URL}/updateByValuePisos/${id}/${idUnico}`, service);
   }
 
+  updateTherapistSettlementTherapistIdByTherapistId(idTerapeuta: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updatesTherapistSettlementTherapistIdByTherapistId/${idTerapeuta}`, service);
+  }
+
+  updateManagerSettlementManagerIdByManagerId(idEncargada: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updatesManagerSettlementManagerIdByManagerId/${idEncargada}`, service);
+  }
+
   // Delete
 
   deleteServicio(id: number) {

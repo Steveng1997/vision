@@ -24,6 +24,7 @@ export class TherapistComponent implements OnInit {
   therapist = ""
   dates: boolean = false
   loading: boolean = false
+  deleteButton: boolean = false
   CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
@@ -36,6 +37,8 @@ export class TherapistComponent implements OnInit {
   liquidated: any
   settledData: any
   page!: number
+  idTherap: string
+  idLiquidation: any
 
   // Encargada
   manager: any
@@ -152,6 +155,7 @@ export class TherapistComponent implements OnInit {
     this.selected = false
     this.editTerap = false
     this.dates = false
+    this.deleteButton = false
 
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
@@ -171,6 +175,13 @@ export class TherapistComponent implements OnInit {
     this.date()
     this.thousandPount()
     this.getTerapeuta()
+  }
+
+  modalFiltres(modal) {
+    this.modalService.open(modal, {
+      centered: true,
+      backdrop: 'static',
+    })
   }
 
   date() {
@@ -251,7 +262,6 @@ export class TherapistComponent implements OnInit {
 
       rp.map(item => {
         if (item['importe'] > 999) {
-          debugger
           const coma = item['importe'].toString().indexOf(".") !== -1 ? true : false;
           const array = coma ? item['importe'].toString().split(".") : item['importe'].toString().split("");
           let integer = coma ? array.split("") : array;
@@ -296,15 +306,59 @@ export class TherapistComponent implements OnInit {
       this.fechaInicio = fecha
     }
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
+    if (this.formTemplate.value.FechaFin != "") {
+      let fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      this.fechaFinal = fechaFin
+    }
 
+    const therapistCondition = serv => {
+      return (this.liquidationTherapist.terapeuta) ? serv.terapeuta === this.liquidationTherapist.terapeuta : true
+    }
+
+    const managerCondition = serv => {
+      return (this.liquidationTherapist.encargada) ? serv.encargada === this.liquidationTherapist.encargada : true
+    }
+
+    const conditionBetweenDates = serv => {
+      if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
+      if (this.fechaInicio === undefined && serv.fechaHoyInicio <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fechaHoyInicio === this.fechaInicio) return true
+      if (serv.fechaHoyInicio >= this.fechaInicio && serv.fechaHoyInicio <= this.fechaFinal) return true
+
+      return false
+    }
+
+    const searchCondition = serv => {
+      if (!this.filtredBusqueda) return true
+      const criterio = this.filtredBusqueda
+      return (serv.terapeuta.match(criterio)
+        || serv.encargada.match(criterio)
+        || serv.formaPago.match(criterio)
+        || serv.fecha.match(criterio)
+        || serv.cliente.match(criterio)) ? true : false
+    }
+
+    if (this.liquidationTherapist.terapeuta != "" || this.liquidationTherapist.encargada != "" ||
+      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+      this.idLiquidation = this.liquidated.filter(serv => therapistCondition(serv)
+        && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv))
+    }
+  }
+
+  async OK() {
+    this.modalService.dismissAll()
+
+    await this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
         if (this.liquidationTherapist.terapeuta != "" || this.liquidationTherapist.encargada != "" ||
           this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
+          this.deleteButton = true
         } else {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
+          this.deleteButton = false
         }
+      } else {
+        this.deleteButton = false
       }
     })
   }
@@ -2029,19 +2083,17 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  edit() {
+  async edit() {
     this.idSettled
     this.liquidationTherapist.importe = this.totalCommission
-    this.serviceLiquidationTherapist.updateTerapImporteId(this.idSettled, this.liquidationTherapist).subscribe((rp) => { })
-
-    setTimeout(() => {
+    this.serviceLiquidationTherapist.updateTerapImporteId(this.idSettled, this.liquidationTherapist).subscribe(async (rp) => {
       this.thousandPount()
       this.liquidationForm = true
       this.editTerap = false
       this.selected = false
       this.liquidationTherapist.encargada = ""
       this.liquidationTherapist.terapeuta = ""
-    }, 1000);
+    })
   }
 
   async sumTotal(idTherapist: string) {
@@ -2157,14 +2209,16 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  async dataFormEdit(idTherapist: string) {
+  async dataFormEdit(idTherapist: string, id: number) {
     this.loading = true
+    this.idSettled = id
+    this.idTherap = idTherapist
 
-    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (datosTerapeuta) => {
-      this.liquidationTherapist.desdeFechaLiquidado = datosTerapeuta[0]['desdeFechaLiquidado']
-      this.liquidationTherapist.desdeHoraLiquidado = datosTerapeuta[0]['desdeHoraLiquidado']
-      this.liquidationTherapist.hastaFechaLiquidado = datosTerapeuta[0]['hastaFechaLiquidado']
-      this.liquidationTherapist.hastaHoraLiquidado = datosTerapeuta[0]['hastaHoraLiquidado']
+    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp) => {
+      this.liquidationTherapist.desdeFechaLiquidado = rp[0]['desdeFechaLiquidado']
+      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['desdeHoraLiquidado']
+      this.liquidationTherapist.hastaFechaLiquidado = rp[0]['hastaFechaLiquidado']
+      this.liquidationTherapist.hastaHoraLiquidado = rp[0]['hastaHoraLiquidado']
     })
 
     await this.sumTotal(idTherapist)
@@ -2188,6 +2242,21 @@ export class TherapistComponent implements OnInit {
     untilYear = this.liquidationTherapist.hastaFechaLiquidado.substring(2, 4)
 
     this.liquidationTherapist.hastaFechaLiquidado = `${untilDay}-${untilMonth}-${untilYear}`
+  }
+
+  async delete() {
+    this.services.idTerapeuta = ""
+    this.services.liquidadoTerapeuta = false
+    this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
+      this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+        this.thousandPount()
+        this.liquidationForm = true
+        this.addForm = false
+        this.editTerap = false
+        this.selected = false
+        this.dates = false
+      })
+    })
   }
 
   // End edit
@@ -2264,6 +2333,7 @@ export class TherapistComponent implements OnInit {
               this.addForm = false
               this.editTerap = false
               this.selected = false
+              this.dates = false
               this.liquidationTherapist.encargada = ""
               this.liquidationTherapist.terapeuta = ""
 
@@ -2286,6 +2356,7 @@ export class TherapistComponent implements OnInit {
               this.addForm = false
               this.editTerap = false
               this.selected = false
+              this.dates = false
               this.liquidationTherapist.encargada = ""
               this.liquidationTherapist.terapeuta = ""
               this.convertToZero()
@@ -2308,7 +2379,63 @@ export class TherapistComponent implements OnInit {
     }
   }
 
-  deleteService() {
+  async deleteLiquidation() {
+    this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        if (this.liquidationTherapist.terapeuta != "" || this.liquidationTherapist.encargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          Swal.fire({
+            title: '¿Deseas eliminar el registro?',
+            text: "Una vez eliminados ya no se podrán recuperar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Deseo eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: '¿Estas seguro de eliminar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Deseo eliminar!'
+              }).then((result) => {
+                debugger
+                if (result.isConfirmed) {
+                  this.loading = true
+                  this.idLiquidation.map(item => {
+                    this.services.idTerapeuta = ""
+                    this.services.liquidadoTerapeuta = false
+                    this.service.updateTherapistSettlementTherapistIdByTherapistId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
+                      this.serviceLiquidationTherapist.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
+                        this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+                          this.liquidated = rp
+                          this.emptyValues()
+                          this.loading = false
+                          Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+                        })
+                      })
+                    })
+                  })
+                }
+                else {
+                  this.loading = false
+                }
+              })
+            }
+          })
+        }
+      }
+    })
+  }
 
+  emptyValues() {
+    this.liquidationTherapist.terapeuta = ""
+    this.liquidationTherapist.encargada = ""
+    this.formTemplate.value.fechaInicio = ""
+    this.formTemplate.value.FechaFin = ""
+    this.formTemplate.value.busqueda = ""
   }
 }

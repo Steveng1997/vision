@@ -3,87 +3,140 @@
         <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
             <div class="m-0 vh-90 row justify-content-center align-items-center">
 
+                <div *ngIf="loading" id="container_loading">
+                    <div id="load"></div>
+                </div>
+
                 <label *ngIf="liquidationForm" class="titleLiqudationTherapist"> LIQUIDACIÓN TERAPEUTA </label>
 
-                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                <div class="row tableContainerFilters">
 
-                    <div class="text-center mt-4 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                            style="cursor: pointer; color: #8c52ff;" class="bi bi-plus-circle" viewBox="0 0 16 16"
-                            (click)="insertForm()">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path
-                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                        </svg>
-                        <div>
-                            <label> Nueva liquidación </label>
+                    <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
+
+                        <div class="row g-0"> <img src="/assets/icons8-opciones-para-ordenar-100.png"
+                                class="iconFilters">
                         </div>
-                    </div>
 
-                    <div class="row tableContainer">
+                        <div class="row g-0">
+                            <label class="filters">Filtrar</label>
+                        </div>
 
-                        <div class="therapistContainer">
-                            <div class="row g-0">
-                                <label class="text">Terapeuta</label>
-                                <select class="form-select" formControlName="terapeuta"
-                                    [(ngModel)]="liquidationTherapist.terapeuta" (change)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalFilter let-modal>
+                            <div class="modal-header">
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+                                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                                    <div class="row tableContainer">
+
+                                        <div class="therapistContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Terapeuta</label>
+                                                <select class="form-select" formControlName="terapeuta"
+                                                    [(ngModel)]="liquidationTherapist.terapeuta" (change)="filters()"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
                                         font-family: sans-serif;">
-                                    <option selected value="">Selecciona</option>
-                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
-                                        {{terap.nombre}} </option>
-                                </select>
-                            </div>
-                        </div>
+                                                    <option selected value="">Selecciona</option>
+                                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                                        {{terap.nombre}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                        <div class="containerInCharge">
-                            <div class="row g-0">
-                                <label class="text">Encargada</label>
-                                <select class="form-select" formControlName="encargada"
-                                    [(ngModel)]="liquidationTherapist.encargada" (ngModelChange)="filters()"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
-                                        {{managers.nombre}}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
+                                        <div class="containerInCharge">
+                                            <div class="row g-0">
+                                                <label class="text">Encargada</label>
+                                                <select class="form-select" formControlName="encargada"
+                                                    [(ngModel)]="liquidationTherapist.encargada"
+                                                    (ngModelChange)="filters()"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                                    <option *ngIf="administratorRole" selected value="">Selecciona
+                                                    </option>
+                                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                                        {{managers.nombre}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Inicio</label>
-                                <input type="date" class="form-control" (change)="filters()"
-                                    formControlName="fechaInicio" [value]="CurrenDate"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
-                            </div>
-                        </div>
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Inicio</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="fechaInicio" [value]="CurrenDate"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                                            </div>
+                                        </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Final</label>
-                                <input type="date" class="form-control" (change)="filtersDateEnd($event)"
-                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Final</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
                                         color: #242424; font-size: 18px; font-family: sans-serif">
-                            </div>
-                        </div>
+                                            </div>
+                                        </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Buscar</label>
-                                <input type="text" class="form-control" formControlName="busqueda"
-                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Buscar</label>
+                                                <input type="text" class="form-control" formControlName="busqueda"
+                                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
                                         font-size: 18px; font-family: sans-serif;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" mat-raised-button class="btn btn-primary"
+                                            style="display: grid; margin: auto; margin-top: 1rem" color="primary"
+                                            (click)="OK()">Aceptar</button>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
                             </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+
+                    <div class="buttonDeleteContainer" (click)="deleteLiquidation()">
+
+                        <div *ngIf="!deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100.png"
+                                class="iconDelete"> </div>
+
+                        <div *ngIf="deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100-red.png"
+                                class="iconDelete"> </div>
+
+                        <div class="row g-0">
+                            <label [ngClass]="{'titleDeleteRed': deleteButton == true , 
+                                'titleDelete': deleteButton == false}">Eliminar</label>
                         </div>
 
-                        <div class="buttonDeleteContainer">
-                            <div class="row g-0">
-                                <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
-                                    (click)="deleteService()">Eliminar</button>
-                            </div>
+                    </div>
+
+                    <div class="newService" (click)="insertForm()">
+                        <div class="row g-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                style="cursor: pointer; color: #8c52ff;" class="bi bi-plus-circle iconNewService"
+                                viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="titleNewService"> Nueva </label>
                         </div>
                     </div>
-                </form>
+                </div>
 
                 <div *ngIf="liquidationForm" class="columnArrow" id="arrowLine1">
                     <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLine1()"></i>
@@ -153,7 +206,7 @@
                     <div class="columnTableLine2" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
                             | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
                             busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }"
-                        (click)="dataFormEdit(liqTerap.idTerapeuta)">
+                        (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
 
                         <div class="columnManager">{{liqTerap?.encargada}}</div>
 
@@ -599,7 +652,7 @@
                     </div>
                 </div>
 
-                <div *ngIf="!editTerap" class="row inputButton">
+                <div *ngIf="!editTerap" class="row inputButtonSave">
 
                     <div *ngIf="selected && unliquidatedService.length <= 0">
                         <div class="row g-0">
@@ -961,7 +1014,7 @@
                     </div>
                 </div>
 
-                <div *ngIf="editTerap" class="row inputButton">
+                <div *ngIf="editTerap" class="row inputButtonEdit">
 
                     <div>
                         <div class="row g-0">
@@ -978,14 +1031,16 @@
                         </div>
                     </div>
 
+                    <div>
+                        <div class="row g-0">
+                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                                (click)="delete()">Eliminar</button>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
-
-        <div *ngIf="loading" id="container_loading">
-            <div id="load"></div>
-        </div>
-
     </div>
 </div>
