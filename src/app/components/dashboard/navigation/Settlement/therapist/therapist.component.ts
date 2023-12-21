@@ -364,12 +364,10 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  getThoseThatNotLiquidated() {
-    this.service.getByLiquidTerapFalse().subscribe((datoServicio) => {
+  async getThoseThatNotLiquidated() {
+    this.service.getByLiquidTerapFalse().subscribe(async (datoServicio) => {
       this.unliquidatedService = datoServicio
-      return true
     })
-    return false
   }
 
   getTerapeuta() {
@@ -417,11 +415,11 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  dateExists() {
+  async dateExists() {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
-    this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp: any) => {
+    await this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
         fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
@@ -430,8 +428,9 @@ export class TherapistComponent implements OnInit {
 
         this.liquidationTherapist.desdeFechaLiquidado = `${'20' + fromYear}-${fromMonth}-${fromDay}`
         this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+        await this.inputDateAndTime()
       } else {
-        this.dateDoesNotExist()
+        await this.dateDoesNotExist()
       }
     })
 
@@ -465,9 +464,7 @@ export class TherapistComponent implements OnInit {
 
           this.selected = false
           this.dates = false
-          this.dateExists()
-
-          await this.inputDateAndTime()
+          await this.dateExists()
 
         } else {
           this.selected = false
@@ -617,15 +614,16 @@ export class TherapistComponent implements OnInit {
       })
   }
 
-  dateDoesNotExist() {
+  async dateDoesNotExist() {
     let año = "", mes = "", dia = ""
 
-    this.service.getTerapeutaFechaAsc(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe((rp) => {
+    await this.service.getTerapeutaFechaAsc(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp) => {
       año = rp[0]['fechaHoyInicio'].substring(0, 4)
       mes = rp[0]['fechaHoyInicio'].substring(5, 7)
       dia = rp[0]['fechaHoyInicio'].substring(8, 10)
       this.liquidationTherapist.desdeFechaLiquidado = `${año}-${mes}-${dia}`
       this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
+      await this.inputDateAndTime()
     })
   }
 
