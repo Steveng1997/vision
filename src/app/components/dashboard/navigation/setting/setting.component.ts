@@ -483,7 +483,7 @@ export class SettingComponent implements OnInit {
       })
     })
   }
-  
+
   createIdUnicoTherapist() {
     var d = new Date().getTime()
     var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -500,42 +500,44 @@ export class SettingComponent implements OnInit {
   }
 
   async dateTherapist(nombre: string) {
-    let fecha = new Date(), añoHasta = 0, mesHasta = 0, diaHasta = 0, convertMes = '', convertDia = '',
-      añoDesde = "", mesDesde = "", diaDesde = ""
+    debugger
+    let fromYear = 0, fromYears = '', fromMonth = 0, fromDay = 0, convertMonth = '',
+      convertDay = '', untilYear = "", untilMonth = "", untilDay = "", currentDate = new Date()
 
-    diaHasta = fecha.getDate()
-    mesHasta = fecha.getMonth() + 1
-    añoHasta = fecha.getFullYear()
+    fromDay = currentDate.getDate()
+    fromMonth = currentDate.getMonth() + 1
+    fromYear = currentDate.getFullYear()
+    fromYears = fromYear.toString().slice(2, 4)
 
-    if (mesHasta > 0 && mesHasta < 10) {
-      convertMes = '0' + mesHasta
-      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+    if (fromMonth > 0 && fromMonth < 10) {
+      convertMonth = '0' + fromMonth
+      this.liquidationTherapist.hastaFechaLiquidado = `${fromDay}-${convertMonth}-${fromYears}`
     } else {
-      convertMes = mesHasta.toString()
-      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      convertMonth = fromMonth.toString()
+      this.liquidationTherapist.hastaFechaLiquidado = `${fromDay}-${convertMonth}-${fromYears}`
     }
 
-    if (diaHasta > 0 && diaHasta < 10) {
-      convertDia = '0' + diaHasta
-      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${convertDia}`
+    if (fromDay > 0 && fromDay < 10) {
+      convertDay = '0' + fromDay
+      this.liquidationTherapist.hastaFechaLiquidado = `${convertDay}-${convertMonth}-${fromYears}`
     } else {
-      this.liquidationTherapist.hastaFechaLiquidado = `${añoHasta}-${convertMes}-${diaHasta}`
+      this.liquidationTherapist.hastaFechaLiquidado = `${fromDay}-${convertMonth}-${fromYears}`
     }
 
     this.serviceLiquidationTherapist.consultTherapist(nombre).subscribe(async (rp: any) => {
       if (rp.length > 0) {
-        añoDesde = rp[0]['hastaFechaLiquidado'].toString().substring(2, 4)
-        mesDesde = rp[0]['hastaFechaLiquidado'].toString().substring(5, 7)
-        diaDesde = rp[0]['hastaFechaLiquidado'].toString().substring(8, 10)
-        this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+        untilYear = rp[0]['hastaFechaLiquidado'].toString().substring(2, 4)
+        untilMonth = rp[0]['hastaFechaLiquidado'].toString().substring(5, 7)
+        untilDay = rp[0]['hastaFechaLiquidado'].toString().substring(8, 10)
+        this.liquidationTherapist.desdeFechaLiquidado = `${untilYear}-${untilMonth}-${untilDay}`
         this.liquidationTherapist.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
       } else {
         this.services.getTerapeutaLiqFalse(nombre).subscribe(async (rp: any) => {
           if (rp.length > 0) {
-            añoDesde = rp[0]['fechaHoyInicio'].substring(0, 4)
-            mesDesde = rp[0]['fechaHoyInicio'].substring(5, 7)
-            diaDesde = rp[0]['fechaHoyInicio'].substring(8, 10)
-            this.liquidationTherapist.desdeFechaLiquidado = `${añoDesde}-${mesDesde}-${diaDesde}`
+            untilYear = rp[0]['fechaHoyInicio'].substring(0, 4)
+            untilMonth = rp[0]['fechaHoyInicio'].substring(5, 7)
+            untilDay = rp[0]['fechaHoyInicio'].substring(8, 10)
+            this.liquidationTherapist.desdeFechaLiquidado = `${untilYear}-${untilMonth}-${untilDay}`
             this.liquidationTherapist.desdeHoraLiquidado = rp[0]['horaStart']
           }
         })
