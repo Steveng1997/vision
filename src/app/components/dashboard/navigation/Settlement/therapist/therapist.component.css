@@ -4719,12 +4719,6 @@
     float: inline-end;
   }
 
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
   /* Table 1 */
 
   .column {
@@ -4770,25 +4764,6 @@
     margin-left: -3%;
   }
 
-  .lineTable1 {
-    width: 188%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  .textTherapistLine2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 27px 0px 0px;
-  }
-
   .textManager {
     line-break: anywhere;
     color: #000000;
@@ -4798,6 +4773,14 @@
     line-height: 1.2rem;
     word-wrap: break-word;
     padding: 0px 24px 0px 0px;
+  }
+
+  .textTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 27px 0px 0px;
   }
 
   .textImport {
@@ -4824,9 +4807,20 @@
     padding: 15px 20px 0px 0px;
   }
 
+  .lineTable1 {
+    width: 188%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
   /* Column Table */
 
-  .columnTherapist {
+  .columnManager {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
     font-family: sans-serif;
@@ -4836,7 +4830,7 @@
     cursor: pointer;
   }
 
-  .columnManager {
+  .columnTherapist {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
     font-family: sans-serif;
@@ -4856,24 +4850,10 @@
     justify-self: end;
   }
 
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
+  .columnDateTable1{
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnHour {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
   }
 
   .columnTreatment {
@@ -4886,17 +4866,11 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
   }
-
-  /* fin Table 1 */
 
   /* Table 2 */
 
@@ -4924,7 +4898,7 @@
 
   .columnTable2Line1 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 20%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -15px;
@@ -4935,27 +4909,24 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 42px 0px 7px;
+    padding: 15px 0px 0px 20px
+  }
+
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 31.5px;
   }
 
   /* Line 2  */
 
   .columnTable2Line2 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 15% 32% 29% 25% 25% 24% 23% 22% 21% 20%;
+    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 20%;
     margin-bottom: 8px;
     margin-left: -20px;
-  }
-
-  .lineTable2 {
-    width: 302%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
   }
 
   .color2 {
@@ -4989,7 +4960,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 38px;
   }
 
   .textTip {
@@ -5008,6 +4979,14 @@
     font-weight: bold;
     font-family: sans-serif;
     padding: 15px 0px 0px 0px;
+  }
+
+  .textDrinkHouseLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 25.5px;
   }
 
   .textValue {
@@ -5044,12 +5023,53 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 42px 0px 7px;
+    padding: 15px 0px 0px 20px;
+  }
+
+  .lineTable2 {
+    width: 302%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
   }
 
   /* Column */
 
   .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnHour {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnTip {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
     font-family: sans-serif;
@@ -5090,7 +5110,7 @@
 
   .columnTreatment2 {
     line-height: 1.4rem;
-    padding: 0px 48px 0px 0px;
+    padding: 0px 36px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5129,7 +5149,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;

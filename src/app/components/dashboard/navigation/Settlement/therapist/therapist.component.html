@@ -123,9 +123,8 @@
 
                     <div class="newService" (click)="insertForm()">
                         <div class="row g-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                style="cursor: pointer" class="bi bi-plus-circle iconNewService"
-                                viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="cursor: pointer"
+                                class="bi bi-plus-circle iconNewService" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path
                                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -214,11 +213,11 @@
 
                         <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
 
-                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
-                            {{liqTerap?.desdeFechaLiquidado + ' - ' + liqTerap?.desdeHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{liqTerap?.desdeFechaLiquidado + ' - ' +
+                            liqTerap?.desdeHoraLiquidado}} </div>
 
-                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
-                            {{liqTerap?.hastaFechaLiquidado + ' - ' + liqTerap?.hastaHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{liqTerap?.hastaFechaLiquidado + ' - ' +
+                            liqTerap?.hastaHoraLiquidado}} </div>
 
                         <div class="columnTreatment">{{liqTerap?.tratamiento}}</div>
                     </div>
@@ -388,8 +387,8 @@
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
                         </div>
 
                         <div>
@@ -444,8 +443,8 @@
                             <label>€ A Terap.</label>
                         </div>
 
-                        <div class="textValue">
-                            <label>Bebida</label>
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
                         </div>
 
                         <div class="textValue">
@@ -739,8 +738,8 @@
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
                         </div>
 
                         <div>
@@ -795,8 +794,8 @@
                             <label>€ A Terap.</label>
                         </div>
 
-                        <div class="textValue">
-                            <label>Bebida</label>
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
                         </div>
 
                         <div class="textValue">
