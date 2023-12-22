@@ -341,6 +341,19 @@
                     </div>
                 </div>
 
+                <div *ngIf="selected">
+                    <div class="row containerRegularization">
+                        <div class="row g-0">
+                            <label class="titleRegularization">Regularización (+-€)</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <input type="number" class="inputRegularization" (change)="regularization($event)">
+                        </div>
+
+                    </div>
+                </div>
+
                 <div *ngIf="selected" class="columnArrowTable2" id="arrowTable2Add">
                     <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
                 </div>
@@ -348,7 +361,6 @@
                 <!-- Table 2 -->
 
                 <div class="column2" *ngIf="selected">
-
                     <div class="columnTable2Line1">
 
                         <div>
@@ -388,6 +400,10 @@
                         </div>
 
                         <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
                             <label>Bebida</label>
                         </div>
 
@@ -447,7 +463,11 @@
                             <label>casa</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobacco">
                             <label>Tabaco</label>
                         </div>
 
@@ -455,7 +475,7 @@
                             <label>Vitamina</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textOthers">
                             <label>Otros</label>
                         </div>
 
@@ -490,6 +510,8 @@
                             {{serv?.numberTerap + ' €'}} </div>
 
                         <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+
+                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}</div>
 
                         <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
 
@@ -758,7 +780,7 @@
 
                     <div class="columnTable2Line2">
 
-                        <div class="">
+                        <div>
                             <label></label>
                         </div>
 
@@ -770,7 +792,7 @@
                             <label>Hora</label>
                         </div>
 
-                        <div class="textHour">
+                        <div class="textMin">
                             <label>Min</label>
                         </div>
 
@@ -798,7 +820,7 @@
                             <label>casa</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textTobacco">
                             <label>Tabaco</label>
                         </div>
 
@@ -806,7 +828,7 @@
                             <label>Vitamina</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textOthers">
                             <label>Otros</label>
                         </div>
 
@@ -841,6 +863,8 @@
                             {{serv?.numberTerap + ' €'}} </div>
 
                         <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+
+                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}</div>
 
                         <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
 

@@ -109,6 +109,8 @@ export class TherapistComponent implements OnInit {
   totalTransaction: number
   totalTherapistPayment: number
 
+  valueRegularization: number
+
   currentDate = new Date().getTime()
 
   liquidationTherapist: LiquidationTherapist = {
@@ -1340,6 +1342,44 @@ export class TherapistComponent implements OnInit {
   arrowTable2Add() {
     document.querySelector('.column2').scrollLeft += 30;
     document.getElementById('arrowTable2Add').style.display = 'none'
+  }
+
+  regularization(event: any) {
+    debugger
+    let numberRegularization = 0, valueRegularization
+    numberRegularization = Number(event.target.value)
+
+    if (numberRegularization > 0) {
+      this.valueRegularization = this.totalCommission + numberRegularization
+      
+      if (this.valueRegularization > 999) {
+
+        const coma = this.valueRegularization.toString().indexOf(".") !== -1 ? true : false;
+        const array = coma ? this.totalCommission.toString().split(".") : this.valueRegularization.toString().split("");
+        let integer = coma ? array[0].split("") : array;
+        let subIndex = 1;
+  
+        for (let i = integer.length - 1; i >= 0; i--) {
+  
+          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+  
+            integer.splice(i, 0, ".");
+            subIndex++;
+  
+          } else {
+            subIndex++;
+          }
+        }
+  
+        integer = [integer.toString().replace(/,/gi, "")]
+        this.textTotalComission = integer[0].toString()
+      } else {
+        this.textTotalComission = this.valueRegularization.toString()
+        this.textTotalCommission = this.valueRegularization.toString()
+      }
+    }
+
+
   }
 
   // Edit

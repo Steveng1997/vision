@@ -487,18 +487,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -774,8 +762,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -896,8 +882,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -1367,18 +1351,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -1654,8 +1626,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -1776,8 +1746,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -2247,18 +2215,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -2534,8 +2490,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -2656,8 +2610,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -3127,18 +3079,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -3415,8 +3355,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -3537,8 +3475,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -4007,18 +3943,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -4294,8 +4218,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -4417,8 +4339,6 @@
     margin-bottom: 6px;
   }
 
-  /* fin Table 3 */
-
   /* Table 4 */
 
   .column4 {
@@ -4487,24 +4407,21 @@
 
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
   }
 
-  .tableContainer {
+  .titleLiqudationTherapist {
     display: grid;
-    grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .tableContainer2 {
-    display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 4px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .tableContainerFilters {
@@ -4516,21 +4433,13 @@
     height: 32px;
   }
 
-  .titleLiquidation {
-    display: grid;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-left: -1rem;
-    justify-items: end;
-  }
+  /* Filter */
 
-  .containerTitleSelect {
+  .tableContainer {
     display: grid;
-    grid-template-columns: 89% 107px;
-    margin-top: 2rem;
-    margin-left: -187%;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
   }
 
   .therapistContainer {
@@ -4549,74 +4458,7 @@
     margin-top: 8%;
   }
 
-  .titleLiqudationTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .titleEdit {
-    display: grid;
-    margin-left: -15px;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0rem;
-  }
-
-  .textDates {
-    display: grid;
-    font-size: 18px;
-    color: #000000;
-    font-family: sans-serif;
-    white-space: pre;
-    margin-left: -17px;
-  }
-
-  .containerTitleEdit {
-    display: grid;
-    grid-template-columns: 89% 107px;
-    margin-top: 1rem;
-    margin-left: -187%;
-  }
-
-  .fechaInicio {
-    width: 79%;
-  }
-
-  .horaInicio {
-    width: 64%;
-    align-self: end;
-    margin-left: -11px;
-  }
-
-  .fechaFinal {
-    width: 79%;
-    margin-top: 1em;
-  }
-
-  .horaFinal {
-    width: 64%;
-    margin-left: -11px;
-    margin-top: 43px;
-  }
+  /* button menu */
 
   .buttonFilters {
     display: grid;
@@ -4705,6 +4547,8 @@
     margin-top: 5px;
     margin-left: 5px;
   }
+
+  /* Arrow */
 
   .columnArrow {
     position: relative;
@@ -4850,7 +4694,7 @@
     justify-self: end;
   }
 
-  .columnDateTable1{
+  .columnDateTable1 {
     font-family: sans-serif;
     font-size: 18px;
     line-height: 1.4rem;
@@ -4872,7 +4716,121 @@
     margin-bottom: -43px;
   }
 
-  /* Table 2 */
+  /* Edit liquidation */
+
+  .titleEdit {
+    display: grid;
+    margin-left: -15px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -17px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 1rem;
+    margin-left: -187%;
+  }
+
+  /* Add new liquidation */
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 5px;
+  }
+
+  .fechaInicio {
+    width: 79%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 79%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 107px;
+    margin-top: 2rem;
+    margin-left: -187%;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 89% 118px;
+    margin-top: 2rem;
+    margin-right: 80px;
+  }
+
+  .titleRegularization {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .inputRegularization {
+    width: 42%;
+    height: 61%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 0px;
+  }
+
+  /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
@@ -4887,6 +4845,8 @@
     float: inline-end;
   }
 
+  /* Table 2 */
+
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
@@ -4898,7 +4858,7 @@
 
   .columnTable2Line1 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 20%;
+    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -15px;
@@ -4920,11 +4880,19 @@
     padding: 15px 0px 0px 31.5px;
   }
 
+  .textDrinkTherapistLine1{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 31.5px;
+  }
+
   /* Line 2  */
 
   .columnTable2Line2 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 20%;
+    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
     margin-bottom: 8px;
     margin-left: -20px;
   }
@@ -4937,14 +4905,6 @@
     display: block;
     margin-top: 1%;
     margin-left: 19%;
-  }
-
-  .textExit {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textHour {
@@ -4961,6 +4921,22 @@
     font-weight: bold;
     font-family: sans-serif;
     padding: 15px 0px 0px 38px;
+  }
+
+  .textTreatmentTable2Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 20px;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .textTip {
@@ -4981,6 +4957,16 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textValueTherapist {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 2px 0px 37px;
+  }
+
   .textDrinkHouseLine2 {
     color: #000000;
     font-size: 18px;
@@ -4989,22 +4975,20 @@
     padding: 15px 0px 0px 25.5px;
   }
 
-  .textValue {
+  .textDrinkTherapistLine2 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 24.5px;
   }
 
-  .textValueTherapist {
+  .textTobacco{
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 0px 0px 8px;
+    padding: 15px 0px 0px 25px;
   }
 
   .textVitamin {
@@ -5015,19 +4999,19 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 10px 0px 15px;
+    padding: 0px 25px 0px 34px;
   }
 
-  .textTreatmentTable2Line2 {
+  .textOthers{
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
+    padding: 15px 0px 0px 19px;
   }
 
   .lineTable2 {
-    width: 302%;
+    width: 366%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5040,46 +5024,6 @@
   /* Column */
 
   .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnExit {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
     font-family: sans-serif;
@@ -5118,6 +5062,16 @@
     justify-self: end;
   }
 
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
   .columnValueTip {
     border-bottom: hidden;
     word-wrap: break-word;
@@ -5139,7 +5093,7 @@
 
   .columnValueTherapist {
     line-height: 1.4rem;
-    padding: 0px 24px 0px 0px;
+    padding: 0px 10px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5157,7 +5111,7 @@
     justify-self: end;
   }
 
-  .columnValueTobacco {
+  .columnValueDrinkTherapist{
     line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -5167,9 +5121,19 @@
     justify-self: end;
   }
 
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 13px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 14px 0px 0px;
+    padding: 0px 26px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5192,8 +5156,6 @@
     margin-top: 3rem;
     margin-bottom: 0px;
   }
-
-  /* fin Table 2 */
 
   /* Table 3 */
 
@@ -5318,8 +5280,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -5788,18 +5748,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -6075,8 +6023,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -6197,8 +6143,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -6668,18 +6612,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -6956,8 +6888,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -7078,8 +7008,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -7549,18 +7477,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -7836,8 +7752,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -7958,8 +7872,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -8429,18 +8341,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -8717,8 +8617,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -8839,8 +8737,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -9310,18 +9206,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -9597,8 +9481,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -9719,8 +9601,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -10190,18 +10070,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -10477,8 +10345,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -10599,8 +10465,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -10980,18 +10844,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -11267,8 +11119,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -11389,8 +11239,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
@@ -11769,18 +11617,6 @@
     justify-self: end;
   }
 
-  .columnTip {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  /* fin Table 1 */
-
   /* Table 2 */
 
   .columnArrowTable2 {
@@ -12056,8 +11892,6 @@
     margin-bottom: 0px;
   }
 
-  /* fin Table 2 */
-
   /* Table 3 */
 
   .column3 {
@@ -12178,8 +12012,6 @@
     margin-top: -8px;
     margin-bottom: 6px;
   }
-
-  /* fin Table 3 */
 
   /* Table 4 */
 
