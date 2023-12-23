@@ -111,6 +111,8 @@ export class TherapistComponent implements OnInit {
 
   currentDate = new Date().getTime()
 
+  aqui: string
+
   liquidationTherapist: LiquidationTherapist = {
     createdDate: "",
     currentDate: "",
@@ -1359,7 +1361,7 @@ export class TherapistComponent implements OnInit {
     this.liquidationTherapist.valueRegularizacion = numberRegularization;
     this.liquidationTherapist.importe = valueRegularization
 
-    if (valueRegularization > 999) {
+    if (valueRegularization > 999 || numberRegularization > 999) {
 
       const coma = valueRegularization.toString().indexOf(".") !== -1 ? true : false;
       const array = coma ? this.totalCommission.toString().split(".") : valueRegularization.toString().split("");
@@ -1380,9 +1382,12 @@ export class TherapistComponent implements OnInit {
 
       integer = [integer.toString().replace(/,/gi, "")]
       this.textTotalComission = integer[0].toString()
+      this.textTotalCommission = integer[0].toString()
+      this.aqui = integer[0].toString()
     } else {
       this.textTotalComission = valueRegularization.toString()
       this.textTotalCommission = valueRegularization.toString()
+      this.aqui = numberRegularization.toString()
     }
   }
 

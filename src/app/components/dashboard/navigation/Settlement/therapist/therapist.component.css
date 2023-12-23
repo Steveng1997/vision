@@ -4766,7 +4766,7 @@
   }
 
   .fechaInicio {
-    width: 79%;
+    width: 80%;
   }
 
   .horaInicio {
@@ -4776,7 +4776,7 @@
   }
 
   .fechaFinal {
-    width: 79%;
+    width: 80%;
     margin-top: 1em;
   }
 
@@ -4807,29 +4807,34 @@
 
   .containerRegularization {
     display: grid;
-    grid-template-columns: 89% 118px;
+    grid-template-columns: 65% 70px 34px;
     margin-top: 0rem;
-    margin-right: 80px;
+    margin-right: 5px;
   }
 
   .textRegularization {
-    width: 100%;
-    height: 100%;
-    font-size: 22px;
-    color: #000000;
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
     font-family: sans-serif;
-    margin-top: -1px;
-    margin-left: 3px;
   }
 
   .inputRegularization {
-    width: 36%;
-    height: 100%;
-    font-size: 22px;
-    color: #000000;
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
     font-family: sans-serif;
-    margin-right: 34px;
-    margin-top: -1px;
+    margin-left: 35px;
+  }
+
+  .text€{
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 42px;
   }
 
   /* Arrow 2  */

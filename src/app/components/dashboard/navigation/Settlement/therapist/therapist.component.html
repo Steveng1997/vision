@@ -341,17 +341,19 @@
                     </div>
                 </div>
 
-                <div *ngIf="selected">
-                    <div class="row containerRegularization">
-                        <div class="row g-0">
-                            <input type="text" class="textRegularization"
-                                [(ngModel)]="liquidationTherapist.regularizacion">
-                        </div>
+                <div class="row containerRegularization" *ngIf="selected">
+                    <div class="row g-0">
+                        <input type="text" class="form-control textRegularization"
+                            [(ngModel)]="liquidationTherapist.regularizacion" placeholder="Concepto a regularizar">
+                    </div>
 
-                        <div class="row g-0" style="justify-content: end">
-                            <input type="number" class="inputRegularization" (change)="regularization($event)">
-                        </div>
+                    <div class="row g-0">
+                        <input type="number" class="form-control inputRegularization" (change)="regularization($event)"
+                        [value]="aqui">
+                    </div>
 
+                    <div class="row g-0">
+                        <label class="text€">€</label>
                     </div>
                 </div>
 
