@@ -475,8 +475,6 @@ export class ManagerComponent implements OnInit {
         if (rp.length > 0) {
           this.unliquidatedService = rp
 
-          debugger
-
           // Filter by servicio
           const servicios = this.unliquidatedService.filter(serv => serv)
           this.totalService = servicios.reduce((accumulator, serv) => {
@@ -2236,9 +2234,7 @@ export class ManagerComponent implements OnInit {
             return accumulator + serv.numberEncarg
           }, 0)
         })
-
-        debugger
-
+        
         this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
         this.validateNullData()
         await this.thousandPointEdit()

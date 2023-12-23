@@ -4808,26 +4808,28 @@
   .containerRegularization {
     display: grid;
     grid-template-columns: 89% 118px;
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-right: 80px;
   }
 
-  .titleRegularization {
-    display: grid;
+  .textRegularization {
+    width: 100%;
+    height: 100%;
     font-size: 22px;
     color: #000000;
-    font-weight: bold;
     font-family: sans-serif;
-    margin-left: -1rem;
-    justify-items: end;
+    margin-top: -1px;
+    margin-left: 3px;
   }
 
   .inputRegularization {
-    width: 42%;
-    height: 61%;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 0px;
+    width: 36%;
+    height: 100%;
+    font-size: 22px;
+    color: #000000;
+    font-family: sans-serif;
+    margin-right: 34px;
+    margin-top: -1px;
   }
 
   /* Arrow 2  */

@@ -500,7 +500,6 @@ export class SettingComponent implements OnInit {
   }
 
   async dateTherapist(nombre: string) {
-    debugger
     let fromYear = 0, fromYears = '', fromMonth = 0, fromDay = 0, convertMonth = '',
       convertDay = '', untilYear = "", untilMonth = "", untilDay = "", currentDate = new Date()
 

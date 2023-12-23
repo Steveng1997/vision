@@ -344,7 +344,8 @@
                 <div *ngIf="selected">
                     <div class="row containerRegularization">
                         <div class="row g-0">
-                            <label class="titleRegularization">Regularización (+-€)</label>
+                            <input type="text" class="textRegularization"
+                                [(ngModel)]="liquidationTherapist.regularizacion">
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
@@ -511,7 +512,8 @@
 
                         <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
 
-                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}</div>
+                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}
+                        </div>
 
                         <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
 
@@ -699,8 +701,7 @@
 
                 <!-- Edit Liquidation -->
 
-                <label *ngIf="editTerap" class="titleEdit">
-                    Liquidación {{therapist}}</label>
+                <label *ngIf="editTerap" class="titleEdit"> Liquidación {{therapist}}</label>
 
                 <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' : ' +
                     liquidationTherapist.desdeHoraLiquidado + ' - ' + liquidationTherapist.hastaFechaLiquidado
@@ -717,6 +718,15 @@
                         </div>
                     </div>
 
+                    <div class="row containerRegularization">
+                        <div class="row g-0">
+                            <label class="textRegularization">{{liquidationTherapist.regularizacion}}</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="inputRegularization">{{liquidationTherapist.valueRegularizacion}}</label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Table 2 -->
@@ -864,7 +874,8 @@
 
                         <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
 
-                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}</div>
+                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}
+                        </div>
 
                         <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
 
@@ -944,7 +955,8 @@
                         <label class="columnTreatment3">Bebida</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label *ngIf="terapeutaName?.bebida != undefined"
-                            class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
+                            class="columnComission">{{terapeutaName?.bebida +
+                            ' %'}}</label>
                         <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
                     </div>

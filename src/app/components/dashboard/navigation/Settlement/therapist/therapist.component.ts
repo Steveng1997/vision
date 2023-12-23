@@ -109,28 +109,28 @@ export class TherapistComponent implements OnInit {
   totalTransaction: number
   totalTherapistPayment: number
 
-  valueRegularization: number
-
   currentDate = new Date().getTime()
 
   liquidationTherapist: LiquidationTherapist = {
+    createdDate: "",
     currentDate: "",
     desdeFechaLiquidado: "",
     desdeHoraLiquidado: "",
     encargada: "",
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
-    createdDate: "",
     id: 0,
     idUnico: "",
     idTerapeuta: "",
     importe: 0,
+    regularizacion: "",
     terapeuta: "",
-    tratamiento: 0
+    tratamiento: 0,
+    valueRegularizacion: 0
   }
 
   services: ModelService = {
-    idTerapeuta: "",
+    idTerapeuta: ""
   }
 
   formTemplate = new FormGroup({
@@ -259,7 +259,7 @@ export class TherapistComponent implements OnInit {
     if (this.totalTherapistPayment == undefined) this.totalTherapistPayment = 0
   }
 
-  thousandPount() {
+  async thousandPount() {
     this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
       this.liquidated = rp
 
@@ -386,6 +386,8 @@ export class TherapistComponent implements OnInit {
 
   insertForm() {
     this.validationFilters = false
+    this.liquidationTherapist.regularizacion = ""
+    this.liquidationTherapist.valueRegularizacion = 0
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
@@ -1345,41 +1347,43 @@ export class TherapistComponent implements OnInit {
   }
 
   regularization(event: any) {
-    debugger
-    let numberRegularization = 0, valueRegularization
+    let numberRegularization = 0, valueRegularization = 0
     numberRegularization = Number(event.target.value)
 
     if (numberRegularization > 0) {
-      this.valueRegularization = this.totalCommission + numberRegularization
-      
-      if (this.valueRegularization > 999) {
-
-        const coma = this.valueRegularization.toString().indexOf(".") !== -1 ? true : false;
-        const array = coma ? this.totalCommission.toString().split(".") : this.valueRegularization.toString().split("");
-        let integer = coma ? array[0].split("") : array;
-        let subIndex = 1;
-  
-        for (let i = integer.length - 1; i >= 0; i--) {
-  
-          if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-  
-            integer.splice(i, 0, ".");
-            subIndex++;
-  
-          } else {
-            subIndex++;
-          }
-        }
-  
-        integer = [integer.toString().replace(/,/gi, "")]
-        this.textTotalComission = integer[0].toString()
-      } else {
-        this.textTotalComission = this.valueRegularization.toString()
-        this.textTotalCommission = this.valueRegularization.toString()
-      }
+      valueRegularization = this.totalCommission + numberRegularization
+    } else {
+      valueRegularization = this.totalCommission + numberRegularization
     }
 
+    this.liquidationTherapist.valueRegularizacion = numberRegularization;
+    this.liquidationTherapist.importe = valueRegularization
 
+    if (valueRegularization > 999) {
+
+      const coma = valueRegularization.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : valueRegularization.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalComission = integer[0].toString()
+    } else {
+      this.textTotalComission = valueRegularization.toString()
+      this.textTotalCommission = valueRegularization.toString()
+    }
   }
 
   // Edit
@@ -2136,6 +2140,22 @@ export class TherapistComponent implements OnInit {
     })
   }
 
+  async dataFormEdit(idTherapist: string, id: number) {
+    this.validationFilters = false
+    this.idSettled = id
+    this.idTherap = idTherapist
+
+    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp) => {
+      this.liquidationTherapist = rp[0]
+      this.liquidationTherapist.desdeFechaLiquidado = rp[0]['desdeFechaLiquidado']
+      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['desdeHoraLiquidado']
+      this.liquidationTherapist.hastaFechaLiquidado = rp[0]['hastaFechaLiquidado']
+      this.liquidationTherapist.hastaHoraLiquidado = rp[0]['hastaHoraLiquidado']
+    })
+
+    await this.sumTotal(idTherapist)
+  }
+
   async sumTotal(idTherapist: string) {
 
     this.service.getByIdTerap(idTherapist).subscribe(async (rp: any) => {
@@ -2191,7 +2211,6 @@ export class TherapistComponent implements OnInit {
         await this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp: any) => {
           this.therapist = rp[0]['terapeuta']
           this.convertToZeroEdit()
-          this.loading = false
           this.liquidationForm = false
           this.editTerap = true
         })
@@ -2242,26 +2261,10 @@ export class TherapistComponent implements OnInit {
         this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
         this.validateNullData()
         await this.thousandPointEdit()
-        this.loading = false
         this.liquidationForm = false
         this.editTerap = true
       }
     })
-  }
-
-  async dataFormEdit(idTherapist: string, id: number) {
-    this.loading = true
-    this.idSettled = id
-    this.idTherap = idTherapist
-
-    this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp) => {
-      this.liquidationTherapist.desdeFechaLiquidado = rp[0]['desdeFechaLiquidado']
-      this.liquidationTherapist.desdeHoraLiquidado = rp[0]['desdeHoraLiquidado']
-      this.liquidationTherapist.hastaFechaLiquidado = rp[0]['hastaFechaLiquidado']
-      this.liquidationTherapist.hastaHoraLiquidado = rp[0]['hastaHoraLiquidado']
-    })
-
-    await this.sumTotal(idTherapist)
   }
 
   formatDate() {
@@ -2289,17 +2292,105 @@ export class TherapistComponent implements OnInit {
     this.services.liquidadoTerapeuta = false
     this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
       this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-        this.thousandPount()
-        this.liquidationForm = true
-        this.addForm = false
-        this.editTerap = false
-        this.selected = false
-        this.dates = false
+        this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+          this.liquidated = rp
+          this.liquidationTherapist.terapeuta = ""
+          this.liquidationTherapist.encargada = ""
+          this.liquidationForm = true
+          this.validationFilters = true
+          this.addForm = false
+          this.editTerap = false
+          this.selected = false
+          this.dates = false
+        })
       })
     })
   }
 
   // End edit
+
+  save() {
+    this.createUniqueId()
+    this.liquidationTherapist.currentDate = this.currentDate.toString()
+    this.formatDate()
+    this.dateCurrentDay()
+
+    if (this.liquidationTherapist.terapeuta != "") {
+      if (this.liquidationTherapist.encargada != "") {
+
+        if (this.liquidationTherapist.regularizacion != "") {
+          this.liquidationTherapist.regularizacion = this.liquidationTherapist.regularizacion.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
+        }
+
+        this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
+          this.liquidationTherapist.encargada).subscribe((rp: any) => {
+
+            if (rp.length > 0) {
+
+              for (let o = 0; o < this.unliquidatedService.length; o++) {
+                this.liquidationTherapist.tratamiento = this.unliquidatedService.length
+                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((rp) => { })
+              }
+
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => { })
+
+              this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+                this.liquidated = rp
+                this.convertToZero()
+                this.liquidationForm = true
+                this.validationFilters = true
+                this.addForm = false
+                this.editTerap = false
+                this.selected = false
+                this.dates = false
+                this.liquidationTherapist.encargada = ""
+                this.liquidationTherapist.terapeuta = ""
+              })
+
+              Swal.fire({
+                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+              })
+            }
+
+            else if (rp.length == 0) {
+
+              for (let o = 0; o < this.unliquidatedService.length; o++) {
+                this.liquidationTherapist.tratamiento = this.unliquidatedService.length
+                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((rp) => { })
+              }
+
+              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => { })
+
+              this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+                this.liquidated = rp
+                this.convertToZero()
+                this.liquidationForm = true
+                this.validationFilters = true
+                this.addForm = false
+                this.editTerap = false
+                this.selected = false
+                this.dates = false
+                this.liquidationTherapist.encargada = ""
+                this.liquidationTherapist.terapeuta = ""
+              })
+
+              Swal.fire({
+                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+              })
+            }
+          })
+
+      } else {
+        Swal.fire({
+          icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
+        })
+      }
+    } else {
+      Swal.fire({
+        icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500
+      })
+    }
+  }
 
   cancel() {
     this.liquidationForm = true
@@ -2349,80 +2440,6 @@ export class TherapistComponent implements OnInit {
     }
   }
 
-  save() {
-    this.createUniqueId()
-    this.liquidationTherapist.currentDate = this.currentDate.toString()
-    this.formatDate()
-    this.dateCurrentDay()
-
-    if (this.liquidationTherapist.terapeuta != "") {
-      if (this.liquidationTherapist.encargada != "") {
-
-        this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
-          this.liquidationTherapist.encargada).subscribe((rp: any) => {
-
-            if (rp.length > 0) {
-
-              for (let o = 0; o < this.unliquidatedService.length; o++) {
-                this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
-              }
-
-              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((dates) => { })
-
-              this.thousandPount()
-              this.liquidationForm = true
-              this.validationFilters = true
-              this.addForm = false
-              this.editTerap = false
-              this.selected = false
-              this.dates = false
-              this.liquidationTherapist.encargada = ""
-              this.liquidationTherapist.terapeuta = ""
-
-              Swal.fire({
-                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-              })
-            }
-
-            else if (rp.length == 0) {
-
-              for (let o = 0; o < this.unliquidatedService.length; o++) {
-                this.liquidationTherapist.tratamiento = this.unliquidatedService.length
-                this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
-                })
-              }
-
-              this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe((datos) => { })
-              this.thousandPount()
-              this.liquidationForm = true
-              this.validationFilters = true
-              this.addForm = false
-              this.editTerap = false
-              this.selected = false
-              this.dates = false
-              this.liquidationTherapist.encargada = ""
-              this.liquidationTherapist.terapeuta = ""
-              this.convertToZero()
-
-              Swal.fire({
-                position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-              })
-            }
-          })
-
-      } else {
-        Swal.fire({
-          icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
-        })
-      }
-    } else {
-      Swal.fire({
-        icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500
-      })
-    }
-  }
-
   async deleteLiquidation() {
     this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
       if (rp[0]['rol'] == 'administrador') {
@@ -2446,7 +2463,6 @@ export class TherapistComponent implements OnInit {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si, Deseo eliminar!'
               }).then((result) => {
-                debugger
                 if (result.isConfirmed) {
                   this.loading = true
                   this.idLiquidation.map(item => {

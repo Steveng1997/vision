@@ -1262,7 +1262,6 @@ export class TableComponent implements OnInit {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si, Deseo eliminar!'
               }).then((result) => {
-                debugger
                 if (result.isConfirmed) {
                   this.loading = true
 

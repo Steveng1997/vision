@@ -31,9 +31,6 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
-            ],
-            "scripts": [
-              "src/assets/js/scroll.js"
             ]
           },
           "configurations": {
@@ -97,9 +94,6 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
-            ],
-            "scripts": [
-              "src/assets/js/scroll.js"
             ]
           }
         }
