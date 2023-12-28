@@ -383,6 +383,10 @@ export class Service {
     return this.http.put(`${this.API_URL}/updatesManagerSettlementManagerIdByManagerId/${idEncargada}`, service);
   }
 
+  updateScreenById(id: number, service: ModelService){
+    return this.http.put(`${this.API_URL}/updateScreenById/${id}`, service);
+  }
+
   // Delete
 
   deleteServicio(id: number) {

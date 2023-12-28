@@ -37,6 +37,7 @@ export class ModelService {
   numberPiso2?: string;
   numberTerap?: string;
   otros?: string;
+  pantalla?: string;
   propina?: string;
   salida?: string;
   servicio?: string;

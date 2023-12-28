@@ -69,6 +69,8 @@ export class NewServiceComponent implements OnInit {
   terapeutaSelect: any
   addService = false
   Servminutes = ""
+  buttonSave: any
+  buttonEdit: any
 
   services: ModelService = {
     bebidas: "",
@@ -266,7 +268,6 @@ export class NewServiceComponent implements OnInit {
   expiredDateValidations() {
     let currentHours, diferenceHour
     const splitDate = this.fechaActual.split('-')
-    // const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}`)
     const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${this.horaInicialServicio}`)
     const currentDate = new Date()
     const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
@@ -278,6 +279,8 @@ export class NewServiceComponent implements OnInit {
 
     // const currentHours = currentDate.getHours()
     if (selectDate < currentDateWithoutHours && currentHours > 24) {
+      this.buttonSave.disabled = false
+      this.buttonEdit.disabled = false
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -337,6 +340,8 @@ export class NewServiceComponent implements OnInit {
   }
 
   saveService() {
+    this.buttonSave = document.getElementById('btnSave') as HTMLButtonElement
+    this.buttonSave.disabled = true;
     if (this.services.terapeuta != '') {
       if (this.services.encargada != '') {
         if (Number(this.services.servicio) > 0) {
@@ -416,18 +421,23 @@ export class NewServiceComponent implements OnInit {
               })
             }
             else {
+              this.buttonSave.disabled = false
               Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
             }
           } else {
+            this.buttonSave.disabled = false
             Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo minutos se encuentra vacio', showConfirmButton: false, timer: 2500 })
           }
         } else {
+          this.buttonSave.disabled = false
           Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo tratamiento se encuentra vacio', showConfirmButton: false, timer: 2500 })
         }
       } else {
+        this.buttonSave.disabled = false
         Swal.fire({ icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500 })
       }
     } else {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500 })
     }
   }
@@ -689,7 +699,8 @@ export class NewServiceComponent implements OnInit {
   }
 
   editChosenDate(event: any) {
-    this.editarService[0]['fecha'] = event.target.value
+    this.editarService[0]['fechaHoyInicio'] = event.target.value
+    this.fechaActual = event.target.value
   }
 
   minutes(event: any) {
@@ -825,6 +836,7 @@ export class NewServiceComponent implements OnInit {
       this.services.transPiso1 == true || this.services.efectPiso2 == true && this.services.transPiso2 == true ||
       this.services.efectTerap == true && this.services.transTerap == true || this.services.efectEncarg == true &&
       this.services.transEncarg == true || this.services.efectDriverTaxi == true && this.services.transDriverTaxi == true) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -840,6 +852,7 @@ export class NewServiceComponent implements OnInit {
       this.services.transPiso1 == true || this.services.bizuPiso2 == true && this.services.transPiso2 == true ||
       this.services.bizuTerap == true && this.services.transTerap == true || this.services.bizuEncarg == true &&
       this.services.transEncarg == true || this.services.bizuDriverTaxi == true && this.services.transDriverTaxi == true) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -855,6 +868,7 @@ export class NewServiceComponent implements OnInit {
       this.services.transPiso1 == true || this.services.tarjPiso2 == true && this.services.transPiso2 == true ||
       this.services.tarjTerap == true && this.services.transTerap == true || this.services.tarjEncarg == true &&
       this.services.transEncarg == true || this.services.tarjDriverTaxi == true && this.services.transDriverTaxi == true) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -870,6 +884,7 @@ export class NewServiceComponent implements OnInit {
       this.services.tarjPiso1 == true || this.services.transPiso2 == true && this.services.tarjPiso2 == true ||
       this.services.transTerap == true && this.services.tarjTerap == true || this.services.transEncarg == true &&
       this.services.tarjEncarg == true || this.services.transDriverTaxi == true && this.services.tarjDriverTaxi == true) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -879,26 +894,31 @@ export class NewServiceComponent implements OnInit {
   paymentMethodValidation() {
     if (Number(this.services.numberPiso1) > 0 && this.services.efectPiso1 == false && this.services.bizuPiso1 == false &&
       this.services.tarjPiso1 == false && this.services.transPiso1 == false) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
       return false
     }
     if (Number(this.services.numberPiso2) > 0 && this.services.efectPiso2 == false && this.services.bizuPiso2 == false &&
       this.services.tarjPiso2 == false && this.services.transPiso2 == false) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 2' })
       return false
     }
     if (Number(this.services.numberTerap) > 0 && this.services.efectTerap == false && this.services.bizuTerap == false &&
       this.services.tarjTerap == false && this.services.transTerap == false) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para terapeuta' })
       return false
     }
     if (Number(this.services.numberEncarg) > 0 && this.services.efectEncarg == false && this.services.bizuEncarg == false &&
       this.services.tarjEncarg == false && this.services.transEncarg == false) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para encargada' })
       return false
     }
     if (Number(this.services.numberTaxi) > 0 && this.services.efectDriverTaxi == false && this.services.bizuDriverTaxi == false &&
       this.services.tarjDriverTaxi == false && this.services.transDriverTaxi == false) {
+      this.buttonSave.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para taxista' })
       return false
     }
@@ -1025,6 +1045,7 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['efectTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['efectEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
       this.editarService[0]['efectDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1045,6 +1066,7 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['bizuTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['bizuEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
       this.editarService[0]['bizuDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1065,6 +1087,7 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['tarjTerap'] == true && this.editarService[0]['transTerap'] == true ||
       this.editarService[0]['tarjEncarg'] == true && this.editarService[0]['transEncarg'] == true ||
       this.editarService[0]['tarjDriverTaxi'] == true && this.editarService[0]['transDriverTaxi'] == true) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1085,6 +1108,7 @@ export class NewServiceComponent implements OnInit {
       this.editarService[0]['transTerap'] == true && this.editarService[0]['tarjTerap'] == true ||
       this.editarService[0]['transEncarg'] == true && this.editarService[0]['tarjEncarg'] == true ||
       this.editarService[0]['transDriverTaxi'] == true && this.editarService[0]['tarjDriverTaxi'] == true) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Se escogio mas de una forma de pago' })
       return false
     }
@@ -1096,30 +1120,35 @@ export class NewServiceComponent implements OnInit {
     if (Number(this.editarService[0]['numberPiso1']) > 0 && this.editarService[0]['efectPiso1'] == false &&
       this.editarService[0]['bizuPiso1'] == false && this.editarService[0]['tarjPiso1'] == false &&
       this.editarService[0]['transPiso1'] == false) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 1' })
       return false
     }
     if (Number(this.editarService[0]['numberPiso2']) > 0 && this.editarService[0]['efectPiso2'] == false &&
       this.editarService[0]['bizuPiso2'] == false && this.editarService[0]['tarjPiso2'] == false &&
       this.editarService[0]['transPiso2'] == false) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para piso 2' })
       return false
     }
     if (Number(this.editarService[0]['numberTerap']) > 0 && this.editarService[0]['efectTerap'] == false &&
       this.editarService[0]['bizuTerap'] == false && this.editarService[0]['tarjTerap'] == false &&
       this.editarService[0]['transTerap'] == false) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para terapeuta' })
       return false
     }
     if (Number(this.editarService[0]['numberEncarg']) > 0 && this.editarService[0]['efectEncarg'] == false &&
       this.editarService[0]['bizuEncarg'] == false && this.editarService[0]['tarjEncarg'] == false &&
       this.editarService[0]['transEncarg'] == false) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para encargada' })
       return false
     }
     if (Number(this.editarService[0]['numberTaxi']) > 0 && this.editarService[0]['efectDriverTaxi'] == false &&
       this.editarService[0]['bizuDriverTaxi'] == false && this.editarService[0]['tarjDriverTaxi'] == false &&
       this.editarService[0]['transDriverTaxi'] == false) {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'No se escogio ninguna forma de pago para taxista' })
       return false
     }
@@ -1299,6 +1328,9 @@ export class NewServiceComponent implements OnInit {
   }
 
   editService(idServicio, serv: ModelService) {
+    debugger
+    this.buttonEdit = document.getElementById('btnEdit') as HTMLButtonElement
+    this.buttonEdit.disabled = true;
     if (this.restamosCobroEdit == 0) {
       if (serv.minuto != null) {
         let idUsuario = ''
@@ -1362,13 +1394,15 @@ export class NewServiceComponent implements OnInit {
 
         setTimeout(() => {
           Swal.fire({ position: 'top-end', icon: 'success', title: '¡Editado Correctamente!', showConfirmButton: false, timer: 2500 })
-          this.router.navigate([`menu/${idUsuario}/vision/${idUsuario}`])
+          this.router.navigate([`menu/${idUsuario}/${serv.pantalla}/${idUsuario}`])
         }, 3000);
 
       } else {
+        this.buttonEdit.disabled = false
         Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo minutos se encuentra vacio', showConfirmButton: false, timer: 2500 })
       }
     } else {
+      this.buttonEdit.disabled = false
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'El total servicio no coincide con el total de cobros', showConfirmButton: false, timer: 2500 })
     }
   }

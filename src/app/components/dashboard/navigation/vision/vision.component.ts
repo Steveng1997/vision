@@ -8,6 +8,7 @@ import { ServiceTherapist } from 'src/app/core/services/therapist'
 
 // Models
 import { ModelTherapist } from 'src/app/core/models/therapist'
+import { ModelService } from 'src/app/core/models/service'
 
 import moment from 'moment'
 
@@ -103,6 +104,10 @@ export class VisionComponent implements OnInit {
     servicio: "",
     tabaco: "",
     vitamina: "",
+  }
+
+  serviceModel: ModelService = {
+    pantalla: ""
   }
 
   constructor(
@@ -1515,9 +1520,13 @@ export class VisionComponent implements OnInit {
     return false
   }
 
-  editByName(nombre: string) {
+  async editByName(nombre: string) {
     this.service.getTerapeutaWithCurrentDate(nombre).subscribe((rp: any) => {
-      if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
+      if (rp.length > 0) {
+        this.serviceModel.pantalla = 'vision'
+        this.service.updateScreenById(rp[0]['id'], this.serviceModel).subscribe(async (rp: any) => { })
+        this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])
+      }
     })
   }
 }

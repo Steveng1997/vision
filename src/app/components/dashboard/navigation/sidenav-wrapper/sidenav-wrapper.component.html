@@ -40,14 +40,14 @@
           <span class="link_text">Liquidacion</span>
         </a>
         <ul class="navbar__container_liquidation" id="containerLiquidation">
-          <li class="link">
+          <li class="link" (click)="liquidation()">
             <a [routerLink]="'terapeutas'">
               <i> <img src="/assets/icons8-banco-euro-96(-xxxhdpi).png"> </i>
               <span class="link_text">Terapeuta</span>
             </a>
           </li>
           <li class="link">
-            <a [routerLink]="'encargadas'">
+            <a [routerLink]="'encargadas'" (click)="liquidation()">
               <i> <img src="/assets/icons8-banco-euro-96(-xxxhdpi).png"> </i>
               <span class="link_text">Encargada</span>
             </a>

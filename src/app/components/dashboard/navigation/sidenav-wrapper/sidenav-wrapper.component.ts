@@ -101,4 +101,8 @@ export class SidenavWrapperComponent implements OnInit {
       }
     }
   }
+
+  liquidation() {
+    window.location.reload()
+  }
 }

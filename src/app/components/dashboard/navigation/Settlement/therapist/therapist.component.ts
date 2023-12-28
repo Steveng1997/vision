@@ -78,6 +78,7 @@ export class TherapistComponent implements OnInit {
 
   // Comission
   totalCommission: number
+  totalLiquidation: number
 
   // Thousand pount
   textTotalComission: string
@@ -111,7 +112,7 @@ export class TherapistComponent implements OnInit {
 
   currentDate = new Date().getTime()
 
-  aqui: string
+  valueRegular: string
 
   liquidationTherapist: LiquidationTherapist = {
     createdDate: "",
@@ -1359,7 +1360,6 @@ export class TherapistComponent implements OnInit {
     }
 
     this.liquidationTherapist.valueRegularizacion = numberRegularization;
-    this.liquidationTherapist.importe = valueRegularization
 
     if (valueRegularization > 999 || numberRegularization > 999) {
 
@@ -1381,13 +1381,10 @@ export class TherapistComponent implements OnInit {
       }
 
       integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalComission = integer[0].toString()
-      this.textTotalCommission = integer[0].toString()
-      this.aqui = integer[0].toString()
+      this.textTotalComission = integer[0]
     } else {
       this.textTotalComission = valueRegularization.toString()
-      this.textTotalCommission = valueRegularization.toString()
-      this.aqui = numberRegularization.toString()
+      this.valueRegular = numberRegularization.toString()
     }
   }
 
@@ -1419,10 +1416,10 @@ export class TherapistComponent implements OnInit {
   }
 
   async thousandPointEdit() {
-    if (this.totalCommission > 999) {
+    if (this.totalLiquidation > 999) {
 
-      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      const coma = this.totalLiquidation.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalLiquidation.toString().split(".") : this.totalLiquidation.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -1441,7 +1438,7 @@ export class TherapistComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.textTotalComission = integer[0].toString()
     } else {
-      this.textTotalComission = this.totalCommission.toString()
+      this.textTotalComission = this.totalLiquidation.toString()
     }
 
     if (this.totalService > 999) {
@@ -2132,19 +2129,6 @@ export class TherapistComponent implements OnInit {
     })
   }
 
-  async edit() {
-    this.idSettled
-    this.liquidationTherapist.importe = this.totalCommission
-    this.serviceLiquidationTherapist.updateTerapImporteId(this.idSettled, this.liquidationTherapist).subscribe(async (rp) => {
-      this.thousandPount()
-      this.liquidationForm = true
-      this.editTerap = false
-      this.selected = false
-      this.liquidationTherapist.encargada = ""
-      this.liquidationTherapist.terapeuta = ""
-    })
-  }
-
   async dataFormEdit(idTherapist: string, id: number) {
     this.validationFilters = false
     this.idSettled = id
@@ -2263,7 +2247,9 @@ export class TherapistComponent implements OnInit {
           }, 0)
         })
 
+        this.totalLiquidation = this.sumCommission - Number(this.receivedTherapist) + this.liquidationTherapist.valueRegularizacion
         this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+
         this.validateNullData()
         await this.thousandPointEdit()
         this.liquidationForm = false

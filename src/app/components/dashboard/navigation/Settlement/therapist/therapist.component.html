@@ -41,7 +41,7 @@
                                                 <select class="form-select" formControlName="terapeuta"
                                                     [(ngModel)]="liquidationTherapist.terapeuta" (change)="filters()"
                                                     style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
-                                        font-family: sans-serif;">
+                                                    font-family: sans-serif;">
                                                     <option selected value="">Selecciona</option>
                                                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
                                                         {{terap.nombre}} </option>
@@ -204,12 +204,12 @@
 
                     <div class="columnTableLine2" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
                             | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
-                            busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }"
-                        (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
+                            busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }">
 
                         <div class="columnManager">{{liqTerap?.encargada}}</div>
 
-                        <div class="columnTherapist">{{liqTerap?.terapeuta}}</div>
+                        <div class="columnTherapist" (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
+                            {{liqTerap?.terapeuta}}</div>
 
                         <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
 
@@ -233,9 +233,9 @@
 
                 <form *ngIf="addForm">
 
-                    <div class="row tableContainer">
+                    <div class="row tableContainerNew">
 
-                        <div *ngIf="!administratorRole" class="therapistContainer">
+                        <div *ngIf="!administratorRole" class="therapistContainerNew">
                             <div class="row g-0">
                                 <label class="text">Terapeuta</label>
                                 <select class="form-select" name="terapeuta"
@@ -249,7 +249,7 @@
                             </div>
                         </div>
 
-                        <div *ngIf="administratorRole" class="therapistContainer">
+                        <div *ngIf="administratorRole" class="therapistContainerNew">
                             <div class="row g-0">
                                 <label class="text">Terapeuta</label>
                                 <select class="form-select" name="terapeuta"
@@ -262,7 +262,7 @@
                             </div>
                         </div>
 
-                        <div *ngIf="administratorRole" class="containerInCharge">
+                        <div *ngIf="administratorRole" class="containerInChargeNew">
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada"
@@ -276,7 +276,7 @@
                             </div>
                         </div>
 
-                        <div *ngIf="!administratorRole" class="containerInCharge">
+                        <div *ngIf="!administratorRole" class="containerInChargeNew">
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada"
@@ -349,7 +349,7 @@
 
                     <div class="row g-0">
                         <input type="number" class="form-control inputRegularization" (change)="regularization($event)"
-                        [value]="aqui">
+                            [value]="valueRegular">
                     </div>
 
                     <div class="row g-0">
@@ -720,13 +720,21 @@
                         </div>
                     </div>
 
-                    <div class="row containerRegularization">
-                        <div class="row g-0">
-                            <label class="textRegularization">{{liquidationTherapist.regularizacion}}</label>
+                    <div class="row containerRegularizationEdit">
+                        <div class="row g-0" *ngIf="liquidationTherapist['regularizacion'] != ''">
+                            <label class="textRegularization"> {{liquidationTherapist.regularizacion}} </label>
                         </div>
 
-                        <div class="row g-0" style="justify-content: end">
-                            <label class="inputRegularization">{{liquidationTherapist.valueRegularizacion}}</label>
+                        <div class="row g-0" *ngIf="liquidationTherapist['regularizacion'] == ''">
+                            <label class="textRegularizationEdit"> Concepto a regularizar</label>
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="inputRegularizationEdit">{{liquidationTherapist.valueRegularizacion}}</label>
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="text€Edit">€</label>
                         </div>
                     </div>
                 </div>
@@ -1061,12 +1069,12 @@
 
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <div class="row g-0">
                             <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
                                 (click)="edit()">Editar</button>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div>
                         <div class="row g-0">

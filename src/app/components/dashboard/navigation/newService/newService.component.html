@@ -505,7 +505,7 @@
 
                 <div class="inputButtonSave">
                     <div class="row g-0">
-                        <button type="submit" mat-raised-button class="btn btn-primary"
+                        <button type="submit" id="btnSave" mat-raised-button class="btn btn-primary"
                             style="display: grid; margin: auto;" color="primary"
                             (click)="saveService()">Guardar</button>
                     </div>
@@ -592,7 +592,7 @@
                         <div class="dateContainer">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif; font-weight: bold;
                                             display: contents;">Fecha</label>
-                            <input type="date" class="form-control" (change)="chosenDate($event)"
+                            <input type="date" class="form-control" (change)="editChosenDate($event)"
                                 [(ngModel)]="edServ.fecha" [value]="fechaActual" style="color: #242424; font-size: 18px; 
                                             font-family: sans-serif; height: 2.2rem; border-color: #8C52FF">
                         </div>
@@ -1011,7 +1011,7 @@
 
                     <div>
                         <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
+                            <button type="submit" id="btnEdit" mat-raised-button style="display: grid; margin: auto;" color="primary"
                                 (click)="editService(edServ.id, edServ)">Guardar</button>
                         </div>
                     </div>

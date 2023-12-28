@@ -14,6 +14,8 @@ import { ServiceTherapist } from 'src/app/core/services/therapist'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { ServiceManager } from 'src/app/core/services/manager'
 
+// Model
+import { ModelService } from 'src/app/core/models/service';
 
 @Component({
   selector: 'app-table',
@@ -83,6 +85,10 @@ export class TableComponent implements OnInit {
   TotalTaxiLetter: string
 
   idService: any
+
+  serviceModel: ModelService = {
+    pantalla: ""
+  }
 
   // Excel
 
@@ -1235,7 +1241,9 @@ export class TableComponent implements OnInit {
     }
   }
 
-  editForm(id: string) {
+  editForm(id: number) {
+    this.serviceModel.pantalla = 'tabla'
+    this.service.updateScreenById(id, this.serviceModel).subscribe(async (rp: any) => { })
     this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${id}/true`])
   }
 
