@@ -166,25 +166,28 @@ export class TherapistComponent implements OnInit {
     this.editTerap = false
     this.dates = false
     this.deleteButton = false
+    this.loading = true
 
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
+
+    this.date()
+    this.thousandPount()
+    this.getTerapeuta()
 
     if (this.idUser) {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
         if (rp[0]['rol'] == 'administrador') {
           this.administratorRole = true
+          this.loading = false
           this.getManager()
         } else {
           this.manager = rp
+          this.loading = false
           this.liquidationTherapist.encargada = this.manager[0].nombre
         }
       })
     }
-
-    this.date()
-    this.thousandPount()
-    this.getTerapeuta()
   }
 
   modalFiltres(modal) {
@@ -2407,22 +2410,34 @@ export class TherapistComponent implements OnInit {
   }
 
   async delete() {
-    this.services.idTerapeuta = ""
-    this.services.liquidadoTerapeuta = false
-    this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
-      this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-        this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
-          this.liquidated = rp
-          this.liquidationTherapist.terapeuta = ""
-          this.liquidationTherapist.encargada = ""
-          this.liquidationForm = true
-          this.validationFilters = true
-          this.addForm = false
-          this.editTerap = false
-          this.selected = false
-          this.dates = false
+    Swal.fire({
+      title: '¿Deseas eliminar el registro?',
+      text: "Una vez eliminados ya no se podrán recuperar",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Deseo eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.services.idTerapeuta = ""
+        this.services.liquidadoTerapeuta = false
+        this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
+          this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+            this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+              this.liquidated = rp
+              this.liquidationTherapist.terapeuta = ""
+              this.liquidationTherapist.encargada = ""
+              this.liquidationForm = true
+              this.validationFilters = true
+              this.addForm = false
+              this.editTerap = false
+              this.selected = false
+              this.dates = false
+            })
+          })
         })
-      })
+      }
     })
   }
 

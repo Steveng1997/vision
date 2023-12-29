@@ -486,38 +486,33 @@
                                     | terapeuta: liquidationTherapist.terapeuta | encargada: liquidationTherapist.encargada) 
                                     | paginate: { itemsPerPage: 10, currentPage: page }">
 
-                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
-                        </div>
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)"> </div>
 
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
-                        <div class="columnHour" (click)="goToEdit(serv.id)">
-                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
+                        <div class="columnMin">{{serv?.minuto + ' min'}} </div>
 
-                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto + ' min'}}</div>
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
 
-                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+                        <div class="columnExit">{{serv?.salida}} </div>
 
-                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
 
-                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
 
-                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+                        <div class="columnValueTherapist"> {{serv?.numberTerap + ' €'}} </div>
 
-                        <div class="columnValueTherapist" (click)="goToEdit(serv.id)">
-                            {{serv?.numberTerap + ' €'}} </div>
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}} </div>
 
-                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}
-                        </div>
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}} </div>
 
-                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}} </div>
 
-                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
-
-                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}} </div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -570,7 +565,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratam.</label>
+                        <label class="columnTreatment3">Tratamiento</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.servicio + '
                             %'}}</label>
@@ -682,25 +677,16 @@
 
                 <div *ngIf="!editTerap" class="row inputButtonSave">
 
-                    <div *ngIf="selected && unliquidatedService.length <= 0">
-                        <div class="row g-0">
-                            <button mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" mat-button class="btnSave" (click)="save()">Guardar</button>
                     </div>
 
-                    <div *ngIf="selected && unliquidatedService.length > 0">
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="save()">Guardar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length <= 0">
+                        <button mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
 
-                    <div *ngIf="selected && unliquidatedService.length > 0">
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
                 </div>
 
@@ -708,9 +694,9 @@
 
                 <label *ngIf="editTerap" class="titleEdit"> Liquidación {{therapist}}</label>
 
-                <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' : ' +
-                    liquidationTherapist.desdeHoraLiquidado + ' - ' + liquidationTherapist.hastaFechaLiquidado
-                    + ' : ' + liquidationTherapist.hastaHoraLiquidado}}</label>
+                <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' ' +
+                    liquidationTherapist.desdeHoraLiquidado + ' a ' + liquidationTherapist.hastaFechaLiquidado
+                    + ' ' + liquidationTherapist.hastaHoraLiquidado}}</label>
 
                 <div *ngIf="editTerap">
                     <div class="row containerTitleEdit">
@@ -868,33 +854,31 @@
 
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
-                        <div class="columnHour" (click)="goToEdit(serv.id)">
-                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
 
-                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+                        <div class="columnMin">{{serv?.minuto + ' min'}}</div>
 
-                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
 
-                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+                        <div class="columnExit">{{serv?.salida}}</div>
 
-                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
 
-                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
 
-                        <div class="columnValueTherapist" (click)="goToEdit(serv.id)">
-                            {{serv?.numberTerap + ' €'}} </div>
+                        <div class="columnValueTherapist"> {{serv?.numberTerap + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}}</div>
 
-                        <div class="columnValueDrinkTherapist" (click)="goToEdit(serv.id)">{{serv?.bebidaTerap + ' €'}}
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}}
                         </div>
 
-                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}}</div>
 
-                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}}</div>
 
-                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -947,7 +931,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratam.</label>
+                        <label class="columnTreatment3">Tratamiento</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label *ngIf="terapeutaName?.servicio != undefined" class="columnComission">
                             {{terapeutaName?.servicio + ' %'}}</label>
@@ -973,7 +957,7 @@
                         <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
                     </div>
-                    
+
                     <div class="columnTable3">
                         <label class="columnTreatment3">Bebida terap.</label>
                         <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
@@ -1074,26 +1058,12 @@
 
                 <div *ngIf="editTerap" class="row inputButtonEdit">
 
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
-
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnDelete" (click)="delete()">Eliminar</button>
                     </div>
 
-                    <!-- <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="edit()">Editar</button>
-                        </div>
-                    </div> -->
-
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="delete()">Eliminar</button>
-                        </div>
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
 
                 </div>

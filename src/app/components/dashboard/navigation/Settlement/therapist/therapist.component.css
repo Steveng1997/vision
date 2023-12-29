@@ -46,6 +46,24 @@
   color: #8c52ff;
 }
 
+/* Pagination 2 */
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .current {
+  background: white;
+  color: #8c52ff;
+  font-weight: bold;
+}
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  color: #8c52ff;
+}
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  color: #8c52ff;
+}
+
 #container_loading {
   background-color: transparent;
   height: 100%;
@@ -646,6 +664,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -1511,6 +1530,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -2376,6 +2396,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -3242,6 +3263,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -4106,6 +4128,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -4745,14 +4768,14 @@
 
   .containerTitleEdit {
     display: grid;
-    grid-template-columns: 89% 107px;
+    grid-template-columns: 89% 104px;
     margin-top: 1rem;
     margin-left: -196%;
   }
 
   /* Regularization */
 
-  .containerRegularizationEdit{
+  .containerRegularizationEdit {
     display: grid;
     grid-template-columns: 65% 70px 34px;
     margin-top: 0rem;
@@ -4888,7 +4911,7 @@
     margin-left: 14px;
   }
 
-  .text€{
+  .text€ {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
@@ -4946,7 +4969,7 @@
     padding: 15px 0px 0px 31.5px;
   }
 
-  .textDrinkTherapistLine1{
+  .textDrinkTherapistLine1 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5049,7 +5072,7 @@
     padding: 15px 0px 0px 24.5px;
   }
 
-  .textTobacco{
+  .textTobacco {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5068,7 +5091,7 @@
     padding: 0px 25px 0px 34px;
   }
 
-  .textOthers{
+  .textOthers {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5096,6 +5119,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -5177,7 +5201,7 @@
     justify-self: end;
   }
 
-  .columnValueDrinkTherapist{
+  .columnValueDrinkTherapist {
     line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -5337,12 +5361,12 @@
   }
 
   .lineTotalPay {
-    width: 76%;
+    width: 69%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 30%;
+    margin-left: 34%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -5351,19 +5375,19 @@
 
   .column4 {
     margin-top: 2rem;
-    margin-left: -26px;
+    margin-left: -25px;
     margin-bottom: 2px;
   }
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 47% 32%;
+    grid-template-columns: 64% 44.3%;
     margin-bottom: -5px;
     margin-left: 0%;
   }
 
   .lineTable4 {
-    width: 81%;
+    width: 104%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5393,25 +5417,46 @@
 
   /* Buttons */
 
-  .btnCancelar {
-    padding-bottom: 6%;
+  .btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 45px;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
   }
 
   .inputButtonSave {
     display: grid;
-    grid-template-columns: 37% 37%;
+    grid-template-columns: 100%;
     margin-bottom: 7em;
-    margin-top: 1em;
-    margin-left: -1.9rem;
+    margin-top: 2em;
     justify-content: center;
+  }
+
+  .btnSave {
+    margin: auto;
+    height: 45px;
+    background-color: #8c52ff;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
   }
 
   .inputButtonEdit {
     display: grid;
-    grid-template-columns: 37% 37%;
+    grid-template-columns: 100%;
     margin-bottom: 7em;
-    margin-top: 1em;
+    margin-top: 2em;
     justify-content: center;
+  }
+
+  .btnDelete {
+    margin: auto;
+    height: 45px;
+    background-color: red;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
   }
 }
 
@@ -5975,6 +6020,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -6841,6 +6887,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -7706,6 +7753,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -8572,6 +8620,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -9318,7 +9367,7 @@
     margin-left: 35px;
   }
 
-  .text€{
+  .text€ {
     color: #000000;
     font-size: 22px;
     font-family: sans-serif;
@@ -9376,7 +9425,7 @@
     padding: 15px 0px 0px 31.5px;
   }
 
-  .textDrinkTherapistLine1{
+  .textDrinkTherapistLine1 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -9479,7 +9528,7 @@
     padding: 15px 0px 0px 24.5px;
   }
 
-  .textTobacco{
+  .textTobacco {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -9498,7 +9547,7 @@
     padding: 0px 25px 0px 34px;
   }
 
-  .textOthers{
+  .textOthers {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -9526,6 +9575,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -9607,7 +9657,7 @@
     justify-self: end;
   }
 
-  .columnValueDrinkTherapist{
+  .columnValueDrinkTherapist {
     line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -10404,6 +10454,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -11179,6 +11230,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
@@ -11953,6 +12005,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
+    color: #8c52ff;
     cursor: pointer;
   }
 
