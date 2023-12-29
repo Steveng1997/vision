@@ -3,10 +3,6 @@
         <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
             <div class="m-0 vh-90 row justify-content-center align-items-center">
 
-                <div *ngIf="loading" id="container_loading">
-                    <div id="load"></div>
-                </div>
-
                 <label *ngIf="liquidationForm" class="titleLiqudationTherapist"> LIQUIDACIÓN TERAPEUTA </label>
 
                 <div class="row tableContainerFilters" *ngIf="validationFilters">
@@ -589,10 +585,17 @@
                     </div>
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnTreatment3">Bebida casa</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.bebidaTerap + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
@@ -962,13 +965,23 @@
                     </div>
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnTreatment3">Bebida casa</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label *ngIf="terapeutaName?.bebida != undefined"
                             class="columnComission">{{terapeutaName?.bebida +
                             ' %'}}</label>
                         <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+                    
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.bebidaTerap != undefined"
+                            class="columnComission">{{terapeutaName?.bebidaTerap +
+                            ' %'}}</label>
+                        <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
@@ -1086,6 +1099,10 @@
                 </div>
 
             </div>
+        </div>
+
+        <div *ngIf="loading" id="container_loading">
+            <div id="load"></div>
         </div>
     </div>
 </div>

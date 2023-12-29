@@ -2247,6 +2247,7 @@ export class ManagerComponent implements OnInit {
 
   async dataFormEdit(idManager: string) {
     this.loading = true
+    this.liquidationForm = false
 
     this.serviceLiquidationManager.getIdEncarg(idManager).subscribe(async (datosManager) => {
       this.liquidationManager.desdeFechaLiquidado = datosManager[0]['desdeFechaLiquidado']

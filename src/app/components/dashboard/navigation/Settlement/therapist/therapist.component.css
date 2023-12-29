@@ -59,7 +59,7 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #8c52ff;
+  border-top-color: #8C52FF;
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -5233,7 +5233,7 @@
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 24% 26% 23%;
+    grid-template-columns: 35% 23% 26% 18.7%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -5290,7 +5290,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 14px 0px 0px;
   }
 
   .columnComission {

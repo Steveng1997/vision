@@ -61,6 +61,7 @@ export class TherapistComponent implements OnInit {
   totalTipValue: number
   totalTherapistValue: number
   totalValueDrink: number
+  totalValueDrinkTherap: number
   totalTobaccoValue: number
   totalValueVitamins: number
   totalValueOther: number
@@ -69,6 +70,7 @@ export class TherapistComponent implements OnInit {
   serviceCommission: number
   commissionTip: number
   beverageCommission: number
+  beverageTherapistCommission: number
   tobaccoCommission: number
   vitaminCommission: number
   commissionOthers: number
@@ -87,7 +89,9 @@ export class TherapistComponent implements OnInit {
   textTotalTip2: string
   textComissionTip: string
   textValueDrink: string
+  textValueDrinkTherap: string
   textBeverageCommission: string
+  textbeverageTherapistCommission: string
   textTobaccoValue: string
   textTobaccoCommission: string
   textValueVitamins: string
@@ -218,12 +222,14 @@ export class TherapistComponent implements OnInit {
     this.totalTipValue = 0
     this.totalTherapistValue = 0
     this.totalValueDrink = 0
+    this.totalValueDrinkTherap = 0
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
     this.totalValueOther = 0
     this.serviceCommission = 0
     this.commissionTip = 0
     this.beverageCommission = 0
+    this.beverageTherapistCommission = 0
     this.tobaccoCommission = 0
     this.vitaminCommission = 0
     this.commissionOthers = 0
@@ -243,12 +249,14 @@ export class TherapistComponent implements OnInit {
     if (this.totalTipValue == undefined) this.totalTipValue = 0
     if (this.totalTherapistValue == undefined) this.totalTherapistValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
+    if (this.totalValueDrinkTherap == undefined) this.totalValueDrinkTherap = 0
     if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
     if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
     if (this.totalValueOther == undefined) this.totalValueOther = 0
     if (this.serviceCommission == undefined || Number.isNaN(this.serviceCommission)) this.serviceCommission = 0
     if (this.commissionTip == undefined || Number.isNaN(this.commissionTip)) this.commissionTip = 0
     if (this.beverageCommission == undefined || Number.isNaN(this.beverageCommission)) this.beverageCommission = 0
+    if (this.beverageTherapistCommission == undefined || Number.isNaN(this.beverageTherapistCommission)) this.beverageTherapistCommission = 0
     if (this.tobaccoCommission == undefined || Number.isNaN(this.tobaccoCommission)) this.tobaccoCommission = 0
     if (this.vitaminCommission == undefined || Number.isNaN(this.vitaminCommission)) this.vitaminCommission = 0
     if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
@@ -491,7 +499,7 @@ export class TherapistComponent implements OnInit {
   }
 
   async inputDateAndTime() {
-    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTerap = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
     this.totalCommission = 0
 
     this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
@@ -519,10 +527,16 @@ export class TherapistComponent implements OnInit {
             return accumulator + serv.numberTerap
           }, 0)
 
-          // Filter by Bebida
+          // Filter by Drink
           const bebida = rp.filter(serv => serv)
           this.totalValueDrink = bebida.reduce((accumulator, serv) => {
             return accumulator + serv.bebidas
+          }, 0)
+
+          // Filter by Drink Therapist
+          const drinkTherap = rp.filter(serv => serv)
+          this.totalValueDrinkTherap = drinkTherap.reduce((accumulator, serv) => {
+            return accumulator + serv.bebidaTerap
           }, 0)
 
           // Filter by Tabaco
@@ -577,6 +591,7 @@ export class TherapistComponent implements OnInit {
             comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
             comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
             comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+            comiBebidaTerap = this.totalValueDrinkTherap / 100 * datosNameTerapeuta[0]['bebidaTerap']
             comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
             comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
             comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
@@ -585,12 +600,13 @@ export class TherapistComponent implements OnInit {
             this.serviceCommission = Math.ceil(comisiServicio)
             this.commissionTip = Math.ceil(comiPropina)
             this.beverageCommission = Math.ceil(comiBebida)
+            this.beverageTherapistCommission = Math.ceil(comiBebidaTerap)
             this.tobaccoCommission = Math.ceil(comiTabaco)
             this.vitaminCommission = Math.ceil(comiVitamina)
             this.commissionOthers = Math.ceil(comiOtros)
 
             sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.beverageCommission) + Number(this.beverageTherapistCommission) + Number(this.tobaccoCommission) +
               Number(this.vitaminCommission) + Number(this.commissionOthers)
 
             if (this.sumCommission != 0 || this.sumCommission != undefined) {
@@ -962,6 +978,31 @@ export class TherapistComponent implements OnInit {
       this.textValueDrink = this.totalValueDrink.toString()
     }
 
+    if (this.totalValueDrinkTherap > 999) {
+
+      const coma = this.totalValueDrinkTherap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrinkTherap.toString().split(".") : this.totalValueDrinkTherap.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrinkTherap = integer[0].toString()
+    } else {
+      this.textValueDrinkTherap = this.totalValueDrinkTherap.toString()
+    }
+
     if (this.beverageCommission > 999) {
 
       const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
@@ -985,6 +1026,31 @@ export class TherapistComponent implements OnInit {
       this.textBeverageCommission = integer[0].toString()
     } else {
       this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.beverageTherapistCommission > 999) {
+
+      const coma = this.beverageTherapistCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageTherapistCommission.toString().split(".") : this.beverageTherapistCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textbeverageTherapistCommission = integer[0].toString()
+    } else {
+      this.textbeverageTherapistCommission = this.beverageTherapistCommission.toString()
     }
 
     if (this.totalTobaccoValue > 999) {
@@ -1395,6 +1461,7 @@ export class TherapistComponent implements OnInit {
     this.textTotalService = '0'
     this.textTotalTip2 = '0'
     this.textValueDrink = '0'
+    this.textValueDrinkTherap = '0'
     this.textTobaccoValue = '0'
     this.textValueVitamins = '0'
     this.textValueOther = '0'
@@ -1402,6 +1469,7 @@ export class TherapistComponent implements OnInit {
     this.textServiceComission = '0'
     this.commissionTip = 0
     this.textBeverageCommission = '0'
+    this.textbeverageTherapistCommission = '0'
     this.textTobaccoCommission = '0'
     this.textVitaminCommission = '0'
     this.textCommissionOthers = '0'
@@ -1566,6 +1634,31 @@ export class TherapistComponent implements OnInit {
       this.textValueDrink = this.totalValueDrink.toString()
     }
 
+    if (this.totalValueDrinkTherap > 999) {
+
+      const coma = this.totalValueDrinkTherap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrinkTherap.toString().split(".") : this.totalValueDrinkTherap.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrinkTherap = integer[0].toString()
+    } else {
+      this.textValueDrinkTherap = this.totalValueDrinkTherap.toString()
+    }
+
     if (this.beverageCommission > 999) {
 
       const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
@@ -1589,6 +1682,31 @@ export class TherapistComponent implements OnInit {
       this.textBeverageCommission = integer[0].toString()
     } else {
       this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.beverageTherapistCommission > 999) {
+
+      const coma = this.beverageTherapistCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageTherapistCommission.toString().split(".") : this.beverageTherapistCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textbeverageTherapistCommission = integer[0].toString()
+    } else {
+      this.textbeverageTherapistCommission = this.beverageTherapistCommission.toString()
     }
 
     if (this.totalTobaccoValue > 999) {
@@ -2130,7 +2248,9 @@ export class TherapistComponent implements OnInit {
   }
 
   async dataFormEdit(idTherapist: string, id: number) {
+    this.loading = true
     this.validationFilters = false
+    this.liquidationForm = false
     this.idSettled = id
     this.idTherap = idTherapist
 
@@ -2146,7 +2266,6 @@ export class TherapistComponent implements OnInit {
   }
 
   async sumTotal(idTherapist: string) {
-
     this.service.getByIdTerap(idTherapist).subscribe(async (rp: any) => {
       if (rp.length > 0) {
         this.therapist = rp[0]['terapeuta']
@@ -2176,6 +2295,12 @@ export class TherapistComponent implements OnInit {
           return accumulator + serv.bebidas
         }, 0)
 
+        // Filter by Bebida
+        const drinkTherap = rp.filter(serv => serv)
+        this.totalValueDrinkTherap = drinkTherap.reduce((accumulator, serv) => {
+          return accumulator + serv.bebidaTerap
+        }, 0)
+
         // Filter by Tabaco
         const tabac = rp.filter(serv => serv)
         this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
@@ -2195,11 +2320,11 @@ export class TherapistComponent implements OnInit {
         }, 0)
 
         this.comission(rp)
-
       } else {
         await this.serviceLiquidationTherapist.consultTherapistId(idTherapist).subscribe(async (rp: any) => {
           this.therapist = rp[0]['terapeuta']
           this.convertToZeroEdit()
+          this.loading = false
           this.liquidationForm = false
           this.editTerap = true
         })
@@ -2208,53 +2333,56 @@ export class TherapistComponent implements OnInit {
   }
 
   async comission(element) {
-    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTherapist = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
     this.totalCommission = 0
 
     this.serviceTherapist.getTerapeuta(element[0]['terapeuta']).subscribe(async (rp: any) => {
-      if (rp.length > 0) {
-        this.terapeutaName = rp[0]
 
-        // Comision
-        comisiServicio = this.totalService / 100 * rp[0]?.servicio
-        comiPropina = this.totalTipValue / 100 * rp[0]?.propina
-        comiBebida = this.totalValueDrink / 100 * rp[0]?.bebida
-        comiTabaco = this.totalTobaccoValue / 100 * rp[0]?.tabaco
-        comiVitamina = this.totalValueVitamins / 100 * rp[0]?.vitamina
-        comiOtros = this.totalValueOther / 100 * rp[0]?.otros
+      this.terapeutaName = rp[0]
 
-        // Conversion decimal
-        this.serviceCommission = Number(comisiServicio.toFixed(1))
-        this.commissionTip = Number(comiPropina.toFixed(1))
-        this.beverageCommission = Number(comiBebida.toFixed(1))
-        this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-        this.vitaminCommission = Number(comiVitamina.toFixed(1))
-        this.commissionOthers = Number(comiOtros.toFixed(1))
+      // Comision
+      comisiServicio = this.totalService / 100 * rp[0]?.servicio
+      comiPropina = this.totalTipValue / 100 * rp[0]?.propina
+      comiBebida = this.totalValueDrink / 100 * rp[0]?.bebida
+      comiBebidaTherapist = this.totalValueDrinkTherap / 100 * rp[0]?.bebidaTerap
+      comiTabaco = this.totalTobaccoValue / 100 * rp[0]?.tabaco
+      comiVitamina = this.totalValueVitamins / 100 * rp[0]?.vitamina
+      comiOtros = this.totalValueOther / 100 * rp[0]?.otros
 
-        sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-          Number(this.beverageCommission) + Number(this.tobaccoCommission) +
-          Number(this.vitaminCommission) + Number(this.commissionOthers)
+      // Conversion decimal
+      this.serviceCommission = Number(comisiServicio.toFixed(1))
+      this.commissionTip = Number(comiPropina.toFixed(1))
+      this.beverageCommission = Number(comiBebida.toFixed(1))
+      this.beverageTherapistCommission = Number(comiBebidaTherapist.toFixed(1))
+      this.tobaccoCommission = Number(comiTabaco.toFixed(1))
+      this.vitaminCommission = Number(comiVitamina.toFixed(1))
+      this.commissionOthers = Number(comiOtros.toFixed(1))
 
-        if (this.sumCommission != 0 || this.sumCommission != undefined) {
-          this.sumCommission = Number(sumComision.toFixed(1))
-        }
+      sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
+        Number(this.beverageCommission) + Number(this.beverageTherapistCommission) + Number(this.tobaccoCommission) +
+        Number(this.vitaminCommission) + Number(this.commissionOthers)
 
-        // Recibido
-        element.map(item => {
-          const numbTerap = this.settledData.filter(serv => serv)
-          this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
-            return accumulator + serv.numberTerap
-          }, 0)
-        })
-
-        this.totalLiquidation = this.sumCommission - Number(this.receivedTherapist) + this.liquidationTherapist.valueRegularizacion
-        this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
-
-        this.validateNullData()
-        await this.thousandPointEdit()
-        this.liquidationForm = false
-        this.editTerap = true
+      if (this.sumCommission != 0 || this.sumCommission != undefined) {
+        this.sumCommission = Number(sumComision.toFixed(1))
       }
+
+      // Recibido
+      element.map(item => {
+        const numbTerap = this.settledData.filter(serv => serv)
+        this.receivedTherapist = numbTerap.reduce((accumulator, serv) => {
+          return accumulator + serv.numberTerap
+        }, 0)
+      })
+
+      this.totalLiquidation = this.sumCommission - Number(this.receivedTherapist) + this.liquidationTherapist.valueRegularizacion
+      this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
+
+      this.validateNullData()
+      await this.thousandPointEdit()
+      if (rp.length == 0) this.textTotalComission = '0'
+      this.loading = false
+      this.liquidationForm = false
+      this.editTerap = true
     })
   }
 
