@@ -2170,7 +2170,7 @@
   .containerTitleEdit {
     display: grid;
     grid-template-columns: 89% 100px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: -158%;
   }
 
@@ -5501,7 +5501,7 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -20px;
+    margin-left: -16px;
   }
 
   .textSum2 {
@@ -7394,7 +7394,7 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -20px;
+    margin-left: -14px;
   }
 
   .textSum2 {
@@ -10082,12 +10082,12 @@
   }
 
   .lineTable3 {
-    width: 104%;
+    width: 96%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
+    margin-left: -3px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -10155,7 +10155,7 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -20px;
+    margin-left: -45px;
   }
 
   .textSum2 {
