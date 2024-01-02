@@ -10927,25 +10927,21 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
+
   .container {
     overflow-x: hidden;
     height: 100%;
   }
 
-  .tableContainer {
+  .titleLiqudationTherapist {
     display: grid;
-    grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
-    margin-left: -51px;
-  }
-
-  .tableContainer2 {
-    display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 17px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
   }
 
   .tableContainerFilters {
@@ -10957,108 +10953,32 @@
     height: 32px;
   }
 
-  .titleLiquidation {
-    display: grid;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-left: -1rem;
-    justify-items: end;
-  }
+  /* Filter */
 
-  .containerTitleSelect {
+  .tableContainer {
     display: grid;
-    grid-template-columns: 89% 107px;
-    margin-top: 2rem;
-    margin-left: -113em;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 1rem;
   }
 
   .therapistContainer {
-    width: 54%;
+    width: 83%;
     justify-self: center;
   }
 
   .containerInCharge {
-    width: 54%;
+    width: 83%;
     justify-self: center;
   }
 
   .dateContainer {
-    width: 54%;
+    width: 83%;
     justify-self: center;
     margin-top: 8%;
   }
 
-  .titleLiqudationTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    margin-top: 5px;
-    white-space: pre;
-  }
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .titleEdit {
-    display: grid;
-    margin-left: -15px;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0rem;
-  }
-
-  .textDates {
-    display: grid;
-    font-size: 18px;
-    color: #000000;
-    font-family: sans-serif;
-    white-space: pre;
-    margin-left: -17px;
-  }
-
-  .containerTitleEdit {
-    display: grid;
-    grid-template-columns: 89% 107px;
-    margin-top: 1rem;
-    margin-left: -187%;
-  }
-
-  .fechaInicio {
-    width: 171px;
-  }
-
-  .horaInicio {
-    width: 46%;
-    align-self: end;
-    margin-left: -11px;
-  }
-
-  .fechaFinal {
-    width: 171px;
-    margin-top: 1em;
-  }
-
-  .horaFinal {
-    width: 46%;
-    margin-left: -11px;
-    margin-top: 43px;
-  }
+  /* button menu */
 
   .buttonFilters {
     display: grid;
@@ -11141,12 +11061,14 @@
   }
 
   .titleNewService {
-    color: white;
+    color: #000000;
     font-size: 16px;
     font-family: sans-serif;
     margin-top: 5px;
     margin-left: 5px;
   }
+
+  /* Arrow */
 
   .columnArrow {
     position: relative;
@@ -11161,18 +11083,12 @@
     float: inline-end;
   }
 
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
   /* Table 1 */
 
   .column {
     position: static;
     margin-top: 0rem;
-    margin-left: -2%;
+    margin-left: -7px;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -11181,10 +11097,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 46% 46% 16%;
+    grid-template-columns: 17% 16% 17% 38% 33% 13%;
     margin-bottom: -31px;
     margin-top: 26px;
-    margin-left: -3%;
+    margin-left: -2%;
   }
 
   .textTherapistLine1 {
@@ -11207,28 +11123,9 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 46% 46% 16%;
+    grid-template-columns: 17% 16% 17% 38% 33% 13%;
     margin-bottom: 8px;
-    margin-left: -3%;
-  }
-
-  .lineTable1 {
-    width: 181%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  .textTherapistLine2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 53px 0px 0px;
+    margin-left: -2%;
   }
 
   .textManager {
@@ -11239,7 +11136,15 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 47px 0px 3px;
+    padding: 0px 30px 0px 0px;
+  }
+
+  .textTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 27px 0px 0px;
   }
 
   .textImport {
@@ -11263,10 +11168,31 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 20px 0px 0px;
+  }
+
+  .lineTable1 {
+    width: 138%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
   }
 
   /* Column Table */
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
 
   .columnTherapist {
     line-height: 1.4rem;
@@ -11276,16 +11202,6 @@
     word-wrap: break-word;
     text-align-last: left;
     color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnManager {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 3px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
     cursor: pointer;
   }
 
@@ -11299,29 +11215,15 @@
     justify-self: end;
   }
 
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
+  .columnDateTable1 {
     font-family: sans-serif;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnHour {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
   }
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 17px 0px 0px;
+    padding: 0px 1px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -11329,7 +11231,188 @@
     justify-self: end;
   }
 
-  /* Table 2 */
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Edit liquidation */
+
+  .titleEdit {
+    display: grid;
+    margin-left: -25px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -22px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 219px;
+    margin-top: 1rem;
+    margin-left: -376%;
+  }
+
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 340px 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
+  }
+
+  /* Add new liquidation */
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerNew {
+    display: grid;
+    grid-template-columns: 43% 47%;
+    justify-content: center;
+    margin-left: -85px;
+    margin-top: 1rem;
+  }
+
+  .therapistContainerNew {
+    width: 64%;
+    justify-self: flex-start;
+  }
+
+  .containerInChargeNew {
+    width: 58%;
+    justify-self: flex-end;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 33% 33%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -130.5px;
+  }
+
+  .fechaInicio {
+    width: 80%;
+  }
+
+  .horaInicio {
+    width: 64%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 80%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 64%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 89% 219px;
+    margin-top: 2rem;
+    margin-left: -376%;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 340px 70px 34px;
+    margin-top: 0rem;
+    margin-right: 9px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
+  }
+
+  /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
@@ -11344,8 +11427,10 @@
     float: inline-end;
   }
 
+  /* Table 2 */
+
   .column2 {
-    padding: 0px 0px 0px 14px;
+    padding: 0px 0px 0px 16.5px;
     margin-bottom: -46px;
     margin-top: 2rem;
     overflow-x: auto;
@@ -11355,10 +11440,10 @@
 
   .columnTable2Line1 {
     display: grid;
-    grid-template-columns: 9% 17% 23% 10% 23% 24% 20% 18% 18% 16% 16% 16% 11%;
+    grid-template-columns: 7% 17% 23% 16% 23% 21% 18% 18% 20% 18% 22% 20% 20% 14%;
     margin-bottom: -31px;
     margin-top: 26px;
-    margin-left: -15px;
+    margin-left: -22px;
   }
 
   .textTreatmentTable2Line1 {
@@ -11366,27 +11451,32 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 42px 0px 7px;
+    padding: 15px 0px 0px 20px
+  }
+
+  .textDrinkHouseLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 23.5px;
+  }
+
+  .textDrinkTherapistLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 33.5px;
   }
 
   /* Line 2  */
 
   .columnTable2Line2 {
     display: grid;
-    grid-template-columns: 9% 17% 23% 10% 23% 24% 20% 18% 18% 16% 16% 16% 11%;
+    grid-template-columns: 7% 17% 23% 16% 23% 21% 18% 18% 20% 18% 22% 20% 20% 14%;
     margin-bottom: 8px;
-    margin-left: -20px;
-  }
-
-  .lineTable2 {
-    width: 222%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
+    margin-left: -22px;
   }
 
   .color2 {
@@ -11397,14 +11487,6 @@
     display: block;
     margin-top: 1%;
     margin-left: 19%;
-  }
-
-  .textExit {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textHour {
@@ -11420,6 +11502,22 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    padding: 15px 0px 0px 38px;
+  }
+
+  .textTreatmentTable2Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 20px;
+  }
+
+  .textExit {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
     padding: 15px 0px 0px 0px;
   }
 
@@ -11430,18 +11528,10 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-break: break-all;
-    padding: 0px 25px 0px 36px;
+    padding: 0px 25px 0px 25px;
   }
 
   .textPay {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textValue {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -11456,7 +11546,31 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 0px 0px 8px;
+    padding: 0px 25px 0px 34px;
+  }
+
+  .textDrinkHouseLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 24px;
+  }
+
+  .textDrinkTherapistLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 34px;
+  }
+
+  .textTobacco {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 25px;
   }
 
   .textVitamin {
@@ -11467,15 +11581,26 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 10px 0px 23px;
+    padding: 0px 20px 0px 34px;
   }
 
-  .textTreatmentTable2Line2 {
+  .textOthers {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 42px 0px 7px;
+    padding: 15px 0px 0px 19px;
+  }
+
+  .lineTable2 {
+    width: 260%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 16px;
+    margin-top: -12px;
+    margin-bottom: 9px;
   }
 
   /* Column */
@@ -11491,16 +11616,6 @@
     cursor: pointer;
   }
 
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
   .columnHour {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
@@ -11513,21 +11628,32 @@
 
   .columnMin {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 12px;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
+    justify-self: end;
     cursor: pointer;
   }
 
   .columnTreatment2 {
     line-height: 1.4rem;
-    padding: 0px 48px 0px 0px;
+    padding: 0px 35px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .columnExit {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
   }
 
   .columnValueTip {
@@ -11537,7 +11663,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 0px 27px 0px 0px;
+    padding: 0px 28px 0px 0px;
   }
 
   .columnPaymentMethod {
@@ -11551,7 +11677,7 @@
 
   .columnValueTherapist {
     line-height: 1.4rem;
-    padding: 0px 27px 0px 0px;
+    padding: 0px 12px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -11561,7 +11687,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 18px 0px 0px;
+    padding: 0px 5px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -11569,7 +11695,7 @@
     justify-self: end;
   }
 
-  .columnValueTobacco {
+  .columnValueDrinkTherapist {
     line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
     font-family: sans-serif;
@@ -11579,9 +11705,19 @@
     justify-self: end;
   }
 
+  .columnValueTobacco {
+    line-height: 1.4rem;
+    padding: 0px 12px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 14px 0px 0px;
+    padding: 0px 25px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -11591,7 +11727,7 @@
 
   .columnValueOthers {
     line-height: 1.4rem;
-    padding: 0px 4px 0px 0px;
+    padding: 0px 2px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -11609,24 +11745,24 @@
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -11px;
+    margin-left: -6px;
     margin-bottom: 2px;
   }
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 31% 24% 26% 23%;
+    grid-template-columns: 25% 28% 19% 23%;
     margin-bottom: -5px;
-    margin-left: -1px;
+    margin-left: -8px;
   }
 
   .lineTable3 {
-    width: 104%;
+    width: 96%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 1px;
+    margin-left: -3px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -11672,7 +11808,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 14px 0px 0px;
   }
 
   .columnComission {
@@ -11680,7 +11816,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
+    padding: 0px 5px 0px 0px;
   }
 
   .columnTotalPay {
@@ -11691,7 +11827,10 @@
   }
 
   .columnPay {
-    margin-left: -20px;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: -74px;
   }
 
   .textSum2 {
@@ -11716,12 +11855,12 @@
   }
 
   .lineTotalPay {
-    width: 76%;
+    width: 71%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 30%;
+    margin-left: 117px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -11730,19 +11869,19 @@
 
   .column4 {
     margin-top: 2rem;
-    margin-left: -15px;
+    margin-left: -25px;
     margin-bottom: 2px;
   }
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 47% 32%;
+    grid-template-columns: 56% 43.8%;
     margin-bottom: -5px;
     margin-left: 0%;
   }
 
   .lineTable4 {
-    width: 78%;
+    width: 97%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -11770,25 +11909,48 @@
 
   /* fin Table 4 */
 
-  .btnCancelar {
-    padding-bottom: 6%;
+  /* Buttons */
+
+  .btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 48px;
+    font-size: 22px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
   }
 
   .inputButtonSave {
     display: grid;
-    grid-template-columns: 37% 37%;
+    grid-template-columns: 100%;
     margin-bottom: 7em;
-    margin-top: 1em;
-    margin-left: -1.9rem;
+    margin-top: 2em;
     justify-content: center;
+  }
+
+  .btnSave {
+    margin: auto;
+    height: 48px;
+    background-color: #8c52ff;
+    font-size: 22px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
   }
 
   .inputButtonEdit {
     display: grid;
-    grid-template-columns: 37% 37% 37%;
+    grid-template-columns: 100%;
     margin-bottom: 7em;
-    margin-top: 1em;
+    margin-top: 2em;
     justify-content: center;
+  }
+
+  .btnDelete {
+    margin: auto;
+    height: 48px;
+    background-color: red;
+    font-size: 22px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
   }
 }
 
