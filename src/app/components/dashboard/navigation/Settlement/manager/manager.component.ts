@@ -146,7 +146,7 @@ export class ManagerComponent implements OnInit {
     public serviceLiquidationManager: ServiceLiquidationManager
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.liquidationForm = true
     this.addForm = false
     this.selected = false
@@ -157,19 +157,30 @@ export class ManagerComponent implements OnInit {
     this.idUser = Number(params.path)
 
     if (this.idUser) {
-      this.serviceManager.getById(this.idUser).subscribe((rp) => {
-        if (rp[0]['rol'] == 'administrador') {
-          this.administratorRole = true
-          this.GetAllManagers()
-        } else {
-          this.manager = rp
-          this.liquidationManager.encargada = this.manager[0].nombre
-        }
-      })
+      this.validitingUser()
     }
 
     this.date()
     this.thousandPount()
+  }
+
+  async validitingUser() {
+    this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        this.administratorRole = true
+        this.GetAllManagers()
+      } else {
+        this.manager = rp
+        this.liquidationManager.encargada = this.manager[0].nombre
+        this.getManager()
+      }
+    })
+  }
+
+  async getManager() {
+    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp) => {
+      this.liquidated = rp
+    })
   }
 
   date() {
@@ -2111,16 +2122,15 @@ export class ManagerComponent implements OnInit {
   edit() {
     this.idSettled
     this.liquidationManager.importe = this.totalCommission
-    this.serviceLiquidationManager.updateEncargImporteId(this.idSettled, this.liquidationManager).subscribe((rp) => { })
-
-    setTimeout(() => {
+    this.serviceLiquidationManager.updateEncargImporteId(this.idSettled, this.liquidationManager).subscribe((rp) => {
       this.thousandPount()
       this.liquidationForm = true
       this.editEncarg = false
       this.selected = false
       this.dates = false
       this.liquidationManager.encargada = ""
-    }, 1000);
+      this.validitingUser()
+    })
   }
 
   async sumTotal(idManager: string) {
@@ -2234,7 +2244,7 @@ export class ManagerComponent implements OnInit {
             return accumulator + serv.numberEncarg
           }, 0)
         })
-        
+
         this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
         this.validateNullData()
         await this.thousandPointEdit()
@@ -2281,7 +2291,8 @@ export class ManagerComponent implements OnInit {
 
   // End edit
 
-  cancel() {
+  async cancel() {
+    await this.validitingUser()
     this.liquidationForm = true
     this.addForm = false
     this.editEncarg = false
@@ -2351,6 +2362,7 @@ export class ManagerComponent implements OnInit {
           this.selected = false
           this.dates = false
           this.liquidationManager.encargada = ""
+          this.validitingUser()
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -2374,6 +2386,7 @@ export class ManagerComponent implements OnInit {
           this.selected = false
           this.liquidationManager.encargada = ""
           this.convertToZero()
+          this.validitingUser()
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500

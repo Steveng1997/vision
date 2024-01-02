@@ -1328,7 +1328,6 @@ export class NewServiceComponent implements OnInit {
   }
 
   editService(idServicio, serv: ModelService) {
-    debugger
     this.buttonEdit = document.getElementById('btnEdit') as HTMLButtonElement
     this.buttonEdit.disabled = true;
     if (this.restamosCobroEdit == 0) {
