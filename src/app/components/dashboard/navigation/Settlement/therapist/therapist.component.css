@@ -102,6 +102,10 @@
   }
 }
 
+.modal-header{
+  height: 0px;
+}
+
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .container {
@@ -135,7 +139,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -1163,7 +1167,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -2190,7 +2194,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -3219,7 +3223,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -4246,7 +4250,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -5275,7 +5279,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -6281,7 +6285,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .tableContainer2 {
@@ -7169,7 +7173,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -8197,7 +8201,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -9225,7 +9229,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -10253,7 +10257,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -11281,7 +11285,7 @@
     display: grid;
     grid-template-columns: 57% 57%;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .therapistContainer {
@@ -12288,7 +12292,7 @@
     grid-template-columns: 25% 25% 25% 25%;
     justify-content: center;
     margin-left: 26px;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   .tableContainer2 {
@@ -13064,8 +13068,8 @@
     display: grid;
     grid-template-columns: 56% 56%;
     justify-content: center;
-    margin-top: 1rem;
     margin-left: -11px;
+    margin-top: 0rem;
   }
 
   .tableContainer2 {

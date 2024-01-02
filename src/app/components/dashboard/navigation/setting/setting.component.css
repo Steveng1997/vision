@@ -82,6 +82,10 @@
   }
 }
 
+.modal-header{
+  height: 0px;
+}
+
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
 
   .container {
