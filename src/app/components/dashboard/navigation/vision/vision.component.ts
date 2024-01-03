@@ -416,7 +416,7 @@ export class VisionComponent implements OnInit {
         rp.map(item => {
           item['nombre'] = item['terapeuta']
 
-          this.service.getTherapistAndDates(item['terapeuta'], dates).subscribe(async (rp: any) => {
+          this.service.getTherapistAndManagerAndDates(item['terapeuta'], element[0]['nombre'], dateCurrent).subscribe((rp: any) => {
             if (rp.length > 0) {
               this.existTherapist = true
 
@@ -455,7 +455,7 @@ export class VisionComponent implements OnInit {
         rp.map(item => {
           item['nombre'] = item['terapeuta']
 
-          this.service.getTherapistAndDates(item['terapeuta'], dateCurrent).subscribe((rp: any) => {
+          this.service.getTherapistAndManagerAndDates(item['terapeuta'], element[0]['nombre'], dateCurrent).subscribe((rp: any) => {
 
             if (rp.length > 0) {
               this.existTherapist = true
