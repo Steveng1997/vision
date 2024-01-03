@@ -387,7 +387,7 @@ export class VisionComponent implements OnInit {
 
     if (text == 'array') {
 
-      let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', dates = ''
+      let date = new Date(), day = 0, month = 0, year = 0, convertDay = '', convertMonth = '', dates = ''
 
       day = date.getDate()
       month = date.getMonth() + 1
@@ -398,7 +398,16 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${convertDay}`
       } else {
         day = day
+        convertDay = day.toString()
         dates = `${year}-${month}-${day}`
+      }
+
+      if (month > 0 && month < 10) {
+        convertMonth = '0' + month
+        dates = `${year}-${convertMonth}-${convertDay}`
+      } else {
+        month = month
+        dates = `${year}-${month}-${convertDay}`
       }
 
       this.service.getTherapistConsultingManagerAndDate(element[0]['nombre'], dates).subscribe(async (rp: any) => {
