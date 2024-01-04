@@ -20,8 +20,10 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class ManagerComponent implements OnInit {
 
-  loading: boolean = false
   dates: boolean = false
+  loading: boolean = false
+  deleteButton: boolean = false
+  validationFilters: boolean = true
   CurrenDate = ""
   idSettled: number
   liquidationForm: boolean
@@ -59,6 +61,7 @@ export class ManagerComponent implements OnInit {
   totalTipValue: number
   totalManagerValue: number
   totalValueDrink: number
+  totalValueDrinkTherap: number
   totalTobaccoValue: number
   totalValueVitamins: number
   totalValueOther: number
@@ -67,6 +70,7 @@ export class ManagerComponent implements OnInit {
   serviceCommission: number
   commissionTip: number
   beverageCommission: number
+  beverageTherapistCommission: number
   tobaccoCommission: number
   vitaminCommission: number
   commissionOthers: number
@@ -84,7 +88,9 @@ export class ManagerComponent implements OnInit {
   textTotalTip2: string
   textComissionTip: string
   textValueDrink: string
+  textValueDrinkTherap: string
   textBeverageCommission: string
+  textbeverageTherapistCommission: string
   textTobaccoValue: string
   textTobaccoCommission: string
   textValueVitamins: string
@@ -98,7 +104,7 @@ export class ManagerComponent implements OnInit {
   textTotalBizum: string
   textTotalCard: string
   textTotalTransaction: string
-  textTotalTherapistPayment: string
+  textTotalManagerPayment: string
 
   // Total Payment Method
   totalCash: number
@@ -152,34 +158,39 @@ export class ManagerComponent implements OnInit {
     this.selected = false
     this.editEncarg = false
     this.dates = false
+    this.deleteButton = false
+    this.loading = true
 
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
 
+    this.date()
+    this.thousandPount()
+
     if (this.idUser) {
       this.validitingUser()
     }
-
-    this.date()
-    this.thousandPount()
   }
 
   async validitingUser() {
     this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
+        this.loading = false
         this.GetAllManagers()
       } else {
         this.manager = rp
+        this.loading = false
         this.liquidationManager.encargada = this.manager[0].nombre
         this.getManager()
       }
     })
   }
 
-  async getManager() {
-    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp) => {
-      this.liquidated = rp
+  modalFiltres(modal) {
+    this.modalService.open(modal, {
+      centered: true,
+      backdrop: 'static',
     })
   }
 
@@ -210,25 +221,20 @@ export class ManagerComponent implements OnInit {
     this.totalTipValue = 0
     this.totalManagerValue = 0
     this.totalValueDrink = 0
+    this.totalValueDrinkTherap = 0
     this.totalTobaccoValue = 0
     this.totalValueVitamins = 0
     this.totalValueOther = 0
     this.serviceCommission = 0
     this.commissionTip = 0
     this.beverageCommission = 0
+    this.beverageTherapistCommission = 0
     this.tobaccoCommission = 0
     this.vitaminCommission = 0
     this.commissionOthers = 0
     this.sumCommission = 0
     this.receivedManager = 0
     this.totalCommission = 0
-
-    this.managerName['servicio'] = 0
-    this.managerName['propina'] = 0
-    this.managerName['bebida'] = 0
-    this.managerName['tabaco'] = 0
-    this.managerName['vitamina'] = 0
-    this.managerName['otros'] = 0
   }
 
   validateNullData() {
@@ -242,12 +248,14 @@ export class ManagerComponent implements OnInit {
     if (this.totalTipValue == undefined) this.totalTipValue = 0
     if (this.totalManagerValue == undefined) this.totalManagerValue = 0
     if (this.totalValueDrink == undefined) this.totalValueDrink = 0
+    if (this.totalValueDrinkTherap == undefined) this.totalValueDrinkTherap = 0
     if (this.totalTobaccoValue == undefined) this.totalTobaccoValue = 0
     if (this.totalValueVitamins == undefined) this.totalValueVitamins = 0
     if (this.totalValueOther == undefined) this.totalValueOther = 0
     if (this.serviceCommission == undefined || Number.isNaN(this.serviceCommission)) this.serviceCommission = 0
     if (this.commissionTip == undefined || Number.isNaN(this.commissionTip)) this.commissionTip = 0
     if (this.beverageCommission == undefined || Number.isNaN(this.beverageCommission)) this.beverageCommission = 0
+    if (this.beverageTherapistCommission == undefined || Number.isNaN(this.beverageTherapistCommission)) this.beverageTherapistCommission = 0
     if (this.tobaccoCommission == undefined || Number.isNaN(this.tobaccoCommission)) this.tobaccoCommission = 0
     if (this.vitaminCommission == undefined || Number.isNaN(this.vitaminCommission)) this.vitaminCommission = 0
     if (this.commissionOthers == undefined || Number.isNaN(this.commissionOthers)) this.commissionOthers = 0
@@ -261,8 +269,7 @@ export class ManagerComponent implements OnInit {
     if (this.totalTherapistPayment == undefined) this.totalTherapistPayment = 0
   }
 
-  thousandPount() {
-    let añoDesde = "", mesDesde = "", diaDesde = "", añoHasta = "", mesHasta = "", diaHasta = ""
+  async thousandPount() {
 
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
@@ -332,12 +339,35 @@ export class ManagerComponent implements OnInit {
     })
   }
 
+  async OK() {
+    this.modalService.dismissAll()
+
+    await this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        if (this.liquidationManager.encargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+          this.deleteButton = true
+        } else {
+          this.deleteButton = false
+        }
+      } else {
+        this.deleteButton = false
+      }
+    })
+  }
+
   getThoseThatNotLiquidated() {
     this.service.getByLiquidTerapFalse().subscribe((datoServicio) => {
       this.unliquidatedService = datoServicio
       return true
     })
     return false
+  }
+
+  async getManager() {
+    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp) => {
+      this.liquidated = rp
+    })
   }
 
   GetAllManagers() {
@@ -347,6 +377,7 @@ export class ManagerComponent implements OnInit {
   }
 
   insertForm() {
+    this.validationFilters = false
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
@@ -376,11 +407,11 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  dateExists() {
+  async dateExists() {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
-    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
+    await this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
         fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
@@ -389,8 +420,9 @@ export class ManagerComponent implements OnInit {
 
         this.liquidationManager.desdeFechaLiquidado = `${'20' + fromYear}-${fromMonth}-${fromDay}`
         this.liquidationManager.desdeHoraLiquidado = rp[0]['hastaHoraLiquidado']
+        await this.inputDateAndTime()
       } else {
-        this.dateDoesNotExist()
+        await this.dateDoesNotExist()
       }
     })
 
@@ -414,27 +446,26 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  calculateServices(): any {
+  async calculateServices() {
     if (this.liquidationManager.encargada != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
 
-      this.service.getByEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
+      this.service.getByEncargada(this.liquidationManager.encargada).subscribe(async (resp: any) => {
         if (resp.length > 0) {
 
           this.selected = false
           this.dates = false
-          this.dateExists()
+          await this.dateExists()
 
-          setTimeout(() => {
-            if (this.inputDateAndTime()) return
-          }, 600);
+          // setTimeout(() => {
+          //   if (this.inputDateAndTime()) return
+          // }, 600);
 
         } else {
           this.selected = false
+          this.dates = false
           this.loading = false
-          this.dates = true
-          this.textTotalComission = '0'
 
           Swal.fire({
             icon: 'error', title: 'Oops...', text: 'No existe ningun servicio para liquidar', showConfirmButton: false, timer: 2500
@@ -476,7 +507,9 @@ export class ManagerComponent implements OnInit {
   }
 
   async inputDateAndTime() {
-    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTerap = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0,
+      sumComision = 0
+
     this.totalCommission = 0
 
     this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
@@ -504,10 +537,16 @@ export class ManagerComponent implements OnInit {
             return accumulator + serv.numberEncarg
           }, 0)
 
-          // Filter by Bebida
+          // Filter by Drink
           const bebida = this.unliquidatedService.filter(serv => serv)
           this.totalValueDrink = bebida.reduce((accumulator, serv) => {
             return accumulator + serv.bebidas
+          }, 0)
+
+          // Filter by Drink Therapist
+          const drinkTherap = rp.filter(serv => serv)
+          this.totalValueDrinkTherap = drinkTherap.reduce((accumulator, serv) => {
+            return accumulator + serv.bebidaTerap
           }, 0)
 
           // Filter by Tabaco
@@ -564,6 +603,7 @@ export class ManagerComponent implements OnInit {
             comisiServicio = this.totalService / 100 * datosNameTerapeuta[0]['servicio']
             comiPropina = this.totalTipValue / 100 * datosNameTerapeuta[0]['propina']
             comiBebida = this.totalValueDrink / 100 * datosNameTerapeuta[0]['bebida']
+            comiBebidaTerap = this.totalValueDrinkTherap / 100 * datosNameTerapeuta[0]['bebidaTerap']
             comiTabaco = this.totalTobaccoValue / 100 * datosNameTerapeuta[0]['tabaco']
             comiVitamina = this.totalValueVitamins / 100 * datosNameTerapeuta[0]['vitamina']
             comiOtros = this.totalValueOther / 100 * datosNameTerapeuta[0]['otros']
@@ -572,12 +612,13 @@ export class ManagerComponent implements OnInit {
             this.serviceCommission = Math.ceil(comisiServicio)
             this.commissionTip = Math.ceil(comiPropina)
             this.beverageCommission = Math.ceil(comiBebida)
+            this.beverageTherapistCommission = Math.ceil(comiBebidaTerap)
             this.tobaccoCommission = Math.ceil(comiTabaco)
             this.vitaminCommission = Math.ceil(comiVitamina)
             this.commissionOthers = Math.ceil(comiOtros)
 
             sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-              Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+              Number(this.beverageCommission) + + Number(this.beverageTherapistCommission) + Number(this.tobaccoCommission) +
               Number(this.vitaminCommission) + Number(this.commissionOthers)
 
             if (this.sumCommission != 0 || this.sumCommission != undefined) {
@@ -618,16 +659,16 @@ export class ManagerComponent implements OnInit {
     return false
   }
 
-  dateDoesNotExist() {
+  async dateDoesNotExist() {
     let año = "", mes = "", dia = ""
 
-    this.service.getEncargadaFechaAsc(this.liquidationManager.encargada).subscribe((rp) => {
+    await this.service.getEncargadaFechaAsc(this.liquidationManager.encargada).subscribe(async (rp) => {
       año = rp[0]['fechaHoyInicio'].substring(0, 4)
       mes = rp[0]['fechaHoyInicio'].substring(5, 7)
       dia = rp[0]['fechaHoyInicio'].substring(8, 10)
-
       this.liquidationManager.desdeFechaLiquidado = `${año}-${mes}-${dia}`
       this.liquidationManager.desdeHoraLiquidado = rp[0]['horaStart']
+      await this.inputDateAndTime()
     })
   }
 
@@ -959,6 +1000,31 @@ export class ManagerComponent implements OnInit {
       this.textValueDrink = this.totalValueDrink.toString()
     }
 
+    if (this.totalValueDrinkTherap > 999) {
+
+      const coma = this.totalValueDrinkTherap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrinkTherap.toString().split(".") : this.totalValueDrinkTherap.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrinkTherap = integer[0].toString()
+    } else {
+      this.textValueDrinkTherap = this.totalValueDrinkTherap.toString()
+    }
+
     if (this.beverageCommission > 999) {
 
       const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
@@ -982,6 +1048,31 @@ export class ManagerComponent implements OnInit {
       this.textBeverageCommission = integer[0].toString()
     } else {
       this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.beverageTherapistCommission > 999) {
+
+      const coma = this.beverageTherapistCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageTherapistCommission.toString().split(".") : this.beverageTherapistCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textbeverageTherapistCommission = integer[0].toString()
+    } else {
+      this.textbeverageTherapistCommission = this.beverageTherapistCommission.toString()
     }
 
     if (this.totalTobaccoValue > 999) {
@@ -1330,10 +1421,20 @@ export class ManagerComponent implements OnInit {
       }
 
       integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalTherapistPayment = integer[0].toString()
+      this.textTotalManagerPayment = integer[0].toString()
     } else {
-      this.textTotalTherapistPayment = this.totalTherapistPayment.toString()
+      this.textTotalManagerPayment = this.totalTherapistPayment.toString()
     }
+  }
+
+  arrowLine1() {
+    document.querySelector('.column').scrollLeft += 30;
+    document.getElementById('arrowLine1').style.display = 'none'
+  }
+
+  arrowTable2Add() {
+    document.querySelector('.column2').scrollLeft += 30;
+    document.getElementById('arrowTable2Add').style.display = 'none'
   }
 
   fixedNumberDay(event: any) {
@@ -1384,6 +1485,7 @@ export class ManagerComponent implements OnInit {
     this.textTotalService = '0'
     this.textTotalTip2 = '0'
     this.textValueDrink = '0'
+    this.textValueDrinkTherap = '0'
     this.textTobaccoValue = '0'
     this.textValueVitamins = '0'
     this.textValueOther = '0'
@@ -1391,6 +1493,7 @@ export class ManagerComponent implements OnInit {
     this.textServiceComission = '0'
     this.commissionTip = 0
     this.textBeverageCommission = '0'
+    this.textbeverageTherapistCommission = '0'
     this.textTobaccoCommission = '0'
     this.textVitaminCommission = '0'
     this.textComissionTip = '0'
@@ -1402,7 +1505,7 @@ export class ManagerComponent implements OnInit {
     this.textTotalBizum = '0'
     this.textTotalCard = '0'
     this.textTotalTransaction = '0'
-    this.textTotalTherapistPayment = '0'
+    this.textTotalManagerPayment = '0'
   }
 
   async thousandPointEdit() {
@@ -1556,6 +1659,31 @@ export class ManagerComponent implements OnInit {
       this.textValueDrink = this.totalValueDrink.toString()
     }
 
+    if (this.totalValueDrinkTherap > 999) {
+
+      const coma = this.totalValueDrinkTherap.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalValueDrinkTherap.toString().split(".") : this.totalValueDrinkTherap.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textValueDrinkTherap = integer[0].toString()
+    } else {
+      this.textValueDrinkTherap = this.totalValueDrinkTherap.toString()
+    }
+
     if (this.beverageCommission > 999) {
 
       const coma = this.beverageCommission.toString().indexOf(".") !== -1 ? true : false;
@@ -1579,6 +1707,31 @@ export class ManagerComponent implements OnInit {
       this.textBeverageCommission = integer[0].toString()
     } else {
       this.textBeverageCommission = this.beverageCommission.toString()
+    }
+
+    if (this.beverageTherapistCommission > 999) {
+
+      const coma = this.beverageTherapistCommission.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.beverageTherapistCommission.toString().split(".") : this.beverageTherapistCommission.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textbeverageTherapistCommission = integer[0].toString()
+    } else {
+      this.textbeverageTherapistCommission = this.beverageTherapistCommission.toString()
     }
 
     if (this.totalTobaccoValue > 999) {
@@ -1927,9 +2080,9 @@ export class ManagerComponent implements OnInit {
       }
 
       integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalTherapistPayment = integer[0].toString()
+      this.textTotalManagerPayment = integer[0].toString()
     } else {
-      this.textTotalTherapistPayment = this.totalTherapistPayment.toString()
+      this.textTotalManagerPayment = this.totalTherapistPayment.toString()
     }
 
     for (let o = 0; o < this.settledData?.length; o++) {
@@ -2119,18 +2272,19 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  edit() {
-    this.idSettled
-    this.liquidationManager.importe = this.totalCommission
-    this.serviceLiquidationManager.updateEncargImporteId(this.idSettled, this.liquidationManager).subscribe((rp) => {
-      this.thousandPount()
-      this.liquidationForm = true
-      this.editEncarg = false
-      this.selected = false
-      this.dates = false
-      this.liquidationManager.encargada = ""
-      this.validitingUser()
+  async dataFormEdit(idManager: string, id: number) {
+    this.loading = true
+    this.validationFilters = false
+    this.liquidationForm = false
+
+    this.serviceLiquidationManager.getIdEncarg(idManager).subscribe(async (datosManager) => {
+      this.liquidationManager.desdeFechaLiquidado = datosManager[0]['desdeFechaLiquidado']
+      this.liquidationManager.desdeHoraLiquidado = datosManager[0]['desdeHoraLiquidado']
+      this.liquidationManager.hastaFechaLiquidado = datosManager[0]['hastaFechaLiquidado']
+      this.liquidationManager.hastaHoraLiquidado = datosManager[0]['hastaHoraLiquidado']
     })
+
+    await this.sumTotal(idManager)
   }
 
   async sumTotal(idManager: string) {
@@ -2157,10 +2311,16 @@ export class ManagerComponent implements OnInit {
           return accumulator + serv.numberEncarg
         }, 0)
 
-        // Filter by Bebida
+        // Filter by Drink
         const bebida = rp.filter(serv => serv)
         this.totalValueDrink = bebida.reduce((accumulator, serv) => {
           return accumulator + serv.bebidas
+        }, 0)
+
+        // Filter by Drink
+        const drinkTherap = rp.filter(serv => serv)
+        this.totalValueDrinkTherap = drinkTherap.reduce((accumulator, serv) => {
+          return accumulator + serv.bebidaTerap
         }, 0)
 
         // Filter by Tabaco
@@ -2192,11 +2352,11 @@ export class ManagerComponent implements OnInit {
         })
       }
     })
-
   }
 
   async comission(element) {
-    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
+    let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTherapist = 0, comiTabaco = 0, comiVitamina = 0,
+      comiOtros = 0, sumComision = 0
 
     this.serviceManager.getEncargada(element[0]['encargada']).subscribe(async (rp: any) => {
       if (rp.length > 0) {
@@ -2208,6 +2368,7 @@ export class ManagerComponent implements OnInit {
         comisiServicio = this.totalService / 100 * rp[0]?.servicio
         comiPropina = this.totalTipValue / 100 * rp[0]?.propina
         comiBebida = this.totalValueDrink / 100 * rp[0]?.bebida
+        comiBebidaTherapist = this.totalValueDrinkTherap / 100 * rp[0]?.bebidaTerap
         comiTabaco = this.totalTobaccoValue / 100 * rp[0]?.tabaco
         comiVitamina = this.totalValueVitamins / 100 * rp[0]?.vitamina
         comiOtros = this.totalValueOther / 100 * rp[0]?.otros
@@ -2216,6 +2377,7 @@ export class ManagerComponent implements OnInit {
         this.serviceCommission = Number(comisiServicio.toFixed(1))
         this.commissionTip = Number(comiPropina.toFixed(1))
         this.beverageCommission = Number(comiBebida.toFixed(1))
+        this.beverageTherapistCommission = Number(comiBebidaTherapist.toFixed(1))
         this.tobaccoCommission = Number(comiTabaco.toFixed(1))
         this.vitaminCommission = Number(comiVitamina.toFixed(1))
         this.commissionOthers = Number(comiOtros.toFixed(1))
@@ -2230,7 +2392,7 @@ export class ManagerComponent implements OnInit {
         this.pountFixedDay()
 
         sumComision = Number(this.serviceCommission) + Number(this.commissionTip) +
-          Number(this.beverageCommission) + Number(this.tobaccoCommission) +
+          Number(this.beverageCommission) + + Number(this.beverageTherapistCommission) + Number(this.tobaccoCommission) +
           Number(this.vitaminCommission) + Number(this.commissionOthers)
 
         if (this.sumCommission != 0 || this.sumCommission != undefined) {
@@ -2255,20 +2417,6 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  async dataFormEdit(idManager: string) {
-    this.loading = true
-    this.liquidationForm = false
-
-    this.serviceLiquidationManager.getIdEncarg(idManager).subscribe(async (datosManager) => {
-      this.liquidationManager.desdeFechaLiquidado = datosManager[0]['desdeFechaLiquidado']
-      this.liquidationManager.desdeHoraLiquidado = datosManager[0]['desdeHoraLiquidado']
-      this.liquidationManager.hastaFechaLiquidado = datosManager[0]['hastaFechaLiquidado']
-      this.liquidationManager.hastaHoraLiquidado = datosManager[0]['hastaHoraLiquidado']
-    })
-
-    await this.sumTotal(idManager)
-  }
-
   formatDate() {
     let fromDay = '', fromMonth = '', fromYear = '', untilDay = '', untilMonth = '', untilYear = ''
 
@@ -2289,11 +2437,107 @@ export class ManagerComponent implements OnInit {
     this.liquidationManager.hastaFechaLiquidado = `${untilDay}-${untilMonth}-${untilYear}`
   }
 
+  async delete() {
+    Swal.fire({
+      title: '¿Deseas eliminar el registro?',
+      text: "Una vez eliminados ya no se podrán recuperar",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Deseo eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // this.services.idTerapeuta = ""
+        // this.services.liquidadoTerapeuta = false
+        // this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
+        //   this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+        //     this.validitingUser()
+        //     this.liquidationTherapist.terapeuta = ""
+        //     this.liquidationTherapist.encargada = ""
+        this.liquidationForm = true
+        this.validationFilters = true
+        this.addForm = false
+        //     this.editTerap = false
+        //     this.selected = false
+        //     this.dates = false
+        //   })
+        // })
+      }
+    })
+  }
+
   // End edit
 
+  save() {
+    this.createUniqueId()
+    this.liquidationManager.currentDate = this.currentDate.toString()
+    this.formatDate()
+
+    if (this.liquidationManager.encargada != "") {
+
+      this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
+
+        if (rp.length > 0) {
+
+          for (let o = 0; o < this.unliquidatedService.length; o++) {
+            this.liquidationManager.tratamiento = this.unliquidatedService.length
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
+          }
+
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
+
+          this.validitingUser()
+          this.thousandPount()
+          this.liquidationForm = true
+          this.validationFilters = true
+          this.addForm = false
+          this.editEncarg = false
+          this.selected = false
+          this.dates = false
+          this.liquidationManager.encargada = ""
+
+          Swal.fire({
+            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+          })
+        }
+
+        if (rp.length == 0) {
+
+          for (let o = 0; o < this.unliquidatedService.length; o++) {
+            this.liquidationManager.tratamiento = this.unliquidatedService.length
+            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
+            })
+          }
+
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
+
+          this.validitingUser()
+          this.convertToZero()
+          this.liquidationForm = true
+          this.validationFilters = true
+          this.addForm = false
+          this.editEncarg = false
+          this.selected = false
+          this.liquidationManager.encargada = ""
+
+          Swal.fire({
+            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+          })
+        }
+      })
+
+    } else {
+      Swal.fire({
+        icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
+      })
+    }
+  }
+
   async cancel() {
-    await this.validitingUser()
+    this.validitingUser()
     this.liquidationForm = true
+    this.validationFilters = true
     this.addForm = false
     this.editEncarg = false
     this.selected = false
@@ -2338,69 +2582,59 @@ export class ManagerComponent implements OnInit {
     }
   }
 
-  save() {
-    this.createUniqueId()
-    this.liquidationManager.currentDate = this.currentDate.toString()
-    this.formatDate()
-
-    if (this.liquidationManager.encargada != "") {
-
-      this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
-
-        if (rp.length > 0) {
-
-          for (let o = 0; o < this.unliquidatedService.length; o++) {
-            this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
-          }
-
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
-          this.thousandPount()
-          this.liquidationForm = true
-          this.addForm = false
-          this.editEncarg = false
-          this.selected = false
-          this.dates = false
-          this.liquidationManager.encargada = ""
-          this.validitingUser()
-
+  async deleteLiquidation() {
+    this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      if (rp[0]['rol'] == 'administrador') {
+        if (this.liquidationManager.encargada != "" ||
+          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
           Swal.fire({
-            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+            title: '¿Deseas eliminar el registro?',
+            text: "Una vez eliminados ya no se podrán recuperar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Deseo eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: '¿Estas seguro de eliminar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Deseo eliminar!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  // this.loading = true
+                  // this.idLiquidation.map(item => {
+                  //   this.services.idTerapeuta = ""
+                  //   this.services.liquidadoTerapeuta = false
+                  //   this.service.updateTherapistSettlementTherapistIdByTherapistId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
+                  //     this.serviceLiquidationTherapist.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
+                  //       this.validitingUser()
+                  //       this.emptyValues()
+                  //       this.loading = false
+                  //       Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+                  //     })
+                  //   })
+                  // })
+                }
+                else {
+                  this.loading = false
+                }
+              })
+            }
           })
         }
-
-        if (rp.length == 0) {
-
-          for (let o = 0; o < this.unliquidatedService.length; o++) {
-            this.liquidationManager.tratamiento = this.unliquidatedService.length
-            this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
-            })
-          }
-
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
-
-          this.thousandPount()
-          this.liquidationForm = true
-          this.addForm = false
-          this.editEncarg = false
-          this.selected = false
-          this.liquidationManager.encargada = ""
-          this.convertToZero()
-          this.validitingUser()
-
-          Swal.fire({
-            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-          })
-        }
-      })
-
-    } else {
-      Swal.fire({
-        icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
-      })
-    }
+      }
+    })
   }
 
-  deleteService() {
+  emptyValues() {
+    this.liquidationManager.encargada = ""
+    this.formTemplate.value.fechaInicio = ""
+    this.formTemplate.value.FechaFin = ""
+    this.formTemplate.value.busqueda = ""
   }
 }

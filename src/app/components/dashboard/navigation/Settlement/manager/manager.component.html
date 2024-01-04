@@ -3,74 +3,125 @@
         <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
             <div class="m-0 vh-90 row justify-content-center align-items-center">
 
-                <label *ngIf="liquidationForm" class="titleLiqudationManager"> LIQUIDACIÓN ENCARGADA </label>
+                <label *ngIf="liquidationForm" class="titleLiqudationTherapist"> LIQUIDACIÓN ENCARGADA </label>
 
-                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                <div class="row tableContainerFilters" *ngIf="validationFilters">
 
-                    <div *ngIf="administratorRole" class="text-center mt-4 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                            style="cursor: pointer; color: #8c52ff;" class="bi bi-plus-circle" viewBox="0 0 16 16"
-                            (click)="insertForm()">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path
-                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                        </svg>
-                        <div>
-                            <label> Nueva liquidación </label>
+                    <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
+
+                        <div class="row g-0"> <img src="/assets/icons8-opciones-para-ordenar-100.png"
+                                class="iconFilters">
                         </div>
-                    </div>
 
-                    <div class="row tableContainer">
+                        <div class="row g-0">
+                            <label class="filters">Filtrar</label>
+                        </div>
 
-                        <div class="containerInCharge">
-                            <div class="row g-0">
-                                <label class="text">Encargada</label>
-                                <select class="form-select" formControlName="encargada"
-                                    [(ngModel)]="liquidationManager.encargada" (ngModelChange)="filters()"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
-                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
-                                        {{managers.nombre}}
-                                    </option>
-                                </select>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalFilter let-modal>
+                            <div class="modal-header">
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
 
-                        <div class="containerSearch">
-                            <div class="row g-0">
-                                <label class="text">Buscar</label>
-                                <input type="text" class="form-control" formControlName="busqueda"
-                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
-                                        font-size: 18px; font-family: sans-serif;">
-                            </div>
-                        </div>
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+                                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                                    <div class="row tableContainer">
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Inicio</label>
-                                <input type="date" class="form-control" (change)="filters()"
-                                    formControlName="fechaInicio" [value]="CurrenDate"
-                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
-                            </div>
-                        </div>
+                                        <div class="containerInCharge">
+                                            <div class="row g-0">
+                                                <label class="text">Encargada</label>
+                                                <select class="form-select" formControlName="encargada"
+                                                    [(ngModel)]="liquidationManager.encargada"
+                                                    (ngModelChange)="filters()"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                                    <option *ngIf="administratorRole" selected value="">Selecciona
+                                                    </option>
+                                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                                        {{managers.nombre}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                        <div class="dateContainer">
-                            <div class="row g-0">
-                                <label class="text">Fecha Final</label>
-                                <input type="date" class="form-control" (change)="filtersDateEnd($event)"
-                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
+                                        <div class="containerSearch">
+                                            <div class="row g-0">
+                                                <label class="text">Buscar</label>
+                                                <input type="text" class="form-control" formControlName="busqueda"
+                                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                                    font-size: 18px; font-family: sans-serif;">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Inicio</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="fechaInicio" [value]="CurrenDate"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Final</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
                                         color: #242424; font-size: 18px; font-family: sans-serif">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" mat-raised-button class="btn btn-primary"
+                                            style="display: grid; margin: auto; margin-top: 1rem" color="primary"
+                                            (click)="OK()">Aceptar</button>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
                             </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+
+                    <div class="buttonDeleteContainer" (click)="deleteLiquidation()">
+
+                        <div *ngIf="!deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100.png"
+                                class="iconDelete"> </div>
+
+                        <div *ngIf="deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100-red.png"
+                                class="iconDelete"> </div>
+
+                        <div class="row g-0">
+                            <label [ngClass]="{'titleDeleteRed': deleteButton == true , 
+                                'titleDelete': deleteButton == false}">Eliminar</label>
                         </div>
 
-                        <div class="buttonDeleteContainer">
-                            <div class="row g-0">
-                                <button type="submit" id="buttonDelete" mat-raised-button color="warn" disabled
-                                    (click)="deleteService()">Eliminar</button>
-                            </div>
+                    </div>
+
+                    <div class="newService" (click)="insertForm()">
+                        <div class="row g-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="cursor: pointer"
+                                class="bi bi-plus-circle iconNewService" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="titleNewService"> Nueva </label>
                         </div>
                     </div>
-                </form>
+                </div>
+
+                <div *ngIf="liquidationForm" class="columnArrow" id="arrowLine1">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLine1()"></i>
+                </div>
 
                 <!-- Table 1 -->
                 <div *ngIf="liquidationForm" class="column">
@@ -93,7 +144,7 @@
                             <label></label>
                         </div>
 
-                        <div class="textTreatment1">
+                        <div class="textTreatmentLine1">
                             <label>Trata</label>
                         </div>
 
@@ -117,7 +168,7 @@
                             <label>Hasta</label>
                         </div>
 
-                        <div class="textTreatment2">
+                        <div class="textTreatmentLine2">
                             <label>miento</label>
                         </div>
 
@@ -125,20 +176,20 @@
 
                     <hr class="lineTable1">
 
-                    <div class="columnTableLine2"
-                        *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada | fechaFinalEncargada: fechaInicio:fechaFinal 
-                    | busquedaEncargada: filterByName:filterByNumber) | paginate: { itemsPerPage: 10, currentPage: page }"
-                        (click)="dataFormEdit(liqEncarg.idEncargada)">
+                    <div class="columnTableLine2" *ngFor="let liqEncarg of (liquidated | encargada: liquidationManager.encargada 
+                    | fechaFinalEncargada: fechaInicio:fechaFinal | busquedaTerapeuta: filtredBusqueda) 
+                    | paginate: { itemsPerPage: 50, currentPage: page }">
 
-                        <div class="columnManager">{{liqEncarg?.encargada}}</div>
+                        <div class="columnManager" (click)="dataFormEdit(liqEncarg.idEncargada, liqEncarg.id)">
+                            {{liqEncarg?.encargada}}</div>
 
                         <div class="columnImport">{{liqEncarg?.importe + ' €'}}</div>
 
-                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
-                            {{liqEncarg?.desdeFechaLiquidado + ' - ' + liqEncarg?.desdeHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{liqEncarg?.desdeFechaLiquidado + ' - ' +
+                            liqEncarg?.desdeHoraLiquidado}} </div>
 
-                        <div style="font-family: sans-serif; font-size: 18px; line-height: 1.4rem;">
-                            {{liqEncarg?.hastaFechaLiquidado + ' - ' + liqEncarg?.hastaHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{liqEncarg?.hastaFechaLiquidado + ' - ' +
+                            liqEncarg?.hastaHoraLiquidado}} </div>
 
                         <div class="columnTreatment">{{liqEncarg?.tratamiento}}</div>
                     </div>
@@ -148,21 +199,21 @@
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
-                <!-- Add Manager -->
+                <!-- Add Therapist -->
 
                 <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
 
                 <form *ngIf="addForm">
 
-                    <div class="row containerSelect">
+                    <div class="row tableContainerNew">
 
-                        <div *ngIf="administratorRole" class="containerSelectManager">
+                        <div *ngIf="administratorRole" class="containerInChargeNew">
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
                                     (ngModelChange)="calculateServices()"
                                     style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
-                                    <option *ngIf="administratorRole" selected value="">Selecciona</option>
+                                    <option selected value="">Selecciona</option>
                                     <option *ngFor="let managers of manager" [value]="managers.nombre">
                                         {{managers.nombre}}
                                     </option>
@@ -170,12 +221,11 @@
                             </div>
                         </div>
 
-                        <div *ngIf="!administratorRole" class="containerInCharge">
+                        <div *ngIf="!administratorRole" class="containerInChargeNew">
                             <div class="row g-0">
                                 <label class="text">Encargada</label>
                                 <select class="form-select" name="encargada" [(ngModel)]="liquidationManager.encargada"
-                                    (ngModelChange)="calculateServices()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
-                                    font-size: 18px; font-family: sans-serif;">
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
                                     <option *ngFor="let managers of manager" [value]="managers.nombre">
                                         {{managers.nombre}}
                                     </option>
@@ -229,10 +279,14 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalCommission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
 
                     </div>
+                </div>
+
+                <div *ngIf="selected" class="columnArrowTable2" id="arrowTable2Add">
+                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
                 </div>
 
                 <!-- Table 2 -->
@@ -276,8 +330,12 @@
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
+                            <label>Bebida</label>
                         </div>
 
                         <div>
@@ -294,7 +352,6 @@
 
                     </div>
 
-
                     <div class="columnTable2Line2">
 
                         <div>
@@ -309,7 +366,7 @@
                             <label>Hora</label>
                         </div>
 
-                        <div class="textHour">
+                        <div class="textMin">
                             <label>Min</label>
                         </div>
 
@@ -329,15 +386,19 @@
                             <label>Pago</label>
                         </div>
 
-                        <div class="textValueManager">
-                            <label>€ A Encarg.</label>
+                        <div class="textValueTherapist">
+                            <label>€ A Encar.</label>
                         </div>
 
-                        <div class="textValue">
-                            <label>Bebida</label>
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobacco">
                             <label>Tabaco</label>
                         </div>
 
@@ -345,7 +406,7 @@
                             <label>Vitamina</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textOthers">
                             <label>Otros</label>
                         </div>
 
@@ -353,38 +414,36 @@
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2Line2" *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada) 
-                    | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="columnTable2Line2" *ngFor="let serv of (unliquidatedService | encargada: liquidationManager.encargada)     
+                        | paginate: { itemsPerPage: 10, currentPage: page }">
 
-                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
-                        </div>
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)"> </div>
 
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
-                        <div class="columnHour" (click)="goToEdit(serv.id)">
-                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
+                        <div class="columnMin">{{serv?.minuto + ' min'}} </div>
 
-                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
 
-                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+                        <div class="columnExit">{{serv?.salida}} </div>
 
-                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
 
-                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
 
-                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+                        <div class="columnValueManager"> {{serv?.numberEncarg + ' €'}} </div>
 
-                        <div class="columnValueManager" (click)="goToEdit(serv.id)">
-                            {{serv?.numberEncarg + ' €'}} </div>
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}} </div>
 
-                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}} </div>
 
-                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}} </div>
 
-                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}} </div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -407,7 +466,7 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="selected" class="pagination_Mobile" (pageChange)="page = $event"
+                <pagination-controls *ngIf="selected" class="pagination_MobileTable2" (pageChange)="page = $event"
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
@@ -437,9 +496,10 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratam.</label>
+                        <label class="columnTreatment3">Tratamiento</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.servicio + ' %'}}</label>
+                        <label class="columnComission">{{managerName?.servicio + '
+                            %'}}</label>
                         <label class="columnTotal">{{textServiceComission + ' €'}}</label>
                     </div>
 
@@ -447,14 +507,21 @@
                         <label class="columnTreatment3">Propina</label>
                         <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
                         <label class="columnComission">{{managerName?.propina + ' %'}}</label>
-                        <label class="columnTotal">{{textComissionTip + ' €'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnTreatment3">Bebida casa</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label class="columnComission">{{managerName?.bebida + ' %'}}</label>
                         <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label class="columnComission">{{managerName?.bebidaTerap + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
@@ -481,9 +548,9 @@
 
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
-                        <label class="textSum2">Suma</label>
+                        <label class="lblSum">Suma</label>
                         <label></label>
-                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                        <label class="columnTotal" style="white-space: pre">{{textSumCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnFixedDay">
@@ -506,8 +573,8 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnTotalPay">Total a</label>
-                        <label class="columnTotalPay">pagar</label>
-                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                        <label class="columnPay">pagar</label>
+                        <label class="columnTotal" style="white-space: pre">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>
 
@@ -543,42 +610,32 @@
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Total pagado</label>
-                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                        <label class="columnSum">{{textTotalManagerPayment + ' €'}}</label>
                     </div>
                 </div>
 
-                <div *ngIf="!editEncarg" class="row inputButton">
+                <div *ngIf="!editEncarg" class="row inputButtonSave">
 
-                    <div *ngIf="selected && unliquidatedService.length <= 0">
-                        <div class="row g-0">
-                            <button mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" mat-button class="btnSave" (click)="save()">Guardar</button>
                     </div>
 
-                    <div *ngIf="selected && unliquidatedService.length > 0">
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="save()">Guardar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length <= 0">
+                        <button mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
 
-                    <div *ngIf="selected && unliquidatedService.length > 0">
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
                 </div>
 
                 <!-- Edit Liquidation -->
 
-                <label *ngIf="editEncarg" class="titleEdit">
-                    Liquidación {{managerTitle}}</label>
+                <label *ngIf="editEncarg" class="titleEdit"> Liquidación {{managerTitle}}</label>
 
-                <label *ngIf="editEncarg" class="textDates">{{liquidationManager.desdeFechaLiquidado + ' : ' +
-                    liquidationManager.desdeHoraLiquidado + ' - ' + liquidationManager.hastaFechaLiquidado
-                    + ' : ' + liquidationManager.hastaHoraLiquidado}}</label>
+                <label *ngIf="editEncarg" class="textDates">{{liquidationManager.desdeFechaLiquidado + ' ' +
+                    liquidationManager.desdeHoraLiquidado + ' a ' + liquidationManager.hastaFechaLiquidado
+                    + ' ' + liquidationManager.hastaHoraLiquidado}}</label>
 
                 <div *ngIf="editEncarg">
                     <div class="row containerTitleEdit">
@@ -587,10 +644,13 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalCommission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
                     </div>
+                </div>
 
+                <div *ngIf="editEncarg" class="columnArrowTable2" id="arrowTable2Add">
+                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
                 </div>
 
                 <!-- Table 2 -->
@@ -634,8 +694,8 @@
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
                         </div>
 
                         <div>
@@ -652,7 +712,6 @@
 
                     </div>
 
-
                     <div class="columnTable2Line2">
 
                         <div>
@@ -667,7 +726,7 @@
                             <label>Hora</label>
                         </div>
 
-                        <div class="textHour">
+                        <div class="textMin">
                             <label>Min</label>
                         </div>
 
@@ -687,15 +746,15 @@
                             <label>Pago</label>
                         </div>
 
-                        <div class="textValueManager">
-                            <label>€ A Encarg.</label>
+                        <div class="textValueTherapist">
+                            <label>€ A Encar.</label>
                         </div>
 
-                        <div class="textValue">
-                            <label>Bebida</label>
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textTobacco">
                             <label>Tabaco</label>
                         </div>
 
@@ -703,7 +762,7 @@
                             <label>Vitamina</label>
                         </div>
 
-                        <div class="textValue">
+                        <div class="textOthers">
                             <label>Otros</label>
                         </div>
 
@@ -719,30 +778,31 @@
 
                         <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
 
-                        <div class="columnHour" (click)="goToEdit(serv.id)">
-                            {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
 
 
-                        <div class="columnMin" (click)="goToEdit(serv.id)">{{serv?.minuto}}</div>
+                        <div class="columnMin">{{serv?.minuto + ' min'}}</div>
 
-                        <div class="columnTreatment2" (click)="goToEdit(serv.id)">{{serv?.servicio + ' €'}} </div>
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
 
-                        <div class="columnExit" (click)="goToEdit(serv.id)">{{serv?.salida}}</div>
+                        <div class="columnExit">{{serv?.salida}}</div>
 
-                        <div class="columnValueTip" (click)="goToEdit(serv.id)">{{serv?.propina + ' €'}} </div>
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
 
-                        <div class="columnPaymentMethod" (click)="goToEdit(serv.id)">{{serv?.formaPago}}</div>
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
 
-                        <div class="columnValueManager" (click)="goToEdit(serv.id)">
-                            {{serv?.numberEncarg + ' €'}} </div>
+                        <div class="columnValueManager"> {{serv?.numberEncarg + ' €'}} </div>
 
-                        <div class="columnValueDrink" (click)="goToEdit(serv.id)">{{serv?.bebidas + ' €'}}</div>
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}}</div>
 
-                        <div class="columnValueTobacco" (click)="goToEdit(serv.id)">{{serv?.tabaco + ' €'}}</div>
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}}
+                        </div>
 
-                        <div class="columnValueVitamin" (click)="goToEdit(serv.id)">{{serv?.vitaminas + ' €'}}</div>
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}}</div>
 
-                        <div class="columnValueOthers" (click)="goToEdit(serv.id)">{{serv?.otros + ' €'}}</div>
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}}</div>
+
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}}</div>
 
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalTabl let-modal>
@@ -765,7 +825,7 @@
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="editEncarg" class="pagination_Mobile" (pageChange)="page = $event"
+                <pagination-controls *ngIf="editEncarg" class="pagination_MobileTable2" (pageChange)="page = $event"
                     previousLabel="" nextLabel="">
                 </pagination-controls>
 
@@ -795,7 +855,7 @@
                     <hr class="lineTable3">
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Tratam.</label>
+                        <label class="columnTreatment3">Tratamiento</label>
                         <label class="columnSum">{{textTotalService + ' €'}}</label>
                         <label *ngIf="managerName?.servicio != undefined" class="columnComission">
                             {{managerName?.servicio + ' %'}}</label>
@@ -809,11 +869,11 @@
                         <label *ngIf="managerName?.propina != undefined" class="columnComission">
                             {{managerName?.propina + ' %'}}</label>
                         <label *ngIf="managerName?.propina == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textComissionTip + ' €'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
                     </div>
 
                     <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida</label>
+                        <label class="columnTreatment3">Bebida casa</label>
                         <label class="columnSum">{{textValueDrink + ' €'}}</label>
                         <label *ngIf="managerName?.bebida != undefined" class="columnComission">{{managerName?.bebida +
                             ' %'}}</label>
@@ -822,10 +882,20 @@
                     </div>
 
                     <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label *ngIf="managerName?.bebidaTerap != undefined"
+                            class="columnComission">{{managerName?.bebidaTerap +
+                            ' %'}}</label>
+                        <label *ngIf="managerName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
                         <label class="columnTreatment3">Tabaco</label>
                         <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
-                        <label *ngIf="managerName?.tabaco != undefined" class="columnComission">{{managerName?.tabaco +
-                            ' %'}}</label>
+                        <label *ngIf="managerName?.tabaco != undefined" class="columnComission">
+                            {{managerName?.tabaco + ' %'}}</label>
                         <label *ngIf="managerName?.tabaco == undefined" class="columnComission">{{0 + ' %'}}</label>
                         <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
                     </div>
@@ -835,7 +905,8 @@
                         <label class="columnSum">{{textValueVitamins + ' €'}}</label>
                         <label *ngIf="managerName?.vitamina != undefined" class="columnComission">
                             {{managerName?.vitamina + ' %'}}</label>
-                        <label *ngIf="managerName?.vitamina == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label *ngIf="managerName?.vitamina == undefined" class="columnComission">
+                            {{0 + ' %'}}</label>
                         <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
                     </div>
 
@@ -850,9 +921,9 @@
 
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
-                        <label class="textSum2">Suma</label>
+                        <label class="lblSum">Suma</label>
                         <label></label>
-                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                        <label class="columnTotal" style="white-space: pre">{{textSumCommission + ' €'}}</label>
                     </div>
 
                     <div class="columnFixedDay">
@@ -876,8 +947,8 @@
                     <div class="columnTable3">
                         <label class="columnTreatment3"></label>
                         <label class="columnTotalPay">Total a</label>
-                        <label class="columnTotalPay">pagar</label>
-                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                        <label class="columnPay">pagar</label>
+                        <label class="columnTotal" style="white-space: pre">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>
 
@@ -913,34 +984,27 @@
 
                     <div class="columnTable4">
                         <label class="columnTreatment4">Total pagado</label>
-                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                        <label class="columnSum">{{textTotalManagerPayment + ' €'}}</label>
                     </div>
                 </div>
 
-                <div *ngIf="editEncarg" class="row inputButton">
+                <div *ngIf="editEncarg" class="row inputButtonEdit">
 
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="cancel()">Cancelar</button>
-                        </div>
-
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnDelete" (click)="delete()">Eliminar</button>
                     </div>
 
-                    <div>
-                        <div class="row g-0">
-                            <button type="submit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="edit()">Editar</button>
-                        </div>
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
 
                 </div>
+
             </div>
         </div>
 
         <div *ngIf="loading" id="container_loading">
             <div id="load"></div>
         </div>
-
     </div>
 </div>
