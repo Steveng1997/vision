@@ -13,6 +13,8 @@ import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseout
 import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 import { ModelService } from 'src/app/core/models/service'
 
+import moment from 'moment'
+
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
@@ -527,7 +529,6 @@ export class ManagerComponent implements OnInit {
   }
 
   async inputDateAndTime() {
-    debugger
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTerap = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0,
       sumComision = 0
 
@@ -646,11 +647,7 @@ export class ManagerComponent implements OnInit {
               this.sumCommission = Math.ceil(sumComision)
             }
 
-            let dayStart = 0, dayEnd = 0
-            dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(8, 10))
-            dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(8, 10))
-
-            this.fixedDay = dayEnd - dayStart + 1
+            this.calculateTheDays()
             this.fixedTotalDay = this.fixedDay * this.fijoDia
             this.pountFixedDay()
 
@@ -682,8 +679,25 @@ export class ManagerComponent implements OnInit {
     return false
   }
 
-  calculateTheDays(){
+  calculateTheDays() {
+    let day = '', convertDay = '', month = '', year = '', hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
 
+    dayEnd = this.liquidationManager.desdeFechaLiquidado.substring(8, 10)
+    monthEnd = this.liquidationManager.desdeFechaLiquidado.substring(5, 7)
+    yearEnd = this.liquidationManager.desdeFechaLiquidado.substring(0, 4)
+
+    var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd}`, "YYYY-MM-DD")
+
+    // Date 2
+
+    day = this.liquidationManager.hastaFechaLiquidado.substring(8, 10)
+    month = this.liquidationManager.hastaFechaLiquidado.substring(5, 7)
+    year = this.liquidationManager.hastaFechaLiquidado.substring(0, 4)
+    
+    var date2 = moment(`${year}-${month}-${day}`, "YYYY-MM-DD")
+
+    // this.fixedDay = date1.diff(date2, 'd')
+    this.fixedDay = date2.diff(date1, 'days')
   }
 
   async dateDoesNotExist() {
