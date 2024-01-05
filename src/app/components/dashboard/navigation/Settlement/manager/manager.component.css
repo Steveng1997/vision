@@ -46,6 +46,24 @@
   color: #8c52ff;
 }
 
+/* Pagination 2 */
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .current {
+  background: white;
+  color: #8c52ff;
+  font-weight: bold;
+}
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  color: #8c52ff;
+}
+
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  color: #8c52ff;
+}
+
 #container_loading {
   background-color: transparent;
   height: 100%;
@@ -875,6 +893,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -927,7 +946,7 @@
     height: 67%;
     font-size: 18px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: 1px;
     margin-left: 0.5em;
   }
 
@@ -1831,6 +1850,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -1845,14 +1865,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -34px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -9px;
+    margin-left: -46px;
   }
 
   .textSum2 {
@@ -1866,14 +1886,32 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -59px;
+    margin-left: -36px;
+  }
+
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 21% 22% 22% 24%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
   }
 
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -36px;
   }
 
   .columnTotal {
@@ -1884,12 +1922,12 @@
   }
 
   .lineTotalPay {
-    width: 70%;
+    width: 82%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 35%;
+    margin-left: 24%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -2771,6 +2809,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -2823,7 +2862,7 @@
     height: 67%;
     font-size: 18px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: 1px;
     margin-left: 0.5em;
   }
 
@@ -3615,7 +3654,7 @@
 
   .columnValueDrinkTherapist {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -3727,6 +3766,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -3741,14 +3781,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -59px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -9px;
+    margin-left: -73px;
   }
 
   .textSum2 {
@@ -3765,11 +3805,29 @@
     margin-left: -59px;
   }
 
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 19% 22% 20% 24%;
+    margin-bottom: -5px;
+    margin-left: -11px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
+  }
+
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -60px;
   }
 
   .columnTotal {
@@ -3780,12 +3838,12 @@
   }
 
   .lineTotalPay {
-    width: 70%;
+    width: 87%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 35%;
+    margin-left: 17%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -4554,7 +4612,7 @@
 
   .columnValueDrinkTherapist {
     line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4666,6 +4724,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -4680,14 +4739,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -58px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -16px;
+    margin-left: -72px;
   }
 
   .textSum2 {
@@ -4704,11 +4763,29 @@
     margin-left: -59px;
   }
 
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 19% 22% 20% 22.7%;
+    margin-bottom: -5px;
+    margin-left: -10px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
+  }
+
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -59.5px;
   }
 
   .columnTotal {
@@ -4719,12 +4796,12 @@
   }
 
   .lineTotalPay {
-    width: 69%;
+    width: 86%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 34%;
+    margin-left: 17%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -5606,6 +5683,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -5658,7 +5736,7 @@
     height: 67%;
     font-size: 18px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: 1px;
     margin-left: 0.5em;
   }
 
@@ -6451,7 +6529,7 @@
 
   .columnValueDrinkTherapist {
     line-height: 1.4rem;
-    padding: 0px 17px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -6563,6 +6641,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -6577,14 +6656,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -59px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -16px;
+    margin-left: -77px;
   }
 
   .textSum2 {
@@ -6601,11 +6680,29 @@
     margin-left: -59px;
   }
 
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 18% 22% 18% 23.5%;
+    margin-bottom: -5px;
+    margin-left: -16px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
+  }
+
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -60px;
   }
 
   .columnTotal {
@@ -6616,12 +6713,12 @@
   }
 
   .lineTotalPay {
-    width: 69%;
+    width: 85%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 32%;
+    margin-left: 16%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -6725,7 +6822,7 @@
   .titleLiqudationTherapist {
     display: grid;
     justify-content: center;
-    font-size: 28px;
+    font-size: 27px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -7502,6 +7599,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -7554,7 +7652,7 @@
     height: 67%;
     font-size: 18px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: 1px;
     margin-left: 0.5em;
   }
 
@@ -8459,6 +8557,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -8473,14 +8572,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -59px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -16px;
+    margin-left: -78px;
   }
 
   .textSum2 {
@@ -8497,11 +8596,29 @@
     margin-left: -59px;
   }
 
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 17% 22% 19% 21.8%;
+    margin-bottom: -5px;
+    margin-left: -15px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
+  }
+
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -60px;
   }
 
   .columnTotal {
@@ -8512,12 +8629,12 @@
   }
 
   .lineTotalPay {
-    width: 67%;
+    width: 83%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 32%;
+    margin-left: 16%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -9398,6 +9515,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -9412,14 +9530,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -62px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -16px;
+    margin-left: -77px;
   }
 
   .textSum2 {
@@ -9433,14 +9551,32 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -59px;
+    margin-left: -62px;
+  }
+
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 17% 22% 16% 22%;
+    margin-bottom: -5px;
+    margin-left: -18px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
   }
 
   .textReceivend {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    place-self: start;
+    margin-left: -63px;
   }
 
   .columnTotal {
@@ -9451,12 +9587,12 @@
   }
 
   .lineTotalPay {
-    width: 69%;
+    width: 81%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 34%;
+    margin-left: 15%;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -10337,6 +10473,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -10389,7 +10526,7 @@
     height: 67%;
     font-size: 18px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: 1px;
     margin-left: 0.5em;
   }
 
@@ -11294,6 +11431,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 14px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -11308,14 +11446,14 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    justify-self: start;
+    margin-left: -64px;
   }
 
   .columnPay {
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -74px;
+    margin-left: -138px;
   }
 
   .textSum2 {
@@ -11329,7 +11467,25 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -59px;
+    margin-left: -65px;
+  }
+
+  /* Fixed day */
+
+  .columnFixedDay {
+    display: grid;
+    grid-template-columns: 19% 12% 22% 16% 26.4%;
+    margin-bottom: -5px;
+    margin-left: -52px;
+  }
+
+  .inputFixedDay {
+    width: 67%;
+    height: 67%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 0.5em;
   }
 
   .textReceivend {
@@ -12078,6 +12234,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 13px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
@@ -12835,6 +12992,7 @@
     place-self: end;
     font-family: sans-serif;
     padding: 0px 13px 0px 0px;
+    white-space: pre;
   }
 
   .columnComission {
