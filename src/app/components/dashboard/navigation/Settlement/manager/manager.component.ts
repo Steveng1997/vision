@@ -80,6 +80,7 @@ export class ManagerComponent implements OnInit {
 
   // Comission
   totalCommission: number
+  totalLiquidation: number
 
   // Thousand pount
   textTotalComission: string
@@ -115,6 +116,8 @@ export class ManagerComponent implements OnInit {
 
   currentDate = new Date().getTime()
 
+  valueRegular: string
+
   liquidationManager: LiquidationManager = {
     currentDate: "",
     desdeFechaLiquidado: "",
@@ -127,7 +130,9 @@ export class ManagerComponent implements OnInit {
     idUnico: "",
     idEncargada: "",
     importe: 0,
-    tratamiento: 0
+    regularizacion: "",
+    tratamiento: 0,
+    valueRegularizacion: 0
   }
 
   services: ModelService = {
@@ -378,6 +383,8 @@ export class ManagerComponent implements OnInit {
 
   insertForm() {
     this.validationFilters = false
+    this.liquidationManager.regularizacion = ""
+    this.liquidationManager.valueRegularizacion = 0
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
@@ -387,6 +394,7 @@ export class ManagerComponent implements OnInit {
       }
     })
 
+    this.liquidationManager.encargada = ""
     this.liquidationForm = false
     this.editEncarg = false
     this.selected = false
@@ -457,10 +465,6 @@ export class ManagerComponent implements OnInit {
           this.selected = false
           this.dates = false
           await this.dateExists()
-
-          // setTimeout(() => {
-          //   if (this.inputDateAndTime()) return
-          // }, 600);
 
         } else {
           this.selected = false
@@ -648,6 +652,8 @@ export class ManagerComponent implements OnInit {
         } else {
           this.unliquidatedService = rp
           this.loading = false
+          this.dates = true
+          this.textTotalComission = '0'
 
           Swal.fire({
             icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
@@ -1437,6 +1443,45 @@ export class ManagerComponent implements OnInit {
     document.getElementById('arrowTable2Add').style.display = 'none'
   }
 
+  regularization(event: any) {
+    let numberRegularization = 0, valueRegularization = 0
+    numberRegularization = Number(event.target.value)
+
+    if (numberRegularization > 0) {
+      valueRegularization = this.totalCommission + numberRegularization
+    } else {
+      valueRegularization = this.totalCommission + numberRegularization
+    }
+
+    this.liquidationManager.valueRegularizacion = numberRegularization;
+
+    if (valueRegularization > 999 || numberRegularization > 999) {
+
+      const coma = valueRegularization.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCommission.toString().split(".") : valueRegularization.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalComission = integer[0]
+    } else {
+      this.textTotalComission = valueRegularization.toString()
+      this.valueRegular = numberRegularization.toString()
+    }
+  }
+
   fixedNumberDay(event: any) {
     let numberValue = 0
     numberValue = Number(event.target.value)
@@ -1509,10 +1554,10 @@ export class ManagerComponent implements OnInit {
   }
 
   async thousandPointEdit() {
-    if (this.totalCommission > 999) {
+    if (this.totalLiquidation > 999) {
 
-      const coma = this.totalCommission.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCommission.toString().split(".") : this.totalCommission.toString().split("");
+      const coma = this.totalLiquidation.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalLiquidation.toString().split(".") : this.totalLiquidation.toString().split("");
       let integer = coma ? array[0].split("") : array;
       let subIndex = 1;
 
@@ -1531,7 +1576,7 @@ export class ManagerComponent implements OnInit {
       integer = [integer.toString().replace(/,/gi, "")]
       this.textTotalComission = integer[0].toString()
     } else {
-      this.textTotalComission = this.totalCommission.toString()
+      this.textTotalComission = this.totalLiquidation.toString()
     }
 
     if (this.totalService > 999) {
@@ -2407,9 +2452,12 @@ export class ManagerComponent implements OnInit {
           }, 0)
         })
 
+        this.totalLiquidation = this.sumCommission - Number(this.receivedManager) + this.liquidationManager.valueRegularizacion
         this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
+
         this.validateNullData()
         await this.thousandPointEdit()
+        if (rp.length == 0) this.textTotalComission = '0'
         this.loading = false
         this.liquidationForm = false
         this.editEncarg = true
