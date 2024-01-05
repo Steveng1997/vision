@@ -419,6 +419,42 @@
     margin-left: -2%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -494,6 +530,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -1377,6 +1447,42 @@
     margin-left: -2%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -13px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -1452,6 +1558,40 @@
     font-family: sans-serif;
     margin-left: -33px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -2334,6 +2474,42 @@
     margin-left: -158%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 68% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -2410,6 +2586,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 68% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 11px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -3293,6 +3503,42 @@
     margin-left: -11%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -13px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -3368,6 +3614,40 @@
     font-family: sans-serif;
     margin-left: -33px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 67% 67px 30px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -4250,6 +4530,42 @@
     margin-left: -191%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -4325,6 +4641,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -5209,6 +5559,42 @@
     margin-left: -196%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -13px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -5284,6 +5670,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -6167,6 +6587,42 @@
     margin-left: -222%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -13px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -6242,6 +6698,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 11px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -7125,6 +7615,42 @@
     margin-left: -192%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 69.6% 70px 10px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -7200,6 +7726,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 65% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 11px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -8083,6 +8643,42 @@
     margin-left: -227%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 63% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 12px;
+    margin-left: -13px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -8158,6 +8754,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 63% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -9041,6 +9671,42 @@
     margin-left: -228%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 61% 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 10px;
+    margin-left: -12px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -9116,6 +9782,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 61% 70px 34px;
+    margin-top: 0rem;
+    margin-right: 10px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -9857,7 +10557,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 22% 43% 40% 19%;
+    grid-template-columns: 23% 24% 43% 40% 19%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -9875,7 +10575,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 22% 43% 40% 19%;
+    grid-template-columns: 23% 24% 43% 40% 19%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -9888,7 +10588,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 36px 0px 0px;
+    padding: 0px 30px 0px 0px;
   }
 
   .textImport {
@@ -9916,7 +10616,7 @@
   }
 
   .lineTable1 {
-    width: 148%;
+    width: 152%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -9941,7 +10641,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 25px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9957,7 +10657,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 19px 0px 0px;
+    padding: 0px 10px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -9975,7 +10675,7 @@
 
   .titleEdit {
     display: grid;
-    margin-left: -17px;
+    margin-left: -25px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
@@ -9989,14 +10689,50 @@
     color: #000000;
     font-family: sans-serif;
     white-space: pre;
-    margin-left: -14px;
+    margin-left: -24px;
   }
 
   .containerTitleEdit {
     display: grid;
-    grid-template-columns: 89% 159px;
+    grid-template-columns: 89% 143px;
     margin-top: 1rem;
-    margin-left: -307%;
+    margin-left: -250%;
+  }
+
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 250px 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 8px;
+    margin-left: -11px;
+  }
+
+  .textRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularizationEdit {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 54px;
+  }
+
+  .text€Edit {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
   }
 
   /* Add new liquidation */
@@ -10014,7 +10750,7 @@
 
   .tableContainerNew {
     display: grid;
-    grid-template-columns: 40%;
+    grid-template-columns: 45%;
     justify-content: center;
     margin-left: -78px;
     margin-top: 1rem;
@@ -10026,16 +10762,16 @@
   }
 
   .containerInChargeNew {
-    width: 77%;
-    justify-self: flex-end;
+    width: 76%;
+    margin-left: 22px;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 39% 39%;
+    grid-template-columns: 47% 47%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: -76.3px;
+    margin-left: -35px;
   }
 
   .fechaInicio {
@@ -10061,9 +10797,9 @@
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 159px;
+    grid-template-columns: 89% 143px;
     margin-top: 2rem;
-    margin-left: -309%;
+    margin-left: -250%;
   }
 
   .titleLiquidation {
@@ -10074,6 +10810,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 250px 70px 34px;
+    margin-top: 0rem;
+    margin-right: 8px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -10104,7 +10874,7 @@
 
   .columnTable2Line1 {
     display: grid;
-    grid-template-columns: 9% 24% 26% 18% 26% 25% 25% 20% 22% 23% 23% 22% 23% 16%;
+    grid-template-columns: 9% 22% 29% 20% 29% 27% 23% 22% 26% 26% 26% 26% 26% 18%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -15px;
@@ -10138,7 +10908,7 @@
 
   .columnTable2Line2 {
     display: grid;
-    grid-template-columns: 9% 24% 26% 18% 26% 25% 25% 20% 22% 23% 23% 22% 23% 16%;
+    grid-template-columns: 9% 22% 29% 20% 29% 27% 23% 22% 26% 26% 26% 26% 26% 18%;
     margin-bottom: 8px;
     margin-left: -20px;
   }
@@ -10192,7 +10962,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-break: break-all;
-    padding: 0px 49px 0px 25px;
+    padding: 0px 25px 0px 25px;
   }
 
   .textPay {
@@ -10257,7 +11027,7 @@
   }
 
   .lineTable2 {
-    width: 307%;
+    width: 336%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -10292,7 +11062,7 @@
 
   .columnMin {
     line-height: 1.4rem;
-    padding: 0px 11px 0px 0px;
+    padding: 0px 10px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10302,7 +11072,7 @@
 
   .columnTreatment2 {
     line-height: 1.4rem;
-    padding: 0px 36px 0px 0px;
+    padding: 0px 35px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10327,7 +11097,7 @@
     font-size: 18px;
     text-align: end;
     line-height: normal;
-    padding: 0px 50px 0px 0px;
+    padding: 0px 29px 0px 0px;
   }
 
   .columnPaymentMethod {
@@ -10341,7 +11111,7 @@
 
   .columnValueManager {
     line-height: 1.4rem;
-    padding: 0px 5px 0px 0px;
+    padding: 0px 11px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10351,7 +11121,7 @@
 
   .columnValueDrink {
     line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 16px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10361,7 +11131,7 @@
 
   .columnValueDrinkTherapist {
     line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
+    padding: 0px 17px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10371,7 +11141,7 @@
 
   .columnValueTobacco {
     line-height: 1.4rem;
-    padding: 0px 9px 0px 0px;
+    padding: 0px 15px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10381,7 +11151,7 @@
 
   .columnValueVitamin {
     line-height: 1.4rem;
-    padding: 0px 26px 0px 0px;
+    padding: 0px 28px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10391,7 +11161,7 @@
 
   .columnValueOthers {
     line-height: 1.4rem;
-    padding: 0px 2px 0px 0px;
+    padding: 0px 3px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -10409,19 +11179,19 @@
 
   .column3 {
     margin-top: 2rem;
-    margin-left: -6px;
+    margin-left: -11px;
     margin-bottom: 2px;
   }
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 28% 25% 22% 20.1%;
+    grid-template-columns: 32% 25% 24% 22%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
 
   .lineTable3 {
-    width: 96%;
+    width: 104%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -10495,7 +11265,7 @@
     color: #000000;
     font-size: 18px;
     font-family: sans-serif;
-    margin-left: -109px;
+    margin-left: -96px;
   }
 
   .textSum2 {
@@ -10516,9 +11286,9 @@
 
   .columnFixedDay {
     display: grid;
-    grid-template-columns: 19% 14% 22% 15% 25.4%;
+    grid-template-columns: 19% 16% 22% 18% 27.9%;
     margin-bottom: -5px;
-    margin-left: -38px;
+    margin-left: -24px;
   }
 
   .inputFixedDay {
@@ -10545,12 +11315,12 @@
   }
 
   .lineTotalPay {
-    width: 83%;
+    width: 89%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 52px;
+    margin-left: 54px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
@@ -10559,19 +11329,19 @@
 
   .column4 {
     margin-top: 2rem;
-    margin-left: -19px;
+    margin-left: -21px;
     margin-bottom: 2px;
   }
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 56% 43.8%;
+    grid-template-columns: 56% 52%;
     margin-bottom: -5px;
     margin-left: 0%;
   }
 
   .lineTable4 {
-    width: 97%;
+    width: 104%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -10957,6 +11727,42 @@
     margin-left: -376%;
   }
 
+  /* Regularization */
+
+  .containerRegularizationEdit {
+    display: grid;
+    grid-template-columns: 340px 70px 34px;
+    margin-top: 0rem;
+    margin-bottom: -21px;
+    margin-right: 5px;
+    margin-left: -12px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
+  }
+
   /* Add new liquidation */
 
   .title {
@@ -11032,6 +11838,40 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  /* regularization */
+
+  .containerRegularization {
+    display: grid;
+    grid-template-columns: 340px 70px 34px;
+    margin-top: 0rem;
+    margin-right: 9px;
+  }
+
+  .textRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+  }
+
+  .inputRegularization {
+    height: 2.2rem;
+    border-color: #8C52FF;
+    color: #242424;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: 14px;
+  }
+
+  .text€ {
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-top: 3px;
+    margin-left: 19px;
   }
 
   /* Arrow 2  */
