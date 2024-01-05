@@ -37,6 +37,8 @@ export class ManagerComponent implements OnInit {
   settledData: any
   page!: number
   managerTitle = ""
+  idManager: string
+  idLiquidation: any
 
   fijoDia: number
   fixedTotalDay: number
@@ -313,15 +315,6 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  filtersDateEnd(event: any) {
-    this.formTemplate.value.FechaFin = event.target.value
-    if (this.formTemplate.value.FechaFin != "") {
-      let fechaFin = ''
-      fechaFin = this.formTemplate.value.FechaFin
-      this.fechaFinal = fechaFin
-    }
-  }
-
   filters() {
     this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
 
@@ -331,17 +324,40 @@ export class ManagerComponent implements OnInit {
       this.fechaInicio = fecha
     }
 
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
+    if (this.formTemplate.value.FechaFin != "") {
+      let fechaFin = ''
+      fechaFin = this.formTemplate.value.FechaFin
+      this.fechaFinal = fechaFin
+    }
 
-        if (this.liquidationManager.encargada != "" ||
-          this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = false;
-        } else {
-          (document.getElementById('buttonDelete') as HTMLButtonElement).disabled = true;
-        }
-      }
-    })
+    const managerCondition = serv => {
+      return (this.liquidationManager.encargada) ? serv.encargada === this.liquidationManager.encargada : true
+    }
+
+    const conditionBetweenDates = serv => {
+      if (this.fechaInicio === undefined && this.fechaFinal === undefined) return true
+      if (this.fechaInicio === undefined && serv.fechaHoyInicio <= this.fechaFinal) return true
+      if (this.fechaFinal === undefined && serv.fechaHoyInicio === this.fechaInicio) return true
+      if (serv.fechaHoyInicio >= this.fechaInicio && serv.fechaHoyInicio <= this.fechaFinal) return true
+
+      return false
+    }
+
+    const searchCondition = serv => {
+      if (!this.filtredBusqueda) return true
+      const criterio = this.filtredBusqueda
+      return (serv.terapeuta.match(criterio)
+        || serv.encargada.match(criterio)
+        || serv.formaPago.match(criterio)
+        || serv.fecha.match(criterio)
+        || serv.cliente.match(criterio)) ? true : false
+    }
+
+    if (this.liquidationManager.encargada != "" ||
+      this.formTemplate.value.fechaInicio || this.formTemplate.value.FechaFin != "") {
+      this.idLiquidation = this.liquidated.filter(serv => managerCondition(serv) &&
+        searchCondition(serv) && conditionBetweenDates(serv))
+    }
   }
 
   async OK() {
@@ -375,8 +391,8 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  GetAllManagers() {
-    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
+  async GetAllManagers() {
+    this.serviceManager.getUsuarios().subscribe(async (datosEncargada: any) => {
       this.manager = datosEncargada
     })
   }
@@ -511,6 +527,7 @@ export class ManagerComponent implements OnInit {
   }
 
   async inputDateAndTime() {
+    debugger
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTerap = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0,
       sumComision = 0
 
@@ -663,6 +680,10 @@ export class ManagerComponent implements OnInit {
         }
       })
     return false
+  }
+
+  calculateTheDays(){
+
   }
 
   async dateDoesNotExist() {
@@ -2321,6 +2342,8 @@ export class ManagerComponent implements OnInit {
     this.loading = true
     this.validationFilters = false
     this.liquidationForm = false
+    this.idSettled = id
+    this.idManager = idManager
 
     this.serviceLiquidationManager.getIdEncarg(idManager).subscribe(async (datosManager) => {
       this.liquidationManager.desdeFechaLiquidado = datosManager[0]['desdeFechaLiquidado']
@@ -2496,21 +2519,20 @@ export class ManagerComponent implements OnInit {
       confirmButtonText: 'Si, Deseo eliminar!'
     }).then((result) => {
       if (result.isConfirmed) {
-        // this.services.idTerapeuta = ""
-        // this.services.liquidadoTerapeuta = false
-        // this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
-        //   this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-        //     this.validitingUser()
-        //     this.liquidationTherapist.terapeuta = ""
-        //     this.liquidationTherapist.encargada = ""
-        this.liquidationForm = true
-        this.validationFilters = true
-        this.addForm = false
-        //     this.editTerap = false
-        //     this.selected = false
-        //     this.dates = false
-        //   })
-        // })
+        this.services.idEncargada = ""
+        this.services.liquidadoEncargada = false
+        this.service.updateManagerSettlementManagerIdByManagerId(this.idManager, this.services).subscribe(async (rp) => {
+          this.serviceLiquidationManager.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+            this.validitingUser()
+            this.liquidationManager.encargada = ""
+            this.liquidationForm = true
+            this.validationFilters = true
+            this.addForm = false
+            this.editEncarg = false
+            this.selected = false
+            this.dates = false
+          })
+        })
       }
     })
   }
@@ -2524,7 +2546,7 @@ export class ManagerComponent implements OnInit {
 
     if (this.liquidationManager.encargada != "") {
 
-      this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe((rp: any) => {
+      this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp: any) => {
 
         if (rp.length > 0) {
 
@@ -2535,7 +2557,7 @@ export class ManagerComponent implements OnInit {
 
           this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
 
-          this.validitingUser()
+          await this.validitingUser()
           this.thousandPount()
           this.liquidationForm = true
           this.validationFilters = true
@@ -2567,6 +2589,7 @@ export class ManagerComponent implements OnInit {
           this.addForm = false
           this.editEncarg = false
           this.selected = false
+          this.dates = false
           this.liquidationManager.encargada = ""
 
           Swal.fire({
@@ -2654,19 +2677,19 @@ export class ManagerComponent implements OnInit {
                 confirmButtonText: 'Si, Deseo eliminar!'
               }).then((result) => {
                 if (result.isConfirmed) {
-                  // this.loading = true
-                  // this.idLiquidation.map(item => {
-                  //   this.services.idTerapeuta = ""
-                  //   this.services.liquidadoTerapeuta = false
-                  //   this.service.updateTherapistSettlementTherapistIdByTherapistId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
-                  //     this.serviceLiquidationTherapist.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
-                  //       this.validitingUser()
-                  //       this.emptyValues()
-                  //       this.loading = false
-                  //       Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
-                  //     })
-                  //   })
-                  // })
+                  this.loading = true
+                  this.idLiquidation.map(item => {
+                    this.services.idEncargada = ""
+                    this.services.liquidadoEncargada = false
+                    this.service.updateManagerSettlementManagerIdByManagerId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
+                      this.serviceLiquidationManager.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
+                        this.validitingUser()
+                        this.emptyValues()
+                        this.loading = false
+                        Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
+                      })
+                    })
+                  })
                 }
                 else {
                   this.loading = false

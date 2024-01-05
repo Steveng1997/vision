@@ -8330,6 +8330,7 @@
   }
 }
 
+/* Steven */
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
 
   .container {
@@ -8560,7 +8561,7 @@
   }
 
   .lineTable1 {
-    width: 194%;
+    width: 169%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -8585,7 +8586,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8601,7 +8602,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -8640,7 +8641,7 @@
     display: grid;
     grid-template-columns: 89% 109px;
     margin-top: 1rem;
-    margin-left: -227%;
+    margin-left: -229%;
   }
 
   /* Regularization */
@@ -8712,10 +8713,10 @@
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 51% 51%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 2px;
+    margin-left: -20px;
   }
 
   .fechaInicio {
@@ -8743,7 +8744,7 @@
     display: grid;
     grid-template-columns: 89% 109px;
     margin-top: 2rem;
-    margin-left: -227%;
+    margin-left: -229%;
   }
 
   .titleLiquidation {

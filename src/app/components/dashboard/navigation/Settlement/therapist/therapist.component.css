@@ -8666,7 +8666,7 @@
     display: grid;
     grid-template-columns: 89% 109px;
     margin-top: 1rem;
-    margin-left: -227%;
+    margin-left: -229%;
   }
 
   /* Regularization */
@@ -8738,10 +8738,10 @@
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 51% 51%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 2px;
+    margin-left: -20px;
   }
 
   .fechaInicio {
@@ -8769,7 +8769,7 @@
     display: grid;
     grid-template-columns: 89% 109px;
     margin-top: 2rem;
-    margin-left: -227%;
+    margin-left: -229%;
   }
 
   .titleLiquidation {

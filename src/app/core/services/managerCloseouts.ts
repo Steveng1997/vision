@@ -44,4 +44,10 @@ export class ServiceLiquidationManager {
   updateEncargImporteId(id: number, liquidationManger: LiquidationManager) {
     return this.http.put(`${this.API_URL}/updateByEncargByImporteById/${id}`, liquidationManger);
   }
+
+  // Delete
+
+  deleteLiquidationTherapist(id: number) {
+    return this.http.delete(`${this.API_URL}/deleteLiquidationManagers/${id}`);
+  }
 }
