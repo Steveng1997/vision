@@ -40,6 +40,7 @@ import { LoginComponent } from './navigation/login/login.component'
 import { TerapeutaPipe } from 'src/app/core/pipe/terapeuta.pipe'
 import { EncargadaPipe } from 'src/app/core/pipe/encargada.pipe'
 import { FechaInicialPipe } from 'src/app/core/pipe/fecha-inicial.pipe'
+import { HoraInicialPipe } from 'src/app/core/pipe/hora-inicial.pipe'
 import { BusquedaPipe } from 'src/app/core/pipe/busqueda.pipe'
 import { FormaPagoPipe } from 'src/app/core/pipe/forma-pago.pipe'
 import { BusquedaEncargadaPipe } from 'src/app/core/pipe/busquedaEncargada.pipe'
@@ -52,7 +53,7 @@ import { BusquedaTerapeutaPipe } from 'src/app/core/pipe/busquedaTerapeuta.pipe'
 @NgModule({
   declarations: [SidenavWrapperComponent, SettingComponent, ClosingComponent, NewServiceComponent,
     ManagerComponent, TherapistComponent, VisionComponent, TableComponent, TerapeutaPipe, 
-    EncargadaPipe, FechaInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe,
+    EncargadaPipe, FechaInicialPipe, HoraInicialPipe, FormaPagoPipe, BusquedaPipe, BusquedaEncargadaPipe,
     FechaInicialEncargadaPipe, FechaFinalEncargadaPipe, LoginComponent, BusquedaCierrePipe,
     FechaCierrePipe, BusquedaTerapeutaPipe],
 

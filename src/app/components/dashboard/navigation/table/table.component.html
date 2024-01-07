@@ -83,6 +83,26 @@
                                                     font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
+
+                                        <div class="hourContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Hora Inicio</label>
+                                                <input type="time" name="horaStart" min="18:00" max="21:00" step="3600"
+                                                    class="form-control" formControlName="horaStart"
+                                                    [(ngModel)]="horaStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                                    font-size: 18px; font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+
+                                        <div class="hourContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Hora Final</label>
+                                                <input type="time" name="horaEnd" min="18:00" max="21:00" step="3600"
+                                                    class="form-control" formControlName="horaEnd" [(ngModel)]="horaEnd"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="tableContainer2">
@@ -445,7 +465,7 @@
                     <hr class="lineTable">
 
                     <div class="columnTableLine2" *ngFor="let services of (servicio | terapeuta: selectedTerapeuta |
-                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | 
+                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | horaInicial: horaStart:horaEnd | 
                     busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
                     paginate: { itemsPerPage: 50, currentPage: page }">
 

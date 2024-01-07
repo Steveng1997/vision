@@ -31,6 +31,8 @@ export class TableComponent implements OnInit {
 
   fechaInicio: string
   fechaFinal: string
+  horaInicio: string
+  horaFinal: string
   filtredBusqueda: string
   page!: number
 
@@ -45,6 +47,8 @@ export class TableComponent implements OnInit {
 
   dateStart: string
   dateEnd: string
+  horaStart: string
+  horaEnd: string
 
   servicio: any
   horario: any
@@ -97,6 +101,8 @@ export class TableComponent implements OnInit {
   formTemplate = new FormGroup({
     fechaInicio: new FormControl(''),
     FechaFin: new FormControl(''),
+    horaStart: new FormControl(''),
+    horaEnd: new FormControl(''),
     terapeuta: new FormControl(''),
     encargada: new FormControl(''),
     busqueda: new FormControl(''),
@@ -158,7 +164,7 @@ export class TableComponent implements OnInit {
     if (this.totalValor == undefined) this.totalValor = 0
   }
 
-  todaysDdate(){
+  todaysDdate() {
     let date = new Date(), day = 0, month = 0, year = 0, convertMonth = '', convertDay = '', currentDate
 
     day = date.getDate()
@@ -545,6 +551,18 @@ export class TableComponent implements OnInit {
       this.fechaFinal = fechaFin
     }
 
+    if (this.formTemplate.value.horaStart != "") {
+      let horaStart = ''
+      horaStart = this.formTemplate.value.horaStart
+      this.horaInicio = horaStart
+    }
+
+    if (this.formTemplate.value.horaEnd != "") {
+      let horaEnd = ''
+      horaEnd = this.formTemplate.value.horaEnd
+      this.horaFinal = horaEnd
+    }
+
     await this.calculateSumOfServices()
   }
 
@@ -573,6 +591,15 @@ export class TableComponent implements OnInit {
       return false
     }
 
+    const conditionBetweenHours = serv => {
+      if (this.horaInicio === undefined && this.horaStart === undefined) return true
+      if (this.horaInicio === undefined && serv.horaFinal <= this.horaFinal) return true
+      if (this.horaFinal === undefined && serv.horaEnd === this.horaInicio) return true
+      if (serv.horaStart >= this.horaInicio && serv.horaEnd <= this.horaFinal) return true
+
+      return false
+    }
+
     const searchCondition = serv => {
       if (!this.filtredBusqueda) return true
       const criterio = this.filtredBusqueda
@@ -592,7 +619,7 @@ export class TableComponent implements OnInit {
 
       const servicios = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalServicio = servicios.reduce((accumulator, serv) => {
         return accumulator + serv.servicio
       }, 0)
@@ -601,7 +628,7 @@ export class TableComponent implements OnInit {
       // Filter by Pisos
       const pisoss = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalPiso = pisoss.reduce((accumulator, serv) => {
         return accumulator + serv.numberPiso1
       }, 0)
@@ -609,7 +636,7 @@ export class TableComponent implements OnInit {
       // Filter by Pisos
       const pisos2 = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalPiso2 = pisos2.reduce((accumulator, serv) => {
         return accumulator + serv.numberPiso2
       }, 0)
@@ -617,7 +644,7 @@ export class TableComponent implements OnInit {
       // Filter by Terapeuta
       const terapeuta = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorTerapeuta = terapeuta.reduce((accumulator, serv) => {
         return accumulator + serv.numberTerap
       }, 0)
@@ -625,7 +652,7 @@ export class TableComponent implements OnInit {
       // Filter by Encargada
       const encargada = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorEncargada = encargada.reduce((accumulator, serv) => {
         return accumulator + serv.numberEncarg
       }, 0)
@@ -633,7 +660,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Otro
       const valorOtro = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorAOtros = valorOtro.reduce((accumulator, serv) => {
         return accumulator + serv.numberTaxi
       }, 0)
@@ -641,7 +668,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Bebida
       const valorBebida = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.TotalValorBebida = valorBebida.reduce((accumulator, serv) => {
         return accumulator + serv.bebidas
       }, 0)
@@ -649,7 +676,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Bebida
       const valueDrinkTherapist = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValueDrinkTherapist = valueDrinkTherapist.reduce((accumulator, serv) => {
         return accumulator + serv.bebidaTerap
       }, 0)
@@ -657,7 +684,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Tabaco
       const valorTabaco = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.TotalValorTabaco = valorTabaco.reduce((accumulator, serv) => {
         return accumulator + serv.tabaco
       }, 0)
@@ -665,7 +692,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Vitamina
       const valorVitamina = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorVitaminas = valorVitamina.reduce((accumulator, serv) => {
         return accumulator + serv.vitaminas
       }, 0)
@@ -673,7 +700,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Propina
       const valorPropina = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorPropina = valorPropina.reduce((accumulator, serv) => {
         return accumulator + serv.propina
       }, 0)
@@ -681,7 +708,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Total
       const valorTotal = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValor = valorTotal.reduce((accumulator, serv) => {
         this.idService = valorTotal
         return accumulator + serv.totalServicio
@@ -690,7 +717,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Propina
       const valorOtros = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValorOtroServ = valorOtros.reduce((accumulator, serv) => {
         return accumulator + serv.otros
       }, 0)
@@ -698,7 +725,7 @@ export class TableComponent implements OnInit {
       // Filter by Valor Total
       const valueTaxi = this.servicio.filter(serv => therapistCondition(serv)
         && managerCondition(serv) && searchCondition(serv) && conditionBetweenDates(serv)
-        && wayToPay(serv))
+        && conditionBetweenHours(serv) && wayToPay(serv))
       this.totalValueTaxi = valueTaxi.reduce((accumulator, serv) => {
         return accumulator + serv.taxi
       }, 0)

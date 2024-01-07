@@ -125,6 +125,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 91%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 56% 56%;
@@ -964,6 +970,12 @@
   }
 
   .dateContainer {
+    width: 87%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .hourContainer {
     width: 87%;
     justify-self: center;
     margin-top: 8%;
@@ -1813,6 +1825,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 87%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 58% 58%;
@@ -2656,6 +2674,12 @@
     margin-top: 10%;
   }
 
+  .hourContainer {
+    width: 89%;
+    justify-self: center;
+    margin-top: 10%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 53% 53%;
@@ -3494,6 +3518,12 @@
   }
 
   .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .hourContainer {
     width: 83%;
     justify-self: center;
     margin-top: 8%;
@@ -4344,6 +4374,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 58% 58%;
@@ -5189,6 +5225,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 78%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 58% 58%;
@@ -6028,6 +6070,12 @@
   }
 
   .dateContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .hourContainer {
     width: 82%;
     justify-self: center;
     margin-top: 8%;
@@ -6886,6 +6934,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 54% 54%;
@@ -7729,6 +7783,12 @@
     margin-top: 8%;
   }
 
+  .hourContainer {
+    width: 82%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 54% 54%;
@@ -8567,6 +8627,12 @@
   }
 
   .dateContainer {
+    width: 63%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  .hourContainer {
     width: 63%;
     justify-self: center;
     margin-top: 8%;
@@ -9416,6 +9482,12 @@
     margin-top: 3%;
   }
 
+  .hourContainer {
+    width: 57%;
+    justify-self: center;
+    margin-top: 3%;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 58% 58%;
@@ -10239,6 +10311,11 @@
     justify-self: center;
   }
 
+  .hourContainer {
+    width: 90%;
+    justify-self: center;
+  }
+
   .tableContainer2 {
     display: grid;
     grid-template-columns: 24% 26% 17% 10%;
@@ -10903,6 +10980,11 @@
   }
 
   .dateContainer {
+    width: 77%;
+    justify-self: center;
+  }
+
+  .hourContainer {
     width: 77%;
     justify-self: center;
   }
