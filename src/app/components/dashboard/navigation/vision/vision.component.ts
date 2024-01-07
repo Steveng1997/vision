@@ -384,6 +384,7 @@ export class VisionComponent implements OnInit {
   async tableTherapistForManager(element, text, dateCurrent) {
     this.existTherapist = false
     this.message = false
+    debugger
 
     if (text == 'array') {
 
@@ -416,7 +417,7 @@ export class VisionComponent implements OnInit {
         rp.map(item => {
           item['nombre'] = item['terapeuta']
 
-          this.service.getTherapistAndManagerAndDates(item['terapeuta'], element[0]['nombre'], dateCurrent).subscribe((rp: any) => {
+          this.service.getTherapistAndManagerAndDates(item['terapeuta'], element[0]['nombre'], dates).subscribe((rp: any) => {
             if (rp.length > 0) {
               this.existTherapist = true
 
