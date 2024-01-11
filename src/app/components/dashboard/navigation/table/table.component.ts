@@ -49,6 +49,8 @@ export class TableComponent implements OnInit {
   dateEnd: string
   horaStart: string
   horaEnd: string
+  parmHourStart: string
+  parmHourEnd: string
 
   servicio: any
   horario: any
@@ -591,11 +593,15 @@ export class TableComponent implements OnInit {
       return false
     }
 
+    this.parmHourStart = `${this.fechaInicio} ${this.horaInicio}`
+    this.parmHourEnd = `${this.fechaFinal} ${this.horaFinal}`
+
     const conditionBetweenHours = serv => {
       if (this.horaInicio === undefined && this.horaStart === undefined) return true
       if (this.horaInicio === undefined && serv.horaFinal <= this.horaFinal) return true
-      if (this.horaFinal === undefined && serv.horaEnd === this.horaInicio) return true
-      if (serv.horaStart >= this.horaInicio && serv.horaEnd <= this.horaFinal) return true
+      if (this.horaFinal === undefined && serv.horaInicio === this.horaInicio) return true
+      if (`${serv.fechaHoyInicio} ${serv.horaFinal}` >= this.parmHourStart && `${serv.fechaHoyInicio} ${serv.horaEnd}` <= this.parmHourEnd) return true
+      // if (serv.horaStart >= this.horaInicio && serv.horaEnd <= this.horaFinal) return true
 
       return false
     }

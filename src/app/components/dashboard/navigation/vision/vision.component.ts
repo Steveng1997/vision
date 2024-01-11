@@ -384,7 +384,6 @@ export class VisionComponent implements OnInit {
   async tableTherapistForManager(element, text, dateCurrent) {
     this.existTherapist = false
     this.message = false
-    debugger
 
     if (text == 'array') {
 

@@ -465,9 +465,9 @@
                     <hr class="lineTable">
 
                     <div class="columnTableLine2" *ngFor="let services of (servicio | terapeuta: selectedTerapeuta |
-                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal | horaInicial: horaStart:horaEnd | 
-                    busqueda: filtredBusqueda | formaPago: selectedFormPago ) | 
-                    paginate: { itemsPerPage: 50, currentPage: page }">
+                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
+                    | horaInicial: fechaInicio:horaStart:fechaFinal:horaEnd | busqueda: filtredBusqueda 
+                    | formaPago: selectedFormPago ) | paginate: { itemsPerPage: 50, currentPage: page }">
 
                         <div class="columnNote" class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
                             (click)="notes(services.id, modalTabl)">
