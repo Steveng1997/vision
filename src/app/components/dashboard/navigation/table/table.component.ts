@@ -600,7 +600,7 @@ export class TableComponent implements OnInit {
       if (this.horaInicio === undefined && this.horaStart === undefined) return true
       if (this.horaInicio === undefined && serv.horaFinal <= this.horaFinal) return true
       if (this.horaFinal === undefined && serv.horaInicio === this.horaInicio) return true
-      if (`${serv.fechaHoyInicio} ${serv.horaFinal}` >= this.parmHourStart && `${serv.fechaHoyInicio} ${serv.horaEnd}` <= this.parmHourEnd) return true
+      if (`${serv.fechaHoyInicio} ${serv.horaStart}` >= this.parmHourStart && `${serv.fechaHoyInicio} ${serv.horaEnd}` <= this.parmHourEnd) return true
       // if (serv.horaStart >= this.horaInicio && serv.horaEnd <= this.horaFinal) return true
 
       return false
