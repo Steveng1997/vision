@@ -1551,8 +1551,10 @@ export class ManagerComponent implements OnInit {
 
           integer = [integer.toString().replace(/,/gi, "")]
           this.textTotalCommission = integer[0].toString()
+          this.textTotalComission = integer[0].toString()
         } else {
           this.textTotalCommission = this.totalCommission.toString()
+          this.textTotalComission = this.totalCommission.toString()
         }
       })
     }
