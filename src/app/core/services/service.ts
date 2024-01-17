@@ -8,7 +8,10 @@ import { ModelService } from '../models/service';
 @Injectable()
 export class Service {
 
-  API_URL = 'http://3.12.102.108:3000/api/servicio';
+  // API_URL = 'http://3.12.102.108:3000/api/servicio';
+
+  // Page pasffey
+  API_URL = 'http://35.181.62.147:3000/api/servicio';
 
   constructor(
     public router: Router,
@@ -387,7 +390,7 @@ export class Service {
     return this.http.put(`${this.API_URL}/updatesManagerSettlementManagerIdByManagerId/${idEncargada}`, service);
   }
 
-  updateScreenById(id: number, service: ModelService){
+  updateScreenById(id: number, service: ModelService) {
     return this.http.put(`${this.API_URL}/updateScreenById/${id}`, service);
   }
 

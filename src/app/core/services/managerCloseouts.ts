@@ -8,7 +8,10 @@ import { LiquidationManager } from '../models/liquidationManager';
 @Injectable()
 export class ServiceLiquidationManager {
 
-  API_URL = 'http://3.12.102.108:3000/api/liqEncargada';
+  // API_URL = 'http://3.12.102.108:3000/api/liqEncargada';
+
+  // Page pasffey
+  API_URL = 'http://35.181.62.147:3000/api/liqEncargada';
 
   constructor(
     public router: Router,

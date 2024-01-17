@@ -10,7 +10,10 @@ import { ModelManager } from '../models/manager';
 @Injectable()
 export class ServiceManager {
 
-  API_URL = 'http://3.12.102.108:3000/api/encargada';
+  // API_URL = 'http://3.12.102.108:3000/api/encargada';
+
+  // Page pasffey
+  API_URL = 'http://35.181.62.147:3000/api/encargada';
   length: number;
 
   constructor(
@@ -52,9 +55,9 @@ export class ServiceManager {
     });
   }
 
-  isAuth():boolean{
+  isAuth(): boolean {
     const token = localStorage.getItem('token');
-    if(this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')){
+    if (this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')) {
       return false;
     }
     return true;
