@@ -2440,7 +2440,7 @@ export class ManagerComponent implements OnInit {
 
   async comission(element) {
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTherapist = 0, comiTabaco = 0, comiVitamina = 0,
-      comiOtros = 0, sumComision = 0
+      comiOtros = 0, sumComision = 0, comission = 0
 
     this.serviceManager.getEncargada(element[0]['encargada']).subscribe(async (rp: any) => {
       if (rp.length > 0) {
@@ -2458,13 +2458,13 @@ export class ManagerComponent implements OnInit {
         comiOtros = this.totalValueOther / 100 * rp[0]?.otros
 
         // Conversion decimal
-        this.serviceCommission = Number(comisiServicio.toFixed(1))
-        this.commissionTip = Number(comiPropina.toFixed(1))
-        this.beverageCommission = Number(comiBebida.toFixed(1))
-        this.beverageTherapistCommission = Number(comiBebidaTherapist.toFixed(1))
-        this.tobaccoCommission = Number(comiTabaco.toFixed(1))
-        this.vitaminCommission = Number(comiVitamina.toFixed(1))
-        this.commissionOthers = Number(comiOtros.toFixed(1))
+        this.serviceCommission = Number(comisiServicio.toFixed(0))
+        this.commissionTip = Number(comiPropina.toFixed(0))
+        this.beverageCommission = Number(comiBebida.toFixed(0))
+        this.beverageTherapistCommission = Number(comiBebidaTherapist.toFixed(0))
+        this.tobaccoCommission = Number(comiTabaco.toFixed(0))
+        this.vitaminCommission = Number(comiVitamina.toFixed(0))
+        this.commissionOthers = Number(comiOtros.toFixed(0))
 
         let dayStart = 0, dayEnd = 0
 
@@ -2492,7 +2492,8 @@ export class ManagerComponent implements OnInit {
         })
 
         this.totalLiquidation = this.sumCommission - Number(this.receivedManager) + this.liquidationManager.valueRegularizacion
-        this.totalCommission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
+        comission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
+        this.totalCommission = Number(comission.toFixed(2))
 
         this.validateNullData()
         await this.thousandPointEdit()
