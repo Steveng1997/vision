@@ -162,6 +162,10 @@
                             <label></label>
                         </div>
 
+                        <div>
+                            <label></label>
+                        </div>
+
                         <div class="textTreatmentLine1">
                             <label>Trata</label>
                         </div>
@@ -190,6 +194,10 @@
                             <label>Hasta</label>
                         </div>
 
+                        <div class="textWayPay">
+                            <label>Pago</label>
+                        </div>
+
                         <div class="textTreatmentLine2">
                             <label>miento</label>
                         </div>
@@ -214,6 +222,8 @@
 
                         <div class="columnDateTable1"> {{liqTerap?.hastaFechaLiquidado + ' - ' +
                             liqTerap?.hastaHoraLiquidado}} </div>
+
+                        <div class="columnWayPay"> {{liqTerap?.formaPago}} </div>
 
                         <div class="columnTreatment">{{liqTerap?.tratamiento}}</div>
                     </div>
@@ -675,6 +685,21 @@
                     </div>
                 </div>
 
+                <div class="containerWayPay" *ngIf="selected">
+                    <div class="row g-0">
+                        <label style="color: red; font-size: 18px; font-family: sans-serif; font-weight: bold; 
+                        display: contents; white-space: nowrap">¿Cómo pagaste a la terapeuta? </label>
+                        <select class="form-select wayPay" [(ngModel)]="liquidationTherapist.formaPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;" (change)="filters()">
+                            <option selected value="">Selecciona</option>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Bizum">Bizum</option>
+                            <option value="Tarjeta">Tarjeta</option>
+                            <option value="Trans">Trans</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div *ngIf="!editTerap" class="row inputButtonSave">
 
                     <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
@@ -724,6 +749,16 @@
 
                         <div class="row g-0">
                             <label class="text€Edit">€</label>
+                        </div>
+                    </div>
+
+                    <div class="row containerTitleWayPay">
+                        <div class="row g-0">
+                            <label class="titleWayPay">TIPO DE PAGO:</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleWayPay">{{liquidationTherapist.formaPago}}</label>
                         </div>
                     </div>
                 </div>

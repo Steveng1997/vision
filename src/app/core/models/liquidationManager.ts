@@ -11,6 +11,7 @@ export class LiquidationManager {
   idEncargada?: string;
   importe?: number;
   regularizacion?: string;
+  formaPago?: string;
   tratamiento?: number;
   valueRegularizacion?: number;
 }

@@ -41,11 +41,11 @@ export class ServiceLiquidationTherapist {
     });
   }
 
-  consultManager(encargada: string){
+  consultManager(encargada: string) {
     return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
   }
 
-  consultTherapist(therapist: string){
+  consultTherapist(therapist: string) {
     return this.http.get(`${this.API_URL}/getTherapist/${therapist}`);
   }
 

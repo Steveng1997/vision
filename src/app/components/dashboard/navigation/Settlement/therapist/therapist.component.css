@@ -37,7 +37,10 @@
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+.pagination_Mobile
+  ::ng-deep
+  .ngx-pagination
+  .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
@@ -54,13 +57,23 @@
   font-weight: bold;
 }
 
-.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+.pagination_MobileTable2
+  ::ng-deep
+  .ngx-pagination
+  .pagination-previous
+  a::before,
+.pagination_MobileTable2
+  ::ng-deep
+  .ngx-pagination
+  .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
 .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next a::after,
-.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+.pagination_MobileTable2
+  ::ng-deep
+  .ngx-pagination
+  .pagination-next.disabled::after {
   color: #8c52ff;
 }
 
@@ -77,7 +90,7 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #8C52FF;
+  border-top-color: #8c52ff;
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -107,7 +120,6 @@
 }
 
 @media only screen and (min-device-width: 259px) and (max-device-width: 370px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -277,7 +289,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 26% 25% 26% 58% 50% 21%;
+    grid-template-columns: 26% 25% 26% 58% 50% 29% 21%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -303,7 +315,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 26% 25% 26% 58% 50% 21%;
+    grid-template-columns: 26% 25% 26% 58% 50% 29% 21%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -343,6 +355,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -352,7 +372,7 @@
   }
 
   .lineTable1 {
-    width: 213%;
+    width: 244%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -401,6 +421,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 2px 0px 0px;
@@ -443,6 +473,13 @@
     grid-template-columns: 76% 85px;
     margin-top: 1rem;
     margin-left: -2%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 76% 85px;
+    margin-top: 1rem;
+    margin-left: -266px;
   }
 
   /* Regularization */
@@ -458,7 +495,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -466,7 +503,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -558,6 +595,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 48%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 59%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -569,7 +630,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -577,7 +638,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -631,7 +692,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -996,7 +1057,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 2px 0px 0px
+    padding: 0px 2px 0px 0px;
   }
 
   .columnTotalPay {
@@ -1135,7 +1196,6 @@
 }
 
 @media only screen and (min-device-width: 371px) and (max-device-width: 380px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -1305,7 +1365,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 26% 25% 26% 58% 50% 19%;
+    grid-template-columns: 26% 25% 26% 58% 50% 26% 19%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -1331,7 +1391,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 26% 25% 26% 58% 50% 19%;
+    grid-template-columns: 26% 25% 26% 58% 50% 26% 19%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -1371,6 +1431,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -1380,7 +1448,7 @@
   }
 
   .lineTable1 {
-    width: 212%;
+    width: 239%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -1429,6 +1497,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 90%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 1px 0px 0px;
@@ -1471,6 +1549,13 @@
     grid-template-columns: 76% 80px;
     margin-top: 1rem;
     margin-left: -2%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 76% 80px;
+    margin-top: 1rem;
+    margin-left: -238px;
   }
 
   /* Regularization */
@@ -1486,7 +1571,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -1494,7 +1579,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -1582,8 +1667,32 @@
     color: #000000;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -27px;
+    justify-items: end;
+  }
+
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
     margin-left: -33px;
     justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 46%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 60.5%;
+  }
+
+  .wayPay {
+    width: 47%;
   }
 
   /* regularization */
@@ -1597,7 +1706,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -1605,7 +1714,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -1659,7 +1768,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -2023,7 +2132,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 2px 0px 0px
+    padding: 0px 2px 0px 0px;
   }
 
   .columnTotalPay {
@@ -2162,7 +2271,6 @@
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -2332,7 +2440,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 24% 24% 26% 55% 47% 25%;
+    grid-template-columns: 24% 24% 26% 55% 47% 26% 25%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -2358,7 +2466,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 24% 24% 26% 55% 47% 25%;
+    grid-template-columns: 24% 24% 26% 55% 47% 26% 25%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -2371,7 +2479,7 @@
     font-family: sans-serif;
     line-height: 1.2rem;
     word-wrap: break-word;
-    padding: 0px 22px 0px 0px
+    padding: 0px 22px 0px 0px;
   }
 
   .textTherapistLine2 {
@@ -2398,6 +2506,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -2407,7 +2523,7 @@
   }
 
   .lineTable1 {
-    width: 203%;
+    width: 231%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -2456,6 +2572,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 90%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 16px 0px 0px;
@@ -2498,6 +2624,13 @@
     grid-template-columns: 89% 100px;
     margin-top: 1rem;
     margin-left: -158%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 100px;
+    margin-top: 1rem;
+    margin-left: -330%;
   }
 
   /* Regularization */
@@ -2513,7 +2646,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -2521,7 +2654,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -2614,6 +2747,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 46%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 60.5%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -2625,7 +2782,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -2633,7 +2790,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -2687,7 +2844,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -3191,7 +3348,6 @@
 }
 
 @media only screen and (min-device-width: 381px) and (max-device-width: 389px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -3361,7 +3517,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 25% 54% 46% 19%;
+    grid-template-columns: 23% 23% 25% 54% 46% 26% 19%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -3387,7 +3543,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 25% 54% 46% 19%;
+    grid-template-columns: 23% 23% 25% 54% 46% 26% 19%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -3427,6 +3583,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -3436,7 +3600,7 @@
   }
 
   .lineTable1 {
-    width: 197%;
+    width: 224%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -3485,6 +3649,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 90%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 2px 0px 0px;
@@ -3527,6 +3701,13 @@
     grid-template-columns: 76% 88px;
     margin-top: 1rem;
     margin-left: -11%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 76% 88px;
+    margin-top: 1rem;
+    margin-left: -294px;
   }
 
   /* Regularization */
@@ -3542,7 +3723,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -3550,7 +3731,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -3642,6 +3823,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -33px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 45%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 61.5%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -3653,7 +3858,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -3661,7 +3866,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -3715,7 +3920,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -4079,7 +4284,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 2px 0px 0px
+    padding: 0px 2px 0px 0px;
   }
 
   .columnTotalPay {
@@ -4218,7 +4423,6 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -4388,7 +4592,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -4414,7 +4618,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -4454,6 +4658,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -4463,7 +4675,7 @@
   }
 
   .lineTable1 {
-    width: 194%;
+    width: 222%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4512,6 +4724,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 90%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 20px 0px 0px;
@@ -4554,6 +4776,13 @@
     grid-template-columns: 89% 100px;
     margin-top: 1rem;
     margin-left: -191%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 100px;
+    margin-top: 1rem;
+    margin-left: -350%;
   }
 
   /* Regularization */
@@ -4569,7 +4798,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -4577,7 +4806,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -4665,8 +4894,32 @@
     color: #000000;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -15px;
+    justify-items: end;
+  }
+
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 44%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 62.5%;
+  }
+
+  .wayPay {
+    width: 47%;
   }
 
   /* regularization */
@@ -4680,7 +4933,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -4688,7 +4941,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -4742,7 +4995,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -5247,7 +5500,6 @@
 
 /* Pedro */
 @media only screen and (min-device-width: 392px) and (max-device-width: 393px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -5417,7 +5669,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -5443,7 +5695,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -5483,6 +5735,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -5492,7 +5752,7 @@
   }
 
   .lineTable1 {
-    width: 194%;
+    width: 222%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5541,6 +5801,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 21px 0px 0px;
@@ -5583,6 +5853,13 @@
     grid-template-columns: 89% 104px;
     margin-top: 1rem;
     margin-left: -196%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 104px;
+    margin-top: 1rem;
+    margin-left: -357%;
   }
 
   /* Regularization */
@@ -5598,7 +5875,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -5606,7 +5883,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -5694,8 +5971,32 @@
     color: #000000;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -16px;
+    justify-items: end;
+  }
+
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 44%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 62.5%;
+  }
+
+  .wayPay {
+    width: 47%;
   }
 
   /* regularization */
@@ -5709,7 +6010,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -5717,7 +6018,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -5771,7 +6072,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -6275,7 +6576,6 @@
 }
 
 @media only screen and (min-device-width: 394px) and (max-device-width: 410px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -6445,7 +6745,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 22% 23% 51% 44% 23%;
+    grid-template-columns: 23% 22% 23% 51% 44% 26% 23%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -6471,7 +6771,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 22% 23% 51% 44% 23%;
+    grid-template-columns: 23% 22% 23% 51% 44% 26% 23%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -6511,6 +6811,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -6520,7 +6828,7 @@
   }
 
   .lineTable1 {
-    width: 187%;
+    width: 214%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -6569,6 +6877,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 21px 0px 0px;
@@ -6613,6 +6931,13 @@
     margin-left: -222%;
   }
 
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 113px;
+    margin-top: 1rem;
+    margin-left: -378%;
+  }
+
   /* Regularization */
 
   .containerRegularizationEdit {
@@ -6626,7 +6951,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -6634,7 +6959,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -6724,6 +7049,30 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
+  }  
+
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 42%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 63.5%;
+  }
+
+  .wayPay {
+    width: 47%;
   }
 
   /* regularization */
@@ -6737,7 +7086,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -6745,7 +7094,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -6799,7 +7148,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -7303,7 +7652,6 @@
 }
 
 @media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -7473,7 +7821,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -7499,7 +7847,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 24%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 24%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -7539,6 +7887,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -7548,7 +7904,7 @@
   }
 
   .lineTable1 {
-    width: 194%;
+    width: 222%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -7597,6 +7953,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 20px 0px 0px;
@@ -7639,6 +8005,13 @@
     grid-template-columns: 89% 99px;
     margin-top: 1rem;
     margin-left: -192%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 99px;
+    margin-top: 1rem;
+    margin-left: -355%;
   }
 
   /* Regularization */
@@ -7654,7 +8027,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -7662,7 +8035,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -7754,6 +8127,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 44%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 62%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -7765,7 +8162,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -7773,7 +8170,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -7827,7 +8224,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -8331,7 +8728,6 @@
 }
 
 @media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -8501,7 +8897,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 23%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 23%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -8527,7 +8923,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 23%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 23%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -8567,6 +8963,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -8576,7 +8980,7 @@
   }
 
   .lineTable1 {
-    width: 194%;
+    width: 221%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -8625,6 +9029,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 21px 0px 0px;
@@ -8669,6 +9083,13 @@
     margin-left: -229%;
   }
 
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 109px;
+    margin-top: 1rem;
+    margin-left: -383%;
+  }
+
   /* Regularization */
 
   .containerRegularizationEdit {
@@ -8682,7 +9103,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -8690,7 +9111,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -8782,6 +9203,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 42%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 64%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -8793,7 +9238,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -8801,7 +9246,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -8855,7 +9300,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -9359,7 +9804,6 @@
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1030px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -9529,7 +9973,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 18%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 18%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -9px;
@@ -9555,7 +9999,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 24% 53% 46% 18%;
+    grid-template-columns: 23% 23% 24% 53% 46% 26% 18%;
     margin-bottom: 8px;
     margin-left: -9px;
   }
@@ -9595,6 +10039,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -9604,7 +10056,7 @@
   }
 
   .lineTable1 {
-    width: 193%;
+    width: 220%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -9653,6 +10105,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 3px 0px 0px;
@@ -9695,6 +10157,13 @@
     grid-template-columns: 89% 100px;
     margin-top: 1rem;
     margin-left: -228%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 100px;
+    margin-top: 1rem;
+    margin-left: -382%;
   }
 
   /* Regularization */
@@ -9710,7 +10179,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -9718,7 +10187,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -9810,6 +10279,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 42%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 63.5%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -9821,7 +10314,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -9829,7 +10322,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -10387,7 +10880,6 @@
 }
 
 @media only screen and (min-device-width: 430px) and (max-device-height: 932px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -10557,7 +11049,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 23% 22% 43% 40% 19%;
+    grid-template-columns: 23% 23% 22% 43% 40% 26% 19%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -10583,7 +11075,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 23% 22% 43% 40% 19%;
+    grid-template-columns: 23% 23% 22% 43% 40% 26% 19%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -10623,6 +11115,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -10632,7 +11132,7 @@
   }
 
   .lineTable1 {
-    width: 174%;
+    width: 201%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -10681,6 +11181,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 10px 0px 0px;
@@ -10725,6 +11235,13 @@
     margin-left: -250%;
   }
 
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 143px;
+    margin-top: 1rem;
+    margin-left: -398%;
+  }
+
   /* Regularization */
 
   .containerRegularizationEdit {
@@ -10738,7 +11255,7 @@
 
   .textRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -10746,7 +11263,7 @@
 
   .inputRegularizationEdit {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -10838,6 +11355,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 40%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 65%;
+  }
+
+  .wayPay {
+    width: 47%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -10849,7 +11390,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -10857,7 +11398,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -10911,7 +11452,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -11415,7 +11956,6 @@
 }
 
 @media only screen and (min-device-width: 540px) and (max-device-height: 720px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -11585,7 +12125,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 17% 16% 17% 38% 33% 13%;
+    grid-template-columns: 17% 16% 17% 38% 33% 26% 13%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -2%;
@@ -11611,7 +12151,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 17% 16% 17% 38% 33% 13%;
+    grid-template-columns: 17% 16% 17% 38% 33% 26% 13%;
     margin-bottom: 8px;
     margin-left: -2%;
   }
@@ -11651,6 +12191,14 @@
     padding: 15px 0px 0px 0px;
   }
 
+  .textWayPay {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
   .textTreatmentLine2 {
     color: #000000;
     font-size: 18px;
@@ -11660,7 +12208,7 @@
   }
 
   .lineTable1 {
-    width: 138%;
+    width: 165%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -11709,6 +12257,16 @@
     line-height: 1.4rem;
   }
 
+  .columnWayPay {
+    line-height: 1.4rem;
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
   .columnTreatment {
     line-height: 1.4rem;
     padding: 0px 1px 0px 0px;
@@ -11753,6 +12311,13 @@
     margin-left: -376%;
   }
 
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 89% 219px;
+    margin-top: 1rem;
+    margin-left: -490%;
+  }
+
   /* Regularization */
 
   .containerRegularizationEdit {
@@ -11766,7 +12331,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -11774,7 +12339,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -11866,6 +12431,30 @@
     justify-items: end;
   }
 
+  /* Way to pay */
+
+  .titleWayPay{
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .containerWayPay {
+    display: grid;
+    width: 32%;
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-right: 72.1%;
+  }
+
+  .wayPay {
+    width: 32%;
+  }
+
   /* regularization */
 
   .containerRegularization {
@@ -11877,7 +12466,7 @@
 
   .textRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -11885,7 +12474,7 @@
 
   .inputRegularization {
     height: 2.2rem;
-    border-color: #8C52FF;
+    border-color: #8c52ff;
     color: #242424;
     font-size: 18px;
     font-family: sans-serif;
@@ -11939,7 +12528,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px
+    padding: 15px 0px 0px 20px;
   }
 
   .textDrinkHouseLine1 {
@@ -12443,7 +13032,6 @@
 }
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -12466,6 +13054,17 @@
   }
 
   .titleLiquidation {
+    display: grid;
+    justify-content: center;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .titleWayPay{
     display: grid;
     justify-content: center;
     font-size: 22px;
@@ -12552,6 +13151,13 @@
     grid-template-columns: 88% 82px;
     margin-top: 1rem;
     margin-left: -99%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 88% 82px;
+    margin-top: 1rem;
+    margin-left: -99%;
   }
 
   .fechaInicio {
@@ -12608,7 +13214,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    grid-template-columns: 27% 23% 30% 46% 46% 26% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -12634,7 +13240,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    grid-template-columns: 27% 23% 30% 46% 46% 26% 24%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -12678,6 +13284,14 @@
   }
 
   .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textWayPay {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -13220,7 +13834,6 @@
 }
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
-
   .container {
     overflow-x: hidden;
     height: 100%;
@@ -13243,6 +13856,16 @@
   }
 
   .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #000000;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -1rem;
+    justify-items: end;
+  }
+
+  .titleWayPay{
     display: grid;
     font-size: 22px;
     color: #000000;
@@ -13328,6 +13951,13 @@
     grid-template-columns: 88% 82px;
     margin-top: 1rem;
     margin-left: -99%;
+  }  
+
+  .containerTitleWayPay {
+    display: grid;
+    grid-template-columns: 88% 82px;
+    margin-top: 1rem;
+    margin-left: -99%;
   }
 
   .fechaInicio {
@@ -13384,7 +14014,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    grid-template-columns: 27% 23% 30% 46% 46% 26% 24%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -13410,7 +14040,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 27% 23% 30% 46% 46% 24%;
+    grid-template-columns: 27% 23% 30% 46% 46% 26% 24%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -13454,6 +14084,14 @@
   }
 
   .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textWayPay {
     color: #000000;
     font-size: 18px;
     font-weight: bold;

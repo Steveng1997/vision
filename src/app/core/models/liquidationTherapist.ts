@@ -4,6 +4,7 @@ export class LiquidationTherapist {
     desdeFechaLiquidado?: string;
     desdeHoraLiquidado?: string;
     encargada?: string;
+    formaPago?: string;
     hastaFechaLiquidado?: string;
     hastaHoraLiquidado?: string;    
     id?: number;

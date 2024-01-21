@@ -1084,6 +1084,7 @@ export class TableComponent implements OnInit {
 
   totalSumOfServices(element) {
     const totalServ = element.map(({ servicio }) => servicio).reduce((acc, value) => acc + value, 0)
+    this.idService = element
     this.totalServicio = totalServ
 
     const totalPisos = element.map(({ numberPiso1 }) => numberPiso1).reduce((acc, value) => acc + value, 0)

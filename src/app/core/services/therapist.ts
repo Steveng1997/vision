@@ -9,6 +9,7 @@ import { ModelTherapist } from '../models/therapist';
   providedIn: 'root'
 })
 export class ServiceTherapist {
+
   // API_Terapeuta = 'http://3.12.102.108:3000/api/terapeuta';
 
   // Page pasffey
@@ -67,7 +68,7 @@ export class ServiceTherapist {
 
   updateMinute(id: number, therapist: ModelTherapist) {
     return this.http.put(`${this.API_Terapeuta}/updateMinutesWithId/${id}`, therapist);
-  }  
+  }
 
   // Delete
 
