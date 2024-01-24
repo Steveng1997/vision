@@ -11,9 +11,9 @@ export class FechaCierrePipe implements PipeTransform {
     }
 
     if (items) {
-      if (paramFechaInicial === undefined) return items.filter((item, index) => item.fechaHasta === paramFechaFinal)
-      if (paramFechaFinal === undefined) return items.filter((item, index) => item.fechaDesde === paramFechaInicial)
-      return items.filter((item, index) => item.fechaDesde >= paramFechaInicial && item.fechaHasta <= paramFechaFinal)
+      if (paramFechaInicial === undefined) return items.filter((item, index) => item.hastaFecha === paramFechaFinal)
+      if (paramFechaFinal === undefined) return items.filter((item, index) => item.desdeFecha === paramFechaInicial)
+      return items.filter((item, index) => item.desdeFecha >= paramFechaInicial && item.hastaFecha <= paramFechaFinal)
     }
   }
 }

@@ -97,7 +97,7 @@ export class NewServiceComponent implements OnInit {
     horaEnd: "",
     horaStart: "",
     id: 0,
-    idCierre: 0,
+    idCierre: "",
     idEncargada: "",
     idTerapeuta: "",
     idUnico: "",

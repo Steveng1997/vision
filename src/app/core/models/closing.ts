@@ -1,14 +1,16 @@
-export class Closing {
+export class ModelClosing {
   bizum?: number;
   currentDate?: string;
+  createdDate?: string;
   efectivo?: number;
   encargada?: string;
-  fechaDesde?: string;
-  fechaHasta?: string;
-  horaDesde?: string;
-  horaHasta?: string;
+  desdeFecha?: string;
+  hastaFecha?: string;
+  desdeHora?: string;
+  hastaHora?: string;
   id?: number;
-  idCierre?: number;
+  idUnico?: string;
+  idCierre?: string;  
   tarjeta?: number;
   total?: number;
   transaccion?: number;

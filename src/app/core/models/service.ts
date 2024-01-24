@@ -23,7 +23,7 @@ export class ModelService {
   horaEnd?: string;
   horaStart?: string;
   id?: number;
-  idCierre?: number;
+  idCierre?: string;
   idEncargada?: string;
   idTerapeuta?: string;
   idUnico?: string;

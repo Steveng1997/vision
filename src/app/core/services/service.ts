@@ -8,10 +8,10 @@ import { ModelService } from '../models/service';
 @Injectable()
 export class Service {
 
-  // API_URL = 'http://3.12.102.108:3000/api/servicio';
+  API_URL = 'http://3.12.102.108:3000/api/servicio';
 
   // Page pasffey
-  API_URL = 'http://35.181.62.147:3000/api/servicio';
+  // API_URL = 'http://35.181.62.147:3000/api/servicio';
 
   constructor(
     public router: Router,
@@ -340,6 +340,28 @@ export class Service {
     return this.http.get(`${this.API_URL}/getTherapistAndManagerAndDate/${terapeuta}/${encargada}/${fechaHoyInicio}`);
   }
 
+  // closing
+
+  getManagerClosing(encargada: string) {
+    return this.http.get(`${this.API_URL}/getEncargadaClosing/${encargada}`);
+  }
+
+  getByClosingFalse() {
+    return this.http.get(`${this.API_URL}/getClosingByFalse`);
+  }
+
+  getByManagerFechaHoraInicioFechaHoraFinClosing(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getManagerFechaHoraInicioFechaHoraFinClosing`, {
+      params: {
+        encargada,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd,
+      }
+    });
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {
@@ -374,8 +396,8 @@ export class Service {
     return this.http.put(`${this.API_URL}/updateByLiquidacionEncarg/${id}`, service);;
   }
 
-  updateCierre(idCierre: number, id: number, service: ModelService) {
-    return this.http.put(`${this.API_URL}/updateByCierre/${idCierre}/${id}`, service);;
+  updateCierre(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateByCierre/${id}`, service);;
   }
 
   updatePisos(id: number, idUnico: string, service: ModelService) {

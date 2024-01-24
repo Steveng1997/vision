@@ -10,10 +10,10 @@ import { ModelTherapist } from '../models/therapist';
 })
 export class ServiceTherapist {
 
-  // API_Terapeuta = 'http://3.12.102.108:3000/api/terapeuta';
+  API_Terapeuta = 'http://3.12.102.108:3000/api/terapeuta';
 
   // Page pasffey
-  API_Terapeuta = 'http://35.181.62.147:3000/api/terapeuta';
+  // API_Terapeuta = 'http://35.181.62.147:3000/api/terapeuta';
 
   constructor(
     public router: Router,
