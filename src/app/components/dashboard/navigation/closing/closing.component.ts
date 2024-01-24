@@ -132,7 +132,7 @@ export class ClosingComponent implements OnInit {
     desdeFecha: "",
     hastaFecha: "",
     desdeHora: "",
-    hastaHora: "",
+    hastaHora: new Date().toTimeString().substring(0, 5),
     id: 0,
     idUnico: "",
     idCierre: "",
