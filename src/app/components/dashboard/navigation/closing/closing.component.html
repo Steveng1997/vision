@@ -323,290 +323,171 @@
                     </div>
                 </div>
 
-                <div *ngIf="selected" class="columnArrowTable2" id="arrowTable2Add">
-                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
-                </div>
-
                 <!-- Table 2 -->
 
                 <div class="column2" *ngIf="selected">
-                    <div class="columnTable2Line1">
+                    <div class="columnTable2">
 
                         <div>
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textBox">
+                            <label>Caja</label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textIncome">
+                            <label>Ingresos</label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textPayments">
+                            <label>Pagos</label>
                         </div>
-
-                        <div class="textTreatmentTable2Line1">
-                            <label>Trata</label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div class="textDrinkHouseLine1">
-                            <label>Bebida</label>
-                        </div>
-
-                        <div class="textDrinkTherapistLine1">
-                            <label>Bebida</label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                    </div>
-
-                    <div class="columnTable2Line2">
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div class="textDate">
-                            <label>Fecha</label>
-                        </div>
-
-                        <div class="textHour">
-                            <label>Hora</label>
-                        </div>
-
-                        <div class="textMin">
-                            <label>Min</label>
-                        </div>
-
-                        <div class="textTreatmentTable2Line2">
-                            <label>miento</label>
-                        </div>
-
-                        <div class="textExit">
-                            <label>Salida</label>
-                        </div>
-
-                        <div class="textTip">
-                            <label>Propina</label>
-                        </div>
-
-                        <div class="textPay">
-                            <label>Pago</label>
-                        </div>
-
-                        <div class="textValueTherapist">
-                            <label>€ A Encar.</label>
-                        </div>
-
-                        <div class="textDrinkHouseLine2">
-                            <label>casa</label>
-                        </div>
-
-                        <div class="textDrinkTherapistLine2">
-                            <label>Terap.</label>
-                        </div>
-
-                        <div class="textTobacco">
-                            <label>Tabaco</label>
-                        </div>
-
-                        <div class="textVitamin">
-                            <label>Vitamina</label>
-                        </div>
-
-                        <div class="textOthers">
-                            <label>Otros</label>
-                        </div>
-
                     </div>
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2Line2" *ngFor="let serv of (unliquidatedService | encargada: closing.encargada)     
-                        | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="columnTable2">
+                        <label class="columnPayments">Efectivo</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)"> </div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Bizum</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Tarjeta</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Trasferencia</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div class="columnMin">{{serv?.minuto + ' min'}} </div>
-
-                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
-
-                        <div class="columnExit">{{serv?.salida}} </div>
-
-                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
-
-                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
-
-                        <div class="columnValueManager"> {{serv?.numberEncarg + ' €'}} </div>
-
-                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}} </div>
-
-                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}} </div>
-
-                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}} </div>
-
-                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}} </div>
-
-                        <div class="columnValueOthers">{{serv?.otros + ' €'}} </div>
-
-                        <!-- Modal -->
-                        <ng-template class="custom-modal" #modalTabl let-modal>
-                            <div class="modal-header">
-                                <h5 class="modal-title"> Nota </h5>
-                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <div class="modal-body" style="text-align: center;">
-                                <!-- Aqui se coloca lo adentro -->
-
-                                <h4>{{serv.nota}}</h4>
-
-                                <!-- Afuera -->
-                            </div>
-                        </ng-template>
-                        <!-- Fin Modal -->
+                    <div class="columnTable2">
+                        <label class="columnPayments">Total</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="selected" class="pagination_MobileTable2" (pageChange)="page = $event"
-                    previousLabel="" nextLabel="">
-                </pagination-controls>
-
                 <!-- Table 3 -->
 
-                <div class="column3" *ngIf="selected">
-                    <div class="columnTable3">
+                <div class="row containerTable3" *ngIf="selected">
+                    <div class="row g-0">
+                        <label class="titleTable3">Liquidaciones</label>
+                    </div>
 
-                        <div class="">
+                    <div class="row g-0 arrow3" style="justify-content: end" id="arrowTable3Add">
+                        <i class='far fa-arrow-alt-circle-right arrowTable3' (click)="arrowTable3Add()"></i>
+                    </div>
+
+                </div>
+
+                <div class="column3" *ngIf="selected">
+                    <div class="columnTable3Line1">
+
+                        <div class="textTherapistTable3Line1">
+                            <label>Tera</label>
+                        </div>
+
+                        <div>
                             <label></label>
                         </div>
 
-                        <div class="textSum">
-                            <label>Suma</label>
+                        <div class="textLiquidationTable3Line1">
+                            <label>Liquida</label>
                         </div>
 
-                        <div class="textCommision">
-                            <label>Comisión</label>
+                        <div>
+                            <label></label>
                         </div>
 
-                        <div class="textTotals">
-                            <label>Total</label>
+                        <div>
+                            <label></label>
                         </div>
 
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentTable3Line1">
+                            <label>Trata</label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTable3Line2">
+
+                        <div class="textTherapistTable3Line2">
+                            <label>peuta</label>
+                        </div>
+
+                        <div class="textServices">
+                            <label>Servicios</label>
+                        </div>
+
+                        <div class="textLiquidationTable3Line2">
+                            <label>dación</label>
+                        </div>
+
+                        <div class="textPayment">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textDateTable3">
+                            <label>Desde</label>
+                        </div>
+
+                        <div class="textDateTable3">
+                            <label>Hasta</label>
+                        </div>
+
+                        <div class="textTreatmentTable3Line2">
+                            <label>miento</label>
+                        </div>
                     </div>
 
                     <hr class="lineTable3">
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
-                        <label class="columnSum">{{textTotalService + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.servicio + '
-                            %'}}</label>
-                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
-                    </div>
+                    <div class="columnTable3Line2" >
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Propina</label>
-                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.propina + ' %'}}</label>
-                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
-                    </div>
+                        <div class="columnDate" >{{aqui}}</div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida casa</label>
-                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.bebida + ' %'}}</label>
-                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
-                    </div>
+                        <div class="columnHour"> {{34343434343}} </div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida terap.</label>
-                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.bebidaTerap + ' %'}}</label>
-                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
-                    </div>
+                        <div class="columnMin">{{22}} </div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Tabaco</label>
-                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.tabaco + ' %'}}</label>
-                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
-                    </div>
+                        <div class="columnTreatment2">{{33}} </div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Vitamina</label>
-                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
-                        <label class="columnComission">
-                            {{managerName?.vitamina + ' %'}}</label>
-                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
-                    </div>
+                        <div class="columnExit">{{55}} </div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Otros</label>
-                        <label class="columnSum">{{textValueOther + ' €'}}</label>
-                        <label class="columnComission">{{managerName?.otros + ' %'}}</label>
-                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
-                    </div>
+                        <div class="columnValueTip">{{111}} </div>
 
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="lblSum">Suma</label>
-                        <label></label>
-                        <label class="columnTotal" style="white-space: pre">{{textSumCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="textReceivend">Recibido</label>
-                        <label></label>
-                        <label class="columnTotal">{{textReceivedManager + ' €'}}</label>
-                    </div>
-
-                    <hr class="lineTotalPay">
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="columnTotalPay">Total a</label>
-                        <label class="columnPay">pagar</label>
-                        <label class="columnTotal" style="white-space: pre">{{textTotalCommission + ' €'}}</label>
+                        <div class="columnPaymentMethod">Efectivo</div>
                     </div>
                 </div>
+
+                <pagination-controls *ngIf="selected" class="pagination_MobileTable3" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
 
                 <!-- Table 4 -->
 
@@ -679,195 +560,83 @@
                     </div>
                 </div>
 
-                <div *ngIf="editClosing" class="columnArrowTable2" id="arrowTable2Add">
-                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
-                </div>
-
                 <!-- Table 2 -->
 
                 <div class="column2" *ngIf="editClosing">
-                    <div class="columnTable2Line1">
+                    <div class="columnTable2">
 
                         <div>
                             <label></label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textBox">
+                            <label>Caja</label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textIncome">
+                            <label>Ingresos</label>
                         </div>
 
-                        <div>
-                            <label></label>
+                        <div class="textPayments">
+                            <label>Pagos</label>
                         </div>
-
-                        <div class="textTreatmentTable2Line1">
-                            <label>Trata</label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div class="textDrinkHouseLine1">
-                            <label>Bebida</label>
-                        </div>
-
-                        <div class="textDrinkTherapistLine1">
-                            <label>Bebida</label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                    </div>
-
-                    <div class="columnTable2Line2">
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div class="textDate">
-                            <label>Fecha</label>
-                        </div>
-
-                        <div class="textHour">
-                            <label>Hora</label>
-                        </div>
-
-                        <div class="textMin">
-                            <label>Min</label>
-                        </div>
-
-                        <div class="textTreatmentTable2Line2">
-                            <label>miento</label>
-                        </div>
-
-                        <div class="textExit">
-                            <label>Salida</label>
-                        </div>
-
-                        <div class="textTip">
-                            <label>Propina</label>
-                        </div>
-
-                        <div class="textPay">
-                            <label>Pago</label>
-                        </div>
-
-                        <div class="textValueTherapist">
-                            <label>€ A Encar.</label>
-                        </div>
-
-                        <div class="textDrinkHouseLine2">
-                            <label>casa</label>
-                        </div>
-
-                        <div class="textDrinkTherapistLine2">
-                            <label>Terap.</label>
-                        </div>
-
-                        <div class="textTobacco">
-                            <label>Tabaco</label>
-                        </div>
-
-                        <div class="textVitamin">
-                            <label>Vitamina</label>
-                        </div>
-
-                        <div class="textOthers">
-                            <label>Otros</label>
-                        </div>
-
                     </div>
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2Line2" *ngFor="let serv of (settledData | encargada: closing.encargada) 
-                    | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="columnTable2">
+                        <label class="columnPayments">Efectivo</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
-                        </div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Bizum</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Tarjeta</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+                    <div class="columnTable2">
+                        <label class="columnPayments">Trasferencia</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                    </div>
 
-
-                        <div class="columnMin">{{serv?.minuto + ' min'}}</div>
-
-                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
-
-                        <div class="columnExit">{{serv?.salida}}</div>
-
-                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
-
-                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
-
-                        <div class="columnValueManager"> {{serv?.numberEncarg + ' €'}} </div>
-
-                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}}</div>
-
-                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}}
-                        </div>
-
-                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}}</div>
-
-                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}}</div>
-
-                        <div class="columnValueOthers">{{serv?.otros + ' €'}}</div>
-
-                        <!-- Modal -->
-                        <ng-template class="custom-modal" #modalTabl let-modal>
-                            <div class="modal-header">
-                                <h5 class="modal-title"> Nota </h5>
-                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <div class="modal-body" style="text-align: center;">
-                                <!-- Aqui se coloca lo adentro -->
-
-                                <h4>{{serv.nota}}</h4>
-
-                                <!-- Afuera -->
-                            </div>
-                        </ng-template>
-                        <!-- Fin Modal -->
+                    <div class="columnTable2">
+                        <label class="columnPayments">Total</label>
+                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
+                        <label class="columnTotalIncome">{{managerName?.servicio + '
+                            €'}}</label>
+                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
                     </div>
                 </div>
 
-                <pagination-controls *ngIf="editClosing" class="pagination_MobileTable2" (pageChange)="page = $event"
-                    previousLabel="" nextLabel="">
-                </pagination-controls>
-
                 <!-- Table 3 -->
+
+                <div class="row containerTable3" *ngIf="editClosing">
+                    <div class="row g-0">
+                        <label class="titleTable3">Liquidaciones</label>
+                    </div>
+
+                    <div class="row g-0 arrow3" style="justify-content: end" id="arrowTable3Add">
+                        <i class='far fa-arrow-alt-circle-right arrowTable3' (click)="arrowTable3Add()"></i>
+                    </div>
+
+                </div>
 
                 <div class="column3" *ngIf="editClosing">
                     <div class="columnTable3">
@@ -980,6 +749,10 @@
                         <label class="columnTotal" style="white-space: pre">{{textTotalCommission + ' €'}}</label>
                     </div>
                 </div>
+
+                <pagination-controls *ngIf="editClosing" class="pagination_MobileTable3" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
 
                 <!-- Table 4 -->
 

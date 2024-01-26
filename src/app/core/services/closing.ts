@@ -8,8 +8,8 @@ import { ModelClosing } from '../models/closing';
 @Injectable()
 export class ServiceClosing {
 
-  API_URL = 'http://3.12.102.108:3000/api/cierre';
-  API_SERVICIO = 'http://3.12.102.108:3000/api/servicio';
+  API_URL = 'http://18.191.250.105:3000/api/cierre';
+  API_SERVICIO = 'http://18.191.250.105:3000/api/servicio';
 
   // Page pasffey
   // API_URL = 'http://35.181.62.147:3000/api/cierre';

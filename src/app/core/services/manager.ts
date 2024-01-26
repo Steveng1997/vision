@@ -10,7 +10,7 @@ import { ModelManager } from '../models/manager';
 @Injectable()
 export class ServiceManager {
 
-  API_URL = 'http://3.12.102.108:3000/api/encargada';
+  API_URL = 'http://18.191.250.105:3000/api/encargada';
 
   // Page pasffey
   // API_URL = 'http://35.181.62.147:3000/api/encargada';

@@ -10,7 +10,6 @@ import { ServiceManager } from 'src/app/core/services/manager'
 import { ServiceLiquidationManager } from 'src/app/core/services/managerCloseouts'
 
 // Model
-import { LiquidationManager } from 'src/app/core/models/liquidationManager'
 import { ModelService } from 'src/app/core/models/service'
 import { ModelClosing } from 'src/app/core/models/closing'
 
@@ -54,6 +53,9 @@ export class ClosingComponent implements OnInit {
   manager: any
   administratorRole: boolean = false
   managerName: any
+
+  nameTherapist: any
+  aqui: any
 
   // Fecha
   fechaInicio: string
@@ -448,7 +450,6 @@ export class ClosingComponent implements OnInit {
   }
 
   async calculateServices() {
-    debugger
     if (this.closing.encargada != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
@@ -510,13 +511,25 @@ export class ClosingComponent implements OnInit {
 
     this.totalCommission = 0
 
-    debugger
-
     this.service.getByManagerFechaHoraInicioFechaHoraFinClosing(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
       this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
         if (rp.length > 0) {
           this.unliquidatedService = rp
+
+          const serviciosq = rp.filter(serv => serv)
+          const sumemoas = serviciosq.reduce((accumulator, serv) => {
+            return accumulator + serv.totalServicio
+          }, 0)
+
+          this.nameTherapist = [...new Set(rp.map(item => item.terapeuta))];
+          console.log(this.nameTherapist)
+
+          this.nameTherapist.map(rp => {
+            debugger
+            this.aqui = rp
+            console.log(this.aqui)
+          })
 
           // Filter by servicio
           const servicios = this.unliquidatedService.filter(serv => serv)
@@ -1450,9 +1463,9 @@ export class ClosingComponent implements OnInit {
     document.getElementById('arrowLine1').style.display = 'none'
   }
 
-  arrowTable2Add() {
-    document.querySelector('.column2').scrollLeft += 30;
-    document.getElementById('arrowTable2Add').style.display = 'none'
+  arrowTable3Add() {
+    document.querySelector('.column3').scrollLeft += 30;
+    document.getElementById('arrowTable3Add').style.display = 'none'
   }
 
   regularization(event: any) {
