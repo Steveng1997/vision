@@ -380,14 +380,12 @@ export class ClosingComponent implements OnInit {
 
   insertForm() {
     this.validationFilters = false
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-        this.administratorRole = true
-        this.closing.encargada = ""
-      } else {
-        this.closing.encargada = this.manager[0].nombre
-      }
-    })
+
+    if (this.administratorRole == true) {
+      this.closing.encargada = ""
+    } else {
+      this.calculateServices()
+    }
 
     this.closing.encargada = ""
     this.closingForm = false
@@ -413,6 +411,8 @@ export class ClosingComponent implements OnInit {
   async dateExists() {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
+
+    this.closing.encargada = this.manager[0].nombre
 
     await this.serviceClosing.getByEncargada(this.closing.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
@@ -450,6 +450,8 @@ export class ClosingComponent implements OnInit {
   }
 
   async calculateServices() {
+    this.closing.encargada = this.manager[0].nombre
+
     if (this.closing.encargada != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()

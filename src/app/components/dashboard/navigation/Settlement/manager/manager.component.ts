@@ -181,6 +181,34 @@ export class ManagerComponent implements OnInit {
     }
   }
 
+  async consultLiquidationManagerByAdministrator() {
+    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe(async (rp: any) => {
+      this.liquidated = rp
+
+      this.liquidationForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editEncarg = false
+      this.selected = false
+      this.dates = false
+      this.liquidationManager.encargada = ""
+    })
+  }
+
+  async consultLiquidationManagerByManager() {
+    this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp) => {
+      this.liquidated = rp
+
+      this.liquidationForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editEncarg = false
+      this.selected = false
+      this.dates = false
+      this.liquidationManager.encargada = ""
+    })
+  }
+
   async validitingUser() {
     this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
       if (rp[0]['rol'] == 'administrador') {
@@ -190,6 +218,7 @@ export class ManagerComponent implements OnInit {
       } else {
         this.manager = rp
         this.loading = false
+        this.administratorRole = false
         this.liquidationManager.encargada = this.manager[0].nombre
         this.getManager()
       }
@@ -380,7 +409,7 @@ export class ManagerComponent implements OnInit {
   }
 
   getThoseThatNotLiquidated() {
-    this.service.getByLiquidTerapFalse().subscribe((datoServicio) => {
+    this.service.getByLiquidManagerFalse().subscribe((datoServicio) => {
       this.unliquidatedService = datoServicio
       return true
     })
@@ -403,14 +432,12 @@ export class ManagerComponent implements OnInit {
     this.validationFilters = false
     this.liquidationManager.regularizacion = ""
     this.liquidationManager.valueRegularizacion = 0
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-        this.administratorRole = true
-        this.liquidationManager.encargada = ""
-      } else {
-        this.liquidationManager.encargada = this.manager[0].nombre
-      }
-    })
+
+    if (this.administratorRole == true) {
+      this.liquidationManager.encargada = ""
+    } else {
+      this.calculateServices()
+    }
 
     this.liquidationManager.encargada = ""
     this.liquidationForm = false
@@ -437,6 +464,7 @@ export class ManagerComponent implements OnInit {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
+    this.liquidationManager.encargada = this.manager[0].nombre
     await this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
@@ -473,6 +501,8 @@ export class ManagerComponent implements OnInit {
   }
 
   async calculateServices() {
+    this.liquidationManager.encargada = this.manager[0].nombre
+
     if (this.liquidationManager.encargada != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
@@ -2540,14 +2570,12 @@ export class ManagerComponent implements OnInit {
         this.services.liquidadoEncargada = false
         this.service.updateManagerSettlementManagerIdByManagerId(this.idManager, this.services).subscribe(async (rp) => {
           this.serviceLiquidationManager.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-            this.validitingUser()
-            this.liquidationManager.encargada = ""
-            this.liquidationForm = true
-            this.validationFilters = true
-            this.addForm = false
-            this.editEncarg = false
-            this.selected = false
-            this.dates = false
+            if (this.administratorRole == true) {
+              await this.consultLiquidationManagerByAdministrator()
+            }
+            else {
+              await this.consultLiquidationManagerByManager()
+            }
           })
         })
       }
@@ -2573,16 +2601,14 @@ export class ManagerComponent implements OnInit {
           }
 
           this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((dates: any) => { })
-
-          await this.validitingUser()
           this.thousandPount()
-          this.liquidationForm = true
-          this.validationFilters = true
-          this.addForm = false
-          this.editEncarg = false
-          this.selected = false
-          this.dates = false
-          this.liquidationManager.encargada = ""
+
+          if (this.administratorRole == true) {
+            await this.consultLiquidationManagerByAdministrator()
+          }
+          else {
+            await this.consultLiquidationManagerByManager()
+          }
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -2598,16 +2624,15 @@ export class ManagerComponent implements OnInit {
           }
 
           this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
-
-          this.validitingUser()
           this.convertToZero()
-          this.liquidationForm = true
-          this.validationFilters = true
-          this.addForm = false
-          this.editEncarg = false
-          this.selected = false
-          this.dates = false
-          this.liquidationManager.encargada = ""
+
+          debugger
+          if (this.administratorRole == true) {
+            await this.consultLiquidationManagerByAdministrator()
+          }
+          else {
+            await this.consultLiquidationManagerByManager()
+          }
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -2700,7 +2725,12 @@ export class ManagerComponent implements OnInit {
                     this.services.liquidadoEncargada = false
                     this.service.updateManagerSettlementManagerIdByManagerId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
                       this.serviceLiquidationManager.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
-                        this.validitingUser()
+                        if (this.administratorRole == true) {
+                          await this.consultLiquidationManagerByAdministrator()
+                        }
+                        else {
+                          await this.consultLiquidationManagerByManager()
+                        }
                         this.emptyValues()
                         this.loading = false
                         Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })

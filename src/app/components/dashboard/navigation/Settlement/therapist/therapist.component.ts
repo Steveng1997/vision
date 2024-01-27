@@ -181,6 +181,36 @@ export class TherapistComponent implements OnInit {
     }
   }
 
+  async consultLiquidationTherapistByAdministrator() {
+    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+      this.liquidated = rp
+
+      this.liquidationForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editTerap = false
+      this.selected = false
+      this.dates = false
+      this.liquidationTherapist.encargada = ""
+      this.liquidationTherapist.terapeuta = ""
+    })
+  }
+
+  async consultLiquidationTherapistByManager() {
+    this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada).subscribe(async (rp) => {
+      this.liquidated = rp
+
+      this.liquidationForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editTerap = false
+      this.selected = false
+      this.dates = false
+      this.liquidationTherapist.encargada = ""
+      this.liquidationTherapist.terapeuta = ""
+    })
+  }
+
   validitingUser() {
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
@@ -190,6 +220,7 @@ export class TherapistComponent implements OnInit {
       } else {
         this.manager = rp
         this.loading = false
+        this.administratorRole = false
         this.liquidationTherapist.encargada = this.manager[0].nombre
         this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada).subscribe(async (rp) => {
           this.liquidated = rp
@@ -410,14 +441,12 @@ export class TherapistComponent implements OnInit {
     this.validationFilters = false
     this.liquidationTherapist.regularizacion = ""
     this.liquidationTherapist.valueRegularizacion = 0
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-        this.administratorRole = true
-        this.liquidationTherapist.encargada = ""
-      } else {
-        this.liquidationTherapist.encargada = this.manager[0].nombre
-      }
-    })
+
+    if (this.administratorRole == true) {
+      this.liquidationTherapist.encargada = ""
+    } else {
+      this.calculateServices()
+    }
 
     this.liquidationTherapist.terapeuta = ""
     this.liquidationForm = false
@@ -444,6 +473,8 @@ export class TherapistComponent implements OnInit {
   async dateExists() {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
+
+    this.liquidationTherapist.encargada = this.manager[0].nombre
 
     await this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
@@ -481,6 +512,8 @@ export class TherapistComponent implements OnInit {
   }
 
   async calculateServices() {
+    this.liquidationTherapist.encargada = this.manager[0].nombre
+
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
@@ -2432,20 +2465,18 @@ export class TherapistComponent implements OnInit {
         this.services.liquidadoTerapeuta = false
         this.service.updateTherapistSettlementTherapistIdByTherapistId(this.idTherap, this.services).subscribe(async (rp) => {
           this.serviceLiquidationTherapist.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-            this.validitingUser()
-            this.liquidationTherapist.terapeuta = ""
-            this.liquidationTherapist.encargada = ""
-            this.liquidationForm = true
-            this.validationFilters = true
-            this.addForm = false
-            this.editTerap = false
-            this.selected = false
-            this.dates = false
+            if (this.administratorRole == true) {
+              await this.consultLiquidationTherapistByAdministrator()
+            }
+            else {
+              await this.consultLiquidationTherapistByManager()
+            }
           })
         })
       }
     })
   }
+
 
   // End edit
 
@@ -2474,21 +2505,19 @@ export class TherapistComponent implements OnInit {
                   this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((rp) => { })
                 }
 
-                this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => { })
+                this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => {
+                  this.convertToZero()
 
-                this.validitingUser()
-                this.convertToZero()
-                this.liquidationForm = true
-                this.validationFilters = true
-                this.addForm = false
-                this.editTerap = false
-                this.selected = false
-                this.dates = false
-                this.liquidationTherapist.encargada = ""
-                this.liquidationTherapist.terapeuta = ""
+                  if (this.administratorRole == true) {
+                    await this.consultLiquidationTherapistByAdministrator()
+                  }
+                  else {
+                    await this.consultLiquidationTherapistByManager()
+                  }
 
-                Swal.fire({
-                  position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+                  Swal.fire({
+                    position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+                  })
                 })
               }
 
@@ -2499,18 +2528,16 @@ export class TherapistComponent implements OnInit {
                   this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((rp) => { })
                 }
 
-                this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => { })
+                this.serviceLiquidationTherapist.settlementRecord(this.liquidationTherapist).subscribe(async (rp) => {
+                  this.convertToZero()
 
-                this.validitingUser()
-                this.convertToZero()
-                this.liquidationForm = true
-                this.validationFilters = true
-                this.addForm = false
-                this.editTerap = false
-                this.selected = false
-                this.dates = false
-                this.liquidationTherapist.encargada = ""
-                this.liquidationTherapist.terapeuta = ""
+                  if (this.administratorRole == true) {
+                    await this.consultLiquidationTherapistByAdministrator()
+                  }
+                  else {
+                    await this.consultLiquidationTherapistByManager()
+                  }
+                })
 
                 Swal.fire({
                   position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -2613,7 +2640,12 @@ export class TherapistComponent implements OnInit {
                     this.services.liquidadoTerapeuta = false
                     this.service.updateTherapistSettlementTherapistIdByTherapistId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
                       this.serviceLiquidationTherapist.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
-                        this.validitingUser()
+                        if (this.administratorRole == true) {
+                          await this.consultLiquidationTherapistByAdministrator()
+                        }
+                        else {
+                          await this.consultLiquidationTherapistByManager()
+                        }
                         this.emptyValues()
                         this.loading = false
                         Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
