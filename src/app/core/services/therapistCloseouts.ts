@@ -49,6 +49,18 @@ export class ServiceLiquidationTherapist {
     return this.http.get(`${this.API_URL}/getTherapist/${therapist}`);
   }
 
+  getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+    return this.http.get(`${this.API_URL}/getManagerFechaHoraInicioFechaHoraFinLiquidationTherapist`, {
+      params: {
+        encargada,
+        desdeFechaLiquidado,
+        desdeHoraLiquidado,
+        hastaFechaLiquidado,
+        hastaHoraLiquidado,
+      }
+    });
+  }
+
   // Update
 
   update(id: number, liquidationTherapist: LiquidationTherapist) {

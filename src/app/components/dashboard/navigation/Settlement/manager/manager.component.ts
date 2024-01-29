@@ -464,7 +464,6 @@ export class ManagerComponent implements OnInit {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
-    this.liquidationManager.encargada = this.manager[0].nombre
     await this.serviceLiquidationManager.getByEncargada(this.liquidationManager.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
@@ -501,8 +500,6 @@ export class ManagerComponent implements OnInit {
   }
 
   async calculateServices() {
-    this.liquidationManager.encargada = this.manager[0].nombre
-
     if (this.liquidationManager.encargada != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()

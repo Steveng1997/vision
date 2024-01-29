@@ -474,8 +474,6 @@ export class TherapistComponent implements OnInit {
     let fromMonth = '', fromDay = '', fromYear = '', convertMonth = '', convertDay = '',
       untilMonth = 0, untilDay = 0, untilYear = 0, currentDate = new Date()
 
-    this.liquidationTherapist.encargada = this.manager[0].nombre
-
     await this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
@@ -512,8 +510,6 @@ export class TherapistComponent implements OnInit {
   }
 
   async calculateServices() {
-    this.liquidationTherapist.encargada = this.manager[0].nombre
-
     if (this.liquidationTherapist.encargada != "" && this.liquidationTherapist.terapeuta != "") {
       this.loading = true
       this.getThoseThatNotLiquidated()
@@ -2476,7 +2472,6 @@ export class TherapistComponent implements OnInit {
       }
     })
   }
-
 
   // End edit
 

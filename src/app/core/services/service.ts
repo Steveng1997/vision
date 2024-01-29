@@ -354,6 +354,18 @@ export class Service {
     return this.http.get(`${this.API_URL}/getClosingByFalse`);
   }
 
+  getWithDistinctByManagerFechaHoraInicioFechaHoraFinClosing(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getDistinctManagerFechaHoraInicioFechaHoraFinClosing`, {
+      params: {
+        encargada,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd,
+      }
+    });
+  }
+
   getByManagerFechaHoraInicioFechaHoraFinClosing(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getManagerFechaHoraInicioFechaHoraFinClosing`, {
       params: {

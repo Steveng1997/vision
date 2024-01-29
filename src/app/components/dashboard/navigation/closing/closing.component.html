@@ -467,21 +467,22 @@
 
                     <hr class="lineTable3">
 
-                    <div class="columnTable3Line2" >
+                    <div class="columnTable3Line2" *ngFor="let close of unliquidatedService | paginate: 
+                    { itemsPerPage: 10, currentPage: page }">
 
-                        <div class="columnDate" >{{aqui}}</div>
+                        <div class="columnDate">{{close.terapeuta}}</div>
 
-                        <div class="columnHour"> {{34343434343}} </div>
+                        <div class="columnHour"> {{close.totalService}} </div>
 
-                        <div class="columnMin">{{22}} </div>
+                        <div class="columnMin">{{close.liquidation}} </div>
 
-                        <div class="columnTreatment2">{{33}} </div>
+                        <div class="columnTreatment2">{{close.payment}} </div>
 
-                        <div class="columnExit">{{55}} </div>
+                        <div class="columnExit">{{close.sinceDate + ' ' + close.sinceTime}} </div>
 
-                        <div class="columnValueTip">{{111}} </div>
+                        <div class="columnValueTip">{{close.toDate + ' ' + close.untilTime}} </div>
 
-                        <div class="columnPaymentMethod">Efectivo</div>
+                        <div class="columnPaymentMethod">{{close.treatment}}</div>
                     </div>
                 </div>
 
