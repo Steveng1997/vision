@@ -523,12 +523,7 @@
     margin-left: -8px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 84%;
-    justify-self: center;
-  }
-
+  
   .containerInChargeNew {
     width: 84%;
     justify-self: center;
@@ -1438,12 +1433,7 @@
     margin-left: -20px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
+  
   .containerInChargeNew {
     width: 76%;
     justify-self: center;
@@ -2352,12 +2342,7 @@
     margin-left: -8px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
+  
   .containerInChargeNew {
     width: 75%;
     justify-self: end;
@@ -3268,12 +3253,7 @@
     margin-left: -20px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
+  
   .containerInChargeNew {
     width: 75%;
     margin-right: 27px;
@@ -4182,12 +4162,7 @@
     margin-left: -24px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
+  
   .containerInChargeNew {
     width: 75%;
     justify-self: center;
@@ -4864,7 +4839,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
+    grid-template-columns: 23% 53% 46% 26% 24% 29% 24% 26% 17%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -4882,7 +4857,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
+    grid-template-columns: 23% 53% 46% 26% 24% 29% 24% 26% 17%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -4955,7 +4930,7 @@
   }
 
   .lineTable1 {
-    width: 171%;
+    width: 170%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4986,7 +4961,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4996,7 +4971,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5006,7 +4981,7 @@
 
   .columnCash {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5016,7 +4991,7 @@
 
   .columnBizum {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5026,7 +5001,7 @@
 
   .columnCard {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5036,7 +5011,7 @@
 
   .columnTransfer {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5054,7 +5029,7 @@
 
   .titleEdit {
     display: grid;
-    margin-left: -28px;
+    margin-left: -29px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
@@ -5068,14 +5043,14 @@
     color: #000000;
     font-family: sans-serif;
     white-space: pre;
-    margin-left: -28px;
+    margin-left: -26px;
   }
 
   .containerTitleEdit {
     display: grid;
-    grid-template-columns: 89% 104px;
+    grid-template-columns: 89% 109px;
     margin-top: 1rem;
-    margin-left: -196%;
+    margin-left: -229%;
   }
 
   /* Add new liquidation */
@@ -5093,62 +5068,58 @@
 
   .tableContainerNew {
     display: grid;
-    grid-template-columns: 57%;
+    grid-template-columns: 51%;
     justify-content: center;
-    margin-left: -24px;
+    margin-left: -47px;
     margin-top: 1rem;
   }
 
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
   .containerInChargeNew {
-    width: 75%;
+    width: 78%;
     justify-self: center;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 51% 51%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 1px;
+    margin-left: -20px;
   }
 
   .fechaInicio {
-    width: 80%;
+    width: 83%;
   }
 
   .horaInicio {
-    width: 64%;
+    width: 66%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 80%;
+    width: 83%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 64%;
+    width: 66%;
     margin-left: -11px;
     margin-top: 43px;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 103px;
+    grid-template-columns: 204px 214px;
     margin-top: 2rem;
-    margin-left: -195%;
+    float: left;
+    margin-left: -61px;
   }
 
   .titleLiquidation {
     display: grid;
     font-size: 22px;
-    color: #000000;
+    color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -17px;
@@ -5158,53 +5129,18 @@
   /* Table 2 */
 
   .column2 {
-    padding: 0px 0px 0px 14px;
+    padding: 0px 0px 0px 4px;
     margin-bottom: -46px;
     margin-top: 2rem;
-    overflow-x: auto;
   }
 
   /* Line 1 */
 
-  .columnTable2Line1 {
+  .columnTable2 {
     display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTreatmentTable2Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
-  }
-
-  .textDrinkHouseLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  .textDrinkTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  /* Line 2  */
-
-  .columnTable2Line2 {
-    display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: 8px;
-    margin-left: -20px;
+    grid-template-columns: 29% 23% 22% 21%;
+    margin-bottom: -5px;
+    margin-left: -5px;
   }
 
   .textBox {
@@ -5212,7 +5148,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 35px;
   }
 
   .textIncome {
@@ -5220,7 +5156,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 2px;
   }
 
   .textPayments {
@@ -5228,160 +5164,91 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
+    padding: 15px 0px 0px 25px;
   }
 
   .lineTable2 {
-    width: 366%;
+    width: 96%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
   }
 
   /* Column */
 
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
+  .columnPayments {
+    line-break: anywhere;
+    color: #000000;
     font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
   }
 
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalBox {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 14px 0px 0px;
+    white-space: pre;
+  }
+  
+  .columnTotalIncome {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
   }
 
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 11px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalPayments {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    justify-self: end;
-    cursor: pointer;
-  }
-
-  .columnTreatment2 {
-    line-height: 1.4rem;
-    padding: 0px 36px 0px 0px;
+    place-self: end;
     font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnValueTip {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 0px 27px 0px 0px;
-  }
-
-  .columnPaymentMethod {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnValueManager {
-    line-height: 1.4rem;
-    padding: 0px 9px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrink {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrinkTherapist {
-    line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueTobacco {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueVitamin {
-    line-height: 1.4rem;
-    padding: 0px 26px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueOthers {
-    line-height: 1.4rem;
-    padding: 0px 4px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
   }
 
   /* Arrow 3 */
 
-  .columnArrowTable3 {
-    position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -61px;
-    overflow-x: auto;
+  .containerTable3{
+    display: grid;
+    grid-template-columns: 204px 206px;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: -92px;
   }
+
+  .titleTable3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrow3{
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* .columnArrowTable3 {
+    position: relative;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    overflow-x: auto;
+  } */
 
   .arrowTable3 {
     font-size: 28px;
@@ -5395,116 +5262,118 @@
     margin-top: 2rem;
     margin-left: -15px;
     margin-bottom: 2px;
+    overflow-x: auto;
   }
 
-  .columnTable3 {
+  /* Line 1 */
+
+  .columnTable3Line1 {
     display: grid;
-    grid-template-columns: 35% 23% 26% 18.7%;
-    margin-bottom: -5px;
-    margin-left: -5px;
+    grid-template-columns: 21% 30% 30% 25% 35% 32% 27%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -15px;
+  }
+
+  .textTherapistTable3Line1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 10px;
+  }
+
+  .textLiquidationTable3Line1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 20px;
+  }
+
+  .textTreatmentTable3Line1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 20px;
+  }
+
+  /* Line 2 */
+
+  .columnTable3Line2 {
+    display: grid;
+    grid-template-columns: 21% 30% 30% 25% 35% 32% 27%;
+    margin-bottom: 8px;
+    margin-left: -20px;
+  }
+
+  .textTherapistTable3Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 14px;
+  }
+
+  .textServices {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+  }
+
+  .textLiquidationTable3Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  .textPayment{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
+  }
+
+  .textDateTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentTable3Line2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 7px 0px 0px 0px;
+    justify-self: end;
   }
 
   .lineTable3 {
-    width: 104%;
+    width: 100%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
+    margin-left: -5px;
     margin-top: -8px;
     margin-bottom: 6px;
   }
 
-  .textSum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 13px 0px 0px;
-    justify-self: end;
-  }
-
-  .textCommision {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-  }
-
-  .textTotals {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
-  }
-
-  /* Sum */
-
-  .columnTreatment3 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  .columnSum {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
-    white-space: pre;
-  }
-
-  .columnComission {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
-  }
-
-  .columnTotalPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -61px;
-  }
-
-  .columnPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -76px;
-  }
-
-  .lblSum {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -61px;
-  }
-
-  .textReceivend {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -62px;
-  }
-
-  .columnTotal {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-  }
+  /* Column  */
 
   .lineTotalPay {
-    width: 87%;
+    width: 83%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5530,13 +5399,13 @@
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 64% 44.3%;
+    grid-template-columns: 59% 44.9%;
     margin-bottom: -5px;
     margin-left: 0%;
   }
 
   .lineTable4 {
-    width: 104%;
+    width: 100%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -6012,11 +5881,6 @@
     justify-content: center;
     margin-left: -42px;
     margin-top: 1rem;
-  }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
   }
 
   .containerInChargeNew {
@@ -6927,11 +6791,6 @@
     justify-content: center;
     margin-left: -27px;
     margin-top: 1rem;
-  }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
   }
 
   .containerInChargeNew {
@@ -7845,11 +7704,6 @@
     margin-top: 1rem;
   }
 
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
-  }
-
   .containerInChargeNew {
     width: 75%;
     justify-self: center;
@@ -8657,11 +8511,6 @@
     justify-content: center;
     margin-left: -45.9px;
     margin-top: 1rem;
-  }
-
-  .therapistContainerNew {
-    width: 75%;
-    justify-self: center;
   }
 
   .containerInChargeNew {
@@ -9573,12 +9422,7 @@
     margin-left: -78px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 62%;
-    margin-left: 32.8px;
-  }
-
+  
   .containerInChargeNew {
     width: 76%;
     margin-left: 22px;
@@ -10488,12 +10332,7 @@
     margin-left: -85px;
     margin-top: 1rem;
   }
-
-  .therapistContainerNew {
-    width: 64%;
-    justify-self: flex-start;
-  }
-
+  
   .containerInChargeNew {
     width: 58%;
     justify-self: flex-end;
