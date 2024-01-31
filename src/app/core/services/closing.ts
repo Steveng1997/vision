@@ -32,10 +32,6 @@ export class ServiceClosing {
     return this.http.get(`${this.API_URL}/getByAllCierre`);
   }
 
-  getServicioByEncargadaAndIdUnico(encargada: string) {
-    return this.http.get(`${this.API_SERVICIO}/getByServicioByEncargadaAndIdUnico/${encargada}`);
-  }
-
   getIdCierre(idCierre: string) {
     return this.http.get(`${this.API_URL}/getByIdCierre/${idCierre}`);
   }

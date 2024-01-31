@@ -317,7 +317,7 @@
                         </div>
 
                         <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                            <label class="titleLiquidation">{{textTotalBox + ' €'}}</label>
                         </div>
 
                     </div>
@@ -349,42 +349,37 @@
 
                     <div class="columnTable2">
                         <label class="columnPayments">Efectivo</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                        <label class="columnTotalBox">{{textTotalsBoxCash + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalCashIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCashPayment + ' €'}}</label>
                     </div>
 
                     <div class="columnTable2">
                         <label class="columnPayments">Bizum</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                        <label class="columnTotalBox">{{textTotalsBoxBizum + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalBizumIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalBizumPayment + ' €'}}</label>
                     </div>
 
                     <div class="columnTable2">
                         <label class="columnPayments">Tarjeta</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                        <label class="columnTotalBox">{{textTotalsBoxCard + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalCardIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
                     </div>
 
                     <div class="columnTable2">
                         <label class="columnPayments">Trasferencia</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                        <label class="columnTotalBox">{{textTotalsBoxTransaction + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalTransactionIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
                     </div>
 
                     <div class="columnTable2">
                         <label class="columnPayments">Total</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
+                        <label class="columnTotalBox">{{textTotalBox + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalPayment + ' €'}}</label>
                     </div>
                 </div>
 
@@ -470,19 +465,19 @@
                     <div class="columnTable3Line2" *ngFor="let close of unliquidatedService | paginate: 
                     { itemsPerPage: 10, currentPage: page }">
 
-                        <div class="columnDate">{{close.terapeuta}}</div>
+                        <div class="columnTherapist">{{close.terapeuta}}</div>
 
-                        <div class="columnHour"> {{close.totalService}} </div>
+                        <div class="columnServices"> {{close.totalService + ' €'}} </div>
 
-                        <div class="columnMin">{{close.liquidation}} </div>
+                        <div class="columnLiquidation">{{close.liquidation + ' €'}} </div>
 
-                        <div class="columnTreatment2">{{close.payment}} </div>
+                        <div class="columnPayment">{{close.payment}} </div>
 
-                        <div class="columnExit">{{close.sinceDate + ' ' + close.sinceTime}} </div>
+                        <div class="columnDate">{{close.sinceDate + ' ' + close.sinceTime}} </div>
 
-                        <div class="columnValueTip">{{close.toDate + ' ' + close.untilTime}} </div>
+                        <div class="columnDate">{{close.toDate + ' ' + close.untilTime}} </div>
 
-                        <div class="columnPaymentMethod">{{close.treatment}}</div>
+                        <div class="columnTreatmentTable3">{{close.treatment}}</div>
                     </div>
                 </div>
 
@@ -494,39 +489,53 @@
 
                 <div class="column4" *ngIf="selected">
 
-                    <label class="textPayToTherapist">Pagado a encargada</label>
+                    <label class="textPayLiquidation">Pagado liquidaciones</label>
+
+                    <div class="columnTable4">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textCashTable4">
+                            <label>Efectivo</label>
+                        </div>
+
+                        <div class="textBizumTable4">
+                            <label>Bizum</label>
+                        </div>
+
+                        <div class="textCardTable4">
+                            <label>Tarjeta</label>
+                        </div>
+
+                        <div class="textTransactionTable4">
+                            <label>Transf.</label>
+                        </div>
+                    </div>
 
                     <hr class="lineTable4">
 
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Efectivo</label>
-                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    <div class="columnTable4" *ngFor="let close of unliquidatedService">
+                        <label class="columnPayments">{{close.terapeuta}}</label>
+                        <label class="columnTotalBox">{{close.cashPayment + ' €'}}</label>
+                        <label class="columnTotalIncome">{{close.bizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{close.cardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{close.transactionPayment + ' €'}}</label>
                     </div>
 
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Bizum</label>
-                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
-                    </div>
+                    <hr class="lineTotalsTable4">
 
                     <div class="columnTable4">
-                        <label class="columnTreatment4">Tarjeta</label>
-                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Transferencia</label>
-                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
-                    </div>
-
-                    <hr class="lineTable4">
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Total pagado</label>
-                        <label class="columnSum">{{textTotalManagerPayment + ' €'}}</label>
+                        <label class="textTotalTable4">Total</label>
+                        <label class="columnTotalBox">{{textTotalCashPayment + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalBizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
                     </div>
                 </div>
 
-                <div *ngIf="!editClosing" class="row inputButtonSave">
+                <div class="row inputButtonSave">
 
                     <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
                         <button type="submit" mat-button class="btnSave" (click)="save()">Guardar</button>
@@ -540,274 +549,6 @@
                         <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
                 </div>
-
-                <!-- Edit Liquidation -->
-
-                <label *ngIf="editClosing" class="titleEdit"> Liquidación {{managerTitle}}</label>
-
-                <label *ngIf="editClosing" class="textDates">{{closing.desdeFecha + ' ' +
-                    closing.desdeHora + ' a ' + closing.hastaFecha
-                    + ' ' + closing.hastaHora}}</label>
-
-                <div *ngIf="editClosing">
-                    <div class="row containerTitleEdit">
-                        <div class="row g-0">
-                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
-                        </div>
-
-                        <div class="row g-0" style="justify-content: end">
-                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Table 2 -->
-
-                <div class="column2" *ngIf="editClosing">
-                    <div class="columnTable2">
-
-                        <div>
-                            <label></label>
-                        </div>
-
-                        <div class="textBox">
-                            <label>Caja</label>
-                        </div>
-
-                        <div class="textIncome">
-                            <label>Ingresos</label>
-                        </div>
-
-                        <div class="textPayments">
-                            <label>Pagos</label>
-                        </div>
-                    </div>
-
-                    <hr class="lineTable2">
-
-                    <div class="columnTable2">
-                        <label class="columnPayments">Efectivo</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable2">
-                        <label class="columnPayments">Bizum</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable2">
-                        <label class="columnPayments">Tarjeta</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable2">
-                        <label class="columnPayments">Trasferencia</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable2">
-                        <label class="columnPayments">Total</label>
-                        <label class="columnTotalBox">{{textTotalService + ' €'}}</label>
-                        <label class="columnTotalIncome">{{managerName?.servicio + '
-                            €'}}</label>
-                        <label class="columnTotalPayments">{{textServiceComission + ' €'}}</label>
-                    </div>
-                </div>
-
-                <!-- Table 3 -->
-
-                <div class="row containerTable3" *ngIf="editClosing">
-                    <div class="row g-0">
-                        <label class="titleTable3">Liquidaciones</label>
-                    </div>
-
-                    <div class="row g-0 arrow3" style="justify-content: end" id="arrowTable3Add">
-                        <i class='far fa-arrow-alt-circle-right arrowTable3' (click)="arrowTable3Add()"></i>
-                    </div>
-
-                </div>
-
-                <div class="column3" *ngIf="editClosing">
-                    <div class="columnTable3">
-
-                        <div class="">
-                            <label></label>
-                        </div>
-
-                        <div class="textSum">
-                            <label>Suma</label>
-                        </div>
-
-                        <div class="textCommision">
-                            <label>Comisión</label>
-                        </div>
-
-                        <div class="textTotals">
-                            <label>Total</label>
-                        </div>
-
-                    </div>
-
-                    <hr class="lineTable3">
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Tratamiento</label>
-                        <label class="columnSum">{{textTotalService + ' €'}}</label>
-                        <label *ngIf="managerName?.servicio != undefined" class="columnComission">
-                            {{managerName?.servicio + ' %'}}</label>
-                        <label *ngIf="managerName?.servicio == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Propina</label>
-                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
-                        <label *ngIf="managerName?.propina != undefined" class="columnComission">
-                            {{managerName?.propina + ' %'}}</label>
-                        <label *ngIf="managerName?.propina == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida casa</label>
-                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
-                        <label *ngIf="managerName?.bebida != undefined" class="columnComission">{{managerName?.bebida +
-                            ' %'}}</label>
-                        <label *ngIf="managerName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Bebida terap.</label>
-                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
-                        <label *ngIf="managerName?.bebidaTerap != undefined"
-                            class="columnComission">{{managerName?.bebidaTerap +
-                            ' %'}}</label>
-                        <label *ngIf="managerName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Tabaco</label>
-                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
-                        <label *ngIf="managerName?.tabaco != undefined" class="columnComission">
-                            {{managerName?.tabaco + ' %'}}</label>
-                        <label *ngIf="managerName?.tabaco == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Vitamina</label>
-                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
-                        <label *ngIf="managerName?.vitamina != undefined" class="columnComission">
-                            {{managerName?.vitamina + ' %'}}</label>
-                        <label *ngIf="managerName?.vitamina == undefined" class="columnComission">
-                            {{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3">Otros</label>
-                        <label class="columnSum">{{textValueOther + ' €'}}</label>
-                        <label *ngIf="managerName?.otros != undefined" class="columnComission">
-                            {{managerName?.otros + ' %'}}</label>
-                        <label *ngIf="managerName?.otros == undefined" class="columnComission">{{0 + ' %'}}</label>
-                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="lblSum">Suma</label>
-                        <label></label>
-                        <label class="columnTotal" style="white-space: pre">{{textSumCommission + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="textReceivend">Recibido</label>
-                        <label></label>
-                        <label class="columnTotal">{{textReceivedManager + ' €'}}</label>
-                    </div>
-
-                    <hr class="lineTotalPay">
-
-                    <div class="columnTable3">
-                        <label class="columnTreatment3"></label>
-                        <label class="columnTotalPay">Total a</label>
-                        <label class="columnPay">pagar</label>
-                        <label class="columnTotal" style="white-space: pre">{{textTotalCommission + ' €'}}</label>
-                    </div>
-                </div>
-
-                <pagination-controls *ngIf="editClosing" class="pagination_MobileTable3" (pageChange)="page = $event"
-                    previousLabel="" nextLabel="">
-                </pagination-controls>
-
-                <!-- Table 4 -->
-
-                <div class="column4" *ngIf="editClosing">
-
-                    <label class="textPayToTherapist">Pagado a encargada</label>
-
-                    <hr class="lineTable4">
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Efectivo</label>
-                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Bizum</label>
-                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Tarjeta</label>
-                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
-                    </div>
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Transferencia</label>
-                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
-                    </div>
-
-                    <hr class="lineTable4">
-
-                    <div class="columnTable4">
-                        <label class="columnTreatment4">Total pagado</label>
-                        <label class="columnSum">{{textTotalManagerPayment + ' €'}}</label>
-                    </div>
-                </div>
-
-                <div *ngIf="editClosing" class="row inputButtonEdit">
-
-                    <div class="row g-0">
-                        <button type="submit" mat-button class="btnDelete" (click)="delete()">Eliminar</button>
-                    </div>
-
-                    <div class="row g-0">
-                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
-                    </div>
-
-                </div>
-
             </div>
         </div>
-
-        <div *ngIf="loading" id="container_loading">
-            <div id="load"></div>
-        </div>
     </div>
-</div>

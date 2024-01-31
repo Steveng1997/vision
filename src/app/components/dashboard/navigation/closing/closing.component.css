@@ -966,8 +966,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -1875,8 +1875,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -2786,7 +2786,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -3695,7 +3695,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -4605,7 +4605,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5415,7 +5415,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -6325,7 +6325,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -7235,7 +7235,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
+  .textPayLiquidation {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -7560,7 +7560,7 @@
   }
 
   .lineTable1 {
-    width: 170%;
+    width: 279%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -7873,13 +7873,6 @@
     justify-items: end;
   }
 
-  /* .columnArrowTable3 {
-    position: relative;
-    margin-top: 4.7rem;
-    margin-bottom: -26px;
-    overflow-x: auto;
-  } */
-
   .arrowTable3 {
     font-size: 28px;
     color: #8c52ff;
@@ -7889,7 +7882,7 @@
   /* Table 3 */
 
   .column3 {
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-left: -15px;
     margin-bottom: 2px;
     overflow-x: auto;
@@ -7899,7 +7892,7 @@
 
   .columnTable3Line1 {
     display: grid;
-    grid-template-columns: 21% 30% 30% 25% 35% 32% 27%;
+    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -15px;
@@ -7918,7 +7911,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
+    padding: 15px 0px 0px 4px;
   }
 
   .textTreatmentTable3Line1 {
@@ -7926,16 +7919,16 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
+    padding: 15px 0px 0px 0px;
   }
 
   /* Line 2 */
 
   .columnTable3Line2 {
     display: grid;
-    grid-template-columns: 21% 30% 30% 25% 35% 32% 27%;
+    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
     margin-bottom: 8px;
-    margin-left: -20px;
+    margin-left: -5px;
   }
 
   .textTherapistTable3Line2 {
@@ -7943,7 +7936,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 14px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textServices {
@@ -7951,7 +7944,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textLiquidationTable3Line2 {
@@ -7959,8 +7952,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
+    padding: 15px 0px 0px 0px;
   }
 
   .textPayment{
@@ -7968,8 +7960,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDateTable3 {
@@ -7985,12 +7976,11 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
+    padding: 15px 0px 0px 10px;
   }
 
   .lineTable3 {
-    width: 100%;
+    width: 219%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -8002,24 +7992,79 @@
 
   /* Column  */
 
-  .lineTotalPay {
-    width: 83%;
+  .columnTherapist{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
     color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16%;
-    margin-top: -8px;
-    margin-bottom: 6px;
+    line-height: normal;
+  }
+
+  .columnServices{
+    line-height: 1.4rem;
+    padding: 0px 48px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnLiquidation {
+    line-height: 1.4rem;
+    padding: 0px 40px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnDate {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    cursor: pointer;
+  }
+
+  .columnPayment{
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .columnTreatmentTable3{
+    line-height: 1.4rem;
+    padding: 0px 3px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .pagination_MobileTable3 {
     text-align-last: end;
-    margin-top: 3rem;
     margin-bottom: 0px;
   }
 
   /* Table 4 */
+
+  .textPayLiquidation {
+    color: #8c52ff;
+    font-size: 18px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
 
   .column4 {
     margin-top: 2rem;
@@ -8029,9 +8074,41 @@
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 59% 44.9%;
+    grid-template-columns: 19% 24% 19% 21.4% 18%;
     margin-bottom: -5px;
     margin-left: 0%;
+  }
+
+  .textCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransactionTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   .lineTable4 {
@@ -8045,13 +8122,7 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-weight: bold;
-    font-family: sans-serif;
-  }
+  /* Column */
 
   .columnTreatment4 {
     line-break: anywhere;
@@ -8059,6 +8130,25 @@
     font-size: 18px;
     font-family: sans-serif;
     word-wrap: break-word;
+  }
+
+  .lineTotalsTable4 {
+    width: 100%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: 0rem;
+    margin-top: -7px;
+    margin-bottom: 6px;
+  }
+
+  .textTotalTable4{
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
   /* fin Table 4 */
@@ -8955,8 +9045,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -9865,8 +9955,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -10775,8 +10865,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -11566,8 +11656,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;
@@ -12333,8 +12423,8 @@
     margin-bottom: 6px;
   }
 
-  .textPayToTherapist {
-    color: #000000;
+  .textPayLiquidation {
+    color: #8c52ff;
     font-size: 18px;
     place-self: end;
     font-weight: bold;

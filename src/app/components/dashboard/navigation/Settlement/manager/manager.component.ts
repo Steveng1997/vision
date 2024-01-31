@@ -2623,7 +2623,6 @@ export class ManagerComponent implements OnInit {
           this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
           this.convertToZero()
 
-          debugger
           if (this.administratorRole == true) {
             await this.consultLiquidationManagerByAdministrator()
           }

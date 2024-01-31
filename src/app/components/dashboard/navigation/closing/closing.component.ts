@@ -46,86 +46,58 @@ export class ClosingComponent implements OnInit {
   idCierre: string
   idLiquidation: any
 
-  fijoDia: number
-  fixedTotalDay: number
-  fixedDay: number
-  letterFixedDay = ""
-  totalFixedDay = ""
+  selected: boolean
+  idUser: number
+
+  currentDate = new Date().getTime()
 
   // Encargada
   manager: any
   administratorRole: boolean = false
-  managerName: any
-
-  nameTherapist: any
-  aqui: any
 
   // Fecha
   fechaInicio: string
   fechaFinal: string
 
-  selected: boolean
-  idUser: number
+  // Operations
 
-  // Servicios
-  totalService: number
-  totalTipValue: number
-  totalManagerValue: number
-  totalValueDrink: number
-  totalValueDrinkTherap: number
-  totalTobaccoValue: number
-  totalValueVitamins: number
-  totalValueOther: number
+  totalCashPayment: number
+  totalBizumPayment: number
+  totalCardPayment: number
+  totalTransactionPayment: number
 
-  // Comision
-  serviceCommission: number
-  commissionTip: number
-  beverageCommission: number
-  beverageTherapistCommission: number
-  tobaccoCommission: number
-  vitaminCommission: number
-  commissionOthers: number
-  sumCommission: number
-  idUnico: string
-  receivedManager: any
+  textTotalCashPayment: string
+  textTotalBizumPayment: string
+  textTotalCardPayment: string
+  textTotalTransactionPayment: string
 
-  // Comission
-  totalCommission: number
-  totalLiquidation: number
+  totalCashIncome: number
+  totalBizumIncome: number
+  totalCardIncome: number
+  totalTransactionIncome: number
 
-  // Thousand pount
-  textTotalComission: string
-  textTotalService: string
-  textServiceComission: string
-  textTotalTip2: string
-  textComissionTip: string
-  textValueDrink: string
-  textValueDrinkTherap: string
-  textBeverageCommission: string
-  textbeverageTherapistCommission: string
-  textTobaccoValue: string
-  textTobaccoCommission: string
-  textValueVitamins: string
-  textVitaminCommission: string
-  textValueOther: string
-  textCommissionOthers: string
-  textSumCommission: string
-  textReceivedManager: string
-  textTotalCommission: string
-  textTotalCash: string
-  textTotalBizum: string
-  textTotalCard: string
-  textTotalTransaction: string
-  textTotalManagerPayment: string
+  textTotalCashIncome: string
+  textTotalBizumIncome: string
+  textTotalCardIncome: string
+  textTotalTransactionIncome: string
 
-  // Total Payment Method
-  totalCash: number
-  totalCard: number
-  totalBizum: number
-  totalTransaction: number
-  totalTherapistPayment: number
+  totalsBoxCash: number
+  totalsBoxBizum: number
+  totalsBoxCard: number
+  totalsBoxTransaction: number
 
-  currentDate = new Date().getTime()
+  textTotalsBoxCash: string
+  textTotalsBoxBizum: string
+  textTotalsBoxCard: string
+  textTotalsBoxTransaction: string
+
+  totalPayment: number
+  totalIncome: number
+  totalBox: number
+
+  textTotalIncome: string
+  textTotalPayment: string
+  textTotalBox: string
 
   closing: ModelClosing = {
     bizum: 0,
@@ -182,11 +154,38 @@ export class ClosingComponent implements OnInit {
     this.idUser = Number(params.path)
 
     this.date()
-    this.thousandPount()
 
     if (this.idUser) {
       this.validitingUser()
     }
+  }
+
+  async consultClosingByAdministrator() {
+    this.serviceClosing.getAllCierre().subscribe(async (rp: any) => {
+      this.close = rp
+
+      this.closingForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editClosing = false
+      this.selected = false
+      this.dates = false
+      this.closing.encargada = ""
+    })
+  }
+
+  async consultClosingByManager() {
+    this.serviceClosing.getByEncargada(this.closing.encargada).subscribe(async (rp) => {
+      this.close = rp
+
+      this.closingForm = true
+      this.validationFilters = true
+      this.addForm = false
+      this.editClosing = false
+      this.selected = false
+      this.dates = false
+      this.closing.encargada = ""
+    })
   }
 
   async validitingUser() {
@@ -198,6 +197,7 @@ export class ClosingComponent implements OnInit {
       } else {
         this.manager = rp
         this.loading = false
+        this.administratorRole = false
         this.closing.encargada = this.manager[0].nombre
         this.getManager()
       }
@@ -234,38 +234,34 @@ export class ClosingComponent implements OnInit {
   }
 
   convertToZero() {
-    this.totalService = 0
-    this.totalTipValue = 0
-    this.totalManagerValue = 0
-    this.totalValueDrink = 0
-    this.totalValueDrinkTherap = 0
-    this.totalTobaccoValue = 0
-    this.totalValueVitamins = 0
-    this.totalValueOther = 0
-    this.serviceCommission = 0
-    this.commissionTip = 0
-    this.beverageCommission = 0
-    this.beverageTherapistCommission = 0
-    this.tobaccoCommission = 0
-    this.vitaminCommission = 0
-    this.commissionOthers = 0
-    this.sumCommission = 0
-    this.receivedManager = 0
+    this.totalCashPayment = 0
+    this.totalBizumPayment = 0
+    this.totalCardPayment = 0
+    this.totalTransactionPayment = 0
+    this.totalCashIncome = 0
+    this.totalBizumIncome = 0
+    this.totalCardIncome = 0
+    this.totalTransactionIncome = 0
+    this.totalPayment = 0
+    this.totalIncome = 0
+    this.totalsBoxCash = 0
+    this.totalsBoxBizum = 0
+    this.totalsBoxCard = 0
+    this.totalsBoxTransaction = 0
+    this.totalBox = 0
   }
 
-  validateNullData() {
-  }
-
-  async thousandPount() {
-
-    this.serviceManager.getById(this.idUser).subscribe((rp) => {
-      if (rp[0]['rol'] == 'administrador') {
-
-        this.serviceClosing.getAllCierre().subscribe((rp: any) => {
-          this.close = rp
-        })
-      }
-    })
+  validateNullData(arr2) {
+    if (arr2.totalService == undefined) arr2.totalService = 0
+    if (arr2.liquidation == undefined) arr2.liquidation = 0
+    if (arr2.cashPayment == undefined) arr2.cashPayment = 0
+    if (arr2.bizumPayment == undefined) arr2.bizumPayment = 0
+    if (arr2.cardPayment == undefined) arr2.cardPayment = 0
+    if (arr2.transactionPayment == undefined) arr2.transactionPayment = 0
+    if (arr2.cashIncome == undefined) arr2.cashIncome = 0
+    if (arr2.bizumIncome == undefined) arr2.bizumIncome = 0
+    if (arr2.cardIncome == undefined) arr2.cardIncome = 0
+    if (arr2.transactionIncome == undefined) arr2.transactionIncome = 0
   }
 
   filters() {
@@ -436,91 +432,129 @@ export class ClosingComponent implements OnInit {
     }
   }
 
-  pountFixedDay() {
-
-  }
-
   async inputDateAndTime() {
+    let arr2
+    this.service.getWithDistinctByManagerFechaHoraInicioFechaHoraFinClosing(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora, this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-    this.service.getWithDistinctByManagerFechaHoraInicioFechaHoraFinClosing(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-      this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+      if (rp.length > 0) {
+        this.unliquidatedService = rp
 
-        if (rp.length > 0) {
-          this.unliquidatedService = rp
+        this.service.getByManagerFechaHoraInicioFechaHoraFinClosing(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+          this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+            this.unliquidatedServiceByDistinct = rp
 
-          this.service.getByManagerFechaHoraInicioFechaHoraFinClosing(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-            this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
-              this.unliquidatedServiceByDistinct = rp
+            this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+              this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-              this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-                this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+                this.unliquidatedServiceByLiquidationTherapist = rp
 
-                  this.unliquidatedServiceByLiquidationTherapist = rp
+                for (let o = 0; o < this.unliquidatedService.length; o++) {
+                  const servicios = this.unliquidatedServiceByDistinct.filter(therapist => therapist.terapeuta == this.unliquidatedService[o].terapeuta)
+                  const totalServices = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.totalServicio
+                  }, 0)
 
-                  for (let o = 0; o < this.unliquidatedService.length; o++) {
-                    const servicios = this.unliquidatedServiceByDistinct.filter(therapist => therapist.terapeuta == this.unliquidatedService[o].terapeuta)
-                    const totalServices = servicios.reduce((accumulator, serv) => {
-                      return accumulator + serv.totalServicio
-                    }, 0)
-    
-                    const arr2 = [].concat(this.unliquidatedService);
-    
-                    arr2[o].totalService = totalServices
-                    arr2[o].liquidation = rp[o].importe
-                    arr2[o].payment = rp[o].formaPago
-                    arr2[o].sinceDate = rp[o].desdeFechaLiquidado
-                    arr2[o].sinceTime = rp[o].desdeHoraLiquidado
-                    arr2[o].toDate = rp[o].hastaFechaLiquidado
-                    arr2[o].untilTime = rp[o].hastaHoraLiquidado
-                    arr2[o].treatment = rp[o].tratamiento                    
+                  arr2 = [].concat(this.unliquidatedService);
 
-                    arr2.push({ totalService: totalServices, liquidation: rp[o].importe, payment: rp[o].formaPago, sinceDate: rp[o].desdeFechaLiquidado,
-                    sinceTime: rp[o].desdeHoraLiquidado, toDate:  rp[o].hastaFechaLiquidado, untilTime: rp[o].hastaHoraLiquidado, treatment: rp[o].tratamiento})
+                  if (rp[o].formaPago == "Efectivo") {
+                    arr2[o].cashPayment = rp[o].importe
+                    arr2[o].cashIncome = totalServices
                   }
-                })
 
-              this.validateNullData()
-              this.thousandPoint()
-              this.loading = false
-              this.selected = true
-              this.dates = true
-            })
+                  if (rp[o].formaPago == "Bizum") {
+                    arr2[o].bizumPayment = rp[o].importe
+                    arr2[o].bizumIncome = totalServices
+                  }
 
-          return true
-        } else {
-          this.unliquidatedService = rp
-          this.loading = false
-          this.dates = true
+                  if (rp[o].formaPago == "Tarjeta") {
+                    arr2[o].cardPayment = rp[o].importe
+                    arr2[o].cardIncome = totalServices
+                  }
 
-          Swal.fire({
-            icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+                  if (rp[o].formaPago == "Trans") {
+                    arr2[o].transactionPayment = rp[o].importe
+                    arr2[o].transactionIncome = totalServices
+                  }
+
+                  arr2[o].totalService = totalServices
+                  arr2[o].liquidation = rp[o].importe
+                  arr2[o].payment = rp[o].formaPago
+                  arr2[o].sinceDate = rp[o].desdeFechaLiquidado
+                  arr2[o].sinceTime = rp[o].desdeHoraLiquidado
+                  arr2[o].toDate = rp[o].hastaFechaLiquidado
+                  arr2[o].untilTime = rp[o].hastaHoraLiquidado
+                  arr2[o].treatment = rp[o].tratamiento
+
+                  this.validateNullData(arr2[o])
+
+                  arr2.push({
+                    totalService: totalServices, liquidation: rp[o].importe, payment: rp[o].formaPago, sinceDate: rp[o].desdeFechaLiquidado, sinceTime: rp[o].desdeHoraLiquidado, toDate: rp[o].hastaFechaLiquidado, untilTime: rp[o].hastaHoraLiquidado, treatment: rp[o].tratamiento, cashPayment: rp[o].importe, bizumPayment: rp[o].importe, cardPayment: rp[o].importe, transactionPayment: rp[o].importe, cashIncome: totalServices, bizumIncome: totalServices, cardIncome: totalServices, transactionIncome: totalServices
+                  })
+                }
+
+                arr2.pop();
+
+                // Payment
+
+                const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
+                this.totalCashPayment = totalCashPayment
+
+                const totalBizumPayment = arr2.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
+                this.totalBizumPayment = totalBizumPayment
+
+                const totalCardPayment = arr2.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
+                this.totalCardPayment = totalCardPayment
+
+                const totalTransactionPayment = arr2.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
+                this.totalTransactionPayment = totalTransactionPayment
+
+                this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+
+                // Income 
+
+                const totalCashIncome = arr2.map(({ cashIncome }) => cashIncome).reduce((acc, value) => acc + value, 0)
+                this.totalCashIncome = totalCashIncome
+
+                const totalBizumIncome = arr2.map(({ bizumIncome }) => bizumIncome).reduce((acc, value) => acc + value, 0)
+                this.totalBizumIncome = totalBizumIncome
+
+                const totalCardIncome = arr2.map(({ cardIncome }) => cardIncome).reduce((acc, value) => acc + value, 0)
+                this.totalCardIncome = totalCardIncome
+
+                const totalTransactionIncome = arr2.map(({ transactionIncome }) => transactionIncome).reduce((acc, value) => acc + value, 0)
+                this.totalTransactionIncome = totalTransactionIncome
+
+                this.totalIncome = totalCashIncome + totalBizumIncome + totalCardIncome + totalTransactionIncome
+
+                // Box
+
+                this.totalsBoxCash = totalCashIncome - totalCashPayment
+                this.totalsBoxBizum = totalBizumIncome - totalBizumPayment
+                this.totalsBoxCard = totalCardIncome - totalCardPayment
+                this.totalsBoxTransaction = totalTransactionIncome - totalTransactionPayment
+                this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
+
+                this.thousandPoint()
+                this.loading = false
+                this.selected = true
+                this.dates = true
+              })
           })
 
-          return false
-        }
-      })
+        return true
+      } else {
+        this.unliquidatedService = rp
+        this.loading = false
+        this.dates = true
+
+        Swal.fire({
+          icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
+        })
+
+        return false
+      }
+    })
     return false
-  }
-
-  calculateTheDays() {
-    let day = '', convertDay = '', month = '', year = '', hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
-
-    dayEnd = this.closing.desdeFecha.substring(8, 10)
-    monthEnd = this.closing.desdeFecha.substring(5, 7)
-    yearEnd = this.closing.desdeFecha.substring(0, 4)
-
-    var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd}`, "YYYY-MM-DD")
-
-    // Date 2
-
-    day = this.closing.hastaFecha.substring(8, 10)
-    month = this.closing.hastaFecha.substring(5, 7)
-    year = this.closing.hastaFecha.substring(0, 4)
-
-    var date2 = moment(`${year}-${month}-${day}`, "YYYY-MM-DD")
-
-    // this.fixedDay = date1.diff(date2, 'd')
-    this.fixedDay = date2.diff(date1, 'days')
   }
 
   async dateDoesNotExist() {
@@ -537,7 +571,380 @@ export class ClosingComponent implements OnInit {
   }
 
   thousandPoint() {
+    if (this.totalCashPayment > 999) {
 
+      const coma = this.totalCashPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCashPayment.toString().split(".") : this.totalCashPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCashPayment = integer[0].toString()
+    } else {
+      this.textTotalCashPayment = this.totalCashPayment.toString()
+    }
+
+    if (this.totalBizumPayment > 999) {
+
+      const coma = this.totalBizumPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizumPayment.toString().split(".") : this.totalBizumPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizumPayment = integer[0].toString()
+    } else {
+      this.textTotalBizumPayment = this.totalBizumPayment.toString()
+    }
+
+    if (this.totalCardPayment > 999) {
+
+      const coma = this.totalCardPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCardPayment.toString().split(".") : this.totalCardPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCardPayment = integer[0].toString()
+    } else {
+      this.textTotalCardPayment = this.totalCardPayment.toString()
+    }
+
+    if (this.totalTransactionPayment > 999) {
+
+      const coma = this.totalTransactionPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransactionPayment.toString().split(".") : this.totalTransactionPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransactionPayment = integer[0].toString()
+    } else {
+      this.textTotalTransactionPayment = this.totalTransactionPayment.toString()
+    }
+
+    if (this.totalCashIncome > 999) {
+
+      const coma = this.totalCashIncome.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCashIncome.toString().split(".") : this.totalCashIncome.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCashIncome = integer[0].toString()
+    } else {
+      this.textTotalCashIncome = this.totalCashIncome.toString()
+    }
+
+    if (this.totalBizumIncome > 999) {
+
+      const coma = this.totalBizumIncome.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizumIncome.toString().split(".") : this.totalBizumIncome.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizumIncome = integer[0].toString()
+    } else {
+      this.textTotalBizumIncome = this.totalBizumIncome.toString()
+    }
+
+    if (this.totalCardIncome > 999) {
+
+      const coma = this.totalCardIncome.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCardIncome.toString().split(".") : this.totalCardIncome.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCardIncome = integer[0].toString()
+    } else {
+      this.textTotalCardIncome = this.totalCardIncome.toString()
+    }
+
+    if (this.totalTransactionIncome > 999) {
+
+      const coma = this.totalTransactionIncome.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransactionIncome.toString().split(".") : this.totalTransactionIncome.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransactionIncome = integer[0].toString()
+    } else {
+      this.textTotalTransactionIncome = this.totalTransactionIncome.toString()
+    }
+
+    if (this.totalPayment > 999) {
+
+      const coma = this.totalPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalPayment.toString().split(".") : this.totalPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalPayment = integer[0].toString()
+    } else {
+      this.textTotalPayment = this.totalPayment.toString()
+    }
+
+    if (this.totalIncome > 999) {
+
+      const coma = this.totalIncome.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalIncome.toString().split(".") : this.totalIncome.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalIncome = integer[0].toString()
+    } else {
+      this.textTotalIncome = this.totalIncome.toString()
+    }
+
+    if (this.totalsBoxCash > 999) {
+
+      const coma = this.totalsBoxCash.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalsBoxCash.toString().split(".") : this.totalsBoxCash.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalsBoxCash = integer[0].toString()
+    } else {
+      this.textTotalsBoxCash = this.totalsBoxCash.toString()
+    }
+
+    if (this.totalsBoxBizum > 999) {
+
+      const coma = this.totalsBoxBizum.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalsBoxBizum.toString().split(".") : this.totalsBoxBizum.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalsBoxBizum = integer[0].toString()
+    } else {
+      this.textTotalsBoxBizum = this.totalsBoxBizum.toString()
+    }
+
+    if (this.totalsBoxCard > 999) {
+
+      const coma = this.totalsBoxCard.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalsBoxCard.toString().split(".") : this.totalsBoxCard.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalsBoxCard = integer[0].toString()
+    } else {
+      this.textTotalsBoxCard = this.totalsBoxCard.toString()
+    }
+
+    if (this.totalsBoxTransaction > 999) {
+
+      const coma = this.totalsBoxTransaction.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalsBoxTransaction.toString().split(".") : this.totalsBoxTransaction.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalsBoxTransaction = integer[0].toString()
+    } else {
+      this.textTotalsBoxTransaction = this.totalsBoxTransaction.toString()
+    }
+
+    if (this.totalBox > 999) {
+
+      const coma = this.totalBox.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBox.toString().split(".") : this.totalBox.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBox = integer[0].toString()
+    } else {
+      this.textTotalBox = this.totalBox.toString()
+    }
   }
 
   arrowLine1() {
@@ -591,54 +998,6 @@ export class ClosingComponent implements OnInit {
         this.settledData = rp;
         this.managerTitle = rp[0]['encargada']
 
-        // Filter by servicio
-        const servicios = rp.filter(serv => serv)
-        this.totalService = servicios.reduce((accumulator, serv) => {
-          return accumulator + serv.servicio
-        }, 0)
-
-        // Filter by Propina
-        const propinas = rp.filter(serv => serv)
-        this.totalTipValue = propinas.reduce((accumulator, serv) => {
-          return accumulator + serv.propina
-        }, 0)
-
-        // Filter by Pago
-        const terapeuta = rp.filter(serv => serv)
-        this.totalManagerValue = terapeuta.reduce((accumulator, serv) => {
-          return accumulator + serv.numberEncarg
-        }, 0)
-
-        // Filter by Drink
-        const bebida = rp.filter(serv => serv)
-        this.totalValueDrink = bebida.reduce((accumulator, serv) => {
-          return accumulator + serv.bebidas
-        }, 0)
-
-        // Filter by Drink
-        const drinkTherap = rp.filter(serv => serv)
-        this.totalValueDrinkTherap = drinkTherap.reduce((accumulator, serv) => {
-          return accumulator + serv.bebidaTerap
-        }, 0)
-
-        // Filter by Tabaco
-        const tabac = rp.filter(serv => serv)
-        this.totalTobaccoValue = tabac.reduce((accumulator, serv) => {
-          return accumulator + serv.tabaco
-        }, 0)
-
-        // Filter by Vitamina
-        const vitamina = rp.filter(serv => serv)
-        this.totalValueVitamins = vitamina.reduce((accumulator, serv) => {
-          return accumulator + serv.vitaminas
-        }, 0)
-
-        // Filter by Vitamina
-        const otroServicio = rp.filter(serv => serv)
-        this.totalValueOther = otroServicio.reduce((accumulator, serv) => {
-          return accumulator + serv.otros
-        }, 0)
-
       } else {
         await this.serviceLiquidationManager.getIdEncarg(idCierre).subscribe(async (rp: any) => {
           this.managerTitle = rp[0]['encargada']
@@ -686,14 +1045,12 @@ export class ClosingComponent implements OnInit {
         this.services.cierre = false
         this.service.updateManagerSettlementManagerIdByManagerId(this.idCierre, this.services).subscribe(async (rp) => {
           this.serviceLiquidationManager.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
-            this.validitingUser()
-            this.closing.encargada = ""
-            this.closingForm = true
-            this.validationFilters = true
-            this.addForm = false
-            this.editClosing = false
-            this.selected = false
-            this.dates = false
+            if (this.administratorRole == true) {
+              await this.consultClosingByAdministrator()
+            }
+            else {
+              await this.consultClosingByManager()
+            }
           })
         })
       }
@@ -720,15 +1077,12 @@ export class ClosingComponent implements OnInit {
 
           this.serviceClosing.settlementRecord(this.closing).subscribe((dates: any) => { })
 
-          await this.validitingUser()
-          this.thousandPount()
-          this.closingForm = true
-          this.validationFilters = true
-          this.addForm = false
-          this.editClosing = false
-          this.selected = false
-          this.dates = false
-          this.closing.encargada = ""
+          if (this.administratorRole == true) {
+            await this.consultClosingByAdministrator()
+          }
+          else {
+            await this.consultClosingByManager()
+          }
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Insertado Correctamente!', showConfirmButton: false, timer: 2500
@@ -744,16 +1098,14 @@ export class ClosingComponent implements OnInit {
           }
 
           this.serviceClosing.settlementRecord(this.closing).subscribe((datos) => { })
-
-          this.validitingUser()
           this.convertToZero()
-          this.closingForm = true
-          this.validationFilters = true
-          this.addForm = false
-          this.editClosing = false
-          this.selected = false
-          this.dates = false
-          this.closing.encargada = ""
+
+          if (this.administratorRole == true) {
+            await this.consultClosingByAdministrator()
+          }
+          else {
+            await this.consultClosingByManager()
+          }
 
           Swal.fire({
             position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
@@ -846,7 +1198,12 @@ export class ClosingComponent implements OnInit {
                     this.services.cierre = false
                     this.service.updateManagerSettlementManagerIdByManagerId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
                       this.serviceLiquidationManager.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
-                        this.validitingUser()
+                        if (this.administratorRole == true) {
+                          await this.consultClosingByAdministrator()
+                        }
+                        else {
+                          await this.consultClosingByManager()
+                        }
                         this.emptyValues()
                         this.loading = false
                         Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 1500 })
