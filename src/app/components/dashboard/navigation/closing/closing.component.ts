@@ -1170,8 +1170,8 @@ export class ClosingComponent implements OnInit {
       if (result.isConfirmed) {
         this.services.idCierre = ""
         this.services.cierre = false
-        this.service.updateManagerSettlementManagerIdByManagerId(this.idCierre, this.services).subscribe(async (rp) => {
-          this.serviceLiquidationManager.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+        this.service.updateClosingByIdClosing(this.idCierre, this.services).subscribe(async (rp) => {
+          this.serviceClosing.deleteClosing(this.idSettled).subscribe(async (rp) => {
             if (this.administratorRole == true) {
               await this.consultClosingByAdministrator()
             }

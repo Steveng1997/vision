@@ -428,6 +428,10 @@ export class Service {
     return this.http.put(`${this.API_URL}/updatesManagerSettlementManagerIdByManagerId/${idEncargada}`, service);
   }
 
+  updateClosingByIdClosing(idCierre: string, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateClosingIdClosing/${idCierre}`, service);
+  }
+
   updateScreenById(id: number, service: ModelService) {
     return this.http.put(`${this.API_URL}/updateScreenById/${id}`, service);
   }

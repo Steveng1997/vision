@@ -39,4 +39,10 @@ export class ServiceClosing {
   getByEncargada(encargada: string) {
     return this.http.get(`${this.API_URL}/getEncargada/${encargada}`);
   }
+
+  // Delete
+
+  deleteClosing(id: number) {
+    return this.http.delete(`${this.API_URL}/deleteClosing/${id}`);
+  }
 }
