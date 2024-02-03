@@ -214,15 +214,15 @@
                         <div class="columnManager" (click)="dataFormEdit(closing.idCierre, closing.id)">
                             {{closing?.encargada}}</div>
 
-                        <div class="columnDateTable1"> {{closing?.desdeFechaLiquidado + ' - ' +
-                            closing?.desdeHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{closing?.desdeFecha + ' - ' +
+                            closing?.desdeHora}} </div>
 
-                        <div class="columnDateTable1"> {{closing?.hastaFechaLiquidado + ' - ' +
-                            closing?.hastaHoraLiquidado}} </div>
+                        <div class="columnDateTable1"> {{closing?.hastaFecha + ' - ' +
+                            closing?.hastaHora}} </div>
 
                         <div class="columnTreatment">{{closing?.tratamiento}}</div>
 
-                        <div class="columnImport">{{closing?.importe + ' €'}}</div>
+                        <div class="columnImport">{{closing?.total + ' €'}}</div>
 
                         <div class="columnCash">{{closing?.efectivo}}</div>
 
@@ -535,7 +535,7 @@
                     </div>
                 </div>
 
-                <div class="row inputButtonSave">
+                <div *ngIf="!editClosing" class="row inputButtonSave">
 
                     <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
                         <button type="submit" mat-button class="btnSave" (click)="save()">Guardar</button>
@@ -549,6 +549,250 @@
                         <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
                     </div>
                 </div>
+
+                <!-- Edit Closing -->
+
+                <label *ngIf="editClosing" class="titleEdit">Cierre {{closing.encargada}}</label>
+
+                <label *ngIf="editClosing" class="textDates">{{closing.desdeFecha + ' ' +
+                    closing.desdeHora + ' a ' + closing.hastaFecha + ' ' + closing.hastaHora}}</label>
+
+                <div *ngIf="editClosing">
+                    <div class="row containerTitleEdit">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalBox + ' €'}}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table 2 -->
+
+                <div class="column2" *ngIf="editClosing">
+                    <div class="columnTable2">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textBox">
+                            <label>Caja</label>
+                        </div>
+
+                        <div class="textIncome">
+                            <label>Ingresos</label>
+                        </div>
+
+                        <div class="textPayments">
+                            <label>Pagos</label>
+                        </div>
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2">
+                        <label class="columnPayments">Efectivo</label>
+                        <label class="columnTotalBox">{{textTotalsBoxCash + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalCashIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCashPayment + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable2">
+                        <label class="columnPayments">Bizum</label>
+                        <label class="columnTotalBox">{{textTotalsBoxBizum + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalBizumIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalBizumPayment + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable2">
+                        <label class="columnPayments">Tarjeta</label>
+                        <label class="columnTotalBox">{{textTotalsBoxCard + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalCardIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable2">
+                        <label class="columnPayments">Trasferencia</label>
+                        <label class="columnTotalBox">{{textTotalsBoxTransaction + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalTransactionIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable2">
+                        <label class="columnPayments">Total</label>
+                        <label class="columnTotalBox">{{textTotalBox + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalIncome + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 3 -->
+
+                <div class="row containerTable3" *ngIf="editClosing">
+                    <div class="row g-0">
+                        <label class="titleTable3">Liquidaciones</label>
+                    </div>
+
+                    <div class="row g-0 arrow3" style="justify-content: end" id="arrowTable3Add">
+                        <i class='far fa-arrow-alt-circle-right arrowTable3' (click)="arrowTable3Add()"></i>
+                    </div>
+
+                </div>
+
+                <div class="column3" *ngIf="editClosing">
+                    <div class="columnTable3Line1">
+
+                        <div class="textTherapistTable3Line1">
+                            <label>Tera</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textLiquidationTable3Line1">
+                            <label>Liquida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentTable3Line1">
+                            <label>Trata</label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTable3Line2">
+
+                        <div class="textTherapistTable3Line2">
+                            <label>peuta</label>
+                        </div>
+
+                        <div class="textServices">
+                            <label>Servicios</label>
+                        </div>
+
+                        <div class="textLiquidationTable3Line2">
+                            <label>dación</label>
+                        </div>
+
+                        <div class="textPayment">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textDateTable3">
+                            <label>Desde</label>
+                        </div>
+
+                        <div class="textDateTable3">
+                            <label>Hasta</label>
+                        </div>
+
+                        <div class="textTreatmentTable3Line2">
+                            <label>miento</label>
+                        </div>
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3Line2" *ngFor="let close of settledData | paginate: 
+                    { itemsPerPage: 10, currentPage: page }">
+
+                        <div class="columnTherapist">{{close.terapeuta}}</div>
+
+                        <div class="columnServices"> {{close.totalService + ' €'}} </div>
+
+                        <div class="columnLiquidation">{{close.liquidation + ' €'}} </div>
+
+                        <div class="columnPayment">{{close.payment}} </div>
+
+                        <div class="columnDate">{{close.sinceDate + ' ' + close.sinceTime}} </div>
+
+                        <div class="columnDate">{{close.toDate + ' ' + close.untilTime}} </div>
+
+                        <div class="columnTreatmentTable3">{{close.treatment}}</div>
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="editClosing" class="pagination_MobileTable3" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="editClosing">
+
+                    <label class="textPayLiquidation">Pagado liquidaciones</label>
+
+                    <div class="columnTable4">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textCashTable4">
+                            <label>Efectivo</label>
+                        </div>
+
+                        <div class="textBizumTable4">
+                            <label>Bizum</label>
+                        </div>
+
+                        <div class="textCardTable4">
+                            <label>Tarjeta</label>
+                        </div>
+
+                        <div class="textTransactionTable4">
+                            <label>Transf.</label>
+                        </div>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4" *ngFor="let close of settledData">
+                        <label class="columnPayments">{{close.terapeuta}}</label>
+                        <label class="columnTotalBox">{{close.cashPayment + ' €'}}</label>
+                        <label class="columnTotalIncome">{{close.bizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{close.cardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{close.transactionPayment + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalsTable4">
+
+                    <div class="columnTable4">
+                        <label class="textTotalTable4">Total</label>
+                        <label class="columnTotalBox">{{textTotalCashPayment + ' €'}}</label>
+                        <label class="columnTotalIncome">{{textTotalBizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="editClosing" class="row inputButtonEdit">
+
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnDelete" (click)="delete()">Eliminar</button>
+                    </div>
+
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+</div>

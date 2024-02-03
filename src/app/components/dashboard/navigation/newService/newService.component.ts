@@ -266,6 +266,9 @@ export class NewServiceComponent implements OnInit {
   }
 
   expiredDateValidations() {
+    this.buttonSave = document.getElementById('btnSave') as HTMLButtonElement
+    this.buttonSave.disabled = true;
+
     let currentHours, diferenceHour
     const splitDate = this.fechaActual.split('-')
     const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${this.horaInicialServicio}`)
@@ -278,9 +281,8 @@ export class NewServiceComponent implements OnInit {
     currentHours = Math.abs(Math.round(diferenceHour))
 
     // const currentHours = currentDate.getHours()
-    if (selectDate < currentDateWithoutHours && currentHours > 24) {
-      this.buttonSave.disabled = false
-      this.buttonEdit.disabled = false
+    if (selectDate < currentDateWithoutHours || currentHours > 24) {
+      this.buttonSave.disabled = false;
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -927,6 +929,37 @@ export class NewServiceComponent implements OnInit {
 
   // -------------------------------------------- Editamos  // ---------------------------------------------
 
+  expiredDateValidationsEdit() {
+    this.buttonSave = document.getElementById('btnEdit') as HTMLButtonElement
+    this.buttonSave.disabled = true;
+
+    let currentHours, diferenceHour
+    const splitDate = this.fechaActual.split('-')
+    const selectDate = new Date(`${splitDate[1]}/${splitDate[2].slice(0, 2)}/${splitDate[0]}/${this.horaInicialServicio}`)
+    const currentDate = new Date()
+    const currentDateWithoutHours = new Date(`${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`)
+
+    diferenceHour = (currentDate.getTime() - selectDate.getTime()) / 1000
+    diferenceHour /= (60 * 60)
+
+    currentHours = Math.abs(Math.round(diferenceHour))
+
+    // const currentHours = currentDate.getHours()
+    if (selectDate < currentDateWithoutHours || currentHours > 24) {
+      this.buttonSave.disabled = false;
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se puede crear el servicio por la fecha.',
+        showConfirmButton: false,
+        timer: 2500,
+      });
+      return false
+    }
+
+    return true
+  }
+
   editStartTime(event: any) {
     this.horaInicialServicio = event.target.value.toString()
 
@@ -1335,7 +1368,7 @@ export class NewServiceComponent implements OnInit {
         let idUsuario = ''
         idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
 
-        if (!this.expiredDateValidations()) return
+        if (!this.expiredDateValidationsEdit()) return
         if (!this.validationsToSelectAPaymentMethod()) return
         if (!this.validationsFormOfPaymentToEdit()) return
         this.fullServiceToEdit()
@@ -1791,33 +1824,39 @@ export class NewServiceComponent implements OnInit {
 
   deleteService(id) {
     let idUser = ''
-    idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
-    this.service.getById(id).subscribe((datoEliminado) => {
-      if (datoEliminado) {
-        Swal.fire({
-          title: '¿Deseas eliminar el registro?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Si, Deseo eliminar!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.serviceTherapist.getTerapeuta(datoEliminado[0]['terapeuta']).subscribe((rp: any) => {
-              this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
-            })
-            localStorage.removeItem('Efectivo')
-            localStorage.removeItem('Bizum')
-            localStorage.removeItem('Tarjeta')
-            localStorage.removeItem('Trans')
-            this.service.deleteServicio(id).subscribe((rp: any) => {
-              this.router.navigate([`menu/${idUser}/vision/${idUser}`])
-              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
-            })
-          }
-        })
-      }
-    })
+    if (this.administratorRole == true) {
+      idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+      this.service.getById(id).subscribe((datoEliminado) => {
+        if (datoEliminado) {
+          Swal.fire({
+            title: '¿Deseas eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Deseo eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.serviceTherapist.getTerapeuta(datoEliminado[0]['terapeuta']).subscribe((rp: any) => {
+                this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
+              })
+              localStorage.removeItem('Efectivo')
+              localStorage.removeItem('Bizum')
+              localStorage.removeItem('Tarjeta')
+              localStorage.removeItem('Trans')
+              this.service.deleteServicio(id).subscribe((rp: any) => {
+                this.router.navigate([`menu/${idUser}/vision/${idUser}`])
+                Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
+              })
+            }
+          })
+        }
+      })
+    } else {
+      Swal.fire({ position: 'top-end', icon: 'error', title: '¡Oops...!', showConfirmButton: false, timer: 2500,
+        text: 'No tienes autorización para borrar, si deseas eliminar el servicio habla con el adminisitrador del sistema'
+      })
+    }
   }
 
   cancel() {

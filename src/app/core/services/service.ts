@@ -43,8 +43,8 @@ export class Service {
     return this.http.get(`${this.API_URL}/getManagerOrderCurrentDate/${encargada}`);
   }
 
-  getByCierre(encargada: string) {
-    return this.http.get(`${this.API_URL}/getEncargadaAndCierre/${encargada}`);
+  getByCierre(idCierre: string) {
+    return this.http.get(`${this.API_URL}/getIdCierre/${idCierre}`);
   }
 
   getServicio() {
@@ -62,9 +62,9 @@ export class Service {
   getByIdTerap(idTerap: string) {
     return this.http.get(`${this.API_URL}/getIdTerapeuta/${idTerap}`);
   }
-
-  getByIdCierre(idCierre: number) {
-    return this.http.get(`${this.API_URL}/getIdCierre/${idCierre}`);
+  
+  getByIdCierreDistinct(idCierre: string) {
+    return this.http.get(`${this.API_URL}/getIdCierreDistinct/${idCierre}`);
   }
 
   getByIdEncarg(idEncargada: string) {

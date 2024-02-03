@@ -41,6 +41,8 @@ export class ClosingComponent implements OnInit {
   unliquidatedServiceByLiquidationTherapist: any
   close: any
   settledData: any
+  settledDataServiceByDistinct: any
+  settledDataServiceByLiquidationTherapist: any
   page!: number
   managerTitle = ""
   idCierre: string
@@ -101,6 +103,7 @@ export class ClosingComponent implements OnInit {
 
   closing: ModelClosing = {
     bizum: 0,
+    createdDate: "",
     currentDate: "",
     efectivo: 0,
     encargada: "",
@@ -194,12 +197,13 @@ export class ClosingComponent implements OnInit {
         this.administratorRole = true
         this.loading = false
         this.GetAllManagers()
+        this.getAllClosing()
       } else {
         this.manager = rp
         this.loading = false
         this.administratorRole = false
         this.closing.encargada = this.manager[0].nombre
-        this.getManager()
+        this.getClosing()
       }
     })
   }
@@ -334,8 +338,8 @@ export class ClosingComponent implements OnInit {
     return false
   }
 
-  async getManager() {
-    this.serviceLiquidationManager.getByEncargada(this.closing.encargada).subscribe(async (rp) => {
+  async getClosing() {
+    this.serviceClosing.getByEncargada(this.closing.encargada).subscribe(async (rp) => {
       this.close = rp
     })
   }
@@ -343,6 +347,12 @@ export class ClosingComponent implements OnInit {
   async GetAllManagers() {
     this.serviceManager.getUsuarios().subscribe(async (datosEncargada: any) => {
       this.manager = datosEncargada
+    })
+  }
+
+  async getAllClosing() {
+    this.serviceClosing.getAllCierre().subscribe(async (datosEncargada: any) => {
+      this.close = datosEncargada
     })
   }
 
@@ -370,12 +380,12 @@ export class ClosingComponent implements OnInit {
     await this.serviceClosing.getByEncargada(this.closing.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
 
-        fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
-        fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
-        fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
+        fromDay = rp[0]['hastaFecha'].substring(0, 2)
+        fromMonth = rp[0]['hastaFecha'].substring(3, 5)
+        fromYear = rp[0]['hastaFecha'].substring(6, 8)
 
         this.closing.desdeFecha = `${'20' + fromYear}-${fromMonth}-${fromDay}`
-        this.closing.desdeFecha = rp[0]['hastaHoraLiquidado']
+        this.closing.desdeHora = rp[0]['hastaHora']
         await this.inputDateAndTime()
       } else {
         await this.dateDoesNotExist()
@@ -533,6 +543,11 @@ export class ClosingComponent implements OnInit {
                 this.totalsBoxCard = totalCardIncome - totalCardPayment
                 this.totalsBoxTransaction = totalTransactionIncome - totalTransactionPayment
                 this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
+                this.closing.total = this.totalBox
+                this.closing.efectivo = this.totalsBoxCash
+                this.closing.bizum = this.totalsBoxBizum
+                this.closing.tarjeta = this.totalsBoxCard
+                this.closing.transaccion = this.totalsBoxTransaction
 
                 this.thousandPoint()
                 this.loading = false
@@ -959,13 +974,6 @@ export class ClosingComponent implements OnInit {
 
   // Edit
 
-  convertToZeroEdit() {
-  }
-
-  async thousandPointEdit() {
-
-  }
-
   goToEdit(id: number) {
     const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
     this.idUser = Number(params.path)
@@ -976,32 +984,151 @@ export class ClosingComponent implements OnInit {
   }
 
   async dataFormEdit(idCierre: string, id: number) {
+    let sinceDay = '', sinceMonth = '', sinceYear = '', untilDay = '', untilMonth = '', untilYear = ''
+
     this.loading = true
     this.validationFilters = false
     this.closingForm = false
     this.idSettled = id
     this.idCierre = idCierre
 
-    this.serviceClosing.getIdCierre(idCierre).subscribe(async (datosManager) => {
-      this.closing.desdeFecha = datosManager[0]['desdeFecha']
-      this.closing.desdeHora = datosManager[0]['desdeHora']
-      this.closing.hastaFecha = datosManager[0]['hastaFecha']
-      this.closing.hastaHora = datosManager[0]['hastaHora']
-    })
+    this.serviceClosing.getIdCierre(idCierre).subscribe(async (rp) => {
 
-    await this.sumTotal(idCierre)
+      sinceDay = rp[0]['desdeFecha'].substring(0, 2)
+      sinceMonth = rp[0]['desdeFecha'].substring(3, 5)
+      sinceYear = rp[0]['desdeFecha'].substring(6, 8)
+      this.closing.desdeFecha = `${'20' + sinceYear}-${sinceMonth}-${sinceDay}`
+
+      untilDay = rp[0]['hastaFecha'].substring(0, 2)
+      untilMonth = rp[0]['hastaFecha'].substring(3, 5)
+      untilYear = rp[0]['hastaFecha'].substring(6, 8)
+      this.closing.hastaFecha = `${'20' + untilYear}-${untilMonth}-${untilDay}`
+
+      this.closing.desdeHora = rp[0]['desdeHora']
+      this.closing.hastaHora = rp[0]['hastaHora']
+
+      await this.sumTotal(idCierre)
+    })
   }
 
   async sumTotal(idCierre: string) {
-    this.service.getByIdEncarg(idCierre).subscribe(async (rp: any) => {
+    let arr2
+    this.service.getByIdCierreDistinct(idCierre).subscribe(async (rp: any) => {
       if (rp.length > 0) {
         this.settledData = rp;
-        this.managerTitle = rp[0]['encargada']
+
+        this.service.getByCierre(idCierre).subscribe(async (rp: any) => {
+          this.settledDataServiceByDistinct = rp
+          this.closing.encargada = rp[0]?.encargada
+
+          this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+            this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+
+              this.settledDataServiceByLiquidationTherapist = rp
+
+              for (let o = 0; o < this.settledData.length; o++) {
+                const servicios = this.settledDataServiceByDistinct.filter(therapist => therapist.terapeuta == this.settledData[o].terapeuta)
+                const totalServices = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.totalServicio
+                }, 0)
+
+                arr2 = [].concat(this.settledData);
+
+                if (rp[o].formaPago == "Efectivo") {
+                  arr2[o].cashPayment = rp[o].importe
+                  arr2[o].cashIncome = totalServices
+                }
+
+                if (rp[o].formaPago == "Bizum") {
+                  arr2[o].bizumPayment = rp[o].importe
+                  arr2[o].bizumIncome = totalServices
+                }
+
+                if (rp[o].formaPago == "Tarjeta") {
+                  arr2[o].cardPayment = rp[o].importe
+                  arr2[o].cardIncome = totalServices
+                }
+
+                if (rp[o].formaPago == "Trans") {
+                  arr2[o].transactionPayment = rp[o].importe
+                  arr2[o].transactionIncome = totalServices
+                }
+
+                arr2[o].totalService = totalServices
+                arr2[o].liquidation = rp[o].importe
+                arr2[o].payment = rp[o].formaPago
+                arr2[o].sinceDate = rp[o].desdeFechaLiquidado
+                arr2[o].sinceTime = rp[o].desdeHoraLiquidado
+                arr2[o].toDate = rp[o].hastaFechaLiquidado
+                arr2[o].untilTime = rp[o].hastaHoraLiquidado
+                arr2[o].treatment = rp[o].tratamiento
+
+                this.validateNullData(arr2[o])
+
+                arr2.push({
+                  totalService: totalServices, liquidation: rp[o].importe, payment: rp[o].formaPago, sinceDate: rp[o].desdeFechaLiquidado, sinceTime: rp[o].desdeHoraLiquidado, toDate: rp[o].hastaFechaLiquidado, untilTime: rp[o].hastaHoraLiquidado, treatment: rp[o].tratamiento, cashPayment: rp[o].importe, bizumPayment: rp[o].importe, cardPayment: rp[o].importe, transactionPayment: rp[o].importe, cashIncome: totalServices, bizumIncome: totalServices, cardIncome: totalServices, transactionIncome: totalServices
+                })
+              }
+
+              arr2.pop();
+
+              // Payment
+
+              const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
+              this.totalCashPayment = totalCashPayment
+
+              const totalBizumPayment = arr2.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
+              this.totalBizumPayment = totalBizumPayment
+
+              const totalCardPayment = arr2.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
+              this.totalCardPayment = totalCardPayment
+
+              const totalTransactionPayment = arr2.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
+              this.totalTransactionPayment = totalTransactionPayment
+
+              this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+
+              // Income 
+
+              const totalCashIncome = arr2.map(({ cashIncome }) => cashIncome).reduce((acc, value) => acc + value, 0)
+              this.totalCashIncome = totalCashIncome
+
+              const totalBizumIncome = arr2.map(({ bizumIncome }) => bizumIncome).reduce((acc, value) => acc + value, 0)
+              this.totalBizumIncome = totalBizumIncome
+
+              const totalCardIncome = arr2.map(({ cardIncome }) => cardIncome).reduce((acc, value) => acc + value, 0)
+              this.totalCardIncome = totalCardIncome
+
+              const totalTransactionIncome = arr2.map(({ transactionIncome }) => transactionIncome).reduce((acc, value) => acc + value, 0)
+              this.totalTransactionIncome = totalTransactionIncome
+
+              this.totalIncome = totalCashIncome + totalBizumIncome + totalCardIncome + totalTransactionIncome
+
+              // Box
+
+              this.totalsBoxCash = totalCashIncome - totalCashPayment
+              this.totalsBoxBizum = totalBizumIncome - totalBizumPayment
+              this.totalsBoxCard = totalCardIncome - totalCardPayment
+              this.totalsBoxTransaction = totalTransactionIncome - totalTransactionPayment
+              this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
+              this.closing.total = this.totalBox
+              this.closing.efectivo = this.totalsBoxCash
+              this.closing.bizum = this.totalsBoxBizum
+              this.closing.tarjeta = this.totalsBoxCard
+              this.closing.transaccion = this.totalsBoxTransaction
+
+              this.thousandPoint()
+              this.loading = false
+              this.selected = false
+              this.dates = false
+              this.editClosing = true
+            })
+        })
 
       } else {
         await this.serviceLiquidationManager.getIdEncarg(idCierre).subscribe(async (rp: any) => {
           this.managerTitle = rp[0]['encargada']
-          this.convertToZeroEdit()
+          this.convertToZero()
           this.loading = false
           this.closingForm = false
           this.editClosing = true
@@ -1063,16 +1190,17 @@ export class ClosingComponent implements OnInit {
     this.createUniqueId()
     this.closing.currentDate = this.currentDate.toString()
     this.formatDate()
+    this.dateCurrentDay()
 
     if (this.closing.encargada != "") {
 
-      this.serviceLiquidationManager.getByEncargada(this.closing.encargada).subscribe(async (rp: any) => {
+      this.serviceClosing.getByEncargada(this.closing.encargada).subscribe(async (rp: any) => {
 
         if (rp.length > 0) {
 
-          for (let o = 0; o < this.unliquidatedService.length; o++) {
-            this.closing.tratamiento = this.unliquidatedService.length
-            this.service.updateCierre(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
+          for (let o = 0; o < this.unliquidatedServiceByDistinct.length; o++) {
+            this.closing.tratamiento = this.unliquidatedServiceByDistinct.length
+            this.service.updateCierre(this.unliquidatedServiceByDistinct[o]['id'], this.services).subscribe((dates) => { })
           }
 
           this.serviceClosing.settlementRecord(this.closing).subscribe((dates: any) => { })
@@ -1091,9 +1219,9 @@ export class ClosingComponent implements OnInit {
 
         if (rp.length == 0) {
 
-          for (let o = 0; o < this.unliquidatedService.length; o++) {
-            this.closing.tratamiento = this.unliquidatedService.length
-            this.service.updateCierre(this.unliquidatedService[o]['id'], this.services).subscribe((datos) => {
+          for (let o = 0; o < this.unliquidatedServiceByDistinct.length; o++) {
+            this.closing.tratamiento = this.unliquidatedServiceByDistinct.length
+            this.service.updateCierre(this.unliquidatedServiceByDistinct[o]['id'], this.services).subscribe((datos) => {
             })
           }
 

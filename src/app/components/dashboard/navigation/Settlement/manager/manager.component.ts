@@ -1589,6 +1589,27 @@ export class ManagerComponent implements OnInit {
 
   // Edit
 
+  calculateTheDaysEdit() {
+    let day = '', convertDay = '', month = '', year = '', hour = new Date().toTimeString().substring(0, 8), dayEnd = '', monthEnd = '', yearEnd = ''
+
+    dayEnd = this.liquidationManager.desdeFechaLiquidado.substring(0, 2)
+    monthEnd = this.liquidationManager.desdeFechaLiquidado.substring(3, 5)
+    yearEnd = this.liquidationManager.desdeFechaLiquidado.substring(6, 8)
+
+    var date1 = moment(`${yearEnd}-${monthEnd}-${dayEnd}`, "YY-MM-DD")
+
+    // Date 2
+
+    day = this.liquidationManager.hastaFechaLiquidado.substring(0, 2)
+    month = this.liquidationManager.hastaFechaLiquidado.substring(3, 5)
+    year = this.liquidationManager.hastaFechaLiquidado.substring(6, 8)
+    
+    var date2 = moment(`${year}-${month}-${day}`, "YY-MM-DD")
+
+    // this.fixedDay = date1.diff(date2, 'd')
+    this.fixedDay = date2.diff(date1, 'days')
+  }
+
   convertToZeroEdit() {
     this.textTotalComission = '0'
     this.textTotalService = '0'
@@ -2493,12 +2514,7 @@ export class ManagerComponent implements OnInit {
         this.vitaminCommission = Number(comiVitamina.toFixed(0))
         this.commissionOthers = Number(comiOtros.toFixed(0))
 
-        let dayStart = 0, dayEnd = 0
-
-        dayStart = Number(this.liquidationManager.desdeFechaLiquidado.toString().substring(0, 2))
-        dayEnd = Number(this.liquidationManager.hastaFechaLiquidado.toString().substring(0, 2))
-
-        this.fixedDay = dayEnd - dayStart + 1
+        this.calculateTheDaysEdit()
         this.fixedTotalDay = this.fixedDay * this.fijoDia
         this.pountFixedDay()
 
@@ -2585,6 +2601,7 @@ export class ManagerComponent implements OnInit {
     this.createUniqueId()
     this.liquidationManager.currentDate = this.currentDate.toString()
     this.formatDate()
+    this.dateCurrentDay()
 
     if (this.liquidationManager.encargada != "") {
 
