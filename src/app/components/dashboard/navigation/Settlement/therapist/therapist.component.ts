@@ -21,6 +21,7 @@ import { ModelService } from 'src/app/core/models/service'
 })
 export class TherapistComponent implements OnInit {
 
+  buttonSave: any
   therapist = ""
   dates: boolean = false
   loading: boolean = false
@@ -476,7 +477,7 @@ export class TherapistComponent implements OnInit {
 
     await this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
-
+        debugger
         fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
         fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
         fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
@@ -2476,6 +2477,8 @@ export class TherapistComponent implements OnInit {
   // End edit
 
   save() {
+    this.buttonSave = document.getElementById('btnSave') as HTMLButtonElement
+    this.buttonSave.disabled = true;
     this.createUniqueId()
     this.liquidationTherapist.currentDate = this.currentDate.toString()
     this.formatDate()
@@ -2540,16 +2543,22 @@ export class TherapistComponent implements OnInit {
               }
             })
         } else {
+          this.buttonSave.disabled = false;
+
           Swal.fire({
             icon: 'error', title: 'Oops...', text: 'No hay ninguna forma de pago seleccionada', showConfirmButton: false, timer: 2500
           })
         }
       } else {
+        this.buttonSave.disabled = false;
+
         Swal.fire({
           icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
         })
       }
     } else {
+      this.buttonSave.disabled = false;
+
       Swal.fire({
         icon: 'error', title: 'Oops...', text: 'No hay ninguna terapeuta seleccionada', showConfirmButton: false, timer: 2500
       })

@@ -22,6 +22,7 @@ import moment from 'moment'
 })
 export class ManagerComponent implements OnInit {
 
+  buttonSave: any
   dates: boolean = false
   loading: boolean = false
   deleteButton: boolean = false
@@ -720,7 +721,7 @@ export class ManagerComponent implements OnInit {
     day = this.liquidationManager.hastaFechaLiquidado.substring(8, 10)
     month = this.liquidationManager.hastaFechaLiquidado.substring(5, 7)
     year = this.liquidationManager.hastaFechaLiquidado.substring(0, 4)
-    
+
     var date2 = moment(`${year}-${month}-${day}`, "YYYY-MM-DD")
 
     // this.fixedDay = date1.diff(date2, 'd')
@@ -1603,7 +1604,7 @@ export class ManagerComponent implements OnInit {
     day = this.liquidationManager.hastaFechaLiquidado.substring(0, 2)
     month = this.liquidationManager.hastaFechaLiquidado.substring(3, 5)
     year = this.liquidationManager.hastaFechaLiquidado.substring(6, 8)
-    
+
     var date2 = moment(`${year}-${month}-${day}`, "YY-MM-DD")
 
     // this.fixedDay = date1.diff(date2, 'd')
@@ -2598,6 +2599,8 @@ export class ManagerComponent implements OnInit {
   // End edit
 
   save() {
+    this.buttonSave = document.getElementById('btnSave') as HTMLButtonElement
+    this.buttonSave.disabled = true;
     this.createUniqueId()
     this.liquidationManager.currentDate = this.currentDate.toString()
     this.formatDate()
@@ -2654,6 +2657,8 @@ export class ManagerComponent implements OnInit {
       })
 
     } else {
+      this.buttonSave.disabled = false;
+
       Swal.fire({
         icon: 'error', title: 'Oops...', text: 'No hay ninguna encargada seleccionada', showConfirmButton: false, timer: 2500
       })
