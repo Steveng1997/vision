@@ -5406,7 +5406,7 @@
 
   .textPayLiquidation {
     color: #8c52ff;
-    font-size: 18px;
+    font-size: 22px;
     place-self: end;
     font-weight: bold;
     font-family: sans-serif;
@@ -5420,7 +5420,7 @@
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 19% 24% 19% 21.4% 18%;
+    grid-template-columns: 22% 24% 19% 21.4% 18%;
     margin-bottom: -5px;
     margin-left: 0%;
   }
