@@ -5051,7 +5051,7 @@
   }
 
   .containerInChargeNew {
-    width: 75%;
+    width: 79%;
     justify-self: center;
   }
 
@@ -5064,22 +5064,22 @@
   }
 
   .fechaInicio {
-    width: 80%;
+    width: 83%;
   }
 
   .horaInicio {
-    width: 64%;
+    width: 66%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 80%;
+    width: 83%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 64%;
+    width: 66%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -5114,7 +5114,7 @@
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 29% 23% 22% 21%;
+    grid-template-columns: 31% 23% 23% 23%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -5192,11 +5192,11 @@
 
   .containerTable3 {
     display: grid;
-    grid-template-columns: 204px 206px;
+    grid-template-columns: 261px 111px;
     margin-top: 4.7rem;
     margin-bottom: -26px;
     float: left;
-    margin-left: -92px;
+    margin-left: -9px;
   }
 
   .titleTable3 {
