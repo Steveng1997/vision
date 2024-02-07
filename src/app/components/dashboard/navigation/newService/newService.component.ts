@@ -1419,6 +1419,12 @@ export class NewServiceComponent implements OnInit {
         this.therapist.salida = serv.salida
         this.therapist.minuto = serv.minuto
 
+        this.service.getById(idServicio).subscribe((rp: any) => {
+          if (rp[0]['terapeuta'] != serv.terapeuta) {
+            this.serviceTherapist.updateHoraAndSalida(rp[0]['terapeuta'], this.therapist).subscribe((rp: any) => {});
+          }
+        });
+
         this.serviceTherapist.update(this.editarService[0]['terapeuta'], this.therapist).subscribe((rp: any) => { })
 
         this.sortDateToEdit()
