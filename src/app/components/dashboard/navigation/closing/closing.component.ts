@@ -61,7 +61,37 @@ export class ClosingComponent implements OnInit {
   fechaInicio: string
   fechaFinal: string
 
-  // Operations
+  // Table 2
+  totalsBoxCash: number
+  totalsBoxBizum: number
+  totalsBoxCard: number
+  totalsBoxTransaction: number
+
+  totalBox: number
+  totalServices: number
+  totalPayment: number
+
+  textTotalsBoxCash: string
+  textTotalsBoxBizum: string
+  textTotalsBoxCard: string
+  textTotalsBoxTransaction: string
+
+  textTotalBox: string
+  textTotalServices: string
+  textTotalPayment: string
+
+  // Table 3
+  totalCashTable3: number
+  totalBizumTable3: number
+  totalCardTable3: number
+  totalTransTable3: number
+
+  textTotalBizumTable3: string
+  textTotalCashTable3: string
+  textTotalCardTable3: string
+  textTotalTransTable3: string
+
+  // Table 4 
 
   totalCashPayment: number
   totalBizumPayment: number
@@ -72,34 +102,6 @@ export class ClosingComponent implements OnInit {
   textTotalBizumPayment: string
   textTotalCardPayment: string
   textTotalTransactionPayment: string
-
-  totalCashIncome: number
-  totalBizumIncome: number
-  totalCardIncome: number
-  totalTransactionIncome: number
-
-  textTotalCashIncome: string
-  textTotalBizumIncome: string
-  textTotalCardIncome: string
-  textTotalTransactionIncome: string
-
-  totalsBoxCash: number
-  totalsBoxBizum: number
-  totalsBoxCard: number
-  totalsBoxTransaction: number
-
-  textTotalsBoxCash: string
-  textTotalsBoxBizum: string
-  textTotalsBoxCard: string
-  textTotalsBoxTransaction: string
-
-  totalPayment: number
-  totalIncome: number
-  totalBox: number
-
-  textTotalIncome: string
-  textTotalPayment: string
-  textTotalBox: string
 
   closing: ModelClosing = {
     bizum: 0,
@@ -238,34 +240,41 @@ export class ClosingComponent implements OnInit {
   }
 
   convertToZero() {
-    this.totalCashPayment = 0
-    this.totalBizumPayment = 0
-    this.totalCardPayment = 0
-    this.totalTransactionPayment = 0
-    this.totalCashIncome = 0
-    this.totalBizumIncome = 0
-    this.totalCardIncome = 0
-    this.totalTransactionIncome = 0
-    this.totalPayment = 0
-    this.totalIncome = 0
+    // Table 2
     this.totalsBoxCash = 0
     this.totalsBoxBizum = 0
     this.totalsBoxCard = 0
     this.totalsBoxTransaction = 0
     this.totalBox = 0
+
+    this.totalServices = 0
+    this.totalPayment = 0
+
+    // Table 3
+    this.totalCashTable3 = 0
+    this.totalBizumTable3 = 0
+    this.totalCardTable3 = 0
+    this.totalTransTable3 = 0
+
+    // Table 4
+    this.totalCashPayment = 0
+    this.totalBizumPayment = 0
+    this.totalCardPayment = 0
+    this.totalTransactionPayment = 0
   }
 
   validateNullData(arr2) {
-    if (arr2.totalService == undefined) arr2.totalService = 0
-    if (arr2.liquidation == undefined) arr2.liquidation = 0
+    // Table 3
+    if (arr2.totalCashTable3 == undefined) arr2.totalCashTable3 = 0
+    if (arr2.totalBizumTable3 == undefined) arr2.totalBizumTable3 = 0
+    if (arr2.totalCardTable3 == undefined) arr2.totalCardTable3 = 0
+    if (arr2.totalTransTable3 == undefined) arr2.totalTransTable3 = 0
+
+    // Table 4
     if (arr2.cashPayment == undefined) arr2.cashPayment = 0
     if (arr2.bizumPayment == undefined) arr2.bizumPayment = 0
     if (arr2.cardPayment == undefined) arr2.cardPayment = 0
     if (arr2.transactionPayment == undefined) arr2.transactionPayment = 0
-    if (arr2.cashIncome == undefined) arr2.cashIncome = 0
-    if (arr2.bizumIncome == undefined) arr2.bizumIncome = 0
-    if (arr2.cardIncome == undefined) arr2.cardIncome = 0
-    if (arr2.transactionIncome == undefined) arr2.transactionIncome = 0
   }
 
   filters() {
@@ -460,52 +469,85 @@ export class ClosingComponent implements OnInit {
 
                 for (let o = 0; o < this.unliquidatedService.length; o++) {
                   const servicios = this.unliquidatedServiceByDistinct.filter(therapist => therapist.terapeuta == this.unliquidatedService[o].terapeuta)
-                  const totalServices = servicios.reduce((accumulator, serv) => {
-                    return accumulator + serv.totalServicio
+
+                  const totalsCashTable3 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueEfectivo
+                  }, 0)
+
+                  const totalsBizumTable3 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueBizum
+                  }, 0)
+
+                  const totalsCardTable3 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueTarjeta
+                  }, 0)
+
+                  const totalsTransTable3 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueTrans
                   }, 0)
 
                   arr2 = [].concat(this.unliquidatedService);
 
                   if (rp[o].formaPago == "Efectivo") {
                     arr2[o].cashPayment = rp[o].importe
-                    arr2[o].cashIncome = totalServices
                   }
 
                   if (rp[o].formaPago == "Bizum") {
                     arr2[o].bizumPayment = rp[o].importe
-                    arr2[o].bizumIncome = totalServices
                   }
 
                   if (rp[o].formaPago == "Tarjeta") {
                     arr2[o].cardPayment = rp[o].importe
-                    arr2[o].cardIncome = totalServices
                   }
 
                   if (rp[o].formaPago == "Trans") {
                     arr2[o].transactionPayment = rp[o].importe
-                    arr2[o].transactionIncome = totalServices
                   }
 
-                  arr2[o].totalService = totalServices
-                  arr2[o].liquidation = rp[o].importe
-                  arr2[o].payment = rp[o].formaPago
-                  arr2[o].sinceDate = rp[o].desdeFechaLiquidado
-                  arr2[o].sinceTime = rp[o].desdeHoraLiquidado
-                  arr2[o].toDate = rp[o].hastaFechaLiquidado
-                  arr2[o].untilTime = rp[o].hastaHoraLiquidado
-                  arr2[o].treatment = rp[o].tratamiento
+                  // Table 3
+                  arr2[o].totalCashTable3 = totalsCashTable3
+                  arr2[o].totalBizumTable3 = totalsBizumTable3
+                  arr2[o].totalCardTable3 = totalsCardTable3
+                  arr2[o].totalTransTable3 = totalsTransTable3
+
+                  // Table 4
 
                   this.validateNullData(arr2[o])
 
                   arr2.push({
-                    totalService: totalServices, liquidation: rp[o].importe, payment: rp[o].formaPago, sinceDate: rp[o].desdeFechaLiquidado, sinceTime: rp[o].desdeHoraLiquidado, toDate: rp[o].hastaFechaLiquidado, untilTime: rp[o].hastaHoraLiquidado, treatment: rp[o].tratamiento, cashPayment: rp[o].importe, bizumPayment: rp[o].importe, cardPayment: rp[o].importe, transactionPayment: rp[o].importe, cashIncome: totalServices, bizumIncome: totalServices, cardIncome: totalServices, transactionIncome: totalServices
+                    // Table 3
+                    totalCashTable3: totalsCashTable3,
+                    totalBizumTable3: totalsBizumTable3,
+                    totalCardTable3: totalsCardTable3,
+                    totalTransTable3: totalsTransTable3,
+
+                    // Table 4
+                    cashPayment: rp[o].importe,
+                    bizumPayment: rp[o].importe,
+                    cardPayment: rp[o].importe,
+                    transactionPayment: rp[o].importe
+
                   })
                 }
 
                 arr2.pop();
 
-                // Payment
+                // Table 3
+                const totalsCashTable3 = arr2.map(({ totalCashTable3 }) => totalCashTable3).reduce((acc, value) => acc + value, 0)
+                this.totalCashTable3 = totalsCashTable3
 
+                const totalsBizumTable3 = arr2.map(({ totalBizumTable3 }) => totalBizumTable3).reduce((acc, value) => acc + value, 0)
+                this.totalBizumTable3 = totalsBizumTable3
+
+                const totalsCardTable3 = arr2.map(({ totalCardTable3 }) => totalCardTable3).reduce((acc, value) => acc + value, 0)
+                this.totalCardTable3 = totalsCardTable3
+
+                const totalsTransTable3 = arr2.map(({ totalTransTable3 }) => totalTransTable3).reduce((acc, value) => acc + value, 0)
+                this.totalTransTable3 = totalsTransTable3
+
+                this.totalServices = totalsCashTable3 + totalsBizumTable3 + totalsCardTable3 + totalsTransTable3
+
+                // Table 4 
                 const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
                 this.totalCashPayment = totalCashPayment
 
@@ -520,34 +562,13 @@ export class ClosingComponent implements OnInit {
 
                 this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
-                // Income 
 
-                const totalCashIncome = arr2.map(({ cashIncome }) => cashIncome).reduce((acc, value) => acc + value, 0)
-                this.totalCashIncome = totalCashIncome
-
-                const totalBizumIncome = arr2.map(({ bizumIncome }) => bizumIncome).reduce((acc, value) => acc + value, 0)
-                this.totalBizumIncome = totalBizumIncome
-
-                const totalCardIncome = arr2.map(({ cardIncome }) => cardIncome).reduce((acc, value) => acc + value, 0)
-                this.totalCardIncome = totalCardIncome
-
-                const totalTransactionIncome = arr2.map(({ transactionIncome }) => transactionIncome).reduce((acc, value) => acc + value, 0)
-                this.totalTransactionIncome = totalTransactionIncome
-
-                this.totalIncome = totalCashIncome + totalBizumIncome + totalCardIncome + totalTransactionIncome
-
-                // Box
-
-                this.totalsBoxCash = totalCashIncome - totalCashPayment
-                this.totalsBoxBizum = totalBizumIncome - totalBizumPayment
-                this.totalsBoxCard = totalCardIncome - totalCardPayment
-                this.totalsBoxTransaction = totalTransactionIncome - totalTransactionPayment
+                debugger
+                this.totalsBoxCash = totalsCashTable3 - totalCashPayment
+                this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment
+                this.totalsBoxCard = totalsCardTable3 - totalCardPayment
+                this.totalsBoxTransaction = totalsTransTable3 - totalTransactionPayment
                 this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
-                this.closing.total = this.totalBox
-                this.closing.efectivo = this.totalsBoxCash
-                this.closing.bizum = this.totalsBoxBizum
-                this.closing.tarjeta = this.totalsBoxCard
-                this.closing.transaccion = this.totalsBoxTransaction
 
                 this.thousandPoint()
                 this.loading = false
@@ -586,256 +607,7 @@ export class ClosingComponent implements OnInit {
   }
 
   thousandPoint() {
-    if (this.totalCashPayment > 999) {
-
-      const coma = this.totalCashPayment.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCashPayment.toString().split(".") : this.totalCashPayment.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalCashPayment = integer[0].toString()
-    } else {
-      this.textTotalCashPayment = this.totalCashPayment.toString()
-    }
-
-    if (this.totalBizumPayment > 999) {
-
-      const coma = this.totalBizumPayment.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalBizumPayment.toString().split(".") : this.totalBizumPayment.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalBizumPayment = integer[0].toString()
-    } else {
-      this.textTotalBizumPayment = this.totalBizumPayment.toString()
-    }
-
-    if (this.totalCardPayment > 999) {
-
-      const coma = this.totalCardPayment.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCardPayment.toString().split(".") : this.totalCardPayment.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalCardPayment = integer[0].toString()
-    } else {
-      this.textTotalCardPayment = this.totalCardPayment.toString()
-    }
-
-    if (this.totalTransactionPayment > 999) {
-
-      const coma = this.totalTransactionPayment.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalTransactionPayment.toString().split(".") : this.totalTransactionPayment.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalTransactionPayment = integer[0].toString()
-    } else {
-      this.textTotalTransactionPayment = this.totalTransactionPayment.toString()
-    }
-
-    if (this.totalCashIncome > 999) {
-
-      const coma = this.totalCashIncome.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCashIncome.toString().split(".") : this.totalCashIncome.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalCashIncome = integer[0].toString()
-    } else {
-      this.textTotalCashIncome = this.totalCashIncome.toString()
-    }
-
-    if (this.totalBizumIncome > 999) {
-
-      const coma = this.totalBizumIncome.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalBizumIncome.toString().split(".") : this.totalBizumIncome.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalBizumIncome = integer[0].toString()
-    } else {
-      this.textTotalBizumIncome = this.totalBizumIncome.toString()
-    }
-
-    if (this.totalCardIncome > 999) {
-
-      const coma = this.totalCardIncome.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCardIncome.toString().split(".") : this.totalCardIncome.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalCardIncome = integer[0].toString()
-    } else {
-      this.textTotalCardIncome = this.totalCardIncome.toString()
-    }
-
-    if (this.totalTransactionIncome > 999) {
-
-      const coma = this.totalTransactionIncome.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalTransactionIncome.toString().split(".") : this.totalTransactionIncome.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalTransactionIncome = integer[0].toString()
-    } else {
-      this.textTotalTransactionIncome = this.totalTransactionIncome.toString()
-    }
-
-    if (this.totalPayment > 999) {
-
-      const coma = this.totalPayment.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalPayment.toString().split(".") : this.totalPayment.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalPayment = integer[0].toString()
-    } else {
-      this.textTotalPayment = this.totalPayment.toString()
-    }
-
-    if (this.totalIncome > 999) {
-
-      const coma = this.totalIncome.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalIncome.toString().split(".") : this.totalIncome.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalIncome = integer[0].toString()
-    } else {
-      this.textTotalIncome = this.totalIncome.toString()
-    }
-
+    // Table 2
     if (this.totalsBoxCash > 999) {
 
       const coma = this.totalsBoxCash.toString().indexOf(".") !== -1 ? true : false;
@@ -960,6 +732,258 @@ export class ClosingComponent implements OnInit {
     } else {
       this.textTotalBox = this.totalBox.toString()
     }
+
+    if (this.totalServices > 999) {
+
+      const coma = this.totalServices.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalServices.toString().split(".") : this.totalServices.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalServices = integer[0].toString()
+    } else {
+      this.textTotalServices = this.totalServices.toString()
+    }
+
+    if (this.totalPayment > 999) {
+
+      const coma = this.totalPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalPayment.toString().split(".") : this.totalPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalPayment = integer[0].toString()
+    } else {
+      this.textTotalPayment = this.totalPayment.toString()
+    }
+
+    // Table 3
+    if (this.totalCashTable3 > 999) {
+
+      const coma = this.totalCashTable3.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCashTable3.toString().split(".") : this.totalCashTable3.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCashTable3 = integer[0].toString()
+    } else {
+      this.textTotalCashTable3 = this.totalCashTable3.toString()
+    }
+
+    if (this.totalBizumTable3 > 999) {
+
+      const coma = this.totalBizumTable3.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizumTable3.toString().split(".") : this.totalBizumTable3.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizumTable3 = integer[0].toString()
+    } else {
+      this.textTotalBizumTable3 = this.totalBizumTable3.toString()
+    }
+
+    if (this.totalCardTable3 > 999) {
+
+      const coma = this.totalCardTable3.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCardTable3.toString().split(".") : this.totalCardTable3.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCardTable3 = integer[0].toString()
+    } else {
+      this.textTotalCardTable3 = this.totalCardTable3.toString()
+    }
+
+    if (this.totalTransTable3 > 999) {
+
+      const coma = this.totalTransTable3.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransTable3.toString().split(".") : this.totalTransTable3.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransTable3 = integer[0].toString()
+    } else {
+      this.textTotalTransTable3 = this.totalTransTable3.toString()
+    }
+
+    // Table 4
+    if (this.totalCashPayment > 999) {
+
+      const coma = this.totalCashPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCashPayment.toString().split(".") : this.totalCashPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCashPayment = integer[0].toString()
+    } else {
+      this.textTotalCashPayment = this.totalCashPayment.toString()
+    }
+
+    if (this.totalBizumPayment > 999) {
+
+      const coma = this.totalBizumPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizumPayment.toString().split(".") : this.totalBizumPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizumPayment = integer[0].toString()
+    } else {
+      this.textTotalBizumPayment = this.totalBizumPayment.toString()
+    }
+
+    if (this.totalCardPayment > 999) {
+
+      const coma = this.totalCardPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCardPayment.toString().split(".") : this.totalCardPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCardPayment = integer[0].toString()
+    } else {
+      this.textTotalCardPayment = this.totalCardPayment.toString()
+    }
+
+    if (this.totalTransactionPayment > 999) {
+
+      const coma = this.totalTransactionPayment.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransactionPayment.toString().split(".") : this.totalTransactionPayment.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransactionPayment = integer[0].toString()
+    } else {
+      this.textTotalTransactionPayment = this.totalTransactionPayment.toString()
+    }
   }
 
   arrowLine1() {
@@ -970,6 +994,11 @@ export class ClosingComponent implements OnInit {
   arrowTable3Add() {
     document.querySelector('.column3').scrollLeft += 30;
     document.getElementById('arrowTable3Add').style.display = 'none'
+  }
+
+  arrowTable4Add() {
+    document.querySelector('.column4').scrollLeft += 30;
+    document.getElementById('arrowTable4Add').style.display = 'none'
   }
 
   // Edit
@@ -1028,33 +1057,49 @@ export class ClosingComponent implements OnInit {
 
               for (let o = 0; o < this.settledData.length; o++) {
                 const servicios = this.settledDataServiceByDistinct.filter(therapist => therapist.terapeuta == this.settledData[o].terapeuta)
-                const totalServices = servicios.reduce((accumulator, serv) => {
-                  return accumulator + serv.totalServicio
+
+                const totalsCashTable3 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueEfectivo
+                }, 0)
+
+                const totalsBizumTable3 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueBizum
+                }, 0)
+
+                const totalsCardTable3 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueTarjeta
+                }, 0)
+
+                const totalsTransTable3 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueTrans
                 }, 0)
 
                 arr2 = [].concat(this.settledData);
 
                 if (rp[o].formaPago == "Efectivo") {
                   arr2[o].cashPayment = rp[o].importe
-                  arr2[o].cashIncome = totalServices
                 }
 
                 if (rp[o].formaPago == "Bizum") {
                   arr2[o].bizumPayment = rp[o].importe
-                  arr2[o].bizumIncome = totalServices
                 }
 
                 if (rp[o].formaPago == "Tarjeta") {
                   arr2[o].cardPayment = rp[o].importe
-                  arr2[o].cardIncome = totalServices
                 }
 
                 if (rp[o].formaPago == "Trans") {
                   arr2[o].transactionPayment = rp[o].importe
-                  arr2[o].transactionIncome = totalServices
                 }
 
-                arr2[o].totalService = totalServices
+                // Table 3
+                arr2[o].totalCashTable3 = totalsCashTable3
+                arr2[o].totalBizumTable3 = totalsBizumTable3
+                arr2[o].totalCardTable3 = totalsCardTable3
+                arr2[o].totalTransTable3 = totalsTransTable3
+
+                // Table 4
+
                 arr2[o].liquidation = rp[o].importe
                 arr2[o].payment = rp[o].formaPago
                 arr2[o].sinceDate = rp[o].desdeFechaLiquidado
@@ -1066,14 +1111,36 @@ export class ClosingComponent implements OnInit {
                 this.validateNullData(arr2[o])
 
                 arr2.push({
-                  totalService: totalServices, liquidation: rp[o].importe, payment: rp[o].formaPago, sinceDate: rp[o].desdeFechaLiquidado, sinceTime: rp[o].desdeHoraLiquidado, toDate: rp[o].hastaFechaLiquidado, untilTime: rp[o].hastaHoraLiquidado, treatment: rp[o].tratamiento, cashPayment: rp[o].importe, bizumPayment: rp[o].importe, cardPayment: rp[o].importe, transactionPayment: rp[o].importe, cashIncome: totalServices, bizumIncome: totalServices, cardIncome: totalServices, transactionIncome: totalServices
+                  // Table 3
+                  totalCashTable3: totalsCashTable3,
+                  totalBizumTable3: totalsBizumTable3,
+                  totalCardTable3: totalsCardTable3,
+                  totalTransTable3: totalsTransTable3,
+
+                  // Table 4
+                  cashPayment: rp[o].importe,
+                  bizumPayment: rp[o].importe,
+                  cardPayment: rp[o].importe,
+                  transactionPayment: rp[o].importe
                 })
               }
 
               arr2.pop();
 
-              // Payment
+              // Table 3
+              const totalsCashTable3 = arr2.map(({ totalCashTable3 }) => totalCashTable3).reduce((acc, value) => acc + value, 0)
+              this.totalCashTable3 = totalsCashTable3
 
+              const totalsBizumTable3 = arr2.map(({ totalBizumTable3 }) => totalBizumTable3).reduce((acc, value) => acc + value, 0)
+              this.totalBizumTable3 = totalsBizumTable3
+
+              const totalsCardTable3 = arr2.map(({ totalCardTable3 }) => totalCardTable3).reduce((acc, value) => acc + value, 0)
+              this.totalCardTable3 = totalsCardTable3
+
+              const totalsTransTable3 = arr2.map(({ totalTransTable3 }) => totalTransTable3).reduce((acc, value) => acc + value, 0)
+              this.totalTransTable3 = totalsTransTable3
+
+              // Table 4 
               const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
               this.totalCashPayment = totalCashPayment
 
@@ -1088,34 +1155,11 @@ export class ClosingComponent implements OnInit {
 
               this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
-              // Income 
-
-              const totalCashIncome = arr2.map(({ cashIncome }) => cashIncome).reduce((acc, value) => acc + value, 0)
-              this.totalCashIncome = totalCashIncome
-
-              const totalBizumIncome = arr2.map(({ bizumIncome }) => bizumIncome).reduce((acc, value) => acc + value, 0)
-              this.totalBizumIncome = totalBizumIncome
-
-              const totalCardIncome = arr2.map(({ cardIncome }) => cardIncome).reduce((acc, value) => acc + value, 0)
-              this.totalCardIncome = totalCardIncome
-
-              const totalTransactionIncome = arr2.map(({ transactionIncome }) => transactionIncome).reduce((acc, value) => acc + value, 0)
-              this.totalTransactionIncome = totalTransactionIncome
-
-              this.totalIncome = totalCashIncome + totalBizumIncome + totalCardIncome + totalTransactionIncome
-
-              // Box
-
-              this.totalsBoxCash = totalCashIncome - totalCashPayment
-              this.totalsBoxBizum = totalBizumIncome - totalBizumPayment
-              this.totalsBoxCard = totalCardIncome - totalCardPayment
-              this.totalsBoxTransaction = totalTransactionIncome - totalTransactionPayment
+              this.totalsBoxCash = totalsCashTable3 - totalCashPayment
+              this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment
+              this.totalsBoxCard = totalsCardTable3 - totalCardPayment
+              this.totalsBoxTransaction = totalsTransTable3 - totalTransactionPayment
               this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
-              this.closing.total = this.totalBox
-              this.closing.efectivo = this.totalsBoxCash
-              this.closing.bizum = this.totalsBoxBizum
-              this.closing.tarjeta = this.totalsBoxCard
-              this.closing.transaccion = this.totalsBoxTransaction
 
               this.thousandPoint()
               this.loading = false

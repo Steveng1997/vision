@@ -5108,13 +5108,15 @@
     padding: 0px 0px 0px 4px;
     margin-bottom: -46px;
     margin-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Line 1 */
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 31% 23% 23% 23%;
+    grid-template-columns: 31% 24% 25% 25% 25%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -5127,7 +5129,7 @@
     padding: 15px 0px 0px 35px;
   }
 
-  .textIncome {
+  .textService {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5135,16 +5137,26 @@
     padding: 15px 0px 0px 2px;
   }
 
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
   .textPayments {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 25px;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
   }
 
   .lineTable2 {
-    width: 96%;
+    width: 131%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -5169,7 +5181,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
+    padding: 0px 13px 0px 0px;
     white-space: pre;
   }
 
@@ -5178,7 +5190,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
+    padding: 0px 2px 0px 0px;
   }
 
   .columnTotalPayments {
@@ -5186,6 +5198,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
   }
 
   /* Arrow 3 */
@@ -5228,111 +5241,65 @@
   /* Table 3 */
 
   .column3 {
-    margin-top: 0rem;
+    margin-top: 1.4rem;
     margin-left: -15px;
     margin-bottom: 2px;
     overflow-x: auto;
   }
 
-  /* Line 1 */
-
-  .columnTable3Line1 {
-    display: grid;
-    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTherapistTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 10px;
-  }
-
-  .textLiquidationTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 4px;
-  }
-
-  .textTreatmentTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
   /* Line 2 */
 
-  .columnTable3Line2 {
+  .columnTable3 {
     display: grid;
-    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
+    grid-template-columns: 23% 23% 21% 23% 21%;
     margin-bottom: 8px;
     margin-left: -5px;
   }
 
-  .textTherapistTable3Line2 {
+  .textCashTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textServices {
+  .textBizumTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textLiquidationTable3Line2 {
+  .textCardTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textPayment {
+  .textTransTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
-  }
-
-  .textDateTable3 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTreatmentTable3Line2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 10px;
   }
 
   .lineTable3 {
-    width: 229%;
+    width: 113%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
     margin-left: -5px;
-    margin-top: -8px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
@@ -5344,13 +5311,13 @@
     max-width: 85%;
     font-family: sans-serif;
     font-size: 18px;
-    color: #8c52ff;
+    color: #000000;
     line-height: normal;
   }
 
-  .columnServices {
+  .columnCashTable3 {
     line-height: 1.4rem;
-    padding: 0px 48px 0px 0px;
+    padding: 0px 1px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5358,9 +5325,9 @@
     justify-self: end;
   }
 
-  .columnLiquidation {
+  .columnBizumTable3 {
     line-height: 1.4rem;
-    padding: 0px 40px 0px 0px;
+    padding: 0px 1px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5368,33 +5335,86 @@
     justify-self: end;
   }
 
-  .columnDate {
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
     line-height: 1.4rem;
     padding: 0px 0px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnPayment {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnTreatmentTable3 {
-    line-height: 1.4rem;
-    padding: 0px 3px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
     cursor: pointer;
     justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 113%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -5px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 23% 21% 23% 21%;
+    margin-bottom: 8px;
+    margin-left: -5px;
+  }
+
+  .textTotalTable3 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable3{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable3{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable3{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
   .pagination_MobileTable3 {
@@ -5402,27 +5422,58 @@
     margin-bottom: 0px;
   }
 
-  /* Table 4 */
+  /* Arrow 4 */
 
-  .textPayLiquidation {
-    color: #8c52ff;
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
     font-size: 22px;
-    place-self: end;
+    color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -20px;
   }
 
-  .column4 {
-    margin-top: 2rem;
-    margin-left: -25px;
-    margin-bottom: 2px;
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
   }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    margin-top: 1.4rem;
+    margin-left: -15px;
+    margin-bottom: 2px;
+    overflow-x: auto;
+  }
+
+  /* Line 2 */
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 22% 24% 19% 21.4% 18%;
-    margin-bottom: -5px;
-    margin-left: 0%;
+    grid-template-columns: 23% 23% 21% 23% 21%;
+    margin-bottom: 8px;
+    margin-left: -5px;
   }
 
   .textCashTable4 {
@@ -5430,6 +5481,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -5438,6 +5490,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -5446,10 +5499,173 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textTransactionTable4 {
+  .textTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .lineTable4 {
+    width: 113%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -5px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable4 {
+    width: 113%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -5px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 23% 21% 23% 21%;
+    margin-bottom: 8px;
+    margin-left: -5px;
+  }
+
+  .textTotalTable4 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable4{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable4{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4{
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Table 5 */
+
+  .textServicesPayments {
+    color: #8c52ff;
+    font-size: 22px;
+    place-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .column5 {
+    margin-top: 0.6rem;
+    margin-left: -25px;
+    margin-bottom: 2px;
+  }
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 22% 24% 19% 21.4% 18%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .textCashTable5 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -5457,7 +5673,31 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .lineTable4 {
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransactionTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .lineTable5 {
     width: 102%;
     color: #8c52ff;
     margin: auto;
@@ -5470,15 +5710,7 @@
 
   /* Column */
 
-  .columnTreatment4 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  .lineTotalsTable4 {
+  .lineTotalsTable5 {
     width: 102%;
     color: #8c52ff;
     margin: auto;
@@ -5486,10 +5718,17 @@
     opacity: initial;
     margin-left: 0rem;
     margin-top: -7px;
-    margin-bottom: 6px;
+    margin-bottom: -12px;
   }
 
-  .textTotalTable4 {
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 22% 24% 19% 21.4% 18%;
+    margin-bottom: -5px;
+    margin-left: 0%;
+  }
+
+  .textTotalTable5 {
     color: #8c52ff;
     font-size: 18px;
     font-weight: bold;
@@ -5497,7 +5736,7 @@
     padding: 15px 0px 0px 0px;
   }
 
-  /* fin Table 4 */
+  /* fin Table 5 */
 
   /* Buttons */
 
