@@ -69,6 +69,7 @@ export class ClosingComponent implements OnInit {
 
   totalBox: number
   totalServices: number
+  totalLiquidation: number
   totalPayment: number
 
   textTotalsBoxCash: string
@@ -78,6 +79,7 @@ export class ClosingComponent implements OnInit {
 
   textTotalBox: string
   textTotalServices: string
+  textTotalLiquidation: string
   textTotalPayment: string
 
   // Table 3
@@ -102,6 +104,18 @@ export class ClosingComponent implements OnInit {
   textTotalBizumPayment: string
   textTotalCardPayment: string
   textTotalTransactionPayment: string
+
+  // Table 5
+
+  totalCashTable5: number
+  totalBizumTable5: number
+  totalCardTable5: number
+  totalTransTable5: number
+
+  textTotalCashTable5: string
+  textTotalBizumTable5: string
+  textTotalCardTable5: string
+  textTotalTransTable5: string
 
   closing: ModelClosing = {
     bizum: 0,
@@ -245,9 +259,10 @@ export class ClosingComponent implements OnInit {
     this.totalsBoxBizum = 0
     this.totalsBoxCard = 0
     this.totalsBoxTransaction = 0
-    this.totalBox = 0
 
+    this.totalBox = 0
     this.totalServices = 0
+    this.totalLiquidation = 0
     this.totalPayment = 0
 
     // Table 3
@@ -261,6 +276,12 @@ export class ClosingComponent implements OnInit {
     this.totalBizumPayment = 0
     this.totalCardPayment = 0
     this.totalTransactionPayment = 0
+
+    // Table 5
+    this.totalCashTable5 = 0
+    this.totalBizumTable5 = 0
+    this.totalCardTable5 = 0
+    this.totalTransTable5 = 0
   }
 
   validateNullData(arr2) {
@@ -486,6 +507,24 @@ export class ClosingComponent implements OnInit {
                     return accumulator + serv.valueTrans
                   }, 0)
 
+                  // Table 5
+
+                  const totalsCashTable5 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueEfectTerapeuta
+                  }, 0)
+
+                  const totalsBizumTable5 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueBizuTerapeuta
+                  }, 0)
+
+                  const totalsCardTable5 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueTarjeTerapeuta
+                  }, 0)   
+                  
+                  const totalsTransTable5 = servicios.reduce((accumulator, serv) => {
+                    return accumulator + serv.valueTransTerapeuta
+                  }, 0)
+
                   arr2 = [].concat(this.unliquidatedService);
 
                   if (rp[o].formaPago == "Efectivo") {
@@ -510,7 +549,12 @@ export class ClosingComponent implements OnInit {
                   arr2[o].totalCardTable3 = totalsCardTable3
                   arr2[o].totalTransTable3 = totalsTransTable3
 
-                  // Table 4
+                  // Table 5
+                  arr2[o].totalCashTable5 = totalsCashTable5
+                  arr2[o].totalBizumTable5 = totalsBizumTable5
+                  arr2[o].totalCardTable5 = totalsCardTable5
+                  arr2[o].totalTransTable5 = totalsTransTable5
+
 
                   this.validateNullData(arr2[o])
 
@@ -525,8 +569,13 @@ export class ClosingComponent implements OnInit {
                     cashPayment: rp[o].importe,
                     bizumPayment: rp[o].importe,
                     cardPayment: rp[o].importe,
-                    transactionPayment: rp[o].importe
+                    transactionPayment: rp[o].importe,
 
+                    // Table 5
+                    totalCashTable5: totalsCashTable5,
+                    totalBizumTable5: totalsBizumTable5,
+                    totalCardTable5: totalsCardTable5,
+                    totalTransTable5: totalsTransTable5
                   })
                 }
 
@@ -560,14 +609,31 @@ export class ClosingComponent implements OnInit {
                 const totalTransactionPayment = arr2.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
                 this.totalTransactionPayment = totalTransactionPayment
 
-                this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+                this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
+                // Table 5
+                const totalCashTable5 = arr2.map(({ totalCashTable5 }) => totalCashTable5).reduce((acc, value) => acc + value, 0)
+                this.totalCashTable5 = totalCashTable5
+
+                const totalBizumTable5 = arr2.map(({ totalBizumTable5 }) => totalBizumTable5).reduce((acc, value) => acc + value, 0)
+                this.totalBizumTable5 = totalBizumTable5
+
+                const totalCardTable5 = arr2.map(({ totalCardTable5 }) => totalCardTable5).reduce((acc, value) => acc + value, 0)
+                this.totalCardTable5 = totalCardTable5
+
+                const totalTransTable5 = arr2.map(({ totalTransTable5 }) => totalTransTable5).reduce((acc, value) => acc + value, 0)
+                this.totalTransTable5 = totalTransTable5
+
+                this.totalPayment = totalCashTable5 + totalBizumTable5 + totalCardTable5 + totalTransTable5
+                
+                // Table 2
 
                 debugger
-                this.totalsBoxCash = totalsCashTable3 - totalCashPayment
-                this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment
-                this.totalsBoxCard = totalsCardTable3 - totalCardPayment
-                this.totalsBoxTransaction = totalsTransTable3 - totalTransactionPayment
+
+                this.totalsBoxCash = totalsCashTable3 - totalCashPayment + totalCashTable5
+                this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment + totalBizumTable5
+                this.totalsBoxCard = Number(totalsCardTable3) - Number(totalCardPayment) + Number(totalCardTable5)
+                this.totalsBoxTransaction = totalsTransTable3 + totalTransactionPayment + totalTransTable5
                 this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
 
                 this.thousandPoint()
@@ -756,6 +822,31 @@ export class ClosingComponent implements OnInit {
       this.textTotalServices = integer[0].toString()
     } else {
       this.textTotalServices = this.totalServices.toString()
+    }
+
+    if (this.totalLiquidation > 999) {
+
+      const coma = this.totalLiquidation.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalLiquidation.toString().split(".") : this.totalLiquidation.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalLiquidation = integer[0].toString()
+    } else {
+      this.textTotalLiquidation = this.totalLiquidation.toString()
     }
 
     if (this.totalPayment > 999) {
@@ -984,6 +1075,107 @@ export class ClosingComponent implements OnInit {
     } else {
       this.textTotalTransactionPayment = this.totalTransactionPayment.toString()
     }
+
+    // Table 5
+    if (this.totalCashTable5 > 999) {
+
+      const coma = this.totalCashTable5.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCashTable5.toString().split(".") : this.totalCashTable5.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCashTable5 = integer[0].toString()
+    } else {
+      this.textTotalCashTable5 = this.totalCashTable5.toString()
+    }
+
+    if (this.totalBizumTable5 > 999) {
+
+      const coma = this.totalBizumTable5.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalBizumTable5.toString().split(".") : this.totalBizumTable5.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalBizumTable5 = integer[0].toString()
+    } else {
+      this.textTotalBizumTable5 = this.totalBizumTable5.toString()
+    }
+
+    if (this.totalCardTable5 > 999) {
+
+      const coma = this.totalCardTable5.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalCardTable5.toString().split(".") : this.totalCardTable5.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalCardTable5 = integer[0].toString()
+    } else {
+      this.textTotalCardTable5 = this.totalCardTable5.toString()
+    }
+
+    if (this.totalTransTable5 > 999) {
+
+      const coma = this.totalTransTable5.toString().indexOf(".") !== -1 ? true : false;
+      const array = coma ? this.totalTransTable5.toString().split(".") : this.totalTransTable5.toString().split("");
+      let integer = coma ? array[0].split("") : array;
+      let subIndex = 1;
+
+      for (let i = integer.length - 1; i >= 0; i--) {
+
+        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
+
+          integer.splice(i, 0, ".");
+          subIndex++;
+
+        } else {
+          subIndex++;
+        }
+      }
+
+      integer = [integer.toString().replace(/,/gi, "")]
+      this.textTotalTransTable5 = integer[0].toString()
+    } else {
+      this.textTotalTransTable5 = this.totalTransTable5.toString()
+    }
   }
 
   arrowLine1() {
@@ -999,6 +1191,11 @@ export class ClosingComponent implements OnInit {
   arrowTable4Add() {
     document.querySelector('.column4').scrollLeft += 30;
     document.getElementById('arrowTable4Add').style.display = 'none'
+  }
+
+  arrowTable5Add() {
+    document.querySelector('.column5').scrollLeft += 30;
+    document.getElementById('arrowTable5Add').style.display = 'none'
   }
 
   // Edit
@@ -1074,6 +1271,24 @@ export class ClosingComponent implements OnInit {
                   return accumulator + serv.valueTrans
                 }, 0)
 
+                // Table 5
+
+                const totalsCashTable5 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueEfectTerapeuta
+                }, 0)
+
+                const totalsBizumTable5 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueBizuTerapeuta
+                }, 0)
+
+                const totalsCardTable5 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueTarjeTerapeuta
+                }, 0)   
+                
+                const totalsTransTable5 = servicios.reduce((accumulator, serv) => {
+                  return accumulator + serv.valueTransTerapeuta
+                }, 0)
+
                 arr2 = [].concat(this.settledData);
 
                 if (rp[o].formaPago == "Efectivo") {
@@ -1098,15 +1313,12 @@ export class ClosingComponent implements OnInit {
                 arr2[o].totalCardTable3 = totalsCardTable3
                 arr2[o].totalTransTable3 = totalsTransTable3
 
-                // Table 4
+                // Table 5
+                arr2[o].totalCashTable5 = totalsCashTable5
+                arr2[o].totalBizumTable5 = totalsBizumTable5
+                arr2[o].totalCardTable5 = totalsCardTable5
+                arr2[o].totalTransTable5 = totalsTransTable5
 
-                arr2[o].liquidation = rp[o].importe
-                arr2[o].payment = rp[o].formaPago
-                arr2[o].sinceDate = rp[o].desdeFechaLiquidado
-                arr2[o].sinceTime = rp[o].desdeHoraLiquidado
-                arr2[o].toDate = rp[o].hastaFechaLiquidado
-                arr2[o].untilTime = rp[o].hastaHoraLiquidado
-                arr2[o].treatment = rp[o].tratamiento
 
                 this.validateNullData(arr2[o])
 
@@ -1121,7 +1333,13 @@ export class ClosingComponent implements OnInit {
                   cashPayment: rp[o].importe,
                   bizumPayment: rp[o].importe,
                   cardPayment: rp[o].importe,
-                  transactionPayment: rp[o].importe
+                  transactionPayment: rp[o].importe,
+
+                  // Table 5
+                  totalCashTable5: totalsCashTable5,
+                  totalBizumTable5: totalsBizumTable5,
+                  totalCardTable5: totalsCardTable5,
+                  totalTransTable5: totalsTransTable5
                 })
               }
 
@@ -1140,6 +1358,8 @@ export class ClosingComponent implements OnInit {
               const totalsTransTable3 = arr2.map(({ totalTransTable3 }) => totalTransTable3).reduce((acc, value) => acc + value, 0)
               this.totalTransTable3 = totalsTransTable3
 
+              this.totalServices = totalsCashTable3 + totalsBizumTable3 + totalsCardTable3 + totalsTransTable3
+
               // Table 4 
               const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
               this.totalCashPayment = totalCashPayment
@@ -1153,14 +1373,33 @@ export class ClosingComponent implements OnInit {
               const totalTransactionPayment = arr2.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
               this.totalTransactionPayment = totalTransactionPayment
 
-              this.totalPayment = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+              this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
-              this.totalsBoxCash = totalsCashTable3 - totalCashPayment
-              this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment
-              this.totalsBoxCard = totalsCardTable3 - totalCardPayment
-              this.totalsBoxTransaction = totalsTransTable3 - totalTransactionPayment
+              // Table 5
+              const totalCashTable5 = arr2.map(({ totalCashTable5 }) => totalCashTable5).reduce((acc, value) => acc + value, 0)
+              this.totalCashTable5 = totalCashTable5
+
+              const totalBizumTable5 = arr2.map(({ totalBizumTable5 }) => totalBizumTable5).reduce((acc, value) => acc + value, 0)
+              this.totalBizumTable5 = totalBizumTable5
+
+              const totalCardTable5 = arr2.map(({ totalCardTable5 }) => totalCardTable5).reduce((acc, value) => acc + value, 0)
+              this.totalCardTable5 = totalCardTable5
+
+              const totalTransTable5 = arr2.map(({ totalTransTable5 }) => totalTransTable5).reduce((acc, value) => acc + value, 0)
+              this.totalTransTable5 = totalTransTable5
+
+              this.totalPayment = totalCashTable5 + totalBizumTable5 + totalCardTable5 + totalTransTable5
+              
+              // Table 2
+
+              debugger
+
+              this.totalsBoxCash = totalsCashTable3 - totalCashPayment + totalCashTable5
+              this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment + totalBizumTable5
+              this.totalsBoxCard = totalsCardTable3 - totalCardPayment + totalCardTable5
+              this.totalsBoxTransaction = totalsTransTable3 + totalTransactionPayment + totalTransTable5
               this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
-
+                
               this.thousandPoint()
               this.loading = false
               this.selected = false

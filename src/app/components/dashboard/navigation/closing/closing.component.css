@@ -46,7 +46,7 @@
   color: #8c52ff;
 }
 
-/* Pagination 2 */
+/* Table 3 */
 
 .pagination_MobileTable3 ::ng-deep .ngx-pagination .current {
   background: white;
@@ -61,6 +61,24 @@
 
 .pagination_MobileTable3 ::ng-deep .ngx-pagination .pagination-next a::after,
 .pagination_MobileTable3 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+  color: #8c52ff;
+}
+
+/* Table 4 */
+
+.pagination_MobileTable4 ::ng-deep .ngx-pagination .current {
+  background: white;
+  color: #8c52ff;
+  font-weight: bold;
+}
+
+.pagination_MobileTable4 ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_MobileTable4 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  color: #8c52ff;
+}
+
+.pagination_MobileTable4 ::ng-deep .ngx-pagination .pagination-next a::after,
+.pagination_MobileTable4 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
   color: #8c52ff;
 }
 
@@ -5181,6 +5199,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
+    font-weight: bold;
     padding: 0px 13px 0px 0px;
     white-space: pre;
   }
@@ -5241,19 +5260,20 @@
   /* Table 3 */
 
   .column3 {
+    padding: 0px 0px 0px 12px;
     margin-top: 1.4rem;
-    margin-left: -15px;
     margin-bottom: 2px;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Line 2 */
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 23% 23% 21% 23% 21%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
     margin-bottom: 8px;
-    margin-left: -5px;
+    margin-left: -13px;
   }
 
   .textCashTable3 {
@@ -5289,16 +5309,16 @@
     font-weight: bold;
     font-family: sans-serif;
     justify-self: end;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable3 {
-    width: 113%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -5px;
+    margin-left: -12px;
     margin-top: -15px;
     margin-bottom: 6px;
   }
@@ -5347,7 +5367,7 @@
 
   .columnTransTable3 {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 2px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5356,21 +5376,21 @@
   }
 
   .lineTotalsTable3 {
-    width: 113%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -5px;
+    margin-left: -12px;
     margin-top: -7px;
     margin-bottom: -12px;
   }
 
   .columnTotalsTable3 {
     display: grid;
-    grid-template-columns: 23% 23% 21% 23% 21%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
     margin-bottom: 8px;
-    margin-left: -5px;
+    margin-left: -13px;
   }
 
   .textTotalTable3 {
@@ -5381,7 +5401,7 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnTotalsCashTable3{
+  .columnTotalsCashTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5390,7 +5410,7 @@
     white-space: pre;
   }
 
-  .columnTotalsBizumTable3{
+  .columnTotalsBizumTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5399,7 +5419,7 @@
     white-space: pre;
   }
 
-  .columnTotalsCardTable3{
+  .columnTotalsCardTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5408,7 +5428,7 @@
     white-space: pre;
   }
 
-  .columnTotalsTransTable3{
+  .columnTotalsTransTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5461,19 +5481,20 @@
   /* Table 4 */
 
   .column4 {
+    padding: 0px 0px 0px 12px;
     margin-top: 1.4rem;
-    margin-left: -15px;
     margin-bottom: 2px;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Line 2 */
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 23% 23% 21% 23% 21%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
     margin-bottom: 8px;
-    margin-left: -5px;
+    margin-left: -13px;
   }
 
   .textCashTable4 {
@@ -5509,16 +5530,16 @@
     font-weight: bold;
     font-family: sans-serif;
     justify-self: end;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable4 {
-    width: 113%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -5px;
+    margin-left: -12px;
     margin-top: -15px;
     margin-bottom: 6px;
   }
@@ -5567,7 +5588,7 @@
 
   .columnTransTable4 {
     line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 2px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -5576,21 +5597,21 @@
   }
 
   .lineTotalsTable4 {
-    width: 113%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -5px;
+    margin-left: -12px;
     margin-top: -7px;
     margin-bottom: -12px;
   }
 
   .columnTotalsTable4 {
     display: grid;
-    grid-template-columns: 23% 23% 21% 23% 21%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
     margin-bottom: 8px;
-    margin-left: -5px;
+    margin-left: -13px;
   }
 
   .textTotalTable4 {
@@ -5601,7 +5622,7 @@
     padding: 15px 0px 0px 0px;
   }
 
-  .columnTotalsCashTable4{
+  .columnTotalsCashTable4 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5610,7 +5631,7 @@
     white-space: pre;
   }
 
-  .columnTotalsBizumTable4{
+  .columnTotalsBizumTable4 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5619,7 +5640,7 @@
     white-space: pre;
   }
 
-  .columnTotalsCardTable4{
+  .columnTotalsCardTable4 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5628,7 +5649,7 @@
     white-space: pre;
   }
 
-  .columnTotalsTransTable4{
+  .columnTotalsTransTable4 {
     color: #000000;
     font-size: 18px;
     place-self: end;
@@ -5642,27 +5663,59 @@
     margin-bottom: 0px;
   }
 
-  /* Table 5 */
+  /* Arrow 5 */
 
-  .textServicesPayments {
-    color: #8c52ff;
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable5 {
+    display: grid;
     font-size: 22px;
-    place-self: end;
+    color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -20px;
   }
 
-  .column5 {
-    margin-top: 0.6rem;
-    margin-left: -25px;
-    margin-bottom: 2px;
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
   }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
 
   .columnTable5 {
     display: grid;
-    grid-template-columns: 22% 24% 19% 21.4% 18%;
-    margin-bottom: -5px;
-    margin-left: 0%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
   }
 
   .textCashTable5 {
@@ -5670,6 +5723,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -5678,6 +5732,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -5686,46 +5741,98 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textTransactionTable5 {
+  .textTransTable5 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable5 {
-    width: 102%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
-    margin-top: -7px;
+    margin-left: -12px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
-  /* Column */
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
 
   .lineTotalsTable5 {
-    width: 102%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
+    margin-left: -12px;
     margin-top: -7px;
     margin-bottom: -12px;
   }
 
   .columnTotalsTable5 {
     display: grid;
-    grid-template-columns: 22% 24% 19% 21.4% 18%;
-    margin-bottom: -5px;
-    margin-left: 0%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
   }
 
   .textTotalTable5 {
@@ -5736,7 +5843,46 @@
     padding: 15px 0px 0px 0px;
   }
 
-  /* fin Table 5 */
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
 
   /* Buttons */
 

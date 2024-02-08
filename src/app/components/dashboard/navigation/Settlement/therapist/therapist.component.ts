@@ -477,7 +477,6 @@ export class TherapistComponent implements OnInit {
 
     await this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta, this.liquidationTherapist.encargada).subscribe(async (rp: any) => {
       if (rp.length > 0) {
-        debugger
         fromDay = rp[0]['hastaFechaLiquidado'].substring(0, 2)
         fromMonth = rp[0]['hastaFechaLiquidado'].substring(3, 5)
         fromYear = rp[0]['hastaFechaLiquidado'].substring(6, 8)
