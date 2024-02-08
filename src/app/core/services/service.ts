@@ -378,6 +378,30 @@ export class Service {
     });
   }
 
+  getServicesByNumberTerap(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+    return this.http.get(`${this.API_URL}/getServicesNumberTerap`, {
+      params: {
+        encargada,
+        desdeFechaLiquidado,
+        desdeHoraLiquidado,
+        hastaFechaLiquidado,
+        hastaHoraLiquidado,
+      }
+    });
+  }
+
+  getWithDistinctServicesByNumberTerap(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+    return this.http.get(`${this.API_URL}/getDistinctServicesByNumberTerap`, {
+      params: {
+        encargada,
+        desdeFechaLiquidado,
+        desdeHoraLiquidado,
+        hastaFechaLiquidado,
+        hastaHoraLiquidado,
+      }
+    });
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {

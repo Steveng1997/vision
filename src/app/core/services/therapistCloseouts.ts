@@ -61,6 +61,18 @@ export class ServiceLiquidationTherapist {
     });
   }
 
+  getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+    return this.http.get(`${this.API_URL}/getDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist`, {
+      params: {
+        encargada,
+        desdeFechaLiquidado,
+        desdeHoraLiquidado,
+        hastaFechaLiquidado,
+        hastaHoraLiquidado,
+      }
+    });
+  }
+
   // Update
 
   update(id: number, liquidationTherapist: LiquidationTherapist) {

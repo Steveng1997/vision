@@ -497,7 +497,7 @@
 
                     <hr class="lineTable4">
 
-                    <div class="columnTable4" *ngFor="let close of unliquidatedService | paginate: 
+                    <div class="columnTable4" *ngFor="let close of unliquidatedServiceByLiquidationTherapistDistinct | paginate: 
                     { itemsPerPage: 10, currentPage: page }">
 
                         <div class="columnTherapist">{{close.terapeuta}}</div>
