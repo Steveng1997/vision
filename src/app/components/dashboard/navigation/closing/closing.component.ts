@@ -25,6 +25,7 @@ import moment from 'moment'
 export class ClosingComponent implements OnInit {
 
   dates: boolean = false
+  dateTitle: boolean = false
   loading: boolean = false
   deleteButton: boolean = false
   validationFilters: boolean = true
@@ -167,6 +168,7 @@ export class ClosingComponent implements OnInit {
     this.selected = false
     this.editClosing = false
     this.dates = false
+    this.dateTitle = false
     this.deleteButton = false
     this.loading = true
 
@@ -190,6 +192,7 @@ export class ClosingComponent implements OnInit {
       this.editClosing = false
       this.selected = false
       this.dates = false
+      this.dateTitle = false
       this.closing.encargada = ""
     })
   }
@@ -204,6 +207,7 @@ export class ClosingComponent implements OnInit {
       this.editClosing = false
       this.selected = false
       this.dates = false
+      this.dateTitle = false
       this.closing.encargada = ""
     })
   }
@@ -407,6 +411,7 @@ export class ClosingComponent implements OnInit {
     this.editClosing = false
     this.selected = false
     this.dates = false
+    this.dateTitle = false
     this.addForm = true
   }
 
@@ -460,11 +465,13 @@ export class ClosingComponent implements OnInit {
 
           this.selected = false
           this.dates = false
+          this.dateTitle = false
           await this.dateExists()
 
         } else {
           this.selected = false
           this.dates = false
+          this.dateTitle = false
           this.loading = false
 
           Swal.fire({
@@ -476,6 +483,7 @@ export class ClosingComponent implements OnInit {
     else {
       this.selected = false
       this.dates = false
+      this.dateTitle = false
     }
   }
 
@@ -490,13 +498,14 @@ export class ClosingComponent implements OnInit {
           this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
             this.unliquidatedServiceByDistinct = rp
 
-            this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-              this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+            for (let o = 0; o < this.unliquidatedService.length; o++) {
+              console.log(this.unliquidatedService[o]['terapeuta'])
 
-                this.unliquidatedServiceByLiquidationTherapist = rp
+              this.service.getByTherapistFechaHoraInicioFechaHoraFinClosing(this.unliquidatedService[o]['terapeuta'], this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+                this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-                for (let o = 0; o < this.unliquidatedService.length; o++) {
-                  const servicios = this.unliquidatedServiceByDistinct.filter(therapist => therapist.terapeuta == this.unliquidatedService[o].terapeuta)
+                  console.log(rp)
+                  const servicios = rp
 
                   const totalsCashTable3 = servicios.reduce((accumulator, serv) => {
                     return accumulator + serv.valueEfectivo
@@ -514,54 +523,12 @@ export class ClosingComponent implements OnInit {
                     return accumulator + serv.valueTrans
                   }, 0)
 
-                  // Table 5
-
-                  const totalsCashTable5 = servicios.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueEfectTerapeuta
-                  }, 0)
-
-                  const totalsBizumTable5 = servicios.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueBizuTerapeuta
-                  }, 0)
-
-                  const totalsCardTable5 = servicios.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueTarjeTerapeuta
-                  }, 0)
-
-                  const totalsTransTable5 = servicios.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueTransTerapeuta
-                  }, 0)
-
                   arr2 = [].concat(this.unliquidatedService);
 
-                  if (rp[o].formaPago == "Efectivo") {
-                    arr2[o].cashPayment = rp[o].importe
-                  }
-
-                  if (rp[o].formaPago == "Bizum") {
-                    arr2[o].bizumPayment = rp[o].importe
-                  }
-
-                  if (rp[o].formaPago == "Tarjeta") {
-                    arr2[o].cardPayment = rp[o].importe
-                  }
-
-                  if (rp[o].formaPago == "Trans") {
-                    arr2[o].transactionPayment = rp[o].importe
-                  }
-
-                  // Table 3
                   arr2[o].totalCashTable3 = totalsCashTable3
                   arr2[o].totalBizumTable3 = totalsBizumTable3
                   arr2[o].totalCardTable3 = totalsCardTable3
                   arr2[o].totalTransTable3 = totalsTransTable3
-
-                  // Table 5
-                  arr2[o].totalCashTable5 = totalsCashTable5
-                  arr2[o].totalBizumTable5 = totalsBizumTable5
-                  arr2[o].totalCardTable5 = totalsCardTable5
-                  arr2[o].totalTransTable5 = totalsTransTable5
-
 
                   this.validateNullData(arr2[o])
 
@@ -570,38 +537,34 @@ export class ClosingComponent implements OnInit {
                     totalCashTable3: totalsCashTable3,
                     totalBizumTable3: totalsBizumTable3,
                     totalCardTable3: totalsCardTable3,
-                    totalTransTable3: totalsTransTable3,
-
-                    // Table 4
-                    cashPayment: rp[o].importe,
-                    bizumPayment: rp[o].importe,
-                    cardPayment: rp[o].importe,
-                    transactionPayment: rp[o].importe,
-
-                    // Table 5
-                    totalCashTable5: totalsCashTable5,
-                    totalBizumTable5: totalsBizumTable5,
-                    totalCardTable5: totalsCardTable5,
-                    totalTransTable5: totalsTransTable5
+                    totalTransTable3: totalsTransTable3
                   })
-                }
 
-                arr2.pop();
+                  arr2.pop();
 
-                // Table 3
-                const totalsCashTable3 = arr2.map(({ totalCashTable3 }) => totalCashTable3).reduce((acc, value) => acc + value, 0)
-                this.totalCashTable3 = totalsCashTable3
+                  // Table 3
+                  const totalCashTable3 = arr2.map(({ totalCashTable3 }) => totalCashTable3).reduce((acc, value) => acc + value, 0)
+                  this.totalCashTable3 = totalCashTable3
 
-                const totalsBizumTable3 = arr2.map(({ totalBizumTable3 }) => totalBizumTable3).reduce((acc, value) => acc + value, 0)
-                this.totalBizumTable3 = totalsBizumTable3
+                  const totalBizumTable3 = arr2.map(({ totalBizumTable3 }) => totalBizumTable3).reduce((acc, value) => acc + value, 0)
+                  this.totalBizumTable3 = totalBizumTable3
 
-                const totalsCardTable3 = arr2.map(({ totalCardTable3 }) => totalCardTable3).reduce((acc, value) => acc + value, 0)
-                this.totalCardTable3 = totalsCardTable3
+                  const totalCardTable3 = arr2.map(({ totalCardTable3 }) => totalCardTable3).reduce((acc, value) => acc + value, 0)
+                  this.totalCardTable3 = totalCardTable3
 
-                const totalsTransTable3 = arr2.map(({ totalTransTable3 }) => totalTransTable3).reduce((acc, value) => acc + value, 0)
-                this.totalTransTable3 = totalsTransTable3
+                  const totalTransTable3 = arr2.map(({ totalTransTable3 }) => totalTransTable3).reduce((acc, value) => acc + value, 0)
+                  this.totalTransTable3 = totalTransTable3
 
-                this.totalServices = totalsCashTable3 + totalsBizumTable3 + totalsCardTable3 + totalsTransTable3
+                  this.totalServices = totalCashTable3 + totalBizumTable3 + totalCardTable3 + totalTransTable3
+                })
+            }
+
+
+            this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+              this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+
+                this.unliquidatedServiceByLiquidationTherapist = rp
+
 
                 // Table 4 
                 const totalCashPayment = arr2.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
@@ -635,18 +598,17 @@ export class ClosingComponent implements OnInit {
 
                 // Table 2
 
-                debugger
-
-                this.totalsBoxCash = totalsCashTable3 - totalCashPayment + totalCashTable5
-                this.totalsBoxBizum = totalsBizumTable3 - totalBizumPayment + totalBizumTable5
-                this.totalsBoxCard = Number(totalsCardTable3) - Number(totalCardPayment) + Number(totalCardTable5)
-                this.totalsBoxTransaction = totalsTransTable3 + totalTransactionPayment + totalTransTable5
+                this.totalsBoxCash = this.totalCashTable3 - totalCashPayment + totalCashTable5
+                this.totalsBoxBizum = this.totalBizumTable3 - totalBizumPayment + totalBizumTable5
+                this.totalsBoxCard = this.totalCardTable3 - totalCardPayment + totalCardTable5
+                this.totalsBoxTransaction = this.totalTransTable3 + totalTransactionPayment + totalTransTable5
                 this.totalBox = this.totalsBoxCash + this.totalsBoxBizum + this.totalsBoxCard + this.totalsBoxTransaction
 
                 this.thousandPoint()
                 this.loading = false
                 this.selected = true
                 this.dates = true
+                this.dateTitle = true
               })
           })
 
@@ -655,6 +617,7 @@ export class ClosingComponent implements OnInit {
         this.unliquidatedService = rp
         this.loading = false
         this.dates = true
+        this.dateTitle = false
 
         Swal.fire({
           icon: 'error', title: 'Oops...', text: 'No hay ningun servicio con la fecha seleccionada', showConfirmButton: false, timer: 2500
@@ -1411,6 +1374,7 @@ export class ClosingComponent implements OnInit {
               this.loading = false
               this.selected = false
               this.dates = false
+              this.dateTitle = false
               this.editClosing = true
             })
         })
@@ -1546,6 +1510,7 @@ export class ClosingComponent implements OnInit {
     this.editClosing = false
     this.selected = false
     this.dates = false
+    this.dateTitle = false
     this.closing.encargada = ""
   }
 

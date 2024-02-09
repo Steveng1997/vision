@@ -402,6 +402,19 @@ export class Service {
     });
   }
 
+  getByTherapistFechaHoraInicioFechaHoraFinClosing(terapeuta: string, encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndManagerFechaHoraInicioFechaHoraFinClosing`, {
+      params: {
+        terapeuta,
+        encargada,
+        desdeFechaLiquidado,
+        desdeHoraLiquidado,
+        hastaFechaLiquidado,
+        hastaHoraLiquidado,
+      }
+    });
+  }
+
   // Update
 
   updateServicio(id: number, service: ModelService) {
