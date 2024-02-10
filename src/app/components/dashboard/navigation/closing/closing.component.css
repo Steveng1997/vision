@@ -5086,7 +5086,7 @@
   }
 
   .horaInicio {
-    width: 66%;
+    width: 67%;
     align-self: end;
     margin-left: -11px;
   }
@@ -5097,7 +5097,7 @@
   }
 
   .horaFinal {
-    width: 66%;
+    width: 67%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -5667,11 +5667,11 @@
 
   .containerTable5 {
     display: grid;
-    grid-template-columns: 257px 111px;
+    grid-template-columns: 305px 62px;
     margin-top: 0.2rem;
     margin-bottom: -26px;
     float: left;
-    margin-left: 0px;
+    margin-left: 1px;
   }
 
   .titleTable5 {

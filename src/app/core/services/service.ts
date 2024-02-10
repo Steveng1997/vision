@@ -62,7 +62,7 @@ export class Service {
   getByIdTerap(idTerap: string) {
     return this.http.get(`${this.API_URL}/getIdTerapeuta/${idTerap}`);
   }
-  
+
   getByIdCierreDistinct(idCierre: string) {
     return this.http.get(`${this.API_URL}/getIdCierreDistinct/${idCierre}`);
   }
@@ -402,15 +402,15 @@ export class Service {
     });
   }
 
-  getByTherapistFechaHoraInicioFechaHoraFinClosing(terapeuta: string, encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+  getByTherapistFechaHoraInicioFechaHoraFinClosing(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getTherapistAndManagerFechaHoraInicioFechaHoraFinClosing`, {
       params: {
         terapeuta,
         encargada,
-        desdeFechaLiquidado,
-        desdeHoraLiquidado,
-        hastaFechaLiquidado,
-        hastaHoraLiquidado,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd
       }
     });
   }

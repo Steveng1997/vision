@@ -355,7 +355,7 @@
                         <label class="columnPayments">Efectivo</label>
                         <label class="columnTotalBox">{{textTotalsBoxCash + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalCashTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalCashPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCashTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalCashTable5 + ' €'}}</label>
                     </div>
 
@@ -363,7 +363,7 @@
                         <label class="columnPayments">Bizum</label>
                         <label class="columnTotalBox">{{textTotalsBoxBizum + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalBizumTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalBizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalBizumTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalBizumTable5 + ' €'}}</label>
                     </div>
 
@@ -371,7 +371,7 @@
                         <label class="columnPayments">Tarjeta</label>
                         <label class="columnTotalBox">{{textTotalsBoxCard + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalCardTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalCardTable5 + ' €'}}</label>
                     </div>
 
@@ -379,7 +379,7 @@
                         <label class="columnPayments">Trasferencia</label>
                         <label class="columnTotalBox">{{textTotalsBoxTransaction + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalTransTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalTransTable5 + ' €'}}</label>
                     </div>
 
@@ -515,10 +515,10 @@
 
                     <div class="columnTotalsTable4">
                         <label class="textTotalTable4">Total</label>
-                        <label class="columnTotalsCashTable4">{{textTotalCashPayment + ' €'}}</label>
-                        <label class="columnTotalsBizumTable4">{{textTotalBizumPayment + ' €'}}</label>
-                        <label class="columnTotalsCardTable4">{{textTotalCardPayment + ' €'}}</label>
-                        <label class="columnTotalsTransTable4">{{textTotalTransactionPayment + ' €'}}</label>
+                        <label class="columnTotalsCashTable4">{{textTotalCashTable4 + ' €'}}</label>
+                        <label class="columnTotalsBizumTable4">{{textTotalBizumTable4 + ' €'}}</label>
+                        <label class="columnTotalsCardTable4">{{textTotalCardTable4 + ' €'}}</label>
+                        <label class="columnTotalsTransTable4">{{textTotalTransactionTable4 + ' €'}}</label>
                     </div>
                 </div>
 
@@ -530,7 +530,7 @@
 
                 <div class="row containerTable5" *ngIf="selected">
                     <div class="row g-0">
-                        <label class="titleTable4">Pagado liquidaciones</label>
+                        <label class="titleTable4">Servicios pagados directamente a terapeuta</label>
                     </div>
 
                     <div class="row g-0 arrow5" style="justify-content: end" id="arrowTable5Add">
@@ -564,7 +564,7 @@
 
                     <hr class="lineTable5">
 
-                    <div class="columnTable5" *ngFor="let close of unliquidatedService | paginate: 
+                    <div class="columnTable5" *ngFor="let close of unsettledServicesDirectTherapistDistinct | paginate: 
                     { itemsPerPage: 10, currentPage: page }">
 
                         <div class="columnTherapist">{{close.terapeuta}}</div>
@@ -659,7 +659,7 @@
                         <label class="columnPayments">Efectivo</label>
                         <label class="columnTotalBox">{{textTotalsBoxCash + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalCashTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalCashPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCashTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalCashTable5 + ' €'}}</label>
                     </div>
 
@@ -667,7 +667,7 @@
                         <label class="columnPayments">Bizum</label>
                         <label class="columnTotalBox">{{textTotalsBoxBizum + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalBizumTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalBizumPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalBizumTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalBizumTable5 + ' €'}}</label>
                     </div>
 
@@ -675,7 +675,7 @@
                         <label class="columnPayments">Tarjeta</label>
                         <label class="columnTotalBox">{{textTotalsBoxCard + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalCardTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalCardPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalCardTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalCardTable5 + ' €'}}</label>
                     </div>
 
@@ -683,7 +683,7 @@
                         <label class="columnPayments">Trasferencia</label>
                         <label class="columnTotalBox">{{textTotalsBoxTransaction + ' €'}}</label>
                         <label class="columnTotalIncome">{{textTotalTransTable3 + ' €'}}</label>
-                        <label class="columnTotalPayments">{{textTotalTransactionPayment + ' €'}}</label>
+                        <label class="columnTotalPayments">{{textTotalTransactionTable4 + ' €'}}</label>
                         <label class="columnTotalPayments">{{textTotalTransTable5 + ' €'}}</label>
                     </div>
 
@@ -806,10 +806,10 @@
 
                     <div class="columnTotalsTable4">
                         <label class="textTotalTable4">Total</label>
-                        <label class="columnTotalsCashTable4">{{textTotalCashPayment + ' €'}}</label>
-                        <label class="columnTotalsBizumTable4">{{textTotalBizumPayment + ' €'}}</label>
-                        <label class="columnTotalsCardTable4">{{textTotalCardPayment + ' €'}}</label>
-                        <label class="columnTotalsTransTable4">{{textTotalTransactionPayment + ' €'}}</label>
+                        <label class="columnTotalsCashTable4">{{textTotalCashTable4 + ' €'}}</label>
+                        <label class="columnTotalsBizumTable4">{{textTotalBizumTable4 + ' €'}}</label>
+                        <label class="columnTotalsCardTable4">{{textTotalCardTable4 + ' €'}}</label>
+                        <label class="columnTotalsTransTable4">{{textTotalTransactionTable4 + ' €'}}</label>
                     </div>
                 </div>
 
@@ -892,6 +892,10 @@
 
                 </div>
             </div>
+        </div>
+
+        <div *ngIf="loading" id="container_loading">
+            <div id="load"></div>
         </div>
     </div>
 </div>
