@@ -2478,15 +2478,15 @@ export class TherapistComponent implements OnInit {
   save() {
     this.buttonSave = document.getElementById('btnSave') as HTMLButtonElement
     this.buttonSave.disabled = true;
-    this.createUniqueId()
-    this.liquidationTherapist.currentDate = this.currentDate.toString()
-    this.formatDate()
-    this.dateCurrentDay()
 
     if (this.liquidationTherapist.terapeuta != "") {
       if (this.liquidationTherapist.encargada != "") {
         if (this.liquidationTherapist.formaPago != "") {
 
+          this.createUniqueId()
+          this.liquidationTherapist.currentDate = this.currentDate.toString()
+          this.formatDate()
+          this.dateCurrentDay()
 
           if (this.liquidationTherapist.regularizacion != "") {
             this.liquidationTherapist.regularizacion = this.liquidationTherapist.regularizacion.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
@@ -2494,11 +2494,12 @@ export class TherapistComponent implements OnInit {
 
           this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
             this.liquidationTherapist.encargada).subscribe((rp: any) => {
-
+              
               if (rp.length > 0) {
 
                 for (let o = 0; o < this.unliquidatedService.length; o++) {
                   this.liquidationTherapist.tratamiento = this.unliquidatedService.length
+                  this.services.liquidadoTerapeuta = true
                   this.service.updateLiquidacionTerap(this.unliquidatedService[o]['id'], this.services).subscribe((rp) => { })
                 }
 

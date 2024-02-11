@@ -2614,6 +2614,7 @@ export class ManagerComponent implements OnInit {
 
           for (let o = 0; o < this.unliquidatedService.length; o++) {
             this.liquidationManager.tratamiento = this.unliquidatedService.length
+            this.services.liquidadoEncargada = true
             this.service.updateLiquidacionEncarg(this.unliquidatedService[o]['id'], this.services).subscribe((dates) => { })
           }
 

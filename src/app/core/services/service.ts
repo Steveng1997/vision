@@ -378,32 +378,45 @@ export class Service {
     });
   }
 
-  getServicesByNumberTerap(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+  getServicesByNumberTerap(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getServicesNumberTerap`, {
       params: {
         encargada,
-        desdeFechaLiquidado,
-        desdeHoraLiquidado,
-        hastaFechaLiquidado,
-        hastaHoraLiquidado,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd,
       }
     });
   }
 
-  getWithDistinctServicesByNumberTerap(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+  getWithDistinctServicesByNumberTerap(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getDistinctServicesByNumberTerap`, {
       params: {
         encargada,
-        desdeFechaLiquidado,
-        desdeHoraLiquidado,
-        hastaFechaLiquidado,
-        hastaHoraLiquidado,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd,
       }
     });
   }
 
   getByTherapistFechaHoraInicioFechaHoraFinClosing(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
     return this.http.get(`${this.API_URL}/getTherapistAndManagerFechaHoraInicioFechaHoraFinClosing`, {
+      params: {
+        terapeuta,
+        encargada,
+        fecha,
+        horaStart,
+        fechaFin,
+        horaEnd
+      }
+    });
+  }
+
+  getByTherapistFechaHoraInicioFechaHoraFinClosingTrue(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndManagerFechaHoraInicioFechaHoraFinClosingTrue`, {
       params: {
         terapeuta,
         encargada,

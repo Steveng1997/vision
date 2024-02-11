@@ -734,7 +734,7 @@
 
                     <hr class="lineTable3">
 
-                    <div class="columnTable3" *ngFor="let close of settledData | paginate: 
+                    <div class="columnTable3" *ngFor="let close of unliquidatedService | paginate: 
                     { itemsPerPage: 10, currentPage: page }">
 
                         <div class="columnTherapist">{{close.terapeuta}}</div>
@@ -765,12 +765,19 @@
 
                 <!-- Table 4 -->
 
+                <div class="row containerTable4" *ngIf="editClosing">
+                    <div class="row g-0">
+                        <label class="titleTable4">Pagado liquidaciones</label>
+                    </div>
+
+                    <div class="row g-0 arrow4" style="justify-content: end" id="arrowTable4Add">
+                        <i class='far fa-arrow-alt-circle-right arrowTable4' (click)="arrowTable4Add()"></i>
+                    </div>
+
+                </div>
+
                 <div class="column4" *ngIf="editClosing">
-
-                    <label class="textPayLiquidation">Pagado liquidaciones</label>
-
                     <div class="columnTable4">
-
                         <div>
                             <label></label>
                         </div>
@@ -787,19 +794,25 @@
                             <label>Tarjeta</label>
                         </div>
 
-                        <div class="textTransactionTable4">
-                            <label>Transf.</label>
+                        <div class="textTransTable4">
+                            <label>Transf</label>
                         </div>
                     </div>
 
                     <hr class="lineTable4">
 
-                    <div class="columnTable4" *ngFor="let close of settledData">
-                        <label class="columnPayments">{{close.terapeuta}}</label>
-                        <label class="columnTotalsCashTable4">{{close.cashPayment + ' €'}}</label>
-                        <label class="columnTotalsBizumTable4">{{close.bizumPayment + ' €'}}</label>
-                        <label class="columnTotalsCardTable4">{{close.cardPayment + ' €'}}</label>
-                        <label class="columnTotalsTransTable4">{{close.transactionPayment + ' €'}}</label>
+                    <div class="columnTable4" *ngFor="let close of unliquidatedServiceByLiquidationTherapistDistinct | paginate: 
+                    { itemsPerPage: 10, currentPage: page }">
+
+                        <div class="columnTherapist">{{close.terapeuta}}</div>
+
+                        <div class="columnCashTable4"> {{close.cashPayment + ' €'}} </div>
+
+                        <div class="columnBizumTable4">{{close.bizumPayment + ' €'}} </div>
+
+                        <div class="columnCardTable4">{{close.cardPayment + ' €'}} </div>
+
+                        <div class="columnTransTable4">{{close.transactionPayment + ' €'}} </div>
                     </div>
 
                     <hr class="lineTotalsTable4">
@@ -813,11 +826,15 @@
                     </div>
                 </div>
 
+                <pagination-controls *ngIf="editClosing" class="pagination_MobileTable4" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
                 <!-- Table 5 -->
 
                 <div class="row containerTable5" *ngIf="editClosing">
                     <div class="row g-0">
-                        <label class="titleTable4">Pagado liquidaciones</label>
+                        <label class="titleTable4">Servicios pagados directamente a terapeuta</label>
                     </div>
 
                     <div class="row g-0 arrow5" style="justify-content: end" id="arrowTable5Add">
@@ -851,7 +868,7 @@
 
                     <hr class="lineTable5">
 
-                    <div class="columnTable5" *ngFor="let close of settledData | paginate: 
+                    <div class="columnTable5" *ngFor="let close of unsettledServicesDirectTherapistDistinct | paginate: 
                     { itemsPerPage: 10, currentPage: page }">
 
                         <div class="columnTherapist">{{close.terapeuta}}</div>
