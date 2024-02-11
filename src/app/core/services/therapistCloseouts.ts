@@ -49,26 +49,26 @@ export class ServiceLiquidationTherapist {
     return this.http.get(`${this.API_URL}/getTherapist/${therapist}`);
   }
 
-  getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+  getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, hastaHoraLiquidado1: string, hastaHoraLiquidado2: string, hastaFechaLiquidado1: string, hastaFechaLiquidado2: string) {
     return this.http.get(`${this.API_URL}/getManagerFechaHoraInicioFechaHoraFinLiquidationTherapist`, {
       params: {
         encargada,
-        desdeFechaLiquidado,
-        desdeHoraLiquidado,
-        hastaFechaLiquidado,
-        hastaHoraLiquidado,
+        hastaFechaLiquidado1,
+        hastaHoraLiquidado1,
+        hastaFechaLiquidado2,
+        hastaHoraLiquidado2,
       }
     });
   }
 
-  getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, desdeHoraLiquidado: string, hastaHoraLiquidado: string, desdeFechaLiquidado: string, hastaFechaLiquidado: string) {
+  getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(encargada: string, hastaHoraLiquidado1: string, hastaHoraLiquidado2: string, hastaFechaLiquidado1: string, hastaFechaLiquidado2: string) {
     return this.http.get(`${this.API_URL}/getDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist`, {
       params: {
         encargada,
-        desdeFechaLiquidado,
-        desdeHoraLiquidado,
-        hastaFechaLiquidado,
-        hastaHoraLiquidado,
+        hastaFechaLiquidado1,
+        hastaHoraLiquidado1,
+        hastaFechaLiquidado2,
+        hastaHoraLiquidado2,
       }
     });
   }
