@@ -10,21 +10,14 @@
         </div>
 
         <div class="title" *ngIf="registre">
-          <label>Registrarte</label>
+          <label>Crear negocio</label>
         </div>
 
         <form action="" style="text-align: -webkit-center;">
 
-          <div class="name" *ngIf="registre">
-            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                        display: contents; font-weight: bold">Nombre</label>
-            <input type="text" class="form-control" name="nombre" [(ngModel)]="manager.nombre" style="height: 2.2rem; color: #000000; 
-                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
-          </div>
-
           <div class="user">
             <label style="color: #242424; font-size: 18px; font-family: sans-serif;
-                        display: contents; font-weight: bold">Usuario</label>
+                        display: contents; font-weight: bold">correo electrónico</label>
             <input type="text" class="form-control" name="usuario" [(ngModel)]="manager.usuario" style="height: 2.2rem; color: #000000; 
                             font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
           </div>
@@ -45,14 +38,14 @@
           </div>
 
           <div class="row g-0">
-            <button type="submit" mat-button class="btnCancel" (click)="registrer()">Registrarse</button>
+            <button type="submit" mat-button class="btnCancel" (click)="registrer()">Crear nuevo negocio</button>
           </div>
         </div>
 
         <div class="row inputButton" *ngIf="registre">
 
           <div class="row g-0">
-            <button type="submit" mat-button class="btnLogin" (click)="save()">Registrarte</button>
+            <button type="submit" mat-button class="btnLogin" (click)="save()">Crear nuevo negocio</button>
           </div>
 
           <div class="row g-0">

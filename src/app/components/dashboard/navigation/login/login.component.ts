@@ -116,7 +116,6 @@ export class LoginComponent implements OnInit {
   }
 
   save() {
-    if (this.manager.nombre != "") {
       if (this.manager.usuario != "") {
         if (this.manager.pass != "") {
           this.serviceManager.getUsuarios().subscribe((rp: any) => {
@@ -150,9 +149,5 @@ export class LoginComponent implements OnInit {
       } else {
         Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo usuario se encuentra vacío' })
       }
-    } else {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo nombre se encuentra vacío' })
-    }
-
   }
 }
