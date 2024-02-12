@@ -6,10 +6,10 @@ import { LiquidationTherapist } from '../models/liquidationTherapist';
 @Injectable()
 export class ServiceLiquidationTherapist {
 
-  API_URL = 'http://18.191.250.105:3000/api/liqTerapeuta';
+  // API_URL = 'http://18.191.250.105:3000/api/liqTerapeuta';
 
   // Page pasffey
-  // API_URL = 'http://35.181.62.147:3000/api/liqTerapeuta';
+  API_URL = 'http://35.181.62.147:3000/api/liqTerapeuta';
 
   constructor(
     public router: Router,
