@@ -5,37 +5,68 @@
   <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
     <div class="m-0 vh-100 row justify-content-center align-items-center">
       <div class="card-body p-4 p-sm-7">
-        <div class="ard-title text-center mb-3 fw-bolder display-1">
+        <div class="title" *ngIf="login">
           <label>Bienvenido</label>
         </div>
 
-        <form action="">
+        <div class="title" *ngIf="registre">
+          <label>Registrarte</label>
+        </div>
 
-          <div class="row justify-content-center">
-            <div class="form-floating mb-3 col-6">
-              <input type="text" name="usuario" [(ngModel)]="manager.usuario" class="form-control"
-                placeholder="Usuario" />
-              <label for="usuario">Usuario</label>
-            </div>
+        <form action="" style="text-align: -webkit-center;">
+
+          <div class="name" *ngIf="registre">
+            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                        display: contents; font-weight: bold">Nombre</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="manager.nombre" style="height: 2.2rem; color: #000000; 
+                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
           </div>
 
-          <div class="row justify-content-center">
-            <div class="form-floating mb-3 col-6">
-              <input type="password" name="pass" [(ngModel)]="manager.pass" class="form-control" autocomplete="on"
-                placeholder="Contraseña" />
-              <label for="contrasena">Contraseña</label>
-            </div>
+          <div class="user">
+            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                        display: contents; font-weight: bold">Usuario</label>
+            <input type="text" class="form-control" name="usuario" [(ngModel)]="manager.usuario" style="height: 2.2rem; color: #000000; 
+                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
+          </div>
+
+          <div class="user">
+            <label style="color: #242424; font-size: 18px; font-family: sans-serif;
+                        display: contents; font-weight: bold">Contraseña</label>
+            <input type="password" class="form-control" name="pass" [(ngModel)]="manager.pass" style="height: 2.2rem; color: #000000; 
+                            font-size: 18px; font-family: sans-serif; border-color: #8C52FF" />
           </div>
 
         </form>
 
-        <div class="buttonLogin">
+        <div class="row inputButton" *ngIf="login">
+
+          <div class="row g-0">
+            <button type="submit" mat-button class="btnLogin" (click)="onLogin()">Iniciar Sesión</button>
+          </div>
+
+          <div class="row g-0">
+            <button type="submit" mat-button class="btnCancel" (click)="registrer()">Registrarse</button>
+          </div>
+        </div>
+
+        <div class="row inputButton" *ngIf="registre">
+
+          <div class="row g-0">
+            <button type="submit" mat-button class="btnLogin" (click)="save()">Registrarte</button>
+          </div>
+
+          <div class="row g-0">
+            <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
+          </div>
+        </div>
+
+        <!-- <div class="buttonLogin">
           <div class="row g-0">
             <button class="btn btn-primary btn-lg btn-login text-uppercase fw-bold col-12" (click)="onLogin()">
               Iniciar
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

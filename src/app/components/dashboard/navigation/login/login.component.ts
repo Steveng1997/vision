@@ -17,17 +17,20 @@ import { ModelManager } from 'src/app/core/models/manager'
 export class LoginComponent implements OnInit {
 
   dateTmp = ''
+  login: boolean = false
+  registre: boolean = false
 
   manager: ModelManager = {
     activo: true,
     bebida: "0",
+    bebidaTerap: "0",
     fijoDia: "0",
     id: 0,
     nombre: "",
     otros: "0",
     pass: "",
     propina: "0",
-    rol: 'encargada',
+    rol: "",
     servicio: "0",
     tabaco: "0",
     usuario: "",
@@ -36,14 +39,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public serviceManager: ServiceManager,
-    private modalService: NgbModal
+    public serviceManager: ServiceManager
   ) { }
 
   ngOnInit(): void {
+    this.login = true
+    this.registre = false
   }
 
-  dateTpm(){
+  dateTpm() {
     let fecha = new Date(), dia = 0, mes = 0, año = 0, convertMes = '', convertDia = ''
 
     dia = fecha.getDate()
@@ -99,5 +103,56 @@ export class LoginComponent implements OnInit {
     } else {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo del usuario se encuentra vacío' })
     }
+  }
+
+  registrer() {
+    this.login = false
+    this.registre = true
+  }
+
+  cancel() {
+    this.login = true
+    this.registre = false
+  }
+
+  save() {
+    if (this.manager.nombre != "") {
+      if (this.manager.usuario != "") {
+        if (this.manager.pass != "") {
+          this.serviceManager.getUsuarios().subscribe((rp: any) => {
+            if (rp.length > 0) {
+              this.serviceManager.getByUsuario(this.manager.usuario).subscribe((rp: any) => {
+                if (rp.length == 0) {
+                  this.manager.rol = 'encargada'
+                  this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
+                    this.login = true
+                    this.registre = false
+                    Swal.fire({
+                      position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+                    })
+                  })
+                } else {
+                  Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya hay un usuario con ese nombre' })
+                }
+              })
+            } else {
+              this.manager.rol = 'administrador'
+              this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
+                Swal.fire({
+                  position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
+                })
+              })
+            }
+          })
+        } else {
+          Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo contraseña se encuentra vacío' })
+        }
+      } else {
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo usuario se encuentra vacío' })
+      }
+    } else {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo nombre se encuentra vacío' })
+    }
+
   }
 }

@@ -1,7 +1,53 @@
-.buttonLogin{
+.title {
     display: grid;
-    grid-template-columns: 50%;
-    margin-right: auto;
+    justify-content: center;
+    font-size: 40px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.name {
+    width: 180px;
     margin-top: 1rem;
-    margin-left: 32.4%;
+    text-align: left;
+}
+
+.user {
+    width: 180px;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.password {
+    width: 180px;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.inputButton {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+}
+
+
+.btnLogin {
+    margin: auto;
+    height: 45px;
+    background-color: #8c52ff;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+}
+
+.btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 45px;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
 }
