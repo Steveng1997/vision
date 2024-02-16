@@ -1652,7 +1652,7 @@ export class ClosingComponent implements OnInit {
 
   // End edit
 
-  async save() {
+  save() {
     this.createUniqueId()
     this.closing.currentDate = this.currentDate.toString()
     this.formatDate()
@@ -1665,17 +1665,17 @@ export class ClosingComponent implements OnInit {
         this.service.updateCierre(this.unliquidatedServiceByDistinct[o]['id'], this.services).subscribe((dates) => { })
       }
 
-      this.serviceClosing.settlementRecord(this.closing).subscribe((dates: any) => { })
+      this.serviceClosing.settlementRecord(this.closing).subscribe(async (rp: any) => {
+        if (this.administratorRole == true) {
+          await this.consultClosingByAdministrator()
+        }
+        else {
+          await this.consultClosingByManager()
+        }
 
-      if (this.administratorRole == true) {
-        await this.consultClosingByAdministrator()
-      }
-      else {
-        await this.consultClosingByManager()
-      }
-
-      Swal.fire({
-        position: 'top-end', icon: 'success', title: 'Insertado Correctamente!', showConfirmButton: false, timer: 2500
+        Swal.fire({
+          position: 'top-end', icon: 'success', title: 'Insertado Correctamente!', showConfirmButton: false, timer: 2500
+        })
       })
     } else {
       Swal.fire({

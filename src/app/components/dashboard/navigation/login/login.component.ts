@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   dateTmp = ''
   login: boolean = false
   registre: boolean = false
+  amount: number = 0
 
   manager: ModelManager = {
     activo: true,
@@ -116,38 +117,38 @@ export class LoginComponent implements OnInit {
   }
 
   save() {
-      if (this.manager.usuario != "") {
-        if (this.manager.pass != "") {
-          this.serviceManager.getUsuarios().subscribe((rp: any) => {
-            if (rp.length > 0) {
-              this.serviceManager.getByUsuario(this.manager.usuario).subscribe((rp: any) => {
-                if (rp.length == 0) {
-                  this.manager.rol = 'encargada'
-                  this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
-                    this.login = true
-                    this.registre = false
-                    Swal.fire({
-                      position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
-                    })
+    if (this.manager.usuario != "") {
+      if (this.manager.pass != "") {
+        this.serviceManager.getUsuarios().subscribe((rp: any) => {
+          if (rp.length > 0) {
+            this.serviceManager.getByUsuario(this.manager.usuario).subscribe((rp: any) => {
+              if (rp.length == 0) {
+                this.manager.rol = 'encargada'
+                this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
+                  this.login = true
+                  this.registre = false
+                  Swal.fire({
+                    position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
                   })
-                } else {
-                  Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya hay un usuario con ese nombre' })
-                }
-              })
-            } else {
-              this.manager.rol = 'administrador'
-              this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
-                Swal.fire({
-                  position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
                 })
+              } else {
+                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Ya hay un usuario con ese nombre' })
+              }
+            })
+          } else {
+            this.manager.rol = 'administrador'
+            this.serviceManager.registerEncargada(this.manager).subscribe((resp: any) => {
+              Swal.fire({
+                position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500
               })
-            }
-          })
-        } else {
-          Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo contraseña se encuentra vacío' })
-        }
+            })
+          }
+        })
       } else {
-        Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo usuario se encuentra vacío' })
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo contraseña se encuentra vacío' })
       }
+    } else {
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'El campo correo electrónico se encuentra vacío' })
+    }
   }
 }
