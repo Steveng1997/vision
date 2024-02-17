@@ -128,6 +128,7 @@ export class ManagerComponent implements OnInit {
     desdeFechaLiquidado: "",
     desdeHoraLiquidado: "",
     encargada: "",
+    fixedDay: 0,
     hastaFechaLiquidado: "",
     hastaHoraLiquidado: new Date().toTimeString().substring(0, 5),
     createdDate: "",
@@ -1548,6 +1549,7 @@ export class ManagerComponent implements OnInit {
   fixedNumberDay(event: any) {
     let numberValue = 0
     numberValue = Number(event.target.value)
+    this.liquidationManager.fixedDay = Number(event.target.value)
 
     if (numberValue > 0) {
       this.serviceManager.getEncargada(this.liquidationManager.encargada).subscribe((resp: any) => {
@@ -1608,7 +1610,7 @@ export class ManagerComponent implements OnInit {
     var date2 = moment(`${year}-${month}-${day}`, "YY-MM-DD")
 
     // this.fixedDay = date1.diff(date2, 'd')
-    this.fixedDay = date2.diff(date1, 'days')
+    this.fixedDay = this.liquidationManager.fixedDay
   }
 
   convertToZeroEdit() {
@@ -2415,6 +2417,7 @@ export class ManagerComponent implements OnInit {
       this.liquidationManager.desdeHoraLiquidado = datosManager[0]['desdeHoraLiquidado']
       this.liquidationManager.hastaFechaLiquidado = datosManager[0]['hastaFechaLiquidado']
       this.liquidationManager.hastaHoraLiquidado = datosManager[0]['hastaHoraLiquidado']
+      this.liquidationManager.fixedDay = datosManager[0]['fixedDay']
     })
 
     await this.sumTotal(idManager)
