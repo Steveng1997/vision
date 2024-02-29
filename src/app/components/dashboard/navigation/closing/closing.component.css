@@ -2852,916 +2852,7 @@
   .titleLiqudationTherapist {
     display: grid;
     justify-content: center;
-    font-size: 25px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerFilters {
-    display: grid;
-    grid-template-columns: 39% 40% 39%;
-    margin-top: -15px;
-    margin-right: 3px;
-    width: 100%;
-    height: 32px;
-  }
-
-  /* Filter */
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
-    margin-top: 0rem;
-  }
-
-  .containerInCharge {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .containerSearch {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .dateContainer {
-    width: 83%;
-    justify-self: center;
-    margin-top: 8%;
-  }
-
-  /* button menu */
-
-  .buttonFilters {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    height: 35px;
-    width: 90%;
-    border: 1px solid #8c52ff;
-  }
-
-  .iconFilters {
-    margin-left: 15px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .filters {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-  }
-
-  .buttonDeleteContainer {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -13px;
-    height: 35px;
-    width: 90%;
-    border-right: 1px solid #8c52ff;
-    border-bottom: 1px solid #8c52ff;
-    border-top: 1px solid #8c52ff;
-  }
-
-  .iconDelete {
-    margin-left: 13px;
-    margin-top: 5px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .titleDelete {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .titleDeleteRed {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .newService {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -27px;
-    height: 35px;
-    width: 84%;
-    background: #8c52ff;
-  }
-
-  .iconNewService {
-    margin-left: 16px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-    color: white;
-  }
-
-  .titleNewService {
-    color: white;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-
-  /* Arrow */
-
-  .columnArrow {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  .arrow {
     font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 1 */
-
-  .column {
-    position: static;
-    margin-top: 0rem;
-    margin-left: -2%;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTableLine1 {
-    display: grid;
-    grid-template-columns: 23% 54% 46% 19% 25% 25% 25% 25% 25%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -3%;
-  }
-
-  .textTreatmentLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 11px 0px 0px;
-  }
-
-  /* Line 2  */
-
-  .columnTableLine2 {
-    display: grid;
-    grid-template-columns: 23% 54% 46% 19% 25% 25% 25% 25% 25%;
-    margin-bottom: 8px;
-    margin-left: -3%;
-  }
-
-  .textManager {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 24px 0px 0px;
-  }
-
-  .textDate {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTreatmentLine2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 20px 0px 0px;
-  }
-
-  .textImport {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCash {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textBizum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCard {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTransfer {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .lineTable1 {
-    width: 173%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  /* Column Table */
-
-  .columnManager {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnDateTable1 {
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 1.4rem;
-  }
-
-  .columnTreatment {
-    line-height: 1.4rem;
-    padding: 0px 2px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnImport {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCash {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnBizum {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCard {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnTransfer {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
-  /* Edit liquidation */
-
-  .titleEdit {
-    display: grid;
-    margin-left: -28px;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0rem;
-  }
-
-  .textDates {
-    display: grid;
-    font-size: 18px;
-    color: #000000;
-    font-family: sans-serif;
-    white-space: pre;
-    margin-left: -26px;
-  }
-
-  .containerTitleEdit {
-    display: grid;
-    grid-template-columns: 76% 88px;
-    margin-top: 1rem;
-    margin-left: -11%;
-  }
-
-  /* Add new liquidation */
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerNew {
-    display: grid;
-    grid-template-columns: 58%;
-    justify-content: center;
-    margin-left: -20px;
-    margin-top: 1rem;
-  }
-
-  .containerInChargeNew {
-    width: 75%;
-    margin-right: 27px;
-  }
-
-  .tableContainer2 {
-    display: grid;
-    grid-template-columns: 61% 61%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 13.5px;
-  }
-
-  .fechaInicio {
-    width: 80%;
-  }
-
-  .horaInicio {
-    width: 64%;
-    align-self: end;
-    margin-left: -11px;
-  }
-
-  .fechaFinal {
-    width: 80%;
-    margin-top: 1em;
-  }
-
-  .horaFinal {
-    width: 64%;
-    margin-left: -11px;
-    margin-top: 43px;
-  }
-
-  .containerTitleSelect {
-    display: grid;
-    grid-template-columns: 76% 88px;
-    margin-top: 2rem;
-    margin-left: -11%;
-  }
-
-  .titleLiquidation {
-    display: grid;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-left: -33px;
-    justify-items: end;
-  }
-
-  /* Table 2 */
-
-  .column2 {
-    padding: 0px 0px 0px 14px;
-    margin-bottom: -46px;
-    margin-top: 2rem;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTable2Line1 {
-    display: grid;
-    grid-template-columns: 9% 24% 33% 22% 32% 29% 25% 22% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTreatmentTable2Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
-  }
-
-  .textDrinkHouseLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  .textDrinkTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  /* Line 2  */
-
-  .columnTable2Line2 {
-    display: grid;
-    grid-template-columns: 9% 24% 33% 22% 32% 29% 25% 22% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: 8px;
-    margin-left: -20px;
-  }
-
-  .textBox {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textIncome {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textPayments {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
-  }
-
-  .lineTable2 {
-    width: 366%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 12px;
-    margin-top: -12px;
-    margin-bottom: 9px;
-  }
-
-  /* Column */
-
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 8px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    justify-self: end;
-    cursor: pointer;
-  }
-
-  .columnTreatment2 {
-    line-height: 1.4rem;
-    padding: 0px 39px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnValueTip {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 0px 31px 0px 0px;
-  }
-
-  .columnPaymentMethod {
-    border-bottom: hidden;
-    max-width: 100%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnValueManager {
-    line-height: 1.4rem;
-    padding: 0px 6px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrink {
-    line-height: 1.4rem;
-    padding: 0px 8px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrinkTherapist {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueTobacco {
-    line-height: 1.4rem;
-    padding: 0px 5px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueVitamin {
-    line-height: 1.4rem;
-    padding: 0px 19px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueOthers {
-    line-height: 1.4rem;
-    padding: 0px 1px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  /* Arrow 3 */
-
-  .columnArrowTable3 {
-    position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -61px;
-    overflow-x: auto;
-  }
-
-  .arrowTable3 {
-    font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 3 */
-
-  .column3 {
-    margin-top: 2rem;
-    margin-left: -15px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable3 {
-    display: grid;
-    grid-template-columns: 35% 23% 27% 19%;
-    margin-bottom: -5px;
-    margin-left: -5px;
-  }
-
-  .lineTable3 {
-    width: 109%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -5px;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .textSum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 13px 0px 0px;
-    justify-self: end;
-  }
-
-  .textCommision {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-  }
-
-  .textTotals {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
-  }
-
-  /* Sum */
-
-  .columnTreatment3 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  .columnSum {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
-    white-space: pre;
-  }
-
-  .columnComission {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 2px 0px 0px;
-  }
-
-  .columnTotalPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59px;
-  }
-
-  .columnPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -73px;
-  }
-
-  .lblSum {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59px;
-  }
-
-  .textReceivend {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -60px;
-  }
-
-  .columnTotal {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-  }
-
-  .lineTotalPay {
-    width: 87%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 17%;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .pagination_MobileTable3 {
-    text-align-last: end;
-    margin-top: 3rem;
-    margin-bottom: 0px;
-  }
-
-  /* Table 4 */
-
-  .column4 {
-    margin-top: 2rem;
-    margin-left: -27px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable4 {
-    display: grid;
-    grid-template-columns: 64% 46%;
-    margin-bottom: -5px;
-    margin-left: 0%;
-  }
-
-  .lineTable4 {
-    width: 106%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-    margin-top: -7px;
-    margin-bottom: 6px;
-  }
-
-  .textPayLiquidation {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-weight: bold;
-    font-family: sans-serif;
-  }
-
-  .columnTreatment4 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  /* fin Table 4 */
-
-  /* Buttons */
-
-  .btnCancel {
-    margin: 10px 0px 0px 0px;
-    height: 45px;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: #8c52ff;
-  }
-
-  .inputButtonSave {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnSave {
-    margin: auto;
-    height: 45px;
-    background-color: #8c52ff;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-
-  .inputButtonEdit {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnDelete {
-    margin: auto;
-    height: 45px;
-    background-color: red;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-}
-
-@media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
-  .container {
-    overflow-x: hidden;
-    height: 100%;
-  }
-
-  .titleLiqudationTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 27px;
     color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
@@ -3913,7 +3004,7 @@
   .column {
     position: static;
     margin-top: 0rem;
-    margin-left: -2%;
+    margin-left: -1.5%;
     margin-bottom: -30px;
     overflow-x: auto;
   }
@@ -3922,7 +3013,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -3940,7 +3031,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -4013,7 +3104,7 @@
   }
 
   .lineTable1 {
-    width: 172%;
+    width: 279%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -4044,7 +3135,7 @@
 
   .columnTreatment {
     line-height: 1.4rem;
-    padding: 0px 20px 0px 0px;
+    padding: 0px 22px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4054,7 +3145,7 @@
 
   .columnImport {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4064,7 +3155,7 @@
 
   .columnCash {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4074,7 +3165,7 @@
 
   .columnBizum {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4084,7 +3175,7 @@
 
   .columnCard {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4094,7 +3185,7 @@
 
   .columnTransfer {
     line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
+    padding: 0px 18px 0px 0px;
     font-family: sans-serif;
     font-size: 18px;
     word-wrap: break-word;
@@ -4112,7 +3203,7 @@
 
   .titleEdit {
     display: grid;
-    margin-left: -25px;
+    margin-left: -29px;
     font-size: 28px;
     color: #8c52ff;
     font-weight: bold;
@@ -4126,14 +3217,14 @@
     color: #000000;
     font-family: sans-serif;
     white-space: pre;
-    margin-left: -22px;
+    margin-left: -26px;
   }
 
   .containerTitleEdit {
     display: grid;
-    grid-template-columns: 89% 100px;
+    grid-template-columns: 89% 109px;
     margin-top: 1rem;
-    margin-left: -191%;
+    margin-left: -229%;
   }
 
   /* Add new liquidation */
@@ -4151,57 +3242,58 @@
 
   .tableContainerNew {
     display: grid;
-    grid-template-columns: 57%;
+    grid-template-columns: 51%;
     justify-content: center;
-    margin-left: -24px;
+    margin-left: -47px;
     margin-top: 1rem;
   }
 
   .containerInChargeNew {
-    width: 75%;
+    width: 79%;
     justify-self: center;
   }
 
   .tableContainer2 {
     display: grid;
-    grid-template-columns: 57% 57%;
+    grid-template-columns: 51% 51%;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 1px;
+    margin-left: -20px;
   }
 
   .fechaInicio {
-    width: 80%;
+    width: 83%;
   }
 
   .horaInicio {
-    width: 64%;
+    width: 67%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 80%;
+    width: 83%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 64%;
+    width: 67%;
     margin-left: -11px;
     margin-top: 43px;
   }
 
   .containerTitleSelect {
     display: grid;
-    grid-template-columns: 89% 100px;
+    grid-template-columns: 204px 214px;
     margin-top: 2rem;
-    margin-left: -190%;
+    float: left;
+    margin-left: -61px;
   }
 
   .titleLiquidation {
     display: grid;
     font-size: 22px;
-    color: #000000;
+    color: #8c52ff;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -17px;
@@ -4211,53 +3303,20 @@
   /* Table 2 */
 
   .column2 {
-    padding: 0px 0px 0px 14px;
+    padding: 0px 0px 0px 4px;
     margin-bottom: -46px;
     margin-top: 2rem;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Line 1 */
 
-  .columnTable2Line1 {
+  .columnTable2 {
     display: grid;
-    grid-template-columns: 9% 24% 33% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTreatmentTable2Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
-  }
-
-  .textDrinkHouseLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  .textDrinkTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  /* Line 2  */
-
-  .columnTable2Line2 {
-    display: grid;
-    grid-template-columns: 9% 24% 33% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: 8px;
-    margin-left: -20px;
+    grid-template-columns: 31% 24% 25% 25% 25%;
+    margin-bottom: -5px;
+    margin-left: -5px;
   }
 
   .textBox {
@@ -4265,15 +3324,24 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 35px;
   }
 
-  .textIncome {
+  .textService {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 0px 2px;
+  }
+
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
   }
 
   .textPayments {
@@ -4281,159 +3349,86 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
   }
 
   .lineTable2 {
-    width: 367%;
+    width: 131%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
   }
 
   /* Column */
 
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
+  .columnPayments {
+    line-break: anywhere;
+    color: #000000;
     font-size: 18px;
+    font-family: sans-serif;
     word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
   }
 
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalBox {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
+    place-self: end;
     font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    justify-self: end;
-    cursor: pointer;
-  }
-
-  .columnTreatment2 {
-    line-height: 1.4rem;
-    padding: 0px 35px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnValueTip {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 0px 28px 0px 0px;
-  }
-
-  .columnPaymentMethod {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnValueManager {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrink {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrinkTherapist {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueTobacco {
-    line-height: 1.4rem;
+    font-weight: bold;
     padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+    white-space: pre;
   }
 
-  .columnValueVitamin {
-    line-height: 1.4rem;
-    padding: 0px 26px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalIncome {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
   }
 
-  .columnValueOthers {
-    line-height: 1.4rem;
-    padding: 0px 4px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalPayments {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
   }
 
   /* Arrow 3 */
 
-  .columnArrowTable3 {
-    position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -61px;
-    overflow-x: auto;
+  .containerTable3 {
+    display: grid;
+    grid-template-columns: 261px 111px;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: -9px;
+  }
+
+  .titleTable3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrow3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
   }
 
   .arrowTable3 {
@@ -4445,169 +3440,1199 @@
   /* Table 3 */
 
   .column3 {
-    margin-top: 2rem;
-    margin-left: -15px;
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
     margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
+
+  /* Line 2 */
 
   .columnTable3 {
     display: grid;
-    grid-template-columns: 35% 23% 26% 18.7%;
-    margin-bottom: -5px;
-    margin-left: -5px;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable3 {
-    width: 104%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -2px;
-    margin-top: -8px;
+    margin-left: -12px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
-  .textSum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 13px 0px 0px;
-    justify-self: end;
-  }
+  /* Column  */
 
-  .textCommision {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-  }
-
-  .textTotals {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
-  }
-
-  /* Sum */
-
-  .columnTreatment3 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
+  .columnTherapist {
+    border-bottom: hidden;
     word-wrap: break-word;
-  }
-
-  .columnSum {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
+    max-width: 85%;
     font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
-    white-space: pre;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
   }
 
-  .columnComission {
+  .columnCashTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable3 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
     padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
-  .columnTotalPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -58px;
-  }
-
-  .columnPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -72px;
-  }
-
-  .lblSum {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59px;
-  }
-
-  .textReceivend {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59.5px;
-  }
-
-  .columnTotal {
+  .columnTotalsBizumTable3 {
     color: #000000;
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
-  .lineTotalPay {
-    width: 86%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 17%;
-    margin-top: -8px;
-    margin-bottom: 6px;
+  .columnTotalsCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
   .pagination_MobileTable3 {
     text-align-last: end;
-    margin-top: 3rem;
     margin-bottom: 0px;
+  }
+
+  /* Arrow 4 */
+
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
   }
 
   /* Table 4 */
 
   .column4 {
-    margin-top: 2rem;
-    margin-left: -25px;
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
     margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
+
+  /* Line 2 */
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 64% 44.3%;
-    margin-bottom: -5px;
-    margin-left: 0%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable4 {
-    width: 104%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
-    margin-top: -7px;
+    margin-left: -12px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
-  .textPayLiquidation {
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable4 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable4 {
     color: #000000;
     font-size: 18px;
     place-self: end;
-    font-weight: bold;
     font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
-  .columnTreatment4 {
+  .columnTotalsBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 5 */
+
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 305px 62px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  .titleTable5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable5 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Buttons */
+
+  .btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 45px;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnSave {
+    margin: auto;
+    height: 45px;
+    background-color: #8c52ff;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnDelete {
+    margin: auto;
+    height: 45px;
+    background-color: red;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+}
+
+@media only screen and (min-device-width: 390px) and (max-device-width: 391px) {
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 39% 40% 39%;
+    margin-top: -15px;
+    margin-right: 3px;
+    width: 100%;
+    height: 32px;
+  }
+
+  /* Filter */
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 0rem;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  /* button menu */
+
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    height: 35px;
+    width: 90%;
+    border: 1px solid #8c52ff;
+  }
+
+  .iconFilters {
+    margin-left: 15px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+  }
+
+  .buttonDeleteContainer {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -14px;
+    height: 35px;
+    width: 90%;
+    border-right: 1px solid #8c52ff;
+    border-bottom: 1px solid #8c52ff;
+    border-top: 1px solid #8c52ff;
+  }
+
+  .iconDelete {
+    margin-left: 13px;
+    margin-top: 5px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .titleDelete {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .titleDeleteRed {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .newService {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -29px;
+    height: 35px;
+    width: 84%;
+    background: #8c52ff;
+  }
+
+  .iconNewService {
+    margin-left: 16px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+    color: white;
+  }
+
+  .titleNewService {
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  /* Arrow */
+
+  .columnArrow {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 1 */
+
+  .column {
+    position: static;
+    margin-top: 0rem;
+    margin-left: -1.5%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: 8px;
+    margin-left: -3%;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCash {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCard {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransfer {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .lineTable1 {
+    width: 279%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  /* Column Table */
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    color: #8c52ff;
+    cursor: pointer;
+  }
+
+  .columnDateTable1 {
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.4rem;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCash {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizum {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCard {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransfer {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Edit liquidation */
+
+  .titleEdit {
+    display: grid;
+    margin-left: -29px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -26px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 109px;
+    margin-top: 1rem;
+    margin-left: -229%;
+  }
+
+  /* Add new liquidation */
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerNew {
+    display: grid;
+    grid-template-columns: 51%;
+    justify-content: center;
+    margin-left: -47px;
+    margin-top: 1rem;
+  }
+
+  .containerInChargeNew {
+    width: 79%;
+    justify-self: center;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 51% 51%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -20px;
+  }
+
+  .fechaInicio {
+    width: 83%;
+  }
+
+  .horaInicio {
+    width: 67%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 83%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 67%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 204px 214px;
+    margin-top: 2rem;
+    float: left;
+    margin-left: -61px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 4px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 1 */
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 31% 24% 25% 25% 25%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .textBox {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 35px;
+  }
+
+  .textService {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 2px;
+  }
+
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .textPayments {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .lineTable2 {
+    width: 131%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* Column */
+
+  .columnPayments {
     line-break: anywhere;
     color: #000000;
     font-size: 18px;
@@ -4615,7 +4640,695 @@
     word-wrap: break-word;
   }
 
-  /* fin Table 4 */
+  .columnTotalBox {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0px 13px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalIncome {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  .columnTotalPayments {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  /* Arrow 3 */
+
+  .containerTable3 {
+    display: grid;
+    grid-template-columns: 261px 111px;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: -9px;
+  }
+
+  .titleTable3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrow3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable3 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 3 */
+
+  .column3 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable3 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable3 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 4 */
+
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable4 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 5 */
+
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 305px 62px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  .titleTable5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable5 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
 
   /* Buttons */
 
@@ -6090,1827 +6803,6 @@
   .column {
     position: static;
     margin-top: 0rem;
-    margin-left: -4px;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTableLine1 {
-    display: grid;
-    grid-template-columns: 23% 51% 44% 23% 23% 23% 23% 23% 23%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -3%;
-  }
-
-  .textTreatmentLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 11px 0px 0px;
-  }
-
-  /* Line 2  */
-
-  .columnTableLine2 {
-    display: grid;
-    grid-template-columns: 23% 51% 44% 23% 23% 23% 23% 23% 23%;
-    margin-bottom: 8px;
-    margin-left: -3%;
-  }
-
-  .textManager {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 24px 0px 0px;
-  }
-
-  .textDate {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTreatmentLine2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 20px 0px 0px;
-  }
-
-  .textImport {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCash {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textBizum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCard {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTransfer {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .lineTable1 {
-    width: 187%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  /* Column Table */
-
-  .columnManager {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnDateTable1 {
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 1.4rem;
-  }
-
-  .columnTreatment {
-    line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnImport {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCash {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnBizum {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCard {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnTransfer {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
-  /* Edit liquidation */
-
-  .titleEdit {
-    display: grid;
-    margin-left: -26px;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0rem;
-  }
-
-  .textDates {
-    display: grid;
-    font-size: 18px;
-    color: #000000;
-    font-family: sans-serif;
-    white-space: pre;
-    margin-left: -25px;
-  }
-
-  .containerTitleEdit {
-    display: grid;
-    grid-template-columns: 89% 113px;
-    margin-top: 1rem;
-    margin-left: -222%;
-  }
-
-  /* Add new liquidation */
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerNew {
-    display: grid;
-    grid-template-columns: 52%;
-    justify-content: center;
-    margin-left: -42px;
-    margin-top: 1rem;
-  }
-
-  .containerInChargeNew {
-    width: 75%;
-    margin-left: 40px;
-  }
-
-  .tableContainer2 {
-    display: grid;
-    grid-template-columns: 52% 52%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: -15px;
-  }
-
-  .fechaInicio {
-    width: 80%;
-  }
-
-  .horaInicio {
-    width: 64%;
-    align-self: end;
-    margin-left: -11px;
-  }
-
-  .fechaFinal {
-    width: 80%;
-    margin-top: 1em;
-  }
-
-  .horaFinal {
-    width: 64%;
-    margin-left: -11px;
-    margin-top: 43px;
-  }
-
-  .containerTitleSelect {
-    display: grid;
-    grid-template-columns: 89% 113px;
-    margin-top: 2rem;
-    margin-left: -222%;
-  }
-
-  .titleLiquidation {
-    display: grid;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-left: -17px;
-    justify-items: end;
-  }
-
-  /* Table 2 */
-
-  .column2 {
-    padding: 0px 0px 0px 14px;
-    margin-bottom: -46px;
-    margin-top: 2rem;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTable2Line1 {
-    display: grid;
-    grid-template-columns: 9% 23% 31% 22% 31% 28% 24% 23% 26% 27% 27% 27% 27% 20%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTreatmentTable2Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
-  }
-
-  .textDrinkHouseLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  .textDrinkTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  /* Line 2  */
-
-  .columnTable2Line2 {
-    display: grid;
-    grid-template-columns: 9% 23% 31% 22% 31% 28% 24% 23% 26% 27% 27% 27% 27% 20%;
-    margin-bottom: 8px;
-    margin-left: -20px;
-  }
-
-  .textBox {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textIncome {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textPayments {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
-  }
-
-  .lineTable2 {
-    width: 352%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
-  }
-
-  /* Column */
-
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    justify-self: end;
-    cursor: pointer;
-  }
-
-  .columnTreatment2 {
-    line-height: 1.4rem;
-    padding: 0px 37px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnValueTip {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 0px 29px 0px 0px;
-  }
-
-  .columnPaymentMethod {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnValueManager {
-    line-height: 1.4rem;
-    padding: 0px 7px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrink {
-    line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrinkTherapist {
-    line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueTobacco {
-    line-height: 1.4rem;
-    padding: 0px 14px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueVitamin {
-    line-height: 1.4rem;
-    padding: 0px 27px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueOthers {
-    line-height: 1.4rem;
-    padding: 0px 7px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  /* Arrow 3 */
-
-  .columnArrowTable3 {
-    position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -61px;
-    overflow-x: auto;
-  }
-
-  .arrowTable3 {
-    font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 3 */
-
-  .column3 {
-    margin-top: 2rem;
-    margin-left: -15px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable3 {
-    display: grid;
-    grid-template-columns: 33% 23% 26% 18.7%;
-    margin-bottom: -5px;
-    margin-left: -5px;
-  }
-
-  .lineTable3 {
-    width: 102%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -2px;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .textSum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 13px 0px 0px;
-    justify-self: end;
-  }
-
-  .textCommision {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-  }
-
-  .textTotals {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
-  }
-
-  /* Sum */
-
-  .columnTreatment3 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  .columnSum {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
-    white-space: pre;
-  }
-
-  .columnComission {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
-  }
-
-  .columnTotalPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59px;
-  }
-
-  .columnPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -77px;
-  }
-
-  .lblSum {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -59px;
-  }
-
-  .textReceivend {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -60px;
-  }
-
-  .columnTotal {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-  }
-
-  .lineTotalPay {
-    width: 85%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16%;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .pagination_MobileTable3 {
-    text-align-last: end;
-    margin-top: 3rem;
-    margin-bottom: 0px;
-  }
-
-  /* Table 4 */
-
-  .column4 {
-    margin-top: 2rem;
-    margin-left: -25px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable4 {
-    display: grid;
-    grid-template-columns: 64% 42%;
-    margin-bottom: -5px;
-    margin-left: 0%;
-  }
-
-  .lineTable4 {
-    width: 102%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0rem;
-    margin-top: -7px;
-    margin-bottom: 6px;
-  }
-
-  .textPayLiquidation {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-weight: bold;
-    font-family: sans-serif;
-  }
-
-  .columnTreatment4 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  /* fin Table 4 */
-
-  /* Buttons */
-
-  .btnCancel {
-    margin: 10px 0px 0px 0px;
-    height: 45px;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: #8c52ff;
-  }
-
-  .inputButtonSave {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnSave {
-    margin: auto;
-    height: 45px;
-    background-color: #8c52ff;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-
-  .inputButtonEdit {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnDelete {
-    margin: auto;
-    height: 45px;
-    background-color: red;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-}
-
-@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
-  .container {
-    overflow-x: hidden;
-    height: 100%;
-  }
-
-  .titleLiqudationTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 27px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerFilters {
-    display: grid;
-    grid-template-columns: 39% 40% 39%;
-    margin-top: -15px;
-    margin-right: 3px;
-    width: 100%;
-    height: 32px;
-  }
-
-  /* Filter */
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
-    margin-top: 0rem;
-  }
-
-  .containerInCharge {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .containerSearch {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .dateContainer {
-    width: 83%;
-    justify-self: center;
-    margin-top: 8%;
-  }
-
-  /* button menu */
-
-  .buttonFilters {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    height: 35px;
-    width: 90%;
-    border: 1px solid #8c52ff;
-  }
-
-  .iconFilters {
-    margin-left: 15px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .filters {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-  }
-
-  .buttonDeleteContainer {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -14px;
-    height: 35px;
-    width: 90%;
-    border-right: 1px solid #8c52ff;
-    border-bottom: 1px solid #8c52ff;
-    border-top: 1px solid #8c52ff;
-  }
-
-  .iconDelete {
-    margin-left: 13px;
-    margin-top: 5px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .titleDelete {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .titleDeleteRed {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .newService {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -29px;
-    height: 35px;
-    width: 84%;
-    background: #8c52ff;
-  }
-
-  .iconNewService {
-    margin-left: 16px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-    color: white;
-  }
-
-  .titleNewService {
-    color: white;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-
-  /* Arrow */
-
-  .columnArrow {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  .arrow {
-    font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 1 */
-
-  .column {
-    position: static;
-    margin-top: 0rem;
-    margin-left: -2%;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTableLine1 {
-    display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -3%;
-  }
-
-  .textTreatmentLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 11px 0px 0px;
-  }
-
-  /* Line 2  */
-
-  .columnTableLine2 {
-    display: grid;
-    grid-template-columns: 23% 53% 46% 24% 24% 24% 24% 24% 24%;
-    margin-bottom: 8px;
-    margin-left: -3%;
-  }
-
-  .textManager {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 24px 0px 0px;
-  }
-
-  .textDate {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTreatmentLine2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 20px 0px 0px;
-  }
-
-  .textImport {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCash {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textBizum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textCard {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTransfer {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .lineTable1 {
-    width: 171%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -1rem;
-    margin-top: -8px;
-    margin-bottom: 9px;
-  }
-
-  /* Column Table */
-
-  .columnManager {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnDateTable1 {
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 1.4rem;
-  }
-
-  .columnTreatment {
-    line-height: 1.4rem;
-    padding: 0px 21px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnImport {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCash {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnBizum {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnCard {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnTransfer {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .pagination_Mobile {
-    text-align-last: end;
-    margin-top: 2rem;
-    margin-bottom: -43px;
-  }
-
-  /* Edit liquidation */
-
-  .titleEdit {
-    display: grid;
-    margin-left: -26px;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 0rem;
-  }
-
-  .textDates {
-    display: grid;
-    font-size: 18px;
-    color: #000000;
-    font-family: sans-serif;
-    white-space: pre;
-    margin-left: -23px;
-  }
-
-  .containerTitleEdit {
-    display: grid;
-    grid-template-columns: 89% 99px;
-    margin-top: 1rem;
-    margin-left: -192%;
-  }
-
-  /* Add new liquidation */
-
-  .title {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerNew {
-    display: grid;
-    grid-template-columns: 56%;
-    justify-content: center;
-    margin-left: -27px;
-    margin-top: 1rem;
-  }
-
-  .containerInChargeNew {
-    width: 75%;
-    justify-self: center;
-  }
-
-  .tableContainer2 {
-    display: grid;
-    grid-template-columns: 56% 56%;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: -2px;
-  }
-
-  .fechaInicio {
-    width: 80%;
-  }
-
-  .horaInicio {
-    width: 64%;
-    align-self: end;
-    margin-left: -11px;
-  }
-
-  .fechaFinal {
-    width: 80%;
-    margin-top: 1em;
-  }
-
-  .horaFinal {
-    width: 64%;
-    margin-left: -11px;
-    margin-top: 43px;
-  }
-
-  .containerTitleSelect {
-    display: grid;
-    grid-template-columns: 89% 99px;
-    margin-top: 2rem;
-    margin-left: -195%;
-  }
-
-  .titleLiquidation {
-    display: grid;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-left: -17px;
-    justify-items: end;
-  }
-
-  /* Table 2 */
-
-  .column2 {
-    padding: 0px 0px 0px 14px;
-    margin-bottom: -46px;
-    margin-top: 2rem;
-    overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTable2Line1 {
-    display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTreatmentTable2Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 20px;
-  }
-
-  .textDrinkHouseLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  .textDrinkTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 31.5px;
-  }
-
-  /* Line 2  */
-
-  .columnTable2Line2 {
-    display: grid;
-    grid-template-columns: 9% 24% 32% 22% 32% 29% 25% 24% 28% 28% 28% 28% 28% 20%;
-    margin-bottom: 8px;
-    margin-left: -20px;
-  }
-
-  .textBox {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textIncome {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textPayments {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 38px;
-  }
-
-  .lineTable2 {
-    width: 366%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16px;
-    margin-top: -12px;
-    margin-bottom: 9px;
-  }
-
-  /* Column */
-
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    color: #8c52ff;
-    cursor: pointer;
-  }
-
-  .columnHour {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnMin {
-    line-height: 1.4rem;
-    padding: 0px 10px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    justify-self: end;
-    cursor: pointer;
-  }
-
-  .columnTreatment2 {
-    line-height: 1.4rem;
-    padding: 0px 36px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnExit {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
-  }
-
-  .columnValueTip {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    font-family: sans-serif;
-    font-size: 18px;
-    text-align: end;
-    line-height: normal;
-    padding: 0px 29px 0px 0px;
-  }
-
-  .columnPaymentMethod {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: normal;
-  }
-
-  .columnValueManager {
-    line-height: 1.4rem;
-    padding: 0px 9px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrink {
-    line-height: 1.4rem;
-    padding: 0px 15px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueDrinkTherapist {
-    line-height: 1.4rem;
-    padding: 0px 16px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueTobacco {
-    line-height: 1.4rem;
-    padding: 0px 13px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueVitamin {
-    line-height: 1.4rem;
-    padding: 0px 26px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  .columnValueOthers {
-    line-height: 1.4rem;
-    padding: 0px 4px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
-  }
-
-  /* Arrow 3 */
-
-  .columnArrowTable3 {
-    position: relative;
-    margin-top: 2.3rem;
-    margin-bottom: -61px;
-    overflow-x: auto;
-  }
-
-  .arrowTable3 {
-    font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 3 */
-
-  .column3 {
-    margin-top: 2rem;
-    margin-left: -14px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable3 {
-    display: grid;
-    grid-template-columns: 35% 22% 26% 18.3%;
-    margin-bottom: -5px;
-    margin-left: -5px;
-  }
-
-  .lineTable3 {
-    width: 103%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: -5px;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .textSum {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 13px 0px 0px;
-    justify-self: end;
-  }
-
-  .textCommision {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-  }
-
-  .textTotals {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 7px 0px 0px 0px;
-    justify-self: end;
-  }
-
-  /* Sum */
-
-  .columnTreatment3 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  .columnSum {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
-    white-space: pre;
-  }
-
-  .columnComission {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
-  }
-
-  .columnTotalPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -61px;
-  }
-
-  .columnPay {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -73px;
-  }
-
-  .lblSum {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -62px;
-  }
-
-  .textReceivend {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: -63px;
-  }
-
-  .columnTotal {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-family: sans-serif;
-  }
-
-  .lineTotalPay {
-    width: 86%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 16%;
-    margin-top: -8px;
-    margin-bottom: 6px;
-  }
-
-  .pagination_MobileTable3 {
-    text-align-last: end;
-    margin-top: 3rem;
-    margin-bottom: 0px;
-  }
-
-  /* Table 4 */
-
-  .column4 {
-    margin-top: 2rem;
-    margin-left: -24px;
-    margin-bottom: 2px;
-  }
-
-  .columnTable4 {
-    display: grid;
-    grid-template-columns: 63% 43.8%;
-    margin-bottom: -5px;
-    margin-left: 0%;
-  }
-
-  .lineTable4 {
-    width: 103%;
-    color: #8c52ff;
-    margin: auto;
-    border-width: initial;
-    opacity: initial;
-    margin-left: 0px;
-    margin-top: -7px;
-    margin-bottom: 6px;
-  }
-
-  .textPayLiquidation {
-    color: #000000;
-    font-size: 18px;
-    place-self: end;
-    font-weight: bold;
-    font-family: sans-serif;
-  }
-
-  .columnTreatment4 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    word-wrap: break-word;
-  }
-
-  /* fin Table 4 */
-
-  /* Buttons */
-
-  .btnCancel {
-    margin: 10px 0px 0px 0px;
-    height: 45px;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: #8c52ff;
-  }
-
-  .inputButtonSave {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnSave {
-    margin: auto;
-    height: 45px;
-    background-color: #8c52ff;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-
-  .inputButtonEdit {
-    display: grid;
-    grid-template-columns: 100%;
-    margin-bottom: 7em;
-    margin-top: 2em;
-    justify-content: center;
-  }
-
-  .btnDelete {
-    margin: auto;
-    height: 45px;
-    background-color: red;
-    font-size: 19px;
-    font-family: sans-serif;
-    --mdc-text-button-label-text-color: white;
-  }
-}
-
-/* Steven */
-@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
-  .container {
-    overflow-x: hidden;
-    height: 100%;
-  }
-
-  .titleLiqudationTherapist {
-    display: grid;
-    justify-content: center;
-    font-size: 28px;
-    color: #8c52ff;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-bottom: 1.5rem;
-    white-space: pre;
-  }
-
-  .tableContainerFilters {
-    display: grid;
-    grid-template-columns: 39% 40% 39%;
-    margin-top: -15px;
-    margin-right: 3px;
-    width: 100%;
-    height: 32px;
-  }
-
-  /* Filter */
-
-  .tableContainer {
-    display: grid;
-    grid-template-columns: 57% 57%;
-    justify-content: center;
-    margin-top: 0rem;
-  }
-
-  .containerInCharge {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .containerSearch {
-    width: 83%;
-    justify-self: center;
-  }
-
-  .dateContainer {
-    width: 83%;
-    justify-self: center;
-    margin-top: 8%;
-  }
-
-  /* button menu */
-
-  .buttonFilters {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    height: 35px;
-    width: 90%;
-    border: 1px solid #8c52ff;
-  }
-
-  .iconFilters {
-    margin-left: 15px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .filters {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-  }
-
-  .buttonDeleteContainer {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -14px;
-    height: 35px;
-    width: 90%;
-    border-right: 1px solid #8c52ff;
-    border-bottom: 1px solid #8c52ff;
-    border-top: 1px solid #8c52ff;
-  }
-
-  .iconDelete {
-    margin-left: 13px;
-    margin-top: 5px;
-    width: 23px;
-    height: 22px;
-  }
-
-  .titleDelete {
-    color: #000000;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .titleDeleteRed {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: -7px;
-  }
-
-  .newService {
-    display: grid;
-    grid-template-columns: 52% 79%;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: -29px;
-    height: 35px;
-    width: 84%;
-    background: #8c52ff;
-  }
-
-  .iconNewService {
-    margin-left: 16px;
-    margin-top: 6px;
-    width: 23px;
-    height: 22px;
-    color: white;
-  }
-
-  .titleNewService {
-    color: white;
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-
-  /* Arrow */
-
-  .columnArrow {
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: -30px;
-    overflow-x: auto;
-  }
-
-  .arrow {
-    font-size: 28px;
-    color: #8c52ff;
-    float: inline-end;
-  }
-
-  /* Table 1 */
-
-  .column {
-    position: static;
-    margin-top: 0rem;
     margin-left: -1.5%;
     margin-bottom: -30px;
     overflow-x: auto;
@@ -7920,7 +6812,7 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 23% 50% 48% 26% 24% 29% 24% 26% 17%;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
@@ -7938,7 +6830,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 23% 50% 48% 26% 24% 29% 24% 26% 17%;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -8156,7 +7048,7 @@
   }
 
   .containerInChargeNew {
-    width: 75%;
+    width: 79%;
     justify-self: center;
   }
 
@@ -8169,22 +7061,22 @@
   }
 
   .fechaInicio {
-    width: 80%;
+    width: 83%;
   }
 
   .horaInicio {
-    width: 64%;
+    width: 67%;
     align-self: end;
     margin-left: -11px;
   }
 
   .fechaFinal {
-    width: 80%;
+    width: 83%;
     margin-top: 1em;
   }
 
   .horaFinal {
-    width: 64%;
+    width: 67%;
     margin-left: -11px;
     margin-top: 43px;
   }
@@ -8213,13 +7105,15 @@
     padding: 0px 0px 0px 4px;
     margin-bottom: -46px;
     margin-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Line 1 */
 
   .columnTable2 {
     display: grid;
-    grid-template-columns: 29% 23% 22% 21%;
+    grid-template-columns: 31% 24% 25% 25% 25%;
     margin-bottom: -5px;
     margin-left: -5px;
   }
@@ -8232,7 +7126,7 @@
     padding: 15px 0px 0px 35px;
   }
 
-  .textIncome {
+  .textService {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -8240,16 +7134,26 @@
     padding: 15px 0px 0px 2px;
   }
 
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
   .textPayments {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 25px;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
   }
 
   .lineTable2 {
-    width: 96%;
+    width: 131%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
@@ -8274,7 +7178,8 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 14px 0px 0px;
+    font-weight: bold;
+    padding: 0px 13px 0px 0px;
     white-space: pre;
   }
 
@@ -8283,7 +7188,7 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
-    padding: 0px 1px 0px 0px;
+    padding: 0px 2px 0px 0px;
   }
 
   .columnTotalPayments {
@@ -8291,17 +7196,18 @@
     font-size: 18px;
     place-self: end;
     font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
   }
 
   /* Arrow 3 */
 
   .containerTable3 {
     display: grid;
-    grid-template-columns: 204px 206px;
+    grid-template-columns: 261px 111px;
     margin-top: 4.7rem;
     margin-bottom: -26px;
     float: left;
-    margin-left: -92px;
+    margin-left: -9px;
   }
 
   .titleTable3 {
@@ -8333,111 +7239,66 @@
   /* Table 3 */
 
   .column3 {
-    margin-top: 0rem;
-    margin-left: -15px;
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
     margin-bottom: 2px;
     overflow-x: auto;
-  }
-
-  /* Line 1 */
-
-  .columnTable3Line1 {
-    display: grid;
-    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
-    margin-bottom: -31px;
-    margin-top: 26px;
-    margin-left: -15px;
-  }
-
-  .textTherapistTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 10px;
-  }
-
-  .textLiquidationTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 4px;
-  }
-
-  .textTreatmentTable3Line1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    overflow-y: hidden;
   }
 
   /* Line 2 */
 
-  .columnTable3Line2 {
+  .columnTable3 {
     display: grid;
-    grid-template-columns: 24% 37% 30% 26% 45% 44% 21%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
     margin-bottom: 8px;
-    margin-left: -5px;
+    margin-left: -13px;
   }
 
-  .textTherapistTable3Line2 {
+  .textCashTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textServices {
+  .textBizumTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textLiquidationTable3Line2 {
+  .textCardTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textPayment {
+  .textTransTable3 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textDateTable3 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
-  }
-
-  .textTreatmentTable3Line2 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 10px;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable3 {
-    width: 229%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: -5px;
-    margin-top: -8px;
+    margin-left: -12px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
@@ -8449,57 +7310,110 @@
     max-width: 85%;
     font-family: sans-serif;
     font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 125%;
     color: #8c52ff;
-    line-height: normal;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
   }
 
-  .columnServices {
-    line-height: 1.4rem;
-    padding: 0px 48px 0px 0px;
-    font-family: sans-serif;
-    font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
   }
 
-  .columnLiquidation {
-    line-height: 1.4rem;
-    padding: 0px 40px 0px 0px;
-    font-family: sans-serif;
+  .textTotalTable3 {
+    color: #8c52ff;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
   }
 
-  .columnDate {
-    line-height: 1.4rem;
-    padding: 0px 0px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalsCashTable3 {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    text-align-last: left;
-    cursor: pointer;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
-  .columnPayment {
-    border-bottom: hidden;
-    word-wrap: break-word;
-    max-width: 85%;
-    font-family: sans-serif;
+  .columnTotalsBizumTable3 {
+    color: #000000;
     font-size: 18px;
-    line-height: normal;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
-  .columnTreatmentTable3 {
-    line-height: 1.4rem;
-    padding: 0px 3px 0px 0px;
-    font-family: sans-serif;
+  .columnTotalsCardTable3 {
+    color: #000000;
     font-size: 18px;
-    word-wrap: break-word;
-    cursor: pointer;
-    justify-self: end;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
   }
 
   .pagination_MobileTable3 {
@@ -8507,27 +7421,59 @@
     margin-bottom: 0px;
   }
 
-  /* Table 4 */
+  /* Arrow 4 */
 
-  .textPayLiquidation {
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
+    font-size: 22px;
     color: #8c52ff;
-    font-size: 18px;
-    place-self: end;
     font-weight: bold;
     font-family: sans-serif;
+    margin-left: -20px;
   }
 
-  .column4 {
-    margin-top: 2rem;
-    margin-left: -25px;
-    margin-bottom: 2px;
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
   }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
 
   .columnTable4 {
     display: grid;
-    grid-template-columns: 19% 24% 19% 21.4% 18%;
-    margin-bottom: -5px;
-    margin-left: 0%;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
   }
 
   .textCashTable4 {
@@ -8535,6 +7481,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -8543,6 +7490,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
@@ -8551,47 +7499,98 @@
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
+    justify-self: end;
     padding: 15px 0px 0px 0px;
   }
 
-  .textTransactionTable4 {
+  .textTransTable4 {
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
   }
 
   .lineTable4 {
-    width: 102%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
-    margin-top: -7px;
+    margin-left: -12px;
+    margin-top: -15px;
     margin-bottom: 6px;
   }
 
-  /* Column */
+  /* Column  */
 
-  .columnTreatment4 {
-    line-break: anywhere;
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
+  .columnTherapist {
+    border-bottom: hidden;
     word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
   }
 
   .lineTotalsTable4 {
-    width: 102%;
+    width: 125%;
     color: #8c52ff;
     margin: auto;
     border-width: initial;
     opacity: initial;
-    margin-left: 0rem;
+    margin-left: -12px;
     margin-top: -7px;
-    margin-bottom: 6px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
   }
 
   .textTotalTable4 {
@@ -8602,7 +7601,2800 @@
     padding: 15px 0px 0px 0px;
   }
 
-  /* fin Table 4 */
+  .columnTotalsCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 5 */
+
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 305px 62px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  .titleTable5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable5 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Buttons */
+
+  .btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 45px;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnSave {
+    margin: auto;
+    height: 45px;
+    background-color: #8c52ff;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnDelete {
+    margin: auto;
+    height: 45px;
+    background-color: red;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+}
+
+@media only screen and (min-device-width: 393px) and (max-device-height: 750px) {
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 39% 40% 39%;
+    margin-top: -15px;
+    margin-right: 3px;
+    width: 100%;
+    height: 32px;
+  }
+
+  /* Filter */
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 0rem;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  /* button menu */
+
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    height: 35px;
+    width: 90%;
+    border: 1px solid #8c52ff;
+  }
+
+  .iconFilters {
+    margin-left: 15px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+  }
+
+  .buttonDeleteContainer {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -14px;
+    height: 35px;
+    width: 90%;
+    border-right: 1px solid #8c52ff;
+    border-bottom: 1px solid #8c52ff;
+    border-top: 1px solid #8c52ff;
+  }
+
+  .iconDelete {
+    margin-left: 13px;
+    margin-top: 5px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .titleDelete {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .titleDeleteRed {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .newService {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -29px;
+    height: 35px;
+    width: 84%;
+    background: #8c52ff;
+  }
+
+  .iconNewService {
+    margin-left: 16px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+    color: white;
+  }
+
+  .titleNewService {
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  /* Arrow */
+
+  .columnArrow {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 1 */
+
+  .column {
+    position: static;
+    margin-top: 0rem;
+    margin-left: -1.5%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: 8px;
+    margin-left: -3%;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCash {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCard {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransfer {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .lineTable1 {
+    width: 279%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  /* Column Table */
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    color: #8c52ff;
+    cursor: pointer;
+  }
+
+  .columnDateTable1 {
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.4rem;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCash {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizum {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCard {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransfer {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Edit liquidation */
+
+  .titleEdit {
+    display: grid;
+    margin-left: -29px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -26px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 109px;
+    margin-top: 1rem;
+    margin-left: -229%;
+  }
+
+  /* Add new liquidation */
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerNew {
+    display: grid;
+    grid-template-columns: 51%;
+    justify-content: center;
+    margin-left: -47px;
+    margin-top: 1rem;
+  }
+
+  .containerInChargeNew {
+    width: 79%;
+    justify-self: center;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 51% 51%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -20px;
+  }
+
+  .fechaInicio {
+    width: 83%;
+  }
+
+  .horaInicio {
+    width: 67%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 83%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 67%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 204px 214px;
+    margin-top: 2rem;
+    float: left;
+    margin-left: -61px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 4px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 1 */
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 31% 24% 25% 25% 25%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .textBox {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 35px;
+  }
+
+  .textService {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 2px;
+  }
+
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .textPayments {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .lineTable2 {
+    width: 131%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* Column */
+
+  .columnPayments {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnTotalBox {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0px 13px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalIncome {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  .columnTotalPayments {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  /* Arrow 3 */
+
+  .containerTable3 {
+    display: grid;
+    grid-template-columns: 261px 111px;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: -9px;
+  }
+
+  .titleTable3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrow3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable3 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 3 */
+
+  .column3 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable3 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable3 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 4 */
+
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable4 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 5 */
+
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 305px 62px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  .titleTable5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable5 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Buttons */
+
+  .btnCancel {
+    margin: 10px 0px 0px 0px;
+    height: 45px;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: #8c52ff;
+  }
+
+  .inputButtonSave {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnSave {
+    margin: auto;
+    height: 45px;
+    background-color: #8c52ff;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+
+  .inputButtonEdit {
+    display: grid;
+    grid-template-columns: 100%;
+    margin-bottom: 7em;
+    margin-top: 2em;
+    justify-content: center;
+  }
+
+  .btnDelete {
+    margin: auto;
+    height: 45px;
+    background-color: red;
+    font-size: 19px;
+    font-family: sans-serif;
+    --mdc-text-button-label-text-color: white;
+  }
+}
+
+/* Steven */
+@media only screen and (min-device-width: 411px) and (max-device-width: 413px) {
+  .container {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .titleLiqudationTherapist {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerFilters {
+    display: grid;
+    grid-template-columns: 39% 40% 39%;
+    margin-top: -15px;
+    margin-right: 3px;
+    width: 100%;
+    height: 32px;
+  }
+
+  /* Filter */
+
+  .tableContainer {
+    display: grid;
+    grid-template-columns: 57% 57%;
+    justify-content: center;
+    margin-top: 0rem;
+  }
+
+  .containerInCharge {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .containerSearch {
+    width: 83%;
+    justify-self: center;
+  }
+
+  .dateContainer {
+    width: 83%;
+    justify-self: center;
+    margin-top: 8%;
+  }
+
+  /* button menu */
+
+  .buttonFilters {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    height: 35px;
+    width: 90%;
+    border: 1px solid #8c52ff;
+  }
+
+  .iconFilters {
+    margin-left: 15px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .filters {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+  }
+
+  .buttonDeleteContainer {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -14px;
+    height: 35px;
+    width: 90%;
+    border-right: 1px solid #8c52ff;
+    border-bottom: 1px solid #8c52ff;
+    border-top: 1px solid #8c52ff;
+  }
+
+  .iconDelete {
+    margin-left: 13px;
+    margin-top: 5px;
+    width: 23px;
+    height: 22px;
+  }
+
+  .titleDelete {
+    color: #000000;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .titleDeleteRed {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: -7px;
+  }
+
+  .newService {
+    display: grid;
+    grid-template-columns: 52% 79%;
+    justify-content: center;
+    margin-top: 0px;
+    margin-left: -29px;
+    height: 35px;
+    width: 84%;
+    background: #8c52ff;
+  }
+
+  .iconNewService {
+    margin-left: 16px;
+    margin-top: 6px;
+    width: 23px;
+    height: 22px;
+    color: white;
+  }
+
+  .titleNewService {
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  /* Arrow */
+
+  .columnArrow {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 1 */
+
+  .column {
+    position: static;
+    margin-top: 0rem;
+    margin-left: -1.5%;
+    margin-bottom: -30px;
+    overflow-x: auto;
+  }
+
+  /* Line 1 */
+
+  .columnTableLine1 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: -31px;
+    margin-top: 26px;
+    margin-left: -3%;
+  }
+
+  .textTreatmentLine1 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 11px 0px 0px;
+  }
+
+  /* Line 2  */
+
+  .columnTableLine2 {
+    display: grid;
+    grid-template-columns: 23% 52% 51% 26% 24% 29% 24% 26% 17%;
+    margin-bottom: 8px;
+    margin-left: -3%;
+  }
+
+  .textManager {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2rem;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 0px;
+  }
+
+  .textDate {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTreatmentLine2 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 20px 0px 0px;
+  }
+
+  .textImport {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCash {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizum {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCard {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransfer {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .lineTable1 {
+    width: 279%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -1rem;
+    margin-top: -8px;
+    margin-bottom: 9px;
+  }
+
+  /* Column Table */
+
+  .columnManager {
+    line-height: 1.4rem;
+    padding: 0px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    text-align-last: left;
+    color: #8c52ff;
+    cursor: pointer;
+  }
+
+  .columnDateTable1 {
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.4rem;
+  }
+
+  .columnTreatment {
+    line-height: 1.4rem;
+    padding: 0px 22px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnImport {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCash {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizum {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCard {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransfer {
+    line-height: 1.4rem;
+    padding: 0px 18px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .pagination_Mobile {
+    text-align-last: end;
+    margin-top: 2rem;
+    margin-bottom: -43px;
+  }
+
+  /* Edit liquidation */
+
+  .titleEdit {
+    display: grid;
+    margin-left: -29px;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 0rem;
+  }
+
+  .textDates {
+    display: grid;
+    font-size: 18px;
+    color: #000000;
+    font-family: sans-serif;
+    white-space: pre;
+    margin-left: -26px;
+  }
+
+  .containerTitleEdit {
+    display: grid;
+    grid-template-columns: 89% 109px;
+    margin-top: 1rem;
+    margin-left: -229%;
+  }
+
+  /* Add new liquidation */
+
+  .title {
+    display: grid;
+    justify-content: center;
+    font-size: 28px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 1.5rem;
+    white-space: pre;
+  }
+
+  .tableContainerNew {
+    display: grid;
+    grid-template-columns: 51%;
+    justify-content: center;
+    margin-left: -47px;
+    margin-top: 1rem;
+  }
+
+  .containerInChargeNew {
+    width: 79%;
+    justify-self: center;
+  }
+
+  .tableContainer2 {
+    display: grid;
+    grid-template-columns: 51% 51%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: -20px;
+  }
+
+  .fechaInicio {
+    width: 83%;
+  }
+
+  .horaInicio {
+    width: 67%;
+    align-self: end;
+    margin-left: -11px;
+  }
+
+  .fechaFinal {
+    width: 83%;
+    margin-top: 1em;
+  }
+
+  .horaFinal {
+    width: 67%;
+    margin-left: -11px;
+    margin-top: 43px;
+  }
+
+  .containerTitleSelect {
+    display: grid;
+    grid-template-columns: 204px 214px;
+    margin-top: 2rem;
+    float: left;
+    margin-left: -61px;
+  }
+
+  .titleLiquidation {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  /* Table 2 */
+
+  .column2 {
+    padding: 0px 0px 0px 4px;
+    margin-bottom: -46px;
+    margin-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 1 */
+
+  .columnTable2 {
+    display: grid;
+    grid-template-columns: 31% 24% 25% 25% 25%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+
+  .textBox {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 35px;
+  }
+
+  .textService {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 2px;
+  }
+
+  .textLiquidation {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .textPayments {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: end;
+    padding: 15px 1px 0px 0px;
+  }
+
+  .lineTable2 {
+    width: 131%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -4px;
+    margin-top: -8px;
+    margin-bottom: 6px;
+  }
+
+  /* Column */
+
+  .columnPayments {
+    line-break: anywhere;
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    word-wrap: break-word;
+  }
+
+  .columnTotalBox {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0px 13px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalIncome {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  .columnTotalPayments {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 2px 0px 0px;
+  }
+
+  /* Arrow 3 */
+
+  .containerTable3 {
+    display: grid;
+    grid-template-columns: 261px 111px;
+    margin-top: 4.7rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: -9px;
+  }
+
+  .titleTable3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrow3 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable3 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 3 */
+
+  .column3 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable3 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable3 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable3 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable3 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable3 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable3 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable3 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 4 */
+
+  .containerTable4 {
+    display: grid;
+    grid-template-columns: 257px 111px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 0px;
+  }
+
+  .titleTable4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow4 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable4 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 4 */
+
+  .column4 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable4 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable4 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable4 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable4 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable4 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable4 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable4 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
+
+  /* Arrow 5 */
+
+  .containerTable5 {
+    display: grid;
+    grid-template-columns: 305px 62px;
+    margin-top: 0.2rem;
+    margin-bottom: -26px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  .titleTable5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -20px;
+  }
+
+  .arrow5 {
+    display: grid;
+    font-size: 22px;
+    color: #8c52ff;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: -17px;
+    justify-items: end;
+  }
+
+  .arrowTable5 {
+    font-size: 28px;
+    color: #8c52ff;
+    float: inline-end;
+  }
+
+  /* Table 5 */
+
+  .column5 {
+    padding: 0px 0px 0px 12px;
+    margin-top: 1.4rem;
+    margin-bottom: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* Line 2 */
+
+  .columnTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .textTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: end;
+    padding: 15px 2px 0px 0px;
+  }
+
+  .lineTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -15px;
+    margin-bottom: 6px;
+  }
+
+  /* Column  */
+
+  .columnTherapist {
+    border-bottom: hidden;
+    word-wrap: break-word;
+    max-width: 85%;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    line-height: normal;
+  }
+
+  .columnCashTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnBizumTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnCardTable5 {
+    line-height: 1.4rem;
+    padding: 0px 1px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .columnTransTable5 {
+    line-height: 1.4rem;
+    padding: 0px 2px 0px 0px;
+    font-family: sans-serif;
+    font-size: 18px;
+    word-wrap: break-word;
+    cursor: pointer;
+    justify-self: end;
+  }
+
+  .lineTotalsTable5 {
+    width: 125%;
+    color: #8c52ff;
+    margin: auto;
+    border-width: initial;
+    opacity: initial;
+    margin-left: -12px;
+    margin-top: -7px;
+    margin-bottom: -12px;
+  }
+
+  .columnTotalsTable5 {
+    display: grid;
+    grid-template-columns: 23% 24% 24% 25% 25%;
+    margin-bottom: 8px;
+    margin-left: -13px;
+  }
+
+  .textTotalTable5 {
+    color: #8c52ff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 15px 0px 0px 0px;
+  }
+
+  .columnTotalsCashTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsBizumTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsCardTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .columnTotalsTransTable5 {
+    color: #000000;
+    font-size: 18px;
+    place-self: end;
+    font-family: sans-serif;
+    padding: 0px 1px 0px 0px;
+    white-space: pre;
+  }
+
+  .pagination_MobileTable5 {
+    text-align-last: end;
+    margin-bottom: 0px;
+  }
 
   /* Buttons */
 

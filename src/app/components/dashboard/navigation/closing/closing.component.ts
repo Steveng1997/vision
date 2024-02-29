@@ -621,20 +621,25 @@ export class ClosingComponent implements OnInit {
 
               let cashPayment = 0, bizumPayment = 0, cardPayment = 0, transactionPayment = 0
 
-              if (rp[i].formaPago == "Efectivo") {
-                cashPayment = rp[i]['importe']
-              }
+              const cash = rp.filter(serv => serv.formaPago == "Efectivo" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+              cashPayment = cash.reduce((accumulator, serv) => {
+                return accumulator + serv.importe
+              }, 0)
 
-              if (rp[i].formaPago == "Bizum") {
-                bizumPayment = rp[i]['importe']
-              }
+              const bizum = rp.filter(serv => serv.formaPago == "Bizum" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+              bizumPayment = bizum.reduce((accumulator, serv) => {
+                return accumulator + serv.importe
+              }, 0)
 
-              if (rp[i].formaPago == "Tarjeta") {
-                cardPayment = rp[i]['importe']
-              }
-              if (rp[i].formaPago == "Trans") {
-                transactionPayment = rp[i]['importe']
-              }
+              const card = rp.filter(serv => serv.formaPago == "Tarjeta" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+              cardPayment = card.reduce((accumulator, serv) => {
+                return accumulator + serv.importe
+              }, 0)
+
+              const trans = rp.filter(serv => serv.formaPago == "Trans" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+              transactionPayment = trans.reduce((accumulator, serv) => {
+                return accumulator + serv.importe
+              }, 0)
 
               arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
 
