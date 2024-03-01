@@ -2608,6 +2608,7 @@ export class ManagerComponent implements OnInit {
     this.liquidationManager.currentDate = this.currentDate.toString()
     this.formatDate()
     this.dateCurrentDay()
+    this.liquidationManager.fixedDay = this.fixedDay
 
     if (this.liquidationManager.encargada != "") {
 
