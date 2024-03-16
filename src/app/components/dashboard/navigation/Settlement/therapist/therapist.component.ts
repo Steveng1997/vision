@@ -2494,7 +2494,7 @@ export class TherapistComponent implements OnInit {
 
           this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
             this.liquidationTherapist.encargada).subscribe((rp: any) => {
-              
+
               if (rp.length > 0) {
 
                 for (let o = 0; o < this.unliquidatedService.length; o++) {
@@ -2513,9 +2513,7 @@ export class TherapistComponent implements OnInit {
                     await this.consultLiquidationTherapistByManager()
                   }
 
-                  Swal.fire({
-                    position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
-                  })
+                  Swal.fire({ position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500 })
                 })
               }
 

@@ -2645,18 +2645,17 @@ export class ManagerComponent implements OnInit {
             })
           }
 
-          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe((datos) => { })
-          this.convertToZero()
+          this.serviceLiquidationManager.settlementRecord(this.liquidationManager).subscribe(async (datos) => {
+            this.convertToZero()
 
-          if (this.administratorRole == true) {
-            await this.consultLiquidationManagerByAdministrator()
-          }
-          else {
-            await this.consultLiquidationManagerByManager()
-          }
+            if (this.administratorRole == true) {
+              await this.consultLiquidationManagerByAdministrator()
+            }
+            else {
+              await this.consultLiquidationManagerByManager()
+            }
 
-          Swal.fire({
-            position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500
+            Swal.fire({ position: 'top-end', icon: 'success', title: 'Liquidado Correctamente!', showConfirmButton: false, timer: 2500 })
           })
         }
       })
