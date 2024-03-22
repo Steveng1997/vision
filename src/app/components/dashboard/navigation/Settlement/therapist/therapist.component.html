@@ -259,7 +259,8 @@
                             <div class="row g-0">
                                 <label class="text">Terapeuta</label>
                                 <select class="form-select" name="terapeuta"
-                                    [(ngModel)]="liquidationTherapist.terapeuta" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
+                                    [(ngModel)]="liquidationTherapist.terapeuta" (ngModelChange)="calculateServices()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
                                                 font-family: sans-serif;">
                                     <option selected value="">Selecciona</option>
                                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
