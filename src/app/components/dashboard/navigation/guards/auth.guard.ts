@@ -42,13 +42,17 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     this.dateTpm()
     var dateTmp = localStorage.getItem('dateTmp');
+    const user = localStorage.getItem('user');
+    const pass = localStorage.getItem('pass');
 
-    if (!this.authService.isAuth() || dateTmp < this.dateDay) {
-      localStorage.clear();
-      this.router.navigate(['**']);
-      return false;
-    }
+    this.authService.getUsuarioAndPassword(user, pass).subscribe((resp: any) => {
+      if (resp.length <= 0 || !this.authService.isAuth() || dateTmp < this.dateDay) {
+        localStorage.clear();
+        this.router.navigate(['**']);
+        return false;
+      }
+    })
+
     return true;
   }
-
 }

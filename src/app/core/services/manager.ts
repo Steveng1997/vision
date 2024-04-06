@@ -55,6 +55,15 @@ export class ServiceManager {
     });
   }
 
+  getUsuarioAndPassword(usuario: string, pass: string) {
+    return this.http.get(`${this.API_URL}/usuarioAndpassword`, {
+      params: {
+        usuario,
+        pass
+      }
+    });
+  }
+
   isAuth(): boolean {
     const token = localStorage.getItem('token');
     if (this.jwtHelper.isTokenExpired(token) || !localStorage.getItem('token')) {
