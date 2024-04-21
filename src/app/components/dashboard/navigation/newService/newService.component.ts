@@ -783,6 +783,11 @@ export class NewServiceComponent implements OnInit {
     if (Number(this.services.numberTaxi) > 0 || this.services.numberTaxi != '') {
       this.restamosCobro = this.sumatoriaServicios - restamos
     }
+
+    if(this.sumatoriaServicios != 0) {
+      this.services.numberPiso1 = this.sumatoriaServicios.toString()
+      this.collectionsValue()
+    }
   }
 
   collectionsValue() {
