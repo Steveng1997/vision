@@ -1446,7 +1446,7 @@
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 11px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -1462,7 +1462,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 21px;
     overflow-x: auto;
   }
 
@@ -1881,9 +1881,9 @@
 
   .columnFixedDay {
     display: grid;
-    grid-template-columns: 19% 21% 22% 22% 24%;
+    grid-template-columns: 19% 21% 20% 23% 70px;
     margin-bottom: -5px;
-    margin-left: -5px;
+    margin-left: 21px;
   }
 
   .inputFixedDay {
@@ -1977,7 +1977,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 113px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -5254,7 +5254,7 @@
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -5270,7 +5270,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -5786,7 +5786,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 112px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -5803,7 +5803,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 112px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -6206,7 +6206,7 @@
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -6222,7 +6222,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -6738,7 +6738,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 113px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -6755,7 +6755,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 115px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -7158,7 +7158,7 @@
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 10px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -7174,7 +7174,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 20px;
     overflow-x: auto;
   }
 
