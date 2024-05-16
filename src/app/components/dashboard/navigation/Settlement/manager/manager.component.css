@@ -37,10 +37,7 @@
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
-.pagination_Mobile
-  ::ng-deep
-  .ngx-pagination
-  .pagination-previous.disabled::before {
+.pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
@@ -57,23 +54,13 @@
   font-weight: bold;
 }
 
-.pagination_MobileTable2
-  ::ng-deep
-  .ngx-pagination
-  .pagination-previous
-  a::before,
-.pagination_MobileTable2
-  ::ng-deep
-  .ngx-pagination
-  .pagination-previous.disabled::before {
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous a::before,
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
   color: #8c52ff;
 }
 
 .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next a::after,
-.pagination_MobileTable2
-  ::ng-deep
-  .ngx-pagination
-  .pagination-next.disabled::after {
+.pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
   color: #8c52ff;
 }
 
@@ -431,42 +418,6 @@
     margin-left: -2%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -12px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -487,7 +438,7 @@
     margin-left: -8px;
     margin-top: 1rem;
   }
-  
+
   .containerInChargeNew {
     width: 84%;
     justify-self: center;
@@ -539,45 +490,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -593,7 +510,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -1453,42 +1370,6 @@
     margin-left: -2%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -13px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -1559,40 +1440,6 @@
     font-family: sans-serif;
     margin-left: -33px;
     justify-items: end;
-  }
-
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -2474,42 +2321,6 @@
     margin-left: -158%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 68% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -12px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -2530,7 +2341,7 @@
     margin-left: -8px;
     margin-top: 1rem;
   }
-  
+
   .containerInChargeNew {
     width: 75%;
     justify-self: end;
@@ -2583,45 +2394,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 68% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 11px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -2637,7 +2414,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -3153,7 +2930,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     margin-left: -13px;
   }
@@ -3170,7 +2947,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     margin-left: -13px;
   }
@@ -3497,42 +3274,6 @@
     margin-left: -11%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -13px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -3605,45 +3346,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 67% 67px 30px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -3659,7 +3366,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -4174,7 +3881,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 113px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -4191,7 +3898,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 113px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -4518,42 +4225,6 @@
     margin-left: -191%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -12px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -4574,7 +4245,7 @@
     margin-left: -24px;
     margin-top: 1rem;
   }
-  
+
   .containerInChargeNew {
     width: 75%;
     justify-self: center;
@@ -4626,45 +4297,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 15px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -4680,7 +4317,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 23px;
     overflow-x: auto;
   }
 
@@ -5196,7 +4833,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -5213,7 +4850,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 112px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -5541,42 +5178,6 @@
     margin-left: -196%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -13px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -5647,40 +5248,6 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
-  }
-
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -6563,42 +6130,6 @@
     margin-left: -222%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -13px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -6669,40 +6200,6 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
-  }
-
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 11px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -7585,42 +7082,6 @@
     margin-left: -192%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 69.6% 70px 10px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -12px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -7691,40 +7152,6 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
-  }
-
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 65% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 11px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
   }
 
   /* Arrow 2  */
@@ -8608,42 +8035,6 @@
     margin-left: -229%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 63% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 12px;
-    margin-left: -13px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -8716,45 +8107,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 63% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -8770,7 +8127,7 @@
   .column2 {
     padding: 0px 0px 0px 13px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -9286,7 +8643,7 @@
   .inputButtonSave {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -9303,7 +8660,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -9630,42 +8987,6 @@
     margin-left: -228%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 61% 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 10px;
-    margin-left: -12px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -9738,45 +9059,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 61% 70px 34px;
-    margin-top: 0rem;
-    margin-right: 10px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 13px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -9792,7 +9079,7 @@
   .column2 {
     padding: 0px 0px 0px 14px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 22px;
     overflow-x: auto;
   }
 
@@ -10652,42 +9939,6 @@
     margin-left: -250%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 250px 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 8px;
-    margin-left: -11px;
-  }
-
-  .textRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularizationEdit {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 54px;
-  }
-
-  .text€Edit {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -10760,45 +10011,11 @@
     justify-items: end;
   }
 
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 250px 70px 34px;
-    margin-top: 0rem;
-    margin-right: 8px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Arrow 2  */
 
   .columnArrowTable2 {
     position: relative;
-    margin-top: 2.3rem;
+    margin-top: 15px;
     margin-bottom: -61px;
     overflow-x: auto;
   }
@@ -10814,7 +10031,7 @@
   .column2 {
     padding: 0px 0px 0px 15px;
     margin-bottom: -46px;
-    margin-top: 2rem;
+    margin-top: 23px;
     overflow-x: auto;
   }
 
@@ -11347,7 +10564,7 @@
   .inputButtonEdit {
     display: grid;
     grid-template-columns: 100%;
-    margin-bottom: 7em;
+    margin-bottom: 111px;
     margin-top: 2em;
     justify-content: center;
   }
@@ -11674,42 +10891,6 @@
     margin-left: -376%;
   }
 
-  /* Regularization */
-
-  .containerRegularizationEdit {
-    display: grid;
-    grid-template-columns: 340px 70px 34px;
-    margin-top: 0rem;
-    margin-bottom: -21px;
-    margin-right: 5px;
-    margin-left: -12px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
-  }
-
   /* Add new liquidation */
 
   .title {
@@ -11780,40 +10961,6 @@
     font-family: sans-serif;
     margin-left: -17px;
     justify-items: end;
-  }
-
-  /* regularization */
-
-  .containerRegularization {
-    display: grid;
-    grid-template-columns: 340px 70px 34px;
-    margin-top: 0rem;
-    margin-right: 10px;
-  }
-
-  .textRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-  }
-
-  .inputRegularization {
-    height: 2.2rem;
-    border-color: #8c52ff;
-    color: #242424;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-left: 14px;
-  }
-
-  .text€ {
-    color: #000000;
-    font-size: 18px;
-    font-family: sans-serif;
-    margin-top: 3px;
-    margin-left: 19px;
   }
 
   /* Arrow 2  */

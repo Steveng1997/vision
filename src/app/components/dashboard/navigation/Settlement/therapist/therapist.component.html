@@ -348,22 +348,6 @@
                     </div>
                 </div>
 
-                <div class="row containerRegularization" *ngIf="selected">
-                    <div class="row g-0">
-                        <input type="text" class="form-control textRegularization"
-                            [(ngModel)]="liquidationTherapist.regularizacion" placeholder="Concepto a regularizar">
-                    </div>
-
-                    <div class="row g-0">
-                        <input type="number" class="form-control inputRegularization" (change)="regularization($event)"
-                            [value]="valueRegular">
-                    </div>
-
-                    <div class="row g-0">
-                        <label class="text€">€</label>
-                    </div>
-                </div>
-
                 <div *ngIf="selected" class="columnArrowTable2" id="arrowTable2Add">
                     <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
                 </div>
@@ -733,25 +717,7 @@
                         <div class="row g-0" style="justify-content: end">
                             <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
-                    </div>
-
-                    <div class="row containerRegularizationEdit">
-                        <div class="row g-0" *ngIf="liquidationTherapist['regularizacion'] != ''">
-                            <label class="textRegularization"> {{liquidationTherapist.regularizacion}} </label>
-                        </div>
-
-                        <div class="row g-0" *ngIf="liquidationTherapist['regularizacion'] == ''">
-                            <label class="textRegularizationEdit"> Concepto a regularizar</label>
-                        </div>
-
-                        <div class="row g-0">
-                            <label class="inputRegularizationEdit">{{liquidationTherapist.valueRegularizacion}}</label>
-                        </div>
-
-                        <div class="row g-0">
-                            <label class="text€Edit">€</label>
-                        </div>
-                    </div>
+                    </div>                    
 
                     <div class="row containerTitleWayPay">
                         <div class="row g-0">

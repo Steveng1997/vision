@@ -117,8 +117,6 @@ export class TherapistComponent implements OnInit {
 
   currentDate = new Date().getTime()
 
-  valueRegular: string
-
   liquidationTherapist: LiquidationTherapist = {
     createdDate: "",
     currentDate: "",
@@ -132,10 +130,8 @@ export class TherapistComponent implements OnInit {
     idUnico: "",
     idTerapeuta: "",
     importe: 0,
-    regularizacion: "",
     terapeuta: "",
-    tratamiento: 0,
-    valueRegularizacion: 0
+    tratamiento: 0
   }
 
   services: ModelService = {
@@ -440,8 +436,6 @@ export class TherapistComponent implements OnInit {
 
   insertForm() {
     this.validationFilters = false
-    this.liquidationTherapist.regularizacion = ""
-    this.liquidationTherapist.valueRegularizacion = 0
 
     if (this.administratorRole == true) {
       this.liquidationTherapist.encargada = ""
@@ -1455,45 +1449,6 @@ export class TherapistComponent implements OnInit {
     document.getElementById('arrowTable2Add').style.display = 'none'
   }
 
-  regularization(event: any) {
-    let numberRegularization = 0, valueRegularization = 0
-    numberRegularization = Number(event.target.value)
-
-    if (numberRegularization > 0) {
-      valueRegularization = this.totalCommission + numberRegularization
-    } else {
-      valueRegularization = this.totalCommission + numberRegularization
-    }
-
-    this.liquidationTherapist.valueRegularizacion = numberRegularization;
-
-    if (valueRegularization > 999 || numberRegularization > 999) {
-
-      const coma = valueRegularization.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCommission.toString().split(".") : valueRegularization.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalComission = integer[0]
-    } else {
-      this.textTotalComission = valueRegularization.toString()
-      this.valueRegular = numberRegularization.toString()
-    }
-  }
-
   // Edit
 
   convertToZeroEdit() {
@@ -2414,7 +2369,7 @@ export class TherapistComponent implements OnInit {
         }, 0)
       })
 
-      this.totalLiquidation = this.sumCommission - Number(this.receivedTherapist) + this.liquidationTherapist.valueRegularizacion
+      this.totalLiquidation = this.sumCommission - Number(this.receivedTherapist)
       this.totalCommission = this.sumCommission - Number(this.receivedTherapist)
 
       this.validateNullData()
@@ -2487,10 +2442,6 @@ export class TherapistComponent implements OnInit {
           this.liquidationTherapist.currentDate = this.currentDate.toString()
           this.formatDate()
           this.dateCurrentDay()
-
-          if (this.liquidationTherapist.regularizacion != "") {
-            this.liquidationTherapist.regularizacion = this.liquidationTherapist.regularizacion.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-          }
 
           this.serviceLiquidationTherapist.consultTherapistAndManager(this.liquidationTherapist.terapeuta,
             this.liquidationTherapist.encargada).subscribe((rp: any) => {

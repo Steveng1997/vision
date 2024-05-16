@@ -121,8 +121,6 @@ export class ManagerComponent implements OnInit {
 
   currentDate = new Date().getTime()
 
-  valueRegular: string
-
   liquidationManager: LiquidationManager = {
     currentDate: "",
     desdeFechaLiquidado: "",
@@ -136,9 +134,7 @@ export class ManagerComponent implements OnInit {
     idUnico: "",
     idEncargada: "",
     importe: 0,
-    regularizacion: "",
     tratamiento: 0,
-    valueRegularizacion: 0
   }
 
   services: ModelService = {
@@ -432,8 +428,6 @@ export class ManagerComponent implements OnInit {
 
   insertForm() {
     this.validationFilters = false
-    this.liquidationManager.regularizacion = ""
-    this.liquidationManager.valueRegularizacion = 0
 
     if (this.administratorRole == true) {
       this.liquidationManager.encargada = ""
@@ -1507,45 +1501,6 @@ export class ManagerComponent implements OnInit {
     document.getElementById('arrowTable2Add').style.display = 'none'
   }
 
-  regularization(event: any) {
-    let numberRegularization = 0, valueRegularization = 0
-    numberRegularization = Number(event.target.value)
-
-    if (numberRegularization > 0) {
-      valueRegularization = this.totalCommission + numberRegularization
-    } else {
-      valueRegularization = this.totalCommission + numberRegularization
-    }
-
-    this.liquidationManager.valueRegularizacion = numberRegularization;
-
-    if (valueRegularization > 999 || numberRegularization > 999) {
-
-      const coma = valueRegularization.toString().indexOf(".") !== -1 ? true : false;
-      const array = coma ? this.totalCommission.toString().split(".") : valueRegularization.toString().split("");
-      let integer = coma ? array[0].split("") : array;
-      let subIndex = 1;
-
-      for (let i = integer.length - 1; i >= 0; i--) {
-
-        if (integer[i] !== "." && subIndex % 3 === 0 && i != 0) {
-
-          integer.splice(i, 0, ".");
-          subIndex++;
-
-        } else {
-          subIndex++;
-        }
-      }
-
-      integer = [integer.toString().replace(/,/gi, "")]
-      this.textTotalComission = integer[0]
-    } else {
-      this.textTotalComission = valueRegularization.toString()
-      this.valueRegular = numberRegularization.toString()
-    }
-  }
-
   fixedNumberDay(event: any) {
     let numberValue = 0
     numberValue = Number(event.target.value)
@@ -2538,7 +2493,7 @@ export class ManagerComponent implements OnInit {
           }, 0)
         })
 
-        this.totalLiquidation = this.sumCommission - Number(this.receivedManager) + this.liquidationManager.valueRegularizacion
+        this.totalLiquidation = this.sumCommission - Number(this.receivedManager)
         comission = this.sumCommission + this.fixedTotalDay - Number(this.receivedManager)
         this.totalCommission = Number(comission.toFixed(2))
 
