@@ -2381,7 +2381,7 @@ export class ManagerComponent implements OnInit {
   async sumTotal(idManager: string) {
     this.service.getByIdEncarg(idManager).subscribe(async (rp: any) => {
       if (rp.length > 0) {
-        this.settledData = rp;
+        this.settledData = rp
         this.managerTitle = rp[0]['encargada']
 
         // Filter by servicio

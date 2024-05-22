@@ -778,8 +778,8 @@
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2Line2" *ngFor="let serv of (settledData | encargada: liquidationManager.encargada) 
-                    | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="columnTable2Line2" *ngFor="let serv of settledData | 
+                    paginate: { itemsPerPage: 10, currentPage: page }">
 
                         <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
                         </div>
