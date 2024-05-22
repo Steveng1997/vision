@@ -717,7 +717,7 @@
                         <div class="row g-0" style="justify-content: end">
                             <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
                         </div>
-                    </div>                    
+                    </div>
 
                     <div class="row containerTitleWayPay">
                         <div class="row g-0">
@@ -859,9 +859,8 @@
 
                     <hr class="lineTable2">
 
-                    <div class="columnTable2Line2" *ngFor="let serv of (settledData 
-                                    | terapeuta: liquidationTherapist.terapeuta | encargada: liquidationTherapist.encargada) 
-                                    | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <div class="columnTable2Line2" *ngFor="let serv of settledData | 
+                        paginate: { itemsPerPage: 10, currentPage: page }">
 
                         <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
                         </div>
