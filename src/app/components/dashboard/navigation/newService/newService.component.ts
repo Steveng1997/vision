@@ -82,6 +82,8 @@ export class NewServiceComponent implements OnInit {
     bizuTerap: false,
     cierre: false,
     cliente: "",
+    createdBy: "",
+    createdTime: "",
     currentDate: "",
     editar: false,
     efectEncarg: false,
@@ -104,6 +106,8 @@ export class NewServiceComponent implements OnInit {
     liquidadoEncargada: false,
     liquidadoTerapeuta: false,
     minuto: 0,
+    modifiedBy: "",
+    modifiedTime: "",
     nota: "",
     numberEncarg: "",
     numberTaxi: "",
@@ -183,6 +187,7 @@ export class NewServiceComponent implements OnInit {
 
     if (this.idUser) {
       this.serviceManager.getById(this.idUser).subscribe((rp) => {
+        this.created(rp)
         if (rp[0]['rol'] == 'administrador') {
           this.administratorRole = true
           this.getManager()
@@ -199,6 +204,15 @@ export class NewServiceComponent implements OnInit {
     this.horaInicialServicio = this.horaStarted
     this.services.horaEnd = this.horaStarted
     this.services.horaStart = this.horaStarted
+  }
+
+  created(rp: any) {
+    this.services.createdBy = rp[0]['nombre']
+
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    this.services.createdTime = date + ' ' + time;
   }
 
   date() {
@@ -784,7 +798,7 @@ export class NewServiceComponent implements OnInit {
       this.restamosCobro = this.sumatoriaServicios - restamos
     }
 
-    if(this.sumatoriaServicios != 0) {
+    if (this.sumatoriaServicios != 0) {
       this.services.numberPiso1 = this.sumatoriaServicios.toString()
       this.collectionsValue()
     }
@@ -1250,6 +1264,7 @@ export class NewServiceComponent implements OnInit {
           this.editCollectionsValue()
 
           this.serviceManager.getByIdAndAdministrador(this.idUserAdministrador).subscribe((datoAdministrador: any[]) => {
+            this.modified(datoAdministrador)
             if (datoAdministrador.length > 0) {
               this.buttonDelete = true
             } else {
@@ -1266,6 +1281,15 @@ export class NewServiceComponent implements OnInit {
         }
       })
     }
+  }
+
+  modified(rp: any) {
+    this.services.modifiedBy = rp[0]['nombre']
+
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    this.services.modifiedTime = date + ' ' + time;
   }
 
   fullServiceToEdit() {
@@ -1426,7 +1450,7 @@ export class NewServiceComponent implements OnInit {
 
         this.service.getById(idServicio).subscribe((rp: any) => {
           if (rp[0]['terapeuta'] != serv.terapeuta) {
-            this.serviceTherapist.updateHoraAndSalida(rp[0]['terapeuta'], this.therapist).subscribe((rp: any) => {});
+            this.serviceTherapist.updateHoraAndSalida(rp[0]['terapeuta'], this.therapist).subscribe((rp: any) => { });
           }
         });
 
@@ -1864,7 +1888,8 @@ export class NewServiceComponent implements OnInit {
         }
       })
     } else {
-      Swal.fire({ position: 'top-end', icon: 'error', title: '¡Oops...!', showConfirmButton: false, timer: 2500,
+      Swal.fire({
+        position: 'top-end', icon: 'error', title: '¡Oops...!', showConfirmButton: false, timer: 2500,
         text: 'No tienes autorización para borrar, si deseas eliminar el servicio habla con el adminisitrador del sistema'
       })
     }
