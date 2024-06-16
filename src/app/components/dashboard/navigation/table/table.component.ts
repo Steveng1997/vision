@@ -539,8 +539,6 @@ export class TableComponent implements OnInit {
 
   filters = async () => {
 
-    this.filtredBusqueda = this.formTemplate.value.busqueda.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
-
     if (this.formTemplate.value.fechaInicio != "") {
       let fecha = ''
       fecha = this.formTemplate.value.fechaInicio

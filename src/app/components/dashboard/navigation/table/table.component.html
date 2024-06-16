@@ -21,7 +21,6 @@
                             <label class="filters">Filtrar</label>
                         </div>
 
-
                         <!-- Modal -->
                         <ng-template class="custom-modal" #modalFilter let-modal>
                             <div class="modal-header">
@@ -126,9 +125,8 @@
                                             <div class="row g-0">
                                                 <label class="text">Busqueda</label>
                                                 <input type="text" class="form-control input-sm"
-                                                    formControlName="busqueda"
-                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;"
-                                                    (change)="filters()" />
+                                                    [(ngModel)]="filtredBusqueda" formControlName="busqueda" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                                    font-size: 18px; font-family: sans-serif;" (change)="filters()" />
                                             </div>
                                         </div>
                                     </div>
