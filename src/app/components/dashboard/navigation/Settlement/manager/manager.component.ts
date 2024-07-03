@@ -215,6 +215,7 @@ export class ManagerComponent implements OnInit {
 
   async validitingUser() {
     this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+      this.company = rp[0].company
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
         this.loading = false
@@ -224,6 +225,7 @@ export class ManagerComponent implements OnInit {
         this.loading = false
         this.administratorRole = false
         this.liquidationManager.encargada = this.manager[0].nombre
+        this.liquidationManager.company = this.company
         this.getManager()
       }
     })

@@ -226,6 +226,7 @@ export class TherapistComponent implements OnInit {
         this.loading = false
         this.administratorRole = false
         this.liquidationTherapist.encargada = this.manager[0].nombre
+        this.liquidationTherapist.company = this.company
         this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada, rp[0].company).subscribe(async (rp) => {
           this.liquidated = rp
         })
@@ -547,7 +548,7 @@ export class TherapistComponent implements OnInit {
   async inputDateAndTime() {
     let comisiServicio = 0, comiPropina = 0, comiBebida = 0, comiBebidaTerap = 0, comiTabaco = 0, comiVitamina = 0, comiOtros = 0, sumComision = 0
     this.totalCommission = 0
-
+    
     this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
       this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
       this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado, this.liquidationTherapist.company).subscribe(async (rp: any) => {
