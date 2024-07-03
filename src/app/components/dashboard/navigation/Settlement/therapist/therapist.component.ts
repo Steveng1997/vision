@@ -50,6 +50,8 @@ export class TherapistComponent implements OnInit {
   terapeuta: any
   terapeutaName: any
 
+  company: string
+
   // Fecha
   fechaInicio: string
   fechaFinal: string
@@ -118,6 +120,7 @@ export class TherapistComponent implements OnInit {
   currentDate = new Date().getTime()
 
   liquidationTherapist: LiquidationTherapist = {
+    company: "",
     createdDate: "",
     currentDate: "",
     desdeFechaLiquidado: "",
@@ -179,22 +182,25 @@ export class TherapistComponent implements OnInit {
   }
 
   async consultLiquidationTherapistByAdministrator() {
-    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
-      this.liquidated = rp
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.company = rp[0].company
+      this.serviceLiquidationTherapist.consultTherapistSettlements(rp[0].company).subscribe(async (rp: any) => {
+        this.liquidated = rp
 
-      this.liquidationForm = true
-      this.validationFilters = true
-      this.addForm = false
-      this.editTerap = false
-      this.selected = false
-      this.dates = false
-      this.liquidationTherapist.encargada = ""
-      this.liquidationTherapist.terapeuta = ""
+        this.liquidationForm = true
+        this.validationFilters = true
+        this.addForm = false
+        this.editTerap = false
+        this.selected = false
+        this.dates = false
+        this.liquidationTherapist.encargada = ""
+        this.liquidationTherapist.terapeuta = ""
+      })
     })
   }
 
   async consultLiquidationTherapistByManager() {
-    this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada).subscribe(async (rp) => {
+    this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada, this.company).subscribe(async (rp) => {
       this.liquidated = rp
 
       this.liquidationForm = true
@@ -210,6 +216,7 @@ export class TherapistComponent implements OnInit {
 
   validitingUser() {
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      this.company = rp[0].company
       if (rp[0]['rol'] == 'administrador') {
         this.administratorRole = true
         this.loading = false
@@ -219,7 +226,7 @@ export class TherapistComponent implements OnInit {
         this.loading = false
         this.administratorRole = false
         this.liquidationTherapist.encargada = this.manager[0].nombre
-        this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada).subscribe(async (rp) => {
+        this.serviceLiquidationTherapist.consultManager(this.liquidationTherapist.encargada, rp[0].company).subscribe(async (rp) => {
           this.liquidated = rp
         })
       }
@@ -310,7 +317,7 @@ export class TherapistComponent implements OnInit {
   }
 
   async thousandPount() {
-    this.serviceLiquidationTherapist.consultTherapistSettlements().subscribe(async (rp: any) => {
+    this.serviceLiquidationTherapist.consultTherapistSettlements(this.company).subscribe(async (rp: any) => {
       this.liquidated = rp
 
       rp.map(item => {
@@ -423,14 +430,19 @@ export class TherapistComponent implements OnInit {
   }
 
   getTerapeuta() {
-    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
-      this.terapeuta = datosTerapeuta
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.serviceTherapist.getByCompany(rp[0].company).subscribe((datosTerapeuta: any) => {
+        this.terapeuta = datosTerapeuta
+      })
     })
   }
 
   getManager() {
-    this.serviceManager.getUsuarios().subscribe((datosEncargada: any) => {
-      this.manager = datosEncargada
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.liquidationTherapist.company = rp[0].company
+      this.serviceManager.getByCompany(rp[0].company).subscribe((datosEncargada: any) => {
+        this.manager = datosEncargada
+      })
     })
   }
 
@@ -538,7 +550,7 @@ export class TherapistComponent implements OnInit {
 
     this.service.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(this.liquidationTherapist.terapeuta,
       this.liquidationTherapist.encargada, this.liquidationTherapist.desdeHoraLiquidado, this.liquidationTherapist.hastaHoraLiquidado,
-      this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado).subscribe(async (rp: any) => {
+      this.liquidationTherapist.desdeFechaLiquidado, this.liquidationTherapist.hastaFechaLiquidado, this.liquidationTherapist.company).subscribe(async (rp: any) => {
 
         if (rp.length > 0) {
           this.unliquidatedService = rp

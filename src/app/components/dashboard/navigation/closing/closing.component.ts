@@ -605,87 +605,87 @@ export class ClosingComponent implements OnInit {
       })
   }
 
-  async ConsultTable4() {
-    let arrayTable4
+  // async ConsultTable4() {
+  //   let arrayTable4
 
-    await this.serviceLiquidationTherapist.getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora, this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
-      if (rp.length > 0) {
-        this.unliquidatedServiceByLiquidationTherapistDistinct = rp
+  //   await this.serviceLiquidationTherapist.getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora, this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //     if (rp.length > 0) {
+  //       this.unliquidatedServiceByLiquidationTherapistDistinct = rp
 
-        await this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-          this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //       await this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+  //         this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-            this.unliquidatedServiceByLiquidationTherapist = rp
+  //           this.unliquidatedServiceByLiquidationTherapist = rp
 
-            for (let i = 0; i < this.unliquidatedServiceByLiquidationTherapistDistinct.length; i++) {
+  //           for (let i = 0; i < this.unliquidatedServiceByLiquidationTherapistDistinct.length; i++) {
 
-              let cashPayment = 0, bizumPayment = 0, cardPayment = 0, transactionPayment = 0
+  //             let cashPayment = 0, bizumPayment = 0, cardPayment = 0, transactionPayment = 0
 
-              const cash = rp.filter(serv => serv.formaPago == "Efectivo" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
-              cashPayment = cash.reduce((accumulator, serv) => {
-                return accumulator + serv.importe
-              }, 0)
+  //             const cash = rp.filter(serv => serv.formaPago == "Efectivo" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+  //             cashPayment = cash.reduce((accumulator, serv) => {
+  //               return accumulator + serv.importe
+  //             }, 0)
 
-              const bizum = rp.filter(serv => serv.formaPago == "Bizum" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
-              bizumPayment = bizum.reduce((accumulator, serv) => {
-                return accumulator + serv.importe
-              }, 0)
+  //             const bizum = rp.filter(serv => serv.formaPago == "Bizum" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+  //             bizumPayment = bizum.reduce((accumulator, serv) => {
+  //               return accumulator + serv.importe
+  //             }, 0)
 
-              const card = rp.filter(serv => serv.formaPago == "Tarjeta" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
-              cardPayment = card.reduce((accumulator, serv) => {
-                return accumulator + serv.importe
-              }, 0)
+  //             const card = rp.filter(serv => serv.formaPago == "Tarjeta" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+  //             cardPayment = card.reduce((accumulator, serv) => {
+  //               return accumulator + serv.importe
+  //             }, 0)
 
-              const trans = rp.filter(serv => serv.formaPago == "Trans" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
-              transactionPayment = trans.reduce((accumulator, serv) => {
-                return accumulator + serv.importe
-              }, 0)
+  //             const trans = rp.filter(serv => serv.formaPago == "Trans" && serv.terapeuta == this.unliquidatedServiceByLiquidationTherapistDistinct[i]['terapeuta'])
+  //             transactionPayment = trans.reduce((accumulator, serv) => {
+  //               return accumulator + serv.importe
+  //             }, 0)
 
-              arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
+  //             arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
 
-              arrayTable4[i].cashPayment = cashPayment
-              arrayTable4[i].bizumPayment = bizumPayment
-              arrayTable4[i].cardPayment = cardPayment
-              arrayTable4[i].transactionPayment = transactionPayment
+  //             arrayTable4[i].cashPayment = cashPayment
+  //             arrayTable4[i].bizumPayment = bizumPayment
+  //             arrayTable4[i].cardPayment = cardPayment
+  //             arrayTable4[i].transactionPayment = transactionPayment
 
-              this.validateNullDataTable4(arrayTable4[i])
+  //             this.validateNullDataTable4(arrayTable4[i])
 
-              arrayTable4.push({
-                cashPayment: cashPayment,
-                bizumPayment: bizumPayment,
-                cardPayment: cardPayment,
-                transactionPayment: transactionPayment,
-              })
+  //             arrayTable4.push({
+  //               cashPayment: cashPayment,
+  //               bizumPayment: bizumPayment,
+  //               cardPayment: cardPayment,
+  //               transactionPayment: transactionPayment,
+  //             })
 
-              arrayTable4.pop();
+  //             arrayTable4.pop();
 
-              const totalCashPayment = arrayTable4.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
-              this.totalCashTable4 = totalCashPayment
+  //             const totalCashPayment = arrayTable4.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
+  //             this.totalCashTable4 = totalCashPayment
 
-              const totalBizumPayment = arrayTable4.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
-              this.totalBizumTable4 = totalBizumPayment
+  //             const totalBizumPayment = arrayTable4.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
+  //             this.totalBizumTable4 = totalBizumPayment
 
-              const totalCardPayment = arrayTable4.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
-              this.totalCardTable4 = totalCardPayment
+  //             const totalCardPayment = arrayTable4.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
+  //             this.totalCardTable4 = totalCardPayment
 
-              const totalTransactionPayment = arrayTable4.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
-              this.totalTransactionTable4 = totalTransactionPayment
+  //             const totalTransactionPayment = arrayTable4.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
+  //             this.totalTransactionTable4 = totalTransactionPayment
 
-              this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+  //             this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
-              this.validateNullData()
-              this.thousandPointTable4()
-              await this.consultTable5()
-            }
-          })
-      } else {
-        arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
-        this.validateNullData()
-        this.thousandPointTable4()
-        await this.consultTable5()
-      }
-    })
-  }
+  //             this.validateNullData()
+  //             this.thousandPointTable4()
+  //             await this.consultTable5()
+  //           }
+  //         })
+  //     } else {
+  //       arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
+  //       this.validateNullData()
+  //       this.thousandPointTable4()
+  //       await this.consultTable5()
+  //     }
+  //   })
+  // }
 
   async inputDateAndTime() {
     let arrayTable3
@@ -759,7 +759,7 @@ export class ClosingComponent implements OnInit {
                 })
             }
 
-            await this.ConsultTable4()
+            // await this.ConsultTable4()
           })
 
       } else {
@@ -1428,7 +1428,7 @@ export class ClosingComponent implements OnInit {
               })
           }
 
-          await this.ConsultTablesEdit()
+          // await this.ConsultTablesEdit()
         })
 
       } else {
@@ -1446,146 +1446,146 @@ export class ClosingComponent implements OnInit {
     })
   }
 
-  async ConsultTablesEdit() {
-    let arrayTable4, arrayTable5
-    // Table 4
-    await this.serviceLiquidationTherapist.getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora, this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
-      this.unliquidatedServiceByLiquidationTherapistDistinct = rp
+  // async ConsultTablesEdit() {
+  //   let arrayTable4, arrayTable5
+  //   // Table 4
+  //   await this.serviceLiquidationTherapist.getWithDistinctByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora, this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //     this.unliquidatedServiceByLiquidationTherapistDistinct = rp
 
-      await this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-        this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //     await this.serviceLiquidationTherapist.getByManagerFechaHoraInicioFechaHoraFinLiquidationTherapist(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+  //       this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-          this.unliquidatedServiceByLiquidationTherapist = rp
+  //         this.unliquidatedServiceByLiquidationTherapist = rp
 
-          for (let i = 0; i < this.unliquidatedServiceByLiquidationTherapistDistinct.length; i++) {
+  //         for (let i = 0; i < this.unliquidatedServiceByLiquidationTherapistDistinct.length; i++) {
 
-            let cashPayment = 0, bizumPayment = 0, cardPayment = 0, transactionPayment = 0
+  //           let cashPayment = 0, bizumPayment = 0, cardPayment = 0, transactionPayment = 0
 
-            if (rp[i].formaPago == "Efectivo") {
-              cashPayment = rp[i]['importe']
-            }
+  //           if (rp[i].formaPago == "Efectivo") {
+  //             cashPayment = rp[i]['importe']
+  //           }
 
-            if (rp[i].formaPago == "Bizum") {
-              bizumPayment = rp[i]['importe']
-            }
+  //           if (rp[i].formaPago == "Bizum") {
+  //             bizumPayment = rp[i]['importe']
+  //           }
 
-            if (rp[i].formaPago == "Tarjeta") {
-              cardPayment = rp[i]['importe']
-            }
-            if (rp[i].formaPago == "Trans") {
-              transactionPayment = rp[i]['importe']
-            }
+  //           if (rp[i].formaPago == "Tarjeta") {
+  //             cardPayment = rp[i]['importe']
+  //           }
+  //           if (rp[i].formaPago == "Trans") {
+  //             transactionPayment = rp[i]['importe']
+  //           }
 
-            arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
+  //           arrayTable4 = [].concat(this.unliquidatedServiceByLiquidationTherapistDistinct);
 
-            arrayTable4[i].cashPayment = cashPayment
-            arrayTable4[i].bizumPayment = bizumPayment
-            arrayTable4[i].cardPayment = cardPayment
-            arrayTable4[i].transactionPayment = transactionPayment
+  //           arrayTable4[i].cashPayment = cashPayment
+  //           arrayTable4[i].bizumPayment = bizumPayment
+  //           arrayTable4[i].cardPayment = cardPayment
+  //           arrayTable4[i].transactionPayment = transactionPayment
 
-            this.validateNullDataTable4(arrayTable4[i])
+  //           this.validateNullDataTable4(arrayTable4[i])
 
-            arrayTable4.push({
-              cashPayment: cashPayment,
-              bizumPayment: bizumPayment,
-              cardPayment: cardPayment,
-              transactionPayment: transactionPayment,
-            })
+  //           arrayTable4.push({
+  //             cashPayment: cashPayment,
+  //             bizumPayment: bizumPayment,
+  //             cardPayment: cardPayment,
+  //             transactionPayment: transactionPayment,
+  //           })
 
-            arrayTable4.pop();
+  //           arrayTable4.pop();
 
-            const totalCashPayment = arrayTable4.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
-            this.totalCashTable4 = totalCashPayment
+  //           const totalCashPayment = arrayTable4.map(({ cashPayment }) => cashPayment).reduce((acc, value) => acc + value, 0)
+  //           this.totalCashTable4 = totalCashPayment
 
-            const totalBizumPayment = arrayTable4.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
-            this.totalBizumTable4 = totalBizumPayment
+  //           const totalBizumPayment = arrayTable4.map(({ bizumPayment }) => bizumPayment).reduce((acc, value) => acc + value, 0)
+  //           this.totalBizumTable4 = totalBizumPayment
 
-            const totalCardPayment = arrayTable4.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
-            this.totalCardTable4 = totalCardPayment
+  //           const totalCardPayment = arrayTable4.map(({ cardPayment }) => cardPayment).reduce((acc, value) => acc + value, 0)
+  //           this.totalCardTable4 = totalCardPayment
 
-            const totalTransactionPayment = arrayTable4.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
-            this.totalTransactionTable4 = totalTransactionPayment
+  //           const totalTransactionPayment = arrayTable4.map(({ transactionPayment }) => transactionPayment).reduce((acc, value) => acc + value, 0)
+  //           this.totalTransactionTable4 = totalTransactionPayment
 
-            this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
+  //           this.totalLiquidation = totalCashPayment + totalBizumPayment + totalCardPayment + totalTransactionPayment
 
-            this.validateNullData()
-            this.thousandPointTable4()
-          }
-        })
+  //           this.validateNullData()
+  //           this.thousandPointTable4()
+  //         }
+  //       })
 
-      // Table 5
-      await this.service.getWithDistinctServicesByNumberTerap(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-        this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
-          if (rp.length > 0) {
-            this.unsettledServicesDirectTherapistDistinct = rp
+  //     // Table 5
+  //     await this.service.getWithDistinctServicesByNumberTerap(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+  //       this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //         if (rp.length > 0) {
+  //           this.unsettledServicesDirectTherapistDistinct = rp
 
-            await this.service.getServicesByNumberTerap(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
-              this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
+  //           await this.service.getServicesByNumberTerap(this.closing.encargada, this.closing.desdeHora, this.closing.hastaHora,
+  //             this.closing.desdeFecha, this.closing.hastaFecha).subscribe(async (rp: any) => {
 
-                for (let e = 0; e < this.unsettledServicesDirectTherapistDistinct.length; e++) {
+  //               for (let e = 0; e < this.unsettledServicesDirectTherapistDistinct.length; e++) {
 
-                  const totalsCashTable5 = rp.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueEfectTerapeuta
-                  }, 0)
+  //                 const totalsCashTable5 = rp.reduce((accumulator, serv) => {
+  //                   return accumulator + serv.valueEfectTerapeuta
+  //                 }, 0)
 
-                  const totalsBizumTable5 = rp.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueBizuTerapeuta
-                  }, 0)
+  //                 const totalsBizumTable5 = rp.reduce((accumulator, serv) => {
+  //                   return accumulator + serv.valueBizuTerapeuta
+  //                 }, 0)
 
-                  const totalsCardTable5 = rp.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueTarjeTerapeuta
-                  }, 0)
+  //                 const totalsCardTable5 = rp.reduce((accumulator, serv) => {
+  //                   return accumulator + serv.valueTarjeTerapeuta
+  //                 }, 0)
 
-                  const totalsTransTable5 = rp.reduce((accumulator, serv) => {
-                    return accumulator + serv.valueTransTerapeuta
-                  }, 0)
+  //                 const totalsTransTable5 = rp.reduce((accumulator, serv) => {
+  //                   return accumulator + serv.valueTransTerapeuta
+  //                 }, 0)
 
-                  arrayTable5 = [].concat(this.unsettledServicesDirectTherapistDistinct);
+  //                 arrayTable5 = [].concat(this.unsettledServicesDirectTherapistDistinct);
 
-                  arrayTable5[e].totalCashTable5 = totalsCashTable5
-                  arrayTable5[e].totalBizumTable5 = totalsBizumTable5
-                  arrayTable5[e].totalCardTable5 = totalsCardTable5
-                  arrayTable5[e].totalTransTable5 = totalsTransTable5
+  //                 arrayTable5[e].totalCashTable5 = totalsCashTable5
+  //                 arrayTable5[e].totalBizumTable5 = totalsBizumTable5
+  //                 arrayTable5[e].totalCardTable5 = totalsCardTable5
+  //                 arrayTable5[e].totalTransTable5 = totalsTransTable5
 
-                  this.validateNullDataTable5(arrayTable5[e])
+  //                 this.validateNullDataTable5(arrayTable5[e])
 
-                  arrayTable5.push({
-                    totalCashTable5: totalsCashTable5,
-                    totalBizumTable5: totalsBizumTable5,
-                    totalCardTable5: totalsCardTable5,
-                    totalTransTable5: totalsTransTable5
-                  })
+  //                 arrayTable5.push({
+  //                   totalCashTable5: totalsCashTable5,
+  //                   totalBizumTable5: totalsBizumTable5,
+  //                   totalCardTable5: totalsCardTable5,
+  //                   totalTransTable5: totalsTransTable5
+  //                 })
 
-                  arrayTable5.pop();
+  //                 arrayTable5.pop();
 
-                  const totalCashTable5 = arrayTable5.map(({ totalCashTable5 }) => totalCashTable5).reduce((acc, value) => acc + value, 0)
-                  this.totalCashTable5 = totalCashTable5
+  //                 const totalCashTable5 = arrayTable5.map(({ totalCashTable5 }) => totalCashTable5).reduce((acc, value) => acc + value, 0)
+  //                 this.totalCashTable5 = totalCashTable5
 
-                  const totalBizumTable5 = arrayTable5.map(({ totalBizumTable5 }) => totalBizumTable5).reduce((acc, value) => acc + value, 0)
-                  this.totalBizumTable5 = totalBizumTable5
+  //                 const totalBizumTable5 = arrayTable5.map(({ totalBizumTable5 }) => totalBizumTable5).reduce((acc, value) => acc + value, 0)
+  //                 this.totalBizumTable5 = totalBizumTable5
 
-                  const totalCardTable5 = arrayTable5.map(({ totalCardTable5 }) => totalCardTable5).reduce((acc, value) => acc + value, 0)
-                  this.totalCardTable5 = totalCardTable5
+  //                 const totalCardTable5 = arrayTable5.map(({ totalCardTable5 }) => totalCardTable5).reduce((acc, value) => acc + value, 0)
+  //                 this.totalCardTable5 = totalCardTable5
 
-                  const totalTransTable5 = arrayTable5.map(({ totalTransTable5 }) => totalTransTable5).reduce((acc, value) => acc + value, 0)
-                  this.totalTransTable5 = totalTransTable5
+  //                 const totalTransTable5 = arrayTable5.map(({ totalTransTable5 }) => totalTransTable5).reduce((acc, value) => acc + value, 0)
+  //                 this.totalTransTable5 = totalTransTable5
 
-                  this.totalPayment = totalCashTable5 + totalBizumTable5 + totalCardTable5 + totalTransTable5
+  //                 this.totalPayment = totalCashTable5 + totalBizumTable5 + totalCardTable5 + totalTransTable5
 
-                  this.validateNullData()
-                  this.thousandPointTable5()
-                  await this.calculatedOperationEdit()
-                }
-              })
-          } else {
-            arrayTable5 = [].concat(this.unsettledServicesDirectTherapistDistinct);
-            this.validateNullData()
-            this.thousandPointTable5()
-            await this.calculatedOperationEdit()
-          }
-        })
-    })
-  }
+  //                 this.validateNullData()
+  //                 this.thousandPointTable5()
+  //                 await this.calculatedOperationEdit()
+  //               }
+  //             })
+  //         } else {
+  //           arrayTable5 = [].concat(this.unsettledServicesDirectTherapistDistinct);
+  //           this.validateNullData()
+  //           this.thousandPointTable5()
+  //           await this.calculatedOperationEdit()
+  //         }
+  //       })
+  //   })
+  // }
 
   async calculatedOperationEdit() {
     this.validateNullData()
@@ -1767,7 +1767,7 @@ export class ClosingComponent implements OnInit {
                     this.services.idCierre = ""
                     this.services.cierre = false
                     this.service.updateManagerSettlementManagerIdByManagerId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
-                      this.serviceLiquidationManager.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
+                      this.serviceLiquidationManager.deleteLiquidationManager(item['id']).subscribe(async (rp) => {
                         if (this.administratorRole == true) {
                           await this.consultClosingByAdministrator()
                         }

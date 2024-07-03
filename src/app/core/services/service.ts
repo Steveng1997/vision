@@ -18,7 +18,6 @@ export class Service {
     private http: HttpClient
   ) { }
 
-
   // Register
 
   registerServicio(service: ModelService) {
@@ -99,11 +98,12 @@ export class Service {
     return this.http.get(`${this.API_URL}/getByEncargada/${encargada}`);
   }
 
-  getEncargadaAndDate(fechaHoyInicio: string, encargada: string) {
+  getEncargadaAndDate(fechaHoyInicio: string, encargada: string, company: string) {
     return this.http.get(`${this.API_URL}/getFechaHoyByManager`, {
       params: {
         fechaHoyInicio,
-        encargada
+        encargada,
+        company
       }
     });
   }
@@ -213,8 +213,8 @@ export class Service {
     return this.http.get(`${this.API_URL}/getByEncargadaFechaDesc/${encargada}`);
   }
 
-  getFechaHoy(fechaHoy: string) {
-    return this.http.get(`${this.API_URL}/getByFechaHoy/${fechaHoy}`);
+  getFechaHoy(fechaHoy: string, company: string) {
+    return this.http.get(`${this.API_URL}/getByFechaHoy/${fechaHoy}/${company}`);
   }
 
   getIdDescendente(idUnico: string) {
@@ -225,7 +225,7 @@ export class Service {
     return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicio/${terapeuta}/${encargada}/${fecha}/${horaStart}`);
   }
 
-  getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+  getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin(terapeuta: string, encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string, company: string) {
     return this.http.get(`${this.API_URL}/getTerapeutaEncargadaFechaHoraInicioFechaHoraFin`, {
       params: {
         terapeuta,
@@ -233,12 +233,13 @@ export class Service {
         fecha,
         horaStart,
         fechaFin,
-        horaEnd
+        horaEnd,
+        company
       }
     });
   }
 
-  getByEncargadaFechaHoraInicioFechaHoraFin(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string) {
+  getByEncargadaFechaHoraInicioFechaHoraFin(encargada: string, horaStart: string, horaEnd: string, fecha: string, fechaFin: string, company: string) {
     return this.http.get(`${this.API_URL}/getEncargadaFechaHoraInicioFechaHoraFin`, {
       params: {
         encargada,
@@ -246,6 +247,7 @@ export class Service {
         horaStart,
         fechaFin,
         horaEnd,
+        company
       }
     });
   }
@@ -328,20 +330,20 @@ export class Service {
     return this.http.get(`${this.API_URL}/getPaymenForm/${formaPago}`);
   }
 
-  getTherapistAndDates(terapeuta: string, fechaHoyInicio: string) {
-    return this.http.get(`${this.API_URL}/getTherapistAndDate/${terapeuta}/${fechaHoyInicio}`);
+  getTherapistAndDates(terapeuta: string, fechaHoyInicio: string, company: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndDate/${terapeuta}/${fechaHoyInicio}/${company}`);
   }
 
-  getManagerAndDates(encargada: string, fechaHoyInicio: string) {
-    return this.http.get(`${this.API_URL}/getManagerAndDate/${encargada}/${fechaHoyInicio}`);
+  getManagerAndDates(encargada: string, fechaHoyInicio: string, company: string) {
+    return this.http.get(`${this.API_URL}/getManagerAndDate/${encargada}/${fechaHoyInicio}/${company}`);
   }
 
-  getTherapistConsultingManagerAndDate(encargada: string, fechaHoyInicio: string) {
-    return this.http.get(`${this.API_URL}/getTherapistConsultManagerAndDate/${encargada}/${fechaHoyInicio}`);
+  getTherapistConsultingManagerAndDate(encargada: string, fechaHoyInicio: string, company: string) {
+    return this.http.get(`${this.API_URL}/getTherapistConsultManagerAndDate/${encargada}/${fechaHoyInicio}/${company}`);
   }
 
-  getTherapistAndManagerAndDates(terapeuta: string, encargada: string, fechaHoyInicio: string) {
-    return this.http.get(`${this.API_URL}/getTherapistAndManagerAndDate/${terapeuta}/${encargada}/${fechaHoyInicio}`);
+  getTherapistAndManagerAndDates(terapeuta: string, encargada: string, fechaHoyInicio: string, company: string) {
+    return this.http.get(`${this.API_URL}/getTherapistAndManagerAndDate/${terapeuta}/${encargada}/${fechaHoyInicio}/${company}`);
   }
 
   // closing
@@ -483,6 +485,10 @@ export class Service {
   }
 
   updateScreenById(id: number, service: ModelService) {
+    return this.http.put(`${this.API_URL}/updateScreenById/${id}`, service);
+  }
+
+  updateNote(id: number, service: ModelService) {
     return this.http.put(`${this.API_URL}/updateScreenById/${id}`, service);
   }
 

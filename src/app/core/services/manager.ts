@@ -76,6 +76,14 @@ export class ServiceManager {
     return this.http.get(`${this.API_URL}/listaEncargada`);
   }
 
+  getIdAndCompany(id: number, company: string) {
+    return this.http.get(`${this.API_URL}/getIdCompany/${id}/${company}`)
+  }
+
+  getByCompany(company: string) {
+    return this.http.get(`${this.API_URL}/getCompany/${company}`)
+  }  
+
   // Update
 
   updateUser(id: number, manager: ModelManager) {

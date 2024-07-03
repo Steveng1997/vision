@@ -35,6 +35,7 @@ export class SettingComponent implements OnInit {
   modalManager: any
   currentDate = new Date().getTime()
   selectedFormPago: string
+  company: string
 
   liquidationManager: LiquidationManager = {
     currentDate: "",
@@ -130,10 +131,14 @@ export class SettingComponent implements OnInit {
 
     this.idUser = this.activeRoute.snapshot['_urlSegment'].segments['1'].path;
     if (this.idUser) {
-      await this.serviceManager.getById(this.idUser).subscribe(async (res: any) => {
-        this.idUser = res
 
-        if (res[0]['rol'] == 'administrador') this.visible = true
+      this.serviceTherapist.getByIdTerapeuta(this.idUser).subscribe(async (rp) => {
+        this.company = rp[0].company
+        await this.serviceManager.getById(this.idUser).subscribe(async (res: any) => {
+          this.idUser = res
+
+          if (res[0]['rol'] == 'administrador') this.visible = true
+        })
       })
     }
   }
@@ -523,7 +528,7 @@ export class SettingComponent implements OnInit {
       this.liquidationTherapist.hastaFechaLiquidado = `${fromDay}-${convertMonth}-${fromYears}`
     }
 
-    this.serviceLiquidationTherapist.consultTherapist(nombre).subscribe(async (rp: any) => {
+    this.serviceLiquidationTherapist.consultTherapist(nombre, this.company).subscribe(async (rp: any) => {
       if (rp.length > 0) {
         untilYear = rp[0]['hastaFechaLiquidado'].toString().substring(2, 4)
         untilMonth = rp[0]['hastaFechaLiquidado'].toString().substring(5, 7)

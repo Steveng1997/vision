@@ -52,6 +52,14 @@ export class ServiceTherapist {
     return this.http.get(`${this.API_Terapeuta}/orderMinutes`);
   }
 
+  getByCompany(company: string) {
+    return this.http.get(`${this.API_Terapeuta}/getCompany/${company}`);
+  }
+
+  orderByMinutesAndCompany(company: string) {
+    return this.http.get(`${this.API_Terapeuta}/orderMinutesAndCompany/${company}`);
+  }  
+
   // Update
 
   updateTerapeutas(id: number, therapist: ModelTherapist) {

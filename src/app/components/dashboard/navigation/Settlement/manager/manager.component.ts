@@ -61,6 +61,8 @@ export class ManagerComponent implements OnInit {
   selected: boolean
   idUser: number
 
+  company: string
+
   // Servicios
   totalService: number
   totalTipValue: number
@@ -122,6 +124,7 @@ export class ManagerComponent implements OnInit {
   currentDate = new Date().getTime()
 
   liquidationManager: LiquidationManager = {
+    company: "",
     currentDate: "",
     desdeFechaLiquidado: "",
     desdeHoraLiquidado: "",
@@ -180,16 +183,19 @@ export class ManagerComponent implements OnInit {
   }
 
   async consultLiquidationManagerByAdministrator() {
-    this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe(async (rp: any) => {
-      this.liquidated = rp
 
-      this.liquidationForm = true
-      this.validationFilters = true
-      this.addForm = false
-      this.editEncarg = false
-      this.selected = false
-      this.dates = false
-      this.liquidationManager.encargada = ""
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.serviceLiquidationManager.getLiquidacionesEncargada(rp[0].company).subscribe(async (rp: any) => {
+        this.liquidated = rp
+
+        this.liquidationForm = true
+        this.validationFilters = true
+        this.addForm = false
+        this.editEncarg = false
+        this.selected = false
+        this.dates = false
+        this.liquidationManager.encargada = ""
+      })
     })
   }
 
@@ -310,7 +316,7 @@ export class ManagerComponent implements OnInit {
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
 
-        this.serviceLiquidationManager.getLiquidacionesEncargada().subscribe((datoLiquidaciones: any) => {
+        this.serviceLiquidationManager.getLiquidacionesEncargada(this.company).subscribe((datoLiquidaciones: any) => {
           this.liquidated = datoLiquidaciones
 
           for (let o = 0; o < this.liquidated.length; o++) {
@@ -421,8 +427,11 @@ export class ManagerComponent implements OnInit {
   }
 
   async GetAllManagers() {
-    this.serviceManager.getUsuarios().subscribe(async (datosEncargada: any) => {
-      this.manager = datosEncargada
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.liquidationManager.company = rp[0].company
+      this.serviceManager.getByCompany(rp[0].company).subscribe((datosEncargada: any) => {
+        this.manager = datosEncargada
+      })
     })
   }
 
@@ -559,7 +568,7 @@ export class ManagerComponent implements OnInit {
 
     this.service.getByEncargadaFechaHoraInicioFechaHoraFin(this.liquidationManager.encargada,
       this.liquidationManager.desdeHoraLiquidado, this.liquidationManager.hastaHoraLiquidado,
-      this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado).subscribe(async (rp: any) => {
+      this.liquidationManager.desdeFechaLiquidado, this.liquidationManager.hastaFechaLiquidado, this.liquidationManager.company).subscribe(async (rp: any) => {
 
         if (rp.length > 0) {
           this.unliquidatedService = rp
@@ -2541,7 +2550,7 @@ export class ManagerComponent implements OnInit {
         this.services.idEncargada = ""
         this.services.liquidadoEncargada = false
         this.service.updateManagerSettlementManagerIdByManagerId(this.idManager, this.services).subscribe(async (rp) => {
-          this.serviceLiquidationManager.deleteLiquidationTherapist(this.idSettled).subscribe(async (rp) => {
+          this.serviceLiquidationManager.deleteLiquidationManager(this.idSettled).subscribe(async (rp) => {
             if (this.administratorRole == true) {
               await this.consultLiquidationManagerByAdministrator()
             }
@@ -2564,7 +2573,7 @@ export class ManagerComponent implements OnInit {
     this.formatDate()
     this.dateCurrentDay()
 
-    if(this.liquidationManager.fixedDay == 0)
+    if (this.liquidationManager.fixedDay == 0)
       this.liquidationManager.fixedDay = this.fixedDay
 
     if (this.liquidationManager.encargada != "") {
@@ -2703,7 +2712,7 @@ export class ManagerComponent implements OnInit {
                     this.services.idEncargada = ""
                     this.services.liquidadoEncargada = false
                     this.service.updateManagerSettlementManagerIdByManagerId(item['idTerapeuta'], this.services).subscribe(async (rp) => {
-                      this.serviceLiquidationManager.deleteLiquidationTherapist(item['id']).subscribe(async (rp) => {
+                      this.serviceLiquidationManager.deleteLiquidationManager(item['id']).subscribe(async (rp) => {
                         if (this.administratorRole == true) {
                           await this.consultLiquidationManagerByAdministrator()
                         }

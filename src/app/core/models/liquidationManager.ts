@@ -1,4 +1,5 @@
 export class LiquidationManager {
+  company?: string;
   currentDate?: string;
   createdDate?: string;
   desdeFechaLiquidado?: string;

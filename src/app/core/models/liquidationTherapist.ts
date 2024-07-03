@@ -1,4 +1,5 @@
 export class LiquidationTherapist {
+  company?: string;
   createdDate?: string;
   currentDate?: string;
   desdeFechaLiquidado?: string;
