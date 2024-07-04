@@ -438,6 +438,8 @@ export class SettingComponent implements OnInit {
         this.therapist.nombre = this.therapist.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase())
         this.validateValuesOfEmptyTherapists()
 
+        this.therapist.company = this.company
+
           this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
             if (res.length > 0) {
 
@@ -445,8 +447,7 @@ export class SettingComponent implements OnInit {
               Swal.fire({ title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No` }).then((result) => {
 
                 if (result.isConfirmed) {
-                  this.loading = true
-                  this.therapist.company = this.company
+                  this.loading = true                  
                   this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
                     this.consultTherapists()
                     this.modalService.dismissAll()

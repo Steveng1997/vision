@@ -82,6 +82,7 @@ export class NewServiceComponent implements OnInit {
     bizuTerap: false,
     cierre: false,
     cliente: "",
+    company: "",
     createdBy: "",
     createdTime: "",
     currentDate: "",
@@ -194,6 +195,7 @@ export class NewServiceComponent implements OnInit {
         } else {
           this.manager = rp
           this.services.encargada = this.manager[0].nombre
+          this.services.company = this.manager[0].company
         }
       })
     }
@@ -260,8 +262,10 @@ export class NewServiceComponent implements OnInit {
   }
 
   getTherapist() {
-    this.serviceTherapist.getAllTerapeuta().subscribe((datosTerapeuta: any) => {
-      this.terapeuta = datosTerapeuta
+    this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
+      this.serviceTherapist.getByCompany(rp[0].company).subscribe((datosTerapeuta: any) => {
+        this.terapeuta = datosTerapeuta
+      })
     })
   }
 
