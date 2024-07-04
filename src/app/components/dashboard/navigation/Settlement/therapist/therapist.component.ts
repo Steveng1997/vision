@@ -173,7 +173,6 @@ export class TherapistComponent implements OnInit {
     this.idUser = Number(params.path)
 
     this.date()
-    this.thousandPount()
     this.getTerapeuta()
 
     if (this.idUser) {
@@ -231,6 +230,7 @@ export class TherapistComponent implements OnInit {
           this.liquidated = rp
         })
       }
+      this.thousandPount()
     })
   }
 

@@ -175,7 +175,6 @@ export class ManagerComponent implements OnInit {
     this.idUser = Number(params.path)
 
     this.date()
-    this.thousandPount()
 
     if (this.idUser) {
       this.validitingUser()
@@ -228,6 +227,8 @@ export class ManagerComponent implements OnInit {
         this.liquidationManager.company = this.company
         this.getManager()
       }
+
+      this.thousandPount()
     })
   }
 

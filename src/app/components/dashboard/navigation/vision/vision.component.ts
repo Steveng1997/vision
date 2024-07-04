@@ -290,7 +290,6 @@ export class VisionComponent implements OnInit {
     let therapit
     this.serviceManager.getById(this.idUser).subscribe(async (rp: any) => {
       this.company = rp[0]['company']
-      debugger
       await this.serviceTherapist.orderByMinutesAndCompany(rp[0]['company']).subscribe(async (rp: any) => {
         therapit = rp
         this.therapist = rp

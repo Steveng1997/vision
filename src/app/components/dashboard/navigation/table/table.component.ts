@@ -202,16 +202,25 @@ export class TableComponent implements OnInit {
 
           if (rp.length != 0) {
             this.totalSumOfServices(service)
+          } else {
+            this.loading = false
+            this.table = true
           }
+
           return service
         })
       } else {
         this.service.getByManagerOrder(rp[0]['nombre']).subscribe((rp: any) => {
           this.servicio = rp
           service = rp
+
           if (rp.length != 0) {
             this.totalSumOfServices(service)
+          } else {
+            this.loading = false
+            this.table = true
           }
+
           return service
         })
       }
