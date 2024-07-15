@@ -127,16 +127,17 @@ export class SettingComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    await this.consultTherapists()
-    await this.consultManager()
-    this.loading = false
 
+    this.loading = false
     this.idUser = this.activeRoute.snapshot['_urlSegment'].segments['1'].path
 
     if (this.idUser) {
       await this.serviceManager.getById(this.idUser).subscribe(async (res: any) => {
         this.idUser = res
         this.company = res[0].company
+
+        await this.consultTherapists()
+        await this.consultManager()
 
         if (res[0]['rol'] == 'administrador') this.visible = true
       })
@@ -165,7 +166,7 @@ export class SettingComponent implements OnInit {
   }
 
   async consultManager() {
-    await this.serviceManager.getUsuarios().subscribe(async (dataInCharge: any) => {
+    await this.serviceManager.getByCompany(this.company).subscribe(async (dataInCharge: any) => {
       this.managers = dataInCharge
     })
   }
@@ -410,7 +411,7 @@ export class SettingComponent implements OnInit {
   }
 
   async consultTherapists() {
-    this.serviceTherapist.getAllTerapeuta().subscribe(async (datosTerapeuta: any) => {
+    this.serviceTherapist.getByCompany(this.company).subscribe(async (datosTerapeuta: any) => {
       this.terapeuta = datosTerapeuta
     })
   }
@@ -440,38 +441,38 @@ export class SettingComponent implements OnInit {
 
         this.therapist.company = this.company
 
-          this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
-            if (res.length > 0) {
+        this.serviceTherapist.getTerapeuta(this.therapist.nombre).subscribe((res: any) => {
+          if (res.length > 0) {
 
-              this.loading = false
-              Swal.fire({ title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No` }).then((result) => {
+            this.loading = false
+            Swal.fire({ title: 'Ya hay una persona con ese nombre, desea agregar este nombre?', showDenyButton: true, confirmButtonText: 'Si', denyButtonText: `No` }).then((result) => {
 
-                if (result.isConfirmed) {
-                  this.loading = true                  
-                  this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
-                    this.consultTherapists()
-                    this.modalService.dismissAll()
-                    this.resetTherapist()
-                    this.loading = false
-                    Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
-                  })
-                } else if (result.isDenied) {
+              if (result.isConfirmed) {
+                this.loading = true
+                this.serviceTherapist.save(this.therapist).subscribe((resp: any) => {
+                  this.consultTherapists()
                   this.modalService.dismissAll()
                   this.resetTherapist()
                   this.loading = false
-                }
-              })
-
-            } else {
-              this.serviceTherapist.save(this.therapist).subscribe((res: any) => {
-                this.consultTherapists()
+                  Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
+                })
+              } else if (result.isDenied) {
                 this.modalService.dismissAll()
                 this.resetTherapist()
                 this.loading = false
-                Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
-              })
-            }
-          })
+              }
+            })
+
+          } else {
+            this.serviceTherapist.save(this.therapist).subscribe((res: any) => {
+              this.consultTherapists()
+              this.modalService.dismissAll()
+              this.resetTherapist()
+              this.loading = false
+              Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 500 })
+            })
+          }
+        })
       }, 800)
     } else {
       Swal.fire({ icon: 'error', title: 'El campo nombre se encuentra vacío.', })

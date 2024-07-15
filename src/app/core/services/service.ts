@@ -11,7 +11,7 @@ export class Service {
   // API_URL = 'http://18.191.250.105:3000/api/servicio';
 
   // Page pasffey
-  API_URL = 'http://35.181.62.147:3000/api/servicio';
+  API_URL = 'http://35.180.156.130:3000/api/servicio';
 
   constructor(
     public router: Router,
@@ -428,6 +428,14 @@ export class Service {
         horaEnd
       }
     });
+  }
+
+  getByCompany(company: string) {
+    return this.http.get(`${this.API_URL}/getCompany/${company}`);
+  }
+
+  getByManagerWithCompany(encargada: string, company: string) {
+    return this.http.get(`${this.API_URL}/getByManagerCompany/${encargada}/${company}`);
   }
 
   // Update

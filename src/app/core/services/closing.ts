@@ -12,8 +12,8 @@ export class ServiceClosing {
   // API_SERVICIO = 'http://18.191.250.105:3000/api/servicio';
 
   // Page pasffey
-  API_URL = 'http://35.181.62.147:3000/api/cierre';
-  API_SERVICIO = 'http://35.181.62.147:3000/api/servicio';
+  API_URL = 'http://35.180.156.130:3000/api/cierre';
+  API_SERVICIO = 'http://35.180.156.130:3000/api/servicio';
 
   constructor(
     public router: Router,

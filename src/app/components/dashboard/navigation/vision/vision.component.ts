@@ -328,7 +328,7 @@ export class VisionComponent implements OnInit {
         dates = `${year}-${month}-${convertDay}`
       }
 
-      this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
+      this.serviceTherapist.getByCompany(this.company).subscribe((rp: any) => {
         this.servicesTherapist = rp
 
         rp.map(item => {
@@ -358,7 +358,7 @@ export class VisionComponent implements OnInit {
 
     } else {
 
-      this.serviceTherapist.getAllTerapeuta().subscribe((rp: any) => {
+      this.serviceTherapist.getByCompany(this.company).subscribe((rp: any) => {
         this.servicesTherapist = rp
 
         rp.map(item => {

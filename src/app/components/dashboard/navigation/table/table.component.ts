@@ -91,6 +91,7 @@ export class TableComponent implements OnInit {
   TotalTaxiLetter: string
 
   idService: any
+  company: string
 
   serviceModel: ModelService = {
     pantalla: ""
@@ -133,7 +134,8 @@ export class TableComponent implements OnInit {
     this.idUser = Number(params['id'])
 
     if (this.idUser) {
-      await this.serviceManager.getById(this.idUser).subscribe((rp) => {
+      await this.serviceManager.getById(this.idUser).subscribe(async (rp) => {
+        this.company = rp[0].company
         if (rp[0]['rol'] == 'administrador') {
           this.administratorRole = true
           this.getManager()
@@ -141,12 +143,12 @@ export class TableComponent implements OnInit {
           this.manager = rp
           this.selectedEncargada = this.manager[0].nombre
         }
+
+        await this.getTherapist()
+        await this.getServices()
+        this.emptyTotals()
       })
     }
-
-    await this.getTherapist()
-    await this.getServices()
-    this.emptyTotals()
   }
 
   emptyTotals() {
@@ -196,7 +198,7 @@ export class TableComponent implements OnInit {
     let service
     this.serviceManager.getById(this.idUser).subscribe((rp) => {
       if (rp[0]['rol'] == 'administrador') {
-        this.service.getServicio().subscribe((rp: any) => {
+        this.service.getByCompany(rp[0].company).subscribe((rp: any) => {
           this.servicio = rp
           service = rp
 
@@ -210,7 +212,7 @@ export class TableComponent implements OnInit {
           return service
         })
       } else {
-        this.service.getByManagerOrder(rp[0]['nombre']).subscribe((rp: any) => {
+        this.service.getByManagerWithCompany(rp[0]['nombre'], rp[0].company).subscribe((rp: any) => {
           this.servicio = rp
           service = rp
 
@@ -573,12 +575,6 @@ export class TableComponent implements OnInit {
     }
 
     await this.calculateSumOfServices()
-  }
-
-  PaymentForm() {
-    this.service.getPaymentForm(this.formTemplate.value.formaPago).subscribe((rp) => {
-      this.servicio = rp
-    })
   }
 
   calculateSumOfServices = async () => {
@@ -1138,7 +1134,7 @@ export class TableComponent implements OnInit {
 
   getTherapist = async () => {
     let therapit
-    this.serviceTherapist.getAllTerapeuta().subscribe((rp) => {
+    this.serviceTherapist.getByCompany(this.company).subscribe((rp) => {
       this.terapeuta = rp
       therapit = rp
 
@@ -1147,7 +1143,7 @@ export class TableComponent implements OnInit {
   }
 
   getManager() {
-    this.serviceManager.getUsuarios().subscribe((datosEncargada) => {
+    this.serviceManager.getByCompany(this.company).subscribe((datosEncargada) => {
       this.manager = datosEncargada
     })
   }
