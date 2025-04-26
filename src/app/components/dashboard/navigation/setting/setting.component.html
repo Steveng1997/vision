@@ -1,0 +1,683 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-90 row justify-content-center align-items-center">
+
+                <div *ngIf="loading" id="container_loading">
+                    <div id="load"></div>
+                </div>
+
+                <!-- Therapist -->
+
+                <div class="columnTherapistAdd">
+                    <div class="row g-0">
+                        <label class="titleTherapist"> TERAPEUTAS </label>
+                    </div>
+
+                    <div class="row g-0 buttonAdd">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            style="cursor: pointer; color: #8c52ff" class="bi bi-plus-circle" viewBox="0 0 16 16"
+                            (click)="openTherapist(addTherapist)">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                    </div>
+
+                    <!-- Modal -->
+                    <ng-template class="custom-modal" #addTherapist let-modal>
+                        <div class="modal-header">
+                            <label class="modal-title titleAdd"> Agregar Terapeuta
+                                <br>
+                                <small>Establecer los (%) de comisión</small>
+                            </label>
+
+                            <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                <span (click)="closeTherapist()" aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" style="text-align: center;">
+                            <!-- Aqui se coloca lo adentro -->
+
+                            <form action="" style="text-align: -webkit-center;">
+
+                                <div class="row">
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Nombre:</mat-label>
+                                        <input type="text" matInput name="nombre" [(ngModel)]="therapist.nombre">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Servicio (%)</mat-label>
+                                        <input type="text" matInput name="servicio" [(ngModel)]="therapist.servicio"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Propina (%)</mat-label>
+                                        <input type="text" matInput name="propina" [(ngModel)]="therapist.propina"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Bebida casa (%)</mat-label>
+                                        <input type="text" matInput name="bebida" [(ngModel)]="therapist.bebida"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Bebida terap (%)</mat-label>
+                                        <input type="text" matInput name="bebidaTerap"
+                                            [(ngModel)]="therapist.bebidaTerap" placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Tabaco (%)</mat-label>
+                                        <input type="text" matInput name="tabaco" [(ngModel)]="therapist.tabaco"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Vitamina (%)</mat-label>
+                                        <input type="text" matInput name="vitamina" [(ngModel)]="therapist.vitamina"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="col-6">
+                                        <mat-label>Otros (%)</mat-label>
+                                        <input type="text" matInput name="otros" [(ngModel)]="therapist.otros"
+                                            placeholder="%">
+                                    </mat-form-field>
+
+                                    <div style="display: grid; place-items: center;">
+                                        <div style="text-align: center; width: max-content;">
+                                            <button mat-raised-button type="submit" color="primary"
+                                                (click)="therapistRegistration()">Aceptar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Afuera -->
+                        </div>
+
+                    </ng-template>
+
+                    <!-- Fin Modal -->
+                </div>
+
+                <div class="columnArrow" id="arrowLeftTherapist">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftTherapist()"></i>
+                    <!-- <label class="arrow" id="scrolling-button-left" (click)="arrowLeftTherapist()">></label> -->
+                </div>
+
+                <!-- Table Therapist -->
+                <div class="columnTherapist">
+                    <div class="columnTableTherapistLine1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1Therap">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1Therap">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTableTherapistLine2">
+
+                        <div class="textNameTherap">
+                            <label>Nombre</label>
+                        </div>
+
+                        <div class="textServiceTherap">
+                            <label>Servicio</label>
+                        </div>
+
+                        <div class="textTipTherap">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2Therap">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2Therap">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobaccoTherap">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin2">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textOthersTherap">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTableTherapist">
+
+                    <div class="columnTableTherapistLine2" *ngFor="let therapist of (terapeuta | 
+                        paginate: { itemsPerPage: 10, currentPage: pageTerapeuta, id: 'pageTerapeuta'})"
+                        (click)="modalTableTherapist(therapist.id, modalTabl)">
+
+                        <div class="columnNameTherapist">{{therapist?.nombre}}</div>
+
+                        <div class="columnServiceTherapist">{{therapist?.servicio + '%'}}</div>
+
+                        <div class="columnTipTherapist">{{therapist?.propina + '%'}}</div>
+
+                        <div class="columnDrinkTherapist">{{therapist?.bebida + '%'}}</div>
+
+                        <div class="columnDrinkTherapTherapist">{{therapist?.bebidaTerap + '%'}}</div>
+
+                        <div class="columnTobaccoTherapist">{{therapist?.tabaco + '%'}}</div>
+
+                        <div class="columnVitaminTherapist">{{therapist?.vitamina + '%'}}</div>
+
+                        <div class="columnOthersTherapist">{{therapist?.otros + '%'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <label class="modal-title titleAdd"> {{therapist?.nombre}}
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
+
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <form style="text-align: -webkit-center;">
+                                    <div class="row">
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="therapist.nombre">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Servicio (%)</mat-label>
+                                            <input type="text" matInput name="servicio" [(ngModel)]="therapist.servicio"
+                                                #servicio="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Propina (%)</mat-label>
+                                            <input type="text" matInput name="propina" [(ngModel)]="therapist.propina"
+                                                #propina="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida casa (%)</mat-label>
+                                            <input type="text" matInput name="bebida" [(ngModel)]="therapist.bebida"
+                                                #bebida="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="text" matInput name="bebidaTerap"
+                                                [(ngModel)]="therapist.bebidaTerap" #bebidaTerap="ngModel"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Tabaco (%)</mat-label>
+                                            <input type="text" matInput name="tabaco" [(ngModel)]="therapist.tabaco"
+                                                #tabaco="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Vitamina (%)</mat-label>
+                                            <input type="text" matInput name="vitamina" [(ngModel)]="therapist.vitamina"
+                                                #vitamina="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Otros (%)</mat-label>
+                                            <input type="text" matInput name="otros" [(ngModel)]="therapist.otros"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button mat-raised-button
+                                                    (click)="editTherapist(therapist.id, therapist)"
+                                                    color="primary">Guardar</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button mat-raised-button type="submit" color="warn"
+                                                    (click)="removeTherapist(therapist.id, therapist.nombre)">Eliminar</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls class="pagination_Therapist" (pageChange)="pageTerapeuta = $event"
+                    id="pageTerapeuta" previousLabel="" nextLabel="">
+                </pagination-controls>
+
+
+                <!-- Manager -->
+
+                <div class="columnManagerAdd" *ngIf="visible">
+                    <div class="row g-0">
+                        <label class="titleManager">ENCARGADAS</label>
+                    </div>
+
+                    <div class="row g-0 buttonAdd">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            style="cursor: pointer; color: #8c52ff" class="bi bi-plus-circle" viewBox="0 0 16 16"
+                            (click)="openManager(addManager)">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #addManager let-modal>
+                            <div class="modal-header">
+                                <label class="modal-title titleAdd"> Agregar Encargada
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
+
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span (click)="closeManager()" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <form action="" style="text-align: -webkit-center;">
+
+                                    <div class="row">
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="manager.nombre">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Rol:</mat-label>
+                                            <select matNativeControl [(ngModel)]="manager.rol">
+                                                <option value="" selected>Selecciona</option>
+                                                <option value="administrador">Administrador</option>
+                                                <option value="encargada">Encargada</option>
+                                            </select>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Contraseña:</mat-label>
+                                            <input matInput type="password" name="pass" autocomplete="on"
+                                                [(ngModel)]="manager.pass">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Usuario:</mat-label>
+                                            <input type="text" matInput name="usuario" [(ngModel)]="manager.usuario">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Fijo por día (€)</mat-label>
+                                            <input type="number" matInput name="fijoDia" [(ngModel)]="manager.fijoDia"
+                                                placeholder="€">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Servicio (%)</mat-label>
+                                            <input type="number" matInput name="servicio" [(ngModel)]="manager.servicio"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Propina (%)</mat-label>
+                                            <input type="number" matInput name="propina" [(ngModel)]="manager.propina"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida casa (%)</mat-label>
+                                            <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="number" matInput name="bebidaTerap"
+                                                [(ngModel)]="manager.bebidaTerap" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Tabaco (%)</mat-label>
+                                            <input type="number" matInput name="tabaco" [(ngModel)]="manager.tabaco"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Vitamina (%)</mat-label>
+                                            <input type="number" matInput name="vitamina" [(ngModel)]="manager.vitamina"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Otros (%)</mat-label>
+                                            <input type="number" matInput name="otros" [(ngModel)]="manager.otros"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <div style="display: grid; place-items: center;">
+                                            <div style="text-align: center; width: max-content;">
+                                                <button mat-raised-button type="submit" color="primary"
+                                                    (click)="registerManager()">Aceptar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+
+                        </ng-template>
+
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <div *ngIf="visible" class="columnArrow" id="arrowLeftManager">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeftManager()"></i>
+                </div>
+
+                <!-- Table Manager -->
+                <div class="columnTherapist">
+                    <div class="columnTableManagerLine1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1Manager">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1Manager">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTableManagerLine2">
+
+                        <div class="textNameManager">
+                            <label>Nombre</label>
+                        </div>
+
+                        <div class="textUserManager">
+                            <label>User</label>
+                        </div>
+
+                        <div class="textPassManager">
+                            <label>Pass</label>
+                        </div>
+
+                        <div class="textFixedDayManager">
+                            <label>Fijo/día</label>
+                        </div>
+
+                        <div class="textServiceManager">
+                            <label>Servicio</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2Manager">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2Manager">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobaccoManager">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitaminManager">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textTipManager">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textOthersManager">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTableManager">
+
+                    <div class="columnTableManagerLine2" *ngFor="let manager of (managers | 
+                    paginate: { itemsPerPage: 7, currentPage: pageEncargada, id: 'pageEncargada'})"
+                        (click)="modalTablaManager(manager.id, modalTabl)">
+
+                        <div class="columnNameManager">{{manager?.nombre}}</div>
+
+                        <div class="columnUser">{{manager?.usuario}}</div>
+
+                        <div class="columnPass">{{manager?.pass}}</div>
+
+                        <div class="columnFixedDay">{{manager?.fijoDia + ' €'}}</div>
+
+                        <div class="columnServiceManager">{{manager?.servicio + '%'}}</div>
+
+                        <div class="columnDrinkManager">{{manager?.bebida + '%'}}</div>
+
+                        <div class="columnDrinkTherapManager">{{manager?.bebidaTerap + '%'}}</div>
+
+                        <div class="columnTobaccoManager">{{manager?.tabaco + '%'}}</div>
+
+                        <div class="columnVitaminManager">{{manager?.vitamina + '%'}}</div>
+
+                        <div class="columnTipManager">{{manager?.propina + '%'}}</div>
+
+                        <div class="columnOthersManager">{{manager?.otros + '%'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <label class="modal-title titleAdd"> {{manager?.nombre}}
+                                    <br>
+                                    <small>Establecer los (%) de comisión</small>
+                                </label>
+
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <form style="text-align: -webkit-center;">
+                                    <div class="row">
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Nombre:</mat-label>
+                                            <input type="text" matInput name="nombre" [(ngModel)]="manager.nombre">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Rol:</mat-label>
+                                            <select matNativeControl name="rol" [(ngModel)]="manager.rol"
+                                                #rol="ngModel">
+                                                <option value="" selected>Selecciona</option>
+                                                <option value="administrador">Administrador</option>
+                                                <option value="encargada">Encargada</option>
+                                            </select>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Password:</mat-label>
+                                            <input type="text" matInput name="pass" [(ngModel)]="manager.pass"
+                                                #pass="ngModel">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Usuario:</mat-label>
+                                            <input type="text" matInput name="usuario" [(ngModel)]="manager.usuario"
+                                                #usuario="ngModel">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Fijo día (€)</mat-label>
+                                            <input type="number" matInput name="fijoDia" [(ngModel)]="manager.fijoDia"
+                                                #fijoDia="ngModel" placeholder="€">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Servicio (%)</mat-label>
+                                            <input type="number" matInput name="servicio" [(ngModel)]="manager.servicio"
+                                                #servicio="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Propina (%)</mat-label>
+                                            <input type="number" matInput name="propina" [(ngModel)]="manager.propina"
+                                                #propina="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida casa (%)</mat-label>
+                                            <input type="number" matInput name="bebida" [(ngModel)]="manager.bebida"
+                                                #bebida="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Bebida terap (%)</mat-label>
+                                            <input type="number" matInput name="bebidaTerap"
+                                                [(ngModel)]="manager.bebidaTerap" #bebidaTerap="ngModel"
+                                                placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Tabaco (%)</mat-label>
+                                            <input type="number" matInput name="tabaco" [(ngModel)]="manager.tabaco"
+                                                #tabaco="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Vitamina (%)</mat-label>
+                                            <input type="number" matInput name="vitamina" [(ngModel)]="manager.vitamina"
+                                                #vitamina="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Otros (%)</mat-label>
+                                            <input type="number" matInput name="otros" [(ngModel)]="manager.otros"
+                                                #otros="ngModel" placeholder="%">
+                                        </mat-form-field>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button mat-raised-button (click)="editManager(manager.id, manager)"
+                                                    color="primary">Guardar</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button mat-raised-button type="submit" color="warn"
+                                                    (click)="removeManager(manager.id, manager.nombre)">Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="visible" class="pagination_Manager" (pageChange)="pageEncargada = $event"
+                    id="pageEncargada" previousLabel="" nextLabel="">
+                </pagination-controls>
+
+            </div>
+        </div>
+    </div>
+</div>

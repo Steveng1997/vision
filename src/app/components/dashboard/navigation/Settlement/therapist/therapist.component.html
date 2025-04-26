@@ -1,0 +1,1091 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-90 row justify-content-center align-items-center">
+
+                <label *ngIf="liquidationForm" class="titleLiqudationTherapist"> LIQUIDACIÓN TERAPEUTA </label>
+
+                <div class="row tableContainerFilters" *ngIf="validationFilters">
+
+                    <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
+
+                        <div class="row g-0"> <img src="/assets/icons8-opciones-para-ordenar-100.png"
+                                class="iconFilters">
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="filters">Filtrar</label>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalFilter let-modal>
+                            <div class="modal-header">
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+                                <form *ngIf="liquidationForm" [formGroup]="formTemplate">
+                                    <div class="row tableContainer">
+
+                                        <div class="therapistContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Terapeuta</label>
+                                                <select class="form-select" formControlName="terapeuta"
+                                                    [(ngModel)]="liquidationTherapist.terapeuta" (change)="filters()"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
+                                                    font-family: sans-serif;">
+                                                    <option selected value="">Selecciona</option>
+                                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                                        {{terap.nombre}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="containerInCharge">
+                                            <div class="row g-0">
+                                                <label class="text">Encargada</label>
+                                                <select class="form-select" formControlName="encargada"
+                                                    [(ngModel)]="liquidationTherapist.encargada"
+                                                    (ngModelChange)="filters()"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                                    <option *ngIf="administratorRole" selected value="">Selecciona
+                                                    </option>
+                                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                                        {{managers.nombre}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Inicio</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="fechaInicio" [value]="CurrenDate"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Final</label>
+                                                <input type="date" class="form-control" (change)="filters()"
+                                                    formControlName="FechaFin" [value]="CurrenDate" style="height: 2.2rem; border-color: #8C52FF; 
+                                        color: #242424; font-size: 18px; font-family: sans-serif">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Buscar</label>
+                                                <input type="text" class="form-control" formControlName="busqueda"
+                                                    (ngModelChange)="filters()" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                        font-size: 18px; font-family: sans-serif;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" mat-raised-button class="btn btn-primary"
+                                            style="display: grid; margin: auto; margin-top: 1rem" color="primary"
+                                            (click)="OK()">Aceptar</button>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+
+                    <div class="buttonDeleteContainer" (click)="deleteLiquidation()">
+
+                        <div *ngIf="!deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100.png"
+                                class="iconDelete"> </div>
+
+                        <div *ngIf="deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100-red.png"
+                                class="iconDelete"> </div>
+
+                        <div class="row g-0">
+                            <label [ngClass]="{'titleDeleteRed': deleteButton == true , 
+                                'titleDelete': deleteButton == false}">Eliminar</label>
+                        </div>
+
+                    </div>
+
+                    <div class="newService" (click)="insertForm()">
+                        <div class="row g-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="cursor: pointer"
+                                class="bi bi-plus-circle iconNewService" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="titleNewService"> Nueva </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="liquidationForm" class="columnArrow" id="arrowLine1">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLine1()"></i>
+                </div>
+
+                <!-- Table 1 -->
+                <div *ngIf="liquidationForm" class="column">
+
+                    <div class="columnTableLine1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTherapistLine1">
+                            <label>Tera</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentLine1">
+                            <label>Trata</label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTableLine2">
+
+                        <div class="textManager">
+                            <label>Encargada</label>
+                        </div>
+
+                        <div class="textTherapistLine2">
+                            <label>peuta</label>
+                        </div>
+
+                        <div class="textImport">
+                            <label>Importe</label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Desde</label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Hasta</label>
+                        </div>
+
+                        <div class="textWayPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textTreatmentLine2">
+                            <label>miento</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable1">
+
+                    <div class="columnTableLine2" *ngFor="let liqTerap of (liquidated | terapeuta: liquidationTherapist.terapeuta 
+                            | encargada: liquidationTherapist.encargada | fechaFinalEncargada: fechaInicio:fechaFinal | 
+                            busquedaTerapeuta: filtredBusqueda) | paginate: { itemsPerPage: 50, currentPage: page }">
+
+                        <div class="columnManager">{{liqTerap?.encargada}}</div>
+
+                        <div class="columnTherapist" (click)="dataFormEdit(liqTerap.idTerapeuta, liqTerap.id)">
+                            {{liqTerap?.terapeuta}}</div>
+
+                        <div class="columnImport">{{liqTerap?.importe + ' €'}}</div>
+
+                        <div class="columnDateTable1"> {{liqTerap?.desdeFechaLiquidado + ' - ' +
+                            liqTerap?.desdeHoraLiquidado}} </div>
+
+                        <div class="columnDateTable1"> {{liqTerap?.hastaFechaLiquidado + ' - ' +
+                            liqTerap?.hastaHoraLiquidado}} </div>
+
+                        <div class="columnWayPay"> {{liqTerap?.formaPago}} </div>
+
+                        <div class="columnTreatment">{{liqTerap?.tratamiento}}</div>
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="liquidationForm" class="pagination_Mobile" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Add Therapist -->
+
+                <label *ngIf="addForm" class="title">NUEVA LIQUIDACIÓN</label>
+
+                <form *ngIf="addForm">
+
+                    <div class="row tableContainerNew">
+
+                        <div *ngIf="!administratorRole" class="therapistContainerNew">
+                            <div class="row g-0">
+                                <label class="text">Terapeuta</label>
+                                <select class="form-select" name="terapeuta"
+                                    [(ngModel)]="liquidationTherapist.terapeuta" (ngModelChange)="calculateServices()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
+                                                font-family: sans-serif;">
+                                    <option selected value="">Selecciona</option>
+                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                        {{terap.nombre}} </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="administratorRole" class="therapistContainerNew">
+                            <div class="row g-0">
+                                <label class="text">Terapeuta</label>
+                                <select class="form-select" name="terapeuta"
+                                    [(ngModel)]="liquidationTherapist.terapeuta" (ngModelChange)="calculateServices()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; 
+                                                font-family: sans-serif;">
+                                    <option selected value="">Selecciona</option>
+                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                        {{terap.nombre}} </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="administratorRole" class="containerInChargeNew">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" name="encargada"
+                                    [(ngModel)]="liquidationTherapist.encargada" (ngModelChange)="calculateServices()"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    <option selected value="">Selecciona</option>
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div *ngIf="!administratorRole" class="containerInChargeNew">
+                            <div class="row g-0">
+                                <label class="text">Encargada</label>
+                                <select class="form-select" name="encargada"
+                                    [(ngModel)]="liquidationTherapist.encargada"
+                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif;">
+                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                        {{managers.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div *ngIf="dates">
+
+                    <div class="row tableContainer2">
+                        <div class="fechaInicio">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                        font-weight: bold; display: contents;">Inicial</label>
+                            <input type="date" class="form-control" name="desdeFechaLiquidado"
+                                (change)="inputDateAndTime()" [(ngModel)]="liquidationTherapist.desdeFechaLiquidado"
+                                [value]="liquidationTherapist.desdeFechaLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
+
+                        <div class="horaInicio">
+                            <input type="time" min="18:00" max="21:00" step="3600" class="form-control"
+                                (change)="inputDateAndTime()" name="desdeHoraLiquidado"
+                                [(ngModel)]="liquidationTherapist.desdeHoraLiquidado"
+                                [value]="liquidationTherapist.desdeHoraLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif" />
+                        </div>
+
+                        <div class="fechaFinal">
+                            <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
+                                            font-weight: bold; display: contents;">Final</label>
+                            <input type="date" class="form-control" name="hastaFechaLiquidado"
+                                (change)="inputDateAndTime()" [(ngModel)]="liquidationTherapist.hastaFechaLiquidado"
+                                [value]="liquidationTherapist.hastaFechaLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
+
+                        <div class="horaFinal">
+                            <input type="time" name="horaStart" min="18:00" max="21:00" step="3600" class="form-control"
+                                [(ngModel)]="liquidationTherapist.hastaHoraLiquidado" (change)="inputDateAndTime()"
+                                [value]="liquidationTherapist.hastaHoraLiquidado"
+                                style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px; font-family: sans-serif">
+                        </div>
+                    </div>
+
+                    <div class="row containerTitleSelect">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div *ngIf="selected" class="columnArrowTable2" id="arrowTable2Add">
+                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
+                </div>
+
+                <!-- Table 2 -->
+
+                <div class="column2" *ngIf="selected">
+                    <div class="columnTable2Line1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentTable2Line1">
+                            <label>Trata</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTable2Line2">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Hora</label>
+                        </div>
+
+                        <div class="textMin">
+                            <label>Min</label>
+                        </div>
+
+                        <div class="textTreatmentTable2Line2">
+                            <label>miento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textValueTherapist">
+                            <label>€ A Terap.</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobacco">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textOthers">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2Line2" *ngFor="let serv of (unliquidatedService 
+                                    | terapeuta: liquidationTherapist.terapeuta | encargada: liquidationTherapist.encargada) 
+                                    | paginate: { itemsPerPage: 10, currentPage: page }">
+
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)"> </div>
+
+                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+
+                        <div class="columnMin">{{serv?.minuto + ' min'}} </div>
+
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
+
+                        <div class="columnExit">{{serv?.salida}} </div>
+
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
+
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
+
+                        <div class="columnValueTherapist"> {{serv?.numberTerap + ' €'}} </div>
+
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}} </div>
+
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}} </div>
+
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}} </div>
+
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}} </div>
+
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}} </div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="selected" class="pagination_MobileTable2" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 3 -->
+
+                <div class="column3" *ngIf="selected">
+                    <div class="columnTable3">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textSum">
+                            <label>Suma</label>
+                        </div>
+
+                        <div class="textCommision">
+                            <label>Comisión</label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>Total</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.servicio + '
+                            %'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Propina</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.propina + ' %'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida casa</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.bebida + ' %'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.bebidaTerap + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tabaco</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.tabaco + ' %'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Vitamina</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label class="columnComission">
+                            {{terapeutaName?.vitamina + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Otros</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
+                        <label class="columnComission">{{terapeutaName?.otros + ' %'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Suma</label>
+                        <label></label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textReceivend">Recibido</label>
+                        <label></label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalPay">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnTotalPay">Total a</label>
+                        <label class="columnPay">pagar</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="selected">
+
+                    <label class="textPayToTherapist">Pagado a terapeuta</label>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Efectivo</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Bizum</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Tarjeta</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Transferencia</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <div class="containerWayPay" *ngIf="selected">
+                    <div class="row g-0">
+                        <label style="color: red; font-size: 18px; font-family: sans-serif; font-weight: bold; 
+                        display: contents; white-space: nowrap">¿Cómo pagaste a la terapeuta? </label>
+                        <select class="form-select wayPay" [(ngModel)]="liquidationTherapist.formaPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                font-family: sans-serif;" (change)="filters()">
+                            <option selected value="">Selecciona</option>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Bizum">Bizum</option>
+                            <option value="Tarjeta">Tarjeta</option>
+                            <option value="Trans">Trans</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div *ngIf="!editTerap" class="row inputButtonSave">
+
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" id="btnSave" mat-button class="btnSave" (click)="save()">Guardar</button>
+                    </div>
+
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length <= 0">
+                        <button mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
+                    </div>
+
+                    <div class="row g-0" *ngIf="selected && unliquidatedService.length > 0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Edit Liquidation -->
+
+                <label *ngIf="editTerap" class="titleEdit"> Liquidación {{therapist}}</label>
+
+                <label *ngIf="editTerap" class="textDates">{{liquidationTherapist.desdeFechaLiquidado + ' ' +
+                    liquidationTherapist.desdeHoraLiquidado + ' a ' + liquidationTherapist.hastaFechaLiquidado
+                    + ' ' + liquidationTherapist.hastaHoraLiquidado}}</label>
+
+                <div *ngIf="editTerap">
+                    <div class="row containerTitleEdit">
+                        <div class="row g-0">
+                            <label class="titleLiquidation">TOTAL LIQUIDACIÓN</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleLiquidation">{{textTotalComission + ' €'}}</label>
+                        </div>
+                    </div>
+
+                    <div class="row containerTitleWayPay">
+                        <div class="row g-0">
+                            <label class="titleWayPay">TIPO DE PAGO:</label>
+                        </div>
+
+                        <div class="row g-0" style="justify-content: end">
+                            <label class="titleWayPay">{{liquidationTherapist.formaPago}}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="editTerap" class="columnArrowTable2" id="arrowTable2Add">
+                    <i class='far fa-arrow-alt-circle-right arrowTable2' (click)="arrowTable2Add()"></i>
+                </div>
+
+                <!-- Table 2 -->
+
+                <div class="column2" *ngIf="editTerap">
+                    <div class="columnTable2Line1">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentTable2Line1">
+                            <label>Trata</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                    </div>
+
+                    <div class="columnTable2Line2">
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
+
+                        <div class="textHour">
+                            <label>Hora</label>
+                        </div>
+
+                        <div class="textMin">
+                            <label>Min</label>
+                        </div>
+
+                        <div class="textTreatmentTable2Line2">
+                            <label>miento</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textValueTherapist">
+                            <label>€ A Terap.</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobacco">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textOthers">
+                            <label>Otros</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable2">
+
+                    <div class="columnTable2Line2" *ngFor="let serv of settledData | 
+                        paginate: { itemsPerPage: 10, currentPage: page }">
+
+                        <div [ngClass]="{'color2':serv.nota !== ''}" (click)="notes(serv.id, modalTabl)">
+                        </div>
+
+                        <div class="columnDate" (click)="goToEdit(serv.id)">{{serv?.fecha}}</div>
+
+                        <div class="columnHour"> {{serv.horaStart + ' - ' + serv.horaEnd}} </div>
+
+
+                        <div class="columnMin">{{serv?.minuto + ' min'}}</div>
+
+                        <div class="columnTreatment2">{{serv?.servicio + ' €'}} </div>
+
+                        <div class="columnExit">{{serv?.salida}}</div>
+
+                        <div class="columnValueTip">{{serv?.propina + ' €'}} </div>
+
+                        <div class="columnPaymentMethod">{{serv?.formaPago}}</div>
+
+                        <div class="columnValueTherapist"> {{serv?.numberTerap + ' €'}} </div>
+
+                        <div class="columnValueDrink">{{serv?.bebidas + ' €'}}</div>
+
+                        <div class="columnValueDrinkTherapist">{{serv?.bebidaTerap + ' €'}}
+                        </div>
+
+                        <div class="columnValueTobacco">{{serv?.tabaco + ' €'}}</div>
+
+                        <div class="columnValueVitamin">{{serv?.vitaminas + ' €'}}</div>
+
+                        <div class="columnValueOthers">{{serv?.otros + ' €'}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{serv.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <pagination-controls *ngIf="editTerap" class="pagination_MobileTable2" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+                <!-- Table 3 -->
+
+                <div class="column3" *ngIf="editTerap">
+                    <div class="columnTable3">
+
+                        <div class="">
+                            <label></label>
+                        </div>
+
+                        <div class="textSum">
+                            <label>Suma</label>
+                        </div>
+
+                        <div class="textCommision">
+                            <label>Comisión</label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>Total</label>
+                        </div>
+
+                    </div>
+
+                    <hr class="lineTable3">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tratamiento</label>
+                        <label class="columnSum">{{textTotalService + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.servicio != undefined" class="columnComission">
+                            {{terapeutaName?.servicio + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.servicio == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textServiceComission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Propina</label>
+                        <label class="columnSum">{{textTotalTip2 + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.propina != undefined" class="columnComission">
+                            {{terapeutaName?.propina + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.propina == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{commissionTip + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida casa</label>
+                        <label class="columnSum">{{textValueDrink + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.bebida != undefined"
+                            class="columnComission">{{terapeutaName?.bebida +
+                            ' %'}}</label>
+                        <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textBeverageCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Bebida terap.</label>
+                        <label class="columnSum">{{textValueDrinkTherap + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.bebidaTerap != undefined"
+                            class="columnComission">{{terapeutaName?.bebidaTerap +
+                            ' %'}}</label>
+                        <label *ngIf="terapeutaName?.bebida == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textbeverageTherapistCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Tabaco</label>
+                        <label class="columnSum">{{textTobaccoValue + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.tabaco != undefined" class="columnComission">
+                            {{terapeutaName?.tabaco + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.tabaco == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textTobaccoCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Vitamina</label>
+                        <label class="columnSum">{{textValueVitamins + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.vitamina != undefined" class="columnComission">
+                            {{terapeutaName?.vitamina + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.vitamina == undefined" class="columnComission">
+                            {{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textVitaminCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3">Otros</label>
+                        <label class="columnSum">{{textValueOther + ' €'}}</label>
+                        <label *ngIf="terapeutaName?.otros != undefined" class="columnComission">
+                            {{terapeutaName?.otros + ' %'}}</label>
+                        <label *ngIf="terapeutaName?.otros == undefined" class="columnComission">{{0 + ' %'}}</label>
+                        <label class="columnTotal">{{textCommissionOthers + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textSum2">Suma</label>
+                        <label></label>
+                        <label class="columnTotal">{{textSumCommission + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="textReceivend">Recibido</label>
+                        <label></label>
+                        <label class="columnTotal">{{textReceivedTherapist + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTotalPay">
+
+                    <div class="columnTable3">
+                        <label class="columnTreatment3"></label>
+                        <label class="columnTotalPay">Total a</label>
+                        <label class="columnPay">pagar</label>
+                        <label class="columnTotal">{{textTotalCommission + ' €'}}</label>
+                    </div>
+                </div>
+
+                <!-- Table 4 -->
+
+                <div class="column4" *ngIf="editTerap">
+
+                    <label class="textPayToTherapist">Pagado a terapeuta</label>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Efectivo</label>
+                        <label class="columnSum">{{textTotalCash + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Bizum</label>
+                        <label class="columnSum">{{textTotalBizum + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Tarjeta</label>
+                        <label class="columnSum">{{textTotalCard + ' €'}}</label>
+                    </div>
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Transferencia</label>
+                        <label class="columnSum">{{textTotalTransaction + ' €'}}</label>
+                    </div>
+
+                    <hr class="lineTable4">
+
+                    <div class="columnTable4">
+                        <label class="columnTreatment4">Total pagado</label>
+                        <label class="columnSum">{{textTotalTherapistPayment + ' €'}}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="editTerap" class="row inputButtonEdit">
+
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnDelete" (click)="delete()">Eliminar</button>
+                    </div>
+
+                    <div class="row g-0">
+                        <button type="submit" mat-button class="btnCancel" (click)="cancel()">Cancelar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="loading" id="container_loading">
+            <div id="load"></div>
+        </div>
+    </div>
+</div>

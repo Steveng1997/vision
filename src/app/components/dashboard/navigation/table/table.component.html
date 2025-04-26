@@ -1,0 +1,550 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <div class="m-0 vh-90 row justify-content-center align-items-center">
+
+                <div *ngIf="loading" id="container_loading">
+                    <div id="load"></div>
+                </div>
+
+                <label *ngIf="table" class="title">SERVICIOS REALIZADOS</label>
+
+                <div class="row tableContainerFilters">
+
+                    <div class="buttonFilters" (click)="modalFiltres(modalFilter)">
+
+                        <div class="row g-0"> <img src="/assets/icons8-opciones-para-ordenar-100.png"
+                                class="iconFilters">
+                        </div>
+
+                        <div class="row g-0">
+                            <label class="filters">Filtrar</label>
+                        </div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalFilter let-modal>
+                            <div class="modal-header">
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <form [formGroup]="formTemplate" *ngIf="table">
+
+                                    <div class="row tableContainer">
+
+                                        <div class="therapistContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Terapeuta</label>
+                                                <select class="form-select" formControlName="terapeuta"
+                                                    [(ngModel)]="selectedTerapeuta" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                            font-family: sans-serif;" (change)="filters()">
+                                                    <option selected value="">Selecciona</option>
+                                                    <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
+                                                        {{terap.nombre}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="containerInCharge">
+                                            <div class="row g-0">
+                                                <label class="text">Encargada</label>
+                                                <select class="form-select" formControlName="encargada"
+                                                    [(ngModel)]="selectedEncargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif;" (change)="filters()">
+                                                    <option *ngIf="administratorRole" selected value="">
+                                                        Selecciona
+                                                    </option>
+                                                    <option *ngFor="let managers of manager" [value]="managers.nombre">
+                                                        {{managers.nombre}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Inicio</label>
+                                                <input type="date" class="form-control" formControlName="fechaInicio"
+                                                    [(ngModel)]="dateStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+
+                                        <div class="dateContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Fecha Final</label>
+                                                <input type="date" class="form-control" formControlName="FechaFin"
+                                                    [(ngModel)]="dateEnd" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+
+                                        <div class="hourContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Hora Inicio</label>
+                                                <input type="time" name="horaStart" min="18:00" max="21:00" step="3600"
+                                                    class="form-control" formControlName="horaStart"
+                                                    [(ngModel)]="horaStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                                    font-size: 18px; font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+
+                                        <div class="hourContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Hora Final</label>
+                                                <input type="time" name="horaEnd" min="18:00" max="21:00" step="3600"
+                                                    class="form-control" formControlName="horaEnd" [(ngModel)]="horaEnd"
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif" (change)="filters()">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tableContainer2">
+
+                                        <div class="containerPaymentMethod">
+                                            <div class="row g-0">
+                                                <label class="text">Tipo de Pago</label>
+                                                <select class="form-select" formControlName="formaPago"
+                                                    [(ngModel)]="selectedFormPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
+                                                    font-family: sans-serif;" (change)="filters()">
+                                                    <option selected value="">Selecciona</option>
+                                                    <option value="Efectivo">Efectivo</option>
+                                                    <option value="Bizum">Bizum</option>
+                                                    <option value="Tarjeta">Tarjeta</option>
+                                                    <option value="Trans">Trans</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="searchContainer">
+                                            <div class="row g-0">
+                                                <label class="text">Busqueda</label>
+                                                <input type="text" class="form-control input-sm"
+                                                    [(ngModel)]="filtredBusqueda" formControlName="busqueda" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
+                                                    font-size: 18px; font-family: sans-serif;" (change)="filters()" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button type="submit" mat-raised-button class="btn btn-primary"
+                                            style="display: grid; margin: auto; margin-top: 1rem" color="primary"
+                                            (click)="OK()">Aceptar</button>
+                                    </div>
+                                </form>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+                        <!-- Fin Modal -->
+                    </div>
+
+                    <div class="buttonDeleteContainer" (click)="deleteService()">
+
+                        <div *ngIf="!deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100.png"
+                                class="iconDelete"> </div>
+
+                        <div *ngIf="deleteButton" class="row g-0"> <img src="/assets/icons8-eliminar-100-red.png"
+                                class="iconDelete"> </div>
+
+                        <div class="row g-0">
+                            <label [ngClass]="{'titleDeleteRed': deleteButton == true , 
+                                'titleDelete': deleteButton == false}">Eliminar</label>
+                        </div>
+
+                    </div>
+
+                    <div class="exportExcel" (click)="exportExcel()">
+
+                        <div class="row g-0"> <img src="/assets/icons8-ms-excel-100.png" class="iconExcel"> </div>
+
+                        <div class="row g-0">
+                            <label class="titleExcel">Excel</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="columnArrow" id="arrowLeft" *ngIf="table">
+                    <i class='far fa-arrow-alt-circle-right arrow' (click)="arrowLeft()"></i>
+                </div>
+
+
+                <!-- Table -->
+                <div class="column" id="excel-table" *ngIf="table">
+
+                    <!-- Total value -->
+                    <div class="columnTableLine1">
+
+                        <div> </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTotals">
+                            <label>TOTALES</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="valueTotal">
+                            <label>{{TotalValueLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label></label>
+                        </div>
+
+                        <div class="textExit">
+                            <label></label>
+                        </div>
+
+                        <div class="valueTreatment">
+                            <label>{{TotalServiceLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueFloor1">
+                            <label>{{TotalFloor1Letter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueFloor2">
+                            <label>{{TotalFloor2Letter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueTherapist">
+                            <label>{{TotalTherapistLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueManager">
+                            <label>{{TotalManagerLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueOther">
+                            <label>{{TotalToAnotherLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueDrink">
+                            <label>{{TotalDrinkLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueDrinkTherapist">
+                            <label>{{totalDrinkTherapistLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueTobacco">
+                            <label>{{TotalTobaccoLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueVitamin">
+                            <label>{{TotalVitaminsLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueTip">
+                            <label>{{TotalTipLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueOthers">
+                            <label>{{TotalOthersLetter + ' €'}}</label>
+                        </div>
+
+                        <div class="valueTaxi">
+                            <label>{{TotalTaxiLetter + ' €'}}</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <!-- Text -->
+
+                    <div class="columnTableLine1">
+
+                        <div> </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTherapistLine1">
+                            <label>Tera</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textTreatmentLine1">
+                            <label>Trata</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div class="textDrinkHouseLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine1">
+                            <label>Bebida</label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+
+                        <div>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="columnTableLine2">
+
+                        <div> </div>
+
+                        <div class="textManager">
+                            <label>Encargada</label>
+                        </div>
+
+                        <div class="textDate">
+                            <label>Fecha</label>
+                        </div>
+
+                        <div class="textTherapistLine2">
+                            <label>peuta</label>
+                        </div>
+
+                        <div class="textTime">
+                            <label>Tiempo</label>
+                        </div>
+
+                        <div class="textMin">
+                            <label>Min</label>
+                        </div>
+
+                        <div class="textTotal">
+                            <label>Total</label>
+                        </div>
+
+                        <div class="textPay">
+                            <label>Pago</label>
+                        </div>
+
+                        <div class="textExit">
+                            <label>Salida</label>
+                        </div>
+
+                        <div class="textTreatmentLine2">
+                            <label>miento</label>
+                        </div>
+
+                        <div class="textHouse1">
+                            <label>€ A casa</label>
+                        </div>
+
+                        <div class="textHouse2">
+                            <label>€ A casa</label>
+                        </div>
+
+                        <div class="textValueTherapist">
+                            <label>€ A terap.</label>
+                        </div>
+
+                        <div class="textValueManager">
+                            <label>€ A enc.</label>
+                        </div>
+
+                        <div class="textValueTaxist">
+                            <label>€ A taxista</label>
+                        </div>
+
+                        <div class="textDrinkHouseLine2">
+                            <label>casa</label>
+                        </div>
+
+                        <div class="textDrinkTherapistLine2">
+                            <label>Terap.</label>
+                        </div>
+
+                        <div class="textTobacco">
+                            <label>Tabaco</label>
+                        </div>
+
+                        <div class="textVitamin">
+                            <label>Vitamina</label>
+                        </div>
+
+                        <div class="textTip">
+                            <label>Propina</label>
+                        </div>
+
+                        <div class="textOthers">
+                            <label>Otros</label>
+                        </div>
+
+                        <div class="textTaxi">
+                            <label>Taxi</label>
+                        </div>
+
+                        <div class="textClient">
+                            <label>Cliente</label>
+                        </div>
+                    </div>
+
+                    <hr class="lineTable">
+
+                    <div class="columnTableLine2" *ngFor="let services of (servicio | terapeuta: selectedTerapeuta |
+                    encargada: selectedEncargada | fechaInicial: fechaInicio:fechaFinal 
+                    | horaInicial: fechaInicio:horaStart:fechaFinal:horaEnd | busqueda: filtredBusqueda 
+                    | formaPago: selectedFormPago ) | paginate: { itemsPerPage: 50, currentPage: page }">
+
+                        <div class="columnNote" class="columnNote" [ngClass]="{'color2':services.nota !== ''}"
+                            (click)="notes(services.id, modalTabl)">
+                        </div>
+
+                        <div class="columnManager">{{services.encargada}}</div>
+
+                        <div class="columnDate" (click)="editForm(services.id)">{{services.fecha}}</div>
+
+                        <div class="columnTherapist">{{services.terapeuta}}</div>
+
+                        <div class="columnHour">{{services.horaStart + '-' +
+                            services.horaEnd}}</div>
+
+                        <div class="columnMin">{{services.minuto + ' min'}}</div>
+
+                        <div class="columnTotal">{{services.totalServicio+ ' €'}}</div>
+
+                        <div class="columnPaymentMethod">{{services.formaPago}}</div>
+
+                        <div class="columnExit">{{services.salida}}</div>
+
+                        <div class="columnTreatment">{{services.servicio + ' €'}}</div>
+
+                        <div class="columnFloor1">{{services.numberPiso1 + ' €'}}</div>
+
+                        <div class="columnFloor2">{{services.numberPiso2 + ' €'}}</div>
+
+                        <div class="columnValueTherapist"> {{services.numberTerap + ' €'}}</div>
+
+                        <div class="columnValueManager"> {{services.numberEncarg + ' €'}} </div>
+
+                        <div class="columnValueOther"> {{services.numberTaxi + ' €'}} </div>
+
+                        <div class="columnValueDrink">{{services.bebidas + ' €'}}</div>
+
+                        <div class="columnValueDrinkTherapist"> {{services.bebidaTerap + ' €'}} </div>
+
+                        <div class="columnValueTobacco">{{services.tabaco + ' €'}}</div>
+
+                        <div class="columnValueVitamin"> {{services.vitaminas + ' €'}} </div>
+
+                        <div class="columnValueTip">{{services.propina + ' €'}}</div>
+
+                        <div class="columnOther">{{services.otros+ ' €'}}</div>
+
+                        <div class="columnTaxi">{{services.taxi+ ' €'}}</div>
+
+                        <div class="columnClient">{{services.cliente}}</div>
+
+                        <!-- Modal -->
+                        <ng-template class="custom-modal" #modalTabl let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Nota </h5>
+                                <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style="text-align: center;">
+                                <!-- Aqui se coloca lo adentro -->
+
+                                <h4>{{services.nota}}</h4>
+
+                                <!-- Afuera -->
+                            </div>
+                        </ng-template>
+
+                        <!-- Fin Modal -->
+                    </div>
+                </div>
+
+                <!-- Fin table -->
+
+                <pagination-controls class="pagination_Mobile" *ngIf="table" (pageChange)="page = $event"
+                    previousLabel="" nextLabel="">
+                </pagination-controls>
+
+            </div>
+        </div>
+    </div>
+</div>
