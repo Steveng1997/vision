@@ -185,8 +185,6 @@ export class NewServiceComponent implements OnInit {
 
   public ngOnInit(): void {
     this.addService = true
-    // const params = this.activatedRoute.snapshot['_urlSegment'].segments[1];
-    // this.idUser = Number(params.path)
 
     const params = this.activeRoute.snapshot['_routerState']['url']
     const part = params.split('/');
@@ -442,7 +440,7 @@ export class NewServiceComponent implements OnInit {
                   localStorage.removeItem('Bizum')
                   localStorage.removeItem('Tarjeta')
                   localStorage.removeItem('Trans')
-                  setTimeout(() => {                    
+                  setTimeout(() => {
                     const params = this.activeRoute.snapshot['_routerState']['url']
                     const part = params.split('/');
                     var parts = part[2];
@@ -1420,7 +1418,10 @@ export class NewServiceComponent implements OnInit {
     if (this.restamosCobroEdit == 0) {
       if (serv.minuto != null) {
         let idUsuario = ''
-        idUsuario = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+        const params = this.activeRoute.snapshot['_routerState']['url']
+        const part = params.split('/');
+        var parts = part[2];
+        idUsuario = parts
 
         if (!this.expiredDateValidationsEdit()) return
         if (!this.validationsToSelectAPaymentMethod()) return
@@ -1885,10 +1886,6 @@ export class NewServiceComponent implements OnInit {
   deleteService(id) {
     let idUser = ''
     if (this.administratorRole == true) {
-      const params = this.activeRoute.snapshot['_routerState']['url']
-      const part = params.split('/');
-      var parts = part[2];
-      this.idUser = Number(parts)
       this.service.getById(id).subscribe((datoEliminado) => {
         if (datoEliminado) {
           Swal.fire({
@@ -1901,13 +1898,18 @@ export class NewServiceComponent implements OnInit {
           }).then((result) => {
             if (result.isConfirmed) {
               this.serviceTherapist.getTerapeuta(datoEliminado[0]['terapeuta']).subscribe((rp: any) => {
-                this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => { })
+                this.serviceTherapist.updateHoraAndSalida(rp[0].nombre, rp[0]).subscribe((rp: any) => {
+                })
               })
               localStorage.removeItem('Efectivo')
               localStorage.removeItem('Bizum')
               localStorage.removeItem('Tarjeta')
               localStorage.removeItem('Trans')
               this.service.deleteServicio(id).subscribe((rp: any) => {
+                const params = this.activeRoute.snapshot['_routerState']['url']
+                const part = params.split('/');
+                var parts = part[2];
+                idUser = parts
                 this.router.navigate([`menu/${idUser}/vision/${idUser}`])
                 Swal.fire({ position: 'top-end', icon: 'success', title: '¡Eliminado Correctamente!', showConfirmButton: false, timer: 2500 })
               })
@@ -1928,7 +1930,7 @@ export class NewServiceComponent implements OnInit {
     localStorage.removeItem('Bizum')
     localStorage.removeItem('Tarjeta')
     localStorage.removeItem('Trans')
-    
+
     const params = this.activeRoute.snapshot['_routerState']['url']
     const part = params.split('/');
     var parts = part[2];

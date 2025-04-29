@@ -20,7 +20,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatButtonModule } from '@angular/material/button';
 
 // Services
 import { ServiceTherapist } from './core/services/therapist';
@@ -60,7 +59,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule,
   ],
   providers: [
     ServiceTherapist,

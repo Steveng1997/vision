@@ -176,9 +176,6 @@ export class ClosingComponent implements OnInit {
     this.deleteButton = false
     this.loading = true
 
-    // const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
-    // this.idUser = Number(params.path)
-
     const params = this.activeRoute.snapshot['_routerState']['url']
     const part = params.split('/');
     var parts = part[2];

@@ -217,8 +217,8 @@
                         <div class="beverageTherapistContainer">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
                                         display: contents; font-weight: bold">Bebida terap.</label>
-                            <input type="number" class="form-control" name="bebidaTerap" [(ngModel)]="services.bebidaTerap"
-                                (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
+                            <input type="number" class="form-control" name="bebidaTerap"
+                                [(ngModel)]="services.bebidaTerap" (ngModelChange)="serviceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #0CC0DF" />
                         </div>
                     </div>
@@ -735,13 +735,13 @@
                         <div class="beverageTherapistContainer">
                             <label style="color: #242424; font-size: 18px; font-family: sans-serif; 
                                         display: contents; font-weight: bold">Bebida Terap.</label>
-                            <input type="number" class="form-control" name="bebidaTerap" [(ngModel)]="edServ.bebidaTerap"
-                                (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
+                            <input type="number" class="form-control" name="bebidaTerap"
+                                [(ngModel)]="edServ.bebidaTerap" (ngModelChange)="editServiceValue()" style="height: 2.2rem; color: #000000; 
                                             font-size: 18px; font-family: sans-serif; border-color: #0CC0DF" />
                         </div>
                     </div>
                 </div>
-                
+
 
 
                 <!---------------------------------------- COBROS  ---------------------------------------->
@@ -1011,8 +1011,8 @@
 
                     <div>
                         <div class="row g-0">
-                            <button type="submit" id="btnEdit" mat-raised-button style="display: grid; margin: auto;" color="primary"
-                                (click)="editService(edServ.id, edServ)">Guardar</button>
+                            <button type="submit" id="btnEdit" mat-raised-button style="display: grid; margin: auto;"
+                                color="primary" (click)="editService(edServ.id, edServ)">Guardar</button>
                         </div>
                     </div>
 
