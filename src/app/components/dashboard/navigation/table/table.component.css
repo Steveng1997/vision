@@ -270,18 +270,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 31% 28% 35% 23% 33% 29% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 31% 34% 35% 23% 33% 29% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -312,7 +304,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 31% 28% 35% 23% 33% 29% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 31% 34% 35% 23% 33% 29% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -484,14 +476,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 25px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -675,7 +664,7 @@
   }
 
   .lineTable {
-    width: 790%;
+    width: 802%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -1120,18 +1109,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -1162,7 +1143,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -1334,14 +1315,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 30px 0px 0px
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -1525,7 +1503,7 @@
   }
 
   .lineTable {
-    width: 783%;
+    width: 795%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -1970,18 +1948,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -2012,7 +1982,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -2184,14 +2154,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 30px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -2375,7 +2342,7 @@
   }
 
   .lineTable {
-    width: 786%;
+    width: 798%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -2818,18 +2785,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 28% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 28% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -2860,7 +2819,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 28% 28% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 28% 34% 33% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -3032,14 +2991,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 32px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -3223,7 +3179,7 @@
   }
 
   .lineTable {
-    width: 786%;
+    width: 798%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -3668,18 +3624,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -3710,7 +3658,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -3882,14 +3830,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 40px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -4073,7 +4018,7 @@
   }
 
   .lineTable {
-    width: 783%;
+    width: 795%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -4519,18 +4464,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -4561,7 +4498,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -4733,14 +4670,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -4924,7 +4858,7 @@
   }
 
   .lineTable {
-    width: 782%;
+    width: 794%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -5370,18 +5304,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -5412,7 +5338,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -5584,14 +5510,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -5775,7 +5698,7 @@
   }
 
   .lineTable {
-    width: 782%;
+    width: 794%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -6220,18 +6143,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -6262,7 +6177,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -6434,14 +6349,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -6634,7 +6546,7 @@
   }
 
   .lineTable {
-    width: 782%;
+    width: 794%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -7078,18 +6990,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -7120,7 +7024,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -7292,14 +7196,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -7483,7 +7384,7 @@
   }
 
   .lineTable {
-    width: 783%;
+    width: 795%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -7927,18 +7828,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -7969,7 +7862,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -8141,14 +8034,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -8332,7 +8222,7 @@
   }
 
   .lineTable {
-    width: 783%;
+    width: 795%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -8777,18 +8667,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 31% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 31% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0.5px;
   }
 
   .textTreatmentLine1 {
@@ -8819,7 +8701,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 31% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 31% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -8991,14 +8873,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 45px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -9182,7 +9061,7 @@
   }
 
   .lineTable {
-    width: 783%;
+    width: 795%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -9627,18 +9506,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -9669,7 +9540,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -9841,14 +9712,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 75px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -10032,7 +9900,7 @@
   }
 
   .lineTable {
-    width: 790%;
+    width: 802%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -10374,18 +10242,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -10400,7 +10260,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -10550,14 +10410,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -10725,7 +10582,7 @@
   }
 
   .lineTable {
-    width: 713%;
+    width: 725%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
@@ -11047,18 +10904,10 @@
 
   .columnTableLine1 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: -31px;
     margin-top: 26px;
     margin-left: -3%;
-  }
-
-  .textTherapistLine1 {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 15px 0px 0px 0px;
   }
 
   .textTreatmentLine1 {
@@ -11073,7 +10922,7 @@
 
   .columnTableLine2 {
     display: grid;
-    grid-template-columns: 9% 28% 27% 28% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
+    grid-template-columns: 9% 34% 27% 34% 31% 23% 33% 26% 55% 61% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34%;
     margin-bottom: 8px;
     margin-left: -3%;
   }
@@ -11223,14 +11072,11 @@
   /* Text table */
 
   .textManager {
-    line-break: anywhere;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
     font-family: sans-serif;
-    line-height: 1.2rem;
-    word-wrap: break-word;
-    padding: 0px 44px 0px 0px;
+    padding: 15px 0px 0px 0px;
   }
 
   .textDate {
@@ -11398,7 +11244,7 @@
   }
 
   .lineTable {
-    width: 713%;
+    width: 725%;
     color: #8C52FF;
     margin: auto;
     border-width: initial;
