@@ -13,18 +13,18 @@
 
 .pagination_Mobile ::ng-deep .ngx-pagination .current {
   background: white;
-  color: #0CC0DF;
+  color: #8C52FF;
   font-weight: bold;
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-next a::after,
 .pagination_Mobile ::ng-deep .ngx-pagination .pagination-next.disabled::after {
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 #container_loading {
@@ -40,7 +40,7 @@
 
 #load {
   border: 15px solid #ccc;
-  border-top-color: #0CC0DF;
+  border-top-color: #8C52FF;
   height: 100px;
   width: 100px;
   border-radius: 100%;
@@ -76,7 +76,7 @@
     display: grid;
     justify-content: center;
     font-size: 25px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -84,7 +84,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -160,7 +160,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -185,9 +185,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -222,9 +222,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -252,7 +252,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -676,7 +676,7 @@
 
   .lineTable {
     width: 790%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -705,7 +705,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 19px 0px 0px;
     cursor: pointer;
   }
@@ -926,7 +926,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -934,7 +934,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1010,7 +1010,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -1035,9 +1035,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -1072,9 +1072,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -1102,7 +1102,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -1526,7 +1526,7 @@
 
   .lineTable {
     width: 783%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1555,7 +1555,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 10px 0px 0px;
     cursor: pointer;
   }
@@ -1776,7 +1776,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -1784,7 +1784,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -1860,7 +1860,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -1885,9 +1885,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -1922,9 +1922,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -1952,7 +1952,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -2376,7 +2376,7 @@
 
   .lineTable {
     width: 786%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2405,7 +2405,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 10px 0px 0px;
     cursor: pointer;
   }
@@ -2625,7 +2625,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -2633,7 +2633,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -2708,7 +2708,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -2733,9 +2733,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -2770,9 +2770,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -2800,7 +2800,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -3224,7 +3224,7 @@
 
   .lineTable {
     width: 786%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3253,7 +3253,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 18px 0px 0px;
     cursor: pointer;
   }
@@ -3474,7 +3474,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -3482,7 +3482,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -3558,7 +3558,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -3583,9 +3583,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -3620,9 +3620,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -3650,7 +3650,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -4074,7 +4074,7 @@
 
   .lineTable {
     width: 783%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4103,7 +4103,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }
@@ -4325,7 +4325,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -4333,7 +4333,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -4409,7 +4409,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -4434,9 +4434,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -4471,9 +4471,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -4501,7 +4501,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -4925,7 +4925,7 @@
 
   .lineTable {
     width: 782%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4954,7 +4954,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }
@@ -5176,7 +5176,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -5184,7 +5184,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -5260,7 +5260,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -5285,9 +5285,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -5322,9 +5322,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -5352,7 +5352,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -5776,7 +5776,7 @@
 
   .lineTable {
     width: 782%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -5805,7 +5805,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }
@@ -6026,7 +6026,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -6034,7 +6034,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -6110,7 +6110,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -6135,9 +6135,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -6172,9 +6172,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -6202,7 +6202,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -6635,7 +6635,7 @@
 
   .lineTable {
     width: 782%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -6664,7 +6664,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }
@@ -6885,7 +6885,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -6893,7 +6893,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -6968,7 +6968,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -6993,9 +6993,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -7030,9 +7030,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -7060,7 +7060,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -7484,7 +7484,7 @@
 
   .lineTable {
     width: 783%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -7513,7 +7513,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 21px 0px 0px;
     cursor: pointer;
   }
@@ -7734,7 +7734,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -7742,7 +7742,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -7817,7 +7817,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -7842,9 +7842,9 @@
     margin-left: -14px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -7879,9 +7879,9 @@
     margin-left: -29px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -7909,7 +7909,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -8333,7 +8333,7 @@
 
   .lineTable {
     width: 783%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -8362,7 +8362,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 21px 0px 0px;
     cursor: pointer;
   }
@@ -8583,7 +8583,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -8591,7 +8591,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -8667,7 +8667,7 @@
     margin-top: 0px;
     height: 35px;
     width: 90%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -8692,9 +8692,9 @@
     margin-left: -17px;
     height: 35px;
     width: 90%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -8729,9 +8729,9 @@
     margin-left: -34px;
     height: 35px;
     width: 84%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -8759,7 +8759,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -9183,7 +9183,7 @@
 
   .lineTable {
     width: 783%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -9212,7 +9212,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 40px 0px 0px;
     cursor: pointer;
   }
@@ -9432,7 +9432,7 @@
     display: grid;
     justify-content: center;
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -9440,7 +9440,7 @@
   }
 
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -9517,7 +9517,7 @@
     margin-top: 0px;
     height: 35px;
     width: 65%;
-    border: 1px solid #0CC0DF;
+    border: 1px solid #8C52FF;
   }
 
   .iconFilters {
@@ -9542,9 +9542,9 @@
     margin-left: -67px;
     height: 35px;
     width: 65%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconDelete {
@@ -9579,9 +9579,9 @@
     margin-left: -136px;
     height: 35px;
     width: 65%;
-    border-right: 1px solid #0CC0DF;
-    border-bottom: 1px solid #0CC0DF;
-    border-top: 1px solid #0CC0DF;
+    border-right: 1px solid #8C52FF;
+    border-bottom: 1px solid #8C52FF;
+    border-top: 1px solid #8C52FF;
   }
 
   .iconExcel {
@@ -9609,7 +9609,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -10033,7 +10033,7 @@
 
   .lineTable {
     width: 790%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -10062,7 +10062,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 55px 0px 0px;
     cursor: pointer;
   }
@@ -10279,7 +10279,7 @@
 
 @media only screen and (min-device-width: 1131px) and (max-device-width: 1800px) {
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -10356,7 +10356,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -10726,7 +10726,7 @@
 
   .lineTable {
     width: 713%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -10755,7 +10755,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }
@@ -10952,7 +10952,7 @@
 
 @media only screen and (min-device-width: 1801px) and (max-device-width: 2000px) {
   .color2 {
-    background: #0CC0DF;
+    background: #8C52FF;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -11029,7 +11029,7 @@
 
   .arrow {
     font-size: 28px;
-    color: #0CC0DF;
+    color: #8C52FF;
     float: inline-end;
   }
 
@@ -11399,7 +11399,7 @@
 
   .lineTable {
     width: 713%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -11428,7 +11428,7 @@
     font-size: 18px;
     word-wrap: break-word;
     text-align-last: left;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: 0px 15px 0px 0px;
     cursor: pointer;
   }

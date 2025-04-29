@@ -1,34 +1,34 @@
 .pagination_Manager ::ng-deep .ngx-pagination .current {
     background: white;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
   }
   
   .pagination_Manager ::ng-deep .ngx-pagination .pagination-previous a::before,
   .pagination_Manager ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
-    color: #0CC0DF;
+    color: #8C52FF;
   }
   
   .pagination_Manager ::ng-deep .ngx-pagination .pagination-next a::after,
   .pagination_Manager ::ng-deep .ngx-pagination .pagination-next.disabled::after {
-    color: #0CC0DF;
+    color: #8C52FF;
   }
   
   .pagination_Therapist ::ng-deep .ngx-pagination .current {
     background: white;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
   }
   
   .pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous a::before,
   .pagination_Therapist ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
   }
   
   .pagination_Therapist ::ng-deep .ngx-pagination .pagination-next a::after,
   .pagination_Therapist ::ng-deep .ngx-pagination .pagination-next.disabled::after {
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
   }
   
@@ -55,7 +55,7 @@
   #load {
     border: 15px solid #ccc;
     /* border-top-color: #F4266A; */
-    border-top-color: #0CC0DF;
+    border-top-color: #8C52FF;
     /* border-top-style: groove; */
     height: 100px;
     width: 100px;
@@ -105,7 +105,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -128,7 +128,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -257,7 +257,7 @@
   
     .lineTableTherapist {
       width: 222%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -358,7 +358,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -525,7 +525,7 @@
   
     .lineTableManager {
       width: 310%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -672,7 +672,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -695,7 +695,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -824,7 +824,7 @@
   
     .lineTableTherapist {
       width: 215%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -925,7 +925,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -1092,7 +1092,7 @@
   
     .lineTableManager {
       width: 300%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1239,7 +1239,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -1262,7 +1262,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -1391,7 +1391,7 @@
   
     .lineTableTherapist {
       width: 213%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1492,7 +1492,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -1659,7 +1659,7 @@
   
     .lineTableManager {
       width: 300%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1806,7 +1806,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -1829,7 +1829,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -1958,7 +1958,7 @@
   
     .lineTableTherapist {
       width: 209%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2059,7 +2059,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -2226,7 +2226,7 @@
   
     .lineTableManager {
       width: 295%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2373,7 +2373,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -2396,7 +2396,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -2525,7 +2525,7 @@
   
     .lineTableTherapist {
       width: 204%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2626,7 +2626,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -2793,7 +2793,7 @@
   
     .lineTableManager {
       width: 288%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2941,7 +2941,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -2964,7 +2964,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -3093,7 +3093,7 @@
   
     .lineTableTherapist {
       width: 204%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3194,7 +3194,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -3361,7 +3361,7 @@
   
     .lineTableManager {
       width: 288%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3508,7 +3508,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -3531,7 +3531,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -3660,7 +3660,7 @@
   
     .lineTableTherapist {
       width: 194%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3761,7 +3761,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -3928,7 +3928,7 @@
   
     .lineTableManager {
       width: 283%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4075,7 +4075,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -4098,7 +4098,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -4227,7 +4227,7 @@
   
     .lineTableTherapist {
       width: 201%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4328,7 +4328,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -4495,7 +4495,7 @@
   
     .lineTableManager {
       width: 285%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4642,7 +4642,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -4665,7 +4665,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -4794,7 +4794,7 @@
   
     .lineTableTherapist {
       width: 190%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4895,7 +4895,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -5062,7 +5062,7 @@
   
     .lineTableManager {
       width: 277%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5209,7 +5209,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -5232,7 +5232,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -5361,7 +5361,7 @@
   
     .lineTableTherapist {
       width: 190%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5462,7 +5462,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -5629,7 +5629,7 @@
   
     .lineTableManager {
       width: 275%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5776,7 +5776,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -5799,7 +5799,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -5928,7 +5928,7 @@
   
     .lineTableTherapist {
       width: 162%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6029,7 +6029,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -6196,7 +6196,7 @@
   
     .lineTableManager {
       width: 232%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6343,7 +6343,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -6366,7 +6366,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -6495,7 +6495,7 @@
   
     .lineTableTherapist {
       width: 157%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6596,7 +6596,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -6763,7 +6763,7 @@
   
     .lineTableManager {
       width: 214%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6910,7 +6910,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -6933,7 +6933,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -6953,7 +6953,7 @@
   
     .lineTableTherapist {
       width: 168%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7076,7 +7076,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -7113,7 +7113,7 @@
   
     .lineTableManager {
       width: 248%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7306,7 +7306,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -7329,7 +7329,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       float: inline-end;
     }
   
@@ -7351,7 +7351,7 @@
   
     .lineTableTherapist {
       width: 168%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7474,7 +7474,7 @@
       display: grid;
       justify-content: start;
       font-size: 28px;
-      color: #0CC0DF;
+      color: #8C52FF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -7511,7 +7511,7 @@
   
     .lineTableManager {
       width: 248%;
-      color: #0CC0DF;
+      color: #8C52FF;
       margin: auto;
       border-width: initial;
       opacity: initial;

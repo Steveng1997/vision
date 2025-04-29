@@ -6,7 +6,7 @@ import { LiquidationTherapist } from '../models/liquidationTherapist';
 @Injectable()
 export class ServiceLiquidationTherapist {
 
-  API_URL = 'https://dos.admin.pasffyapp.com/api/liqTerapeuta';
+  API_URL = 'https://admin.pasffyapp.com/api/liqTerapeuta';
 
   constructor(
     public router: Router,

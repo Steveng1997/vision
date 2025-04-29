@@ -2,7 +2,7 @@
     display: grid;
     justify-content: center;
     font-size: 40px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -32,7 +32,7 @@
 .btnLogin {
     margin: auto;
     height: 45px;
-    background-color: #0CC0DF;
+    background-color: #8C52FF;
     font-size: 19px;
     font-family: sans-serif;
     --mdc-text-button-label-text-color: white;
@@ -43,5 +43,5 @@
     height: 45px;
     font-size: 19px;
     font-family: sans-serif;
-    --mdc-text-button-label-text-color: #0CC0DF;
+    --mdc-text-button-label-text-color: #8C52FF;
 }

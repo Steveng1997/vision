@@ -10,7 +10,7 @@ import { ModelManager } from '../models/manager';
 @Injectable()
 export class ServiceManager {
 
-  API_URL = 'https://dos.admin.pasffyapp.com/api/encargada';
+  API_URL = 'https://admin.pasffyapp.com/api/encargada';
   length: number;
 
   constructor(

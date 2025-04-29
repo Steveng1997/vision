@@ -40,7 +40,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Terapeuta</label>
                                                 <select class="form-select" formControlName="terapeuta"
-                                                    [(ngModel)]="selectedTerapeuta" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    [(ngModel)]="selectedTerapeuta" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                             font-family: sans-serif;" (change)="filters()">
                                                     <option selected value="">Selecciona</option>
                                                     <option *ngFor="let terap of terapeuta" [value]="terap.nombre">
@@ -53,7 +53,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Encargada</label>
                                                 <select class="form-select" formControlName="encargada"
-                                                    [(ngModel)]="selectedEncargada" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    [(ngModel)]="selectedEncargada" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                                     font-family: sans-serif;" (change)="filters()">
                                                     <option *ngIf="administratorRole" selected value="">
                                                         Selecciona
@@ -69,7 +69,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Fecha Inicio</label>
                                                 <input type="date" class="form-control" formControlName="fechaInicio"
-                                                    [(ngModel)]="dateStart" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    [(ngModel)]="dateStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                                     font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Fecha Final</label>
                                                 <input type="date" class="form-control" formControlName="FechaFin"
-                                                    [(ngModel)]="dateEnd" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    [(ngModel)]="dateEnd" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                                     font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
@@ -88,7 +88,7 @@
                                                 <label class="text">Hora Inicio</label>
                                                 <input type="time" name="horaStart" min="18:00" max="21:00" step="3600"
                                                     class="form-control" formControlName="horaStart"
-                                                    [(ngModel)]="horaStart" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; 
+                                                    [(ngModel)]="horaStart" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
                                                     font-size: 18px; font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                                                 <label class="text">Hora Final</label>
                                                 <input type="time" name="horaEnd" min="18:00" max="21:00" step="3600"
                                                     class="form-control" formControlName="horaEnd" [(ngModel)]="horaEnd"
-                                                    style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                                     font-family: sans-serif" (change)="filters()">
                                             </div>
                                         </div>
@@ -110,7 +110,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Tipo de Pago</label>
                                                 <select class="form-select" formControlName="formaPago"
-                                                    [(ngModel)]="selectedFormPago" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; font-size: 18px;
+                                                    [(ngModel)]="selectedFormPago" style="height: 2.2rem; border-color: #8C52FF; color: #242424; font-size: 18px;
                                                     font-family: sans-serif;" (change)="filters()">
                                                     <option selected value="">Selecciona</option>
                                                     <option value="Efectivo">Efectivo</option>
@@ -125,7 +125,7 @@
                                             <div class="row g-0">
                                                 <label class="text">Busqueda</label>
                                                 <input type="text" class="form-control input-sm"
-                                                    [(ngModel)]="filtredBusqueda" formControlName="busqueda" style="height: 2.2rem; border-color: #0CC0DF; color: #242424; 
+                                                    [(ngModel)]="filtredBusqueda" formControlName="busqueda" style="height: 2.2rem; border-color: #8C52FF; color: #242424; 
                                                     font-size: 18px; font-family: sans-serif;" (change)="filters()" />
                                             </div>
                                         </div>

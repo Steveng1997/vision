@@ -6,7 +6,7 @@ input[id="efectPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -16,7 +16,7 @@ input[id="efectPiso1"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="efectPiso1"] {
@@ -29,7 +29,7 @@ input[id="bizuPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@ input[id="bizuPiso1"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="bizuPiso1"] {
@@ -52,7 +52,7 @@ input[id="tarjPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -62,7 +62,7 @@ input[id="tarjPiso1"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="tarjPiso1"] {
@@ -75,7 +75,7 @@ input[id="transPiso1"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -85,7 +85,7 @@ input[id="transPiso1"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="transPiso1"] {
@@ -98,7 +98,7 @@ input[id="efectPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -108,7 +108,7 @@ input[id="efectPiso2"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="efectPiso2"] {
@@ -121,7 +121,7 @@ input[id="bizuPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ input[id="bizuPiso2"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="bizuPiso2"] {
@@ -144,7 +144,7 @@ input[id="tarjPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -154,7 +154,7 @@ input[id="tarjPiso2"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="tarjPiso2"] {
@@ -167,7 +167,7 @@ input[id="transPiso2"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -177,7 +177,7 @@ input[id="transPiso2"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="transPiso2"] {
@@ -190,7 +190,7 @@ input[id="efectTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -200,7 +200,7 @@ input[id="efectTerap"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="efectTerap"] {
@@ -213,7 +213,7 @@ input[id="bizuTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -223,7 +223,7 @@ input[id="bizuTerap"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="bizuTerap"] {
@@ -236,7 +236,7 @@ input[id="tarjTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -246,7 +246,7 @@ input[id="tarjTerap"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="tarjTerap"] {
@@ -259,7 +259,7 @@ input[id="transTerap"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -269,7 +269,7 @@ input[id="transTerap"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="transTerap"] {
@@ -282,7 +282,7 @@ input[id="efectEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -292,7 +292,7 @@ input[id="efectEncarg"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="efectEncarg"] {
@@ -305,7 +305,7 @@ input[id="bizuEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -315,7 +315,7 @@ input[id="bizuEncarg"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="bizuEncarg"] {
@@ -328,7 +328,7 @@ input[id="tarjEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -338,7 +338,7 @@ input[id="tarjEncarg"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="tarjEncarg"] {
@@ -351,7 +351,7 @@ input[id="transEncarg"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -361,7 +361,7 @@ input[id="transEncarg"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="transEncarg"] {
@@ -374,7 +374,7 @@ input[id="efectDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -384,7 +384,7 @@ input[id="efectDriverTaxi"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="efectDriverTaxi"] {
@@ -397,7 +397,7 @@ input[id="bizuDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -407,7 +407,7 @@ input[id="bizuDriverTaxi"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="bizuDriverTaxi"] {
@@ -420,7 +420,7 @@ input[id="tarjDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -430,7 +430,7 @@ input[id="tarjDriverTaxi"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="tarjDriverTaxi"] {
@@ -443,7 +443,7 @@ input[id="transDriverTaxi"]+label {
   display: inline-block;
   width: 23px;
   height: 23px;
-  border: 2px solid #0CC0DF;
+  border: 2px solid #8C52FF;
   cursor: pointer;
 }
 
@@ -453,7 +453,7 @@ input[id="transDriverTaxi"]:checked+label:after {
   left: 2px;
   content: "\2714";
   font-size: 19px;
-  color: #0CC0DF;
+  color: #8C52FF;
 }
 
 input[id="transDriverTaxi"] {
@@ -474,7 +474,7 @@ input[id="transDriverTaxi"] {
   margin-top: 1.5rem;
   font-size: 22px;
   margin-bottom: 0;
-  color: #0CC0DF;
+  color: #8C52FF;
   font-weight: bold;
   font-family: sans-serif;
   margin-left: 3rem;
@@ -491,7 +491,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -30px;
@@ -501,7 +501,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -509,7 +509,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 94%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -525,7 +525,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -538,7 +538,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 94%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -868,7 +868,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -12px;
@@ -878,7 +878,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -886,7 +886,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 90%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -902,7 +902,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -915,7 +915,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 90%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1245,7 +1245,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -10px;
@@ -1255,7 +1255,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -1263,7 +1263,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 89%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1279,7 +1279,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -1292,7 +1292,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 89%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1622,7 +1622,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 8px;
@@ -1632,7 +1632,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -1640,7 +1640,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 84%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1656,7 +1656,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -1669,7 +1669,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 84%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -1999,7 +1999,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 12px;
@@ -2009,7 +2009,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -2017,7 +2017,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 84%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2033,7 +2033,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -2046,7 +2046,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 84%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2376,7 +2376,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 0px;
@@ -2386,7 +2386,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -2394,7 +2394,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2409,7 +2409,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -2422,7 +2422,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2753,7 +2753,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 0px;
@@ -2763,7 +2763,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -2771,7 +2771,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 88%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -2786,7 +2786,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -2799,7 +2799,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 88%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3129,7 +3129,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: -6px;
@@ -3139,7 +3139,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -3147,7 +3147,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 89%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3162,7 +3162,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -3175,7 +3175,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 89%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3507,7 +3507,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 14px;
@@ -3517,7 +3517,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -3525,7 +3525,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 325px;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3540,7 +3540,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -3553,7 +3553,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 325px;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3899,7 +3899,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 10px;
@@ -3909,7 +3909,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -3917,7 +3917,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -3932,7 +3932,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -3945,7 +3945,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4275,7 +4275,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 11px;
@@ -4285,7 +4285,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -4293,7 +4293,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4308,7 +4308,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -4321,7 +4321,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 86%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4651,7 +4651,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 84px;
@@ -4661,7 +4661,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 30px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 1.5rem;
@@ -4669,7 +4669,7 @@ input[id="transDriverTaxi"] {
 
   .timeline {
     width: 75%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -4684,7 +4684,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 3rem;
@@ -4697,7 +4697,7 @@ input[id="transDriverTaxi"] {
 
   .serviceLine {
     width: 75%;
-    color: #0CC0DF;
+    color: #8C52FF;
     margin: auto;
     border-width: initial;
     opacity: initial;
@@ -5026,7 +5026,7 @@ input[id="transDriverTaxi"] {
   .title {
     display: grid;
     font-size: 45px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 2rem;
@@ -5036,7 +5036,7 @@ input[id="transDriverTaxi"] {
   .titles {
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 22%;
@@ -5051,7 +5051,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 9.3rem;
@@ -5065,7 +5065,7 @@ input[id="transDriverTaxi"] {
     width: 79%;
     margin-left: 8%;
     margin-bottom: auto;
-    color: #0CC0DF;
+    color: #8C52FF;
     border-width: initial;
     opacity: initial;
   }
@@ -5074,7 +5074,7 @@ input[id="transDriverTaxi"] {
     width: 79%;
     margin-left: 8%;
     margin-bottom: auto;
-    color: #0CC0DF;
+    color: #8C52FF;
     border-width: initial;
     opacity: initial;
   }
@@ -5410,7 +5410,7 @@ input[id="transDriverTaxi"] {
     display: grid;
     justify-content: center;
     font-size: 45px;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 2rem;
@@ -5420,7 +5420,7 @@ input[id="transDriverTaxi"] {
   .titles {
     font-size: 20px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 10.5rem;
@@ -5435,7 +5435,7 @@ input[id="transDriverTaxi"] {
     margin-top: 1.5rem;
     font-size: 22px;
     margin-bottom: 0;
-    color: #0CC0DF;
+    color: #8C52FF;
     font-weight: bold;
     font-family: sans-serif;
     margin-left: 9.3rem;
@@ -5449,7 +5449,7 @@ input[id="transDriverTaxi"] {
     width: 41.4rem;
     margin-left: 2rem;
     margin-bottom: auto;
-    color: #0CC0DF;
+    color: #8C52FF;
     border-width: initial;
     opacity: initial;
   }
@@ -5458,7 +5458,7 @@ input[id="transDriverTaxi"] {
     width: 41.4rem;
     margin-left: 2rem;
     margin-bottom: auto;
-    color: #0CC0DF;
+    color: #8C52FF;
     border-width: initial;
     opacity: initial;
   }

@@ -8,8 +8,8 @@ import { ModelClosing } from '../models/closing';
 @Injectable()
 export class ServiceClosing {
 
-  API_URL = 'https://dos.admin.pasffyapp.com/api/cierre';
-  API_SERVICIO = 'https://dos.admin.pasffyapp.com/api/servicio';
+  API_URL = 'https://admin.pasffyapp.com/api/cierre';
+  API_SERVICIO = 'https://admin.pasffyapp.com/api/servicio';
 
   constructor(
     public router: Router,
