@@ -10,7 +10,7 @@ import { ModelTherapist } from '../models/therapist';
 })
 export class ServiceTherapist {
 
-  API_Terapeuta = 'https://admin.pasffyapp.com/api/terapeuta';
+  API_Terapeuta = 'https://dos.admin.pasffyapp.com/api/terapeuta';
 
   constructor(
     public router: Router,

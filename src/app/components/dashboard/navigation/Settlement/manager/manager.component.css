@@ -32,36 +32,36 @@
   
   .pagination_Mobile ::ng-deep .ngx-pagination .current {
     background: white;
-    color: #8c52ff;
+    color: #0CC0DF;
     font-weight: bold;
   }
   
   .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous a::before,
   .pagination_Mobile ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
-    color: #8c52ff;
+    color: #0CC0DF;
   }
   
   .pagination_Mobile ::ng-deep .ngx-pagination .pagination-next a::after,
   .pagination_Mobile ::ng-deep .ngx-pagination .pagination-next.disabled::after {
-    color: #8c52ff;
+    color: #0CC0DF;
   }
   
   /* Pagination 2 */
   
   .pagination_MobileTable2 ::ng-deep .ngx-pagination .current {
     background: white;
-    color: #8c52ff;
+    color: #0CC0DF;
     font-weight: bold;
   }
   
   .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous a::before,
   .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
-    color: #8c52ff;
+    color: #0CC0DF;
   }
   
   .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next a::after,
   .pagination_MobileTable2 ::ng-deep .ngx-pagination .pagination-next.disabled::after {
-    color: #8c52ff;
+    color: #0CC0DF;
   }
   
   #container_loading {
@@ -77,7 +77,7 @@
   
   #load {
     border: 15px solid #ccc;
-    border-top-color: #8c52ff;
+    border-top-color: #0CC0DF;
     height: 100px;
     width: 100px;
     border-radius: 100%;
@@ -116,7 +116,7 @@
       display: grid;
       justify-content: center;
       font-size: 25px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -166,7 +166,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -191,9 +191,9 @@
       margin-left: -12px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -228,7 +228,7 @@
       margin-left: -25px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -258,7 +258,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -336,7 +336,7 @@
   
     .lineTable1 {
       width: 188%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -354,7 +354,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -396,7 +396,7 @@
       display: grid;
       margin-left: -27px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -424,7 +424,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -501,7 +501,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -558,7 +558,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -672,7 +672,7 @@
   
     .lineTable2 {
       width: 404%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -690,7 +690,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -836,7 +836,7 @@
   
     .lineTable3 {
       width: 109%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -960,7 +960,7 @@
   
     .lineTotalPay {
       width: 90%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -986,7 +986,7 @@
   
     .lineTable4 {
       width: 110%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1020,7 +1020,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -1034,7 +1034,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -1068,7 +1068,7 @@
       display: grid;
       justify-content: center;
       font-size: 25px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -1118,7 +1118,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -1143,9 +1143,9 @@
       margin-left: -13px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -1180,7 +1180,7 @@
       margin-left: -27px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -1210,7 +1210,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -1288,7 +1288,7 @@
   
     .lineTable1 {
       width: 186%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1306,7 +1306,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -1348,7 +1348,7 @@
       display: grid;
       margin-left: -27px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -1376,7 +1376,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -1453,7 +1453,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -1510,7 +1510,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -1624,7 +1624,7 @@
   
     .lineTable2 {
       width: 369%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1642,7 +1642,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -1787,7 +1787,7 @@
   
     .lineTable3 {
       width: 109%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1911,7 +1911,7 @@
   
     .lineTotalPay {
       width: 82%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1937,7 +1937,7 @@
   
     .lineTable4 {
       width: 106%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -1971,7 +1971,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -1985,7 +1985,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -2019,7 +2019,7 @@
       display: grid;
       justify-content: center;
       font-size: 27px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -2069,7 +2069,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -2094,9 +2094,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -2131,7 +2131,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -2161,7 +2161,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -2239,7 +2239,7 @@
   
     .lineTable1 {
       width: 179%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2257,7 +2257,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -2299,7 +2299,7 @@
       display: grid;
       margin-left: -26px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -2327,7 +2327,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -2405,7 +2405,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -2462,7 +2462,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -2576,7 +2576,7 @@
   
     .lineTable2 {
       width: 374%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2594,7 +2594,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -2740,7 +2740,7 @@
   
     .lineTable3 {
       width: 109%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2864,7 +2864,7 @@
   
     .lineTotalPay {
       width: 91%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2890,7 +2890,7 @@
   
     .lineTable4 {
       width: 109%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -2924,7 +2924,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -2938,7 +2938,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -2972,7 +2972,7 @@
       display: grid;
       justify-content: center;
       font-size: 25px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -3022,7 +3022,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -3047,9 +3047,9 @@
       margin-left: -13px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -3084,7 +3084,7 @@
       margin-left: -27px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -3114,7 +3114,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -3192,7 +3192,7 @@
   
     .lineTable1 {
       width: 173%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3210,7 +3210,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -3252,7 +3252,7 @@
       display: grid;
       margin-left: -28px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -3280,7 +3280,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -3357,7 +3357,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -3414,7 +3414,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -3528,7 +3528,7 @@
   
     .lineTable2 {
       width: 366%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3546,7 +3546,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -3691,7 +3691,7 @@
   
     .lineTable3 {
       width: 109%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3815,7 +3815,7 @@
   
     .lineTotalPay {
       width: 87%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3841,7 +3841,7 @@
   
     .lineTable4 {
       width: 106%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -3875,7 +3875,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -3889,7 +3889,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -3923,7 +3923,7 @@
       display: grid;
       justify-content: center;
       font-size: 27px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -3973,7 +3973,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -3998,9 +3998,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -4035,7 +4035,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -4065,7 +4065,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -4143,7 +4143,7 @@
   
     .lineTable1 {
       width: 172%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4161,7 +4161,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -4203,7 +4203,7 @@
       display: grid;
       margin-left: -25px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -4231,7 +4231,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -4308,7 +4308,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -4365,7 +4365,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -4479,7 +4479,7 @@
   
     .lineTable2 {
       width: 367%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4497,7 +4497,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -4643,7 +4643,7 @@
   
     .lineTable3 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4767,7 +4767,7 @@
   
     .lineTotalPay {
       width: 86%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4793,7 +4793,7 @@
   
     .lineTable4 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -4827,7 +4827,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -4841,7 +4841,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -4876,7 +4876,7 @@
       display: grid;
       justify-content: center;
       font-size: 27px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -4926,7 +4926,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -4951,9 +4951,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -4988,7 +4988,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -5018,7 +5018,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -5096,7 +5096,7 @@
   
     .lineTable1 {
       width: 171%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5114,7 +5114,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -5156,7 +5156,7 @@
       display: grid;
       margin-left: -28px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -5184,7 +5184,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -5261,7 +5261,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -5318,7 +5318,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -5432,7 +5432,7 @@
   
     .lineTable2 {
       width: 366%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5450,7 +5450,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -5596,7 +5596,7 @@
   
     .lineTable3 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5720,7 +5720,7 @@
   
     .lineTotalPay {
       width: 87%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5746,7 +5746,7 @@
   
     .lineTable4 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -5780,7 +5780,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -5794,7 +5794,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -5828,7 +5828,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -5878,7 +5878,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -5903,9 +5903,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -5940,7 +5940,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -5970,7 +5970,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -6048,7 +6048,7 @@
   
     .lineTable1 {
       width: 187%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6066,7 +6066,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -6108,7 +6108,7 @@
       display: grid;
       margin-left: -26px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -6136,7 +6136,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -6213,7 +6213,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -6270,7 +6270,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -6384,7 +6384,7 @@
   
     .lineTable2 {
       width: 352%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6402,7 +6402,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -6548,7 +6548,7 @@
   
     .lineTable3 {
       width: 102%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6672,7 +6672,7 @@
   
     .lineTotalPay {
       width: 85%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6698,7 +6698,7 @@
   
     .lineTable4 {
       width: 102%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -6732,7 +6732,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -6746,7 +6746,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -6780,7 +6780,7 @@
       display: grid;
       justify-content: center;
       font-size: 27px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -6830,7 +6830,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -6855,9 +6855,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -6892,7 +6892,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -6922,7 +6922,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -7000,7 +7000,7 @@
   
     .lineTable1 {
       width: 171%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7018,7 +7018,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -7060,7 +7060,7 @@
       display: grid;
       margin-left: -26px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -7088,7 +7088,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -7165,7 +7165,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -7222,7 +7222,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -7336,7 +7336,7 @@
   
     .lineTable2 {
       width: 366%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7354,7 +7354,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -7500,7 +7500,7 @@
   
     .lineTable3 {
       width: 103%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7624,7 +7624,7 @@
   
     .lineTotalPay {
       width: 86%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7650,7 +7650,7 @@
   
     .lineTable4 {
       width: 103%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7684,7 +7684,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -7698,7 +7698,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -7733,7 +7733,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -7783,7 +7783,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -7808,9 +7808,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -7845,7 +7845,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -7875,7 +7875,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -7953,7 +7953,7 @@
   
     .lineTable1 {
       width: 170%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -7971,7 +7971,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -8013,7 +8013,7 @@
       display: grid;
       margin-left: -29px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -8041,7 +8041,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -8118,7 +8118,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -8175,7 +8175,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -8289,7 +8289,7 @@
   
     .lineTable2 {
       width: 350%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -8307,7 +8307,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -8453,7 +8453,7 @@
   
     .lineTable3 {
       width: 100%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -8577,7 +8577,7 @@
   
     .lineTotalPay {
       width: 83%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -8603,7 +8603,7 @@
   
     .lineTable4 {
       width: 100%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -8637,7 +8637,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -8651,7 +8651,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -8685,7 +8685,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -8735,7 +8735,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -8760,9 +8760,9 @@
       margin-left: -14px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -8797,7 +8797,7 @@
       margin-left: -29px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -8827,7 +8827,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -8905,7 +8905,7 @@
   
     .lineTable1 {
       width: 170%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -8923,7 +8923,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -8965,7 +8965,7 @@
       display: grid;
       margin-left: -26px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -8993,7 +8993,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -9070,7 +9070,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -9127,7 +9127,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -9241,7 +9241,7 @@
   
     .lineTable2 {
       width: 352%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -9259,7 +9259,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -9405,7 +9405,7 @@
   
     .lineTable3 {
       width: 97%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -9529,7 +9529,7 @@
   
     .lineTotalPay {
       width: 81%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -9555,7 +9555,7 @@
   
     .lineTable4 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -9589,7 +9589,7 @@
       height: 45px;
       font-size: 19px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -9603,7 +9603,7 @@
     .btnSave {
       margin: auto;
       height: 45px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 19px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -9637,7 +9637,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -9687,7 +9687,7 @@
       margin-top: 0px;
       height: 35px;
       width: 90%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -9712,9 +9712,9 @@
       margin-left: -17px;
       height: 35px;
       width: 90%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -9749,7 +9749,7 @@
       margin-left: -35px;
       height: 35px;
       width: 84%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -9779,7 +9779,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -9857,7 +9857,7 @@
   
     .lineTable1 {
       width: 152%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -9875,7 +9875,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -9917,7 +9917,7 @@
       display: grid;
       margin-left: -25px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -9945,7 +9945,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -10022,7 +10022,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -10079,7 +10079,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -10193,7 +10193,7 @@
   
     .lineTable2 {
       width: 336%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -10211,7 +10211,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -10357,7 +10357,7 @@
   
     .lineTable3 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -10481,7 +10481,7 @@
   
     .lineTotalPay {
       width: 89%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -10507,7 +10507,7 @@
   
     .lineTable4 {
       width: 104%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -10541,7 +10541,7 @@
       height: 48px;
       font-size: 22px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -10555,7 +10555,7 @@
     .btnSave {
       margin: auto;
       height: 48px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 22px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -10589,7 +10589,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -10639,7 +10639,7 @@
       margin-top: 0px;
       height: 35px;
       width: 65%;
-      border: 1px solid #8c52ff;
+      border: 1px solid #0CC0DF;
     }
   
     .iconFilters {
@@ -10664,9 +10664,9 @@
       margin-left: -67px;
       height: 35px;
       width: 65%;
-      border-right: 1px solid #8c52ff;
-      border-bottom: 1px solid #8c52ff;
-      border-top: 1px solid #8c52ff;
+      border-right: 1px solid #0CC0DF;
+      border-bottom: 1px solid #0CC0DF;
+      border-top: 1px solid #0CC0DF;
     }
   
     .iconDelete {
@@ -10701,7 +10701,7 @@
       margin-left: -136px;
       height: 35px;
       width: 65%;
-      background: #8c52ff;
+      background: #0CC0DF;
     }
   
     .iconNewService {
@@ -10731,7 +10731,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -10809,7 +10809,7 @@
   
     .lineTable1 {
       width: 122%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -10827,7 +10827,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -10869,7 +10869,7 @@
       display: grid;
       margin-left: -25px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -10897,7 +10897,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -10974,7 +10974,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -11031,7 +11031,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -11145,7 +11145,7 @@
   
     .lineTable2 {
       width: 260%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11163,7 +11163,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -11309,7 +11309,7 @@
   
     .lineTable3 {
       width: 96%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11433,7 +11433,7 @@
   
     .lineTotalPay {
       width: 71%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11459,7 +11459,7 @@
   
     .lineTable4 {
       width: 97%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11493,7 +11493,7 @@
       height: 48px;
       font-size: 22px;
       font-family: sans-serif;
-      --mdc-text-button-label-text-color: #8c52ff;
+      --mdc-text-button-label-text-color: #0CC0DF;
     }
   
     .inputButtonSave {
@@ -11507,7 +11507,7 @@
     .btnSave {
       margin: auto;
       height: 48px;
-      background-color: #8c52ff;
+      background-color: #0CC0DF;
       font-size: 22px;
       font-family: sans-serif;
       --mdc-text-button-label-text-color: white;
@@ -11557,7 +11557,7 @@
       display: grid;
       justify-content: center;
       font-size: 22px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -11597,7 +11597,7 @@
       display: grid;
       justify-content: center;
       font-size: 25px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -11609,7 +11609,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -11620,7 +11620,7 @@
       display: grid;
       margin-left: -15px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -11672,7 +11672,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -11721,7 +11721,7 @@
   
     .lineTable1 {
       width: 200%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11774,7 +11774,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -11829,7 +11829,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -11869,7 +11869,7 @@
   
     .lineTable2 {
       width: 310%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -11879,7 +11879,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -11976,7 +11976,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -12111,7 +12111,7 @@
   
     .lineTable3 {
       width: 108%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12214,7 +12214,7 @@
   
     .lineTotalPay {
       width: 76%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12240,7 +12240,7 @@
   
     .lineTable4 {
       width: 77%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12354,7 +12354,7 @@
       display: grid;
       justify-content: center;
       font-size: 25px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: -0.5rem;
@@ -12366,7 +12366,7 @@
       display: grid;
       justify-content: center;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 1.5rem;
@@ -12377,7 +12377,7 @@
       display: grid;
       margin-left: -15px;
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       font-weight: bold;
       font-family: sans-serif;
       margin-bottom: 0rem;
@@ -12429,7 +12429,7 @@
   
     .arrow {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -12478,7 +12478,7 @@
   
     .lineTable1 {
       width: 200%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12531,7 +12531,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -12586,7 +12586,7 @@
   
     .arrowTable2 {
       font-size: 28px;
-      color: #8c52ff;
+      color: #0CC0DF;
       float: inline-end;
     }
   
@@ -12626,7 +12626,7 @@
   
     .lineTable2 {
       width: 310%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12636,7 +12636,7 @@
     }
   
     .color2 {
-      background: #8c52ff;
+      background: #0CC0DF;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -12733,7 +12733,7 @@
       font-size: 18px;
       word-wrap: break-word;
       text-align-last: left;
-      color: #8c52ff;
+      color: #0CC0DF;
       cursor: pointer;
     }
   
@@ -12868,7 +12868,7 @@
   
     .lineTable3 {
       width: 108%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12971,7 +12971,7 @@
   
     .lineTotalPay {
       width: 76%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;
@@ -12997,7 +12997,7 @@
   
     .lineTable4 {
       width: 77%;
-      color: #8c52ff;
+      color: #0CC0DF;
       margin: auto;
       border-width: initial;
       opacity: initial;

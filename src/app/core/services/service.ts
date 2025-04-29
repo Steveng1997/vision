@@ -8,7 +8,7 @@ import { ModelService } from '../models/service';
 @Injectable()
 export class Service {
 
-  API_URL = 'https://admin.pasffyapp.com/api/servicio';
+  API_URL = 'https://dos.admin.pasffyapp.com/api/servicio';
 
   constructor(
     public router: Router,

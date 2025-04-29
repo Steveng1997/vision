@@ -1327,8 +1327,10 @@ export class ClosingComponent implements OnInit {
   // Edit
 
   goToEdit(id: number) {
-    const params = this.activeRoute.snapshot['_urlSegment'].segments[1];
-    this.idUser = Number(params.path)
+    const params = this.activeRoute.snapshot['_routerState']['url']
+    const part = params.split('/');
+    var parts = part[2];
+    this.idUser = Number(parts)
 
     this.service.getById(id).subscribe((rp: any) => {
       if (rp.length > 0) this.router.navigate([`menu/${this.idUser}/nuevo-servicio/${rp[0]['id']}/true`])

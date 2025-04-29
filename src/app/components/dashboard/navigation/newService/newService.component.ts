@@ -442,8 +442,11 @@ export class NewServiceComponent implements OnInit {
                   localStorage.removeItem('Bizum')
                   localStorage.removeItem('Tarjeta')
                   localStorage.removeItem('Trans')
-                  setTimeout(() => {
-                    this.idUser = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
+                  setTimeout(() => {                    
+                    const params = this.activeRoute.snapshot['_routerState']['url']
+                    const part = params.split('/');
+                    var parts = part[2];
+                    this.idUser = Number(parts)
                     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
                     Swal.fire({ position: 'top-end', icon: 'success', title: '¡Insertado Correctamente!', showConfirmButton: false, timer: 1500 })
                   }, 1000)
@@ -1258,18 +1261,12 @@ export class NewServiceComponent implements OnInit {
 
     año = fecha.getFullYear()
 
-    // const paramEditar = this.activatedRoute.snapshot.params['editar']
-    // this.idUserAdministrador = Number(this.activeRoute.snapshot['_urlSegment']['segments'][1]['path'])
-    // this.idEditar = Number(this.activeRoute.snapshot.paramMap.get('id'))
-
-    debugger
-
     const url = this.activeRoute.snapshot['_routerState']['url']
     const part = url.split('/');
     var paramEditar = part[5];
     this.idUserAdministrador = Number(part[2])
     this.idEditar = Number(part[4])
-    
+
     if (paramEditar == "true") {
       this.service.getByEditar(this.idEditar).subscribe((datosServicio: any) => {
         if (datosServicio.length > 0) {
@@ -1297,7 +1294,12 @@ export class NewServiceComponent implements OnInit {
 
         } else {
           this.editamos = false
-          this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+
+          const params = this.activeRoute.snapshot['_routerState']['url']
+          const part = params.split('/');
+          var parts = part[2];
+          this.idUser = Number(parts)
+          this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
           this.serviceManager.getById(this.idUser).subscribe((datoUser: any[]) => {
             this.idUser = datoUser[0]
           })
@@ -1883,7 +1885,10 @@ export class NewServiceComponent implements OnInit {
   deleteService(id) {
     let idUser = ''
     if (this.administratorRole == true) {
-      idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+      const params = this.activeRoute.snapshot['_routerState']['url']
+      const part = params.split('/');
+      var parts = part[2];
+      this.idUser = Number(parts)
       this.service.getById(id).subscribe((datoEliminado) => {
         if (datoEliminado) {
           Swal.fire({
@@ -1923,7 +1928,11 @@ export class NewServiceComponent implements OnInit {
     localStorage.removeItem('Bizum')
     localStorage.removeItem('Tarjeta')
     localStorage.removeItem('Trans')
-    this.idUser = this.activeRoute.snapshot['_urlSegment']['segments'][1]['path']
+    
+    const params = this.activeRoute.snapshot['_routerState']['url']
+    const part = params.split('/');
+    var parts = part[2];
+    this.idUser = Number(parts)
     this.router.navigate([`menu/${this.idUser}/vision/${this.idUser}`])
   }
 }
